@@ -1,0 +1,2 @@
+# Ignore libraries for language detection
+libs/* linguist-vendored
