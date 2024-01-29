@@ -1,5 +1,6 @@
 #include "Background.h"
 
+
 Background::Background(std::string file, sf::Vector2f pos, sf::Vector2f velocity)
 {
 	vel = velocity;

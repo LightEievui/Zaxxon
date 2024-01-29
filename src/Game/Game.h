@@ -8,6 +8,7 @@ public:
 	Game();
 	~Game();
 	void run();
+
 private:
 	// Player player;
 	// std::vector<Enemy> enemy;
