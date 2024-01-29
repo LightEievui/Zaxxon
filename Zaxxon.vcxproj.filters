@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\Image.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClCompile Include="src\Zaxxon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
