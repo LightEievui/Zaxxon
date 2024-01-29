@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Background.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Zaxxon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Background.h" />
     <ClInclude Include="src\Game.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
