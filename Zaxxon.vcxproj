@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game\Game.cpp" />
+    <ClCompile Include="src\Background.cpp" />
     <ClCompile Include="src\Zaxxon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Background.h" />
     <ClInclude Include="src\Game\Game.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
