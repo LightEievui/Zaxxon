@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "Game.h"
+#include "Game/Game.h"
 
 
 int main()
