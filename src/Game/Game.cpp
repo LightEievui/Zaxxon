@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
 
+
 Game::Game()
 {
 	
@@ -17,7 +18,7 @@ void Game::run()
 {
 	sf::RenderWindow window(sf::VideoMode(500, 500), "Zaxxon");
     //Set frame rate limit to smooth out
-    window.setFramerateLimit(120);
+    window.setFramerateLimit(60);
 
     while (window.isOpen())
     {
