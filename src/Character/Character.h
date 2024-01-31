@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../Util/Util.h"
 
 
 // abstract
@@ -7,7 +8,7 @@ class Character
 {
 public:
 	Character(sf::Texture* spriteSheet);
-	virtual void update();
+	virtual void update(sf::RenderWindow& window);
 	virtual void kill() = 0;
 
 	void setVelocity(sf::Vector3f vel);

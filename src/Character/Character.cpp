@@ -4,16 +4,19 @@
 Character::Character(sf::Texture* spriteSheet)
 {
 	this->spriteSheet = spriteSheet;
+	this->sprite.setTexture(*this->spriteSheet);
 }
 
 
-void Character::update()
+void Character::update(sf::RenderWindow& window)
 {
 	// update the character's position using it's velocity
-	int x = this->velocity.x*0.5;
-	int y = this->velocity.y + this->velocity.x * 0.5;
-	int z = this->velocity.z; // cant move this direction
-	this->position += sf::Vector3f(x, y, z);
+	
+	this->position += this->velocity;
+
+	sprite.setPosition(translateTo2d(position));
+	window.draw(sprite);
+
 }
 
 

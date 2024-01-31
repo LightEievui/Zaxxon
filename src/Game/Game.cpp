@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
+#include "Character/Player/Player.h"
 
 const double scale = 3;
 
@@ -22,8 +23,11 @@ void Game::run()
     sf::RenderWindow window(sf::VideoMode(256 * scale, 224 * scale), "Zaxxon");
     //Set frame rate limit to smooth out
     window.setFramerateLimit(60);
+    sf::Texture spriteSheet;
+    spriteSheet.loadFromFile("./res/spritesheet.png");
 
     background.create("Image.png", scale, sf::Vector2f(0, window.getSize().y), sf::Vector2f(-.8 * scale * gameSpeed, .4 * scale * gameSpeed));
+    Player player(&spriteSheet);
 
     while (window.isOpen())
     {
@@ -36,6 +40,7 @@ void Game::run()
 
         window.clear();
         background.drawBackground(window);
+        player.update(window);
         window.display();
 
         //resets the background when image is off of screen.

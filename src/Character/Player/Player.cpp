@@ -3,11 +3,11 @@
 
 Player::Player(sf::Texture* texture) : Character(texture)
 {
-
+	this->sprite.setTextureRect(sf::IntRect(0, 0, 32, 32)); // temp
 }
 
 
-void Player::update()
+void Player::update(sf::RenderWindow& window)
 {
 	sf::Vector3f tempVelocity;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -19,12 +19,15 @@ void Player::update()
 		tempVelocity.y = 1; // change height in gui or wtv
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		tempVelocity.y = -1;
+
+
+
 	setVelocity(tempVelocity);
-	Character::update(); // velocity
+	Character::update(window); // velocity
 }
 
 
-void kill()
+void Player::kill()
 {
 	// TODO: animations.run(this->sprite, Animation::DEATH_CHARACTER);
 }
