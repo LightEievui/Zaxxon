@@ -13,7 +13,7 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::createObstacle(sf::Vector3f pos, std::string file, float scale = 1., bool turret = false, sf::Vector2f pos = sf::Vector2f(0, 0))
+void Obstacle::createObstacle(sf::Vector3f pos, std::string file, float scale, bool turret, sf::Vector2f pos2)
 {
 	if (!obstacleTexture.loadFromFile("res/" + file))
 		std::cout << "Obstacle image file failed to load\n";
