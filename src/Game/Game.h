@@ -15,12 +15,12 @@ private:
 	// Player player;
 	// std::vector<Enemy> enemy;
 	// std::vector<Obstacle> obstacles;
-	Background background = Background("Image.png", 1.6f, sf::Vector2f(0, 500), sf::Vector2f(-.4, .2));
+	Background background;
 	int fuel;
 	int completions;
 	int lives;
 	int score;
-	float backgroundSpeed;
+	float gameSpeed = 1.;
 	// std::vector<Texture> guiText;
 	// std::vector<Sprite> gui;
 };
