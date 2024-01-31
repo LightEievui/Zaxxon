@@ -7,9 +7,10 @@
 class Obstacle
 {
 public:
-	Obstacle(sf::Vector3f, std::string, bool = false);
+	Obstacle();
 	~Obstacle();
 
+	void createObstacle(sf::Vector3f, std::string, float scale = 1., bool = false, sf::Vector2f = sf::Vector2f(0, 0));
 	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
