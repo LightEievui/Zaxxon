@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Obstacle.cpp" />
     <ClCompile Include="src\Game\Game.cpp" />
     <ClCompile Include="src\Background.cpp" />
     <ClCompile Include="src\Zaxxon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Obstacle.h" />
     <ClInclude Include="src\Background.h" />
     <ClInclude Include="src\Game\Game.h" />
   </ItemGroup>
