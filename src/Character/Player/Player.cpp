@@ -20,6 +20,9 @@ void Player::update(sf::RenderWindow& window)
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		tempVelocity.y = -1;
 
+	// TODO: TEMPORARY KEYBIND, REMOVE LATER
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+		kill();
 
 
 	setVelocity(tempVelocity);
@@ -29,5 +32,5 @@ void Player::update(sf::RenderWindow& window)
 
 void Player::kill()
 {
-	// TODO: animations.run(this->sprite, Animation::DEATH_CHARACTER);
+	animations.run(this->sprite, Animation::CHARACTER_DEATH);
 }
