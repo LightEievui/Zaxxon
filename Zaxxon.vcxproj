@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Animation\Animation.cpp" />
     <ClCompile Include="src\Character\Player\Player.cpp" />
     <ClCompile Include="src\Character\Character.cpp" />
     <ClCompile Include="src\Obstacle.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="src\Zaxxon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Animation\Animation.h" />
     <ClInclude Include="src\Character\Player\Player.h" />
     <ClInclude Include="src\Character\Character.h" />
     <ClInclude Include="src\Background\Background.h" />
