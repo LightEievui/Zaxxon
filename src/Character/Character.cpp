@@ -32,6 +32,12 @@ sf::Vector3f Character::getPos()
 }
 
 
+void Character::setPos(sf::Vector3f pos)
+{
+	position = pos;
+}
+
+
 void Character::setBullet(sf::IntRect bulletTexture)
 {
 	this->bulletTexture = bulletTexture;

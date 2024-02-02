@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "Character/Player/Player.h"
 
-const double scale = 3;
+const double scale = 1;
 
 
 Game::Game()
@@ -39,7 +39,7 @@ void Game::run()
         }
 
         window.clear();
-        background.drawBackground(window);
+        background.drawBackground(window); // stay first
         player.update(window);
         window.display();
 
