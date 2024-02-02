@@ -9,6 +9,6 @@ public:
 	void update(sf::RenderWindow& window);
 	void kill();
 private:
-
+	sf::Sprite shadow;
 };
 

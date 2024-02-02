@@ -14,19 +14,25 @@ Animation::~Animation()
 }
 
 
-void Animation::run(sf::Sprite sprite, Anim anim)
+void Animation::run(sf::Sprite& sprite, Anim anim)
 {
 	timer.restart();
 
 	switch (anim)
 	{
 	case CHARACTER_DEATH:
-		while (timer.getElapsedTime().asSeconds() < 2)
-		{
-			int current = static_cast<int>(std::round(timer.getElapsedTime().asSeconds() * 2)) % 2;
-			sprite.setTextureRect(frames[current]);
-		}
-
+		// will delete itself.
+		new std::thread(&Animation::fCHARACTER_DEATH, this, std::ref(sprite));
 		break;
+	}
+}
+
+
+void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
+{
+	while (timer.getElapsedTime().asSeconds() < 2)
+	{
+		int current = static_cast<int>(std::round(timer.getElapsedTime().asSeconds() * 2)) % 2;
+		sprite.setTextureRect(frames[current]);
 	}
 }
