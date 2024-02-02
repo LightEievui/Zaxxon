@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Background/Background.h"
+#include "Obstacle.h"
 
 
 
@@ -14,7 +15,7 @@ public:
 private:
 	// Player player;
 	// std::vector<Enemy> enemy;
-	// std::vector<Obstacle> obstacles;
+	std::vector<Obstacle> obstacles;
 	Background background;
 	int fuel;
 	int completions;
