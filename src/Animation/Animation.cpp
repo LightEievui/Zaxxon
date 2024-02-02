@@ -11,11 +11,10 @@ Animation::Animation()
 
 Animation::~Animation()
 {
-
 }
 
 
-void Animation::run(sf::Sprite sprite, Anim anim) // TODO: Make animation length fit perfectly, currently estimated
+void Animation::run(sf::Sprite sprite, Anim anim)
 {
 	timer.restart();
 
