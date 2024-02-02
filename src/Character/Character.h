@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../Util/Util.h"
-#include "../Animation.h"
+#include "Animation/Animation.h"
 
 
 // abstract
