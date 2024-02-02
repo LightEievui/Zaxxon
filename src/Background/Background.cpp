@@ -42,6 +42,12 @@ void Background::setTexture(std::string file)
 }
 
 
+void Background::setSpeed(float speed)
+{
+	vel = sf::Vector2f(vel.x * speed, vel.y * speed);
+}
+
+
 void Background::setVelocity(sf::Vector2f velo)
 {
 	vel = velo;
