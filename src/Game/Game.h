@@ -1,8 +1,7 @@
 #pragma once
 #include <vector>
 #include "Background/Background.h"
-#include "Obstacle.h"
-
+#include "Obstacle/Obstacle.h"
 
 
 class Game
