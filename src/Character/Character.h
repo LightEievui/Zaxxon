@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../Util/Util.h"
+#include "../Animation.h"
 
 
 // abstract
@@ -20,11 +21,11 @@ protected:
 	sf::Sprite sprite;
 	sf::Vector3f position;
 	sf::Vector3f velocity;
+	Animation animations;
 private:
 	sf::Texture* spriteSheet;
 	sf::IntRect bulletTexture;
 	std::vector<sf::Sprite> bullets;
-	// Animation death;
 	sf::IntRect move[4]; // TODO: Change.
 	// SoundBuffer buffer;
 	// Sound sound;
