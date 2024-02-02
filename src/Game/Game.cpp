@@ -26,7 +26,7 @@ void Game::run()
     sf::Texture spriteSheet;
     spriteSheet.loadFromFile("./res/spritesheet.png");
 
-    background.create("Image.png", scale, sf::Vector2f(0, window.getSize().y), sf::Vector2f(-.8 * scale * gameSpeed, .4 * scale * gameSpeed));
+    background.create("BackgroundFull.png", scale, sf::Vector2f(0, window.getSize().y), sf::Vector2f(-.8 * scale * gameSpeed, .4 * scale * gameSpeed));
     Player player(&spriteSheet);
 
     while (window.isOpen())
@@ -48,6 +48,7 @@ void Game::run()
         {
             background.reset();
             gameSpeed += .2;
+            background.setSpeed(gameSpeed);
         }
     }
 }
