@@ -3,7 +3,7 @@
 #include "Character/Player/Player.h"
 
 
-const int scale = 3;
+const float scale = 2.5;
 
 
 Game::Game()
