@@ -14,7 +14,7 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::createObstacle(sf::Vector3f pos, std::string file, float scale, sf::Vector2f vel, bool turret1, int dir)
+void Obstacle::createObstacle(sf::Vector3f pos, std::string file, sf::Vector2f vel, bool turret1, int dir)
 {
 	velocity = vel;
 	turret = turret1;
@@ -33,7 +33,6 @@ void Obstacle::createObstacle(sf::Vector3f pos, std::string file, float scale, s
 	obstacleSprite.setTexture(obstacleTexture);
 
 	obstacleSprite.setPosition(translateTo2d(pos));
-	obstacleSprite.setScale(scale, scale);
 }
 
 
