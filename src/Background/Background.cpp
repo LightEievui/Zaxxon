@@ -54,7 +54,7 @@ void Background::setVelocity(sf::Vector2f velo)
 }
 
 
-void Background::create(std::string file, float scale, sf::Vector2f pos, sf::Vector2f velocity)
+void Background::create(std::string file, sf::Vector2f pos, sf::Vector2f velocity)
 {
 	vel = velocity;
 
@@ -66,7 +66,6 @@ void Background::create(std::string file, float scale, sf::Vector2f pos, sf::Vec
 	//on the screen
 	back.setOrigin(sf::Vector2f(0, texture.getSize().y));
 	back.setPosition(pos);
-	back.setScale(sf::Vector2f(scale, scale));
 
 	//Base position to reset to.
 	resetPos = pos;

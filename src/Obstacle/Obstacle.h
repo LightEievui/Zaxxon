@@ -12,7 +12,7 @@ public:
 	Obstacle();
 	~Obstacle();
 
-	void createObstacle(sf::Vector3f, std::string, float scale = 1., sf::Vector2f = sf::Vector2f(0, 0), bool = false, int = -1);
+	void createObstacle(sf::Vector3f, std::string, sf::Vector2f = sf::Vector2f(0, 0), bool = false, int = -1);
 	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();

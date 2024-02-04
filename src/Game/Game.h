@@ -23,5 +23,6 @@ private:
 	float gameSpeed = 1.;
 	// std::vector<Texture> guiText;
 	// std::vector<Sprite> gui;
+	sf::View view;
 };
 
