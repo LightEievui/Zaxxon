@@ -22,9 +22,9 @@
     <ClCompile Include="src\Animation\Animation.cpp" />
     <ClCompile Include="src\Character\Player\Player.cpp" />
     <ClCompile Include="src\Character\Character.cpp" />
-    <ClCompile Include="src\Obstacle.cpp" />
     <ClCompile Include="src\Game\Game.cpp" />
     <ClCompile Include="src\Background\Background.cpp" />
+    <ClCompile Include="src\Obstacle\Obstacle.cpp" />
     <ClCompile Include="src\Util\Util.cpp" />
     <ClCompile Include="src\Zaxxon.cpp" />
   </ItemGroup>
@@ -33,8 +33,8 @@
     <ClInclude Include="src\Character\Player\Player.h" />
     <ClInclude Include="src\Character\Character.h" />
     <ClInclude Include="src\Background\Background.h" />
-    <ClInclude Include="src\Obstacle.h" />
     <ClInclude Include="src\Game\Game.h" />
+    <ClInclude Include="src\Obstacle\Obstacle.h" />
     <ClInclude Include="src\Util\Util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
