@@ -14,9 +14,8 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::createObstacle(sf::Vector3f pos, std::string file, sf::Vector2f vel, bool turret1, int dir)
+void Obstacle::createObstacle(sf::Vector3f pos, std::string file, bool turret1, int dir)
 {
-	velocity = vel;
 	turret = turret1;
 	direction = dir;
 
@@ -24,7 +23,7 @@ void Obstacle::createObstacle(sf::Vector3f pos, std::string file, sf::Vector2f v
 		std::cout << "Obstacle image file failed to load\n";
 	if (dir == 0)
 	{
-		if (!bulletTexture.loadFromFile("res/ZaxxonFull.png"))
+		if (!bulletTexture.loadFromFile("res/RedBullet.png"))
 		{
 			std::cout << "Obstacle bullet image file failed to load\n";
 		}
@@ -38,11 +37,9 @@ void Obstacle::createObstacle(sf::Vector3f pos, std::string file, sf::Vector2f v
 
 void Obstacle::drawObstacle(sf::RenderWindow& window)
 {
-	count = (count + 1) % 10000;
-
 	if (turret)
 	{
-		if (count % random == 0)
+		if (count % 100 == 0)
 		{
 			sf::Sprite temp;
 
@@ -53,15 +50,24 @@ void Obstacle::drawObstacle(sf::RenderWindow& window)
 			bulletSprites.push_back(temp);
 		}
 
+		sf::Vector2f wPos = sf::Vector2f(window.getView().getCenter().x - (window.getView().getSize().x / 2),
+			window.getView().getCenter().y - (window.getView().getSize().y / 2));
+
 		for (int i = 0; i < bulletSprites.size(); i++)
 		{
-			bulletSprites.at(i).move(sf::Vector2f(velocity.x * 3, velocity.y * 3));
+			bulletSprites.at(i).move(sf::Vector2f(-0.8 * 2.5, 0.4 * 2.5));
+			window.draw(bulletSprites.at(i));
+
+			if (!sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
+				window.getView().getSize().y).intersects(bulletSprites.at(i).getGlobalBounds()))
+			{
+				bulletSprites.erase(bulletSprites.begin() + i);
+				std::cout << "erase";
+			}
 		}
 	}
-
-	obstacleSprite.move(velocity);
-
 	window.draw(obstacleSprite);
+	count = (count + 1) % 100;
 }
 
 
