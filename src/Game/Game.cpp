@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
 #include "Character/Player/Player.h"
+#include "GUI/GUI.h"
 
 
 const float scale = 2.5;
@@ -40,6 +41,7 @@ void Game::run()
 
     temp.createObstacle(sf::Vector3f(-300, -100, -700), "ZaxxonFull.png", sf::Vector2f(-.8 * gameSpeed, .4 * gameSpeed), true, 0);
     obstacles.push_back(temp);
+    GUI gui(&spriteSheet);
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224), sf::Vector2f(-.8 * gameSpeed, .4 * gameSpeed));
     Player player(&spriteSheet);
@@ -57,6 +59,7 @@ void Game::run()
         background.drawBackground(window);
         obstacles.at(0).drawObstacle(window);
         player.update(window);
+        gui.render(window);
         window.setView(view);
         window.display();
 
