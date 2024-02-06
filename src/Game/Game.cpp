@@ -37,13 +37,13 @@ void Game::run()
     sf::Texture spriteSheet;
     spriteSheet.loadFromFile("./res/spritesheet.png");
 
-    Obstacle temp;
+    Obstacle temp, newTemp;
 
-    temp.createObstacle(sf::Vector3f(-300, -100, -700), "ZaxxonFull.png", sf::Vector2f(-.8 * gameSpeed, .4 * gameSpeed), true, 0);
+    temp.createObstacle(sf::Vector3f(-100, 0, -500), "ZaxxonFull.png", true, 0);
     obstacles.push_back(temp);
     GUI gui(&spriteSheet);
 
-    background.create("BackgroundFull.png", sf::Vector2f(0, 224), sf::Vector2f(-.8 * gameSpeed, .4 * gameSpeed));
+    background.create("BackgroundFull.png", sf::Vector2f(0, 224));
     Player player(&spriteSheet);
 
     while (window.isOpen())
@@ -55,6 +55,8 @@ void Game::run()
                 window.close();
         }
 
+        view.move(sf::Vector2f(.8, -.4));
+
         window.clear();
         background.drawBackground(window);
         obstacles.at(0).drawObstacle(window);
@@ -63,12 +65,5 @@ void Game::run()
         window.setView(view);
         window.display();
 
-        //resets the background when image is off of screen.
-        if (background.backgroundFinished())
-        {
-            background.reset();
-            gameSpeed += .2;
-            background.setSpeed(gameSpeed);
-        }
     }
 }

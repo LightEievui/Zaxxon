@@ -15,15 +15,7 @@ Background::~Background()
 
 void Background::drawBackground(sf::RenderWindow& window)
 {
-	//Moves the background based on the velocity;
-	back.move(vel);
-
 	window.draw(back);
-}
-
-void Background::reset()
-{
-	back.setPosition(resetPos);
 }
 
 
@@ -41,23 +33,8 @@ void Background::setTexture(std::string file)
 	back.setTexture(texture);
 }
 
-
-void Background::setSpeed(float speed)
+void Background::create(std::string file, sf::Vector2f pos)
 {
-	vel = sf::Vector2f(vel.x * speed, vel.y * speed);
-}
-
-
-void Background::setVelocity(sf::Vector2f velo)
-{
-	vel = velo;
-}
-
-
-void Background::create(std::string file, sf::Vector2f pos, sf::Vector2f velocity)
-{
-	vel = velocity;
-
 	if (!texture.loadFromFile("res/" + file))
 		std::cout << "Background file could not load\n";
 
@@ -66,9 +43,6 @@ void Background::create(std::string file, sf::Vector2f pos, sf::Vector2f velocit
 	//on the screen
 	back.setOrigin(sf::Vector2f(0, texture.getSize().y));
 	back.setPosition(pos);
-
-	//Base position to reset to.
-	resetPos = pos;
 }
 
 
