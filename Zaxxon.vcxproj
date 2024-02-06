@@ -37,6 +37,10 @@
     <ClInclude Include="src\Obstacle\Obstacle.h" />
     <ClInclude Include="src\Util\Util.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Green1Bullet.png" />
+    <Image Include="res\RedBullet.PNG" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
