@@ -13,8 +13,7 @@ public:
 		BOTTOM
 	};
 
-	// TODO
-	// void progress();
+	void progress(int stage);
 	void setSection(int sect);
 	void setType(Type type);
 	int getSection();

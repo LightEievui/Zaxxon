@@ -20,9 +20,9 @@ void Player::update(sf::RenderWindow& window)
 		tempVelocity.x = -1;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && getPos().y < 135)
-		tempVelocity.y = 1; // change height in gui or wtv
+		tempVelocity.y = 0.6; // change height in gui or wtv
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && getPos().y > 69)
-		tempVelocity.y = -1;
+		tempVelocity.y = -0.6;
 
 	// TODO: TEMPORARY KEYBIND, REMOVE LATER
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
