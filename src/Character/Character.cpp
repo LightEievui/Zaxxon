@@ -16,7 +16,11 @@ void Character::update(sf::RenderWindow& window)
 
 	sprite.setPosition(translateTo2d(position));
 	window.draw(sprite);
+	// temp
+	//window.setFramerateLimit(1);
 
+	if (getMoveWithView())
+		position += sf::Vector3f(0, 0, -1.333333);
 }
 
 
@@ -29,6 +33,12 @@ std::vector<sf::Sprite>& Character::getBullets()
 sf::Vector3f Character::getPos()
 {
 	return position;
+}
+
+
+bool Character::getMoveWithView()
+{
+	return false;
 }
 
 
