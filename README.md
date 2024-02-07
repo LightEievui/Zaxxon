@@ -1,4 +1,3 @@
-![GitHub repo size](https://img.shields.io/github/repo-size/LightEievui/Zaxxon)
 # Zaxxon
 Recreation of the popular [Zaxxon](https://en.wikipedia.org/wiki/Zaxxon) Sega arcade game in C++ \
 An online playable version of the original Zaxxon rom can be found on [archive](https://archive.org/details/arcade_zaxxon).
