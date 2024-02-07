@@ -8,9 +8,13 @@ class HMSection : public sf::Sprite
 public:
 	enum Type {
 		LINE,
-		OPEN
+		OPEN,
+		TOP,
+		BOTTOM
 	};
 
+	// TODO
+	// void progress();
 	void setSection(int sect);
 	void setType(Type type);
 	int getSection();

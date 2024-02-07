@@ -12,13 +12,14 @@ public:
 	virtual void update(sf::RenderWindow& window);
 	virtual void kill() = 0;
 
+	sf::Vector3f getPos();
+	std::vector<sf::Sprite>& getBullets();
+	virtual bool getMoveWithView();
+protected:
 	void setVelocity(sf::Vector3f vel);
 	void setBullet(sf::IntRect bulletTextureRect);
 	void setPos(sf::Vector3f pos);
-	
-	sf::Vector3f getPos();
-	std::vector<sf::Sprite>& getBullets();
-protected:
+
 	sf::Texture* spriteSheet;
 	sf::Sprite sprite;
 	sf::Vector3f position;

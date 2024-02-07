@@ -28,7 +28,7 @@ void Player::update(sf::RenderWindow& window)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 		kill();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) // TODO: DEBUG TEMP
-		std::cout << getPos().x << " " << getPos().y << " " << getPos().z;
+		std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
 	// 135 y bottom limit 46 upper
 	// 5 x bottom limit -113 upper
 
@@ -42,4 +42,10 @@ void Player::update(sf::RenderWindow& window)
 void Player::kill()
 {
 	animations.run(this->sprite, Animation::CHARACTER_DEATH);
+}
+
+
+bool Player::getMoveWithView()
+{
+	return true;
 }

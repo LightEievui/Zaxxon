@@ -19,6 +19,12 @@ void HMSection::setType(Type type)
 	case OPEN:
 		setSection(3);
 		break;
+	case TOP:
+		setSection(6);
+		break;
+	case BOTTOM:
+		setSection(4);
+		break;
 	}
 }
 
