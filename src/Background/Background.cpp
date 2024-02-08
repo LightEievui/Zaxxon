@@ -46,12 +46,3 @@ void Background::create(std::string file, sf::Vector2f pos)
 }
 
 
-bool Background::backgroundFinished()
-{
-	if (back.getPosition().x + back.getGlobalBounds().width < 0)
-	{
-		return true;
-	}
-
-	return false;
-}
