@@ -2,6 +2,7 @@
 #include <vector>
 #include "Background/Background.h"
 #include "Obstacle/Obstacle.h"
+#include "Entity/Entity.h"
 
 
 class Game
@@ -14,7 +15,7 @@ public:
 private:
 	// Player player;
 	// std::vector<Enemy> enemy;
-	std::vector<Obstacle> obstacles;
+	std::vector<Entity*> obstacles;
 	Background background;
 	int fuel;
 	int completions;
@@ -24,5 +25,7 @@ private:
 	// std::vector<Texture> guiText;
 	// std::vector<Sprite> gui;
 	sf::View view;
+
+	void doCollision();
 };
 

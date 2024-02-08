@@ -2,17 +2,18 @@
 #include <SFML/Graphics.hpp>
 #include "../Util/Util.h"
 #include "Animation/Animation.h"
+#include "Entity/Entity.h"
 
 
 // abstract
-class Character
+class Character : public Entity
 {
 public:
 	Character(sf::Texture* spriteSheet);
 	virtual void update(sf::RenderWindow& window);
 	virtual void kill() = 0;
 
-	sf::Vector3f getPos();
+	sf::Vector3f getPos() override;
 	std::vector<sf::Sprite>& getBullets();
 	virtual bool getMoveWithView();
 protected:
@@ -20,11 +21,7 @@ protected:
 	void setBullet(sf::IntRect bulletTextureRect);
 	void setPos(sf::Vector3f pos);
 
-	sf::Texture* spriteSheet;
-	sf::Sprite sprite;
-	sf::Vector3f position;
 	sf::Vector3f velocity;
-	Animation animations;
 private:
 	sf::IntRect bulletTexture;
 	std::vector<sf::Sprite> bullets;

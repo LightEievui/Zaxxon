@@ -1,7 +1,7 @@
 #include "Character.h"
 
 
-Character::Character(sf::Texture* spriteSheet)
+Character::Character(sf::Texture* spriteSheet) : Entity()
 {
 	this->spriteSheet = spriteSheet;
 	this->sprite.setTexture(*this->spriteSheet);
