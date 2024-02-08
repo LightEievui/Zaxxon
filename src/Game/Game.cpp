@@ -37,14 +37,12 @@ void Game::run()
     sf::Texture spriteSheet;
     spriteSheet.loadFromFile("./res/spritesheet.png");
 
-    Obstacle temp, newTemp;
+    obstacles.push_back(new Obstacle);
 
-    temp.createObstacle(sf::Vector3f(-100, 0, -500), "ZaxxonFull.png", true, 0);
-    obstacles.push_back(temp);
     GUI gui(&spriteSheet);
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224));
-    Player player(&spriteSheet);
+    Entity *player = new Player(&spriteSheet);
 
     while (window.isOpen())
     {
@@ -59,11 +57,17 @@ void Game::run()
 
         window.clear();
         background.drawBackground(window);
-        obstacles.at(0).drawObstacle(window);
-        player.update(window);
-        gui.render(window, player.getPos().y);
+        obstacles.at(0)->update(window);
+        player->update(window);
+        gui.render(window, player->getPos().y);
         window.setView(view);
         window.display();
 
     }
+}
+
+
+void Game::doCollision()
+{
+
 }
