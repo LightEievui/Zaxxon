@@ -4,9 +4,10 @@
 #include <vector>
 #include "Util/Util.h"
 #include <time.h>
+#include "Entity/Entity.h"
 
 
-class Obstacle
+class Obstacle : public Entity
 {
 public:
 	Obstacle();
@@ -17,13 +18,13 @@ public:
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
 	std::vector<sf::Vector3f> getBulletLocations();
-	void drawObstacle(sf::RenderWindow&);
+	void update(sf::RenderWindow&) override;
+	void bulletKill(int);
 
 private:
 
 	//Animation anim;
-	sf::Texture obstacleTexture, bulletTexture;
-	sf::Sprite obstacleSprite;
+	sf::Texture bulletTexture;
 	std::vector<sf::Sprite> bulletSprites;
 	int direction, count, random;
 	bool turret;
