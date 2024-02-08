@@ -4,7 +4,7 @@
 #include "GUI/GUI.h"
 
 
-const float scale = 2.5;
+const float scale = 2;
 
 
 Game::Game()
@@ -23,14 +23,14 @@ void Game::run()
 {
     
     //added to constructor so that it is not created every frame
-    sf::RenderWindow window(sf::VideoMode(224, 224), "Zaxxon");
+    sf::RenderWindow window(sf::VideoMode(224, 256), "Zaxxon");
     //Set frame rate limit to smooth out
     window.setFramerateLimit(60);
 
     // Resize window to scale, resize everything else with it using view
-    window.setSize(sf::Vector2u(224 * scale, 224 * scale));
+    window.setSize(sf::Vector2u(224 * scale, 256 * scale));
     view.reset(sf::FloatRect(0, 0, 224, 224));
-    view.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
+    view.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224./256.));
     window.setView(view);
     
 
