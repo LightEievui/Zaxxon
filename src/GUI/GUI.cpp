@@ -41,42 +41,57 @@ GUI::GUI(sf::Texture* spritesheet)
 void GUI::render(sf::RenderWindow& window, float playerY)
 {
 	window.draw(heightMeterBg);
-	/* 69top 135bottom 66 in between, multiply by below number to get 100
-	 should be 12 sections each for line/open and 2 each for top/bottom so
-	 yDiff should be 100 max (100 from 12*8 + 4) also round to make sure correct
+	/* 69top 135bottom 66 in between, multiply by below number to get 68
+	 should be 8 sections each for line/open and 2 each for top/bottom so
+	 yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
 	*/
-	int yDiff = round(((playerY) - 69)*1.51515151515);
+	int yDiff = round(((playerY) - 69)*1.0303030303);
 	if (yDiff < 0)
 		yDiff = 0;
-	int selection = (yDiff-12) / 12 + 1;
-	// -12 because I messed up lowest point
-	if (yDiff <= 98 && yDiff >= 12)
+
+	// -4 to make 64
+	int selection = (yDiff-2) / 8;
+	if (selection < 0)
+		selection = 0;
+	bool changingBelow = false, changingAbove = false;
+	const int last = 7, localYDiff = (yDiff - 2) % 8;
+
+	if (yDiff <= 66 && yDiff >= 2)
 	{
-		// fix to 0
-		yDiff -= 12;
-		// set selection again
-		selection = yDiff / 12 + 1;
 		HMSection& activeSection = heightMeterSections[selection];
-		activeSection.progress(yDiff % 12);
-		std::cout << "ydiff: " << yDiff << " ydiff%12: " << yDiff % 12 << "\n";
+
+		activeSection.progress(localYDiff);
+
+		if (localYDiff >= 5)
+		{
+			heightMeterSections[selection + 1].progress(localYDiff-7);
+			changingBelow = true;
+		}
 	}
-	else if (yDiff < 12)
+	else if (yDiff < 8)
 	{
 		// top
-		heightMeterSections[0].progress(yDiff%12);
+		heightMeterSections[0].progress(12+localYDiff);
 	}
-	else if (yDiff > 98)
+	else if (yDiff > 64)
 	{
 		// bottom
 	}
+	std::cout << "ydiff: " << yDiff << " localYDiff: " << localYDiff << "\n";
 	
 	for (int i = 0; i < 10; i++)
 	{
 		HMSection& section = heightMeterSections[i];
-		if (i < selection && i < 8 && i > 0)
-			section.progress(11);
-		else if (i > selection && i < 8 && i > 0)
-			section.progress(0);
+		if (i < selection)
+		{
+			if (i != selection - 1 || !changingAbove)
+				section.empty();
+		}
+		else if (i > selection)
+		{
+			if(i != selection+1 || !changingBelow)
+				section.fill();
+		}
 
 		window.draw(section);
 	}
