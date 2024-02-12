@@ -35,6 +35,20 @@ GUI::GUI(sf::Texture* spritesheet)
 		hudElements.push_back(&section);
 	}
 
+	// Individual loading for copyright text
+	copyright[0] = ZaxxonText::get(spritesheet, 28);
+	copyright[1] = ZaxxonText::get(spritesheet, 29);
+	copyright[2] = ZaxxonText::get(spritesheet, 'S');
+	copyright[3] = ZaxxonText::get(spritesheet, 'E');
+	copyright[4] = ZaxxonText::get(spritesheet, 'G');
+	copyright[5] = ZaxxonText::get(spritesheet, 'A');
+	copyright[6] = ZaxxonText::get(spritesheet, '1');
+	copyright[7] = ZaxxonText::get(spritesheet, '9');
+	copyright[8] = ZaxxonText::get(spritesheet, '8');
+	copyright[9] = ZaxxonText::get(spritesheet, '2');
+
+	for (int i = 0; i < 10; i++)
+		copyright[i].setPosition(160 + 8 * i, 234);
 }
 
 
@@ -98,8 +112,6 @@ void GUI::render(sf::RenderWindow& window, float playerY)
 	window.draw(heightH);
 	window.draw(heightL);
 
-
-	// MUST be done last because otherwise they will be off by a margin
-	for (sf::Transformable* element : hudElements)
-		element->move(sf::Vector2f(.8, -.4));
+	for(int i = 0; i < 6; i++)
+		window.draw(copyright[i]);
 }
