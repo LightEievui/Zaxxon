@@ -22,9 +22,9 @@ protected:
 	void setPos(sf::Vector3f pos);
 
 	sf::Vector3f velocity;
+	std::vector<sf::Sprite> bullets;
 private:
 	sf::IntRect bulletTexture;
-	std::vector<sf::Sprite> bullets;
 	sf::IntRect move[4]; // TODO: Change.
 	// SoundBuffer buffer;
 	// Sound sound;

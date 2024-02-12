@@ -60,8 +60,8 @@ void Game::run()
         window.clear();
         background.drawBackground(window);
         obstacles.at(0)->update(window);
-        player->update(window);
         window.setView(guiView);
+        player->update(window);
         gui.render(window, player->getPos().y);
         window.setView(mainView);
         window.display();
