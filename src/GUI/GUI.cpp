@@ -82,7 +82,6 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	for (int i = 0; i < 9; i++)
 	{
-		//curScore[i].setColor(sf::Color(0, 222, 247));
 		int start = 0;
 		if (i > 2)
 			start += 8;
@@ -91,7 +90,7 @@ GUI::GUI(sf::Texture* spritesheet)
 }
 
 
-void GUI::render(sf::RenderWindow& window, float playerY)
+void GUI::render(sf::RenderWindow& window, float playerY, int score)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
@@ -151,6 +150,15 @@ void GUI::render(sf::RenderWindow& window, float playerY)
 	}
 	window.draw(heightH);
 	window.draw(heightL);
+
+	for (int i = 0; i < 6; i++)
+	{
+		std::string str = std::to_string(score);
+		while (str.length() < 6)
+			str = '0' + str;
+		curScore[8 - i] = ZaxxonText::get(spritesheet, str.at(5-i));
+		curScore[8 - i].setPosition(72 - 8 * i, 24);
+	}
 
 	for(int i = 0; i < 10; i++)
 		window.draw(copyright[i]);
