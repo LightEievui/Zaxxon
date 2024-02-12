@@ -53,6 +53,9 @@ void Game::run()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            // TODO: REMOVE THIS
+            if (event.type == sf::Event::MouseButtonPressed)
+                score += 100;
         }
 
         mainView.move(sf::Vector2f(.8, -.4));
@@ -62,7 +65,7 @@ void Game::run()
         obstacles.at(0)->update(window);
         window.setView(guiView);
         player->update(window);
-        gui.render(window, player->getPos().y);
+        gui.render(window, player->getPos().y, score);
         window.setView(mainView);
         window.display();
 
