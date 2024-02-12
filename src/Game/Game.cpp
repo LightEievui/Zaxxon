@@ -29,10 +29,12 @@ void Game::run()
 
     // Resize window to scale, resize everything else with it using view
     window.setSize(sf::Vector2u(224 * scale, 256 * scale));
-    view.reset(sf::FloatRect(0, 0, 224, 224));
-    view.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224./256.));
-    window.setView(view);
-    
+    mainView.reset(sf::FloatRect(0, 0, 224, 224));
+    mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224./256.));
+    window.setView(mainView);
+
+    guiView.reset(sf::FloatRect(0, 0, 224, 256));
+    guiView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
     sf::Texture spriteSheet;
     spriteSheet.loadFromFile("./res/spritesheet.png");
@@ -53,14 +55,15 @@ void Game::run()
                 window.close();
         }
 
-        view.move(sf::Vector2f(.8, -.4));
+        mainView.move(sf::Vector2f(.8, -.4));
 
         window.clear();
         background.drawBackground(window);
         obstacles.at(0)->update(window);
         player->update(window);
+        window.setView(guiView);
         gui.render(window, player->getPos().y);
-        window.setView(view);
+        window.setView(mainView);
         window.display();
 
     }
