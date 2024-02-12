@@ -13,7 +13,6 @@ public:
 	virtual void update(sf::RenderWindow& window);
 	virtual void kill() = 0;
 
-	sf::Vector3f getPos() override;
 	std::vector<sf::Sprite>& getBullets();
 	virtual bool getMoveWithView();
 protected:

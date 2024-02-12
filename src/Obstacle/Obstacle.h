@@ -13,12 +13,13 @@ public:
 	Obstacle();
 	~Obstacle();
 
-	void createObstacle(sf::Vector3f, std::string, bool = false, int = -1);
+	void create(sf::Vector3f, std::string, bool = false, int = -1);
 	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
-	std::vector<sf::Vector3f> getBulletLocations();
+	std::vector<sf::FloatRect> getBulletLocations();
 	void update(sf::RenderWindow&) override;
+	bool isPresent();
 	void bulletKill(int);
 
 private:
@@ -26,7 +27,8 @@ private:
 	//Animation anim;
 	sf::Texture bulletTexture;
 	std::vector<sf::Sprite> bulletSprites;
+	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count, random;
-	bool turret;
+	bool turret, onScreen = false;
 };
 
