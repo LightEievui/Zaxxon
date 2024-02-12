@@ -19,5 +19,5 @@ private:
 	sf::Sprite heightH;
 	sf::Sprite heightL;
 	std::vector<sf::Transformable*> hudElements;
+	sf::Sprite copyright[10];
 };
-
