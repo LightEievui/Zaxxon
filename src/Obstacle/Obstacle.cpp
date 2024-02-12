@@ -39,35 +39,30 @@ void Obstacle::createObstacle(sf::Vector3f pos, std::string file, bool turret1, 
 
 void Obstacle::update(sf::RenderWindow& window)
 {
-	sf::Vector2f wPos = sf::Vector2f(window.getView().getCenter().x - (window.getView().getSize().x / 2),
-		window.getView().getCenter().y - (window.getView().getSize().y / 2));
-
-	if (sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
-		window.getView().getSize().y).intersects(sprite.getGlobalBounds()))
+	if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()))
+		return;
+	std::cout << "draw";
+	if (turret)
 	{
-		std::cout << "draw";
-		if (turret)
+		if (count % 100 == 0)
 		{
-			if (count % 100 == 0)
-			{
-				sf::Sprite temp;
+			sf::Sprite temp;
 
-				temp.setTexture(bulletTexture);
-				temp.setPosition(sprite.getPosition());
-				temp.setScale(sprite.getScale());
+			temp.setTexture(bulletTexture);
+			temp.setPosition(sprite.getPosition());
+			temp.setScale(sprite.getScale());
 
-				bulletSprites.push_back(temp);
-			}
-
-			for (int i = 0; i < bulletSprites.size(); i++)
-			{
-				bulletSprites.at(i).move(sf::Vector2f(-0.8 * 2.5, 0.4 * 2.5));
-				window.draw(bulletSprites.at(i));
-			}
+			bulletSprites.push_back(temp);
 		}
-		window.draw(sprite);
-		count = (count + 1) % 100;
+
+		for (int i = 0; i < bulletSprites.size(); i++)
+		{
+			bulletSprites.at(i).move(sf::Vector2f(-0.8 * 2.5, 0.4 * 2.5));
+			window.draw(bulletSprites.at(i));
+		}
 	}
+	window.draw(sprite);
+	count = (count + 1) % 100;
 }
 
 
