@@ -48,7 +48,14 @@ GUI::GUI(sf::Texture* spritesheet)
 	copyright[9] = ZaxxonText::get(spritesheet, '2');
 
 	for (int i = 0; i < 10; i++)
-		copyright[i].setPosition(160 + 8 * i, 234);
+	{
+	int start = 124;
+	if (i >= 6)
+		start += 16;
+	else if (i >= 2)
+		start += 8;
+	copyright[i].setPosition(start + 8 * i, 244);
+	}
 }
 
 
@@ -113,6 +120,6 @@ void GUI::render(sf::RenderWindow& window, float playerY)
 	window.draw(heightH);
 	window.draw(heightL);
 
-	for(int i = 0; i < 6; i++)
+	for(int i = 0; i < 10; i++)
 		window.draw(copyright[i]);
 }
