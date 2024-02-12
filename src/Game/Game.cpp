@@ -44,7 +44,7 @@ void Game::run()
 
     GUI gui(&spriteSheet);
 
-    background.create("BackgroundFull.png", sf::Vector2f(0, 224));
+    background.create("BackgroundFull.png", sf::Vector2f(0, 236));
     Entity *player = new Player(&spriteSheet);
 
     while (window.isOpen())
