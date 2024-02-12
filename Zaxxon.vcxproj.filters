@@ -91,7 +91,7 @@
     <Image Include="res\Green1Bullet.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\RedBullet.PNG">
+    <Image Include="res\RedBullet.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

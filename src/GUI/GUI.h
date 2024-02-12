@@ -1,9 +1,9 @@
+#pragma once
 #include <vector>
 // temp
 #include <iostream>
 #include "ZaxxonText/ZaxxonText.h"
 #include "HMSection/HMSection.h"
-#pragma once
 
 
 class GUI
@@ -20,4 +20,6 @@ private:
 	sf::Sprite heightL;
 	std::vector<sf::Transformable*> hudElements;
 	sf::Sprite copyright[10];
+	sf::Sprite topScore[9];
+	sf::Sprite curScore[9];
 };
