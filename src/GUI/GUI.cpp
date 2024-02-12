@@ -48,7 +48,46 @@ GUI::GUI(sf::Texture* spritesheet)
 	copyright[9] = ZaxxonText::get(spritesheet, '2');
 
 	for (int i = 0; i < 10; i++)
-		copyright[i].setPosition(160 + 8 * i, 234);
+	{
+	int start = 124;
+	if (i >= 6)
+		start += 16;
+	else if (i >= 2)
+		start += 8;
+	copyright[i].setPosition(start + 8 * i, 244);
+	}
+
+	// Top score
+	topScore[0] = ZaxxonText::get(spritesheet, 'T');
+	topScore[1] = ZaxxonText::get(spritesheet, 'O');
+	topScore[2] = ZaxxonText::get(spritesheet, 'P');
+	for(int i = 3; i < 9; i++)
+		topScore[i] = ZaxxonText::get(spritesheet, '0');
+
+	for (int i = 0; i < 9; i++)
+	{
+		topScore[i].setColor(sf::Color(0, 222, 247));
+		int start = 0;
+		if (i > 2)
+			start += 8;
+		topScore[i].setPosition(start + 8 * i, 8);
+	}
+
+	// 1up score
+	curScore[0] = ZaxxonText::get(spritesheet, '1');
+	curScore[1] = ZaxxonText::get(spritesheet, 'U');
+	curScore[2] = ZaxxonText::get(spritesheet, 'P');
+	for (int i = 3; i < 9; i++)
+		curScore[i] = ZaxxonText::get(spritesheet, '0');
+
+	for (int i = 0; i < 9; i++)
+	{
+		//curScore[i].setColor(sf::Color(0, 222, 247));
+		int start = 0;
+		if (i > 2)
+			start += 8;
+		curScore[i].setPosition(start + 8 * i, 24);
+	}
 }
 
 
@@ -113,6 +152,10 @@ void GUI::render(sf::RenderWindow& window, float playerY)
 	window.draw(heightH);
 	window.draw(heightL);
 
-	for(int i = 0; i < 6; i++)
+	for(int i = 0; i < 10; i++)
 		window.draw(copyright[i]);
+	for (int i = 0; i < 9; i++)
+		window.draw(topScore[i]);
+	for (int i = 0; i < 9; i++)
+		window.draw(curScore[i]);
 }
