@@ -13,7 +13,7 @@ public:
 	void setPosition(sf::Vector2f);
 	void setTexture(std::string);
 	void drawBackground(sf::RenderWindow&);
-	//bool isEnd(sf::Vi);
+	bool backgroundFinished(sf::View);
 
 private:
 	sf::Texture texture;

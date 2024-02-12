@@ -15,7 +15,7 @@ public:
 private:
 	// Player player;
 	// std::vector<Enemy> enemy;
-	std::vector<Entity*> obstacles;
+	std::vector<Obstacle*> obstacles;
 	Background background;
 	int fuel;
 	int completions;

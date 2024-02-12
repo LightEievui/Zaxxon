@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Green1Bullet.png" />
-    <Image Include="res\RedBullet.PNG" />
+    <Image Include="res\RedBullet.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
