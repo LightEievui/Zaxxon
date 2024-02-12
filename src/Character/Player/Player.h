@@ -10,6 +10,7 @@ public:
 	void kill() override;
 	bool getMoveWithView();
 private:
+	void shoot();
 	sf::Sprite shadow;
 };
 

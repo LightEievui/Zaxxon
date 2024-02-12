@@ -91,7 +91,8 @@ void GUI::render(sf::RenderWindow& window, float playerY)
 	{
 		// bottom
 	}
-	std::cout << "ydiff: " << yDiff << " localYDiff: " << localYDiff << "\n";
+	// temp
+	//std::cout << "ydiff: " << yDiff << " localYDiff: " << localYDiff << "\n";
 	
 	for (int i = 0; i < 10; i++)
 	{

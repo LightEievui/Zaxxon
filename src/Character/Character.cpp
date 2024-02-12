@@ -14,13 +14,8 @@ void Character::update(sf::RenderWindow& window)
 	
 	this->position += this->velocity;
 
-	sprite.setPosition(translateTo2d(position));
+	sprite.setPosition(translateTo2d2(position));
 	window.draw(sprite);
-	// temp
-	//window.setFramerateLimit(1);
-
-	if (getMoveWithView())
-		position += sf::Vector3f(0, 0, -1.333333);
 }
 
 
