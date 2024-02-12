@@ -44,7 +44,7 @@ void Game::run()
     GUI gui(&spriteSheet);
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224));
-    Entity *player = new Player(&spriteSheet);
+    Player *player = new Player(&spriteSheet);
 
     while (window.isOpen())
     {
@@ -61,7 +61,7 @@ void Game::run()
         background.drawBackground(window);
         obstacles.at(0)->update(window);
         window.setView(guiView);
-        player->update(window);
+        player->update(window, true); // TODO: update inSpace on whether background is space or not.
         gui.render(window, player->getPos().y);
         window.setView(mainView);
         window.display();
