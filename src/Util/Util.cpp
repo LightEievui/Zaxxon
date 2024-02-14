@@ -11,10 +11,20 @@ sf::Vector2f translateTo2d(sf::Vector3f in)
 }
 
 
+// For player
 sf::Vector2f translateTo2d2(sf::Vector3f in)
 {
 	float x = -in.x * 0.6f + -in.z * 0.4f;
 	float y = in.y + -in.x * 0.4f + in.z * 0.6f;
 
 	return sf::Vector2f(x, y);
+}
+
+
+sf::FloatRect getWindowViewRect(sf::RenderWindow& window)
+{
+	sf::Vector2f wPos = sf::Vector2f(window.getView().getCenter().x - (window.getView().getSize().x / 2),
+		window.getView().getCenter().y - (window.getView().getSize().y / 2));
+	return sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
+		window.getView().getSize().y);
 }

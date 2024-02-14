@@ -14,8 +14,10 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::createObstacle(sf::Vector3f pos, std::string file, bool turret1, int dir)
+void Obstacle::create(sf::Vector3f pos, std::string file, bool turret1, int dir)
 {
+	position = pos;
+
 	turret = turret1;
 	direction = dir;
 
@@ -37,41 +39,63 @@ void Obstacle::createObstacle(sf::Vector3f pos, std::string file, bool turret1, 
 }
 
 
+sf::Vector3f Obstacle::getPosition()
+{
+	return position;
+}
+
+
+std::vector<sf::FloatRect> Obstacle::getBulletLocations()
+{
+	std::vector<sf::FloatRect> locations;
+
+	for (int i = 0; i < bulletSprites.size(); i++)
+		locations.push_back(bulletSprites[i].getGlobalBounds());
+
+	return locations;
+}
+
+
 void Obstacle::update(sf::RenderWindow& window)
 {
-	sf::Vector2f wPos = sf::Vector2f(window.getView().getCenter().x - (window.getView().getSize().x / 2),
-		window.getView().getCenter().y - (window.getView().getSize().y / 2));
+	if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()))
+		return;
 
-	if (sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
-		window.getView().getSize().y).intersects(sprite.getGlobalBounds()))
+	std::cout << "draw";
+	if (turret)
 	{
-		std::cout << "draw";
-		if (turret)
+		if (count % 100 == 0)
 		{
-			if (count % 100 == 0)
-			{
-				sf::Sprite temp;
-
-				temp.setTexture(bulletTexture);
-				temp.setPosition(sprite.getPosition());
-				temp.setScale(sprite.getScale());
-
-				bulletSprites.push_back(temp);
-			}
-
-			for (int i = 0; i < bulletSprites.size(); i++)
-			{
-				bulletSprites.at(i).move(sf::Vector2f(-0.8 * 2.5, 0.4 * 2.5));
-				window.draw(bulletSprites.at(i));
-			}
+			sf::Sprite temp;
+			temp.setTexture(bulletTexture);
+			temp.setPosition(sprite.getPosition());
+			temp.setScale(sprite.getScale());
+			// temp.setOrigin();
+				
+			bulletSprites.push_back(temp);
+			bulletPositions.push_back(position);
 		}
-		window.draw(sprite);
-		count = (count + 1) % 100;
 	}
+
+	for (int i = 0; i < bulletSprites.size(); i++)
+	{
+		bulletPositions.at(i).z += 3;
+		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
+		window.draw(bulletSprites.at(i));
+	}
+
+	window.draw(sprite);
+	count = (count + 1) % 100;
 }
 
 
 void Obstacle::setPosition(sf::Vector3f pos)
 {
 	sprite.setPosition(translateTo2d(pos));
+}
+
+
+bool Obstacle::isPresent()
+{
+	return onScreen;
 }

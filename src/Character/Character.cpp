@@ -25,12 +25,6 @@ std::vector<sf::Sprite>& Character::getBullets()
 }
 
 
-sf::Vector3f Character::getPos()
-{
-	return position;
-}
-
-
 bool Character::getMoveWithView()
 {
 	return false;
