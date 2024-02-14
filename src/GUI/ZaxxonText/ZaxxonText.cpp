@@ -24,3 +24,10 @@ sf::Sprite ZaxxonText::get(sf::Texture* spritemap, char in)
 
 	return retVal;
 }
+
+
+void ZaxxonText::string(sf::Texture* spritemap, std::string in, sf::Sprite* arr)
+{
+	for (int i = 0; i < in.size(); i++)
+		arr[i] = get(spritemap, in[i]);
+}
