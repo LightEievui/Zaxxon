@@ -78,6 +78,8 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
 	#endif
 
+	tempVelocity.z = -1.33333;
+
 	// Position updates
 	setVelocity(tempVelocity);
 	shadow.setPosition(translateTo2d2(sf::Vector3f(getPos().x-5, 2*224 / 3, getPos().z)));
@@ -85,6 +87,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 	// Drawing
 	if(!inSpace)
 		window.draw(shadow);
+
 	Character::update(window); // updating position using velocity, draw character
 
 	// Updating Bullets

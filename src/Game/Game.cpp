@@ -41,7 +41,7 @@ void Game::run()
     spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
 
     obstacles.push_back(new Obstacle);
-    obstacles.at(0)->create(sf::Vector3f(-200, 0, -700), "ZaxxonFull.png", true, 0);
+    obstacles.at(0)->create(sf::Vector3f(-100, 135.6, -700), "cannonGrey.png", true, 0);
 
     GUI gui(&spriteSheet);
 
@@ -69,16 +69,17 @@ void Game::run()
             //mainView.reset(sf::FloatRect(0, 0, 224, 224));
         }*/
 
-        doCollision();
+        doCollision(player);
 
         window.clear();
 
         background.drawBackground(window);
         obstacles.at(0)->update(window);
+        player->update(window, true);
         enemy->update(window);
 
         window.setView(guiView);
-        player->update(window, true); // TODO: update inSpace on whether background is space or not.
+         // TODO: update inSpace on whether background is space or not.
         gui.render(window, player->getPos().y, score);
         window.setView(mainView);
 
@@ -92,20 +93,47 @@ void Game::run()
 }
 
 
-void Game::doCollision()
+void Game::doCollision(Player* player)
 {
+    
     std::vector<sf::Vector3f> bulletPos;
+    float xDifference = 0, yDifference = 0, zDifference = 0;
 
-    for (unsigned int i = 0; i < obstacles.size(); i++)
+    sf::Vector3f planePos;
+    planePos.x = player->getPos().x;
+    planePos.y = player->getPos().y;
+    planePos.z = player->getPos().z;
+    
+    for (int i = 0; i < obstacles.size(); i++)
     {
         if (obstacles.at(i)->isPresent())
         {
-            //bulletPos = obstacles.at(i)->getBulletLocations();
+            bulletPos = (obstacles.at(i)->getBulletLocations());
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
-                // TODO: Something here?
+                xDifference = abs(bulletPos.at(bullets).x - planePos.x);
+                yDifference = abs(bulletPos.at(bullets).y - planePos.y);
+                zDifference = abs(bulletPos.at(bullets).z - planePos.z);
+
+                
+
+                if (xDifference < 40 && yDifference < 20 && zDifference < 20)
+                {
+                    player->kill();
+                    std::cout << "Hit";
+                    obstacles.at(i)->bulletKill(bullets);
+                }
             }
         }
     }
 }
+
+//Converts plane position inside view to position relating to background
+/*sf::Vector3f Game::playerPosConvertor(sf::Vector3f pos)
+{
+    pos.x += mainView.getCenter().x - mainView.getSize().x / 2;
+    pos.y += mainView.getCenter().y - mainView.getSize().y / 2;
+    pos.z +=
+    return pos;
+}*/
