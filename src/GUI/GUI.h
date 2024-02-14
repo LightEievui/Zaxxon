@@ -22,4 +22,6 @@ private:
 	sf::Sprite copyright[10];
 	sf::Sprite topScore[9];
 	sf::Sprite curScore[9];
+	sf::Sprite fuelText[6];
+	sf::Sprite enemyText[10];
 };
