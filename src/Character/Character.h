@@ -10,11 +10,11 @@ class Character : public Entity
 {
 public:
 	Character(sf::Texture* spriteSheet);
-	virtual void update(sf::RenderWindow& window);
+	void update(sf::RenderWindow& window);
 	virtual void kill() = 0;
 
 	std::vector<sf::Sprite>& getBullets();
-	virtual bool getMoveWithView();
+	virtual bool getTranslate2() { return false; };
 protected:
 	void setVelocity(sf::Vector3f vel);
 	void setBullet(sf::IntRect bulletTextureRect);
@@ -24,7 +24,6 @@ protected:
 	std::vector<sf::Sprite> bullets;
 private:
 	sf::IntRect bulletTexture;
-	sf::IntRect move[4]; // TODO: Change.
 	// SoundBuffer buffer;
 	// Sound sound;
 };

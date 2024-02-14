@@ -11,10 +11,9 @@ Character::Character(sf::Texture* spriteSheet) : Entity()
 void Character::update(sf::RenderWindow& window)
 {
 	// update the character's position using it's velocity
-	
 	this->position += this->velocity;
 
-	sprite.setPosition(translateTo2d2(position));
+	sprite.setPosition(getTranslate2() ? translateTo2d2(position) : translateTo2d(position));
 	window.draw(sprite);
 }
 
@@ -22,12 +21,6 @@ void Character::update(sf::RenderWindow& window)
 std::vector<sf::Sprite>& Character::getBullets()
 {
 	return bullets;
-}
-
-
-bool Character::getMoveWithView()
-{
-	return false;
 }
 
 

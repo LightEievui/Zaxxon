@@ -10,8 +10,8 @@ public:
 	~Entity();
 
 	virtual void kill();
-
 	virtual void update(sf::RenderWindow&) = 0;
+
 	sf::Vector3f getPos() { return position; };
 	sf::FloatRect getBounds() { return sprite.getGlobalBounds(); };
 

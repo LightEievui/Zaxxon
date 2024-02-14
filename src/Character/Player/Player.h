@@ -8,7 +8,7 @@ public:
 	Player(sf::Texture* texture);
 	void update(sf::RenderWindow& window, bool inSpace);
 	void kill() override;
-	bool getMoveWithView();
+	bool getTranslate2();
 private:
 	const int BULLET_COOLDOWN = 200;
 	sf::Clock bulletCD;

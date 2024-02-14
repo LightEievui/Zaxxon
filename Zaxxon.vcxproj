@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\GUI\HMSection\HMSection.cpp" />
     <ClCompile Include="src\GUI\GUI.cpp" />
@@ -33,6 +34,7 @@
     <ClCompile Include="src\GUI\ZaxxonText\ZaxxonText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Character\Enemy\Enemy.h" />
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\GUI\HMSection\HMSection.h" />
     <ClInclude Include="src\GUI\GUI.h" />
