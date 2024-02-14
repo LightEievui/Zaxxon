@@ -54,6 +54,9 @@ void Game::run()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            // TODO: REMOVE THIS
+            if (event.type == sf::Event::MouseButtonPressed)
+                score += 100;
         }
 
         if (background.backgroundFinished(mainView) == false)
@@ -69,12 +72,15 @@ void Game::run()
         doCollision();
 
         window.clear();
+
         background.drawBackground(window);
         obstacles.at(0)->update(window);
+
         window.setView(guiView);
         player->update(window, true); // TODO: update inSpace on whether background is space or not.
-        gui.render(window, player->getPos().y);
+        gui.render(window, player->getPos().y, score);
         window.setView(mainView);
+
         window.display();
     }
 
@@ -97,7 +103,7 @@ void Game::doCollision()
 
             for (int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
-                // TODO: Stuff here?
+                // TODO: Something here?
             }
         }
     }
