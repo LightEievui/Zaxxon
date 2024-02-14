@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
 #include "Character/Player/Player.h"
+#include "Character/Enemy/Enemy.h"
 #include "GUI/GUI.h"
 
 
@@ -28,7 +29,7 @@ void Game::run()
     window.setFramerateLimit(60);
 
     // Resize window to scale, resize everything else with it using view
-    window.setSize(sf::Vector2u(224 * scale, 256 * scale));
+    window.setSize(sf::Vector2u((unsigned int) (224.f * scale), (unsigned int) (256.f * scale)));
     mainView.reset(sf::FloatRect(0, 0, 224, 224));
     mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224./256.));
     window.setView(mainView);
@@ -37,7 +38,7 @@ void Game::run()
     guiView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
     sf::Texture spriteSheet;
-    spriteSheet.loadFromFile("./res/spritesheet.png");
+    spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
 
     obstacles.push_back(new Obstacle);
     obstacles.at(0)->create(sf::Vector3f(-200, 0, -700), "ZaxxonFull.png", true, 0);
@@ -46,6 +47,7 @@ void Game::run()
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224));
     Player *player = new Player(&spriteSheet);
+    Enemy *enemy = new Enemy(&spriteSheet); // temp
 
     while (window.isOpen())
     {
@@ -60,9 +62,7 @@ void Game::run()
         }
 
         if (background.backgroundFinished(mainView) == false)
-        {
-            mainView.move(sf::Vector2f(.8 * gameSpeed, -.4 * gameSpeed));
-        }
+            mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
         /*else
         {
             //reset whenever boss is defeated
@@ -75,6 +75,7 @@ void Game::run()
 
         background.drawBackground(window);
         obstacles.at(0)->update(window);
+        enemy->update(window);
 
         window.setView(guiView);
         player->update(window, true); // TODO: update inSpace on whether background is space or not.
@@ -84,10 +85,10 @@ void Game::run()
         window.display();
     }
 
-    for (int i = 0; i < obstacles.size(); i++)
-    {
+    delete player;
+    delete enemy; // temp
+    for (unsigned int i = 0; i < obstacles.size(); i++)
         delete obstacles.at(i);
-    }
 }
 
 
@@ -95,13 +96,13 @@ void Game::doCollision()
 {
     std::vector<sf::Vector3f> bulletPos;
 
-    for (int i = 0; i < obstacles.size(); i++)
+    for (unsigned int i = 0; i < obstacles.size(); i++)
     {
         if (obstacles.at(i)->isPresent())
         {
             //bulletPos = obstacles.at(i)->getBulletLocations();
 
-            for (int bullets = 0; bullets < bulletPos.size(); bullets++)
+            for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
                 // TODO: Something here?
             }
