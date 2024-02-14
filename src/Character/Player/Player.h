@@ -6,11 +6,14 @@ class Player : public Character
 {
 public:
 	Player(sf::Texture* texture);
-	void update(sf::RenderWindow& window);
+	void update(sf::RenderWindow& window, bool inSpace);
 	void kill() override;
 	bool getMoveWithView();
 private:
-	void shoot();
+	const int BULLET_COOLDOWN = 200;
+	sf::Clock bulletCD;
+	std::vector<int> erase;
+	sf::IntRect playerTextures[3][4];
 	sf::Sprite shadow;
 };
 

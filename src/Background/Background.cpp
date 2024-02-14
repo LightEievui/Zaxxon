@@ -46,3 +46,14 @@ void Background::create(std::string file, sf::Vector2f pos)
 }
 
 
+bool Background::backgroundFinished(sf::View view)
+{
+	float wXPos = view.getCenter().x + (view.getSize().x / 2);
+
+	if (wXPos >= back.getGlobalBounds().width)
+	{
+		return true;
+	}
+
+	return false;
+}
