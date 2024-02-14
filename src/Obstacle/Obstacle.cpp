@@ -45,23 +45,22 @@ sf::Vector3f Obstacle::getPosition()
 }
 
 
-std::vector<sf::FloatRect> Obstacle::getBulletLocations()
+std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 {
-	std::vector<sf::FloatRect> locations;
-
-	for (int i = 0; i < bulletSprites.size(); i++)
-		locations.push_back(bulletSprites[i].getGlobalBounds());
-
-	return locations;
+	return bulletPositions;
 }
 
 
 void Obstacle::update(sf::RenderWindow& window)
 {
 	if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()))
+	{
+		onScreen = false;
 		return;
+	}
 
-	std::cout << "draw";
+	onScreen = true;
+
 	if (turret)
 	{
 		if (count % 100 == 0)
@@ -70,7 +69,7 @@ void Obstacle::update(sf::RenderWindow& window)
 			temp.setTexture(bulletTexture);
 			temp.setPosition(sprite.getPosition());
 			temp.setScale(sprite.getScale());
-			// temp.setOrigin();
+			temp.setOrigin(sf::Vector2f(1, 7));
 				
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(position);
@@ -98,4 +97,11 @@ void Obstacle::setPosition(sf::Vector3f pos)
 bool Obstacle::isPresent()
 {
 	return onScreen;
+}
+
+
+void Obstacle::bulletKill(int bullet)
+{
+	bulletSprites.erase(bulletSprites.begin() + bullet);
+	bulletPositions.erase(bulletPositions.begin() + bullet);
 }

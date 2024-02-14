@@ -17,7 +17,7 @@ public:
 	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
-	std::vector<sf::FloatRect> getBulletLocations();
+	std::vector<sf::Vector3f> getBulletLocations();
 	void update(sf::RenderWindow&) override;
 	bool isPresent();
 	void bulletKill(int);
