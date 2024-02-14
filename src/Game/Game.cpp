@@ -93,11 +93,11 @@ void Game::doCollision()
     {
         if (obstacles.at(i)->isPresent())
         {
-            bulletPos = obstacles.at(i)->getBulletLocations();
+            //bulletPos = obstacles.at(i)->getBulletLocations();
 
             for (int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
-                if ()
+                // TODO: Stuff here?
             }
         }
     }
