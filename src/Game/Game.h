@@ -3,6 +3,7 @@
 #include "Background/Background.h"
 #include "Obstacle/Obstacle.h"
 #include "Entity/Entity.h"
+#include "Character/Player/Player.h"
 
 
 class Game
@@ -26,5 +27,6 @@ private:
 	sf::View mainView;
 	sf::View guiView;
 
-	void doCollision();
+	void doCollision(Player*);
+	//sf::Vector3f playerPosConvertor(sf::Vector3f);
 };

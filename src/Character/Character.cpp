@@ -14,7 +14,7 @@ void Character::update(sf::RenderWindow& window)
 	
 	this->position += this->velocity;
 
-	sprite.setPosition(translateTo2d2(position));
+	sprite.setPosition(translateTo2d(position));
 	window.draw(sprite);
 }
 
