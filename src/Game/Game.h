@@ -20,10 +20,9 @@ private:
 	int fuel;
 	int completions;
 	int lives;
-	int score;
+	int score = 0;
 	float gameSpeed = 1.;
-	// std::vector<Texture> guiText;
-	// std::vector<Sprite> gui;
+	// GUI gui;
 	sf::View mainView;
 	sf::View guiView;
 

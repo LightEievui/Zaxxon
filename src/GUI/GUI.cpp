@@ -23,6 +23,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	{
 		HMSection& section = heightMeterSections[i];
 		section.setTexture(*spritesheet);
+
 		if (i == 0)
 			section.setType(HMSection::TOP);
 		else if (i == 9)
@@ -31,6 +32,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			section.setType(HMSection::OPEN);
 		else
 			section.setType(HMSection::LINE);
+
 		section.setPosition(0, heightH.getPosition().y + 16 + 8*i);
 		hudElements.push_back(&section);
 	}
@@ -54,6 +56,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		start += 16;
 	else if (i >= 2)
 		start += 8;
+
 	copyright[i].setPosition(start + 8 * i, 244);
 	}
 
@@ -67,9 +70,11 @@ GUI::GUI(sf::Texture* spritesheet)
 	for (int i = 0; i < 9; i++)
 	{
 		topScore[i].setColor(sf::Color(0, 222, 247));
+
 		int start = 0;
 		if (i > 2)
 			start += 8;
+
 		topScore[i].setPosition(start + 8 * i, 8);
 	}
 
@@ -86,12 +91,13 @@ GUI::GUI(sf::Texture* spritesheet)
 		int start = 0;
 		if (i > 2)
 			start += 8;
+
 		curScore[i].setPosition(start + 8 * i, 24);
 	}
 }
 
 
-void GUI::render(sf::RenderWindow& window, float playerY)
+void GUI::render(sf::RenderWindow& window, float playerY, int score)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
@@ -152,10 +158,24 @@ void GUI::render(sf::RenderWindow& window, float playerY)
 	window.draw(heightH);
 	window.draw(heightL);
 
+	// Update score
+	for (int i = 0; i < 6; i++)
+	{
+		std::string str = std::to_string(score);
+
+		while (str.length() < 6)
+			str = '0' + str;
+
+		curScore[8 - i] = ZaxxonText::get(spritesheet, str.at(5 - i));
+		curScore[8 - i].setPosition(72 - 8 * i, 24);
+	}
+
 	for(int i = 0; i < 10; i++)
 		window.draw(copyright[i]);
+
 	for (int i = 0; i < 9; i++)
+	{
 		window.draw(topScore[i]);
-	for (int i = 0; i < 9; i++)
 		window.draw(curScore[i]);
+	}
 }
