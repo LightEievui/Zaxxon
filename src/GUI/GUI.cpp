@@ -37,6 +37,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		hudElements.push_back(&section);
 	}
 
+
 	// Individual loading for copyright text
 	copyright[0] = ZaxxonText::get(spritesheet, 28);
 	copyright[1] = ZaxxonText::get(spritesheet, 29);
@@ -51,14 +52,17 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	for (int i = 0; i < 10; i++)
 	{
-	int start = 124;
-	if (i >= 6)
-		start += 16;
-	else if (i >= 2)
-		start += 8;
+		copyright[i].setColor(sf::Color(222, 222, 247));
 
-	copyright[i].setPosition(start + 8 * i, 244);
+		int start = 124;
+		if (i >= 6)
+			start += 16;
+		else if (i >= 2)
+			start += 8;
+
+		copyright[i].setPosition(start + 8 * i, 244);
 	}
+
 
 	// Top score
 	topScore[0] = ZaxxonText::get(spritesheet, 'T');
@@ -78,6 +82,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		topScore[i].setPosition(start + 8 * i, 8);
 	}
 
+
 	// 1up score
 	curScore[0] = ZaxxonText::get(spritesheet, '1');
 	curScore[1] = ZaxxonText::get(spritesheet, 'U');
@@ -87,12 +92,41 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	for (int i = 0; i < 9; i++)
 	{
-		//curScore[i].setColor(sf::Color(0, 222, 247));
+		curScore[i].setColor(sf::Color(222, 222, 247));
+
 		int start = 0;
 		if (i > 2)
 			start += 8;
 
 		curScore[i].setPosition(start + 8 * i, 24);
+	}
+
+
+	// Fuel text setup
+	ZaxxonText::string(spritesheet, "FUELEF", fuelText);
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (i < 4)
+		{
+			fuelText[i].setColor(sf::Color(0, 222, 0));
+			fuelText[i].setPosition(0 + i * 8, 236);
+		}
+		else
+		{
+			fuelText[i].setColor(sf::Color(222, 0, 0));
+			fuelText[i].setPosition(40 + (i - 4) * 148, 236);
+		}
+	}
+
+
+	// Enemy plane text setup
+	ZaxxonText::string(spritesheet, "ENEMYPLANE", enemyText);
+
+	for (int i = 0; i < 10; i++)
+	{
+		enemyText[i].setColor(sf::Color(222, 222, 247));
+		enemyText[i].setPosition(176 + i % 5 * 8, 200 + i / 5 * 8);
 	}
 }
 
@@ -112,6 +146,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 	int selection = (yDiff-2) / 8;
 	if (selection < 0)
 		selection = 0;
+
 	bool changingBelow = false, changingAbove = false;
 	const int last = 7, localYDiff = (yDiff - 2) % 8;
 
@@ -170,12 +205,18 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 		curScore[8 - i].setPosition(72 - 8 * i, 24);
 	}
 
-	for(int i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
+	{
 		window.draw(copyright[i]);
+		window.draw(enemyText[i]);
+	}
 
 	for (int i = 0; i < 9; i++)
 	{
 		window.draw(topScore[i]);
 		window.draw(curScore[i]);
 	}
+
+	for (int i = 0; i < 6; i++)
+		window.draw(fuelText[i]);
 }
