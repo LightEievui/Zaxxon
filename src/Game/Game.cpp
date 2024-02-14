@@ -40,11 +40,12 @@ void Game::run()
     spriteSheet.loadFromFile("./res/spritesheet.png");
 
     obstacles.push_back(new Obstacle);
+    obstacles.at(0)->create(sf::Vector3f(-200, 0, -700), "ZaxxonFull.png", true, 0);
 
     GUI gui(&spriteSheet);
 
-    background.create("BackgroundFull.png", sf::Vector2f(0, 236));
-    Entity *player = new Player(&spriteSheet);
+    background.create("BackgroundFull.png", sf::Vector2f(0, 224));
+    Player *player = new Player(&spriteSheet);
 
     while (window.isOpen())
     {
@@ -58,22 +59,52 @@ void Game::run()
                 score += 100;
         }
 
-        mainView.move(sf::Vector2f(.8, -.4));
+        if (background.backgroundFinished(mainView) == false)
+        {
+            mainView.move(sf::Vector2f(.8 * gameSpeed, -.4 * gameSpeed));
+        }
+        /*else
+        {
+            //reset whenever boss is defeated
+            //mainView.reset(sf::FloatRect(0, 0, 224, 224));
+        }*/
+
+        doCollision();
 
         window.clear();
+
         background.drawBackground(window);
         obstacles.at(0)->update(window);
+
         window.setView(guiView);
-        player->update(window);
+        player->update(window, true); // TODO: update inSpace on whether background is space or not.
         gui.render(window, player->getPos().y, score);
         window.setView(mainView);
-        window.display();
 
+        window.display();
+    }
+
+    for (int i = 0; i < obstacles.size(); i++)
+    {
+        delete obstacles.at(i);
     }
 }
 
 
 void Game::doCollision()
 {
+    std::vector<sf::Vector3f> bulletPos;
 
+    for (int i = 0; i < obstacles.size(); i++)
+    {
+        if (obstacles.at(i)->isPresent())
+        {
+            //bulletPos = obstacles.at(i)->getBulletLocations();
+
+            for (int bullets = 0; bullets < bulletPos.size(); bullets++)
+            {
+                // TODO: Something here?
+            }
+        }
+    }
 }
