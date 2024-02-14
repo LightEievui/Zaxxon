@@ -15,15 +15,14 @@ public:
 private:
 	// Player player;
 	// std::vector<Enemy> enemy;
-	std::vector<Entity*> obstacles;
+	std::vector<Obstacle*> obstacles;
 	Background background;
 	int fuel;
 	int completions;
 	int lives;
 	int score = 0;
 	float gameSpeed = 1.;
-	// std::vector<Texture> guiText;
-	// std::vector<Sprite> gui;
+	// GUI gui;
 	sf::View mainView;
 	sf::View guiView;
 
