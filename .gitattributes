@@ -4,7 +4,8 @@
 *.h     text diff=cpp
 
 # Correct C++ over C
-*.h linguist-language=cpp
+*.h linguist-language=fish
+*.cpp linguist-language=fish
 
 # Ignore libraries for language detection
 libs/** linguist-vendored
