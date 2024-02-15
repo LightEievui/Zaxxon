@@ -4,8 +4,7 @@
 *.h     text diff=cpp
 
 # Correct C++ over C
-*.h linguist-language=World of Warcraft Addon Data
-*.cpp linguist-language=World of Warcraft Addon Data
+*.h linguist-language=cpp
 
 # Ignore libraries for language detection
 libs/** linguist-vendored
