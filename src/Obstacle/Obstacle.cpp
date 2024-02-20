@@ -3,8 +3,6 @@
 
 Obstacle::Obstacle() : Entity()
 {
-	srand(time(NULL));
-	random = (rand() % 1000) + 200;
 }
 
 
@@ -14,20 +12,23 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, bool turret1, int dir)
+void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, float shootInterval, int dir)
 {
 	position = pos;
-
-	turret = turret1;
+	turret = true;
+	total = shootInterval;
 	direction = dir;
 
-	spriteSheet = tex;
+	if (direction == 0)
+	{
+		spriteSheet = tex;
 
-	sprite.setTexture((*spriteSheet));
-	sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
+		sprite.setTexture((*spriteSheet));
+		sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
 
-	sprite.setPosition(translateTo2d(pos));
-	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+		sprite.setPosition(translateTo2d(pos));
+		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+	}
 }
 
 
@@ -55,7 +56,7 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	if (turret)
 	{
-		if (count % 100 == 0)
+		if (count % total == 0 && direction == 0)
 		{
 			sf::Sprite temp;
 			temp.setTexture((*spriteSheet));
@@ -67,17 +68,32 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(position + sf::Vector3f(0, 0, 30));
 		}
+		else if (count % total == 0)
+		{
+			bulletPositions.push_back(position);
+
+			bulletSprites.push_back(sf::Sprite());
+			bulletSprites.at(0).setTexture(*spriteSheet);
+			bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
+			bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
+			bulletSprites.at(0).setPosition(translateTo2d(position));
+		}
 	}
 
 	for (int i = 0; i < bulletSprites.size(); i++)
 	{
-		bulletPositions.at(i).z += 3;
+		if (direction == 0)
+
+			bulletPositions.at(i).z += 3;
+		else
+			bulletPositions.at(i).y -= .5;
+		
 		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 		window.draw(bulletSprites.at(i));
 	}
 
 	window.draw(sprite);
-	count = (count + 1) % 100;
+	count = (count + 1) % total;
 }
 
 

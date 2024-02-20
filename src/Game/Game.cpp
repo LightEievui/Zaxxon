@@ -41,7 +41,7 @@ void Game::run()
     spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
 
     obstacles.push_back(new Obstacle);
-    obstacles.at(0)->create(sf::Vector3f(-100, 135.6, -700), &spriteSheet, true, 0);
+    obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -100), &spriteSheet, 400, 1);
 
     GUI gui(&spriteSheet);
 
@@ -98,12 +98,10 @@ void Game::doCollision(Player* player)
 {
     
     std::vector<sf::Vector3f> bulletPos;
-    float xDifference = 0, yDifference = 0, zDifference = 0;
+    sf::Vector3f difference;
 
     sf::Vector3f planePos;
-    planePos.x = player->getPos().x;
-    planePos.y = player->getPos().y;
-    planePos.z = player->getPos().z;
+    planePos = player->getPos();
     
     for (int i = 0; i < obstacles.size(); i++)
     {
@@ -113,13 +111,13 @@ void Game::doCollision(Player* player)
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
-                xDifference = abs(bulletPos.at(bullets).x - planePos.x);
-                yDifference = abs(bulletPos.at(bullets).y - planePos.y);
-                zDifference = abs(bulletPos.at(bullets).z - planePos.z);
+                difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
+                    abs(bulletPos.at(bullets).y - planePos.y),
+                    abs(bulletPos.at(bullets).z - planePos.z));
 
                 
 
-                if (xDifference < 40 && yDifference < 20 && zDifference < 20)
+                if (difference.x < 40 && difference.y < 20 && difference.z < 20)
                 {
                     player->kill();
                     std::cout << "Hit";
@@ -129,12 +127,3 @@ void Game::doCollision(Player* player)
         }
     }
 }
-
-//Converts plane position inside view to position relating to background
-/*sf::Vector3f Game::playerPosConvertor(sf::Vector3f pos)
-{
-    pos.x += mainView.getCenter().x - mainView.getSize().x / 2;
-    pos.y += mainView.getCenter().y - mainView.getSize().y / 2;
-    pos.z +=
-    return pos;
-}*/

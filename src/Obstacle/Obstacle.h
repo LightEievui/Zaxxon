@@ -13,7 +13,7 @@ public:
 	Obstacle();
 	~Obstacle();
 
-	void create(sf::Vector3f, sf::Texture*, bool = false, int = -1);
+	void create(sf::Vector3f, sf::Texture*, float, int);
 	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
@@ -27,7 +27,7 @@ private:
 	//Animation anim;
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
-	int direction, count, random;
+	int direction, count, total;
 	bool turret, onScreen = false;
 };
 
