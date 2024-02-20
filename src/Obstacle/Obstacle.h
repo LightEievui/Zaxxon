@@ -29,7 +29,7 @@ private:
 	//Animation anim;
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
-	int direction, count, total;
+	int direction, count, total = 100, random;
 	bool turret = false, onScreen = false;
 };
 
