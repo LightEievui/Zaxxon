@@ -25,30 +25,23 @@ Player::Player(sf::Texture* texture) : Character(texture)
 void Player::update(sf::RenderWindow& window, bool inSpace)
 {
 	// Update texture
-	const int yBase = 135;
-	const int yLim = 69;
-	const int y = (int) getPos().y-((float) yBase);
-	const int qSize = (yLim - yBase) / 4;
-	int planeSizeIndex = 3;
-	int planeVertical = 0;
-
-	for (int i = 0; i < 4; i++)
-		if (y < qSize * i && y < qSize * i + 1)
-			planeSizeIndex = 3 - i;
+	unsigned int planeSizeIndex;
+	unsigned int planeVertical = 0;
+	getSizeIndex(planeSizeIndex);
 
 	// Keys
 	sf::Vector3f tempVelocity;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && getPos().x < 0)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && getPos().x < xMax)
 		tempVelocity.x = 1;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && getPos().x > -150)
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && getPos().x > xMin)
 		tempVelocity.x = -1;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && getPos().y < yBase)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && getPos().y < yMax)
 	{
 		tempVelocity.y = 0.6f;
 		planeVertical = 2;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && getPos().y > yLim)
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && getPos().y > yMin)
 	{
 		tempVelocity.y = -0.6f;
 		planeVertical = 1;

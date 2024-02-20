@@ -50,7 +50,7 @@ void Game::run()
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224));
     Player *player = new Player(&spriteSheet);
-    Enemy *enemy = new Enemy(&spriteSheet); // temp
+    Enemy *enemy = new Enemy(&spriteSheet, 0); // temp
 
     while (window.isOpen())
     {
