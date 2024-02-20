@@ -11,7 +11,6 @@ class Obstacle : public Entity
 {
 public:
 	Obstacle();
-	~Obstacle();
 
 	void create(sf::Vector3f, sf::Texture*, float, int);
 	void setTexture(std::string);

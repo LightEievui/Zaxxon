@@ -12,7 +12,7 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, float shootInterval, int dir)
+void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, int dir)
 {
 	position = pos;
 	turret = true;
