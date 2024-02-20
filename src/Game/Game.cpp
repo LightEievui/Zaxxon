@@ -16,7 +16,10 @@ Game::Game()
 
 Game::~Game()
 {
-
+    
+    const int obstaclesSize = obstacles.size();
+    for (unsigned int i = 0; i < obstaclesSize; i++)
+        delete obstacles[i];
 }
 
 
@@ -76,21 +79,18 @@ void Game::run()
         background.drawBackground(window);
         obstacles.at(0)->update(window);
         enemy->update(window);
-
-        window.setView(guiView);
-         // TODO: update inSpace on whether background is space or not.
+        // TODO: update inSpace on whether background is space or not.
         player->update(window, true);
+        window.setView(guiView);
         gui.render(window, player->getPos().y, score);
-
         window.setView(mainView);
+        
 
         window.display();
     }
 
     delete player;
     delete enemy; // temp
-    for (unsigned int i = 0; i < obstacles.size(); i++)
-        delete obstacles.at(i);
 }
 
 
