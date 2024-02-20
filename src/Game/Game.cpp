@@ -75,12 +75,13 @@ void Game::run()
 
         background.drawBackground(window);
         obstacles.at(0)->update(window);
-        player->update(window, true);
         enemy->update(window);
 
         window.setView(guiView);
          // TODO: update inSpace on whether background is space or not.
+        player->update(window, true);
         gui.render(window, player->getPos().y, score);
+
         window.setView(mainView);
 
         window.display();
