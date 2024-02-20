@@ -14,7 +14,6 @@ public:
 
 	sf::Vector3f getPos() { return position; };
 	sf::FloatRect getBounds() { return sprite.getGlobalBounds(); };
-
 protected:
 	sf::Texture* spriteSheet;
 	sf::Sprite sprite;

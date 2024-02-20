@@ -7,13 +7,6 @@ Obstacle::Obstacle() : Entity()
 	random = (rand() % 1000) + 200;
 }
 
-
-Obstacle::~Obstacle()
-{
-	delete spriteSheet;
-}
-
-
 void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, bool turret1, int dir)
 {
 	position = pos;
