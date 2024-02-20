@@ -40,8 +40,7 @@ void Game::run()
     sf::Texture spriteSheet;
     spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
 
-    obstacles.push_back(new Obstacle);
-    obstacles.at(0)->create(sf::Vector3f(-100, 135.6, -700), &spriteSheet, true, 0);
+    generateObstacles(&spriteSheet);
 
     GUI gui(&spriteSheet);
 
@@ -74,7 +73,12 @@ void Game::run()
         window.clear();
 
         background.drawBackground(window);
-        obstacles.at(0)->update(window);
+
+        for (int i = 0; i < obstacles.size(); i++)
+        {
+            obstacles.at(i)->update(window);
+        }
+        
         enemy->update(window);
 
         window.setView(guiView);
@@ -130,11 +134,22 @@ void Game::doCollision(Player* player)
     }
 }
 
-//Converts plane position inside view to position relating to background
-/*sf::Vector3f Game::playerPosConvertor(sf::Vector3f pos)
+
+void Game::generateObstacles(sf::Texture* spriteSheet)
 {
-    pos.x += mainView.getCenter().x - mainView.getSize().x / 2;
-    pos.y += mainView.getCenter().y - mainView.getSize().y / 2;
-    pos.z +=
-    return pos;
-}*/
+    /*
+    Makes all obstables
+    KEY
+    1 = gas can
+    2 = satellite
+    */
+
+    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 1, 0));
+
+    obstacles.push_back(new Obstacle(sf::Vector3f(-157, 135.6, -425), spriteSheet, 2));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-83, 135.6, -625), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-30, 135.6, -630), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -745), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -995), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-30, 135.6, -990), spriteSheet, 1));
+}
