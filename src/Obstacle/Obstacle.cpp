@@ -1,24 +1,14 @@
 #include "Obstacle.h"
 
 
-Obstacle::Obstacle() : Entity()
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity()
 {
 	srand(time(NULL));
 	random = (rand() % 1000) + 200;
-}
 
 
-Obstacle::~Obstacle()
-{
-	delete spriteSheet;
-}
-
-
-void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, bool turret1, int dir)
-{
 	position = pos;
-
-	turret = turret1;
+	turret = true;
 	direction = dir;
 
 	spriteSheet = tex;
@@ -28,6 +18,42 @@ void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, bool turret1, int dir)
 
 	sprite.setPosition(translateTo2d(pos));
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+}
+
+
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
+{
+	/*
+	KEY
+	1 = gas can
+	2 = satellite
+	*/
+
+	position = pos;
+	turret = false;
+	spriteSheet = tex;
+
+	sprite.setTexture((*spriteSheet));
+
+	if (type == 1)
+	{
+		sprite.setTextureRect(sf::IntRect(87, 106, 30, 30));
+	}
+	else if (type == 2)
+	{
+		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
+	}
+	
+		//GreenTurret::sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
+
+	sprite.setPosition(translateTo2d(pos));
+	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+}
+
+
+Obstacle::~Obstacle()
+{
+	
 }
 
 

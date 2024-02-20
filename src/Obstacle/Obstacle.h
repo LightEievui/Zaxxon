@@ -10,10 +10,12 @@
 class Obstacle : public Entity
 {
 public:
-	Obstacle();
+	//For shooting obstacles
+	Obstacle(sf::Vector3f, sf::Texture*, float,  int = -1);
+	//For standby obstacles
+	Obstacle(sf::Vector3f, sf::Texture*, int);
 	~Obstacle();
 
-	void create(sf::Vector3f, sf::Texture*, bool = false, int = -1);
 	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
