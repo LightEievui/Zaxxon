@@ -1,26 +1,75 @@
 #include "Obstacle.h"
 
 
-Obstacle::Obstacle() : Entity()
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity()
 {
 	srand(time(NULL));
 	random = (rand() % 1000) + 200;
-}
 
-void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, bool turret1, int dir)
-{
+
 	position = pos;
-
-	turret = turret1;
+	turret = true;
 	direction = dir;
 
 	spriteSheet = tex;
 
+	if (dir == 0)
+	{
+		sprite.setTexture((*spriteSheet));
+		sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
+
+		sprite.setPosition(translateTo2d(pos));
+		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+	}
+	else
+	{
+		spriteSheet = tex;
+
+		bulletPositions.push_back(position);
+
+		bulletSprites.push_back(sf::Sprite());
+		bulletSprites.at(0).setTexture((*spriteSheet));
+		bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
+		bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
+		bulletSprites.at(0).setPosition(sf::Vector2f(100, 100));
+	}
+}
+
+
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
+{
+	/*
+	KEY
+	1 = gas can
+	2 = satellite
+	*/
+
+	direction = -1;
+	position = pos;
+	turret = false;
+	spriteSheet = tex;
+
 	sprite.setTexture((*spriteSheet));
-	sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
+
+	if (type == 1)
+	{
+		sprite.setTextureRect(sf::IntRect(87, 106, 30, 30));
+	}
+	else if (type == 2)
+	{
+		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
+	}
+	
+		//GreenTurret::sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
 
 	sprite.setPosition(translateTo2d(pos));
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+}
+
+
+Obstacle::~Obstacle()
+{
+	
 }
 
 
@@ -46,9 +95,9 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	onScreen = true;
 
-	if (turret)
+	if (turret == true)
 	{
-		if (count % 100 == 0)
+		if (count % total == 0 && direction == 0)
 		{
 			sf::Sprite temp;
 			temp.setTexture((*spriteSheet));
@@ -60,17 +109,32 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(position + sf::Vector3f(0, 0, 30));
 		}
+		/*else if (count % total == 0)
+		{
+			bulletPositions.push_back(position);
+
+			bulletSprites.push_back(sf::Sprite());
+			bulletSprites.at(0).setTexture(*spriteSheet);
+			bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
+			bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
+			bulletSprites.at(0).setPosition(translateTo2d(position));
+		}*/
 	}
 
 	for (int i = 0; i < bulletSprites.size(); i++)
 	{
-		bulletPositions.at(i).z += 3;
+		if (direction == 0)
+			bulletPositions.at(i).z += 3;
+		else
+			//bulletPositions.at(i).y -= .5;
+		
 		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 		window.draw(bulletSprites.at(i));
 	}
 
-	window.draw(sprite);
-	count = (count + 1) % 100;
+	if (direction != 1)
+		window.draw(sprite);
+	count = (count + 1) % total;
 }
 
 
