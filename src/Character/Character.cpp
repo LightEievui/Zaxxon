@@ -24,6 +24,24 @@ std::vector<sf::Sprite>& Character::getBullets()
 }
 
 
+void Character::getSizeIndex(unsigned int& planeSizeIndex)
+{
+	const int y = (int)getPos().y - ((float)yMax);
+	const int qSize = (yMin - yMax) / 4;
+	planeSizeIndex = 3;
+
+	for (int i = 0; i < 4; i++)
+		if (y < qSize * i && y < qSize * i + 1)
+			planeSizeIndex = 3 - i;
+}
+
+
+sf::Vector3f Character::getVelocity()
+{
+	return velocity;
+}
+
+
 void Character::setPos(sf::Vector3f pos)
 {
 	position = pos;
