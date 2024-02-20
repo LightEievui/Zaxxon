@@ -16,7 +16,10 @@ Game::Game()
 
 Game::~Game()
 {
-
+    
+    const int obstaclesSize = obstacles.size();
+    for (unsigned int i = 0; i < obstaclesSize; i++)
+        delete obstacles[i];
 }
 
 
@@ -42,11 +45,15 @@ void Game::run()
 
     generateObstacles(&spriteSheet);
 
+    //Testing for gavin
+    obstacles.push_back(new Obstacle);
+    obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
+
     GUI gui(&spriteSheet);
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224));
     Player *player = new Player(&spriteSheet);
-    Enemy *enemy = new Enemy(&spriteSheet); // temp
+    Enemy *enemy = new Enemy(&spriteSheet, 0); // temp
 
     while (window.isOpen())
     {
@@ -80,21 +87,18 @@ void Game::run()
         }
         
         enemy->update(window);
-
-        window.setView(guiView);
-         // TODO: update inSpace on whether background is space or not.
+        // TODO: update inSpace on whether background is space or not.
         player->update(window, true);
+        window.setView(guiView);
         gui.render(window, player->getPos().y, score);
-
         window.setView(mainView);
+        
 
         window.display();
     }
 
     delete player;
     delete enemy; // temp
-    for (unsigned int i = 0; i < obstacles.size(); i++)
-        delete obstacles.at(i);
 }
 
 
@@ -102,12 +106,10 @@ void Game::doCollision(Player* player)
 {
     
     std::vector<sf::Vector3f> bulletPos;
-    float xDifference = 0, yDifference = 0, zDifference = 0;
+    sf::Vector3f difference;
 
     sf::Vector3f planePos;
-    planePos.x = player->getPos().x;
-    planePos.y = player->getPos().y;
-    planePos.z = player->getPos().z;
+    planePos = player->getPos();
     
     for (int i = 0; i < obstacles.size(); i++)
     {
@@ -117,13 +119,13 @@ void Game::doCollision(Player* player)
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
-                xDifference = abs(bulletPos.at(bullets).x - planePos.x);
-                yDifference = abs(bulletPos.at(bullets).y - planePos.y);
-                zDifference = abs(bulletPos.at(bullets).z - planePos.z);
+                difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
+                    abs(bulletPos.at(bullets).y - planePos.y),
+                    abs(bulletPos.at(bullets).z - planePos.z));
 
                 
 
-                if (xDifference < 40 && yDifference < 20 && zDifference < 20)
+                if (difference.x < 40 && difference.y < 20 && difference.z < 20)
                 {
                     player->kill();
                     std::cout << "Hit";

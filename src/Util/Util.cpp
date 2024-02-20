@@ -15,7 +15,7 @@ sf::Vector2f translateTo2d(sf::Vector3f in)
 sf::Vector2f translateTo2d2(sf::Vector3f in)
 {
 	float x = -in.x * 0.6f + -in.z * 0.4f;
-	float y = in.y + -in.x * 0.4f + in.z * 0.6f;
+	float y = in.y + -in.x * 0.4f + in.z * 0.2f;
 
 	return sf::Vector2f(x, y);
 }
