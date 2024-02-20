@@ -28,5 +28,5 @@ private:
 	sf::View guiView;
 
 	void doCollision(Player*);
-	//sf::Vector3f playerPosConvertor(sf::Vector3f);
+	void generateObstacles(sf::Texture*);
 };
