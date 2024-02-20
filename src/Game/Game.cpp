@@ -50,7 +50,7 @@ void Game::run()
 
     background.create("BackgroundFull.png", sf::Vector2f(0, 224));
     Player *player = new Player(&spriteSheet);
-    Enemy *enemy = new Enemy(&spriteSheet, 0); // temp
+    std::vector<Enemy*> enemies;
 
     while (window.isOpen())
     {
@@ -78,7 +78,8 @@ void Game::run()
 
         background.drawBackground(window);
         obstacles.at(0)->update(window);
-        enemy->update(window);
+        for (Enemy* enemy : enemies)
+            enemy->update(window);
         // TODO: update inSpace on whether background is space or not.
         player->update(window, true);
         window.setView(guiView);
@@ -90,7 +91,9 @@ void Game::run()
     }
 
     delete player;
-    delete enemy; // temp
+    const int enemiesSize = enemies.size();
+    for (int i = 0; i < enemiesSize; i++)
+        delete enemies[i];
 }
 
 
