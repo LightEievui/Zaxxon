@@ -14,28 +14,20 @@ Obstacle::~Obstacle()
 }
 
 
-void Obstacle::create(sf::Vector3f pos, std::string file, bool turret1, int dir)
+void Obstacle::create(sf::Vector3f pos, sf::Texture* tex, bool turret1, int dir)
 {
 	position = pos;
 
 	turret = turret1;
 	direction = dir;
 
-	spriteSheet = new sf::Texture;
-
-	if ((*spriteSheet).loadFromFile("res/" + file) == false)
-		std::cout << "Obstacle image file failed to load\n";
-	if (dir == 0)
-	{
-		if (!bulletTexture.loadFromFile("res/RedBullet.png"))
-		{
-			std::cout << "Obstacle bullet image file failed to load\n";
-		}
-	}
+	spriteSheet = tex;
 
 	sprite.setTexture((*spriteSheet));
+	sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
 
 	sprite.setPosition(translateTo2d(pos));
+	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 }
 
 
@@ -66,13 +58,14 @@ void Obstacle::update(sf::RenderWindow& window)
 		if (count % 100 == 0)
 		{
 			sf::Sprite temp;
-			temp.setTexture(bulletTexture);
-			temp.setPosition(sprite.getPosition());
+			temp.setTexture((*spriteSheet));
+			temp.setTextureRect(sf::IntRect(160, 129, 12, 8));
+			temp.setPosition(sprite.getPosition() + translateTo2d(sf::Vector3f(0, 0, 30)));
 			temp.setScale(sprite.getScale());
-			temp.setOrigin(sf::Vector2f(1, 7));
+			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
 				
 			bulletSprites.push_back(temp);
-			bulletPositions.push_back(position);
+			bulletPositions.push_back(position + sf::Vector3f(0, 0, 30));
 		}
 	}
 

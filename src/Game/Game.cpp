@@ -41,7 +41,7 @@ void Game::run()
     spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
 
     obstacles.push_back(new Obstacle);
-    obstacles.at(0)->create(sf::Vector3f(-100, 135.6, -700), "cannonGrey.png", true, 0);
+    obstacles.at(0)->create(sf::Vector3f(-100, 135.6, -700), &spriteSheet, true, 0);
 
     GUI gui(&spriteSheet);
 
