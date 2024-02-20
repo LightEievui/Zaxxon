@@ -44,7 +44,7 @@ void Game::run()
     spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
 
     obstacles.push_back(new Obstacle);
-    obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -100), &spriteSheet, 400, 1);
+    obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     GUI gui(&spriteSheet);
 

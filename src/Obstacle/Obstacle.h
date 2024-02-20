@@ -27,6 +27,6 @@ private:
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count, total;
-	bool turret, onScreen = false;
+	bool turret = false, onScreen = false;
 };
 
