@@ -16,6 +16,18 @@ public:
 	std::vector<sf::Sprite>& getBullets();
 	virtual bool getTranslate2() { return false; };
 protected:
+	const int yMax = 135;
+	const int yMin = 69;
+	const int xMin = -150;
+	const int xMax = 0;
+
+	/* this computes the sizeindex (the quadrant the plane is in)
+	using the currentY and the min / max,
+	assumed there is 4 for everything inheriting character. 
+	*/
+	void getSizeIndex(unsigned int& planeSizeIndex);
+	sf::Vector3f getVelocity();
+
 	void setVelocity(sf::Vector3f vel);
 	void setBullet(sf::IntRect bulletTextureRect);
 	void setPos(sf::Vector3f pos);
