@@ -13,11 +13,26 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 
 	spriteSheet = tex;
 
-	sprite.setTexture((*spriteSheet));
-	sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
+	if (dir == 0)
+	{
+		sprite.setTexture((*spriteSheet));
+		sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
 
-	sprite.setPosition(translateTo2d(pos));
-	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+		sprite.setPosition(translateTo2d(pos));
+		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+	}
+	else
+	{
+		spriteSheet = tex;
+
+		bulletPositions.push_back(position);
+
+		bulletSprites.push_back(sf::Sprite());
+		bulletSprites.at(0).setTexture((*spriteSheet));
+		bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
+		bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
+		bulletSprites.at(0).setPosition(sf::Vector2f(100, 100));
+	}
 }
 
 
@@ -29,6 +44,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	2 = satellite
 	*/
 
+	direction = -1;
 	position = pos;
 	turret = false;
 	spriteSheet = tex;
@@ -46,21 +62,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	
 		//GreenTurret::sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
 
-		sprite.setPosition(translateTo2d(pos));
-		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
-	}
-	else
-	{
-		spriteSheet = tex;
-
-		bulletPositions.push_back(position);
-
-		bulletSprites.push_back(sf::Sprite());
-		bulletSprites.at(0).setTexture((*spriteSheet));
-		bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
-		bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
-		bulletSprites.at(0).setPosition(sf::Vector2f(100, 100));
-	}
+	sprite.setPosition(translateTo2d(pos));
+	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 }
 
 
@@ -92,7 +95,7 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	onScreen = true;
 
-	if (turret)
+	if (turret == true)
 	{
 		if (count % total == 0 && direction == 0)
 		{
