@@ -78,7 +78,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
 	#endif
 
-	tempVelocity.z = -1.33333;
+	//tempVelocity.z = -18.f/19.f; // wrong temp
 
 	// Position updates
 	setVelocity(tempVelocity);
