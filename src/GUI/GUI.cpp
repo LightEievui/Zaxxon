@@ -38,17 +38,8 @@ GUI::GUI(sf::Texture* spritesheet)
 	}
 
 
-	// Individual loading for copyright text
-	copyright[0] = ZaxxonText::get(spritesheet, 28);
-	copyright[1] = ZaxxonText::get(spritesheet, 29);
-	copyright[2] = ZaxxonText::get(spritesheet, 'S');
-	copyright[3] = ZaxxonText::get(spritesheet, 'E');
-	copyright[4] = ZaxxonText::get(spritesheet, 'G');
-	copyright[5] = ZaxxonText::get(spritesheet, 'A');
-	copyright[6] = ZaxxonText::get(spritesheet, '1');
-	copyright[7] = ZaxxonText::get(spritesheet, '9');
-	copyright[8] = ZaxxonText::get(spritesheet, '8');
-	copyright[9] = ZaxxonText::get(spritesheet, '2');
+	// Copyright text
+	ZaxxonText::string(spritesheet, "\x1C\x1DSEGA1982", copyright);
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -60,16 +51,12 @@ GUI::GUI(sf::Texture* spritesheet)
 		else if (i >= 2)
 			start += 8;
 
-		copyright[i].setPosition(start + 8 * i, 244);
+		copyright[i].setPosition(start + 8 * i, 248);
 	}
 
 
-	// Top score
-	topScore[0] = ZaxxonText::get(spritesheet, 'T');
-	topScore[1] = ZaxxonText::get(spritesheet, 'O');
-	topScore[2] = ZaxxonText::get(spritesheet, 'P');
-	for(int i = 3; i < 9; i++)
-		topScore[i] = ZaxxonText::get(spritesheet, '0');
+	// Top score text
+	ZaxxonText::string(spritesheet, "TOP000000", topScore);
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -83,12 +70,8 @@ GUI::GUI(sf::Texture* spritesheet)
 	}
 
 
-	// 1up score
-	curScore[0] = ZaxxonText::get(spritesheet, '1');
-	curScore[1] = ZaxxonText::get(spritesheet, 'U');
-	curScore[2] = ZaxxonText::get(spritesheet, 'P');
-	for (int i = 3; i < 9; i++)
-		curScore[i] = ZaxxonText::get(spritesheet, '0');
+	// 1up score text
+	ZaxxonText::string(spritesheet, "1UP000000", curScore);
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -102,7 +85,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	}
 
 
-	// Fuel text setup
+	// Fuel text
 	ZaxxonText::string(spritesheet, "FUELEF", fuelText);
 
 	for (int i = 0; i < 6; i++)
@@ -110,17 +93,17 @@ GUI::GUI(sf::Texture* spritesheet)
 		if (i < 4)
 		{
 			fuelText[i].setColor(sf::Color(0, 222, 0));
-			fuelText[i].setPosition(0 + i * 8, 236);
+			fuelText[i].setPosition(12 + i * 8, 240);
 		}
 		else
 		{
 			fuelText[i].setColor(sf::Color(222, 0, 0));
-			fuelText[i].setPosition(40 + (i - 4) * 148, 236);
+			fuelText[i].setPosition(52 + (i - 4) * 136, 240);
 		}
 	}
 
 
-	// Enemy plane text setup
+	// Enemy plane text
 	ZaxxonText::string(spritesheet, "ENEMYPLANE", enemyText);
 
 	for (int i = 0; i < 10; i++)
@@ -128,6 +111,32 @@ GUI::GUI(sf::Texture* spritesheet)
 		enemyText[i].setColor(sf::Color(222, 222, 247));
 		enemyText[i].setPosition(176 + i % 5 * 8, 200 + i / 5 * 8);
 	}
+
+
+	// Fuel bar sprites
+	for (int i = 0; i < 16; i++)
+	{
+		fuelBar[i].setTexture(*spritesheet);
+		fuelBar[i].setTextureRect(sf::IntRect(328, 296, 8, 8));
+		fuelBar[i].setPosition(60 + i * 8, 240);
+	}
+
+
+	// Lives bar sprites
+	for (int i = 0; i < 2; i++)
+	{
+		livesBar[i].setTexture(*spritesheet);
+		livesBar[i].setTextureRect(sf::IntRect(344, 288, 16, 16));
+		livesBar[i].setPosition(12 + i * 16, 224);
+	}
+
+	
+	// Enemies left
+	ZaxxonText::string(spritesheet, "X\u000920", enemyLeft);
+	enemyLeft[0].setTextureRect(sf::IntRect(368, 296, 8, 8));
+
+	for (int i = 0; i < 4; i++)
+		enemyLeft[i].setPosition(176 + i * 8, 216);
 }
 
 
@@ -219,4 +228,13 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 
 	for (int i = 0; i < 6; i++)
 		window.draw(fuelText[i]);
+
+	for (int i = 0; i < 16; i++)
+		window.draw(fuelBar[i]);
+
+	for (int i = 0; i < 2; i++)
+		window.draw(livesBar[i]);
+
+	for (int i = 0; i < 4; i++)
+		window.draw(enemyLeft[i]);
 }
