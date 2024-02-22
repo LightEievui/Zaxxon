@@ -42,7 +42,8 @@ void Game::run() // if random erros later check that stack isnt full
     generateObstacles(&spriteSheet);
 
     //Testing for gavin
-    obstacles.push_back(new Obstacle(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-120, 135.6, -3
+        ), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     GUI gui(&spriteSheet);
@@ -60,7 +61,7 @@ void Game::run() // if random erros later check that stack isnt full
                 window.close();
             // TODO: REMOVE THIS
             if (event.type == sf::Event::MouseButtonPressed)
-                score += 100;
+                score += 100, fuel -= 1;
         }
 
         /*else
@@ -73,14 +74,18 @@ void Game::run() // if random erros later check that stack isnt full
 
         window.clear();
 
-        background.update(window, mainView, gameSpeed);
-        obstacles.at(0)->update(window);
+        background.drawBackground(window);
+        for (int i = 0; i < obstacles.size(); i++)
+        {
+            obstacles.at(i)->update(window);
+        }
+
         for (Enemy* enemy : enemies)
             enemy->update(window);
         // TODO: update inSpace on whether background is space or not.
         player->update(window, false);
         window.setView(guiView);
-        gui.render(window, player->getPos().y, score);
+        gui.render(window, player->getPos().y, score, fuel);
         window.setView(mainView);
         
 
@@ -107,6 +112,17 @@ void Game::doCollision(Player* player)
     {
         if (obstacles.at(i)->isPresent())
         {
+            /*Player Bullets Hitting Obstacles
+            difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - planePos.x),
+                abs(obstacles.at(i)->getPosition().y - planePos.y),
+                abs(obstacles.at(i)->getPosition().z - planePos.z));
+
+            if (difference.x < 40 && difference.y < 20 && difference.z < 20)
+            {
+                obstacles.at(i)->kill();
+            }
+            */
+            //Bullets
             bulletPos = (obstacles.at(i)->getBulletLocations());
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
@@ -114,6 +130,8 @@ void Game::doCollision(Player* player)
                 difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
                     abs(bulletPos.at(bullets).y - planePos.y),
                     abs(bulletPos.at(bullets).z - planePos.z));
+
+                
 
                 if (difference.x < 40 && difference.y < 20 && difference.z < 20)
                 {
@@ -129,14 +147,26 @@ void Game::doCollision(Player* player)
 
 void Game::generateObstacles(sf::Texture* spriteSheet)
 {
+    /*Shooting Obstacles 
+    KEY
+    0 = Grey Turrets
+    1 = Green Turrets
+    2 = Shooting Up Bullets
+    */
+    obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -470), spriteSheet, 1, 1));
+    
+    //Testing
+    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 1, 0));
+    
+
     /*
-    Makes all obstables
+    Stationary Obstacles
     KEY
     1 = gas can
     2 = satellite
     */
 
-    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 1, 0));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 100, 0));
 
     obstacles.push_back(new Obstacle(sf::Vector3f(-157, 135.6, -425), spriteSheet, 2));
     obstacles.push_back(new Obstacle(sf::Vector3f(-83, 135.6, -625), spriteSheet, 1));
@@ -144,9 +174,13 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -745), spriteSheet, 1));
     obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -995), spriteSheet, 1));
     obstacles.push_back(new Obstacle(sf::Vector3f(-30, 135.6, -990), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-65, 135.6, -1115), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-30, 135.6, -1290), spriteSheet, 1));
 }
 
 void Game::generateWaves(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, int playerZ)
 {
+    
+}
     
 }

@@ -7,12 +7,13 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 	random = (rand() % 1000) + 200;
 
 
-	position = pos;
+	setPos(pos);
 	turret = true;
 	direction = dir;
 
 	spriteSheet = tex;
 
+	//Grey Turrets = 0
 	if (dir == 0)
 	{
 		sprite.setTexture((*spriteSheet));
@@ -21,11 +22,21 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 		sprite.setPosition(translateTo2d(pos));
 		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 	}
-	else
+	//Green Turrets = 1
+	else if (dir == 1)
+	{
+		sprite.setTexture((*spriteSheet));
+		sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
+
+		sprite.setPosition(translateTo2d(pos));
+		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+	}
+	//Shooting Up 
+	else if (dir == 2)
 	{
 		spriteSheet = tex;
 
-		bulletPositions.push_back(position);
+		//sprite.setPosition(position);
 
 		bulletSprites.push_back(sf::Sprite());
 		bulletSprites.at(0).setTexture((*spriteSheet));
@@ -45,7 +56,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	*/
 
 	direction = -1;
-	position = pos;
+	setPos(pos);
 	turret = false;
 	spriteSheet = tex;
 
@@ -59,8 +70,6 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	{
 		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
 	}
-	
-		//GreenTurret::sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
 
 	sprite.setPosition(translateTo2d(pos));
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
@@ -75,7 +84,7 @@ Obstacle::~Obstacle()
 
 sf::Vector3f Obstacle::getPosition()
 {
-	return position;
+	return getPos();
 }
 
 
@@ -107,7 +116,7 @@ void Obstacle::update(sf::RenderWindow& window)
 			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
 				
 			bulletSprites.push_back(temp);
-			bulletPositions.push_back(position + sf::Vector3f(0, 0, 30));
+			bulletPositions.push_back(getPos() + sf::Vector3f(0, 0, 30));
 		}
 		/*else if (count % total == 0)
 		{
@@ -129,11 +138,12 @@ void Obstacle::update(sf::RenderWindow& window)
 			//bulletPositions.at(i).y -= .5;
 		
 		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
+
 		window.draw(bulletSprites.at(i));
 	}
-
-	if (direction != 1)
-		window.draw(sprite);
+		
+	window.draw(sprite);
+	
 	count = (count + 1) % total;
 }
 
@@ -152,6 +162,6 @@ bool Obstacle::isPresent()
 
 void Obstacle::bulletKill(int bullet)
 {
-	bulletSprites.erase(bulletSprites.begin() + bullet);
+	bulletSprites.erase(bulletSprites.begin() + (bullet));
 	bulletPositions.erase(bulletPositions.begin() + bullet);
 }

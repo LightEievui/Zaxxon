@@ -21,7 +21,7 @@ private:
 	// std::vector<Enemy> enemy;
 	std::vector<Obstacle*> obstacles;
 	Background background;
-	int fuel;
+	int fuel = 128;
 	int completions;
 	int lives;
 	int score = 0;
