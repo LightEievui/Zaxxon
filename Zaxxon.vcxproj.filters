@@ -33,10 +33,10 @@
     <ClCompile Include="src\Animation\Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Character\Player\Player.cpp">
+    <ClCompile Include="src\Entity\Character\Player\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Character\Character.cpp">
+    <ClCompile Include="src\Entity\Character\Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Background\Background.cpp">
@@ -51,7 +51,7 @@
     <ClCompile Include="src\GUI\ZaxxonText\ZaxxonText.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Character\Enemy\Enemy.cpp">
+    <ClCompile Include="src\Entity\Character\Enemy\Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,10 +71,10 @@
     <ClInclude Include="src\Animation\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Character\Player\Player.h">
+    <ClInclude Include="src\Entity\Character\Player\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Character\Character.h">
+    <ClInclude Include="src\Entity\Character\Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Background\Background.h">
@@ -89,7 +89,7 @@
     <ClInclude Include="src\GUI\ZaxxonText\ZaxxonText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Character\Enemy\Enemy.h">
+    <ClInclude Include="src\Entity\Character\Enemy\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -98,6 +98,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\RedBullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cannonGrey.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
