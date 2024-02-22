@@ -140,7 +140,7 @@ GUI::GUI(sf::Texture* spritesheet)
 }
 
 
-void GUI::render(sf::RenderWindow& window, float playerY, int score)
+void GUI::render(sf::RenderWindow& window, float playerY, int score, int fuel)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
@@ -202,6 +202,12 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 	window.draw(heightH);
 	window.draw(heightL);
 
+	for (int i = 0; i < 10; i++)
+	{
+		window.draw(copyright[i]);
+		window.draw(enemyText[i]);
+	}
+
 	// Update score
 	for (int i = 0; i < 6; i++)
 	{
@@ -214,12 +220,6 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 		curScore[8 - i].setPosition(72 - 8 * i, 24);
 	}
 
-	for (int i = 0; i < 10; i++)
-	{
-		window.draw(copyright[i]);
-		window.draw(enemyText[i]);
-	}
-
 	for (int i = 0; i < 9; i++)
 	{
 		window.draw(topScore[i]);
@@ -229,9 +229,20 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 	for (int i = 0; i < 6; i++)
 		window.draw(fuelText[i]);
 
+	// Update fuel bar
 	for (int i = 0; i < 16; i++)
-		window.draw(fuelBar[i]);
+	{
+		sf::IntRect status(328, 296, 8, 8);
+		if (fuel - i * 8 < 8)
+			if (fuel - i * 8 > 0)
+				status.left = 328 - (8 - (fuel - i * 8) % 8) * 16;
+			else
+				status.left = 176, status.top = 272;
 
+		fuelBar[i].setTextureRect(status);
+		window.draw(fuelBar[i]);
+	}
+		
 	for (int i = 0; i < 2; i++)
 		window.draw(livesBar[i]);
 
