@@ -162,6 +162,6 @@ bool Obstacle::isPresent()
 
 void Obstacle::bulletKill(int bullet)
 {
-	bulletSprites.erase(bulletSprites.begin() + bullet);
+	bulletSprites.erase(bulletSprites.begin() + (bullet));
 	bulletPositions.erase(bulletPositions.begin() + bullet);
 }

@@ -46,7 +46,8 @@ void Game::run()
     generateObstacles(&spriteSheet);
 
     //Testing for gavin
-    obstacles.push_back(new Obstacle(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-120, 135.6, -3
+        ), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     GUI gui(&spriteSheet);
