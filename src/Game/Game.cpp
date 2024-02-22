@@ -144,7 +144,7 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     2 = satellite
     */
 
-    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 1, 0));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 100, 0));
 
     obstacles.push_back(new Obstacle(sf::Vector3f(-157, 135.6, -425), spriteSheet, 2));
     obstacles.push_back(new Obstacle(sf::Vector3f(-83, 135.6, -625), spriteSheet, 1));
