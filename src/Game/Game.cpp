@@ -1,14 +1,11 @@
-#include <SFML/Graphics.hpp>
 #include "Game.h"
-#include "Entity/Character/Player/Player.h"
-#include "Entity/Character/Enemy/Enemy.h"
-#include "GUI/GUI.h"
-
 
 const float scale = 2;
+const unsigned int startPos = 0;
 
 
 Game::Game()
+    : background(sf::Vector2f(0, 224))
 {
     
 }
@@ -23,9 +20,8 @@ Game::~Game()
 }
 
 
-void Game::run()
+void Game::run() // if random erros later check that stack isnt full
 {
-    
     //added to constructor so that it is not created every frame
     sf::RenderWindow window(sf::VideoMode(224, 256), "Zaxxon");
     //Set frame rate limit to smooth out
@@ -51,9 +47,9 @@ void Game::run()
 
     GUI gui(&spriteSheet);
 
-    background.create("BackgroundFull.png", sf::Vector2f(0, 224));
-    Player *player = new Player(&spriteSheet);
+    Player *player = new Player(&spriteSheet, startPos);
     std::vector<Enemy*> enemies;
+    mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
     while (window.isOpen())
     {
@@ -67,8 +63,6 @@ void Game::run()
                 score += 100;
         }
 
-        if (background.backgroundFinished(mainView) == false)
-            mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
         /*else
         {
             //reset whenever boss is defeated
@@ -79,12 +73,12 @@ void Game::run()
 
         window.clear();
 
-        background.drawBackground(window);
+        background.update(window, mainView, gameSpeed);
         obstacles.at(0)->update(window);
         for (Enemy* enemy : enemies)
             enemy->update(window);
         // TODO: update inSpace on whether background is space or not.
-        player->update(window, true);
+        player->update(window, false);
         window.setView(guiView);
         gui.render(window, player->getPos().y, score);
         window.setView(mainView);
@@ -121,8 +115,6 @@ void Game::doCollision(Player* player)
                     abs(bulletPos.at(bullets).y - planePos.y),
                     abs(bulletPos.at(bullets).z - planePos.z));
 
-                
-
                 if (difference.x < 40 && difference.y < 20 && difference.z < 20)
                 {
                     player->kill();
@@ -152,4 +144,9 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -745), spriteSheet, 1));
     obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -995), spriteSheet, 1));
     obstacles.push_back(new Obstacle(sf::Vector3f(-30, 135.6, -990), spriteSheet, 1));
+}
+
+void Game::generateWaves(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, int playerZ)
+{
+    
 }
