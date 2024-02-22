@@ -147,7 +147,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 	 should be 8 sections each for line/open and 2 each for top/bottom so
 	 yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
 	*/
-	int yDiff = round(((playerY) - 69)*1.0303030303);
+	int yDiff = round(((playerY) - 69)*0.95774647887);
 	if (yDiff < 0)
 		yDiff = 0;
 

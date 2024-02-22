@@ -16,7 +16,7 @@ public:
 	std::vector<sf::Sprite>& getBullets();
 	virtual bool getTranslate2() { return false; };
 protected:
-	const int yMax = 135;
+	const int yMax = 140;
 	const int yMin = 69;
 	const int xMin = -150;
 	const int xMax = 0;

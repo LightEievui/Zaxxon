@@ -5,7 +5,7 @@
 class Player : public Character
 {
 public:
-	Player(sf::Texture* texture);
+	Player(sf::Texture* texture, unsigned int startPos);
 	void update(sf::RenderWindow& window, bool inSpace);
 	void kill() override;
 	bool getTranslate2();
