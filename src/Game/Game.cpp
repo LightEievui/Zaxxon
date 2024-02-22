@@ -1,8 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
-#include "Entity/Character/Player/Player.h"
 #include "Entity/Character/Enemy/Enemy.h"
-#include "GUI/GUI.h"
 
 
 const float scale = 2;
@@ -65,7 +63,7 @@ void Game::run()
                 window.close();
             // TODO: REMOVE THIS
             if (event.type == sf::Event::MouseButtonPressed)
-                score += 100;
+                score += 100, fuel -= 1;
         }
 
         if (background.backgroundFinished(mainView) == false)
@@ -91,7 +89,7 @@ void Game::run()
         // TODO: update inSpace on whether background is space or not.
         player->update(window, true);
         window.setView(guiView);
-        gui.render(window, player->getPos().y, score);
+        gui.render(window, player->getPos().y, score, fuel);
         window.setView(mainView);
         
 

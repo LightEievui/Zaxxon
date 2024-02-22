@@ -4,6 +4,7 @@
 #include "Obstacle/Obstacle.h"
 #include "Entity/Entity.h"
 #include "Entity/Character/Player/Player.h"
+#include "GUI/GUI.h"
 
 
 class Game
@@ -18,7 +19,7 @@ private:
 	// std::vector<Enemy> enemy;
 	std::vector<Obstacle*> obstacles;
 	Background background;
-	int fuel;
+	int fuel = 128;
 	int completions;
 	int lives;
 	int score = 0;
