@@ -11,7 +11,7 @@ class Obstacle : public Entity
 {
 public:
 	//For shooting obstacles
-	Obstacle(sf::Vector3f, sf::Texture*, float,  int = -1);
+	Obstacle(sf::Vector3f, sf::Texture*, float,  int);
 	//For standby obstacles
 	Obstacle(sf::Vector3f, sf::Texture*, int);
 	~Obstacle();
@@ -26,7 +26,6 @@ public:
 
 private:
 
-	//Animation anim;
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count, total = 100, random;

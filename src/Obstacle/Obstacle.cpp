@@ -13,6 +13,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 
 	spriteSheet = tex;
 
+	//Grey Turrets = 0
 	if (dir == 0)
 	{
 		sprite.setTexture((*spriteSheet));
@@ -21,7 +22,17 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 		sprite.setPosition(translateTo2d(pos));
 		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 	}
-	else
+	//Green Turrets = 1
+	else if (dir == 1)
+	{
+		sprite.setTexture((*spriteSheet));
+		sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
+
+		sprite.setPosition(translateTo2d(pos));
+		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+	}
+	//Shooting Up 
+	else if (dir == 2)
 	{
 		spriteSheet = tex;
 
@@ -59,8 +70,6 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	{
 		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
 	}
-	
-		//GreenTurret::sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
 
 	sprite.setPosition(translateTo2d(pos));
 	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
