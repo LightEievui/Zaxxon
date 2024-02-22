@@ -3,7 +3,7 @@
 #include "Background/Background.h"
 #include "Obstacle/Obstacle.h"
 #include "Entity/Entity.h"
-#include "Character/Player/Player.h"
+#include "Entity/Character/Player/Player.h"
 
 
 class Game
