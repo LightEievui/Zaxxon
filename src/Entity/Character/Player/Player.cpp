@@ -62,7 +62,9 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		temp.setTexture(*spriteSheet);
 		temp.setTextureRect(sf::IntRect(8 + 16*planeSizeIndex, 47, 16, 8));
 		temp.setOrigin(0, 8);
-		temp.setPosition(sprite.getPosition().x + 22 - 2*planeSizeIndex, sprite.getPosition().y + 5 + planeSizeIndex);
+		//temp.setPosition(sprite.getPosition().x + 22 - 2*planeSizeIndex, sprite.getPosition().y + 5 + planeSizeIndex);
+		bulletsPos.push_back(sf::Vector3f(getPos().x - 21, getPos().y + .02* planeSizeIndex, getPos().z - 15));
+		temp.setPosition(translateTo2d2(bulletsPos.at(bulletsPos.size() - 1)));
 
 		bullets.push_back(temp);
 	}

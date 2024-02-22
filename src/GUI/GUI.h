@@ -10,7 +10,7 @@ class GUI
 {
 public:
 	GUI(sf::Texture* spritesheet);
-	void render(sf::RenderWindow& window, float playerY, int score);
+	void render(sf::RenderWindow& window, float playerY, int score, int fuel);
 
 private:
 	sf::Texture* spritesheet;
