@@ -7,7 +7,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 	random = (rand() % 1000) + 200;
 
 
-	position = pos;
+	setPos(pos);
 	turret = true;
 	direction = dir;
 
@@ -25,7 +25,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 	{
 		spriteSheet = tex;
 
-		bulletPositions.push_back(position);
+		//sprite.setPosition(position);
 
 		bulletSprites.push_back(sf::Sprite());
 		bulletSprites.at(0).setTexture((*spriteSheet));
@@ -45,7 +45,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	*/
 
 	direction = -1;
-	position = pos;
+	setPos(pos);
 	turret = false;
 	spriteSheet = tex;
 
@@ -75,7 +75,7 @@ Obstacle::~Obstacle()
 
 sf::Vector3f Obstacle::getPosition()
 {
-	return position;
+	return getPos();
 }
 
 
@@ -107,7 +107,7 @@ void Obstacle::update(sf::RenderWindow& window)
 			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
 				
 			bulletSprites.push_back(temp);
-			bulletPositions.push_back(position + sf::Vector3f(0, 0, 30));
+			bulletPositions.push_back(getPos() + sf::Vector3f(0, 0, 30));
 		}
 		/*else if (count % total == 0)
 		{
