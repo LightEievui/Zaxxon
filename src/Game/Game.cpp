@@ -74,7 +74,7 @@ void Game::run() // if random erros later check that stack isnt full
 
         window.clear();
 
-        background.drawBackground(window);
+        background.update(window, mainView, gameSpeed);
         for (int i = 0; i < obstacles.size(); i++)
         {
             obstacles.at(i)->update(window);
@@ -177,10 +177,9 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     obstacles.push_back(new Obstacle(sf::Vector3f(-65, 135.6, -1115), spriteSheet, 1));
     obstacles.push_back(new Obstacle(sf::Vector3f(-30, 135.6, -1290), spriteSheet, 1));
 }
+                    
 
 void Game::generateWaves(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, int playerZ)
 {
-    
-}
     
 }
