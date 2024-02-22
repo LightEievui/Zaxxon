@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
-#include "Character/Player/Player.h"
-#include "Character/Enemy/Enemy.h"
+#include "Entity/Character/Player/Player.h"
+#include "Entity/Character/Enemy/Enemy.h"
 #include "GUI/GUI.h"
 
 

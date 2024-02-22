@@ -47,7 +47,7 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, un
 	switch (wave)
 	{
 	case 0:
-		//enemies.push_back(new Enemy(,));
+		enemies.push_back(new Enemy(spritesheet, 0));
 		break;
 	}
 }
