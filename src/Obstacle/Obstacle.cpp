@@ -129,11 +129,12 @@ void Obstacle::update(sf::RenderWindow& window)
 			//bulletPositions.at(i).y -= .5;
 		
 		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
+
 		window.draw(bulletSprites.at(i));
 	}
-
-	if (direction != 1)
-		window.draw(sprite);
+		
+	window.draw(sprite);
+	
 	count = (count + 1) % total;
 }
 
