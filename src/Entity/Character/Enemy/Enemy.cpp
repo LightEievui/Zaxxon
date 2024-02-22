@@ -42,6 +42,17 @@ void Enemy::kill()
 }
 
 
+void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, unsigned int playerZ, unsigned int wave)
+{
+	switch (wave)
+	{
+	case 0:
+		enemies.push_back(new Enemy(spritesheet, 0));
+		break;
+	}
+}
+
+
 void Enemy::runAI()
 {
 	sf::Vector3f vel;

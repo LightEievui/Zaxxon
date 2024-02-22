@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Character\Enemy\Enemy.cpp" />
+    <ClCompile Include="src\Entity\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\GUI\HMSection\HMSection.cpp" />
     <ClCompile Include="src\GUI\GUI.cpp" />
     <ClCompile Include="src\Animation\Animation.cpp" />
-    <ClCompile Include="src\Character\Player\Player.cpp" />
-    <ClCompile Include="src\Character\Character.cpp" />
+    <ClCompile Include="src\Entity\Character\Player\Player.cpp" />
+    <ClCompile Include="src\Entity\Character\Character.cpp" />
     <ClCompile Include="src\Game\Game.cpp" />
     <ClCompile Include="src\Background\Background.cpp" />
     <ClCompile Include="src\Obstacle\Obstacle.cpp" />
@@ -34,13 +34,13 @@
     <ClCompile Include="src\GUI\ZaxxonText\ZaxxonText.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Character\Enemy\Enemy.h" />
+    <ClInclude Include="src\Entity\Character\Enemy\Enemy.h" />
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\GUI\HMSection\HMSection.h" />
     <ClInclude Include="src\GUI\GUI.h" />
     <ClInclude Include="src\Animation\Animation.h" />
-    <ClInclude Include="src\Character\Player\Player.h" />
-    <ClInclude Include="src\Character\Character.h" />
+    <ClInclude Include="src\Entity\Character\Player\Player.h" />
+    <ClInclude Include="src\Entity\Character\Character.h" />
     <ClInclude Include="src\Background\Background.h" />
     <ClInclude Include="src\Game\Game.h" />
     <ClInclude Include="src\Obstacle\Obstacle.h" />
