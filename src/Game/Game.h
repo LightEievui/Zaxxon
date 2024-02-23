@@ -8,6 +8,8 @@
 #include "Entity/Character/Enemy/Enemy.h"
 #include "GUI/GUI.h"
 
+typedef unsigned char byte;
+
 
 class Game
 {
@@ -21,9 +23,9 @@ private:
 	// std::vector<Enemy> enemy;
 	std::vector<Obstacle*> obstacles;
 	Background background;
-	int fuel = 128;
-	int completions = 0;
-	int lives = 3;
+	byte fuel = 128;
+	byte completions = 0;
+	byte lives = 3;
 	int score = 0;
 	float gameSpeed = 1.;
 	// GUI gui;
