@@ -7,13 +7,13 @@ const unsigned int startPos = 0;
 Game::Game()
     : background(sf::Vector2f(0, 224))
 {
-    
+
 }
 
 
 Game::~Game()
 {
-    
+
     const int obstaclesSize = obstacles.size();
     for (int i = 0; i < obstaclesSize; i++)
         delete obstacles[i];
@@ -28,9 +28,9 @@ void Game::run() // if random erros later check that stack isnt full
     window.setFramerateLimit(60);
 
     // Resize window to scale, resize everything else with it using view
-    window.setSize(sf::Vector2u((unsigned int) (224.f * scale), (unsigned int) (256.f * scale)));
+    window.setSize(sf::Vector2u((unsigned int)(224.f * scale), (unsigned int)(256.f * scale)));
     mainView.reset(sf::FloatRect(0.f, 0.f, 224.f, 224.f));
-    mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224./256.));
+    mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224. / 256.));
     window.setView(mainView);
 
     guiView.reset(sf::FloatRect(0.f, 0.f, 224.f, 256.f));
@@ -43,12 +43,12 @@ void Game::run() // if random erros later check that stack isnt full
 
     //Testing for gavin
     obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 135.6f, -3.f
-        ), &spriteSheet, 10, 2));
+    ), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     GUI gui(&spriteSheet);
 
-    Player *player = new Player(&spriteSheet, startPos);
+    Player* player = new Player(&spriteSheet, startPos);
     std::vector<Enemy*> enemies;
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
@@ -85,7 +85,7 @@ void Game::run() // if random erros later check that stack isnt full
         window.setView(guiView);
         gui.render(window, player->getPos().y, score, fuel);
         window.setView(mainView);
-        
+
         window.display();
     }
 
@@ -98,13 +98,13 @@ void Game::run() // if random erros later check that stack isnt full
 
 void Game::doCollision(Player* player)
 {
-    
+
     std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
 
     sf::Vector3f planePos;
     planePos = player->getPos();
-    
+
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
         if (obstacles.at(i)->isPresent())
@@ -140,17 +140,17 @@ void Game::doCollision(Player* player)
 
 void Game::generateObstacles(sf::Texture* spriteSheet)
 {
-    /*Shooting Obstacles 
+    /*Shooting Obstacles
     KEY
     0 = Grey Turrets
     1 = Green Turrets
     2 = Shooting Up Bullets
     */
     obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
-    
+
     //Testing
     obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
-    
+
 
     /*
     Stationary Obstacles
@@ -174,5 +174,5 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
 
 void Game::generateWaves(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, int playerZ)
 {
-    
+
 }
