@@ -24,7 +24,6 @@ Background::~Background()
 
 void Background::update(sf::RenderWindow& window, sf::View& mainView, float gameSpeed)
 {
-	
 	if(backgroundFinished(mainView))
 	{
 		if (stage == Stage::INITIAL)
@@ -39,9 +38,14 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView, float game
 			back.setTexture(boss);
 			resetPos(mainView);
 		}
+		else
+		{
+			stage = Stage::INITIAL;
+			back.setTexture(initial);
+			resetPos(mainView);
+		}
 	}
-
-	if (!backgroundFinished(mainView))
+	else
 		mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
 
 	window.draw(back);
@@ -70,5 +74,5 @@ void Background::resetPos(sf::View& mainView)
 	//on the screen
 	mainView.setCenter(sf::Vector2f(112, 112));
 	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
-	back.setPosition(sf::Vector2f(0, 224));
+	back.setPosition(sf::Vector2f(0, 240));
 }
