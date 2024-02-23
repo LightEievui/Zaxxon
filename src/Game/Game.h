@@ -22,8 +22,8 @@ private:
 	std::vector<Obstacle*> obstacles;
 	Background background;
 	int fuel = 128;
-	int completions;
-	int lives;
+	int completions = 0;
+	int lives = 3;
 	int score = 0;
 	float gameSpeed = 1.;
 	// GUI gui;
