@@ -5,24 +5,9 @@ const unsigned int startPos = 0;
 
 
 Game::Game()
+    : window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
-
-}
-
-
-Game::~Game()
-{
-
-    const int obstaclesSize = obstacles.size();
-    for (int i = 0; i < obstaclesSize; i++)
-        delete obstacles[i];
-}
-
-
-void Game::run() // if random erros later check that stack isnt full
-{
-    //added to constructor so that it is not created every frame
-    sf::RenderWindow window(sf::VideoMode(224, 256), "Zaxxon");
+    spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
     //Set frame rate limit to smooth out
     window.setFramerateLimit(60);
 
@@ -40,22 +25,30 @@ void Game::run() // if random erros later check that stack isnt full
     flightSound.setLoop(true);
     flightSound.play();
 
-    sf::Texture spriteSheet;
-    spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
-
-    generateObstacles(&spriteSheet);
-
     //Testing for gavin
     obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 135.6f, -3.f
     ), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
-    GUI gui(&spriteSheet);
-
-    Player* player = new Player(&spriteSheet, startPos);
-    std::vector<Enemy*> enemies;
+    player = new Player(&spriteSheet, startPos);
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
+    // MAY want to consider changing these to be in Background constructor
+    Background::generateObstacles(Background::INITIAL, obstacles, &spriteSheet);
+    Background::generateWaves(Background::INITIAL, enemies, &spriteSheet, player->getPos().z);
+}
+
+
+Game::~Game()
+{
+    const int obstaclesSize = obstacles.size();
+    for (int i = 0; i < obstaclesSize; i++)
+        delete obstacles[i];
+}
+
+
+void Game::run() // if random erros later check that stack isnt full
+{
     while (window.isOpen())
     {
         sf::Event event;
@@ -78,7 +71,7 @@ void Game::run() // if random erros later check that stack isnt full
 
         window.clear();
 
-        background.update(window, mainView, gameSpeed);
+        background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player);
         for (unsigned int i = 0; i < obstacles.size(); i++)
             obstacles.at(i)->update(window);
 
@@ -127,7 +120,7 @@ void Game::doCollision(Player* player)
                     abs(bulletPos.at(bullets).y - planePos.y),
                     abs(bulletPos.at(bullets).z - planePos.z));
 
-                if (difference.x < 10 && difference.y <  10 && difference.z < 10)
+                if (difference.x < 10 && difference.y < 10 && difference.z < 10)
                 {
                     player->kill();
 
@@ -193,44 +186,4 @@ void Game::doCollision(Player* player)
             }
         }
     }
-}
-
-
-void Game::generateObstacles(sf::Texture* spriteSheet)
-{
-    /*Shooting Obstacles
-    KEY
-    0 = Grey Turrets
-    1 = Green Turrets
-    2 = Shooting Up Bullets
-    */
-    //obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
-
-    //Testing
-    //obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
-
-
-    /*
-    Stationary Obstacles
-    KEY
-    1 = gas can
-    2 = satellite
-    */
-
-    obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 140.6f, -700.f), spriteSheet, 100, 0));
-
-    obstacles.push_back(new Obstacle(sf::Vector3f(-157.f, 140.6f, -425.f), spriteSheet, 2));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-83.f, 140.6f, -625.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -630.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 140.6f, -745.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 140.6f, -995.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -990.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-65.f, 140.6f, -1115.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -1290.f), spriteSheet, 1));
-}
-
-
-void Game::generateWaves(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, int playerZ)
-{
-
 }
