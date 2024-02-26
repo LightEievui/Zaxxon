@@ -140,7 +140,8 @@ void Game::doCollision(Player* player)
             //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
             for (unsigned int pBullets = 0; pBullets < size; pBullets++)
             {
-                difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
+                difference = sf::Vector3f
+                (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                     abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
                     abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
 
@@ -151,6 +152,43 @@ void Game::doCollision(Player* player)
                     bulletPos.erase(bulletPos.begin() + pBullets);
                     pBullets--;
                     size--;
+
+                    switch (obstacles.at(i)->getType())
+                    {
+                    case 1:
+                        score += 300;
+                        break;
+
+                    case 2:
+                        score += 1000;
+                        break;
+
+                    case 3:
+                        if (rand() % 1 == 0)
+                        {
+                            score += 200;
+                        }
+                        else 
+                        {
+                            score += 500;
+                        }
+                        break;
+
+                    case 4:
+                        if (rand() % 1 == 0)
+                        {
+                            score += 200;
+                        }
+                        else
+                        {
+                            score += 500;
+                        }
+                        break;
+
+                    case 5:
+                        score += 150;
+                    }
+                    
                 }
             }
         }
