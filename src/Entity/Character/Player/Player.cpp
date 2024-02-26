@@ -68,7 +68,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		temp.setOrigin(0, 8);
 		//temp.setPosition(sprite.getPosition().x + 22 - 2*planeSizeIndex, sprite.getPosition().y + 5 + planeSizeIndex);
 		bulletsPos.push_back(sf::Vector3f(getPos().x - 21, getPos().y + .02* planeSizeIndex, getPos().z - 15));
-		temp.setPosition(translateTo2d2(bulletsPos.at(bulletsPos.size() - 1)));
+		temp.setPosition(translateTo2d(bulletsPos.at(bulletsPos.size() - 1)));
 
 		bullets.push_back(temp);
 
@@ -79,12 +79,12 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
 	#endif
 
-	tempVelocity.z = -2;
-	//tempVelocity.z = -1.3; //for translateTo2d
+	//tempVelocity.z = -2;
+	tempVelocity.z = -1.3; //for translateTo2d
 
 	// Position updates
 	setVelocity(tempVelocity);
-	shadow.setPosition(translateTo2d2(sf::Vector3f(getPos().x-5, 2*224 / 3, getPos().z)));
+	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x-5, 2*224 / 3, getPos().z)));
 
 	// Drawing
 	if(!inSpace)
@@ -123,7 +123,7 @@ void Player::kill()
 
 bool Player::getTranslate2()
 {
-	return true;/*i propose we switch to translateTo2d
+	return false;/*i propose we switch to translateTo2d
 	, as i got it working and it is necessary for the 
 	collision to work*/ 
 }
