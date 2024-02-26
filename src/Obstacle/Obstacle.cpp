@@ -7,6 +7,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 	srand(time(NULL));
 	random = (rand() % 1000) + 200;
 
+	this->type = dir + 3;
 
 	setPos(pos);
 	turret = true;
@@ -54,6 +55,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	1 = gas can
 	2 = satellite
 	*/
+	this->type = type;
 
 	direction = -1;
 	setPos(pos);
@@ -158,4 +160,19 @@ void Obstacle::bulletKill(int bullet)
 {
 	bulletSprites.erase(bulletSprites.begin() + (bullet));
 	bulletPositions.erase(bulletPositions.begin() + bullet);
+}
+
+
+int Obstacle::getType()
+{
+	/*
+	KEY
+	1 = gas can
+	2 = satellite
+	3 = grey cannon
+	4 = green cannon
+	5 = Shooting Up
+	*/
+
+	return type;
 }

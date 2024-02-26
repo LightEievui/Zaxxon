@@ -28,4 +28,3 @@ private:
 	int section;
 	int type;
 };
-
