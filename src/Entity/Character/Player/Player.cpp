@@ -15,7 +15,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 	} // TODO: wrong texture @ [1][2]
 	// 30 18 so 22 5
 	this->sprite.setTextureRect(playerTextures[0][0]);
-	this->setPos(sf::Vector3f(0, 69, (int)startPos*-2));
+	this->setPos(sf::Vector3f(0, 69, (int)startPos * -1.33333));
 	this->shadow.setTexture(*spriteSheet);
 	this->shadow.setTextureRect(sf::IntRect(352,18,22,13));
 	this->shadow.setColor(sf::Color::Black);
@@ -126,4 +126,10 @@ bool Player::getTranslate2()
 	return false;/*i propose we switch to translateTo2d
 	, as i got it working and it is necessary for the 
 	collision to work*/ 
+}
+
+
+void Player::resetPos()
+{
+	setPos(sf::Vector3f(0, 69, 0));
 }
