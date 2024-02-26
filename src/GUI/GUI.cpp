@@ -19,7 +19,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	heightL.setColor(sf::Color(0, 222, 0)); // green right of chars
 	hudElements.push_back(&heightL);
 
-	for (int i = 0; i < 10; i++)
+	for (byte i = 0; i < 10; i++)
 	{
 		HMSection& section = heightMeterSections[i];
 		section.setTexture(*spritesheet);
@@ -41,64 +41,64 @@ GUI::GUI(sf::Texture* spritesheet)
 	// Copyright text
 	ZaxxonText::string(spritesheet, "\x1C\x1DSEGA1982", copyright);
 
-	for (int i = 0; i < 10; i++)
+	for (byte i = 0; i < 10; i++)
 	{
 		copyright[i].setColor(sf::Color(222, 222, 247));
 
-		int start = 124;
+		byte start = 124;
 		if (i >= 6)
 			start += 16;
 		else if (i >= 2)
 			start += 8;
 
-		copyright[i].setPosition(start + 8 * i, 248);
+		copyright[i].setPosition(start + 8.f * i, 248.f);
 	}
 
 
 	// Top score text
 	ZaxxonText::string(spritesheet, "TOP000000", topScore);
 
-	for (int i = 0; i < 9; i++)
+	for (byte i = 0; i < 9; i++)
 	{
 		topScore[i].setColor(sf::Color(0, 222, 247));
 
-		int start = 0;
+		byte start = 0;
 		if (i > 2)
 			start += 8;
 
-		topScore[i].setPosition(start + 8 * i, 8);
+		topScore[i].setPosition(start + 8.f * i, 8.f);
 	}
 
 
 	// 1up score text
 	ZaxxonText::string(spritesheet, "1UP000000", curScore);
 
-	for (int i = 0; i < 9; i++)
+	for (byte i = 0; i < 9; i++)
 	{
 		curScore[i].setColor(sf::Color(222, 222, 247));
 
-		int start = 0;
+		byte start = 0;
 		if (i > 2)
 			start += 8;
 
-		curScore[i].setPosition(start + 8 * i, 24);
+		curScore[i].setPosition(start + 8.f * i, 24.f);
 	}
 
 
 	// Fuel text
 	ZaxxonText::string(spritesheet, "FUELEF", fuelText);
 
-	for (int i = 0; i < 6; i++)
+	for (byte i = 0; i < 6; i++)
 	{
 		if (i < 4)
 		{
 			fuelText[i].setColor(sf::Color(0, 222, 0));
-			fuelText[i].setPosition(12 + i * 8, 240);
+			fuelText[i].setPosition(12.f + i * 8.f, 240.f);
 		}
 		else
 		{
 			fuelText[i].setColor(sf::Color(222, 0, 0));
-			fuelText[i].setPosition(52 + (i - 4) * 136, 240);
+			fuelText[i].setPosition(52.f + (i - 4.f) * 136.f, 240.f);
 		}
 	}
 
@@ -106,7 +106,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	// Enemy plane text
 	ZaxxonText::string(spritesheet, "ENEMYPLANE", enemyText);
 
-	for (int i = 0; i < 10; i++)
+	for (byte i = 0; i < 10; i++)
 	{
 		enemyText[i].setColor(sf::Color(222, 222, 247));
 		enemyText[i].setPosition(176 + i % 5 * 8, 200 + i / 5 * 8);
@@ -114,20 +114,20 @@ GUI::GUI(sf::Texture* spritesheet)
 
 
 	// Fuel bar sprites
-	for (int i = 0; i < 16; i++)
+	for (byte i = 0; i < 16; i++)
 	{
 		fuelBar[i].setTexture(*spritesheet);
 		fuelBar[i].setTextureRect(sf::IntRect(328, 296, 8, 8));
-		fuelBar[i].setPosition(60 + i * 8, 240);
+		fuelBar[i].setPosition(60.f + i * 8.f, 240.f);
 	}
 
 
 	// Lives bar sprites
-	for (int i = 0; i < 2; i++)
+	for (byte i = 0; i < 2; i++)
 	{
 		livesBar[i].setTexture(*spritesheet);
 		livesBar[i].setTextureRect(sf::IntRect(344, 288, 16, 16));
-		livesBar[i].setPosition(12 + i * 16, 224);
+		livesBar[i].setPosition(12.f + i * 16.f, 224.f);
 	}
 
 	
@@ -135,19 +135,19 @@ GUI::GUI(sf::Texture* spritesheet)
 	ZaxxonText::string(spritesheet, "X\u000920", enemyLeft);
 	enemyLeft[0].setTextureRect(sf::IntRect(368, 296, 8, 8));
 
-	for (int i = 0; i < 4; i++)
-		enemyLeft[i].setPosition(176 + i * 8, 216);
+	for (byte i = 0; i < 4; i++)
+		enemyLeft[i].setPosition(176.f + i * 8.f, 216.f);
 }
 
 
-void GUI::render(sf::RenderWindow& window, float playerY, int score)
+void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
 	 should be 8 sections each for line/open and 2 each for top/bottom so
 	 yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
 	*/
-	int yDiff = round(((playerY) - 69)*1.0303030303);
+	int yDiff = round(((playerY) - 69)*0.95774647887);
 	if (yDiff < 0)
 		yDiff = 0;
 
@@ -157,7 +157,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 		selection = 0;
 
 	bool changingBelow = false, changingAbove = false;
-	const int last = 7, localYDiff = (yDiff - 2) % 8;
+	const byte last = 7, localYDiff = (yDiff - 2) % 8;
 
 	if (yDiff <= 66 && yDiff >= 2)
 	{
@@ -183,7 +183,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 	// temp
 	//std::cout << "ydiff: " << yDiff << " localYDiff: " << localYDiff << "\n";
 	
-	for (int i = 0; i < 10; i++)
+	for (byte i = 0; i < 10; i++)
 	{
 		HMSection& section = heightMeterSections[i];
 		if (i < selection)
@@ -202,8 +202,14 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 	window.draw(heightH);
 	window.draw(heightL);
 
+	for (byte i = 0; i < 10; i++)
+	{
+		window.draw(copyright[i]);
+		window.draw(enemyText[i]);
+	}
+
 	// Update score
-	for (int i = 0; i < 6; i++)
+	for (byte i = 0; i < 6; i++)
 	{
 		std::string str = std::to_string(score);
 
@@ -211,30 +217,35 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score)
 			str = '0' + str;
 
 		curScore[8 - i] = ZaxxonText::get(spritesheet, str.at(5 - i));
-		curScore[8 - i].setPosition(72 - 8 * i, 24);
+		curScore[8 - i].setPosition(72.f - 8.f * i, 24.f);
 	}
 
-	for (int i = 0; i < 10; i++)
-	{
-		window.draw(copyright[i]);
-		window.draw(enemyText[i]);
-	}
-
-	for (int i = 0; i < 9; i++)
+	for (byte i = 0; i < 9; i++)
 	{
 		window.draw(topScore[i]);
 		window.draw(curScore[i]);
 	}
 
-	for (int i = 0; i < 6; i++)
+	for (byte i = 0; i < 6; i++)
 		window.draw(fuelText[i]);
 
-	for (int i = 0; i < 16; i++)
-		window.draw(fuelBar[i]);
+	// Update fuel bar
+	for (byte i = 0; i < 16; i++)
+	{
+		sf::IntRect status(328, 296, 8, 8);
+		if (fuel - i * 8 < 8)
+			if (fuel - i * 8 > 0)
+				status.left = 328 - (8 - (fuel - i * 8) % 8) * 16;
+			else
+				status.left = 176, status.top = 272;
 
-	for (int i = 0; i < 2; i++)
+		fuelBar[i].setTextureRect(status);
+		window.draw(fuelBar[i]);
+	}
+		
+	for (byte i = 0; i < 2; i++)
 		window.draw(livesBar[i]);
 
-	for (int i = 0; i < 4; i++)
+	for (byte i = 0; i < 4; i++)
 		window.draw(enemyLeft[i]);
 }

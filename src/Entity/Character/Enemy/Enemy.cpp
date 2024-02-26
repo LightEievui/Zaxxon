@@ -42,7 +42,8 @@ void Enemy::kill()
 }
 
 
-void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, unsigned int playerZ, unsigned int wave)
+void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
+	int playerZ, unsigned int wave)
 {
 	switch (wave)
 	{
