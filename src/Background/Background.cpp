@@ -34,20 +34,20 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		{
 			stage = Stage::SPACE;
 			back.setTexture(space);
-			resetPos(mainView);
 		}
 		else if (stage == Stage::SPACE)
 		{
 			stage = Stage::BOSS;
 			back.setTexture(boss);
-			resetPos(mainView);
 		}
 		else
 		{
 			stage = Stage::INITIAL;
 			back.setTexture(initial);
-			resetPos(mainView);
 		}
+		resetPos(mainView);
+		player.resetPos();
+
 		generateObstacles(stage, obstacles, spritesheet);
 		generateWaves(stage, enemies, spritesheet, player.getPos().z);
 	}
@@ -75,14 +75,25 @@ bool Background::backgroundFinished(sf::View& view)
 }
 
 
+bool Background::isInSpace()
+{
+	return stage == SPACE;
+}
+
+
 void Background::resetPos(sf::View& mainView)
 {
 	//Sets the origin to the bottom left corner as that is where it will start 
 	//on the screen
-	//mainView.setCenter(sf::Vector2f(0, 0));
-	mainView.reset(sf::FloatRect(0.f, 0.f, 224.f, 224.f));
+	mainView.setCenter(sf::Vector2f(112, 100));
 	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
-	back.setPosition(sf::Vector2f(0, 240));
+	switch (stage)
+	{
+	case SPACE:
+		back.setPosition(sf::Vector2f(0, 0));
+	default:
+		back.setPosition(sf::Vector2f(0, 240));
+	}
 }
 
 

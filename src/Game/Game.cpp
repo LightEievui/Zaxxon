@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const float scale = 2;
-const unsigned int startPos = 0;
+const unsigned int startPos = 2100;
 
 
 Game::Game()

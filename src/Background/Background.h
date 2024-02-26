@@ -31,6 +31,7 @@ public:
 	static void generateWaves(Background::Stage stage,
 		std::vector<Enemy*>& enemies, sf::Texture* spriteSheet, int playerZ
 	);
+	bool isInSpace();
 private:
 	bool backgroundFinished(sf::View&);
 	void resetPos(sf::View& mainView);
