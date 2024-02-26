@@ -23,12 +23,13 @@ public:
 	void update(sf::RenderWindow&) override;
 	bool isPresent();
 	void bulletKill(int);
+	int getType();
 
 private:
 
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
-	int direction, count, total = 100, random;
+	int direction, count, total = 100, random, type;
 	bool turret = false, onScreen = false;
 };
 

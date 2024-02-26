@@ -18,24 +18,26 @@ public:
 	Game();
 	~Game();
 	void run();
-
 private:
-	// Player player;
-	// std::vector<Enemy> enemy;
-	std::vector<Obstacle*> obstacles;
+	sf::Texture spriteSheet;
 	Background background;
+	sf::RenderWindow window;
+	GUI gui;
+
+	Player* player;
+	std::vector<Enemy*> enemies;
+	std::vector<Obstacle*> obstacles;
+
 	byte fuel = 128;
 	byte completions = 0;
 	byte lives = 3;
 	int score = 0;
 	float gameSpeed = 1.;
-	// GUI gui;
+
 	sf::View mainView;
 	sf::View guiView;
 	sf::SoundBuffer flightBuffer;
 	sf::Sound flightSound;
 
 	void doCollision(Player*);
-	void generateObstacles(sf::Texture*);
-	void generateWaves(std::vector<Enemy*>& enemies, sf::Texture* spritesheet, int playerZ);
 };
