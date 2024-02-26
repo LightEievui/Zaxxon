@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Background/Background.h"
 #include "Obstacle/Obstacle.h"
 #include "Entity/Entity.h"
@@ -31,6 +32,8 @@ private:
 	// GUI gui;
 	sf::View mainView;
 	sf::View guiView;
+	sf::SoundBuffer flightBuffer;
+	sf::Sound flightSound;
 
 	void doCollision(Player*);
 	void generateObstacles(sf::Texture*);

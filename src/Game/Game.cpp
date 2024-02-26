@@ -5,7 +5,6 @@ const unsigned int startPos = 0;
 
 
 Game::Game()
-    : background(sf::Vector2f(0, 224))
 {
 
 }
@@ -35,6 +34,11 @@ void Game::run() // if random erros later check that stack isnt full
 
     guiView.reset(sf::FloatRect(0.f, 0.f, 224.f, 256.f));
     guiView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
+
+    flightBuffer.loadFromFile("res/sfx/02.wav");
+    flightSound.setBuffer(flightBuffer);
+    flightSound.setLoop(true);
+    flightSound.play();
 
     sf::Texture spriteSheet;
     spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
