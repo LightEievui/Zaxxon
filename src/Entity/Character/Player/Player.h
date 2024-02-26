@@ -10,6 +10,7 @@ public:
 	void update(sf::RenderWindow& window, bool inSpace);
 	void kill() override;
 	bool getTranslate2();
+	void bulletKill(int);
 private:
 	const int BULLET_COOLDOWN = 200;
 	sf::Clock bulletCD;
