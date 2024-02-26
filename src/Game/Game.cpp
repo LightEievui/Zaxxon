@@ -125,7 +125,6 @@ void Game::doCollision(Player* player)
                 if (difference.x < 10 && difference.y <  10 && difference.z < 10)
                 {
                     player->kill();
-                    std::cout << "Hit";
                     obstacles.at(i)->bulletKill(bullets);
                 }
             }
@@ -139,7 +138,6 @@ void Game::doCollision(Player* player)
                 difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                     abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
                     abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
-                std::cout << "x: " << difference.x << " y: " << difference.y << " z: " << difference.z << '\n';
 
                 if (difference.x < 20 && difference.y < 20 && difference.z < 20)
                 {
