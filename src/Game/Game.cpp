@@ -46,7 +46,7 @@ void Game::run()
     generateObstacles(&spriteSheet);
 
     //Testing for gavin
-    obstacles.push_back(new Obstacle(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     GUI gui(&spriteSheet);
@@ -106,28 +106,22 @@ void Game::run()
 
 void Game::doCollision(Player* player)
 {
-    
-    std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
+
+    std::vector<sf::Vector3f> bulletPos;
+
+    //Plane Bullets
+    std::vector<sf::Vector3f> planeBulletPos;
 
     sf::Vector3f planePos;
     planePos = player->getPos();
     
     for (int i = 0; i < obstacles.size(); i++)
     {
-        if (obstacles.at(i)->isPresent())
-        {
-            /*Player Bullets Hitting Obstacles
-            difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - planePos.x),
-                abs(obstacles.at(i)->getPosition().y - planePos.y),
-                abs(obstacles.at(i)->getPosition().z - planePos.z));
 
-            if (difference.x < 40 && difference.y < 20 && difference.z < 20)
-            {
-                obstacles.at(i)->kill();
-            }
-            */
-            //Bullets
+        if (obstacles.at(i)->isPresent())
+        {            
+            //Turret Bullets
             bulletPos = (obstacles.at(i)->getBulletLocations());
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
@@ -144,6 +138,30 @@ void Game::doCollision(Player* player)
                     obstacles.at(i)->bulletKill(bullets);
                 }
             }
+
+            //Plane Bullets
+            planeBulletPos = player->getBulletPosition();
+            for (unsigned int planeBullet = 0; planeBullet < planeBulletPos.size(); planeBullet++)
+            {
+                
+                difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - planeBulletPos.at(planeBullet).x),
+                    abs(obstacles.at(i)->getPosition().y - planeBulletPos.at(planeBullet).y),
+                    abs(obstacles.at(i)->getPosition().z - planeBulletPos.at(planeBullet).z));
+
+                std::cout << "Bullet: " << planeBullet << std::endl;
+
+                if (difference.x < 40 && difference.y < 20 && difference.z < 20)
+                {
+                    obstacles.at(i)->kill();
+                    std::cout << "Obstacle Dead" << std::endl;
+                    
+                    player->bulletKill(planeBullet);
+                    std::cout << "GOOD";
+                    planeBulletPos.erase(planeBulletPos.begin() + planeBullet);
+                    planeBullet--;
+                    
+                }
+            }
         }
     }
 }
@@ -157,9 +175,9 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     1 = Green Turrets
     2 = Shooting Up Bullets
     */
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -470), spriteSheet, 1, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-160, 135.6, -472), spriteSheet, 1, 1));
     
-    //Testing
+    //Testing(grey turrets)
     obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 1, 0));
     
 

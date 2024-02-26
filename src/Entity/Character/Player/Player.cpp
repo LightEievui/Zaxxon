@@ -113,3 +113,10 @@ bool Player::getTranslate2()
 {
 	return true;
 }
+
+
+void Player::bulletKill(int bullet)
+{
+	bullets.erase(bullets.begin() + bullet);
+	bulletsPos.erase(bulletsPos.begin() + bullet);
+}
