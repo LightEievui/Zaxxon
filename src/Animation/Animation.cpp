@@ -37,5 +37,12 @@ void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
 		sprite.setTextureRect(frames[current]);
 	}
 
-	sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+	complete = true;
+	//sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+}
+
+
+bool Animation::getComplete()
+{
+	return complete;
 }

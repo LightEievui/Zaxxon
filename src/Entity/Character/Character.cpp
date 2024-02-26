@@ -57,3 +57,10 @@ std::vector<sf::Vector3f>& Character::getBulletPosition()
 {
 	return bulletsPos;
 }
+
+
+void Character::killBullet(int bullet)
+{
+	bullets.erase(bullets.begin() + bullet);
+	bulletsPos.erase(bulletsPos.begin() + bullet);
+}

@@ -74,6 +74,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 	#endif
 
 	tempVelocity.z = -2;
+	//tempVelocity.z = -1.3; //for translateTo2d
 
 	// Position updates
 	setVelocity(tempVelocity);
@@ -93,13 +94,18 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		sf::Sprite& bullet = bullets[i];
 		window.draw(bullet);
 		bullet.move(translateTo2d(sf::Vector3f(0,0,-6)));
+		bulletsPos.at(i).z -= 6;
 
 		if (!getWindowViewRect(window).intersects(bullet.getGlobalBounds()))
 			erase.push_back(i);
 	}
 
-	for(unsigned int i : erase)
+	for (unsigned int i : erase)
+	{
 		bullets.erase(bullets.begin() + i);
+		bulletsPos.erase(bulletsPos.begin() + i);
+	}
+		
 }
 
 
@@ -111,5 +117,7 @@ void Player::kill()
 
 bool Player::getTranslate2()
 {
-	return true;
+	return true;/*i propose we switch to translateTo2d
+	, as i got it working and it is necessary for the 
+	collision to work*/ 
 }
