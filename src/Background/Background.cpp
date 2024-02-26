@@ -1,4 +1,5 @@
 #include "Background.h"
+#include "Util/Util.h"
 
 
 Background::Background(sf::Vector2f pos)
@@ -47,6 +48,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView, float game
 	}
 	else
 		mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
+		//mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3 * gameSpeed)));//for translateTo2d
 
 	window.draw(back);
 }

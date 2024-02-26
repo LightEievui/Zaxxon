@@ -98,25 +98,17 @@ void Game::run() // if random erros later check that stack isnt full
 
 void Game::doCollision(Player* player)
 {
-
     std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
+    int size;
 
     sf::Vector3f planePos;
-    planePos = player->getPos();
+    planePos = sf::Vector3f(player->getPos().x - 20, player->getPos().y, player->getPos().z - 20);
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
         if (obstacles.at(i)->isPresent())
         {
-            /*Player Bullets Hitting Obstacles
-            difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - planePos.x),
-                abs(obstacles.at(i)->getPosition().y - planePos.y),
-                abs(obstacles.at(i)->getPosition().z - planePos.z));
-
-            if (difference.x < 40 && difference.y < 20 && difference.z < 20)
-                obstacles.at(i)->kill();
-            */
             //Bullets
             bulletPos = (obstacles.at(i)->getBulletLocations());
 
@@ -126,11 +118,32 @@ void Game::doCollision(Player* player)
                     abs(bulletPos.at(bullets).y - planePos.y),
                     abs(bulletPos.at(bullets).z - planePos.z));
 
-                if (difference.x < 40 && difference.y < 20 && difference.z < 20)
+                if (difference.x < 10 && difference.y <  10 && difference.z < 10)
                 {
                     player->kill();
                     std::cout << "Hit";
                     obstacles.at(i)->bulletKill(bullets);
+                }
+            }
+
+            bulletPos = player->getBulletPosition();
+            size = bulletPos.size();
+
+            //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
+            for (unsigned int pBullets = 0; pBullets < size; pBullets++)
+            {
+                difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
+                    abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
+                    abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
+                std::cout << "x: " << difference.x << " y: " << difference.y << " z: " << difference.z << '\n';
+
+                if (difference.x < 20 && difference.y < 20 && difference.z < 20)
+                {
+                    obstacles.at(i)->kill();
+                    player->killBullet(pBullets);
+                    bulletPos.erase(bulletPos.begin() + pBullets);
+                    pBullets--;
+                    size--;
                 }
             }
         }
@@ -146,10 +159,10 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     1 = Green Turrets
     2 = Shooting Up Bullets
     */
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
+    //obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
 
     //Testing
-    obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
+    //obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
 
 
     /*
@@ -159,16 +172,16 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     2 = satellite
     */
 
-    obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 100, 0));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 140.6f, -700.f), spriteSheet, 100, 0));
 
-    obstacles.push_back(new Obstacle(sf::Vector3f(-157.f, 135.6f, -425.f), spriteSheet, 2));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-83.f, 135.6f, -625.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 135.6f, -630.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -745.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -995.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 135.6f, -990.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-65.f, 135.6f, -1115.f), spriteSheet, 1));
-    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 135.6f, -1290.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-157.f, 140.6f, -425.f), spriteSheet, 2));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-83.f, 140.6f, -625.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -630.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 140.6f, -745.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 140.6f, -995.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -990.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-65.f, 140.6f, -1115.f), spriteSheet, 1));
+    obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -1290.f), spriteSheet, 1));
 }
 
 
