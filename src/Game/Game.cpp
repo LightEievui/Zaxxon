@@ -130,6 +130,7 @@ void Game::doCollision(Player* player)
                 if (difference.x < 10 && difference.y <  10 && difference.z < 10)
                 {
                     player->kill();
+
                     obstacles.at(i)->bulletKill(bullets);
                 }
             }
