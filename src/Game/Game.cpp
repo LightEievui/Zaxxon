@@ -25,9 +25,6 @@ Game::Game()
     flightSound.setLoop(true);
     flightSound.play();
 
-    //Testing for gavin
-    obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 135.6f, -3.f
-    ), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     player = new Player(&spriteSheet, startPos);
@@ -133,7 +130,8 @@ void Game::doCollision(Player* player)
             //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
             for (unsigned int pBullets = 0; pBullets < size; pBullets++)
             {
-                difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
+                difference = sf::Vector3f
+                (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                     abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
                     abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
 
@@ -144,6 +142,43 @@ void Game::doCollision(Player* player)
                     bulletPos.erase(bulletPos.begin() + pBullets);
                     pBullets--;
                     size--;
+
+                    switch (obstacles.at(i)->getType())
+                    {
+                    case 1:
+                        score += 300;
+                        break;
+
+                    case 2:
+                        score += 1000;
+                        break;
+
+                    case 3:
+                        if (rand() % 1 == 0)
+                        {
+                            score += 200;
+                        }
+                        else 
+                        {
+                            score += 500;
+                        }
+                        break;
+
+                    case 4:
+                        if (rand() % 1 == 0)
+                        {
+                            score += 200;
+                        }
+                        else
+                        {
+                            score += 500;
+                        }
+                        break;
+
+                    case 5:
+                        score += 150;
+                    }
+                    
                 }
             }
         }

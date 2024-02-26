@@ -1,6 +1,13 @@
 #include "ZaxxonText.h"
 
 
+/// <summary>
+/// Take character or hex value then convert it and return
+/// the matching character/symbol from our spritesheet.
+/// </summary>
+/// <param name="spritemap"></param>
+/// <param name="in"></param>
+/// <returns>Sprite of character or symbol</returns>
 sf::Sprite ZaxxonText::get(sf::Texture* spritemap, char in)
 {
 	// chars: 65-90 inclusive
@@ -26,6 +33,13 @@ sf::Sprite ZaxxonText::get(sf::Texture* spritemap, char in)
 }
 
 
+/// <summary>
+/// Take a string of characters or hex values then convert all and then fill
+/// given sprite array with the matching characters/symbols for each.
+/// </summary>
+/// <param name="spritemap"></param>
+/// <param name="in"></param>
+/// <param name="arr"></param>
 void ZaxxonText::string(sf::Texture* spritemap, std::string in, sf::Sprite* arr)
 {
 	for (int i = 0; i < in.size(); i++)

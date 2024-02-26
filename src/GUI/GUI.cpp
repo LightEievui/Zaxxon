@@ -1,6 +1,10 @@
 #include "GUI.h"
 
 
+/// <summary>
+/// Initializes the GUI (graphical user interface)
+/// </summary>
+/// <param name="spritesheet"></param>
 GUI::GUI(sf::Texture* spritesheet)
 {
 	this->spritesheet = spritesheet;
@@ -140,6 +144,15 @@ GUI::GUI(sf::Texture* spritesheet)
 }
 
 
+/// <summary>
+/// Draw all the GUI to the screen each frame.
+/// Also run logic for certain interactive GUI elements and
+/// update them as needed.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="playerY"></param>
+/// <param name="score"></param>
+/// <param name="fuel"></param>
 void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 {
 	window.draw(heightMeterBg);

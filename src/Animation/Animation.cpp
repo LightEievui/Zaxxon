@@ -1,6 +1,9 @@
 #include "Animation.h"
 
 
+/// <summary>
+/// Initalize individual animation frames.
+/// </summary>
 Animation::Animation()
 {
 	// Setup death explosion frames
@@ -14,6 +17,11 @@ Animation::~Animation()
 }
 
 
+/// <summary>
+/// Run the given animation on sprite.
+/// </summary>
+/// <param name="sprite"></param>
+/// <param name="anim"></param>
 void Animation::run(sf::Sprite& sprite, Anim anim)
 {
 	timer.restart();
@@ -28,9 +36,13 @@ void Animation::run(sf::Sprite& sprite, Anim anim)
 }
 
 
-// TODO: Not the real character death
+/// <summary>
+/// Death animation definition.
+/// </summary>
+/// <param name="sprite"></param>
 void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
 {
+	// TODO: Not the real character death
 	while (timer.getElapsedTime().asSeconds() < 2)
 	{
 		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 2) % 2;
@@ -42,6 +54,10 @@ void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
 }
 
 
+/// <summary>
+/// Checks if current animation has finished running.
+/// </summary>
+/// <returns>A boolean</returns>
 bool Animation::getComplete()
 {
 	return complete;
