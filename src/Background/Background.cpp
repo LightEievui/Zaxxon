@@ -52,8 +52,8 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		generateWaves(stage, enemies, spritesheet, player.getPos().z);
 	}
 	else
-		mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
-		//mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3 * gameSpeed)));//for translateTo2d
+		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
+		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3 * gameSpeed)));//for translateTo2d
 
 	window.draw(back);
 }

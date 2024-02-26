@@ -95,15 +95,20 @@ void Game::run() // if random erros later check that stack isnt full
 
 void Game::doCollision(Player* player)
 {
+
     std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
     int size;
+
+    //Plane Bullets
+    std::vector<sf::Vector3f> planeBulletPos;
 
     sf::Vector3f planePos;
     planePos = sf::Vector3f(player->getPos().x - 20, player->getPos().y, player->getPos().z - 20);
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
+
         if (obstacles.at(i)->isPresent())
         {
             //Bullets
@@ -118,11 +123,10 @@ void Game::doCollision(Player* player)
                 if (difference.x < 10 && difference.y < 10 && difference.z < 10)
                 {
                     player->kill();
-                    std::cout << "Hit";
+
                     obstacles.at(i)->bulletKill(bullets);
                 }
             }
-
             bulletPos = player->getBulletPosition();
             size = bulletPos.size();
 
@@ -132,7 +136,6 @@ void Game::doCollision(Player* player)
                 difference = sf::Vector3f(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                     abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
                     abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
-                std::cout << "x: " << difference.x << " y: " << difference.y << " z: " << difference.z << '\n';
 
                 if (difference.x < 20 && difference.y < 20 && difference.z < 20)
                 {
