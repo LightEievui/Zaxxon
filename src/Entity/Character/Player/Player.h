@@ -1,11 +1,12 @@
 #pragma once
+#include <SFML/Audio.hpp>
 #include "../Character.h"
 
 
 class Player : public Character
 {
 public:
-	Player(sf::Texture* texture);
+	Player(sf::Texture* texture, unsigned int startPos);
 	void update(sf::RenderWindow& window, bool inSpace);
 	void kill() override;
 	bool getTranslate2();
@@ -16,5 +17,6 @@ private:
 	std::vector<int> erase;
 	sf::IntRect playerTextures[3][4];
 	sf::Sprite shadow;
+	sf::SoundBuffer bulletBuffer;
+	sf::Sound bulletSound;
 };
-

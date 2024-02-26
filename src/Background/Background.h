@@ -6,17 +6,23 @@
 class Background
 {
 public:
-	Background();
+	enum Stage {
+		INITIAL,
+		SPACE,
+		BOSS
+	};
+
+	Background(sf::Vector2f = sf::Vector2f(0, 0));
 	~Background();
 
-	void create(std::string, sf::Vector2f = sf::Vector2f(0, 0));
+	void update(sf::RenderWindow&, sf::View& mainView, float gameSpeed);
 	void setPosition(sf::Vector2f);
-	void setTexture(std::string);
-	void drawBackground(sf::RenderWindow&);
-	bool backgroundFinished(sf::View);
 
 private:
-	sf::Texture texture;
+	bool backgroundFinished(sf::View&);
+	void resetPos(sf::View& mainView);
+	sf::Texture initial, space, boss;
 	sf::Sprite back;
+	Stage stage = Stage::INITIAL;
 };
 

@@ -19,6 +19,7 @@ protected:
 	sf::Texture* spriteSheet;
 	sf::Sprite sprite;
 	Animation animations;
+	bool dead = false;
 
 private:
 	sf::Vector3f position;

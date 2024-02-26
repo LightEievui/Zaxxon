@@ -5,12 +5,14 @@
 #include "ZaxxonText/ZaxxonText.h"
 #include "HMSection/HMSection.h"
 
+typedef unsigned char byte;
+
 
 class GUI
 {
 public:
 	GUI(sf::Texture* spritesheet);
-	void render(sf::RenderWindow& window, float playerY, int score);
+	void render(sf::RenderWindow& window, float playerY, int score, byte fuel);
 
 private:
 	sf::Texture* spritesheet;
