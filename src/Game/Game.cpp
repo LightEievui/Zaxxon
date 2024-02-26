@@ -45,9 +45,6 @@ void Game::run() // if random erros later check that stack isnt full
 
     generateObstacles(&spriteSheet);
 
-    //Testing for gavin
-    obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 135.6f, -3.f
-    ), &spriteSheet, 10, 2));
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     GUI gui(&spriteSheet);
@@ -166,7 +163,7 @@ void Game::generateObstacles(sf::Texture* spriteSheet)
     1 = Green Turrets
     2 = Shooting Up Bullets
     */
-    //obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
+    //obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 100.6f, -200.f), spriteSheet, 1, 2));
 
     //Testing
     //obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));

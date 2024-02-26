@@ -1,3 +1,4 @@
+
 #include "Obstacle.h"
 
 
@@ -38,11 +39,10 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 
 		//sprite.setPosition(position);
 
-		bulletSprites.push_back(sf::Sprite());
-		bulletSprites.at(0).setTexture((*spriteSheet));
-		bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
-		bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
-		bulletSprites.at(0).setPosition(sf::Vector2f(100, 100));
+		sprite.setTexture((*spriteSheet));
+		sprite.setTextureRect(sf::IntRect(80, 69, 19, 30));
+		//sprite.setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
+		sprite.setPosition(translateTo2d(pos));
 	}
 }
 
@@ -117,17 +117,13 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(getPos());
 		}
-		/*else if (count % total == 0)
-		{
-			bulletPositions.push_back(position);
-
-			bulletSprites.push_back(sf::Sprite());
-			bulletSprites.at(0).setTexture(*spriteSheet);
-			bulletSprites.at(0).setTextureRect(sf::IntRect(80, 69, 19, 30));
-			bulletSprites.at(0).setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
-			bulletSprites.at(0).setPosition(translateTo2d(position));
-		}*/
 	}
+	if (direction == 2)
+	{
+		setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
+		sprite.setPosition(translateTo2d(getPos()));
+	}
+
 
 	for (int i = 0; i < bulletSprites.size(); i++)
 	{
@@ -135,9 +131,6 @@ void Obstacle::update(sf::RenderWindow& window)
 		{
 			bulletPositions.at(i).z += 3;
 		}
-		//else
-			//bulletPositions.at(i).y -= .5;
-		
 		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 
 		window.draw(bulletSprites.at(i));
