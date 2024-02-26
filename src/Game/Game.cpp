@@ -102,7 +102,7 @@ void Game::run() // if random erros later check that stack isnt full
 
 void Game::doCollision(Player* player)
 {
-    
+
     std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
     int size;
@@ -127,14 +127,16 @@ void Game::doCollision(Player* player)
             {
                 obstacles.at(i)->kill();
             }
-            */
+
             //Bullets
             bulletPos = (obstacles.at(i)->getBulletLocations());
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
             {
                 difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
-
+                    abs(bulletPos.at(bullets).y - planePos.y),
+                    abs(bulletPos.at(bullets).z - planePos.z));
+            }
             bulletPos = player->getBulletPosition();
             size = bulletPos.size();
 
@@ -158,31 +160,21 @@ void Game::doCollision(Player* player)
         }
     }
 }
-                if (difference.x < 10 && difference.y <  10 && difference.z < 10)
-                {
-                    player->kill();
-                    std::cout << "Hit";
-                    obstacles.at(i)->bulletKill(bullets);
-                }
-            }
-        }
-    }
-}
-    //obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
 
-    //Testing
-    //obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
 
+void Game::generateObstacles(sf::Texture* spriteSheet)
+{
+    /*Shooting Obstacles
     KEY
     0 = Grey Turrets
     1 = Green Turrets
     2 = Shooting Up Bullets
     */
-    obstacles.push_back(new Obstacle(sf::Vector3f(-150, 135.6, -470), spriteSheet, 1, 1));
-    
+    //obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
+
     //Testing
-    obstacles.push_back(new Obstacle(sf::Vector3f(-100, 135.6, -700), spriteSheet, 1, 0));
-    
+    //obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
+
 
     /*
     Stationary Obstacles
