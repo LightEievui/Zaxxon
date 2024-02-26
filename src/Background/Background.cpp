@@ -107,7 +107,7 @@ void Background::generateObstacles(Background::Stage stage,
 	1 = Green Turrets
 	2 = Shooting Up Bullets
 	*/
-	//obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 135.6f, -470.f), spriteSheet, 1, 1));
+	
 
 	//Testing
 	//obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
@@ -123,12 +123,20 @@ void Background::generateObstacles(Background::Stage stage,
 	switch (stage)
 	{
 	case INITIAL:
-		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 140.6f, -700.f), spriteSheet, 100, 0));
+		//TestingGreyCannon::obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 140.6f, -700.f), spriteSheet, 100, 0));
+		 
+		//Shooting
+		obstacles.push_back(new Obstacle(sf::Vector3f(-210.f, 140.6f, -360.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 140.6f, -415.f), spriteSheet, 100, 0));
 
-		obstacles.push_back(new Obstacle(sf::Vector3f(-157.f, 140.6f, -425.f), spriteSheet, 2));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-83.f, 140.6f, -625.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -630.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 140.6f, -745.f), spriteSheet, 1));
+		//Shooting Up Missiles
+		
+		//Non-Shooting
+		obstacles.push_back(new Obstacle(sf::Vector3f(-200.f, 140.6f, -320.f), spriteSheet, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-110.f, 140.6f, -570.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-42.f, 140.6f, -610.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-190.f, 140.6f, -645.f), spriteSheet, 1));
+
 		obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 140.6f, -995.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -990.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-65.f, 140.6f, -1115.f), spriteSheet, 1));
