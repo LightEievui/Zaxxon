@@ -19,6 +19,10 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 	this->shadow.setTexture(*spriteSheet);
 	this->shadow.setTextureRect(sf::IntRect(352,18,22,13));
 	this->shadow.setColor(sf::Color::Black);
+
+	// Prepare bullet sound
+	bulletBuffer.loadFromFile("res/sfx/08.wav");
+	bulletSound.setBuffer(bulletBuffer);
 }
 
 
@@ -67,6 +71,8 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		temp.setPosition(translateTo2d2(bulletsPos.at(bulletsPos.size() - 1)));
 
 		bullets.push_back(temp);
+
+		bulletSound.play();
 	}
 	#ifndef NDEBUG
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))

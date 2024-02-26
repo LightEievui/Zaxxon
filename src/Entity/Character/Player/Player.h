@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Audio.hpp>
 #include "../Character.h"
 
 
@@ -15,5 +16,6 @@ private:
 	std::vector<int> erase;
 	sf::IntRect playerTextures[3][4];
 	sf::Sprite shadow;
+	sf::SoundBuffer bulletBuffer;
+	sf::Sound bulletSound;
 };
-
