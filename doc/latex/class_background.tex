@@ -1,0 +1,41 @@
+\doxysection{Background Class Reference}
+\hypertarget{class_background}{}\label{class_background}\index{Background@{Background}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3}\label{class_background_a63cd37625e2bab37186432edd734c6b3} 
+enum {\bfseries Stage} \{ {\bfseries INITIAL}
+, {\bfseries SPACE}
+, {\bfseries BOSS}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_background_a5c7303096d3a98ab1e173b9c827f4ae2}\label{class_background_a5c7303096d3a98ab1e173b9c827f4ae2} 
+{\bfseries Background} (sf\+::\+Vector2f=sf\+::\+Vector2f(0, 0))
+\item 
+\Hypertarget{class_background_a2cbd26a7a47ab73ebe1cbced76b7415d}\label{class_background_a2cbd26a7a47ab73ebe1cbced76b7415d} 
+void {\bfseries update} (sf\+::\+Render\+Window \&window, sf\+::\+View \&main\+View, float game\+Speed, sf\+::\+Texture \texorpdfstring{$\ast$}{*}spritesheet, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&obstacles, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, \mbox{\hyperlink{class_player}{Player}} \&player)
+\item 
+\Hypertarget{class_background_a002ca1b009e940180bb5edb8c49e008f}\label{class_background_a002ca1b009e940180bb5edb8c49e008f} 
+void {\bfseries set\+Position} (sf\+::\+Vector2f)
+\item 
+\Hypertarget{class_background_abd3150983c5f3a2df47b761966235635}\label{class_background_abd3150983c5f3a2df47b761966235635} 
+bool {\bfseries is\+In\+Space} (int z)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_background_a673320c2422b07a59fc627324f460a4d}\label{class_background_a673320c2422b07a59fc627324f460a4d} 
+static void {\bfseries generate\+Obstacles} (Background\+::\+Stage stage, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&obstacles, sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
+\item 
+\Hypertarget{class_background_a883050ab33639345a20315f41c2bde18}\label{class_background_a883050ab33639345a20315f41c2bde18} 
+static void {\bfseries generate\+Waves} (Background\+::\+Stage stage, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet, int playerZ)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Background/Background.\+h\item 
+Background/Background.\+cpp\end{DoxyCompactItemize}
