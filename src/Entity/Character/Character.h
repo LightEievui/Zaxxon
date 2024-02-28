@@ -20,7 +20,7 @@ public:
 protected:
 	const int yMax = 140;
 	const int yMin = 69;
-	const int xMin = -150;
+	const int xMin = -180;
 	const int xMax = 0;
 
 	/* this computes the sizeindex (the quadrant the plane is in)
