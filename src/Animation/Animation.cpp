@@ -47,9 +47,10 @@ void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
 	{
 		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 2) % 2;
 		sprite.setTextureRect(frames[current]);
+		state = 2;
 	}
 
-	complete = true;
+	state = 1;
 	//sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 }
 
@@ -58,7 +59,7 @@ void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
 /// Checks if current animation has finished running.
 /// </summary>
 /// <returns>A boolean</returns>
-bool Animation::getComplete()
+int Animation::getState()
 {
-	return complete;
+	return state;
 }

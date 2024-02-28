@@ -1,0 +1,33 @@
+\doxysection{Entity.\+h}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{Entity/Entity.h@{Entity/Entity.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Animation/Animation.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_entity}{\string~Entity}}();}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ kill();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\&)\ =\ 0;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ setPos(sf::Vector3f\ pos)\ \{\ position\ =\ pos;\ \};}
+\DoxyCodeLine{00016\ \ \ \ \ sf::Vector3f\ getPos()\ \{\ \textcolor{keywordflow}{return}\ position;\ \};}
+\DoxyCodeLine{00017\ \ \ \ \ sf::FloatRect\ getBounds()\ \{\ \textcolor{keywordflow}{return}\ sprite.getGlobalBounds();\ \};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00019\ \ \ \ \ sf::Texture*\ spriteSheet;}
+\DoxyCodeLine{00020\ \ \ \ \ sf::Sprite\ sprite;}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_animation}{Animation}}\ animations;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ sf::Vector3f\ position;}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+
+\end{DoxyCode}
