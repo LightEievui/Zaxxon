@@ -117,6 +117,8 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 void Player::kill()
 {
 	animations.run(this->sprite, Animation::CHARACTER_DEATH);
+	//Not perfect but works
+	setPos(sf::Vector3f(0, 69, getPos().z));
 }
 
 

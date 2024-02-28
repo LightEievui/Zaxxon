@@ -106,23 +106,24 @@ void Game::run() // if random erros later check that stack isnt full
 
 void Game::doCollision(Player* player)
 {
-
-    std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
+
+    //Turret Bullet Setup
+    std::vector<sf::Vector3f> bulletPos;
     unsigned int size;
 
-    //Plane Bullets
+    //Plane Bullet Setup
     std::vector<sf::Vector3f> planeBulletPos;
-
     sf::Vector3f planePos;
     planePos = sf::Vector3f(player->getPos().x - 20, player->getPos().y, player->getPos().z - 20);
+    
+    std::cout << planePos.x << "  " << planePos.y << "  " << planePos.z << "  " << std::endl;
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
-
         if (obstacles.at(i)->isPresent())
         {
-            //Bullets
+            //Turret Bullets
             bulletPos = (obstacles.at(i)->getBulletLocations());
 
             for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
@@ -157,6 +158,7 @@ void Game::doCollision(Player* player)
                     pBullets--;
                     size--;
 
+                    //Scoring Swtich Statement
                     switch (obstacles.at(i)->getType())
                     {
                     case 1:
@@ -166,19 +168,13 @@ void Game::doCollision(Player* player)
                     case 2:
                         score += 1000;
                         break;
-
-                    case 3:
-                        if (rand() % 1 == 0)
-                        {
-                            score += 200;
-                        }
-                        else 
-                        {
-                            score += 500;
-                        }
+                    case 5:
+                        score += 150;
                         break;
-
-                    case 4:
+                    case 6:
+                        score += 100;
+                        break;
+                    default:
                         if (rand() % 1 == 0)
                         {
                             score += 200;
@@ -188,12 +184,21 @@ void Game::doCollision(Player* player)
                             score += 500;
                         }
                         break;
-
-                    case 5:
-                        score += 150;
                     }
                     
                 }
+            }
+
+            //Player Running into Obstacles
+            difference = sf::Vector3f
+                (abs(obstacles.at(i)->getPosition().x - planePos.x),
+                    abs(obstacles.at(i)->getPosition().y - planePos.y),
+                    abs(obstacles.at(i)->getPosition().z - planePos.z));
+
+            if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+            {           
+                player->kill();
+                //Test std::cout << "Player ran into obstacle" << endl;
             }
         }
     }
