@@ -1,0 +1,29 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{Entity/Character/Player/Player.h@{Entity/Character/Player/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Character.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}(sf::Texture*\ texture,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ startPos);}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{bool}\ inSpace);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ kill()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ getTranslate2();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ resetPos(\textcolor{keywordtype}{int}\ zOffset\ =\ 0);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ bulletKill(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BULLET\_COOLDOWN\ =\ 200;}
+\DoxyCodeLine{00017\ \ \ \ \ sf::Clock\ bulletCD;}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<int>\ erase;}
+\DoxyCodeLine{00019\ \ \ \ \ sf::IntRect\ playerTextures[3][4];}
+\DoxyCodeLine{00020\ \ \ \ \ sf::Sprite\ shadow;}
+\DoxyCodeLine{00021\ \ \ \ \ sf::SoundBuffer\ bulletBuffer;}
+\DoxyCodeLine{00022\ \ \ \ \ sf::Sound\ bulletSound;}
+\DoxyCodeLine{00023\ \};}
+
+\end{DoxyCode}

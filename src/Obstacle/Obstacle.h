@@ -31,5 +31,6 @@ private:
 	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count, total = 100, random, type;
 	bool turret = false, onScreen = false;
+
 };
 
