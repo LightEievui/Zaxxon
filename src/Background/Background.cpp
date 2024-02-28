@@ -12,8 +12,8 @@ Background::Background(sf::Vector2f pos)
 		std::cout << "Background file could not load\n";
 
 	back.setTexture(initial);
-	sf::View a = sf::View();
-	resetPos(a);
+	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
+	back.setPosition(sf::Vector2f(0, 240));
 }
 
 
@@ -45,8 +45,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 			stage = Stage::INITIAL;
 			back.setTexture(initial);
 		}
-		resetPos(mainView);
-		player.resetPos();
+		resetPos(mainView, player);
 
 		generateObstacles(stage, obstacles, spritesheet);
 		generateWaves(stage, enemies, spritesheet, player.getPos().z);
@@ -75,13 +74,31 @@ bool Background::backgroundFinished(sf::View& view)
 }
 
 
-bool Background::isInSpace()
+bool Background::isInSpace(int z)
 {
-	return stage == SPACE;
+	// Initial -2800: space
+	// Boss -123: No space
+	bool inSpace = false;
+	switch (stage)
+	{
+	case INITIAL:
+		if (z > -123 || z < -2800)
+			inSpace = true;
+		break;
+	case SPACE:
+		inSpace = true;
+		break;
+	case BOSS:
+		if (z > -123)
+			inSpace = true;
+		break;
+	}
+
+	return inSpace;
 }
 
 
-void Background::resetPos(sf::View& mainView)
+void Background::resetPos(sf::View& mainView, Player& player)
 {
 	//Sets the origin to the bottom left corner as that is where it will start 
 	//on the screen
@@ -90,9 +107,13 @@ void Background::resetPos(sf::View& mainView)
 	switch (stage)
 	{
 	case SPACE:
-		back.setPosition(sf::Vector2f(0, 0));
+		back.setPosition(sf::Vector2f(0, 224));
+		mainView.move(.8f * 300, -.4f * 350);
+		player.resetPos(300);
+		break;
 	default:
 		back.setPosition(sf::Vector2f(0, 240));
+		player.resetPos();
 	}
 }
 
@@ -153,4 +174,9 @@ void Background::generateWaves(Background::Stage stage,
 	std::vector<Enemy*>& enemies, sf::Texture* spriteSheetint, int playerZ)
 {
 	enemies.clear();
+	
+	switch (stage)
+	{
+
+	}
 }
