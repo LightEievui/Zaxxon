@@ -151,6 +151,7 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 140.6f, -415.f), spriteSheet, 100, 0));
 
 		//Shooting Up Missiles
+		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 140.6f, -415.f), spriteSheet, 100, 2));
 		
 		//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-200.f, 140.6f, -320.f), spriteSheet, 2));
