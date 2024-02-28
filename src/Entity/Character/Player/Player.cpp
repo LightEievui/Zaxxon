@@ -12,8 +12,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 			playerTextures[i][j] = a;
 			a.left += 23;
 		}
-	} // TODO: wrong texture @ [1][2]
-	// 30 18 so 22 5
+	}
 	this->sprite.setTextureRect(playerTextures[0][0]);
 	this->setPos(sf::Vector3f(0, 69, (int)startPos * -1.33333));
 	this->shadow.setTexture(*spriteSheet);
@@ -129,7 +128,7 @@ bool Player::getTranslate2()
 }
 
 
-void Player::resetPos()
+void Player::resetPos(int zOffset)
 {
-	setPos(sf::Vector3f(0, 69, 0));
+	setPos(sf::Vector3f(getPos().x, getPos().y, zOffset * -1.33333));
 }

@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const float scale = 2;
-const unsigned int startPos = 2100;
+const unsigned int startPos = 1900;
 
 
 Game::Game()
@@ -74,8 +74,8 @@ void Game::run() // if random erros later check that stack isnt full
 
         for (Enemy* enemy : enemies)
             enemy->update(window);
-        // TODO: update inSpace on whether background is space or not.
-        player->update(window, false);
+
+        player->update(window, background.isInSpace(player->getPos().z));
         window.setView(guiView);
         gui.render(window, player->getPos().y, score, fuel);
         window.setView(mainView);
