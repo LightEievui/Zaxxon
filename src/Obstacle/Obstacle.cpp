@@ -98,7 +98,7 @@ std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 
 void Obstacle::update(sf::RenderWindow& window)
 {
-	if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()) || animations.getComplete())
+	if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()) || animations.getState() == 1)
 	{
 		onScreen = false;
 		return;
@@ -152,7 +152,7 @@ void Obstacle::setPosition(sf::Vector3f pos)
 
 bool Obstacle::isPresent()
 {
-	return animations.getComplete() ? !animations.getComplete() : onScreen;
+	return animations.getState() != 0 ? !(animations.getState() != 0) : onScreen;
 }
 
 
