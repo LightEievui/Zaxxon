@@ -22,6 +22,7 @@ private:
 	sf::Texture spriteSheet;
 	Background background;
 	sf::RenderWindow window;
+	sf::ContextSettings s;
 	GUI gui;
 
 	Player* player;

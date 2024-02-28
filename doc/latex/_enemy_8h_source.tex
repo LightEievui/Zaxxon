@@ -1,0 +1,28 @@
+\doxysection{Enemy.\+h}
+\hypertarget{_enemy_8h_source}{}\label{_enemy_8h_source}\index{Entity/Character/Enemy/Enemy.h@{Entity/Character/Enemy/Enemy.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}../Character.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_enemy}{Enemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{class_enemy}{Enemy}}(sf::Texture*\ texture,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\&\ window);}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ kill()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ getTranslate2()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ Static\ so\ can\ be\ used\ from\ any\ context.}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Will\ spawn\ a\ wave\ of\ enemies\ relative\ to\ the\ player.}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ spawnWave(std::vector<Enemy*>\&\ enemies,\ sf::Texture*\ spritesheet,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ playerZ,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ wave}
+\DoxyCodeLine{00015\ \ \ \ \ );}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ runAI();}
+\DoxyCodeLine{00018\ \ \ \ \ sf::IntRect\ textures[2][4];}
+\DoxyCodeLine{00019\ \ \ \ \ sf::Clock\ alive;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+
+\end{DoxyCode}

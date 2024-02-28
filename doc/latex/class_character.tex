@@ -1,0 +1,118 @@
+\doxysection{Character Class Reference}
+\hypertarget{class_character}{}\label{class_character}\index{Character@{Character}}
+Inheritance diagram for Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_character}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_character_a6f03ac5d478b72b3a32fe0270fcdd726}\label{class_character_a6f03ac5d478b72b3a32fe0270fcdd726} 
+{\bfseries Character} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
+\item 
+void \mbox{\hyperlink{class_character_af0c724d7bc1e9aa89385900e86f3841b}{update}} (sf\+::\+Render\+Window \&window)
+\item 
+virtual void \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{kill}} ()=0
+\item 
+\Hypertarget{class_character_a84503e639ff28fdf9648ea921d5ba9d6}\label{class_character_a84503e639ff28fdf9648ea921d5ba9d6} 
+std\+::vector$<$ sf\+::\+Vector3f $>$ \& {\bfseries get\+Bullet\+Position} ()
+\item 
+\Hypertarget{class_character_aef458dc1aacfd7a7a3263ca862f829ca}\label{class_character_aef458dc1aacfd7a7a3263ca862f829ca} 
+std\+::vector$<$ sf\+::\+Sprite $>$ \& {\bfseries get\+Bullets} ()
+\item 
+\Hypertarget{class_character_a1ba419af494e1f4f74f3b3c41a9b0f59}\label{class_character_a1ba419af494e1f4f74f3b3c41a9b0f59} 
+virtual bool {\bfseries get\+Translate2} ()
+\item 
+\Hypertarget{class_character_a6ea404b0682144a8f21d42e881cb0ce7}\label{class_character_a6ea404b0682144a8f21d42e881cb0ce7} 
+void {\bfseries kill\+Bullet} (int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f {\bfseries get\+Pos} ()
+\item 
+sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_character_ae76b2b97b4bac98f1d2405a6ab912838}\label{class_character_ae76b2b97b4bac98f1d2405a6ab912838} 
+void {\bfseries get\+Size\+Index} (unsigned int \&plane\+Size\+Index)
+\item 
+\Hypertarget{class_character_aa2ee5df8a31732a36f37bfce88161401}\label{class_character_aa2ee5df8a31732a36f37bfce88161401} 
+sf\+::\+Vector3f {\bfseries get\+Velocity} ()
+\item 
+\Hypertarget{class_character_a70c12cbae04e69c7a8dfc69d66546cd5}\label{class_character_a70c12cbae04e69c7a8dfc69d66546cd5} 
+void {\bfseries set\+Velocity} (sf\+::\+Vector3f vel)
+\item 
+\Hypertarget{class_character_ac3f36a6c967385c2158439cbd72411cb}\label{class_character_ac3f36a6c967385c2158439cbd72411cb} 
+void {\bfseries set\+Bullet} (sf\+::\+Int\+Rect bullet\+Texture\+Rect)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_character_a602309a031e6db0a570644d8f0b5d5fb}\label{class_character_a602309a031e6db0a570644d8f0b5d5fb} 
+const int {\bfseries y\+Max} = 140
+\item 
+\Hypertarget{class_character_a1750fc7b411d6fdac9ca9e6763e126f5}\label{class_character_a1750fc7b411d6fdac9ca9e6763e126f5} 
+const int {\bfseries y\+Min} = 69
+\item 
+\Hypertarget{class_character_a682f191a3a01f1a772cd3fa624c0b16e}\label{class_character_a682f191a3a01f1a772cd3fa624c0b16e} 
+const int {\bfseries x\+Min} = -\/150
+\item 
+\Hypertarget{class_character_ae741b4874f8875f33f70663890315a52}\label{class_character_ae741b4874f8875f33f70663890315a52} 
+const int {\bfseries x\+Max} = 0
+\item 
+\Hypertarget{class_character_a12d640046cf216dd010f8e71c3466e1e}\label{class_character_a12d640046cf216dd010f8e71c3466e1e} 
+sf\+::\+Vector3f {\bfseries velocity}
+\item 
+\Hypertarget{class_character_a052602c15bdcfe473a16b3983e00d2fc}\label{class_character_a052602c15bdcfe473a16b3983e00d2fc} 
+std\+::vector$<$ sf\+::\+Sprite $>$ {\bfseries bullets}
+\item 
+\Hypertarget{class_character_ab30c2adf7a286bf06fb3b65f8a96ffdb}\label{class_character_ab30c2adf7a286bf06fb3b65f8a96ffdb} 
+std\+::vector$<$ sf\+::\+Vector3f $>$ {\bfseries bullets\+Pos}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+\item 
+sf\+::\+Sprite {\bfseries sprite}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\item 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}\label{class_character_a6eaf7357d3575a2281b5456abfbe1b9d} 
+\index{Character@{Character}!kill@{kill}}
+\index{kill@{kill}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily virtual void Character\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_entity}{Entity}}.
+
+\Hypertarget{class_character_af0c724d7bc1e9aa89385900e86f3841b}\label{class_character_af0c724d7bc1e9aa89385900e86f3841b} 
+\index{Character@{Character}!update@{update}}
+\index{update@{update}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Character\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Entity/\+Character/Character.\+h\item 
+Entity/\+Character/Character.\+cpp\end{DoxyCompactItemize}
