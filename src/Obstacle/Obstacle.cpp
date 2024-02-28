@@ -54,6 +54,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	KEY
 	1 = gas can
 	2 = satellite
+	3 = plane
 	*/
 	this->type = type;
 
@@ -71,6 +72,11 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	else if (type == 2)
 	{
 		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
+	}
+	else if (type == 3)
+	{
+		this->type = 6;
+		sprite.setTextureRect(sf::IntRect(92, 35, 29, 25));
 	}
 
 	sprite.setPosition(translateTo2d(pos));
@@ -172,6 +178,7 @@ int Obstacle::getType()
 	3 = grey cannon
 	4 = green cannon
 	5 = Shooting Up
+	6 = Plane
 	*/
 
 	return type;
