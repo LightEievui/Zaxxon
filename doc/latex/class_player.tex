@@ -1,0 +1,118 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_player_a3bd7b33f3be65a691c792e423c454525}\label{class_player_a3bd7b33f3be65a691c792e423c454525} 
+{\bfseries Player} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}texture, unsigned int start\+Pos)
+\item 
+\Hypertarget{class_player_aa00ec61879fab17b8c07f3050d2356c0}\label{class_player_aa00ec61879fab17b8c07f3050d2356c0} 
+void {\bfseries update} (sf\+::\+Render\+Window \&window, bool in\+Space)
+\item 
+void \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{kill}} () override
+\item 
+bool \mbox{\hyperlink{class_player_a4c6ec3e34ca1d2045e174dca9073c750}{get\+Translate2}} ()
+\item 
+\Hypertarget{class_player_a49066b4a0b345abad5a5d4a6ec640140}\label{class_player_a49066b4a0b345abad5a5d4a6ec640140} 
+void {\bfseries reset\+Pos} (int z\+Offset=0)
+\item 
+\Hypertarget{class_player_a73f088cbf912f31b40f3ae5f043a6f7d}\label{class_player_a73f088cbf912f31b40f3ae5f043a6f7d} 
+void {\bfseries bullet\+Kill} (int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Character} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
+\item 
+void \mbox{\hyperlink{class_character_af0c724d7bc1e9aa89385900e86f3841b}{update}} (sf\+::\+Render\+Window \&window)
+\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ \& {\bfseries get\+Bullet\+Position} ()
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \& {\bfseries get\+Bullets} ()
+\item 
+void {\bfseries kill\+Bullet} (int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f {\bfseries get\+Pos} ()
+\item 
+sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries get\+Size\+Index} (unsigned int \&plane\+Size\+Index)
+\item 
+sf\+::\+Vector3f {\bfseries get\+Velocity} ()
+\item 
+void {\bfseries set\+Velocity} (sf\+::\+Vector3f vel)
+\item 
+void {\bfseries set\+Bullet} (sf\+::\+Int\+Rect bullet\+Texture\+Rect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries y\+Max} = 140
+\item 
+const int {\bfseries y\+Min} = 69
+\item 
+const int {\bfseries x\+Min} = -\/150
+\item 
+const int {\bfseries x\+Max} = 0
+\item 
+sf\+::\+Vector3f {\bfseries velocity}
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ {\bfseries bullets}
+\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ {\bfseries bullets\+Pos}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+\item 
+sf\+::\+Sprite {\bfseries sprite}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\item 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a4c6ec3e34ca1d2045e174dca9073c750}\label{class_player_a4c6ec3e34ca1d2045e174dca9073c750} 
+\index{Player@{Player}!getTranslate2@{getTranslate2}}
+\index{getTranslate2@{getTranslate2}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getTranslate2()}{getTranslate2()}}
+{\footnotesize\ttfamily bool Player\+::get\+Translate2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
+
+\Hypertarget{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}\label{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a} 
+\index{Player@{Player}!kill@{kill}}
+\index{kill@{kill}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily void Player\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_character}{Character}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Entity/\+Character/\+Player/Player.\+h\item 
+Entity/\+Character/\+Player/Player.\+cpp\end{DoxyCompactItemize}

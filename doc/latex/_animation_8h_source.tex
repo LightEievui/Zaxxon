@@ -1,0 +1,31 @@
+\doxysection{Animation.\+h}
+\hypertarget{_animation_8h_source}{}\label{_animation_8h_source}\index{Animation/Animation.h@{Animation/Animation.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_animation}{Animation}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{enum}\ Anim\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ CHARACTER\_DEATH}
+\DoxyCodeLine{00012\ \ \ \ \ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_animation_a83f0a16cef7117f187ad596de38dd9d6}{Animation}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_animation}{\string~Animation}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a4e1084a8d4b025c9d46d2c030da05518}{run}}(sf::Sprite\&,\ Anim);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a56e10a632378d75a7a57bb8408036c08}{fCHARACTER\_DEATH}}(sf::Sprite\&\ sprite);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_a98ba478599435669e5839598b5e1213b}{getComplete}}();}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ sf::Clock\ timer;}
+\DoxyCodeLine{00022\ \ \ \ \ sf::IntRect\ frames[2];}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ complete\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//if\ you\ want\ to\ change\ this\ that\ is\ fine,\ i\ just\ need\ some\ way\ to\ get\ when\ its\ done.}}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+
+\end{DoxyCode}
