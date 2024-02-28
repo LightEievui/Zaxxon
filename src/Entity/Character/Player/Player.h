@@ -9,7 +9,6 @@ public:
 	Player(sf::Texture* texture, unsigned int startPos);
 	void update(sf::RenderWindow& window, bool inSpace);
 	void kill() override;
-	bool getTranslate2();
 	void resetPos(int zOffset = 0);
 	void bulletKill(int);
 private:

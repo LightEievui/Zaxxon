@@ -17,6 +17,6 @@ High scores are saved and listed, see how high you can get!
 ## Build instructions
 For Visual Studio 2022 (ISO C++ 14 standard): \
 Clone the repository, set your build to x86 (32-bit), and build! \
-To switch out [SFML](https://www.sfml-dev.org/) version, simply replace `libs/SFML` with your new version. No guranteed support for versions aside from SFML 2.6.1 32-bit version. \
+To switch out [SFML](https://www.sfml-dev.org/) version, simply replace `lib/SFML` with your new version. No guranteed support for versions aside from SFML 2.6.1 32-bit version. \
 The resulting exe file has all resources statically linked, so you can run the exe without any extra files.
 Requires OpenAL32 dynamic library to be in the folder that the exe is ran from.
