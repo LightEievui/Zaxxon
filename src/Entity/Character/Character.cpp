@@ -64,3 +64,13 @@ void Character::killBullet(int bullet)
 	bullets.erase(bullets.begin() + bullet);
 	bulletsPos.erase(bulletsPos.begin() + bullet);
 }
+
+
+void Character::setPos(sf::Vector3f pos)
+{
+	if (pos.y >= yMax)
+		pos.y = yMax - 1;
+	else if (pos.y <= yMin)
+		pos.y = yMin + 1;
+	Entity::setPos(pos);
+}
