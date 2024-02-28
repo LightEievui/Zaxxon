@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 
-Enemy::Enemy(sf::Texture* texture, unsigned int id) : Character(texture)
+Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
@@ -10,11 +10,19 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id) : Character(texture)
 
 	this->id = id;
 	alive.restart();
-
+	// y range @ current values: 0 - 71.
 	switch (id)
 	{
 	case 0:
-		this->setPos(sf::Vector3f(-200, 0, -500));
+		this->setPos(sf::Vector3f(0, 100, spawnZ));
+	}
+	this->setPos(getPos() + sf::Vector3f(0, 69, 0));
+	
+	if (getPos().y >= yMax)
+	{
+		sf::Vector3f temp = getPos();
+		temp.y = yMax-1;
+		setPos(temp);
 	}
 }
 
@@ -48,7 +56,7 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	switch (wave)
 	{
 	case 0:
-		enemies.push_back(new Enemy(spritesheet, 0));
+		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 1000));
 		break;
 	}
 }

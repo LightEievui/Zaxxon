@@ -1,7 +1,8 @@
 #include "Game.h"
 
 const float scale = 2;
-const unsigned int startPos = 1900;
+const unsigned int startPos = 0;
+Background::Stage startStage = Background::SPACE;
 
 
 Game::Game()
@@ -24,15 +25,13 @@ Game::Game()
     flightSound.setBuffer(flightBuffer);
     flightSound.setLoop(true);
     flightSound.play();
-
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     player = new Player(&spriteSheet, startPos);
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
-    // MAY want to consider changing these to be in Background constructor
-    Background::generateObstacles(Background::INITIAL, obstacles, &spriteSheet);
-    Background::generateWaves(Background::INITIAL, enemies, &spriteSheet, player->getPos().z);
+    // background must be done after player.
+    pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos);
 }
 
 
@@ -41,11 +40,18 @@ Game::~Game()
     const int obstaclesSize = obstacles.size();
     for (int i = 0; i < obstaclesSize; i++)
         delete obstacles[i];
+    delete pBackground;
 }
 
 
 void Game::run() // if random erros later check that stack isnt full
 {
+    unsigned int fps;
+    double deltaTime;
+    std::chrono::steady_clock::time_point lastTime =
+        std::chrono::high_resolution_clock::now(), currentTime;
+    Background& background = *pBackground;
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -75,12 +81,20 @@ void Game::run() // if random erros later check that stack isnt full
         for (Enemy* enemy : enemies)
             enemy->update(window);
 
-        player->update(window, background.isInSpace(player->getPos().z));
+        player->update(window, background.isInSpace((int)player->getPos().z));
         window.setView(guiView);
         gui.render(window, player->getPos().y, score, fuel);
         window.setView(mainView);
 
         window.display();
+
+        currentTime = std::chrono::high_resolution_clock::now();
+        deltaTime = (std::chrono::duration_cast
+            <std::chrono::nanoseconds>(currentTime - lastTime).count());
+        lastTime = std::chrono::high_resolution_clock::now();
+
+        fps = (unsigned int)(1000000000.0 / deltaTime);
+        //std::cout << fps << "\n"; // temp
     }
 
     delete player;
@@ -95,7 +109,7 @@ void Game::doCollision(Player* player)
 
     std::vector<sf::Vector3f> bulletPos;
     sf::Vector3f difference;
-    int size;
+    unsigned int size;
 
     //Plane Bullets
     std::vector<sf::Vector3f> planeBulletPos;
