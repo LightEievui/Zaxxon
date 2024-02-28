@@ -1,0 +1,82 @@
+\doxysection{Obstacle Class Reference}
+\hypertarget{class_obstacle}{}\label{class_obstacle}\index{Obstacle@{Obstacle}}
+Inheritance diagram for Obstacle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_obstacle}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}\label{class_obstacle_a92816aa47ab3cbb031423f16ab75a920} 
+{\bfseries Obstacle} (sf\+::\+Vector3f, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, float, int)
+\item 
+\Hypertarget{class_obstacle_a4d24e681dc227109b688b2f4a49c5a61}\label{class_obstacle_a4d24e681dc227109b688b2f4a49c5a61} 
+{\bfseries Obstacle} (sf\+::\+Vector3f, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int)
+\item 
+\Hypertarget{class_obstacle_a29b7f49fb1b9b7e4d24eb8f05cc12dc3}\label{class_obstacle_a29b7f49fb1b9b7e4d24eb8f05cc12dc3} 
+void {\bfseries set\+Texture} (std\+::string)
+\item 
+\Hypertarget{class_obstacle_a712e425583cff17617c280a10399bf1e}\label{class_obstacle_a712e425583cff17617c280a10399bf1e} 
+void {\bfseries set\+Position} (sf\+::\+Vector3f)
+\item 
+\Hypertarget{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}\label{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30} 
+sf\+::\+Vector3f {\bfseries get\+Position} ()
+\item 
+\Hypertarget{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}\label{class_obstacle_a214183fffe9a6301fbe708313c96b6e7} 
+std\+::vector$<$ sf\+::\+Vector3f $>$ {\bfseries get\+Bullet\+Locations} ()
+\item 
+void \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{update}} (sf\+::\+Render\+Window \&) override
+\item 
+\Hypertarget{class_obstacle_af395b8077b863766f840f75377a9c6fc}\label{class_obstacle_af395b8077b863766f840f75377a9c6fc} 
+bool {\bfseries is\+Present} ()
+\item 
+\Hypertarget{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}\label{class_obstacle_a39869e565df81ce8a50e42668cd0fab7} 
+void {\bfseries bullet\+Kill} (int)
+\item 
+\Hypertarget{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}\label{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114} 
+int {\bfseries get\+Type} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries kill} ()
+\item 
+void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f {\bfseries get\+Pos} ()
+\item 
+sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+\item 
+sf\+::\+Sprite {\bfseries sprite}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\item 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}\label{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14} 
+\index{Obstacle@{Obstacle}!update@{update}}
+\index{update@{update}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Obstacle\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Obstacle/Obstacle.\+h\item 
+Obstacle/Obstacle.\+cpp\end{DoxyCompactItemize}

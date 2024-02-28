@@ -1,0 +1,125 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{class_enemy}{}\label{class_enemy}\index{Enemy@{Enemy}}
+Inheritance diagram for Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_enemy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_a7cff872fa96724907884c2bb0ef3106f}\label{class_enemy_a7cff872fa96724907884c2bb0ef3106f} 
+{\bfseries Enemy} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}texture, unsigned int id)
+\item 
+void \mbox{\hyperlink{class_enemy_a349afad8d959df35754e94d6d34e0d61}{update}} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}{kill}} () override
+\item 
+bool \mbox{\hyperlink{class_enemy_af933da0510136962e59487e9a6c28ead}{get\+Translate2}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Character} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
+\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ \& {\bfseries get\+Bullet\+Position} ()
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \& {\bfseries get\+Bullets} ()
+\item 
+void {\bfseries kill\+Bullet} (int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f {\bfseries get\+Pos} ()
+\item 
+sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_ac9ff07b91737445dad2632b0fa0049c2}\label{class_enemy_ac9ff07b91737445dad2632b0fa0049c2} 
+static void {\bfseries spawn\+Wave} (std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, sf\+::\+Texture \texorpdfstring{$\ast$}{*}spritesheet, int playerZ, unsigned int wave)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries get\+Size\+Index} (unsigned int \&plane\+Size\+Index)
+\item 
+sf\+::\+Vector3f {\bfseries get\+Velocity} ()
+\item 
+void {\bfseries set\+Velocity} (sf\+::\+Vector3f vel)
+\item 
+void {\bfseries set\+Bullet} (sf\+::\+Int\+Rect bullet\+Texture\+Rect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_character}{Character}}}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries y\+Max} = 140
+\item 
+const int {\bfseries y\+Min} = 69
+\item 
+const int {\bfseries x\+Min} = -\/150
+\item 
+const int {\bfseries x\+Max} = 0
+\item 
+sf\+::\+Vector3f {\bfseries velocity}
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ {\bfseries bullets}
+\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ {\bfseries bullets\+Pos}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+\item 
+sf\+::\+Sprite {\bfseries sprite}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\item 
+bool {\bfseries dead} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_af933da0510136962e59487e9a6c28ead}\label{class_enemy_af933da0510136962e59487e9a6c28ead} 
+\index{Enemy@{Enemy}!getTranslate2@{getTranslate2}}
+\index{getTranslate2@{getTranslate2}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getTranslate2()}{getTranslate2()}}
+{\footnotesize\ttfamily bool Enemy\+::get\+Translate2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
+
+\Hypertarget{class_enemy_ad0bf56e75378d9524f2d77479d259dde}\label{class_enemy_ad0bf56e75378d9524f2d77479d259dde} 
+\index{Enemy@{Enemy}!kill@{kill}}
+\index{kill@{kill}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily void Enemy\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_character}{Character}}.
+
+\Hypertarget{class_enemy_a349afad8d959df35754e94d6d34e0d61}\label{class_enemy_a349afad8d959df35754e94d6d34e0d61} 
+\index{Enemy@{Enemy}!update@{update}}
+\index{update@{update}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Enemy\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Entity/\+Character/\+Enemy/Enemy.\+h\item 
+Entity/\+Character/\+Enemy/Enemy.\+cpp\end{DoxyCompactItemize}
