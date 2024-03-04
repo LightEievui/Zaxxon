@@ -1,13 +1,22 @@
 #include "HMSection.h"
 
 
-// 25 sections 8 - 207 x
+/// <summary>
+/// Set the texture by what current section should be.
+/// </summary>
+/// <param name="sect"></param>
 void HMSection::setSection(int sect)
 {
+	// 25 sections 8 - 207 x
 	section = sect % 25;
 	this->setTextureRect(sf::IntRect(8 + section * 8, 296, 8, 8));
 }
 
+
+/// <summary>
+/// Set what type the current section sprite should be.
+/// </summary>
+/// <param name="type"></param>
 void HMSection::setType(Type type)
 {
 	this->type = type;
@@ -29,11 +38,20 @@ void HMSection::setType(Type type)
 }
 
 
+/// <summary>
+/// Get the current section id.
+/// </summary>
+/// <returns></returns>
 int HMSection::getSection()
 {
 	return section;
 }
 
+
+/// <summary>
+/// Make current section change by a stage.
+/// </summary>
+/// <param name="stage"></param>
 void HMSection::progress(int stage)
 {
 	int change;
@@ -76,6 +94,9 @@ void HMSection::progress(int stage)
 }
 
 
+/// <summary>
+/// Current section should be full.
+/// </summary>
 void HMSection::fill()
 {
 	switch (this->type)
@@ -95,6 +116,9 @@ void HMSection::fill()
 }
 
 
+/// <summary>
+/// Current section should be empty.
+/// </summary>
 void HMSection::empty()
 {
 	switch (this->type)

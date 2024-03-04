@@ -17,6 +17,8 @@ public:
 	std::vector<sf::Sprite>& getBullets();
 	virtual bool getTranslate2() { return false; };
 	void killBullet(int);
+
+	void setPos(sf::Vector3f pos);
 protected:
 	const int yMax = 140;
 	const int yMin = 69;

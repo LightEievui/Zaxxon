@@ -15,7 +15,10 @@ public:
 		BOSS
 	};
 
-	Background(sf::Vector2f = sf::Vector2f(0, 0));
+	Background(Stage startStage, sf::View& mainView, sf::Texture* spritesheet,
+		std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
+		int startPos
+	);
 	~Background();
 
 	void update(sf::RenderWindow& window, sf::View& mainView, float gameSpeed,
@@ -33,8 +36,12 @@ public:
 	);
 	bool isInSpace(int z);
 private:
+	void changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
+		std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies,
+		Player& player, int startPos
+	);
 	bool backgroundFinished(sf::View&);
-	void resetPos(sf::View& mainView, Player& player);
+	void resetPos(sf::View& mainView, Player& player, int startPos);
 
 	sf::Texture initial, space, boss;
 	sf::Sprite back;

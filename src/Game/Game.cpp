@@ -2,6 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
+Background::Stage startStage = Background::SPACE;
 
 
 Game::Game()
@@ -24,15 +25,13 @@ Game::Game()
     flightSound.setBuffer(flightBuffer);
     flightSound.setLoop(true);
     flightSound.play();
-
     //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     player = new Player(&spriteSheet, startPos);
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
-    // MAY want to consider changing these to be in Background constructor
-    Background::generateObstacles(Background::INITIAL, obstacles, &spriteSheet);
-    Background::generateWaves(Background::INITIAL, enemies, &spriteSheet, player->getPos().z);
+    // background must be done after player.
+    pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos);
 }
 
 
@@ -41,11 +40,18 @@ Game::~Game()
     const int obstaclesSize = obstacles.size();
     for (int i = 0; i < obstaclesSize; i++)
         delete obstacles[i];
+    delete pBackground;
 }
 
 
 void Game::run() // if random erros later check that stack isnt full
 {
+    unsigned int fps;
+    double deltaTime;
+    std::chrono::steady_clock::time_point lastTime =
+        std::chrono::high_resolution_clock::now(), currentTime;
+    Background& background = *pBackground;
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -66,6 +72,7 @@ void Game::run() // if random erros later check that stack isnt full
 
         doCollision(player);
 
+        // Update window & objects
         window.clear();
 
         background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player);
@@ -75,12 +82,21 @@ void Game::run() // if random erros later check that stack isnt full
         for (Enemy* enemy : enemies)
             enemy->update(window);
 
-        player->update(window, background.isInSpace(player->getPos().z));
+        player->update(window, background.isInSpace((int)player->getPos().z));
         window.setView(guiView);
         gui.render(window, player->getPos().y, score, fuel);
         window.setView(mainView);
 
         window.display();
+
+        // FPS
+        currentTime = std::chrono::high_resolution_clock::now();
+        deltaTime = (std::chrono::duration_cast
+            <std::chrono::nanoseconds>(currentTime - lastTime).count());
+        lastTime = std::chrono::high_resolution_clock::now();
+
+        fps = (unsigned int)(1000000000.0 / deltaTime);
+        //std::cout << fps << "\n"; // temp but leave til done production
     }
 
     delete player;
@@ -96,7 +112,7 @@ void Game::doCollision(Player* player)
 
     //Turret Bullet Setup
     std::vector<sf::Vector3f> bulletPos;
-    int size;
+    unsigned int size;
 
     //Plane Bullet Setup
     std::vector<sf::Vector3f> planeBulletPos;
@@ -107,85 +123,74 @@ void Game::doCollision(Player* player)
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
-        if (obstacles.at(i)->isPresent())
+        if (!obstacles.at(i)->isPresent())
+            continue;
+        //Turret Bullets
+        bulletPos = (obstacles.at(i)->getBulletLocations());
+
+        for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
         {
-            //Turret Bullets
-            bulletPos = (obstacles.at(i)->getBulletLocations());
+            difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
+                abs(bulletPos.at(bullets).y - planePos.y),
+                abs(bulletPos.at(bullets).z - planePos.z));
 
-            for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
+            if (difference.x < 10 && difference.y < 10 && difference.z < 10)
             {
-                difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
-                    abs(bulletPos.at(bullets).y - planePos.y),
-                    abs(bulletPos.at(bullets).z - planePos.z));
-
-                if (difference.x < 10 && difference.y < 10 && difference.z < 10)
-                {
-                    player->kill();
-
-                    obstacles.at(i)->bulletKill(bullets);
-                }
-            }
-            bulletPos = player->getBulletPosition();
-            size = bulletPos.size();
-
-            //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
-            for (unsigned int pBullets = 0; pBullets < size; pBullets++)
-            {
-                difference = sf::Vector3f
-                (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
-                    abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
-                    abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
-
-                if (difference.x < 20 && difference.y < 20 && difference.z < 20)
-                {
-                    obstacles.at(i)->kill();
-                    player->killBullet(pBullets);
-                    bulletPos.erase(bulletPos.begin() + pBullets);
-                    pBullets--;
-                    size--;
-
-                    //Scoring Swtich Statement
-                    switch (obstacles.at(i)->getType())
-                    {
-                    case 1:
-                        score += 300;
-                        break;
-
-                    case 2:
-                        score += 1000;
-                        break;
-                    case 5:
-                        score += 150;
-                        break;
-                    case 6:
-                        score += 100;
-                        break;
-                    default:
-                        if (rand() % 1 == 0)
-                        {
-                            score += 200;
-                        }
-                        else
-                        {
-                            score += 500;
-                        }
-                        break;
-                    }
-                    
-                }
-            }
-
-            //Player Running into Obstacles
-            difference = sf::Vector3f
-                (abs(obstacles.at(i)->getPosition().x - planePos.x),
-                    abs(obstacles.at(i)->getPosition().y - planePos.y),
-                    abs(obstacles.at(i)->getPosition().z - planePos.z));
-
-            if (difference.x < 20 && difference.y < 20 && difference.z < 10)
-            {           
                 player->kill();
-                //Test std::cout << "Player ran into obstacle" << endl;
+
+                obstacles.at(i)->bulletKill(bullets);
             }
         }
+        bulletPos = player->getBulletPosition();
+        size = bulletPos.size();
+
+        //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
+        for (unsigned int pBullets = 0; pBullets < size; pBullets++)
+        {
+            difference = sf::Vector3f
+            (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
+                abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
+                abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
+
+            if (!(difference.x < 20 && difference.y < 20 && difference.z < 20))
+                continue;
+            obstacles.at(i)->kill();
+            player->killBullet(pBullets);
+            bulletPos.erase(bulletPos.begin() + pBullets);
+            pBullets--;
+            size--;
+
+            //Scoring Swtich Statement
+            switch (obstacles.at(i)->getType())
+            {
+            case 1:
+                score += 300;
+                break;
+            case 2:
+                score += 1000;
+                break;
+            case 5:
+                score += 150;
+                break;
+            case 6:
+                score += 100;
+                break;
+            default:
+                if (rand() % 1 == 0)
+                    score += 200;
+                else
+                    score += 500;
+                break;
+            }
+        }
+
+        //Player Running into Obstacles
+        difference = sf::Vector3f
+            (abs(obstacles.at(i)->getPosition().x - planePos.x),
+                abs(obstacles.at(i)->getPosition().y - planePos.y),
+                abs(obstacles.at(i)->getPosition().z - planePos.z));
+
+        if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+            player->kill();
     }
 }

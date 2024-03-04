@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <chrono>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Background/Background.h"
@@ -20,7 +21,7 @@ public:
 	void run();
 private:
 	sf::Texture spriteSheet;
-	Background background;
+	Background* pBackground;
 	sf::RenderWindow window;
 	sf::ContextSettings s;
 	GUI gui;
