@@ -118,8 +118,6 @@ void Game::doCollision(Player* player)
     std::vector<sf::Vector3f> planeBulletPos;
     sf::Vector3f planePos;
     planePos = sf::Vector3f(player->getPos().x - 20, player->getPos().y, player->getPos().z - 20);
-    
-    std::cout << planePos.x << "  " << planePos.y << "  " << planePos.z << "  " << std::endl;
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {

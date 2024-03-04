@@ -179,8 +179,8 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-20.f, 140.6f, -2240.f), spriteSheet, 100, 1));
 
 		//Shooting Up Missiles
-		obstacles.push_back(new Obstacle(sf::Vector3f(-60.f, 140.6f, -345.f), spriteSheet, 100, 2));
-
+		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 140.6f, -415.f), spriteSheet, 100, 2));
+		
 		//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-200.f, 140.6f, -320.f), spriteSheet, 2));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-110.f, 140.6f, -570.f), spriteSheet, 1));
