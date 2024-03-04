@@ -21,7 +21,7 @@ void Character::update(sf::RenderWindow& window)
 	// update the character's position using it's velocity
 	setPos(getPos() + this->velocity);
 
-	sprite.setPosition(getTranslate2() ? translateTo2d2(getPos()) : translateTo2d(getPos()));
+	sprite.setPosition(translateTo2d(getPos()));
 	window.draw(sprite);
 }
 
@@ -49,6 +49,12 @@ void Character::getSizeIndex(unsigned int& planeSizeIndex)
 	for (int i = 0; i < 4; i++)
 		if (y < qSize * i && y < qSize * i + 1)
 			planeSizeIndex = 3 - i;
+
+	// for edge
+	if (getPos().y >= yMax-2)
+		planeSizeIndex = 0;
+	if (getPos().y <= yMin-2)
+		planeSizeIndex = 3;
 }
 
 
