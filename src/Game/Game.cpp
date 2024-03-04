@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 Game::Game()
@@ -118,8 +118,6 @@ void Game::doCollision(Player* player)
     std::vector<sf::Vector3f> planeBulletPos;
     sf::Vector3f planePos;
     planePos = sf::Vector3f(player->getPos().x - 20, player->getPos().y, player->getPos().z - 20);
-    
-    std::cout << planePos.x << "  " << planePos.y << "  " << planePos.z << "  " << std::endl;
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
@@ -147,6 +145,10 @@ void Game::doCollision(Player* player)
         //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
         for (unsigned int pBullets = 0; pBullets < size; pBullets++)
         {
+            //Makes it so you cannot shoot walls
+            if (!(obstacles.at(i)->getType() == 4 || obstacles.at(i)->getType() == 5))
+                continue;
+
             difference = sf::Vector3f
             (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                 abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),

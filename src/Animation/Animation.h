@@ -8,7 +8,8 @@ class Animation
 {
 public:
 	const enum Anim {
-		CHARACTER_DEATH
+		CHARACTER_DEATH,
+		ALT_DEATH
 	};
 
 	Animation();
@@ -16,10 +17,11 @@ public:
 
 	void run(sf::Sprite&, Anim);
 	void fCHARACTER_DEATH(sf::Sprite& sprite);
+	void fALT_DEATH(sf::Sprite& sprite);
 	int getState();
 private:
 	sf::Clock timer;
-	sf::IntRect frames[2];
-	int state = 0; //if you want to change this that is fine, i just need some way to get when its done.
+	sf::IntRect frames[8];
+	int state = 0; 
 };
 

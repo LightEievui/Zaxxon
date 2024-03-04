@@ -2,7 +2,7 @@
 #include "Obstacle.h"
 
 
-Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity()
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : Entity()
 {
 	srand(time(NULL));
 	random = (rand() % 1000) + 200;
@@ -44,6 +44,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float,  int dir) : Entity
 		sprite.setTextureRect(sf::IntRect(80, 69, 19, 30));
 		//sprite.setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
 		sprite.setPosition(translateTo2d(pos));
+		total = delay;
 	}
 }
 
@@ -55,6 +56,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	1 = gas can
 	2 = satellite
 	3 = plane
+	4 = wall
 	*/
 	this->type = type;
 
@@ -73,10 +75,20 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	{
 		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
 	}
-	else if (type == 3)
+	if (type == 3)
 	{
 		this->type = 6;
 		sprite.setTextureRect(sf::IntRect(92, 35, 29, 25));
+	}
+	if (type == 4)
+	{
+		this->type = 7;
+		sprite.setTextureRect(sf::IntRect(240, 64, 34, 32));
+	}
+	else if (type == 5)
+	{
+		this->type = 8;
+		sprite.setTextureRect(sf::IntRect(278, 65, 34, 32));
 	}
 
 	sprite.setPosition(translateTo2d(pos));
@@ -112,7 +124,7 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	onScreen = true;
 
-	if (turret == true)
+	if (turret == true && direction != 2)
 	{
 		if (count % total == 0 && direction == 0)
 		{
@@ -126,10 +138,18 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletPositions.push_back(getPos());
 		}
 	}
-	if (direction == 2)
+	else if (count >= total)
 	{
-		setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
-		sprite.setPosition(translateTo2d(getPos()));
+		if (getPos().y > 70.f)
+		{
+			setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
+			sprite.setPosition(translateTo2d(getPos()));
+		}
+		else if (animations.getState() == 0)
+		{
+			kill(Animation::ALT_DEATH);
+		}
+		
 	}
 
 
@@ -146,7 +166,10 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	window.draw(sprite);
 	
-	count = (count + 1) % total;
+	if (direction != 2)
+		count = (count + 1) % total;
+	else
+		count = (count + 1) % 10000;
 }
 
 
@@ -179,6 +202,8 @@ int Obstacle::getType()
 	4 = green cannon
 	5 = Shooting Up
 	6 = Plane
+	7 = Closed End Wall
+	8 = Open End Wall
 	*/
 
 	return type;

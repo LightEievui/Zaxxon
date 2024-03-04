@@ -16,7 +16,8 @@ Entity::~Entity()
 /// <summary>
 /// Run death animation code for the killed entity.
 /// </summary>
-void Entity::kill()
+void Entity::kill(Animation::Anim animation)
 {
-	animations.run(this->sprite, Animation::CHARACTER_DEATH);
+	animations.run(this->sprite, animation);
+	std::cout << "w";
 }

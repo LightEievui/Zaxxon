@@ -9,7 +9,7 @@ public:
 	Entity();
 	~Entity();
 
-	virtual void kill();
+	virtual void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
 	virtual void update(sf::RenderWindow&) = 0;
 
 	void setPos(sf::Vector3f pos) { position = pos; };
