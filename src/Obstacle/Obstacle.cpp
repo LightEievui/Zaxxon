@@ -1,7 +1,13 @@
-
 #include "Obstacle.h"
 
 
+/// <summary>
+/// Create a turret obstacle with shooting and direction.
+/// </summary>
+/// <param name="pos"></param>
+/// <param name="tex"></param>
+/// <param name=""></param>
+/// <param name="dir"></param>
 Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : Entity()
 {
 	srand(time(NULL));
@@ -49,6 +55,12 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
 }
 
 
+/// <summary>
+/// Create a non-turret obstacle (Still obstacle).
+/// </summary>
+/// <param name="pos"></param>
+/// <param name="tex"></param>
+/// <param name="type"></param>
 Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 {
 	/*
@@ -91,18 +103,30 @@ Obstacle::~Obstacle()
 }
 
 
+/// <summary>
+/// Get position of the obstacle.
+/// </summary>
+/// <returns>Vector of 3 floats</returns>
 sf::Vector3f Obstacle::getPosition()
 {
 	return getPos();
 }
 
 
+/// <summary>
+/// Get positions for all bullets of the obstacle (For turrets).
+/// </summary>
+/// <returns>Vector of vectors of 3 floats</returns>
 std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 {
 	return bulletPositions;
 }
 
 
+/// <summary>
+/// Run the logic for this obstacle.
+/// </summary>
+/// <param name="window"></param>
 void Obstacle::update(sf::RenderWindow& window)
 {
 	if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()) || animations.getState() == 1)
@@ -162,18 +186,30 @@ void Obstacle::update(sf::RenderWindow& window)
 }
 
 
+/// <summary>
+/// Set the position of this obstacle.
+/// </summary>
+/// <param name="pos"></param>
 void Obstacle::setPosition(sf::Vector3f pos)
 {
 	sprite.setPosition(translateTo2d(pos));
 }
 
 
+/// <summary>
+/// Check if this obstacle exists.
+/// </summary>
+/// <returns>A boolean</returns>
 bool Obstacle::isPresent()
 {
 	return animations.getState() != 0 ? !(animations.getState() != 0) : onScreen;
 }
 
 
+/// <summary>
+/// Get rid of obstacles bullet by index (For turrets).
+/// </summary>
+/// <param name="bullet"></param>
 void Obstacle::bulletKill(int bullet)
 {
 	bulletSprites.erase(bulletSprites.begin() + (bullet));
@@ -181,6 +217,10 @@ void Obstacle::bulletKill(int bullet)
 }
 
 
+/// <summary>
+/// Get what type of obstacle this is.
+/// </summary>
+/// <returns>An int</returns>
 int Obstacle::getType()
 {
 	/*

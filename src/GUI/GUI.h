@@ -11,8 +11,8 @@ typedef unsigned char byte;
 class GUI
 {
 public:
-	GUI(sf::Texture* spritesheet);
-	void render(sf::RenderWindow& window, float playerY, int score, byte fuel);
+	GUI(sf::Texture*);
+	void render(sf::RenderWindow&, float, int, byte);
 
 private:
 	sf::Texture* spritesheet;
