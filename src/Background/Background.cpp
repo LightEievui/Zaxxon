@@ -149,26 +149,20 @@ void Background::generateObstacles(Background::Stage stage,
 	0 = Grey Turrets
 	1 = Green Turrets
 	2 = Shooting Up Bullets
-	*/
 	
-
-	//Testing
-	//obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 135.6f, -700.f), spriteSheet, 1, 0));
-
-
-	/*
 	Stationary Obstacles
 	KEY
 	1 = gas can
 	2 = satellite
 	3 = plane
+	4 = closed end wall
+	5 = open end wall
 	*/
+
 	obstacles.clear();
 	switch (stage)
 	{
 	case INITIAL:
-		//TestingGreyCannon::obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 140.6f, -700.f), spriteSheet, 100, 0));
-		 
 		//Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-210.f, 140.6f, -360.f), spriteSheet, 100, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 140.6f, -415.f), spriteSheet, 100, 0));
@@ -178,6 +172,11 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-210.f, 140.6f, -1125.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-172.f, 140.6f, -1390.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -1660.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-210.f, 140.6f, -2315.f), spriteSheet, 100, 0));
+
+		// Need to be Flipped - Green Turret
+		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 140.6f, -2060.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-20.f, 140.6f, -2240.f), spriteSheet, 100, 1));
 
 		//Shooting Up Missiles
 		obstacles.push_back(new Obstacle(sf::Vector3f(-60.f, 140.6f, -345.f), spriteSheet, 100, 2));
@@ -193,9 +192,20 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 140.6f, -1285.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-165.f, 140.6f, -1665.f), spriteSheet, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-70.f, 140.6f, -1750.f), spriteSheet, 3));
-
 		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 140.6f, -1780.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 140.6f, -1880.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 140.6f, -2025.f), spriteSheet, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-125.f, 140.6f, -2155.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-70.f, 140.6f, -2300.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 140.6f, -2415.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-75.f, 140.6f, -2440.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-155.f, 140.6f, -2470.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 140.6f, -2615.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 140.6f, -2615.f), spriteSheet, 2));
+
+		//Walls
+		obstacles.push_back(new Obstacle(sf::Vector3f(-32.f, 90.f, -118.f), spriteSheet, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-192.f, 90.f, -115.f), spriteSheet, 5));
 		break;
 	}
 }
