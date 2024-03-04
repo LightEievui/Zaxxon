@@ -75,12 +75,12 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	{
 		sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
 	}
-	if (type == 3)
+	else if (type == 3)
 	{
 		this->type = 6;
 		sprite.setTextureRect(sf::IntRect(92, 35, 29, 25));
 	}
-	if (type == 4)
+	else if (type == 4)
 	{
 		this->type = 7;
 		sprite.setTextureRect(sf::IntRect(240, 64, 34, 32));
@@ -149,8 +149,12 @@ void Obstacle::update(sf::RenderWindow& window)
 		{
 			kill(Animation::ALT_DEATH);
 		}
-		
 	}
+	/*else if (count < total)
+	{
+		kill(Animation::ALT_DEATH);
+		//animations.run(sprite, Animation::LAUNCH);
+	}*/
 
 
 	for (int i = 0; i < bulletSprites.size(); i++)

@@ -9,7 +9,8 @@ class Animation
 public:
 	const enum Anim {
 		CHARACTER_DEATH,
-		ALT_DEATH
+		ALT_DEATH,
+		LAUNCH
 	};
 
 	Animation();
@@ -18,6 +19,7 @@ public:
 	void run(sf::Sprite&, Anim);
 	void fCHARACTER_DEATH(sf::Sprite& sprite);
 	void fALT_DEATH(sf::Sprite& sprite);
+	void fLAUNCH(sf::Sprite& sprite);
 	int getState();
 private:
 	sf::Clock timer;
