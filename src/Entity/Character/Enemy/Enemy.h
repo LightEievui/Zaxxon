@@ -4,7 +4,7 @@
 class Enemy : public Character
 {
 public:
-	Enemy(sf::Texture* texture, unsigned int id);
+	Enemy(sf::Texture* texture, unsigned int id, int spawnZ);
 	void update(sf::RenderWindow& window);
 	void kill() override;
 	bool getTranslate2() { return true; };

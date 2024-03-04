@@ -1,6 +1,11 @@
 #include "Player.h"
 
 
+/// <summary>
+/// Create player character at position and load resources for them.
+/// </summary>
+/// <param name="texture"></param>
+/// <param name="startPos"></param>
 Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 {
 	// 1st @ 8 13 24 32
@@ -25,6 +30,11 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 }
 
 
+/// <summary>
+/// Run all the logic for player.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="inSpace"></param>
 void Player::update(sf::RenderWindow& window, bool inSpace)
 {
 	// Update texture
@@ -114,6 +124,9 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 }
 
 
+/// <summary>
+/// Run animations and other code for when player dies.
+/// </summary>
 void Player::kill()
 {
 	animations.run(this->sprite, Animation::CHARACTER_DEATH);
@@ -122,14 +135,10 @@ void Player::kill()
 }
 
 
-bool Player::getTranslate2()
-{
-	return false;/*i propose we switch to translateTo2d
-	, as i got it working and it is necessary for the 
-	collision to work*/ 
-}
-
-
+/// <summary>
+/// Reset the players position to default.
+/// </summary>
+/// <param name="zOffset"></param>
 void Player::resetPos(int zOffset)
 {
 	setPos(sf::Vector3f(getPos().x, getPos().y, zOffset * -1.33333));
