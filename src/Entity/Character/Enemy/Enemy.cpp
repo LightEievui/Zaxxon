@@ -1,6 +1,12 @@
 #include "Enemy.h"
 
 
+/// <summary>
+/// Create new enemy.
+/// </summary>
+/// <param name="texture"></param>
+/// <param name="id"></param>
+/// <param name="spawnZ"></param>
 Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
@@ -27,10 +33,14 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 }
 
 
+/// <summary>
+/// Run the logic for this enemy.
+/// </summary>
+/// <param name="window"></param>
 void Enemy::update(sf::RenderWindow& window)
-{
-	
+{	
 	runAI();
+
 	unsigned int planeSizeIndex;
 	unsigned int planeVertical = 0;
 	getSizeIndex(planeSizeIndex);
@@ -44,12 +54,22 @@ void Enemy::update(sf::RenderWindow& window)
 }
 
 
+/// <summary>
+/// Extra code for when enemy is killed.
+/// </summary>
 void Enemy::kill()
 {
 
 }
 
 
+/// <summary>
+/// Enemies come in waves, this will spawn the specified enemy wave by int id.
+/// </summary>
+/// <param name="enemies"></param>
+/// <param name="spritesheet"></param>
+/// <param name="playerZ"></param>
+/// <param name="wave"></param>
 void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	int playerZ, unsigned int wave)
 {
@@ -62,6 +82,9 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 }
 
 
+/// <summary>
+/// Basic enemy AI. Runs each frame on enemy update.
+/// </summary>
 void Enemy::runAI()
 {
 	sf::Vector3f vel;

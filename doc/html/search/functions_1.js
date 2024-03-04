@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fcharacter_5fdeath_0',['fCHARACTER_DEATH',['../class_animation.html#a56e10a632378d75a7a57bb8408036c08',1,'Animation']]]
+  ['background_0',['Background',['../class_background.html#a1fac54c7e81db155fbef597121344108',1,'Background']]],
+  ['bulletkill_1',['bulletKill',['../class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7',1,'Obstacle']]]
 ];

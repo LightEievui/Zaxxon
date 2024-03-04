@@ -9,26 +9,27 @@ Inheritance diagram for Enemy\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_enemy_a7cff872fa96724907884c2bb0ef3106f}\label{class_enemy_a7cff872fa96724907884c2bb0ef3106f} 
-{\bfseries Enemy} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}texture, unsigned int id)
-\item 
-void \mbox{\hyperlink{class_enemy_a349afad8d959df35754e94d6d34e0d61}{update}} (sf\+::\+Render\+Window \&window)
-\item 
+\mbox{\hyperlink{class_enemy_ae328df4b31d1deea035aa07e9c135062}{Enemy}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}, unsigned int, int)
+\begin{DoxyCompactList}\small\item\em Create new enemy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a899157d4bd6d049bc094bc92863dccec}{update}} (sf\+::\+Render\+Window \&)
+\begin{DoxyCompactList}\small\item\em Run the logic for this enemy. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}{kill}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Extra code for when enemy is killed. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_enemy_af933da0510136962e59487e9a6c28ead}{get\+Translate2}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Character} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
-\item 
-std\+::vector$<$ sf\+::\+Vector3f $>$ \& {\bfseries get\+Bullet\+Position} ()
-\item 
-std\+::vector$<$ sf\+::\+Sprite $>$ \& {\bfseries get\+Bullets} ()
-\item 
-void {\bfseries kill\+Bullet} (int)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_character_a7e22d0af12e2c3c8cb364d22ce8cc9f2}{Character}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Create new character who will have sprite from spritesheet. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ \& \mbox{\hyperlink{class_character_a84503e639ff28fdf9648ea921d5ba9d6}{get\+Bullet\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get positions for all of this characters bullets. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \& \mbox{\hyperlink{class_character_aef458dc1aacfd7a7a3263ca862f829ca}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em Get the currently fired bullets from this character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_a6ea404b0682144a8f21d42e881cb0ce7}{kill\+Bullet}} (int)
+\begin{DoxyCompactList}\small\item\em Get rid of bullet by index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{set\+Pos}} (sf\+::\+Vector3f)
+\begin{DoxyCompactList}\small\item\em Set position for the character itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,21 +42,20 @@ sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_enemy_ac9ff07b91737445dad2632b0fa0049c2}\label{class_enemy_ac9ff07b91737445dad2632b0fa0049c2} 
-static void {\bfseries spawn\+Wave} (std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, sf\+::\+Texture \texorpdfstring{$\ast$}{*}spritesheet, int playerZ, unsigned int wave)
-\end{DoxyCompactItemize}
+static void \mbox{\hyperlink{class_enemy_a965d8a0c6f027a92795b9794158369b7}{spawn\+Wave}} (std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int, unsigned int)
+\begin{DoxyCompactList}\small\item\em Enemies come in waves, this will spawn the specified enemy wave by int id. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries get\+Size\+Index} (unsigned int \&plane\+Size\+Index)
-\item 
-sf\+::\+Vector3f {\bfseries get\+Velocity} ()
-\item 
-void {\bfseries set\+Velocity} (sf\+::\+Vector3f vel)
-\item 
-void {\bfseries set\+Bullet} (sf\+::\+Int\+Rect bullet\+Texture\+Rect)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_character_ad41cb97f383d1681e76e580f06bc2481}{get\+Size\+Index}} (unsigned int \&)
+\begin{DoxyCompactList}\small\item\em Get the height sector that character is in. \end{DoxyCompactList}\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_character_aa2ee5df8a31732a36f37bfce88161401}{get\+Velocity}} ()
+\begin{DoxyCompactList}\small\item\em Get the velocity of character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_a46a264779165a349a13bcb364c4106d4}{set\+Velocity}} (sf\+::\+Vector3f)
+\begin{DoxyCompactList}\small\item\em Change the velocity of this character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_afe32dd9baa581b7895f06c9687d073b4}{set\+Bullet}} (sf\+::\+Int\+Rect)
+\begin{DoxyCompactList}\small\item\em Change how the bullets from this character look. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_character}{Character}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,7 +63,7 @@ const int {\bfseries y\+Max} = 140
 \item 
 const int {\bfseries y\+Min} = 69
 \item 
-const int {\bfseries x\+Min} = -\/150
+const int {\bfseries x\+Min} = -\/180
 \item 
 const int {\bfseries x\+Max} = 0
 \item 
@@ -86,6 +86,28 @@ bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_enemy_ae328df4b31d1deea035aa07e9c135062}\label{class_enemy_ae328df4b31d1deea035aa07e9c135062} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{texture,  }\item[{unsigned int}]{id,  }\item[{int}]{spawnZ }\end{DoxyParamCaption})}
+
+
+
+Create new enemy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & \\
+\hline
+{\em id} & \\
+\hline
+{\em spawnZ} & \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_enemy_af933da0510136962e59487e9a6c28ead}\label{class_enemy_af933da0510136962e59487e9a6c28ead} 
 \index{Enemy@{Enemy}!getTranslate2@{getTranslate2}}
@@ -105,9 +127,34 @@ Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
 
 
 
-Implements \mbox{\hyperlink{class_character}{Character}}.
+Extra code for when enemy is killed. 
 
-\Hypertarget{class_enemy_a349afad8d959df35754e94d6d34e0d61}\label{class_enemy_a349afad8d959df35754e94d6d34e0d61} 
+
+
+Implements \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{Character}}.
+
+\Hypertarget{class_enemy_a965d8a0c6f027a92795b9794158369b7}\label{class_enemy_a965d8a0c6f027a92795b9794158369b7} 
+\index{Enemy@{Enemy}!spawnWave@{spawnWave}}
+\index{spawnWave@{spawnWave}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{spawnWave()}{spawnWave()}}
+{\footnotesize\ttfamily void Enemy\+::spawn\+Wave (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{int}]{playerZ,  }\item[{unsigned int}]{wave }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Enemies come in waves, this will spawn the specified enemy wave by int id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemies} & \\
+\hline
+{\em spritesheet} & \\
+\hline
+{\em playerZ} & \\
+\hline
+{\em wave} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_a899157d4bd6d049bc094bc92863dccec}\label{class_enemy_a899157d4bd6d049bc094bc92863dccec} 
 \index{Enemy@{Enemy}!update@{update}}
 \index{update@{update}!Enemy@{Enemy}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
@@ -115,11 +162,20 @@ Implements \mbox{\hyperlink{class_character}{Character}}.
 
 
 
-Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
+Run the logic for this enemy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{Character}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Entity/\+Character/\+Enemy/Enemy.\+h\item 
-Entity/\+Character/\+Enemy/Enemy.\+cpp\end{DoxyCompactItemize}
+src/\+Entity/\+Character/\+Enemy/Enemy.\+h\item 
+src/\+Entity/\+Character/\+Enemy/Enemy.\+cpp\end{DoxyCompactItemize}

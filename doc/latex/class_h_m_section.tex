@@ -19,27 +19,84 @@ enum {\bfseries Type} \{ {\bfseries LINE}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_h_m_section_a1e12affdb4e3c62832cd62a33d3e3db2}\label{class_h_m_section_a1e12affdb4e3c62832cd62a33d3e3db2} 
-void {\bfseries progress} (int stage)
-\item 
-\Hypertarget{class_h_m_section_a49ac6b2996d2e21037ccf76e9f6b7d50}\label{class_h_m_section_a49ac6b2996d2e21037ccf76e9f6b7d50} 
-void {\bfseries set\+Section} (int sect)
-\item 
-\Hypertarget{class_h_m_section_a4259219cac74364e4b969ee21464de61}\label{class_h_m_section_a4259219cac74364e4b969ee21464de61} 
-void {\bfseries set\+Type} (Type type)
-\item 
+void \mbox{\hyperlink{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}{progress}} (int)
+\begin{DoxyCompactList}\small\item\em Make current section change by a stage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_h_m_section_a3307e1d78540b5624be54eea4af89e13}{set\+Section}} (int)
+\begin{DoxyCompactList}\small\item\em Set the texture by what current section should be. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{set\+Type}} (Type)
+\begin{DoxyCompactList}\small\item\em Set what type the current section sprite should be. \end{DoxyCompactList}\item 
 \Hypertarget{class_h_m_section_a6e02d19eb07396dc514c8938d578658b}\label{class_h_m_section_a6e02d19eb07396dc514c8938d578658b} 
 void {\bfseries fill} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Current section should be full. \end{DoxyCompactList}\item 
 \Hypertarget{class_h_m_section_a6093acdaf453e4985124eb26d85a628d}\label{class_h_m_section_a6093acdaf453e4985124eb26d85a628d} 
 void {\bfseries empty} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Current section should be empty. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_h_m_section_a8edcc2ebab82a9d1fc1d735d63ca5c52}{get\+Section}} ()
+\begin{DoxyCompactList}\small\item\em Get the current section id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_h_m_section_a8edcc2ebab82a9d1fc1d735d63ca5c52}\label{class_h_m_section_a8edcc2ebab82a9d1fc1d735d63ca5c52} 
-int {\bfseries get\+Section} ()
-\end{DoxyCompactItemize}
+\index{HMSection@{HMSection}!getSection@{getSection}}
+\index{getSection@{getSection}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{getSection()}{getSection()}}
+{\footnotesize\ttfamily int HMSection\+::get\+Section (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current section id. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}\label{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2} 
+\index{HMSection@{HMSection}!progress@{progress}}
+\index{progress@{progress}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{progress()}{progress()}}
+{\footnotesize\ttfamily void HMSection\+::progress (\begin{DoxyParamCaption}\item[{int}]{stage }\end{DoxyParamCaption})}
+
+
+
+Make current section change by a stage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_h_m_section_a3307e1d78540b5624be54eea4af89e13}\label{class_h_m_section_a3307e1d78540b5624be54eea4af89e13} 
+\index{HMSection@{HMSection}!setSection@{setSection}}
+\index{setSection@{setSection}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{setSection()}{setSection()}}
+{\footnotesize\ttfamily void HMSection\+::set\+Section (\begin{DoxyParamCaption}\item[{int}]{sect }\end{DoxyParamCaption})}
+
+
+
+Set the texture by what current section should be. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sect} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}\label{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f} 
+\index{HMSection@{HMSection}!setType@{setType}}
+\index{setType@{setType}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void HMSection\+::set\+Type (\begin{DoxyParamCaption}\item[{Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Set what type the current section sprite should be. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-GUI/\+HMSection/HMSection.\+h\item 
-GUI/\+HMSection/HMSection.\+cpp\end{DoxyCompactItemize}
+src/\+GUI/\+HMSection/HMSection.\+h\item 
+src/\+GUI/\+HMSection/HMSection.\+cpp\end{DoxyCompactItemize}

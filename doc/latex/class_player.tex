@@ -9,35 +9,34 @@ Inheritance diagram for Player\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_player_a3bd7b33f3be65a691c792e423c454525}\label{class_player_a3bd7b33f3be65a691c792e423c454525} 
-{\bfseries Player} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}texture, unsigned int start\+Pos)
-\item 
-\Hypertarget{class_player_aa00ec61879fab17b8c07f3050d2356c0}\label{class_player_aa00ec61879fab17b8c07f3050d2356c0} 
-void {\bfseries update} (sf\+::\+Render\+Window \&window, bool in\+Space)
-\item 
+\mbox{\hyperlink{class_player_ab67b08e4700e1f6e208746e67cb0f701}{Player}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}, unsigned int)
+\begin{DoxyCompactList}\small\item\em Create player character at position and load resources for them. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_abb03d8dd7ecbcc72a4bece2e14d98681}{update}} (sf\+::\+Render\+Window \&, bool)
+\begin{DoxyCompactList}\small\item\em Run all the logic and controls for player. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{kill}} () override
-\item 
-bool \mbox{\hyperlink{class_player_a4c6ec3e34ca1d2045e174dca9073c750}{get\+Translate2}} ()
-\item 
-\Hypertarget{class_player_a49066b4a0b345abad5a5d4a6ec640140}\label{class_player_a49066b4a0b345abad5a5d4a6ec640140} 
-void {\bfseries reset\+Pos} (int z\+Offset=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Run animations and other code for when player dies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{reset\+Pos}} (int z\+Offset=0)
+\begin{DoxyCompactList}\small\item\em Reset the players position to default. \end{DoxyCompactList}\item 
 \Hypertarget{class_player_a73f088cbf912f31b40f3ae5f043a6f7d}\label{class_player_a73f088cbf912f31b40f3ae5f043a6f7d} 
 void {\bfseries bullet\+Kill} (int)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Character} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
+\mbox{\hyperlink{class_character_a7e22d0af12e2c3c8cb364d22ce8cc9f2}{Character}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Create new character who will have sprite from spritesheet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{update}} (sf\+::\+Render\+Window \&)
+\begin{DoxyCompactList}\small\item\em Move the character by velocity and redraw them to the screen. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ \& \mbox{\hyperlink{class_character_a84503e639ff28fdf9648ea921d5ba9d6}{get\+Bullet\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get positions for all of this characters bullets. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \& \mbox{\hyperlink{class_character_aef458dc1aacfd7a7a3263ca862f829ca}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em Get the currently fired bullets from this character. \end{DoxyCompactList}\item 
+virtual bool {\bfseries get\+Translate2} ()
 \item 
-void \mbox{\hyperlink{class_character_af0c724d7bc1e9aa89385900e86f3841b}{update}} (sf\+::\+Render\+Window \&window)
-\item 
-std\+::vector$<$ sf\+::\+Vector3f $>$ \& {\bfseries get\+Bullet\+Position} ()
-\item 
-std\+::vector$<$ sf\+::\+Sprite $>$ \& {\bfseries get\+Bullets} ()
-\item 
-void {\bfseries kill\+Bullet} (int)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_character_a6ea404b0682144a8f21d42e881cb0ce7}{kill\+Bullet}} (int)
+\begin{DoxyCompactList}\small\item\em Get rid of bullet by index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{set\+Pos}} (sf\+::\+Vector3f)
+\begin{DoxyCompactList}\small\item\em Set position for the character itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,14 +50,14 @@ sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_character}{Character}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries get\+Size\+Index} (unsigned int \&plane\+Size\+Index)
-\item 
-sf\+::\+Vector3f {\bfseries get\+Velocity} ()
-\item 
-void {\bfseries set\+Velocity} (sf\+::\+Vector3f vel)
-\item 
-void {\bfseries set\+Bullet} (sf\+::\+Int\+Rect bullet\+Texture\+Rect)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_character_ad41cb97f383d1681e76e580f06bc2481}{get\+Size\+Index}} (unsigned int \&)
+\begin{DoxyCompactList}\small\item\em Get the height sector that character is in. \end{DoxyCompactList}\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_character_aa2ee5df8a31732a36f37bfce88161401}{get\+Velocity}} ()
+\begin{DoxyCompactList}\small\item\em Get the velocity of character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_a46a264779165a349a13bcb364c4106d4}{set\+Velocity}} (sf\+::\+Vector3f)
+\begin{DoxyCompactList}\small\item\em Change the velocity of this character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_afe32dd9baa581b7895f06c9687d073b4}{set\+Bullet}} (sf\+::\+Int\+Rect)
+\begin{DoxyCompactList}\small\item\em Change how the bullets from this character look. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_character}{Character}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -66,7 +65,7 @@ const int {\bfseries y\+Max} = 140
 \item 
 const int {\bfseries y\+Min} = 69
 \item 
-const int {\bfseries x\+Min} = -\/150
+const int {\bfseries x\+Min} = -\/180
 \item 
 const int {\bfseries x\+Max} = 0
 \item 
@@ -89,17 +88,27 @@ bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_ab67b08e4700e1f6e208746e67cb0f701}\label{class_player_ab67b08e4700e1f6e208746e67cb0f701} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{texture,  }\item[{unsigned int}]{start\+Pos }\end{DoxyParamCaption})}
+
+
+
+Create player character at position and load resources for them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & \\
+\hline
+{\em start\+Pos} & \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_player_a4c6ec3e34ca1d2045e174dca9073c750}\label{class_player_a4c6ec3e34ca1d2045e174dca9073c750} 
-\index{Player@{Player}!getTranslate2@{getTranslate2}}
-\index{getTranslate2@{getTranslate2}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{getTranslate2()}{getTranslate2()}}
-{\footnotesize\ttfamily bool Player\+::get\+Translate2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
-
 \Hypertarget{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}\label{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a} 
 \index{Player@{Player}!kill@{kill}}
 \index{kill@{kill}!Player@{Player}}
@@ -108,11 +117,47 @@ Reimplemented from \mbox{\hyperlink{class_character}{Character}}.
 
 
 
-Implements \mbox{\hyperlink{class_character}{Character}}.
+Run animations and other code for when player dies. 
 
+
+
+Implements \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{Character}}.
+
+\Hypertarget{class_player_a49066b4a0b345abad5a5d4a6ec640140}\label{class_player_a49066b4a0b345abad5a5d4a6ec640140} 
+\index{Player@{Player}!resetPos@{resetPos}}
+\index{resetPos@{resetPos}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{resetPos()}{resetPos()}}
+{\footnotesize\ttfamily void Player\+::reset\+Pos (\begin{DoxyParamCaption}\item[{int}]{z\+Offset = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Reset the players position to default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em z\+Offset} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_abb03d8dd7ecbcc72a4bece2e14d98681}\label{class_player_abb03d8dd7ecbcc72a4bece2e14d98681} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{bool}]{in\+Space }\end{DoxyParamCaption})}
+
+
+
+Run all the logic and controls for player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em in\+Space} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Entity/\+Character/\+Player/Player.\+h\item 
-Entity/\+Character/\+Player/Player.\+cpp\end{DoxyCompactItemize}
+src/\+Entity/\+Character/\+Player/Player.\+h\item 
+src/\+Entity/\+Character/\+Player/Player.\+cpp\end{DoxyCompactItemize}
