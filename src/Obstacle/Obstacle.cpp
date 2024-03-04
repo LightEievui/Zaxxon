@@ -2,7 +2,7 @@
 #include "Obstacle.h"
 
 
-Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay,  int dir) : Entity()
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : Entity()
 {
 	srand(time(NULL));
 	random = (rand() % 1000) + 200;
@@ -113,7 +113,7 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	onScreen = true;
 
-	if (turret == true)
+	if (turret == true && direction != 2)
 	{
 		if (count % total == 0 && direction == 0)
 		{
@@ -127,11 +127,18 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletPositions.push_back(getPos());
 		}
 	}
-	if (direction == 2 && count >= total)
+	else if (count >= total)
 	{
-		setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
-		sprite.setPosition(translateTo2d(getPos()));
-		//140 max
+		if (getPos().y > 70.f)
+		{
+			setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
+			sprite.setPosition(translateTo2d(getPos()));
+		}
+		else if (animations.getState() == 0)
+		{
+			kill(Animation::ALT_DEATH);
+		}
+		
 	}
 
 
