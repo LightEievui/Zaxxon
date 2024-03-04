@@ -54,9 +54,15 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		generateObstacles(stage, obstacles, spritesheet);
 		generateWaves(stage, enemies, spritesheet, player.getPos().z);
 	}
-	else {}
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
-		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3 * gameSpeed)));//for translateTo2d
+	mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3 * gameSpeed)));//for translateTo2d
+
+	// spawn waves that have gone past the z set in queue
+	if (!waveQueue.empty() && player.getPos().z < waveQueue.front().first)
+	{
+		Enemy::spawnWave(enemies, spritesheet, player.getPos().z, waveQueue.front().second);
+		waveQueue.pop();
+	}
 
 	window.draw(back);
 }
@@ -209,8 +215,12 @@ void Background::generateWaves(Background::Stage stage,
 	
 	switch (stage)
 	{
-	case SPACE:
-		Enemy::spawnWave(enemies, spriteSheet, playerZ, 0);
+	case SPACE: // further below Z should be lesser
+		waveQueue.push(std::pair<int, unsigned int>(-600, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-650, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-700, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-750, 0));
+
 		break;
 	}
 }

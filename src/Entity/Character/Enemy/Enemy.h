@@ -7,7 +7,6 @@ public:
 	Enemy(sf::Texture* texture, unsigned int id, int spawnZ);
 	void update(sf::RenderWindow& window);
 	void kill() override;
-	bool getTranslate2() { return true; };
 	// Static so can be used from any context.
 	// Will spawn a wave of enemies relative to the player.
 	static void spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
