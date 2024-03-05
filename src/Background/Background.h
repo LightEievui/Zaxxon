@@ -16,37 +16,29 @@ public:
 		BOSS
 	};
 
-	Background(Stage startStage, sf::View& mainView, sf::Texture* spritesheet,
-		std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
-		int startPos
-	);
+	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&, 
+		std::vector<Enemy*>&, Player&, int);
 	~Background();
 
-	void update(sf::RenderWindow& window, sf::View& mainView, float gameSpeed,
-		sf::Texture* spritesheet,
-		std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies,
-		Player& player
-	);
+	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*, 
+		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&);
 	void setPosition(sf::Vector2f);
 
 	// MAY want to consider changing to private later
-	void generateObstacles(Background::Stage stage,
-		std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet);
-	void generateWaves(Background::Stage stage,
-		std::vector<Enemy*>& enemies, sf::Texture* spriteSheet, int playerZ
-	);
+	void generateObstacles(Background::Stage,
+		std::vector<Obstacle*>&, sf::Texture*);
+	void generateWaves(Background::Stage,
+		std::vector<Enemy*>&, sf::Texture*, int);
+
 	bool isInSpace(int z);
 private:
-	void changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
-		std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies,
-		Player& player, int startPos
-	);
+	void changeStage(Stage, sf::View&, sf::Texture*,
+		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, int);
 	bool backgroundFinished(sf::View&);
-	void resetPos(sf::View& mainView, Player& player, int startPos);
+	void resetPos(sf::View&, Player&, int);
 
 	sf::Texture initial, space, boss;
 	sf::Sprite back;
 	Stage stage = Stage::INITIAL;
 	std::queue<std::pair<int, unsigned int>> waveQueue; // playerZ: id
 };
-

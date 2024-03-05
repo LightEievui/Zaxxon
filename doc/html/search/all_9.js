@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['render_0',['render',['../class_g_u_i.html#a5d2820ceadea0b283e4d380a6f5bd9d4',1,'GUI']]],
-  ['run_1',['run',['../class_animation.html#a4e1084a8d4b025c9d46d2c030da05518',1,'Animation']]]
+  ['obstacle_0',['Obstacle',['../class_obstacle.html',1,'Obstacle'],['../class_obstacle.html#a92816aa47ab3cbb031423f16ab75a920',1,'Obstacle::Obstacle(sf::Vector3f, sf::Texture *, float, int)'],['../class_obstacle.html#a4d24e681dc227109b688b2f4a49c5a61',1,'Obstacle::Obstacle(sf::Vector3f, sf::Texture *, int)']]]
 ];

@@ -31,7 +31,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 
 
 /// <summary>
-/// Run all the logic for player.
+/// Run all the logic and controls for player.
 /// </summary>
 /// <param name="window"></param>
 /// <param name="inSpace"></param>
@@ -44,17 +44,25 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 
 	// Keys
 	sf::Vector3f tempVelocity;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && getPos().x < xMax)
-		tempVelocity.x = 1;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && getPos().x > xMin)
-		tempVelocity.x = -1;
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || 
+		sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -10) && 
+		getPos().x < xMax)
+			tempVelocity.x = 1;
+	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || 
+		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10) && 
+		getPos().x > xMin)
+			tempVelocity.x = -1;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && getPos().y < yMax)
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || 
+		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -10) && 
+		getPos().y < yMax)
 	{
 		tempVelocity.y = 0.6f;
 		planeVertical = 2;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && getPos().y > yMin)
+	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || 
+		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 10) && 
+		getPos().y > yMin)
 	{
 		tempVelocity.y = -0.6f;
 		planeVertical = 1;
@@ -65,9 +73,9 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 	sprite.setTextureRect(playerTextures[planeVertical][planeSizeIndex]);
 
 	// Spawn bullets
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) &&
-		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN
-	)
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || 
+		sf::Joystick::isButtonPressed(0, 0)) &&
+		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN)
 	{
 		bulletCD.restart();
 		sf::Sprite temp = sf::Sprite();

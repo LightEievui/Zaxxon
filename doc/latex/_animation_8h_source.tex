@@ -1,5 +1,5 @@
 \doxysection{Animation.\+h}
-\hypertarget{_animation_8h_source}{}\label{_animation_8h_source}\index{Animation/Animation.h@{Animation/Animation.h}}
+\hypertarget{_animation_8h_source}{}\label{_animation_8h_source}\index{src/Animation/Animation.h@{src/Animation/Animation.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -19,13 +19,12 @@
 \DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_animation}{\string~Animation}}();}
 \DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a4e1084a8d4b025c9d46d2c030da05518}{run}}(sf::Sprite\&,\ Anim);}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a56e10a632378d75a7a57bb8408036c08}{fCHARACTER\_DEATH}}(sf::Sprite\&\ sprite);}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_a98ba478599435669e5839598b5e1213b}{getComplete}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b}{fCHARACTER\_DEATH}}(sf::Sprite\&);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}{getState}}();}
 \DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00021\ \ \ \ \ sf::Clock\ timer;}
 \DoxyCodeLine{00022\ \ \ \ \ sf::IntRect\ frames[2];}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ complete\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//if\ you\ want\ to\ change\ this\ that\ is\ fine,\ i\ just\ need\ some\ way\ to\ get\ when\ its\ done.}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ state\ =\ 0;\ \textcolor{comment}{//if\ you\ want\ to\ change\ this\ that\ is\ fine,\ i\ just\ need\ some\ way\ to\ get\ when\ its\ done.}}
 \DoxyCodeLine{00024\ \};}
-\DoxyCodeLine{00025\ }
 
 \end{DoxyCode}

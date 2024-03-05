@@ -5,7 +5,6 @@
 class ZaxxonText
 {
 public:
-	static sf::Sprite get(sf::Texture* spritesheet, char in);
-	static void string(sf::Texture* spritesheet, std::string in, sf::Sprite* arr);
-private:
+	static sf::Sprite get(sf::Texture*, char);
+	static void string(sf::Texture*, std::string, sf::Sprite*);
 };
