@@ -93,25 +93,30 @@ Inheritance diagram for Character:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f03ac5d478b72b3a32fe0270fcdd726" id="r_a6f03ac5d478b72b3a32fe0270fcdd726"><td class="memItemLeft" align="right" valign="top"><a id="a6f03ac5d478b72b3a32fe0270fcdd726" name="a6f03ac5d478b72b3a32fe0270fcdd726"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Character</b> (sf::Texture *spriteSheet)</td></tr>
-<tr class="separator:a6f03ac5d478b72b3a32fe0270fcdd726"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0c724d7bc1e9aa89385900e86f3841b" id="r_af0c724d7bc1e9aa89385900e86f3841b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0c724d7bc1e9aa89385900e86f3841b">update</a> (sf::RenderWindow &amp;window)</td></tr>
-<tr class="separator:af0c724d7bc1e9aa89385900e86f3841b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e22d0af12e2c3c8cb364d22ce8cc9f2" id="r_a7e22d0af12e2c3c8cb364d22ce8cc9f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</a> (sf::Texture *)</td></tr>
+<tr class="memdesc:a7e22d0af12e2c3c8cb364d22ce8cc9f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new character who will have sprite from spritesheet.  <br /></td></tr>
+<tr class="separator:a7e22d0af12e2c3c8cb364d22ce8cc9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affa4e2459d5f239e0c53ffd11b981f59" id="r_affa4e2459d5f239e0c53ffd11b981f59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affa4e2459d5f239e0c53ffd11b981f59">update</a> (sf::RenderWindow &amp;)</td></tr>
+<tr class="memdesc:affa4e2459d5f239e0c53ffd11b981f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the character by velocity and redraw them to the screen.  <br /></td></tr>
+<tr class="separator:affa4e2459d5f239e0c53ffd11b981f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eaf7357d3575a2281b5456abfbe1b9d" id="r_a6eaf7357d3575a2281b5456abfbe1b9d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eaf7357d3575a2281b5456abfbe1b9d">kill</a> ()=0</td></tr>
+<tr class="memdesc:a6eaf7357d3575a2281b5456abfbe1b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run death animation code for the killed entity.  <br /></td></tr>
 <tr class="separator:a6eaf7357d3575a2281b5456abfbe1b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84503e639ff28fdf9648ea921d5ba9d6" id="r_a84503e639ff28fdf9648ea921d5ba9d6"><td class="memItemLeft" align="right" valign="top"><a id="a84503e639ff28fdf9648ea921d5ba9d6" name="a84503e639ff28fdf9648ea921d5ba9d6"></a>
-std::vector&lt; sf::Vector3f &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBulletPosition</b> ()</td></tr>
+<tr class="memitem:a84503e639ff28fdf9648ea921d5ba9d6" id="r_a84503e639ff28fdf9648ea921d5ba9d6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector3f &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84503e639ff28fdf9648ea921d5ba9d6">getBulletPosition</a> ()</td></tr>
+<tr class="memdesc:a84503e639ff28fdf9648ea921d5ba9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get positions for all of this characters bullets.  <br /></td></tr>
 <tr class="separator:a84503e639ff28fdf9648ea921d5ba9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef458dc1aacfd7a7a3263ca862f829ca" id="r_aef458dc1aacfd7a7a3263ca862f829ca"><td class="memItemLeft" align="right" valign="top"><a id="aef458dc1aacfd7a7a3263ca862f829ca" name="aef458dc1aacfd7a7a3263ca862f829ca"></a>
-std::vector&lt; sf::Sprite &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBullets</b> ()</td></tr>
+<tr class="memitem:aef458dc1aacfd7a7a3263ca862f829ca" id="r_aef458dc1aacfd7a7a3263ca862f829ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Sprite &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef458dc1aacfd7a7a3263ca862f829ca">getBullets</a> ()</td></tr>
+<tr class="memdesc:aef458dc1aacfd7a7a3263ca862f829ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently fired bullets from this character.  <br /></td></tr>
 <tr class="separator:aef458dc1aacfd7a7a3263ca862f829ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ba419af494e1f4f74f3b3c41a9b0f59" id="r_a1ba419af494e1f4f74f3b3c41a9b0f59"><td class="memItemLeft" align="right" valign="top"><a id="a1ba419af494e1f4f74f3b3c41a9b0f59" name="a1ba419af494e1f4f74f3b3c41a9b0f59"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>getTranslate2</b> ()</td></tr>
 <tr class="separator:a1ba419af494e1f4f74f3b3c41a9b0f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ea404b0682144a8f21d42e881cb0ce7" id="r_a6ea404b0682144a8f21d42e881cb0ce7"><td class="memItemLeft" align="right" valign="top"><a id="a6ea404b0682144a8f21d42e881cb0ce7" name="a6ea404b0682144a8f21d42e881cb0ce7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>killBullet</b> (int)</td></tr>
+<tr class="memitem:a6ea404b0682144a8f21d42e881cb0ce7" id="r_a6ea404b0682144a8f21d42e881cb0ce7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ea404b0682144a8f21d42e881cb0ce7">killBullet</a> (int)</td></tr>
+<tr class="memdesc:a6ea404b0682144a8f21d42e881cb0ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rid of bullet by index.  <br /></td></tr>
 <tr class="separator:a6ea404b0682144a8f21d42e881cb0ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf35437606532f7df271dd0fd3d6800c" id="r_acf35437606532f7df271dd0fd3d6800c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf35437606532f7df271dd0fd3d6800c">setPos</a> (sf::Vector3f)</td></tr>
+<tr class="memdesc:acf35437606532f7df271dd0fd3d6800c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set position for the character itself.  <br /></td></tr>
+<tr class="separator:acf35437606532f7df271dd0fd3d6800c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a1783cc856808b2d78c4e46fa9c85a524 inherit pub_methods_class_entity" id="r_a1783cc856808b2d78c4e46fa9c85a524"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPos</b> (sf::Vector3f pos)</td></tr>
@@ -125,18 +130,18 @@ sf::FloatRect&#160;</td><td class="memItemRight" valign="bottom"><b>getBounds</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae76b2b97b4bac98f1d2405a6ab912838" id="r_ae76b2b97b4bac98f1d2405a6ab912838"><td class="memItemLeft" align="right" valign="top"><a id="ae76b2b97b4bac98f1d2405a6ab912838" name="ae76b2b97b4bac98f1d2405a6ab912838"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getSizeIndex</b> (unsigned int &amp;planeSizeIndex)</td></tr>
-<tr class="separator:ae76b2b97b4bac98f1d2405a6ab912838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2ee5df8a31732a36f37bfce88161401" id="r_aa2ee5df8a31732a36f37bfce88161401"><td class="memItemLeft" align="right" valign="top"><a id="aa2ee5df8a31732a36f37bfce88161401" name="aa2ee5df8a31732a36f37bfce88161401"></a>
-sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><b>getVelocity</b> ()</td></tr>
+<tr class="memitem:ad41cb97f383d1681e76e580f06bc2481" id="r_ad41cb97f383d1681e76e580f06bc2481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad41cb97f383d1681e76e580f06bc2481">getSizeIndex</a> (unsigned int &amp;)</td></tr>
+<tr class="memdesc:ad41cb97f383d1681e76e580f06bc2481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the height sector that character is in.  <br /></td></tr>
+<tr class="separator:ad41cb97f383d1681e76e580f06bc2481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ee5df8a31732a36f37bfce88161401" id="r_aa2ee5df8a31732a36f37bfce88161401"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2ee5df8a31732a36f37bfce88161401">getVelocity</a> ()</td></tr>
+<tr class="memdesc:aa2ee5df8a31732a36f37bfce88161401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the velocity of character.  <br /></td></tr>
 <tr class="separator:aa2ee5df8a31732a36f37bfce88161401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70c12cbae04e69c7a8dfc69d66546cd5" id="r_a70c12cbae04e69c7a8dfc69d66546cd5"><td class="memItemLeft" align="right" valign="top"><a id="a70c12cbae04e69c7a8dfc69d66546cd5" name="a70c12cbae04e69c7a8dfc69d66546cd5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVelocity</b> (sf::Vector3f vel)</td></tr>
-<tr class="separator:a70c12cbae04e69c7a8dfc69d66546cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f36a6c967385c2158439cbd72411cb" id="r_ac3f36a6c967385c2158439cbd72411cb"><td class="memItemLeft" align="right" valign="top"><a id="ac3f36a6c967385c2158439cbd72411cb" name="ac3f36a6c967385c2158439cbd72411cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBullet</b> (sf::IntRect bulletTextureRect)</td></tr>
-<tr class="separator:ac3f36a6c967385c2158439cbd72411cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a264779165a349a13bcb364c4106d4" id="r_a46a264779165a349a13bcb364c4106d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46a264779165a349a13bcb364c4106d4">setVelocity</a> (sf::Vector3f)</td></tr>
+<tr class="memdesc:a46a264779165a349a13bcb364c4106d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the velocity of this character.  <br /></td></tr>
+<tr class="separator:a46a264779165a349a13bcb364c4106d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe32dd9baa581b7895f06c9687d073b4" id="r_afe32dd9baa581b7895f06c9687d073b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe32dd9baa581b7895f06c9687d073b4">setBullet</a> (sf::IntRect)</td></tr>
+<tr class="memdesc:afe32dd9baa581b7895f06c9687d073b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change how the bullets from this character look.  <br /></td></tr>
+<tr class="separator:afe32dd9baa581b7895f06c9687d073b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -147,7 +152,7 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>yMax</b> = 140</
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>yMin</b> = 69</td></tr>
 <tr class="separator:a1750fc7b411d6fdac9ca9e6763e126f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a682f191a3a01f1a772cd3fa624c0b16e" id="r_a682f191a3a01f1a772cd3fa624c0b16e"><td class="memItemLeft" align="right" valign="top"><a id="a682f191a3a01f1a772cd3fa624c0b16e" name="a682f191a3a01f1a772cd3fa624c0b16e"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>xMin</b> = -150</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>xMin</b> = -180</td></tr>
 <tr class="separator:a682f191a3a01f1a772cd3fa624c0b16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae741b4874f8875f33f70663890315a52" id="r_ae741b4874f8875f33f70663890315a52"><td class="memItemLeft" align="right" valign="top"><a id="ae741b4874f8875f33f70663890315a52" name="ae741b4874f8875f33f70663890315a52"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>xMax</b> = 0</td></tr>
@@ -175,7 +180,134 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b></td>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>dead</b> = false</td></tr>
 <tr class="separator:a799462330dd8c754cdada5dab432b4dc inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7e22d0af12e2c3c8cb364d22ce8cc9f2" name="a7e22d0af12e2c3c8cb364d22ce8cc9f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e22d0af12e2c3c8cb364d22ce8cc9f2">&#9670;&#160;</a></span>Character()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Character::Character </td>
+          <td>(</td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>spriteSheet</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create new character who will have sprite from spritesheet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spriteSheet</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a84503e639ff28fdf9648ea921d5ba9d6" name="a84503e639ff28fdf9648ea921d5ba9d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84503e639ff28fdf9648ea921d5ba9d6">&#9670;&#160;</a></span>getBulletPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; sf::Vector3f &gt; &amp; Character::getBulletPosition </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get positions for all of this characters bullets. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of Vectors of 3 floats</dd></dl>
+
+</div>
+</div>
+<a id="aef458dc1aacfd7a7a3263ca862f829ca" name="aef458dc1aacfd7a7a3263ca862f829ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef458dc1aacfd7a7a3263ca862f829ca">&#9670;&#160;</a></span>getBullets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; sf::Sprite &gt; &amp; Character::getBullets </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the currently fired bullets from this character. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of bullets</dd></dl>
+
+</div>
+</div>
+<a id="ad41cb97f383d1681e76e580f06bc2481" name="ad41cb97f383d1681e76e580f06bc2481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad41cb97f383d1681e76e580f06bc2481">&#9670;&#160;</a></span>getSizeIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::getSizeIndex </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int &amp;</td>          <td class="paramname"><span class="paramname"><em>planeSizeIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the height sector that character is in. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planeSizeIndex</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2ee5df8a31732a36f37bfce88161401" name="aa2ee5df8a31732a36f37bfce88161401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ee5df8a31732a36f37bfce88161401">&#9670;&#160;</a></span>getVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Vector3f Character::getVelocity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the velocity of character. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of 3 floats</dd></dl>
+
+</div>
+</div>
 <a id="a6eaf7357d3575a2281b5456abfbe1b9d" name="a6eaf7357d3575a2281b5456abfbe1b9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6eaf7357d3575a2281b5456abfbe1b9d">&#9670;&#160;</a></span>kill()</h2>
 
@@ -199,12 +331,132 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dead</b> = false</td>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_entity.html">Entity</a>.</p>
+<p>Run death animation code for the killed entity. </p>
+
+<p>Reimplemented from <a class="el" href="class_entity.html#a522648b330daab91b49f78f0737a943f">Entity</a>.</p>
+
+<p>Implemented in <a class="el" href="class_enemy.html#ad0bf56e75378d9524f2d77479d259dde">Enemy</a>, and <a class="el" href="class_player.html#aa8baacf4fe29a618f2cf4b26327e4d5a">Player</a>.</p>
 
 </div>
 </div>
-<a id="af0c724d7bc1e9aa89385900e86f3841b" name="af0c724d7bc1e9aa89385900e86f3841b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0c724d7bc1e9aa89385900e86f3841b">&#9670;&#160;</a></span>update()</h2>
+<a id="a6ea404b0682144a8f21d42e881cb0ce7" name="a6ea404b0682144a8f21d42e881cb0ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea404b0682144a8f21d42e881cb0ce7">&#9670;&#160;</a></span>killBullet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::killBullet </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bullet</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get rid of bullet by index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bullet</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afe32dd9baa581b7895f06c9687d073b4" name="afe32dd9baa581b7895f06c9687d073b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe32dd9baa581b7895f06c9687d073b4">&#9670;&#160;</a></span>setBullet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::setBullet </td>
+          <td>(</td>
+          <td class="paramtype">sf::IntRect</td>          <td class="paramname"><span class="paramname"><em>bulletTexture</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Change how the bullets from this character look. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bulletTexture</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf35437606532f7df271dd0fd3d6800c" name="acf35437606532f7df271dd0fd3d6800c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf35437606532f7df271dd0fd3d6800c">&#9670;&#160;</a></span>setPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::setPos </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector3f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set position for the character itself. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a46a264779165a349a13bcb364c4106d4" name="a46a264779165a349a13bcb364c4106d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a264779165a349a13bcb364c4106d4">&#9670;&#160;</a></span>setVelocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::setVelocity </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector3f</td>          <td class="paramname"><span class="paramname"><em>vel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Change the velocity of this character. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vel</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="affa4e2459d5f239e0c53ffd11b981f59" name="affa4e2459d5f239e0c53ffd11b981f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affa4e2459d5f239e0c53ffd11b981f59">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,13 +478,23 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dead</b> = false</td>
 </table>
 </div><div class="memdoc">
 
+<p>Move the character by velocity and redraw them to the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="class_entity.html">Entity</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#a899157d4bd6d049bc094bc92863dccec">Enemy</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Entity/Character/<a class="el" href="_character_8h_source.html">Character.h</a></li>
-<li>Entity/Character/<b>Character.cpp</b></li>
+<li>src/Entity/Character/<a class="el" href="_character_8h_source.html">Character.h</a></li>
+<li>src/Entity/Character/<b>Character.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
