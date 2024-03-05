@@ -15,7 +15,6 @@ public:
 	
 	std::vector<sf::Vector3f>& getBulletPosition();
 	std::vector<sf::Sprite>& getBullets();
-	virtual bool getTranslate2() { return false; };
 	void killBullet(int);
 
 	void setPos(sf::Vector3f);

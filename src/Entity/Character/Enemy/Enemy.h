@@ -9,7 +9,6 @@ public:
 	void update(sf::RenderWindow&);
 	void kill() override;
 	bool getTranslate2() { return true; };
-
 	// Static so can be used from any context.
 	// Will spawn a wave of enemies relative to the player.
 	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int, unsigned int);

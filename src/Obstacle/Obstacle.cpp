@@ -68,6 +68,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	1 = gas can
 	2 = satellite
 	3 = plane
+	4 = wall
 	*/
 	this->type = type;
 
@@ -90,6 +91,16 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	{
 		this->type = 6;
 		sprite.setTextureRect(sf::IntRect(92, 35, 29, 25));
+	}
+	else if (type == 4)
+	{
+		this->type = 7;
+		sprite.setTextureRect(sf::IntRect(240, 64, 34, 32));
+	}
+	else if (type == 5)
+	{
+		this->type = 8;
+		sprite.setTextureRect(sf::IntRect(278, 65, 34, 32));
 	}
 
 	sprite.setPosition(translateTo2d(pos));
@@ -162,8 +173,12 @@ void Obstacle::update(sf::RenderWindow& window)
 		{
 			kill(Animation::ALT_DEATH);
 		}
-		
 	}
+	/*else if (count < total)
+	{
+		kill(Animation::ALT_DEATH);
+		//animations.run(sprite, Animation::LAUNCH);
+	}*/
 
 
 	for (int i = 0; i < bulletSprites.size(); i++)
@@ -231,6 +246,8 @@ int Obstacle::getType()
 	4 = green cannon
 	5 = Shooting Up
 	6 = Plane
+	7 = Closed End Wall
+	8 = Open End Wall
 	*/
 
 	return type;

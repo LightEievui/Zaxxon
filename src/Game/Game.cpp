@@ -158,6 +158,10 @@ void Game::doCollision(Player* player)
         //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
         for (unsigned int pBullets = 0; pBullets < size; pBullets++)
         {
+            //Makes it so you cannot shoot walls
+            if (!(obstacles.at(i)->getType() == 4 || obstacles.at(i)->getType() == 5))
+                continue;
+
             difference = sf::Vector3f
             (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                 abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),

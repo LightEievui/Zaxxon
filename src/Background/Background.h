@@ -1,4 +1,5 @@
 #pragma once
+#include <queue>
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Entity/Character/Player/Player.h"
@@ -24,10 +25,10 @@ public:
 	void setPosition(sf::Vector2f);
 
 	// MAY want to consider changing to private later
-	static void generateObstacles(Background::Stage, 
+	void generateObstacles(Background::Stage,
 		std::vector<Obstacle*>&, sf::Texture*);
-	static void generateWaves(Background::Stage, std::vector<Enemy*>&, 
-		sf::Texture*, int);
+	void generateWaves(Background::Stage,
+		std::vector<Enemy*>&, sf::Texture*, int);
 
 	bool isInSpace(int z);
 private:
@@ -39,4 +40,5 @@ private:
 	sf::Texture initial, space, boss;
 	sf::Sprite back;
 	Stage stage = Stage::INITIAL;
+	std::queue<std::pair<int, unsigned int>> waveQueue; // playerZ: id
 };

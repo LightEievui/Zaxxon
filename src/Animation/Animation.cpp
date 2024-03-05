@@ -17,6 +17,10 @@ Animation::Animation()
 	frames[4] = sf::IntRect(109, 147, 20, 28);
 	frames[3] = sf::IntRect(137, 147, 20, 31);
 	frames[2] = sf::IntRect(158, 147, 17, 27);
+
+	// Launch animation
+	frames[8] = sf::IntRect(119, 71, 31, 27);
+	frames[9] = sf::IntRect(161, 147, 17, 27);
 }
 
 
@@ -42,6 +46,9 @@ void Animation::run(sf::Sprite& sprite, Anim anim)
 		break;
 	case ALT_DEATH:
 		new std::thread(&Animation::fALT_DEATH, this, std::ref(sprite));
+		break;
+	case LAUNCH:
+		new std::thread(&Animation::fLAUNCH, this, std::ref(sprite));
 		break;
 	}
 }
@@ -83,6 +90,25 @@ void Animation::fALT_DEATH(sf::Sprite& sprite)
 
 	state = 1;
 }
+
+
+/// <summary>
+/// missle launch animation definition
+/// </summary>
+/// <param name="sprite"></param>
+void Animation::fLAUNCH(sf::Sprite& sprite)
+{
+	state = 3;
+
+	while (timer.getElapsedTime().asSeconds() < 2)
+	{
+		int current = (static_cast<int>(timer.getElapsedTime().asSeconds() * 2) % 2) + 8;
+		sprite.setTextureRect(frames[current]);
+	}
+
+	state = 0;
+}
+
 
 
 /// <summary>
