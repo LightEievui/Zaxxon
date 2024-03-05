@@ -2,6 +2,17 @@
 #include "Util/Util.h"
 
 
+/// <summary>
+/// Create the background object and initialize each of the necessary images
+/// so they are ready to be drawn when needed.
+/// </summary>
+/// <param name="startStage"></param>
+/// <param name="mainView"></param>
+/// <param name="spritesheet"></param>
+/// <param name="obstacles"></param>
+/// <param name="enemies"></param>
+/// <param name="player"></param>
+/// <param name="startPos"></param>
 Background::Background(Stage startStage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
 	int startPos
@@ -27,6 +38,16 @@ Background::~Background()
 }
 
 
+/// <summary>
+/// Run the background logic, and check if background stage should be swapped.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="mainView"></param>
+/// <param name="gameSpeed"></param>
+/// <param name="spritesheet"></param>
+/// <param name="obstacles"></param>
+/// <param name="enemies"></param>
+/// <param name="player"></param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	float gameSpeed, sf::Texture* spritesheet, std::vector<Obstacle*>& obstacles,
 	std::vector<Enemy*>& enemies, Player& player
@@ -68,12 +89,27 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 }
 
 
+/// <summary>
+/// Set the position of the background.
+/// </summary>
+/// <param name="pos"></param>
 void Background::setPosition(sf::Vector2f pos)
 {
 	back.setPosition(pos);
 }
 
 
+/// <summary>
+/// Change what stage the background is on, needed for the background image
+/// and generate functions.
+/// </summary>
+/// <param name="stage"></param>
+/// <param name="mainView"></param>
+/// <param name="spritesheet"></param>
+/// <param name="obstacles"></param>
+/// <param name="enemies"></param>
+/// <param name="player"></param>
+/// <param name="startPos"></param>
 void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player, 
 	int startPos
@@ -92,6 +128,12 @@ void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* sprit
 	generateWaves(stage, enemies, spritesheet, player.getPos().z);
 }
 
+
+/// <summary>
+/// Check if current background stage is finished.
+/// </summary>
+/// <param name="view"></param>
+/// <returns>A boolean</returns>
 bool Background::backgroundFinished(sf::View& view)
 {
 	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
@@ -102,6 +144,11 @@ bool Background::backgroundFinished(sf::View& view)
 }
 
 
+/// <summary>
+/// Check if background is currently space, this affects the player.
+/// </summary>
+/// <param name="z"></param>
+/// <returns>A boolean</returns>
 bool Background::isInSpace(int z)
 {
 	// Initial -2800: space
@@ -126,6 +173,12 @@ bool Background::isInSpace(int z)
 }
 
 
+/// <summary>
+/// Reset the position of the background for stage changes.
+/// </summary>
+/// <param name="mainView"></param>
+/// <param name="player"></param>
+/// <param name="startPos"></param>
 void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 {
 	//Sets the origin to the bottom left corner as that is where it will start 
@@ -146,7 +199,12 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 }
 
 
-// static
+/// <summary>
+/// Place all obstacles for given stage.
+/// </summary>
+/// <param name="stage"></param>
+/// <param name="obstacles"></param>
+/// <param name="spriteSheet"></param>
 void Background::generateObstacles(Background::Stage stage,
 	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet)
 {
@@ -217,7 +275,13 @@ void Background::generateObstacles(Background::Stage stage,
 }
 
 
-// static
+/// <summary>
+/// Handle enemy wave generation.
+/// </summary>
+/// <param name="stage"></param>
+/// <param name="enemies"></param>
+/// <param name="spriteSheet"></param>
+/// <param name="playerZ"></param>
 void Background::generateWaves(Background::Stage stage,
 	std::vector<Enemy*>& enemies, sf::Texture* spriteSheet, int playerZ)
 {

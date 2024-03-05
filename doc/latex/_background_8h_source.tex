@@ -1,5 +1,5 @@
 \doxysection{Background.\+h}
-\hypertarget{_background_8h_source}{}\label{_background_8h_source}\index{Background/Background.h@{Background/Background.h}}
+\hypertarget{_background_8h_source}{}\label{_background_8h_source}\index{src/Background/Background.h@{src/Background/Background.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -19,31 +19,30 @@
 \DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ BOSS}
 \DoxyCodeLine{00016\ \ \ \ \ \};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_background}{Background}}(sf::Vector2f\ =\ sf::Vector2f(0,\ 0));}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_background}{\string~Background}}();}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\&\ window,\ sf::View\&\ mainView,\ \textcolor{keywordtype}{float}\ gameSpeed,}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ sf::Texture*\ spritesheet,}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&\ obstacles,\ std::vector<Enemy*>\&\ enemies,}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}\&\ player}
-\DoxyCodeLine{00025\ \ \ \ \ );}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(sf::Vector2f);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ MAY\ want\ to\ consider\ changing\ to\ private\ later}}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ generateObstacles(Background::Stage\ stage,}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&\ obstacles,\ sf::Texture*\ spriteSheet);}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ generateWaves(Background::Stage\ stage,}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&\ enemies,\ sf::Texture*\ spriteSheet,\ \textcolor{keywordtype}{int}\ playerZ}
-\DoxyCodeLine{00033\ \ \ \ \ );}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInSpace(\textcolor{keywordtype}{int}\ z);}
-\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_background_a1fac54c7e81db155fbef597121344108}{Background}}(Stage,\ sf::View\&,\ sf::Texture*,\ std::vector<Obstacle*>\&,\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_background}{\string~Background}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a2a139f9d39a237ff2556c56eae438be5}{update}}(sf::RenderWindow\&,\ sf::View\&,\ \textcolor{keywordtype}{float},\ sf::Texture*,\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{setPosition}}(sf::Vector2f);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ MAY\ want\ to\ consider\ changing\ to\ private\ later}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_aadb6a9246b8e7532fff5d9de5b96b93c}{generateObstacles}}(Background::Stage,\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ sf::Texture*);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb}{generateWaves}}(Background::Stage,\ std::vector<Enemy*>\&,\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Texture*,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_background_abd3150983c5f3a2df47b761966235635}{isInSpace}}(\textcolor{keywordtype}{int}\ z);}
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ changeStage(Stage,\ sf::View\&,\ sf::Texture*,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ backgroundFinished(sf::View\&);}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ resetPos(sf::View\&\ mainView,\ \mbox{\hyperlink{class_player}{Player}}\&\ player);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ resetPos(sf::View\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
 \DoxyCodeLine{00038\ }
 \DoxyCodeLine{00039\ \ \ \ \ sf::Texture\ initial,\ space,\ boss;}
 \DoxyCodeLine{00040\ \ \ \ \ sf::Sprite\ back;}
 \DoxyCodeLine{00041\ \ \ \ \ Stage\ stage\ =\ Stage::INITIAL;}
 \DoxyCodeLine{00042\ \};}
-\DoxyCodeLine{00043\ }
 
 \end{DoxyCode}

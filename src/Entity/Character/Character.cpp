@@ -109,6 +109,10 @@ void Character::killBullet(int bullet)
 }
 
 
+/// <summary>
+/// Set position for the character itself.
+/// </summary>
+/// <param name="pos"></param>
 void Character::setPos(sf::Vector3f pos)
 {
 	if (pos.y >= yMax)

@@ -5,34 +5,35 @@
 #include "Entity/Entity.h"
 
 
-// abstract
+// Abstract
 class Character : public Entity
 {
 public:
-	Character(sf::Texture* spriteSheet);
-	void update(sf::RenderWindow& window);
+	Character(sf::Texture*);
+	void update(sf::RenderWindow&);
 	virtual void kill() = 0;
 	
 	std::vector<sf::Vector3f>& getBulletPosition();
 	std::vector<sf::Sprite>& getBullets();
 	void killBullet(int);
 
-	void setPos(sf::Vector3f pos);
+	void setPos(sf::Vector3f);
 protected:
 	const int yMax = 140;
 	const int yMin = 69;
 	const int xMin = -180;
 	const int xMax = 0;
 
-	/* this computes the sizeindex (the quadrant the plane is in)
+	/* 
+	This computes the sizeindex (the quadrant the plane is in)
 	using the currentY and the min / max,
 	assumed there is 4 for everything inheriting character. 
 	*/
-	void getSizeIndex(unsigned int& planeSizeIndex);
+	void getSizeIndex(unsigned int&);
 	sf::Vector3f getVelocity();
 
-	void setVelocity(sf::Vector3f vel);
-	void setBullet(sf::IntRect bulletTextureRect);
+	void setVelocity(sf::Vector3f);
+	void setBullet(sf::IntRect);
 
 	sf::Vector3f velocity;
 	std::vector<sf::Sprite> bullets;
@@ -42,4 +43,3 @@ private:
 	// SoundBuffer buffer;
 	// Sound sound;
 };
-

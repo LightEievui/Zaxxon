@@ -91,28 +91,33 @@ Inheritance diagram for Enemy:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7cff872fa96724907884c2bb0ef3106f" id="r_a7cff872fa96724907884c2bb0ef3106f"><td class="memItemLeft" align="right" valign="top"><a id="a7cff872fa96724907884c2bb0ef3106f" name="a7cff872fa96724907884c2bb0ef3106f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Enemy</b> (sf::Texture *texture, unsigned int id)</td></tr>
-<tr class="separator:a7cff872fa96724907884c2bb0ef3106f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a349afad8d959df35754e94d6d34e0d61" id="r_a349afad8d959df35754e94d6d34e0d61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a349afad8d959df35754e94d6d34e0d61">update</a> (sf::RenderWindow &amp;window)</td></tr>
-<tr class="separator:a349afad8d959df35754e94d6d34e0d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae328df4b31d1deea035aa07e9c135062" id="r_ae328df4b31d1deea035aa07e9c135062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae328df4b31d1deea035aa07e9c135062">Enemy</a> (sf::Texture *, unsigned int, int)</td></tr>
+<tr class="memdesc:ae328df4b31d1deea035aa07e9c135062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new enemy.  <br /></td></tr>
+<tr class="separator:ae328df4b31d1deea035aa07e9c135062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a899157d4bd6d049bc094bc92863dccec" id="r_a899157d4bd6d049bc094bc92863dccec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a899157d4bd6d049bc094bc92863dccec">update</a> (sf::RenderWindow &amp;)</td></tr>
+<tr class="memdesc:a899157d4bd6d049bc094bc92863dccec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the logic for this enemy.  <br /></td></tr>
+<tr class="separator:a899157d4bd6d049bc094bc92863dccec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0bf56e75378d9524f2d77479d259dde" id="r_ad0bf56e75378d9524f2d77479d259dde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0bf56e75378d9524f2d77479d259dde">kill</a> () override</td></tr>
+<tr class="memdesc:ad0bf56e75378d9524f2d77479d259dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra code for when enemy is killed.  <br /></td></tr>
 <tr class="separator:ad0bf56e75378d9524f2d77479d259dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af933da0510136962e59487e9a6c28ead" id="r_af933da0510136962e59487e9a6c28ead"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af933da0510136962e59487e9a6c28ead">getTranslate2</a> ()</td></tr>
 <tr class="separator:af933da0510136962e59487e9a6c28ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_character"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_character')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_character.html">Character</a></td></tr>
-<tr class="memitem:a6f03ac5d478b72b3a32fe0270fcdd726 inherit pub_methods_class_character" id="r_a6f03ac5d478b72b3a32fe0270fcdd726"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>Character</b> (sf::Texture *spriteSheet)</td></tr>
-<tr class="separator:a6f03ac5d478b72b3a32fe0270fcdd726 inherit pub_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84503e639ff28fdf9648ea921d5ba9d6 inherit pub_methods_class_character" id="r_a84503e639ff28fdf9648ea921d5ba9d6"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; sf::Vector3f &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBulletPosition</b> ()</td></tr>
+<tr class="memitem:a7e22d0af12e2c3c8cb364d22ce8cc9f2 inherit pub_methods_class_character" id="r_a7e22d0af12e2c3c8cb364d22ce8cc9f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</a> (sf::Texture *)</td></tr>
+<tr class="memdesc:a7e22d0af12e2c3c8cb364d22ce8cc9f2 inherit pub_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new character who will have sprite from spritesheet.  <br /></td></tr>
+<tr class="separator:a7e22d0af12e2c3c8cb364d22ce8cc9f2 inherit pub_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84503e639ff28fdf9648ea921d5ba9d6 inherit pub_methods_class_character" id="r_a84503e639ff28fdf9648ea921d5ba9d6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector3f &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a84503e639ff28fdf9648ea921d5ba9d6">getBulletPosition</a> ()</td></tr>
+<tr class="memdesc:a84503e639ff28fdf9648ea921d5ba9d6 inherit pub_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get positions for all of this characters bullets.  <br /></td></tr>
 <tr class="separator:a84503e639ff28fdf9648ea921d5ba9d6 inherit pub_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef458dc1aacfd7a7a3263ca862f829ca inherit pub_methods_class_character" id="r_aef458dc1aacfd7a7a3263ca862f829ca"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; sf::Sprite &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBullets</b> ()</td></tr>
+<tr class="memitem:aef458dc1aacfd7a7a3263ca862f829ca inherit pub_methods_class_character" id="r_aef458dc1aacfd7a7a3263ca862f829ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Sprite &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#aef458dc1aacfd7a7a3263ca862f829ca">getBullets</a> ()</td></tr>
+<tr class="memdesc:aef458dc1aacfd7a7a3263ca862f829ca inherit pub_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently fired bullets from this character.  <br /></td></tr>
 <tr class="separator:aef458dc1aacfd7a7a3263ca862f829ca inherit pub_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ea404b0682144a8f21d42e881cb0ce7 inherit pub_methods_class_character" id="r_a6ea404b0682144a8f21d42e881cb0ce7"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>killBullet</b> (int)</td></tr>
+<tr class="memitem:a6ea404b0682144a8f21d42e881cb0ce7 inherit pub_methods_class_character" id="r_a6ea404b0682144a8f21d42e881cb0ce7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">killBullet</a> (int)</td></tr>
+<tr class="memdesc:a6ea404b0682144a8f21d42e881cb0ce7 inherit pub_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rid of bullet by index.  <br /></td></tr>
 <tr class="separator:a6ea404b0682144a8f21d42e881cb0ce7 inherit pub_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf35437606532f7df271dd0fd3d6800c inherit pub_methods_class_character" id="r_acf35437606532f7df271dd0fd3d6800c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">setPos</a> (sf::Vector3f)</td></tr>
+<tr class="memdesc:acf35437606532f7df271dd0fd3d6800c inherit pub_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set position for the character itself.  <br /></td></tr>
+<tr class="separator:acf35437606532f7df271dd0fd3d6800c inherit pub_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a1783cc856808b2d78c4e46fa9c85a524 inherit pub_methods_class_entity" id="r_a1783cc856808b2d78c4e46fa9c85a524"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPos</b> (sf::Vector3f pos)</td></tr>
@@ -126,25 +131,25 @@ sf::FloatRect&#160;</td><td class="memItemRight" valign="bottom"><b>getBounds</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac9ff07b91737445dad2632b0fa0049c2" id="r_ac9ff07b91737445dad2632b0fa0049c2"><td class="memItemLeft" align="right" valign="top"><a id="ac9ff07b91737445dad2632b0fa0049c2" name="ac9ff07b91737445dad2632b0fa0049c2"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>spawnWave</b> (std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;enemies, sf::Texture *spritesheet, int playerZ, unsigned int wave)</td></tr>
-<tr class="separator:ac9ff07b91737445dad2632b0fa0049c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a965d8a0c6f027a92795b9794158369b7" id="r_a965d8a0c6f027a92795b9794158369b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a965d8a0c6f027a92795b9794158369b7">spawnWave</a> (std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;, sf::Texture *, int, unsigned int)</td></tr>
+<tr class="memdesc:a965d8a0c6f027a92795b9794158369b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enemies come in waves, this will spawn the specified enemy wave by int id.  <br /></td></tr>
+<tr class="separator:a965d8a0c6f027a92795b9794158369b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_character"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_character')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_character.html">Character</a></td></tr>
-<tr class="memitem:ae76b2b97b4bac98f1d2405a6ab912838 inherit pro_methods_class_character" id="r_ae76b2b97b4bac98f1d2405a6ab912838"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getSizeIndex</b> (unsigned int &amp;planeSizeIndex)</td></tr>
-<tr class="separator:ae76b2b97b4bac98f1d2405a6ab912838 inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2ee5df8a31732a36f37bfce88161401 inherit pro_methods_class_character" id="r_aa2ee5df8a31732a36f37bfce88161401"><td class="memItemLeft" align="right" valign="top">
-sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><b>getVelocity</b> ()</td></tr>
+<tr class="memitem:ad41cb97f383d1681e76e580f06bc2481 inherit pro_methods_class_character" id="r_ad41cb97f383d1681e76e580f06bc2481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#ad41cb97f383d1681e76e580f06bc2481">getSizeIndex</a> (unsigned int &amp;)</td></tr>
+<tr class="memdesc:ad41cb97f383d1681e76e580f06bc2481 inherit pro_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the height sector that character is in.  <br /></td></tr>
+<tr class="separator:ad41cb97f383d1681e76e580f06bc2481 inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ee5df8a31732a36f37bfce88161401 inherit pro_methods_class_character" id="r_aa2ee5df8a31732a36f37bfce88161401"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">getVelocity</a> ()</td></tr>
+<tr class="memdesc:aa2ee5df8a31732a36f37bfce88161401 inherit pro_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the velocity of character.  <br /></td></tr>
 <tr class="separator:aa2ee5df8a31732a36f37bfce88161401 inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70c12cbae04e69c7a8dfc69d66546cd5 inherit pro_methods_class_character" id="r_a70c12cbae04e69c7a8dfc69d66546cd5"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVelocity</b> (sf::Vector3f vel)</td></tr>
-<tr class="separator:a70c12cbae04e69c7a8dfc69d66546cd5 inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f36a6c967385c2158439cbd72411cb inherit pro_methods_class_character" id="r_ac3f36a6c967385c2158439cbd72411cb"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBullet</b> (sf::IntRect bulletTextureRect)</td></tr>
-<tr class="separator:ac3f36a6c967385c2158439cbd72411cb inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a264779165a349a13bcb364c4106d4 inherit pro_methods_class_character" id="r_a46a264779165a349a13bcb364c4106d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a46a264779165a349a13bcb364c4106d4">setVelocity</a> (sf::Vector3f)</td></tr>
+<tr class="memdesc:a46a264779165a349a13bcb364c4106d4 inherit pro_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the velocity of this character.  <br /></td></tr>
+<tr class="separator:a46a264779165a349a13bcb364c4106d4 inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe32dd9baa581b7895f06c9687d073b4 inherit pro_methods_class_character" id="r_afe32dd9baa581b7895f06c9687d073b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">setBullet</a> (sf::IntRect)</td></tr>
+<tr class="memdesc:afe32dd9baa581b7895f06c9687d073b4 inherit pro_methods_class_character"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change how the bullets from this character look.  <br /></td></tr>
+<tr class="separator:afe32dd9baa581b7895f06c9687d073b4 inherit pro_methods_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_character"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_character')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_character.html">Character</a></td></tr>
 <tr class="memitem:a602309a031e6db0a570644d8f0b5d5fb inherit pro_attribs_class_character" id="r_a602309a031e6db0a570644d8f0b5d5fb"><td class="memItemLeft" align="right" valign="top">
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>yMax</b> = 140</td></tr>
@@ -153,7 +158,7 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>yMax</b> = 140</
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>yMin</b> = 69</td></tr>
 <tr class="separator:a1750fc7b411d6fdac9ca9e6763e126f5 inherit pro_attribs_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a682f191a3a01f1a772cd3fa624c0b16e inherit pro_attribs_class_character" id="r_a682f191a3a01f1a772cd3fa624c0b16e"><td class="memItemLeft" align="right" valign="top">
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>xMin</b> = -150</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>xMin</b> = -180</td></tr>
 <tr class="separator:a682f191a3a01f1a772cd3fa624c0b16e inherit pro_attribs_class_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae741b4874f8875f33f70663890315a52 inherit pro_attribs_class_character" id="r_ae741b4874f8875f33f70663890315a52"><td class="memItemLeft" align="right" valign="top">
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>xMax</b> = 0</td></tr>
@@ -181,6 +186,43 @@ sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b></td>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>dead</b> = false</td></tr>
 <tr class="separator:a799462330dd8c754cdada5dab432b4dc inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae328df4b31d1deea035aa07e9c135062" name="ae328df4b31d1deea035aa07e9c135062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae328df4b31d1deea035aa07e9c135062">&#9670;&#160;</a></span>Enemy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Enemy::Enemy </td>
+          <td>(</td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>texture</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spawnZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create new enemy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td></td></tr>
+    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">spawnZ</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="af933da0510136962e59487e9a6c28ead" name="af933da0510136962e59487e9a6c28ead"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af933da0510136962e59487e9a6c28ead">&#9670;&#160;</a></span>getTranslate2()</h2>
@@ -232,12 +274,64 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dead</b> = false</td>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_character.html">Character</a>.</p>
+<p>Extra code for when enemy is killed. </p>
+
+<p>Implements <a class="el" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">Character</a>.</p>
 
 </div>
 </div>
-<a id="a349afad8d959df35754e94d6d34e0d61" name="a349afad8d959df35754e94d6d34e0d61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a349afad8d959df35754e94d6d34e0d61">&#9670;&#160;</a></span>update()</h2>
+<a id="a965d8a0c6f027a92795b9794158369b7" name="a965d8a0c6f027a92795b9794158369b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a965d8a0c6f027a92795b9794158369b7">&#9670;&#160;</a></span>spawnWave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::spawnWave </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>enemies</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>spritesheet</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerZ</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>wave</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enemies come in waves, this will spawn the specified enemy wave by int id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemies</td><td></td></tr>
+    <tr><td class="paramname">spritesheet</td><td></td></tr>
+    <tr><td class="paramname">playerZ</td><td></td></tr>
+    <tr><td class="paramname">wave</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a899157d4bd6d049bc094bc92863dccec" name="a899157d4bd6d049bc094bc92863dccec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a899157d4bd6d049bc094bc92863dccec">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,13 +353,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dead</b> = false</td>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_character.html">Character</a>.</p>
+<p>Run the logic for this enemy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">Character</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Entity/Character/Enemy/<a class="el" href="_enemy_8h_source.html">Enemy.h</a></li>
-<li>Entity/Character/Enemy/<b>Enemy.cpp</b></li>
+<li>src/Entity/Character/Enemy/<a class="el" href="_enemy_8h_source.html">Enemy.h</a></li>
+<li>src/Entity/Character/Enemy/<b>Enemy.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

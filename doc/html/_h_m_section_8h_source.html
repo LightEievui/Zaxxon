@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: GUI/HMSection/HMSection.h Source File</title>
+<title>Zaxxon: src/GUI/HMSection/HMSection.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_171b764decf33d63a7df2fab4f4bc6d8.html">GUI</a></li><li class="navelem"><a class="el" href="dir_bc9c00514ff560622d7ed2189b21b7d4.html">HMSection</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4e4e2e75df7fa6971448b424c011c8b5.html">GUI</a></li><li class="navelem"><a class="el" href="dir_0ec962caddbbf52edc6668315f9f2dd5.html">HMSection</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -103,19 +103,26 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">        Changes the selection by a certain amount. Higher stage: less full.</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">        Stage must be between 0-7.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> progress(<span class="keywordtype">int</span> stage);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> setSection(<span class="keywordtype">int</span> sect);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> setType(Type type);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> fill();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> empty();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_h_m_section.html#a78bd080598e3778f18a44da90fa1b0d2">progress</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_h_m_section.html#a3307e1d78540b5624be54eea4af89e13">setSection</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_h_m_section.html#ab9659f8ee7d9a9c01dd244f8c0f3a93f">setType</a>(Type);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_h_m_section.html#a6e02d19eb07396dc514c8938d578658b">fill</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_h_m_section.html#a6093acdaf453e4985124eb26d85a628d">empty</a>();</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">int</span> getSection();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> section;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> type;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_h_m_section.html#a8edcc2ebab82a9d1fc1d735d63ca5c52">getSection</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> section;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">int</span> type;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
 </div>
 <div class="ttc" id="aclass_h_m_section_html"><div class="ttname"><a href="class_h_m_section.html">HMSection</a></div><div class="ttdef"><b>Definition</b> HMSection.h:7</div></div>
+<div class="ttc" id="aclass_h_m_section_html_a3307e1d78540b5624be54eea4af89e13"><div class="ttname"><a href="class_h_m_section.html#a3307e1d78540b5624be54eea4af89e13">HMSection::setSection</a></div><div class="ttdeci">void setSection(int)</div><div class="ttdoc">Set the texture by what current section should be.</div><div class="ttdef"><b>Definition</b> HMSection.cpp:8</div></div>
+<div class="ttc" id="aclass_h_m_section_html_a6093acdaf453e4985124eb26d85a628d"><div class="ttname"><a href="class_h_m_section.html#a6093acdaf453e4985124eb26d85a628d">HMSection::empty</a></div><div class="ttdeci">void empty()</div><div class="ttdoc">Current section should be empty.</div><div class="ttdef"><b>Definition</b> HMSection.cpp:122</div></div>
+<div class="ttc" id="aclass_h_m_section_html_a6e02d19eb07396dc514c8938d578658b"><div class="ttname"><a href="class_h_m_section.html#a6e02d19eb07396dc514c8938d578658b">HMSection::fill</a></div><div class="ttdeci">void fill()</div><div class="ttdoc">Current section should be full.</div><div class="ttdef"><b>Definition</b> HMSection.cpp:100</div></div>
+<div class="ttc" id="aclass_h_m_section_html_a78bd080598e3778f18a44da90fa1b0d2"><div class="ttname"><a href="class_h_m_section.html#a78bd080598e3778f18a44da90fa1b0d2">HMSection::progress</a></div><div class="ttdeci">void progress(int)</div><div class="ttdoc">Make current section change by a stage.</div><div class="ttdef"><b>Definition</b> HMSection.cpp:55</div></div>
+<div class="ttc" id="aclass_h_m_section_html_a8edcc2ebab82a9d1fc1d735d63ca5c52"><div class="ttname"><a href="class_h_m_section.html#a8edcc2ebab82a9d1fc1d735d63ca5c52">HMSection::getSection</a></div><div class="ttdeci">int getSection()</div><div class="ttdoc">Get the current section id.</div><div class="ttdef"><b>Definition</b> HMSection.cpp:45</div></div>
+<div class="ttc" id="aclass_h_m_section_html_ab9659f8ee7d9a9c01dd244f8c0f3a93f"><div class="ttname"><a href="class_h_m_section.html#ab9659f8ee7d9a9c01dd244f8c0f3a93f">HMSection::setType</a></div><div class="ttdeci">void setType(Type)</div><div class="ttdoc">Set what type the current section sprite should be.</div><div class="ttdef"><b>Definition</b> HMSection.cpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

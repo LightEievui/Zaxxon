@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: Animation/Animation.h Source File</title>
+<title>Zaxxon: src/Animation/Animation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_5cedc30fef499d6219152e9452b5bd34.html">Animation</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d0530f5a118c67448463a7f9eabe8fdd.html">Animation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -101,20 +101,19 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_animation.html">~Animation</a>();</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_animation.html#a4e1084a8d4b025c9d46d2c030da05518">run</a>(sf::Sprite&amp;, Anim);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_animation.html#a56e10a632378d75a7a57bb8408036c08">fCHARACTER_DEATH</a>(sf::Sprite&amp; sprite);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_animation.html#a98ba478599435669e5839598b5e1213b">getComplete</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_animation.html#a5a4aaa4baaa8f59a90d471edba3b532b">fCHARACTER_DEATH</a>(sf::Sprite&amp;);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac">getState</a>();</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    sf::Clock timer;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    sf::IntRect frames[2];</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">bool</span> complete = <span class="keyword">false</span>; <span class="comment">//if you want to change this that is fine, i just need some way to get when its done.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">int</span> state = 0; <span class="comment">//if you want to change this that is fine, i just need some way to get when its done.</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
 </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="ttc" id="aclass_animation_html"><div class="ttname"><a href="class_animation.html">Animation</a></div><div class="ttdef"><b>Definition</b> Animation.h:8</div></div>
 <div class="ttc" id="aclass_animation_html_a4e1084a8d4b025c9d46d2c030da05518"><div class="ttname"><a href="class_animation.html#a4e1084a8d4b025c9d46d2c030da05518">Animation::run</a></div><div class="ttdeci">void run(sf::Sprite &amp;, Anim)</div><div class="ttdoc">Run the given animation on sprite.</div><div class="ttdef"><b>Definition</b> Animation.cpp:25</div></div>
-<div class="ttc" id="aclass_animation_html_a56e10a632378d75a7a57bb8408036c08"><div class="ttname"><a href="class_animation.html#a56e10a632378d75a7a57bb8408036c08">Animation::fCHARACTER_DEATH</a></div><div class="ttdeci">void fCHARACTER_DEATH(sf::Sprite &amp;sprite)</div><div class="ttdoc">Death animation definition.</div><div class="ttdef"><b>Definition</b> Animation.cpp:43</div></div>
+<div class="ttc" id="aclass_animation_html_a5a4aaa4baaa8f59a90d471edba3b532b"><div class="ttname"><a href="class_animation.html#a5a4aaa4baaa8f59a90d471edba3b532b">Animation::fCHARACTER_DEATH</a></div><div class="ttdeci">void fCHARACTER_DEATH(sf::Sprite &amp;)</div><div class="ttdoc">Death animation definition.</div><div class="ttdef"><b>Definition</b> Animation.cpp:43</div></div>
 <div class="ttc" id="aclass_animation_html_a83f0a16cef7117f187ad596de38dd9d6"><div class="ttname"><a href="class_animation.html#a83f0a16cef7117f187ad596de38dd9d6">Animation::Animation</a></div><div class="ttdeci">Animation()</div><div class="ttdoc">Initalize individual animation frames.</div><div class="ttdef"><b>Definition</b> Animation.cpp:7</div></div>
-<div class="ttc" id="aclass_animation_html_a98ba478599435669e5839598b5e1213b"><div class="ttname"><a href="class_animation.html#a98ba478599435669e5839598b5e1213b">Animation::getComplete</a></div><div class="ttdeci">bool getComplete()</div><div class="ttdoc">Checks if current animation has finished running.</div><div class="ttdef"><b>Definition</b> Animation.cpp:61</div></div>
+<div class="ttc" id="aclass_animation_html_aa1d5fabe9f7d60e3811f945abc2f24ac"><div class="ttname"><a href="class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac">Animation::getState</a></div><div class="ttdeci">int getState()</div><div class="ttdoc">Checks if current animation has finished running.</div><div class="ttdef"><b>Definition</b> Animation.cpp:62</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

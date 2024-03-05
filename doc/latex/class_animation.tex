@@ -15,14 +15,14 @@ enum {\bfseries Anim} \{ {\bfseries CHARACTER\+\_\+\+DEATH}
 \begin{DoxyCompactList}\small\item\em Initalize individual animation frames. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_animation_a4e1084a8d4b025c9d46d2c030da05518}{run}} (sf\+::\+Sprite \&, Anim)
 \begin{DoxyCompactList}\small\item\em Run the given animation on sprite. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_animation_a56e10a632378d75a7a57bb8408036c08}{f\+CHARACTER\+\_\+\+DEATH}} (sf\+::\+Sprite \&sprite)
+void \mbox{\hyperlink{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b}{f\+CHARACTER\+\_\+\+DEATH}} (sf\+::\+Sprite \&)
 \begin{DoxyCompactList}\small\item\em Death animation definition. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_animation_a98ba478599435669e5839598b5e1213b}{get\+Complete}} ()
+int \mbox{\hyperlink{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}{get\+State}} ()
 \begin{DoxyCompactList}\small\item\em Checks if current animation has finished running. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_animation_a56e10a632378d75a7a57bb8408036c08}\label{class_animation_a56e10a632378d75a7a57bb8408036c08} 
+\Hypertarget{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b}\label{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b} 
 \index{Animation@{Animation}!fCHARACTER\_DEATH@{fCHARACTER\_DEATH}}
 \index{fCHARACTER\_DEATH@{fCHARACTER\_DEATH}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{fCHARACTER\_DEATH()}{fCHARACTER\_DEATH()}}
@@ -37,11 +37,11 @@ Death animation definition.
 {\em sprite} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_animation_a98ba478599435669e5839598b5e1213b}\label{class_animation_a98ba478599435669e5839598b5e1213b} 
-\index{Animation@{Animation}!getComplete@{getComplete}}
-\index{getComplete@{getComplete}!Animation@{Animation}}
-\doxysubsubsection{\texorpdfstring{getComplete()}{getComplete()}}
-{\footnotesize\ttfamily bool Animation\+::get\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\Hypertarget{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}\label{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac} 
+\index{Animation@{Animation}!getState@{getState}}
+\index{getState@{getState}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily int Animation\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -71,5 +71,5 @@ Run the given animation on sprite.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Animation/Animation.\+h\item 
-Animation/Animation.\+cpp\end{DoxyCompactItemize}
+src/\+Animation/Animation.\+h\item 
+src/\+Animation/Animation.\+cpp\end{DoxyCompactItemize}
