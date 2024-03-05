@@ -6,11 +6,12 @@
 class Player : public Character
 {
 public:
-	Player(sf::Texture* texture, unsigned int startPos);
-	void update(sf::RenderWindow& window, bool inSpace);
+	Player(sf::Texture*, unsigned int);
+	void update(sf::RenderWindow&, bool);
 	void kill() override;
 	void resetPos(int zOffset = 0);
 	void bulletKill(int);
+
 private:
 	const int BULLET_COOLDOWN = 200;
 	sf::Clock bulletCD;

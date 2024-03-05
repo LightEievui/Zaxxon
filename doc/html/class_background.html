@@ -90,31 +90,298 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c7303096d3a98ab1e173b9c827f4ae2" id="r_a5c7303096d3a98ab1e173b9c827f4ae2"><td class="memItemLeft" align="right" valign="top"><a id="a5c7303096d3a98ab1e173b9c827f4ae2" name="a5c7303096d3a98ab1e173b9c827f4ae2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Background</b> (sf::Vector2f=sf::Vector2f(0, 0))</td></tr>
-<tr class="separator:a5c7303096d3a98ab1e173b9c827f4ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cbd26a7a47ab73ebe1cbced76b7415d" id="r_a2cbd26a7a47ab73ebe1cbced76b7415d"><td class="memItemLeft" align="right" valign="top"><a id="a2cbd26a7a47ab73ebe1cbced76b7415d" name="a2cbd26a7a47ab73ebe1cbced76b7415d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::RenderWindow &amp;window, sf::View &amp;mainView, float gameSpeed, sf::Texture *spritesheet, std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;obstacles, std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;enemies, <a class="el" href="class_player.html">Player</a> &amp;player)</td></tr>
-<tr class="separator:a2cbd26a7a47ab73ebe1cbced76b7415d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a002ca1b009e940180bb5edb8c49e008f" id="r_a002ca1b009e940180bb5edb8c49e008f"><td class="memItemLeft" align="right" valign="top"><a id="a002ca1b009e940180bb5edb8c49e008f" name="a002ca1b009e940180bb5edb8c49e008f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (sf::Vector2f)</td></tr>
+<tr class="memitem:a1fac54c7e81db155fbef597121344108" id="r_a1fac54c7e81db155fbef597121344108"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fac54c7e81db155fbef597121344108">Background</a> (Stage, sf::View &amp;, sf::Texture *, std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;, std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;, <a class="el" href="class_player.html">Player</a> &amp;, int)</td></tr>
+<tr class="memdesc:a1fac54c7e81db155fbef597121344108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the background object and initialize each of the necessary images so they are ready to be drawn when needed.  <br /></td></tr>
+<tr class="separator:a1fac54c7e81db155fbef597121344108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a139f9d39a237ff2556c56eae438be5" id="r_a2a139f9d39a237ff2556c56eae438be5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a139f9d39a237ff2556c56eae438be5">update</a> (sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;, std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;, <a class="el" href="class_player.html">Player</a> &amp;)</td></tr>
+<tr class="memdesc:a2a139f9d39a237ff2556c56eae438be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the background logic, and check if background stage should be swapped.  <br /></td></tr>
+<tr class="separator:a2a139f9d39a237ff2556c56eae438be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a002ca1b009e940180bb5edb8c49e008f" id="r_a002ca1b009e940180bb5edb8c49e008f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a002ca1b009e940180bb5edb8c49e008f">setPosition</a> (sf::Vector2f)</td></tr>
+<tr class="memdesc:a002ca1b009e940180bb5edb8c49e008f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of the background.  <br /></td></tr>
 <tr class="separator:a002ca1b009e940180bb5edb8c49e008f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd3150983c5f3a2df47b761966235635" id="r_abd3150983c5f3a2df47b761966235635"><td class="memItemLeft" align="right" valign="top"><a id="abd3150983c5f3a2df47b761966235635" name="abd3150983c5f3a2df47b761966235635"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInSpace</b> (int z)</td></tr>
+<tr class="memitem:abd3150983c5f3a2df47b761966235635" id="r_abd3150983c5f3a2df47b761966235635"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd3150983c5f3a2df47b761966235635">isInSpace</a> (int z)</td></tr>
+<tr class="memdesc:abd3150983c5f3a2df47b761966235635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if background is currently space, this affects the player.  <br /></td></tr>
 <tr class="separator:abd3150983c5f3a2df47b761966235635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a673320c2422b07a59fc627324f460a4d" id="r_a673320c2422b07a59fc627324f460a4d"><td class="memItemLeft" align="right" valign="top"><a id="a673320c2422b07a59fc627324f460a4d" name="a673320c2422b07a59fc627324f460a4d"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>generateObstacles</b> (Background::Stage stage, std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;obstacles, sf::Texture *spriteSheet)</td></tr>
-<tr class="separator:a673320c2422b07a59fc627324f460a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a883050ab33639345a20315f41c2bde18" id="r_a883050ab33639345a20315f41c2bde18"><td class="memItemLeft" align="right" valign="top"><a id="a883050ab33639345a20315f41c2bde18" name="a883050ab33639345a20315f41c2bde18"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>generateWaves</b> (Background::Stage stage, std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;enemies, sf::Texture *spriteSheet, int playerZ)</td></tr>
-<tr class="separator:a883050ab33639345a20315f41c2bde18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb6a9246b8e7532fff5d9de5b96b93c" id="r_aadb6a9246b8e7532fff5d9de5b96b93c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadb6a9246b8e7532fff5d9de5b96b93c">generateObstacles</a> (Background::Stage, std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;, sf::Texture *)</td></tr>
+<tr class="memdesc:aadb6a9246b8e7532fff5d9de5b96b93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place all obstacles for given stage.  <br /></td></tr>
+<tr class="separator:aadb6a9246b8e7532fff5d9de5b96b93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f5d9a72170c2b943a3d688ef46ffbbb" id="r_a0f5d9a72170c2b943a3d688ef46ffbbb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f5d9a72170c2b943a3d688ef46ffbbb">generateWaves</a> (Background::Stage, std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;, sf::Texture *, int)</td></tr>
+<tr class="memdesc:a0f5d9a72170c2b943a3d688ef46ffbbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle enemy wave generation.  <br /></td></tr>
+<tr class="separator:a0f5d9a72170c2b943a3d688ef46ffbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1fac54c7e81db155fbef597121344108" name="a1fac54c7e81db155fbef597121344108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fac54c7e81db155fbef597121344108">&#9670;&#160;</a></span>Background()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Background::Background </td>
+          <td>(</td>
+          <td class="paramtype">Stage</td>          <td class="paramname"><span class="paramname"><em>startStage</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::View &amp;</td>          <td class="paramname"><span class="paramname"><em>mainView</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>spritesheet</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>obstacles</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>enemies</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>startPos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startStage</td><td></td></tr>
+    <tr><td class="paramname">mainView</td><td></td></tr>
+    <tr><td class="paramname">spritesheet</td><td></td></tr>
+    <tr><td class="paramname">obstacles</td><td></td></tr>
+    <tr><td class="paramname">enemies</td><td></td></tr>
+    <tr><td class="paramname">player</td><td></td></tr>
+    <tr><td class="paramname">startPos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aadb6a9246b8e7532fff5d9de5b96b93c" name="aadb6a9246b8e7532fff5d9de5b96b93c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadb6a9246b8e7532fff5d9de5b96b93c">&#9670;&#160;</a></span>generateObstacles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Background::generateObstacles </td>
+          <td>(</td>
+          <td class="paramtype">Background::Stage</td>          <td class="paramname"><span class="paramname"><em>stage</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>obstacles</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>spriteSheet</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Place all obstacles for given stage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stage</td><td></td></tr>
+    <tr><td class="paramname">obstacles</td><td></td></tr>
+    <tr><td class="paramname">spriteSheet</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f5d9a72170c2b943a3d688ef46ffbbb" name="a0f5d9a72170c2b943a3d688ef46ffbbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f5d9a72170c2b943a3d688ef46ffbbb">&#9670;&#160;</a></span>generateWaves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Background::generateWaves </td>
+          <td>(</td>
+          <td class="paramtype">Background::Stage</td>          <td class="paramname"><span class="paramname"><em>stage</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>enemies</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>spriteSheet</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerZ</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle enemy wave generation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stage</td><td></td></tr>
+    <tr><td class="paramname">enemies</td><td></td></tr>
+    <tr><td class="paramname">spriteSheet</td><td></td></tr>
+    <tr><td class="paramname">playerZ</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abd3150983c5f3a2df47b761966235635" name="abd3150983c5f3a2df47b761966235635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3150983c5f3a2df47b761966235635">&#9670;&#160;</a></span>isInSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Background::isInSpace </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if background is currently space, this affects the player. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean</dd></dl>
+
+</div>
+</div>
+<a id="a002ca1b009e940180bb5edb8c49e008f" name="a002ca1b009e940180bb5edb8c49e008f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002ca1b009e940180bb5edb8c49e008f">&#9670;&#160;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Background::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector2f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the position of the background. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2a139f9d39a237ff2556c56eae438be5" name="a2a139f9d39a237ff2556c56eae438be5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a139f9d39a237ff2556c56eae438be5">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Background::update </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::View &amp;</td>          <td class="paramname"><span class="paramname"><em>mainView</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>gameSpeed</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Texture *</td>          <td class="paramname"><span class="paramname"><em>spritesheet</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_obstacle.html">Obstacle</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>obstacles</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_enemy.html">Enemy</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>enemies</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>player</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run the background logic, and check if background stage should be swapped. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td></td></tr>
+    <tr><td class="paramname">mainView</td><td></td></tr>
+    <tr><td class="paramname">gameSpeed</td><td></td></tr>
+    <tr><td class="paramname">spritesheet</td><td></td></tr>
+    <tr><td class="paramname">obstacles</td><td></td></tr>
+    <tr><td class="paramname">enemies</td><td></td></tr>
+    <tr><td class="paramname">player</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Background/<a class="el" href="_background_8h_source.html">Background.h</a></li>
-<li>Background/<b>Background.cpp</b></li>
+<li>src/Background/<a class="el" href="_background_8h_source.html">Background.h</a></li>
+<li>src/Background/<b>Background.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: Entity/Character/Enemy/Enemy.h Source File</title>
+<title>Zaxxon: src/Entity/Character/Enemy/Enemy.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,7 +76,7 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_a625c670f828dfaff80322b07e1365a6.html">Entity</a></li><li class="navelem"><a class="el" href="dir_53721aef73f5a54374d96cd44ca98cfc.html">Character</a></li><li class="navelem"><a class="el" href="dir_0cc9734fb4ba13de136101916359c0ba.html">Enemy</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_afc99902bfecf368d324149b3dedaf36.html">Entity</a></li><li class="navelem"><a class="el" href="dir_a707d1be9ea6a2a12b5227746ebb6adf.html">Character</a></li><li class="navelem"><a class="el" href="dir_a7da1cd0dd3c080fd6137284318493be.html">Enemy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -86,29 +86,33 @@ $(function() { codefold.init(0); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;../Character.h&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_enemy.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="class_enemy.html">Enemy</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_character.html">Character</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_class" href="class_enemy.html">Enemy</a>(sf::Texture* texture, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">void</span> update(sf::RenderWindow&amp; window);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">void</span> kill() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">bool</span> getTranslate2() { <span class="keywordflow">return</span> <span class="keyword">true</span>; };</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// Static so can be used from any context.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// Will spawn a wave of enemies relative to the player.</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> spawnWave(std::vector&lt;Enemy*&gt;&amp; enemies, sf::Texture* spritesheet,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordtype">int</span> playerZ, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> wave</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    );</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_enemy.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_enemy.html">Enemy</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_character.html">Character</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="class_enemy.html#ae328df4b31d1deea035aa07e9c135062">Enemy</a>(sf::Texture*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_enemy.html#a899157d4bd6d049bc094bc92863dccec">update</a>(sf::RenderWindow&amp;);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_enemy.html#ad0bf56e75378d9524f2d77479d259dde">kill</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">bool</span> getTranslate2() { <span class="keywordflow">return</span> <span class="keyword">true</span>; };</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Static so can be used from any context.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// Will spawn a wave of enemies relative to the player.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_enemy.html#a965d8a0c6f027a92795b9794158369b7">spawnWave</a>(std::vector&lt;Enemy*&gt;&amp;, sf::Texture*, <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> runAI();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    sf::IntRect textures[2][4];</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    sf::Clock alive;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    sf::IntRect textures[2][4];</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    sf::Clock alive;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="ttc" id="aclass_character_html"><div class="ttname"><a href="class_character.html">Character</a></div><div class="ttdef"><b>Definition</b> Character.h:10</div></div>
-<div class="ttc" id="aclass_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdef"><b>Definition</b> Enemy.h:5</div></div>
+<div class="ttc" id="aclass_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdef"><b>Definition</b> Enemy.h:6</div></div>
+<div class="ttc" id="aclass_enemy_html_a899157d4bd6d049bc094bc92863dccec"><div class="ttname"><a href="class_enemy.html#a899157d4bd6d049bc094bc92863dccec">Enemy::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;)</div><div class="ttdoc">Run the logic for this enemy.</div><div class="ttdef"><b>Definition</b> Enemy.cpp:40</div></div>
+<div class="ttc" id="aclass_enemy_html_a965d8a0c6f027a92795b9794158369b7"><div class="ttname"><a href="class_enemy.html#a965d8a0c6f027a92795b9794158369b7">Enemy::spawnWave</a></div><div class="ttdeci">static void spawnWave(std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int, unsigned int)</div><div class="ttdoc">Enemies come in waves, this will spawn the specified enemy wave by int id.</div><div class="ttdef"><b>Definition</b> Enemy.cpp:73</div></div>
+<div class="ttc" id="aclass_enemy_html_ad0bf56e75378d9524f2d77479d259dde"><div class="ttname"><a href="class_enemy.html#ad0bf56e75378d9524f2d77479d259dde">Enemy::kill</a></div><div class="ttdeci">void kill() override</div><div class="ttdoc">Extra code for when enemy is killed.</div><div class="ttdef"><b>Definition</b> Enemy.cpp:60</div></div>
+<div class="ttc" id="aclass_enemy_html_ae328df4b31d1deea035aa07e9c135062"><div class="ttname"><a href="class_enemy.html#ae328df4b31d1deea035aa07e9c135062">Enemy::Enemy</a></div><div class="ttdeci">Enemy(sf::Texture *, unsigned int, int)</div><div class="ttdoc">Create new enemy.</div><div class="ttdef"><b>Definition</b> Enemy.cpp:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
