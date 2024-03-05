@@ -16,20 +16,14 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 
 	this->id = id;
 	alive.restart();
+	sf::Vector3f pos;
 	// y range @ current values: 0 - 71.
 	switch (id)
 	{
 	case 0:
-		this->setPos(sf::Vector3f(0, 100, spawnZ));
+		pos = sf::Vector3f(0, 0, spawnZ);
 	}
-	this->setPos(getPos() + sf::Vector3f(0, 69, 0));
-	
-	if (getPos().y >= yMax)
-	{
-		sf::Vector3f temp = getPos();
-		temp.y = yMax-1;
-		setPos(temp);
-	}
+	this->setPos(pos + sf::Vector3f(0, 69, 0));
 }
 
 
@@ -76,7 +70,8 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	switch (wave)
 	{
 	case 0:
-		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 1000));
+		// first fish loop
+		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 224));
 		break;
 	}
 }
@@ -92,18 +87,33 @@ void Enemy::runAI()
 
 	switch (id)
 	{
-	case 0:
-		if (msPassed%2000 < 1000)
+	case 0: // fish loop
+		if (msPassed < 1000)
 		{
-			vel.y = -0.3;
-			vel.z = 0.3;
+			vel.x = -1;
+			vel.y = 0.3;
 		}
-		else
+		else if (msPassed < 2000)
+		{
+			vel.x = -0.2;
+			vel.y = -0.3;
+		}
+		else if (msPassed < 3000)
+		{
+			vel.x = 0;
+			vel.y = -0.3;
+		}
+		else if (msPassed < 4000);
 		{
 			vel.y = 0.3;
-			vel.z = -0.3;
+			vel.z = 0.3;
 		}
 		break;
+	case 1:
+		if (msPassed < 1000)
+		{
+			vel.y = 0.3;
+		}
 	}
 
 	if ((getPos().x < xMin && vel.x < 0) || (getPos().x > xMax && vel.x > 0))
