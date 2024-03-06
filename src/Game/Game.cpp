@@ -132,7 +132,7 @@ void Game::doCollision(Player* player)
                 abs(bulletPos.at(bullets).y - planePos.y),
                 abs(bulletPos.at(bullets).z - planePos.z));
 
-            if (difference.x < 10 && difference.y < 10 && difference.z < 10)
+            if (difference.x < 15 && difference.y < 10 && difference.z < 15)
             {
                 player->kill();
 
@@ -146,7 +146,7 @@ void Game::doCollision(Player* player)
         for (unsigned int pBullets = 0; pBullets < size; pBullets++)
         {
             //Makes it so you cannot shoot walls
-            if (!(obstacles.at(i)->getType() == 4 || obstacles.at(i)->getType() == 5))
+            if ((obstacles.at(i)->getType() == 8 || obstacles.at(i)->getType() == 7))
                 continue;
 
             difference = sf::Vector3f
@@ -157,6 +157,7 @@ void Game::doCollision(Player* player)
             if (!(difference.x < 20 && difference.y < 20 && difference.z < 20))
                 continue;
             obstacles.at(i)->kill();
+            std::cout << "KILL";
             player->killBullet(pBullets);
             bulletPos.erase(bulletPos.begin() + pBullets);
             pBullets--;
