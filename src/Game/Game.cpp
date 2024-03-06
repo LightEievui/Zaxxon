@@ -68,9 +68,6 @@ void Game::run() // if random erros later check that stack isnt full
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            // TODO: REMOVE THIS
-            if (event.type == sf::Event::MouseButtonPressed)
-                score += 100, fuel -= 1;
         }
 
         /*else
@@ -80,6 +77,15 @@ void Game::run() // if random erros later check that stack isnt full
         }*/
 
         doCollision(player);
+
+        // Fuel slowly runs out, player dies when fuel is empty.
+        if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+        {
+            if (fuel-- == 0)
+                player->kill();
+
+            fuelClock.restart();
+        }
 
         // Update window & objects
         window.clear();
@@ -145,7 +151,7 @@ void Game::doCollision(Player* player)
                 abs(bulletPos.at(bullets).y - planePos.y),
                 abs(bulletPos.at(bullets).z - planePos.z));
 
-            if (difference.x < 10 && difference.y < 10 && difference.z < 10)
+            if (difference.x < 15 && difference.y < 10 && difference.z < 15)
             {
                 player->kill();
 
@@ -159,7 +165,7 @@ void Game::doCollision(Player* player)
         for (unsigned int pBullets = 0; pBullets < size; pBullets++)
         {
             //Makes it so you cannot shoot walls
-            if (!(obstacles.at(i)->getType() == 4 || obstacles.at(i)->getType() == 5))
+            if ((obstacles.at(i)->getType() == 8 || obstacles.at(i)->getType() == 7))
                 continue;
 
             difference = sf::Vector3f
@@ -170,6 +176,7 @@ void Game::doCollision(Player* player)
             if (!(difference.x < 20 && difference.y < 20 && difference.z < 20))
                 continue;
             obstacles.at(i)->kill();
+            std::cout << "KILL";
             player->killBullet(pBullets);
             bulletPos.erase(bulletPos.begin() + pBullets);
             pBullets--;
@@ -180,6 +187,7 @@ void Game::doCollision(Player* player)
             {
             case 1:
                 score += 300;
+                fuel = 128;
                 break;
             case 2:
                 score += 1000;

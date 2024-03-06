@@ -32,4 +32,6 @@ private:
 	sf::Sprite fuelBar[16];
 	sf::Sprite livesBar[2];
 	sf::Sprite enemyLeft[4];
+
+	sf::Clock scoreClock;
 };
