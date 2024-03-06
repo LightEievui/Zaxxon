@@ -193,7 +193,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 		player.resetPos(startPos + 350);
 		break;
 	default:
-		back.setPosition(sf::Vector2f(0, 240));
+		back.setPosition(sf::Vector2f(0, 224));
 		player.resetPos(startPos);
 	}
 }
