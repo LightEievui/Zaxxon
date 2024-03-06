@@ -1,5 +1,5 @@
 \doxysection{Character.\+h}
-\hypertarget{_character_8h_source}{}\label{_character_8h_source}\index{Entity/Character/Character.h@{Entity/Character/Character.h}}
+\hypertarget{_character_8h_source}{}\label{_character_8h_source}\index{src/Entity/Character/Character.h@{src/Entity/Character/Character.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -9,42 +9,44 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Entity/Entity.h"{}}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{//\ abstract}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Abstract}}
 \DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_character}{Character}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_character}{Character}}(sf::Texture*\ spriteSheet);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\&\ window);}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ kill()\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_character_a7e22d0af12e2c3c8cb364d22ce8cc9f2}{Character}}(sf::Texture*);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{update}}(sf::RenderWindow\&);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{kill}}()\ =\ 0;}
 \DoxyCodeLine{00015\ \ \ \ \ }
-\DoxyCodeLine{00016\ \ \ \ \ std::vector<sf::Vector3f>\&\ getBulletPosition();}
-\DoxyCodeLine{00017\ \ \ \ \ std::vector<sf::Sprite>\&\ getBullets();}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<sf::Vector3f>\&\ \mbox{\hyperlink{class_character_a84503e639ff28fdf9648ea921d5ba9d6}{getBulletPosition}}();}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<sf::Sprite>\&\ \mbox{\hyperlink{class_character_aef458dc1aacfd7a7a3263ca862f829ca}{getBullets}}();}
 \DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ getTranslate2()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \};}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ killBullet(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00020\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ yMax\ =\ 140;}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ yMin\ =\ 69;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ xMin\ =\ -\/150;}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ xMax\ =\ 0;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{/*\ this\ computes\ the\ sizeindex\ (the\ quadrant\ the\ plane\ is\ in)}}
-\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ using\ the\ currentY\ and\ the\ min\ /\ max,}}
-\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ assumed\ there\ is\ 4\ for\ everything\ inheriting\ character.\ }}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ getSizeIndex(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ planeSizeIndex);}
-\DoxyCodeLine{00031\ \ \ \ \ sf::Vector3f\ getVelocity();}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ setVelocity(sf::Vector3f\ vel);}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ setBullet(sf::IntRect\ bulletTextureRect);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a6ea404b0682144a8f21d42e881cb0ce7}{killBullet}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{setPos}}(sf::Vector3f);}
+\DoxyCodeLine{00022\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ yMax\ =\ 140;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ yMin\ =\ 69;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ xMin\ =\ -\/180;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ xMax\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ This\ computes\ the\ sizeindex\ (the\ quadrant\ the\ plane\ is\ in)}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ using\ the\ currentY\ and\ the\ min\ /\ max,}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ assumed\ there\ is\ 4\ for\ everything\ inheriting\ character.\ }}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_ad41cb97f383d1681e76e580f06bc2481}{getSizeIndex}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&);}
+\DoxyCodeLine{00034\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_character_aa2ee5df8a31732a36f37bfce88161401}{getVelocity}}();}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ sf::Vector3f\ velocity;}
-\DoxyCodeLine{00037\ \ \ \ \ std::vector<sf::Sprite>\ bullets;}
-\DoxyCodeLine{00038\ \ \ \ \ std::vector<sf::Vector3f>\ bulletsPos;}
-\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00040\ \ \ \ \ sf::IntRect\ bulletTexture;}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ SoundBuffer\ buffer;}}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Sound\ sound;}}
-\DoxyCodeLine{00043\ \};}
-\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a46a264779165a349a13bcb364c4106d4}{setVelocity}}(sf::Vector3f);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_afe32dd9baa581b7895f06c9687d073b4}{setBullet}}(sf::IntRect);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ sf::Vector3f\ velocity;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<sf::Sprite>\ bullets;}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<sf::Vector3f>\ bulletsPos;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ sf::IntRect\ bulletTexture;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ SoundBuffer\ buffer;}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Sound\ sound;}}
+\DoxyCodeLine{00046\ \};}
 
 \end{DoxyCode}

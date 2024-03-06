@@ -5,6 +5,9 @@ const unsigned int startPos = 0;
 Background::Stage startStage = Background::INITIAL;
 
 
+/// <summary>
+/// Initialize everything needed for the main game functionality.
+/// </summary>
 Game::Game()
     : window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
@@ -35,6 +38,9 @@ Game::Game()
 }
 
 
+/// <summary>
+/// Clean up memory when user is done playing the game.
+/// </summary>
 Game::~Game()
 {
     const int obstaclesSize = obstacles.size();
@@ -44,6 +50,9 @@ Game::~Game()
 }
 
 
+/// <summary>
+/// Start the game, main game loop is also managed in here.
+/// </summary>
 void Game::run() // if random erros later check that stack isnt full
 {
     unsigned int fps;
@@ -106,6 +115,10 @@ void Game::run() // if random erros later check that stack isnt full
 }
 
 
+/// <summary>
+/// Check collisions for all bullets and player.
+/// </summary>
+/// <param name="player"></param>
 void Game::doCollision(Player* player)
 {
     sf::Vector3f difference;

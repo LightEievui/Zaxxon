@@ -24,4 +24,3 @@ protected:
 private:
 	sf::Vector3f position;
 };
-

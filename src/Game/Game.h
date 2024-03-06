@@ -19,6 +19,7 @@ public:
 	Game();
 	~Game();
 	void run();
+
 private:
 	sf::Texture spriteSheet;
 	Background* pBackground;

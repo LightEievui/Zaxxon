@@ -9,11 +9,9 @@ Inheritance diagram for Entity\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_entity_a522648b330daab91b49f78f0737a943f}\label{class_entity_a522648b330daab91b49f78f0737a943f} 
-virtual void {\bfseries kill} ()
-\item 
-\Hypertarget{class_entity_a7d014114fcea80281536d5525019190c}\label{class_entity_a7d014114fcea80281536d5525019190c} 
-virtual void {\bfseries update} (sf\+::\+Render\+Window \&)=0
+virtual void \mbox{\hyperlink{class_entity_a522648b330daab91b49f78f0737a943f}{kill}} ()
+\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a7d014114fcea80281536d5525019190c}{update}} (sf\+::\+Render\+Window \&)=0
 \item 
 \Hypertarget{class_entity_a1783cc856808b2d78c4e46fa9c85a524}\label{class_entity_a1783cc856808b2d78c4e46fa9c85a524} 
 void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
@@ -41,7 +39,34 @@ bool {\bfseries dead} = false
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entity_a522648b330daab91b49f78f0737a943f}\label{class_entity_a522648b330daab91b49f78f0737a943f} 
+\index{Entity@{Entity}!kill@{kill}}
+\index{kill@{kill}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily void Entity\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Run death animation code for the killed entity. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}{Enemy}}, \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{Player}}, and \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{Character}}.
+
+\Hypertarget{class_entity_a7d014114fcea80281536d5525019190c}\label{class_entity_a7d014114fcea80281536d5525019190c} 
+\index{Entity@{Entity}!update@{update}}
+\index{update@{update}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Entity\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{Character}}, \mbox{\hyperlink{class_enemy_a899157d4bd6d049bc094bc92863dccec}{Enemy}}, and \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{Obstacle}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Entity/Entity.\+h\item 
-Entity/Entity.\+cpp\end{DoxyCompactItemize}
+src/\+Entity/Entity.\+h\item 
+src/\+Entity/Entity.\+cpp\end{DoxyCompactItemize}
