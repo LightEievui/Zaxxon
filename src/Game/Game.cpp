@@ -68,9 +68,6 @@ void Game::run() // if random erros later check that stack isnt full
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            // TODO: REMOVE THIS
-            if (event.type == sf::Event::MouseButtonPressed)
-                score += 100, fuel -= 1;
         }
 
         /*else
@@ -80,6 +77,15 @@ void Game::run() // if random erros later check that stack isnt full
         }*/
 
         doCollision(player);
+
+        // Fuel slowly runs out, player dies when fuel is empty.
+        if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+        {
+            if (fuel-- == 0)
+                player->kill();
+
+            fuelClock.restart();
+        }
 
         // Update window & objects
         window.clear();
@@ -181,6 +187,7 @@ void Game::doCollision(Player* player)
             {
             case 1:
                 score += 300;
+                fuel = 128;
                 break;
             case 2:
                 score += 1000;

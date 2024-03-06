@@ -236,7 +236,19 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 	for (byte i = 0; i < 9; i++)
 	{
 		window.draw(topScore[i]);
-		window.draw(curScore[i]);
+
+		if(i >= 3)
+			window.draw(curScore[i]);
+	}
+
+	// 1up score will flash
+	if (scoreClock.getElapsedTime().asSeconds() > 0.4)
+	{
+		for (int i = 0; i < 3; i++)
+			window.draw(curScore[i]);
+
+		if (scoreClock.getElapsedTime().asSeconds() > 0.8)
+			scoreClock.restart();
 	}
 
 	for (byte i = 0; i < 6; i++)
