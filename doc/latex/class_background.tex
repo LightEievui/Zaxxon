@@ -12,30 +12,157 @@ enum {\bfseries Stage} \{ {\bfseries INITIAL}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_background_a5c7303096d3a98ab1e173b9c827f4ae2}\label{class_background_a5c7303096d3a98ab1e173b9c827f4ae2} 
-{\bfseries Background} (sf\+::\+Vector2f=sf\+::\+Vector2f(0, 0))
-\item 
-\Hypertarget{class_background_a2cbd26a7a47ab73ebe1cbced76b7415d}\label{class_background_a2cbd26a7a47ab73ebe1cbced76b7415d} 
-void {\bfseries update} (sf\+::\+Render\+Window \&window, sf\+::\+View \&main\+View, float game\+Speed, sf\+::\+Texture \texorpdfstring{$\ast$}{*}spritesheet, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&obstacles, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, \mbox{\hyperlink{class_player}{Player}} \&player)
-\item 
-\Hypertarget{class_background_a002ca1b009e940180bb5edb8c49e008f}\label{class_background_a002ca1b009e940180bb5edb8c49e008f} 
-void {\bfseries set\+Position} (sf\+::\+Vector2f)
-\item 
-\Hypertarget{class_background_abd3150983c5f3a2df47b761966235635}\label{class_background_abd3150983c5f3a2df47b761966235635} 
-bool {\bfseries is\+In\+Space} (int z)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_background_a1fac54c7e81db155fbef597121344108}{Background}} (Stage, sf\+::\+View \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, \mbox{\hyperlink{class_player}{Player}} \&, int)
+\begin{DoxyCompactList}\small\item\em Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_a2a139f9d39a237ff2556c56eae438be5}{update}} (sf\+::\+Render\+Window \&, sf\+::\+View \&, float, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, \mbox{\hyperlink{class_player}{Player}} \&)
+\begin{DoxyCompactList}\small\item\em Run the background logic, and check if background stage should be swapped. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{set\+Position}} (sf\+::\+Vector2f)
+\begin{DoxyCompactList}\small\item\em Set the position of the background. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_background_abd3150983c5f3a2df47b761966235635}{is\+In\+Space}} (int z)
+\begin{DoxyCompactList}\small\item\em Check if background is currently space, this affects the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_background_a673320c2422b07a59fc627324f460a4d}\label{class_background_a673320c2422b07a59fc627324f460a4d} 
-static void {\bfseries generate\+Obstacles} (Background\+::\+Stage stage, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&obstacles, sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet)
-\item 
-\Hypertarget{class_background_a883050ab33639345a20315f41c2bde18}\label{class_background_a883050ab33639345a20315f41c2bde18} 
-static void {\bfseries generate\+Waves} (Background\+::\+Stage stage, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&enemies, sf\+::\+Texture \texorpdfstring{$\ast$}{*}sprite\+Sheet, int playerZ)
-\end{DoxyCompactItemize}
+static void \mbox{\hyperlink{class_background_aadb6a9246b8e7532fff5d9de5b96b93c}{generate\+Obstacles}} (Background\+::\+Stage, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Place all obstacles for given stage. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb}{generate\+Waves}} (Background\+::\+Stage, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Handle enemy wave generation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_background_a1fac54c7e81db155fbef597121344108}\label{class_background_a1fac54c7e81db155fbef597121344108} 
+\index{Background@{Background}!Background@{Background}}
+\index{Background@{Background}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{Background()}{Background()}}
+{\footnotesize\ttfamily Background\+::\+Background (\begin{DoxyParamCaption}\item[{Stage}]{start\+Stage,  }\item[{sf\+::\+View \&}]{main\+View,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{int}]{start\+Pos }\end{DoxyParamCaption})}
+
+
+
+Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Stage} & \\
+\hline
+{\em main\+View} & \\
+\hline
+{\em spritesheet} & \\
+\hline
+{\em obstacles} & \\
+\hline
+{\em enemies} & \\
+\hline
+{\em player} & \\
+\hline
+{\em start\+Pos} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_background_aadb6a9246b8e7532fff5d9de5b96b93c}\label{class_background_aadb6a9246b8e7532fff5d9de5b96b93c} 
+\index{Background@{Background}!generateObstacles@{generateObstacles}}
+\index{generateObstacles@{generateObstacles}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{generateObstacles()}{generateObstacles()}}
+{\footnotesize\ttfamily void Background\+::generate\+Obstacles (\begin{DoxyParamCaption}\item[{Background\+::\+Stage}]{stage,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Place all obstacles for given stage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & \\
+\hline
+{\em obstacles} & \\
+\hline
+{\em sprite\+Sheet} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb}\label{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb} 
+\index{Background@{Background}!generateWaves@{generateWaves}}
+\index{generateWaves@{generateWaves}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{generateWaves()}{generateWaves()}}
+{\footnotesize\ttfamily void Background\+::generate\+Waves (\begin{DoxyParamCaption}\item[{Background\+::\+Stage}]{stage,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet,  }\item[{int}]{playerZ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handle enemy wave generation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & \\
+\hline
+{\em enemies} & \\
+\hline
+{\em sprite\+Sheet} & \\
+\hline
+{\em playerZ} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_background_abd3150983c5f3a2df47b761966235635}\label{class_background_abd3150983c5f3a2df47b761966235635} 
+\index{Background@{Background}!isInSpace@{isInSpace}}
+\index{isInSpace@{isInSpace}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{isInSpace()}{isInSpace()}}
+{\footnotesize\ttfamily bool Background\+::is\+In\+Space (\begin{DoxyParamCaption}\item[{int}]{z }\end{DoxyParamCaption})}
+
+
+
+Check if background is currently space, this affects the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em z} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+\Hypertarget{class_background_a002ca1b009e940180bb5edb8c49e008f}\label{class_background_a002ca1b009e940180bb5edb8c49e008f} 
+\index{Background@{Background}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Background\+::set\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Set the position of the background. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_background_a2a139f9d39a237ff2556c56eae438be5}\label{class_background_a2a139f9d39a237ff2556c56eae438be5} 
+\index{Background@{Background}!update@{update}}
+\index{update@{update}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Background\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+View \&}]{main\+View,  }\item[{float}]{game\+Speed,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player }\end{DoxyParamCaption})}
+
+
+
+Run the background logic, and check if background stage should be swapped. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em main\+View} & \\
+\hline
+{\em game\+Speed} & \\
+\hline
+{\em spritesheet} & \\
+\hline
+{\em obstacles} & \\
+\hline
+{\em enemies} & \\
+\hline
+{\em player} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Background/Background.\+h\item 
-Background/Background.\+cpp\end{DoxyCompactItemize}
+src/\+Background/Background.\+h\item 
+src/\+Background/Background.\+cpp\end{DoxyCompactItemize}

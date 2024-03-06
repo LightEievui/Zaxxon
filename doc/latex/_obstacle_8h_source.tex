@@ -1,5 +1,5 @@
 \doxysection{Obstacle.\+h}
-\hypertarget{_obstacle_8h_source}{}\label{_obstacle_8h_source}\index{Obstacle/Obstacle.h@{Obstacle/Obstacle.h}}
+\hypertarget{_obstacle_8h_source}{}\label{_obstacle_8h_source}\index{src/Obstacle/Obstacle.h@{src/Obstacle/Obstacle.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -15,27 +15,25 @@
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//For\ shooting\ obstacles}}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{float},\ \ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{float},\ \ \textcolor{keywordtype}{int});}
 \DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//For\ standby\ obstacles}}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
 \DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_obstacle}{\string~Obstacle}}();}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ setTexture(std::string);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(sf::Vector3f);;}
-\DoxyCodeLine{00021\ \ \ \ \ sf::Vector3f\ getPosition();}
-\DoxyCodeLine{00022\ \ \ \ \ std::vector<sf::Vector3f>\ getBulletLocations();}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\&)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPresent();}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ bulletKill(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ getType();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a712e425583cff17617c280a10399bf1e}{setPosition}}(sf::Vector3f);;}
+\DoxyCodeLine{00021\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}{getPosition}}();}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<sf::Vector3f>\ \mbox{\hyperlink{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}{getBulletLocations}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{update}}(sf::RenderWindow\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_af395b8077b863766f840f75377a9c6fc}{isPresent}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}{bulletKill}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}{getType}}();}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ std::vector<sf::Sprite>\ bulletSprites;}
-\DoxyCodeLine{00031\ \ \ \ \ std::vector<sf::Vector3f>\ bulletPositions;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ count,\ total\ =\ 100,\ random,\ type;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ turret\ =\ \textcolor{keyword}{false},\ onScreen\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00034\ \};}
-\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<sf::Sprite>\ bulletSprites;}
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<sf::Vector3f>\ bulletPositions;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ count,\ total\ =\ 100,\ random,\ type;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ turret\ =\ \textcolor{keyword}{false},\ onScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \};}
 
 \end{DoxyCode}
