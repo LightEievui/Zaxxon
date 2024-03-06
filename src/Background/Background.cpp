@@ -270,6 +270,14 @@ void Background::generateObstacles(Background::Stage stage,
 		//Walls
 		obstacles.push_back(new Obstacle(sf::Vector3f(-32.f, 90.f, -118.f), spriteSheet, 4));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-192.f, 90.f, -115.f), spriteSheet, 5));
+
+		//TO DO: Change actual locations
+		//change: x + 30, y = 139.6, z = -20  wrong
+		for (int i = 0; i < obstacles.size(); i++)
+		{
+			obstacles.at(i)->setPosition(sf::Vector3f(obstacles.at(i)->getPosition().x + 27, 139.6f, obstacles.at(i)->getPosition().z - 25));
+		}
+
 		break;
 	}
 }
