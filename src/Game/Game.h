@@ -41,6 +41,7 @@ private:
 	sf::View guiView;
 	sf::SoundBuffer flightBuffer;
 	sf::Sound flightSound;
+	sf::Clock fuelClock;
 
 	void doCollision(Player*);
 };

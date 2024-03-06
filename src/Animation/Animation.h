@@ -23,7 +23,7 @@ public:
 	int getState();
 private:
 	sf::Clock timer;
-	sf::IntRect frames[8];
+	sf::IntRect frames[10];
 	int state = 0; 
 };
 
