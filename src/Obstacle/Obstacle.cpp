@@ -138,7 +138,7 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletPositions.push_back(getPos());
 		}
 	}
-	else if (count >= total)
+	else if (count >= total && turret == true)
 	{
 		if (getPos().y > 70.f)
 		{
