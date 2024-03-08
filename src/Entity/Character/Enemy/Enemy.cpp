@@ -11,7 +11,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
-			textures[i][j] = sf::IntRect(96 + 25*(i+j), 37, 25, 25);
+			textures[i][j] = sf::IntRect(96 + 25*j + i*100, 37, 25, 25);
 	this->sprite.setTextureRect(textures[0][0]);
 
 	this->id = id;
@@ -21,7 +21,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 	switch (id)
 	{
 	case 0:
-		pos = sf::Vector3f(0, 0, spawnZ);
+		pos = sf::Vector3f(120, 25, spawnZ);
 	}
 	this->setPos(pos + sf::Vector3f(0, 69, 0));
 }
@@ -35,7 +35,7 @@ void Enemy::update(sf::RenderWindow& window)
 {	
 	runAI();
 
-	unsigned int planeSizeIndex;
+	unsigned int planeSizeIndex = 0;
 	unsigned int planeVertical = 0;
 	getSizeIndex(planeSizeIndex);
 
@@ -44,6 +44,7 @@ void Enemy::update(sf::RenderWindow& window)
 		planeVertical = 1;
 
 	sprite.setTextureRect(textures[planeVertical][planeSizeIndex]);
+
 	Character::update(window);
 }
 
@@ -71,7 +72,7 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	{
 	case 0:
 		// first fish loop
-		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 224));
+		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 190));
 		break;
 	}
 }
@@ -88,24 +89,26 @@ void Enemy::runAI()
 	switch (id)
 	{
 	case 0: // fish loop
-		if (msPassed < 1000)
+		if (msPassed < 2000)
 		{
-			vel.x = -1;
-			vel.y = 0.3;
+			vel.x = -1.5;
+			vel.y = 0.2;
+			vel.z = -1;
 		}
-		else if (msPassed < 2000)
+		else if (msPassed < 3500)
 		{
-			vel.x = -0.2;
-			vel.y = -0.3;
+			vel.z = -3.5;
+			vel.y = -0.5;
+			vel.x = 1.5;
 		}
 		else if (msPassed < 3000)
 		{
 			vel.x = 0;
 			vel.y = -0.3;
 		}
-		else if (msPassed < 4000);
+		else if (msPassed < 4000)
 		{
-			vel.y = 0.3;
+			vel.y = 1;
 			vel.z = 0.3;
 		}
 		break;
@@ -115,11 +118,6 @@ void Enemy::runAI()
 			vel.y = 0.3;
 		}
 	}
-
-	if ((getPos().x < xMin && vel.x < 0) || (getPos().x > xMax && vel.x > 0))
-		vel.x = 0;
-	else if ((getPos().y < yMin && vel.y < 0) || (getPos().y > yMax && vel.y > 0))
-		vel.y = 0;
 
 	Character::setVelocity(vel);
 }
