@@ -36,6 +36,7 @@ private:
 	byte lives = 3;
 	int score = 0;
 	float gameSpeed = 1.;
+	byte gameState = 0;
 
 	sf::View mainView;
 	sf::View guiView;
