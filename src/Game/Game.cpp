@@ -145,7 +145,7 @@ void Game::doCollision(Player* player)
                 abs(bulletPos.at(bullets).y - planePos.y),
                 abs(bulletPos.at(bullets).z - planePos.z));
 
-            if (difference.x < 15 && difference.y < 10 && difference.z < 15)
+            if (difference.x < 15 && difference.y < 15 && difference.z < 15)
             {
                 player->kill();
 

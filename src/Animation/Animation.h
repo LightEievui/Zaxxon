@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <thread>
 #include <iostream>
+#include <vector>
 
 
 class Animation
@@ -10,7 +11,8 @@ public:
 	const enum Anim {
 		CHARACTER_DEATH,
 		ALT_DEATH,
-		LAUNCH
+		LAUNCH,
+		RESET
 	};
 
 	Animation();
@@ -20,10 +22,12 @@ public:
 	void fCHARACTER_DEATH(sf::Sprite& sprite);
 	void fALT_DEATH(sf::Sprite& sprite);
 	void fLAUNCH(sf::Sprite& sprite);
+	void fRESET(sf::Sprite& sprite);
 	int getState();
 private:
 	sf::Clock timer;
-	sf::IntRect frames[10];
+	sf::IntRect frames[10], revert;
 	int state = 0; 
+	bool kill = false;
 };
 
