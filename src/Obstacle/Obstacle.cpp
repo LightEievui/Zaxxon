@@ -47,9 +47,9 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
 		//sprite.setPosition(position);
 
 		sprite.setTexture((*spriteSheet));
-		sprite.setTextureRect(sf::IntRect(80, 69, 19, 30));
-		//sprite.setOrigin(bulletSprites.at(0).getGlobalBounds().width / 2, 0);
+		sprite.setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite.setPosition(translateTo2d(pos));
+		sprite.setOrigin(sf::Vector2f(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2));
 		total = delay;
 	}
 }
@@ -68,7 +68,6 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	1 = gas can
 	2 = satellite
 	3 = plane
-	4 = wall
 	*/
 	this->type = type;
 
@@ -91,16 +90,6 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	{
 		this->type = 6;
 		sprite.setTextureRect(sf::IntRect(92, 35, 29, 25));
-	}
-	else if (type == 4)
-	{
-		this->type = 7;
-		sprite.setTextureRect(sf::IntRect(240, 64, 34, 32));
-	}
-	else if (type == 5)
-	{
-		this->type = 8;
-		sprite.setTextureRect(sf::IntRect(278, 65, 34, 32));
 	}
 
 	sprite.setPosition(translateTo2d(pos));
@@ -162,23 +151,30 @@ void Obstacle::update(sf::RenderWindow& window)
 			bulletPositions.push_back(getPos());
 		}
 	}
-	else if (count >= total && turret == true)
+	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 3))
 	{
-		if (getPos().y > 70.f)
+		if (count >= total)
 		{
-			setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
-			sprite.setPosition(translateTo2d(getPos()));
+			if (animations.getState() == 3)
+			{
+				animations.run(sprite, Animation::RESET);
+			}
+				
+			if (getPos().y > 70.f)
+			{
+				setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
+				sprite.setPosition(translateTo2d(getPos()));
+			}
+			else if (animations.getState() == 0)
+			{
+				kill(Animation::ALT_DEATH);
+			}
 		}
-		else if (animations.getState() == 0)
+		else if (count < total && animations.getState() != 3)
 		{
-			kill(Animation::ALT_DEATH);
+			animations.run(sprite, Animation::LAUNCH);
 		}
 	}
-	/*else if (count < total)
-	{
-		kill(Animation::ALT_DEATH);
-		//animations.run(sprite, Animation::LAUNCH);
-	}*/
 
 
 	for (int i = 0; i < bulletSprites.size(); i++)
@@ -217,7 +213,7 @@ void Obstacle::setPosition(sf::Vector3f pos)
 /// <returns>A boolean</returns>
 bool Obstacle::isPresent()
 {
-	return animations.getState() != 0 ? !(animations.getState() != 0) : onScreen;
+	return animations.getState() != 0 && animations.getState() != 3 ? true : onScreen;
 }
 
 
@@ -246,8 +242,6 @@ int Obstacle::getType()
 	4 = green cannon
 	5 = Shooting Up
 	6 = Plane
-	7 = Closed End Wall
-	8 = Open End Wall
 	*/
 
 	return type;
