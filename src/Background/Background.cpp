@@ -15,7 +15,7 @@
 /// <param name="startPos"></param>
 Background::Background(Stage startStage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
-	int startPos
+	int startPos, std::vector<Wall*>& walls
 )
 {
 	if (!initial.loadFromFile("res/BackgroundInitial.png"))
@@ -28,7 +28,7 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setTexture(initial);
 	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
-	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos);
+	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls);
 }
 
 
@@ -50,7 +50,7 @@ Background::~Background()
 /// <param name="player"></param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	float gameSpeed, sf::Texture* spritesheet, std::vector<Obstacle*>& obstacles,
-	std::vector<Enemy*>& enemies, Player& player
+	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls
 )
 {
 	if(backgroundFinished(mainView))
@@ -72,7 +72,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		}
 		resetPos(mainView, player, 0);
 
-		generateObstacles(stage, obstacles, spritesheet);
+		generateObstacles(stage, obstacles, spritesheet, walls);
 		generateWaves(stage, enemies, spritesheet, player.getPos().z);
 	}
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
@@ -112,7 +112,7 @@ void Background::setPosition(sf::Vector2f pos)
 /// <param name="startPos"></param>
 void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player, 
-	int startPos
+	int startPos, std::vector<Wall*>& walls
 )
 {
 	this->stage = stage;
@@ -124,7 +124,7 @@ void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* sprit
 		back.setTexture(boss);
 	resetPos(mainView, player, startPos);
 
-	generateObstacles(stage, obstacles, spritesheet);
+	generateObstacles(stage, obstacles, spritesheet, walls);
 	generateWaves(stage, enemies, spritesheet, player.getPos().z);
 }
 
@@ -206,7 +206,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 /// <param name="obstacles"></param>
 /// <param name="spriteSheet"></param>
 void Background::generateObstacles(Background::Stage stage,
-	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet)
+	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet, std::vector<Wall*>& walls)
 {
 	/*Shooting Obstacles
 	KEY
@@ -219,8 +219,6 @@ void Background::generateObstacles(Background::Stage stage,
 	1 = gas can
 	2 = satellite
 	3 = plane
-	4 = closed end wall
-	5 = open end wall
 	*/
 
 	obstacles.clear();
@@ -267,9 +265,14 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -2635.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 139.f, -2635.f), spriteSheet, 2));
 
-		//Walls
-		obstacles.push_back(new Obstacle(sf::Vector3f(-2.f, 89.f, -138.f), spriteSheet, 4));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-172.f, 89.f, -140.f), spriteSheet, 5));
+		/* Walls
+		KEY for Vector
+		0 = closed wall
+		1 = open wall
+		*/
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-20.f, 70.f, -120.f), 2, std::vector<int> {0, 1}));
+		walls.at(0)->setPosition(sf::Vector3f(-180.f, 70.f, -120.f), 1);
+
 
 		break;
 	}

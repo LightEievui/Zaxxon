@@ -141,6 +141,28 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	for (byte i = 0; i < 4; i++)
 		enemyLeft[i].setPosition(176.f + i * 8.f, 216.f);
+
+
+	// Start screen, push player button
+	ZaxxonText::string(spritesheet, "PUSH1OR2PLAYERBUTTON", pushPlayerText);
+	for (byte i = 0; i < 20; i++)
+	{
+		byte start = 8;
+
+		if (i >= 4)
+			start += 8;
+		if (i >= 5)
+			start += 8;
+		if (i >= 7)
+			start += 8;
+		if (i >= 8)
+			start += 8;
+		if (i >= 14)
+			start += 8;
+
+		pushPlayerText[i].setColor(sf::Color(0, 222, 247));
+		pushPlayerText[i].setPosition(sf::Vector2f(start + 8 * i, 92));
+	}
 }
 
 
@@ -236,7 +258,19 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 	for (byte i = 0; i < 9; i++)
 	{
 		window.draw(topScore[i]);
-		window.draw(curScore[i]);
+
+		if(i >= 3)
+			window.draw(curScore[i]);
+	}
+
+	// 1up score will flash
+	if (scoreClock.getElapsedTime().asSeconds() > 0.4)
+	{
+		for (int i = 0; i < 3; i++)
+			window.draw(curScore[i]);
+
+		if (scoreClock.getElapsedTime().asSeconds() > 0.8)
+			scoreClock.restart();
 	}
 
 	for (byte i = 0; i < 6; i++)
@@ -261,4 +295,20 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 
 	for (byte i = 0; i < 4; i++)
 		window.draw(enemyLeft[i]);
+}
+
+
+void GUI::startRender(sf::RenderWindow& window)
+{
+	for (byte i = 0; i < 10; i++)
+		window.draw(copyright[i]);
+
+	for (byte i = 0; i < 9; i++)
+	{
+		window.draw(topScore[i]);
+		window.draw(curScore[i]);
+	}
+
+	for (byte i = 0; i < 20; i++)
+		window.draw(pushPlayerText[i]);
 }
