@@ -215,5 +215,8 @@ void Game::doCollision(Player* player)
 
         if (difference.x < 20 && difference.y < 20 && difference.z < 10)
             player->kill();
+
+        // Enemy bullets collision with player
+        // Player bullets collision with enemy
     }
 }
