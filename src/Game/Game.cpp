@@ -76,31 +76,43 @@ void Game::run() // if random erros later check that stack isnt full
             //mainView.reset(sf::FloatRect(0, 0, 224, 224));
         }*/
 
-        doCollision(player);
-
-        // Fuel slowly runs out, player dies when fuel is empty.
-        if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+        if (gameState == 1)
         {
-            if (fuel-- == 0)
-                player->kill();
+            window.setView(mainView);
+            doCollision(player);
 
-            fuelClock.restart();
+            // Fuel slowly runs out, player dies when fuel is empty.
+            if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+            {
+                if (fuel-- == 0)
+                    player->kill();
+
+                fuelClock.restart();
+            }
+
+            // Update window & objects
+            window.clear();
+
+            background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player);
+            for (unsigned int i = 0; i < obstacles.size(); i++)
+                obstacles.at(i)->update(window);
+
+            for (Enemy* enemy : enemies)
+                enemy->update(window);
+
+            player->update(window, background.isInSpace((int)player->getPos().z));
+
+            window.setView(guiView);
+            gui.render(window, player->getPos().y, score, fuel);
         }
+        else
+        {
+            window.setView(guiView);
+            gui.startRender(window);
 
-        // Update window & objects
-        window.clear();
-
-        background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player);
-        for (unsigned int i = 0; i < obstacles.size(); i++)
-            obstacles.at(i)->update(window);
-
-        for (Enemy* enemy : enemies)
-            enemy->update(window);
-
-        player->update(window, background.isInSpace((int)player->getPos().z));
-        window.setView(guiView);
-        gui.render(window, player->getPos().y, score, fuel);
-        window.setView(mainView);
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+                gameState = 1;
+        }
 
         window.display();
 
