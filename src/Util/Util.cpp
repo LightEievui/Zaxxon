@@ -1,5 +1,5 @@
 #include "Util.h"
-
+// TODO: Find f(0) : sf::Vector3f(in.x, ~, in.z) such that x = cos 0 and y = sin 0 
 
 /// <summary>
 /// Convert normal 2d coordinates to isometric coordinates.

@@ -15,7 +15,7 @@
 /// <param name="startPos"></param>
 Background::Background(Stage startStage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
-	int startPos
+	int startPos, std::vector<Wall*>& walls
 )
 {
 	if (!initial.loadFromFile("res/BackgroundInitial.png"))
@@ -28,7 +28,7 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setTexture(initial);
 	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
-	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos);
+	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls);
 }
 
 
@@ -50,7 +50,7 @@ Background::~Background()
 /// <param name="player"></param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	float gameSpeed, sf::Texture* spritesheet, std::vector<Obstacle*>& obstacles,
-	std::vector<Enemy*>& enemies, Player& player
+	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls
 )
 {
 	if(backgroundFinished(mainView))
@@ -72,7 +72,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		}
 		resetPos(mainView, player, 0);
 
-		generateObstacles(stage, obstacles, spritesheet);
+		generateObstacles(stage, obstacles, spritesheet, walls);
 		generateWaves(stage, enemies, spritesheet, player.getPos().z);
 	}
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
@@ -112,7 +112,7 @@ void Background::setPosition(sf::Vector2f pos)
 /// <param name="startPos"></param>
 void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player, 
-	int startPos
+	int startPos, std::vector<Wall*>& walls
 )
 {
 	this->stage = stage;
@@ -124,7 +124,7 @@ void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* sprit
 		back.setTexture(boss);
 	resetPos(mainView, player, startPos);
 
-	generateObstacles(stage, obstacles, spritesheet);
+	generateObstacles(stage, obstacles, spritesheet, walls);
 	generateWaves(stage, enemies, spritesheet, player.getPos().z);
 }
 
@@ -189,7 +189,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 	{
 	case SPACE:
 		back.setPosition(sf::Vector2f(0, 224));
-		mainView.move(.8f * 350, -.4f * 350);
+		mainView.move((int)(.8f * 350), (int)(-.4f * 350));
 		player.resetPos(startPos + 350);
 		break;
 	default:
@@ -206,7 +206,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 /// <param name="obstacles"></param>
 /// <param name="spriteSheet"></param>
 void Background::generateObstacles(Background::Stage stage,
-	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet)
+	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet, std::vector<Wall*>& walls)
 {
 	/*Shooting Obstacles
 	KEY
@@ -219,8 +219,6 @@ void Background::generateObstacles(Background::Stage stage,
 	1 = gas can
 	2 = satellite
 	3 = plane
-	4 = closed end wall
-	5 = open end wall
 	*/
 
 	obstacles.clear();
@@ -228,48 +226,53 @@ void Background::generateObstacles(Background::Stage stage,
 	{
 	case INITIAL:
 		//Shooting
-		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.6f, -380.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-15.f, 139.6f, -435.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.6f, -800.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.6f, -947.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.6f, -1120.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.6f, -1145.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-142.f, 139.6f, -1410.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.6f, -1680.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.6f, -2335.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -380.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-15.f, 139.f, -435.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -800.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -947.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -1120.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -1145.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-142.f, 139.f, -1410.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -1680.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
 
 		// Need to be Flipped - Green Turret
-		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.6f, -2080.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.6f, -2260.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 1));
 
 		//Shooting Up Missiles
-		obstacles.push_back(new Obstacle(sf::Vector3f(-15.f, 139.6f, -435.f), spriteSheet, 100, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 100, 2));
 		
 		//Non-Shooting
-		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.6f, -340.f), spriteSheet, 2));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.6f, -590.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-12.f, 139.6f, -630.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.6f, -665.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.6f, -910.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-12.f, 139.6f, -1000.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.6f, -1100.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-25.f, 139.6f, -1305.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-135.f, 139.6f, -1685.f), spriteSheet, 3));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.6f, -1770.f), spriteSheet, 3));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.6f, -1800.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.6f, -1900.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.6f, -2045.f), spriteSheet, 2));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-95.f, 139.6f, -2175.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.6f, -2320.f), spriteSheet, 3));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.6f, -2435.f), spriteSheet, 3));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 139.6f, -2460.f), spriteSheet, 3));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-125.f, 139.6f, -2490.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.6f, -2635.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 139.6f, -2635.f), spriteSheet, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -340.f), spriteSheet, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -590.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-12.f, 139.f, -630.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -665.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -910.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-12.f, 139.f, -1000.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -1100.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-25.f, 139.f, -1305.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-135.f, 139.f, -1685.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -1770.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -1800.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -1900.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -2045.f), spriteSheet, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-95.f, 139.f, -2175.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -2320.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2435.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-45.f, 139.f, -2460.f), spriteSheet, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-125.f, 139.f, -2490.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -2635.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-150.f, 139.f, -2635.f), spriteSheet, 2));
 
-		//Walls
-		obstacles.push_back(new Obstacle(sf::Vector3f(-2.f, 89.f, -138.f), spriteSheet, 4));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-172.f, 89.f, -140.f), spriteSheet, 5));
+		/* Walls
+		KEY for Vector
+		0 = closed wall
+		1 = open wall
+		*/
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-20.f, 70.f, -120.f), 2, std::vector<int> {0, 1}));
+		walls.at(0)->setPosition(sf::Vector3f(-180.f, 70.f, -120.f), 1);
+
 
 		break;
 	}

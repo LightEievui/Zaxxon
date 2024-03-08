@@ -34,7 +34,7 @@ Game::Game()
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
     // background must be done after player.
-    pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos);
+    pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls);
 }
 
 
@@ -46,6 +46,9 @@ Game::~Game()
     const int obstaclesSize = obstacles.size();
     for (int i = 0; i < obstaclesSize; i++)
         delete obstacles[i];
+    const int wallsSize = walls.size();
+    for (int i = 0; i < wallsSize; i++)
+        delete walls[i];
     delete pBackground;
 }
 
@@ -76,31 +79,47 @@ void Game::run() // if random erros later check that stack isnt full
             //mainView.reset(sf::FloatRect(0, 0, 224, 224));
         }*/
 
-        doCollision(player);
-
-        // Fuel slowly runs out, player dies when fuel is empty.
-        if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+        if (gameState == 1)
         {
-            if (fuel-- == 0)
-                player->kill();
+            window.setView(mainView);
+            doCollision(player);
 
-            fuelClock.restart();
-        }
+            // Fuel slowly runs out, player dies when fuel is empty.
+            if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+            {
+                if (fuel-- == 0)
+                    player->kill();
 
-        // Update window & objects
-        window.clear();
+                fuelClock.restart();
+            }
 
-        background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player);
+            // Update window & objects
+            window.clear();
+
+        background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls);
         for (unsigned int i = 0; i < obstacles.size(); i++)
             obstacles.at(i)->update(window);
+
+        //Walls
+        for (unsigned int i = 0; i < walls.size(); i++)
+            walls.at(i)->drawWalls(window);
 
         for (Enemy* enemy : enemies)
             enemy->update(window);
 
-        player->update(window, background.isInSpace((int)player->getPos().z));
-        window.setView(guiView);
-        gui.render(window, player->getPos().y, score, fuel);
-        window.setView(mainView);
+            player->update(window, background.isInSpace((int)player->getPos().z));
+
+            window.setView(guiView);
+            gui.render(window, player->getPos().y, score, fuel);
+        }
+        else
+        {
+            window.setView(guiView);
+            gui.startRender(window);
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+                gameState = 1;
+        }
 
         window.display();
 
@@ -151,7 +170,7 @@ void Game::doCollision(Player* player)
                 abs(bulletPos.at(bullets).y - planePos.y),
                 abs(bulletPos.at(bullets).z - planePos.z));
 
-            if (difference.x < 15 && difference.y < 10 && difference.z < 15)
+            if (difference.x < 15 && difference.y < 15 && difference.z < 15)
             {
                 player->kill();
 
@@ -164,10 +183,6 @@ void Game::doCollision(Player* player)
         //Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
         for (unsigned int pBullets = 0; pBullets < size; pBullets++)
         {
-            //Makes it so you cannot shoot walls
-            if ((obstacles.at(i)->getType() == 8 || obstacles.at(i)->getType() == 7))
-                continue;
-
             difference = sf::Vector3f
             (abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
                 abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
@@ -218,5 +233,34 @@ void Game::doCollision(Player* player)
 
         // Enemy bullets collision with player
         // Player bullets collision with enemy
+    }
+
+    //Wall Collisions
+    for (int i = 0; i < walls.size(); i++)
+    {
+        if (!walls.at(i)->checkOnScreen())
+            continue;
+        
+        //Player Running into Wall Sections We Placed
+        for (int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
+        {
+            //TO DO Fix it so it accounts for the position being top left
+            difference = sf::Vector3f
+            (abs(walls.at(i)->getWallPositions().at(j).x - planePos.x),
+                abs(walls.at(i)->getWallPositions().at(j).y - planePos.y),
+                abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
+
+            if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+                player->kill();
+        }
+
+        //Plane runs into wall built into background
+        difference.z = planePos.z - walls.at(i)->getWallPositions().at(0).z;
+
+        //TO DO fix it so the x works and the y plus value is more accurate
+        if (planePos.y < (walls.at(i)->getWallPositions().at(0).y + 20) && difference.z < 20)
+        {
+            player->kill();
+        }
     }
 }
