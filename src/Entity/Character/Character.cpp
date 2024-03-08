@@ -19,7 +19,7 @@ Character::Character(sf::Texture* spriteSheet) : Entity()
 void Character::update(sf::RenderWindow& window)
 {
 	// update the character's position using it's velocity
-	setPos(getPos() + this->velocity, true);
+	setPos(getPos() + this->velocity);
 
 	sprite.setPosition(translateTo2d(getPos()));
 	window.draw(sprite);
