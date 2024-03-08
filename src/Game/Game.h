@@ -9,6 +9,8 @@
 #include "Entity/Character/Player/Player.h"
 #include "Entity/Character/Enemy/Enemy.h"
 #include "GUI/GUI.h"
+#include "Wall/Wall.h"
+
 
 typedef unsigned char byte;
 
@@ -30,17 +32,20 @@ private:
 	Player* player;
 	std::vector<Enemy*> enemies;
 	std::vector<Obstacle*> obstacles;
+	std::vector<Wall*> walls;
 
 	byte fuel = 128;
 	byte completions = 0;
 	byte lives = 3;
 	int score = 0;
 	float gameSpeed = 1.;
+	byte gameState = 0;
 
 	sf::View mainView;
 	sf::View guiView;
 	sf::SoundBuffer flightBuffer;
 	sf::Sound flightSound;
+	sf::Clock fuelClock;
 
 	void doCollision(Player*);
 };

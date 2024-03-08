@@ -21,7 +21,7 @@ public:
 protected:
 	const int yMax = 140;
 	const int yMin = 69;
-	const int xMin = -180;
+	const int xMin = -160;
 	const int xMax = 0;
 
 	/* 

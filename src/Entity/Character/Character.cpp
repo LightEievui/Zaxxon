@@ -42,19 +42,18 @@ std::vector<sf::Sprite>& Character::getBullets()
 /// <param name="planeSizeIndex"></param>
 void Character::getSizeIndex(unsigned int& planeSizeIndex)
 {
-	const int y = (int)getPos().y - ((float)yMax);
-	const int qSize = (yMin - yMax) / 4;
-	planeSizeIndex = 3;
+	const float y = abs(getPos().y - ((float)yMax));
+	const float qSize = abs((yMax - yMin) / 4.f);
+	planeSizeIndex = 3; // smallest
 
-	for (int i = 0; i < 4; i++)
-		if (y < qSize * i && y < qSize * i + 1)
+	for (int i = 1; i < 4; i++)
+		if (y > qSize * i && y < qSize * (i + 1))
 			planeSizeIndex = 3 - i;
 
-	// for edge
-	if (getPos().y >= yMax-2)
-		planeSizeIndex = 0;
-	if (getPos().y <= yMin-2)
+	if (getPos().y >= yMax)
 		planeSizeIndex = 3;
+	if (getPos().y <= yMin)
+		planeSizeIndex = 0;
 }
 
 
@@ -119,5 +118,6 @@ void Character::setPos(sf::Vector3f pos)
 		pos.y = yMax - 1;
 	else if (pos.y <= yMin)
 		pos.y = yMin + 1;
+
 	Entity::setPos(pos);
 }

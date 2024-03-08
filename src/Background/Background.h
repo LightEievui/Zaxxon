@@ -5,6 +5,7 @@
 #include "Entity/Character/Player/Player.h"
 #include "Entity/Character/Enemy/Enemy.h"
 #include "Obstacle/Obstacle.h"
+#include "Wall/Wall.h"
 
 
 class Background
@@ -17,23 +18,23 @@ public:
 	};
 
 	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&, 
-		std::vector<Enemy*>&, Player&, int);
+		std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&);
 	~Background();
 
 	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*, 
-		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&);
+		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, std::vector<Wall*>&);
 	void setPosition(sf::Vector2f);
 
 	// MAY want to consider changing to private later
 	void generateObstacles(Background::Stage,
-		std::vector<Obstacle*>&, sf::Texture*);
+		std::vector<Obstacle*>&, sf::Texture*, std::vector<Wall*>&);
 	void generateWaves(Background::Stage,
 		std::vector<Enemy*>&, sf::Texture*, int);
 
 	bool isInSpace(int z);
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
-		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, int);
+		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&);
 	bool backgroundFinished(sf::View&);
 	void resetPos(sf::View&, Player&, int);
 

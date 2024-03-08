@@ -13,6 +13,7 @@ class GUI
 public:
 	GUI(sf::Texture*);
 	void render(sf::RenderWindow&, float, int, byte);
+	void startRender(sf::RenderWindow&);
 
 private:
 	sf::Texture* spritesheet;
@@ -32,4 +33,8 @@ private:
 	sf::Sprite fuelBar[16];
 	sf::Sprite livesBar[2];
 	sf::Sprite enemyLeft[4];
+
+	sf::Sprite pushPlayerText[25];
+
+	sf::Clock scoreClock;
 };
