@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::INITIAL;
+Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -71,9 +71,6 @@ void Game::run() // if random erros later check that stack isnt full
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            // TODO: REMOVE THIS
-            if (event.type == sf::Event::MouseButtonPressed)
-                score += 100, fuel -= 1;
         }
 
         /*else
@@ -82,10 +79,22 @@ void Game::run() // if random erros later check that stack isnt full
             //mainView.reset(sf::FloatRect(0, 0, 224, 224));
         }*/
 
-        doCollision(player);
+        if (gameState == 1)
+        {
+            window.setView(mainView);
+            doCollision(player);
 
-        // Update window & objects
-        window.clear();
+            // Fuel slowly runs out, player dies when fuel is empty.
+            if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+            {
+                if (fuel-- == 0)
+                    player->kill();
+
+                fuelClock.restart();
+            }
+
+            // Update window & objects
+            window.clear();
 
         background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls);
         for (unsigned int i = 0; i < obstacles.size(); i++)
@@ -98,10 +107,19 @@ void Game::run() // if random erros later check that stack isnt full
         for (Enemy* enemy : enemies)
             enemy->update(window);
 
-        player->update(window, background.isInSpace((int)player->getPos().z));
-        window.setView(guiView);
-        gui.render(window, player->getPos().y, score, fuel);
-        window.setView(mainView);
+            player->update(window, background.isInSpace((int)player->getPos().z));
+
+            window.setView(guiView);
+            gui.render(window, player->getPos().y, score, fuel);
+        }
+        else
+        {
+            window.setView(guiView);
+            gui.startRender(window);
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+                gameState = 1;
+        }
 
         window.display();
 
@@ -184,6 +202,7 @@ void Game::doCollision(Player* player)
             {
             case 1:
                 score += 300;
+                fuel = 128;
                 break;
             case 2:
                 score += 1000;
