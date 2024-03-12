@@ -73,15 +73,15 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		resetPos(mainView, player, 0);
 
 		generateObstacles(stage, obstacles, spritesheet, walls);
-		generateWaves(stage, enemies, spritesheet, player.getPos().z);
+		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
-	mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3 * gameSpeed)));//for translateTo2d
+	mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
 
 	// spawn waves that have gone past the z set in queue
 	if (!waveQueue.empty() && player.getPos().z < waveQueue.front().first)
 	{
-		Enemy::spawnWave(enemies, spritesheet, player.getPos().z, waveQueue.front().second);
+		Enemy::spawnWave(enemies, spritesheet, (int)player.getPos().z, waveQueue.front().second);
 		waveQueue.pop();
 	}
 
@@ -184,7 +184,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 	//Sets the origin to the bottom left corner as that is where it will start 
 	//on the screen
 	mainView.setCenter(sf::Vector2f(112, 100));
-	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
+	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	switch (stage)
 	{
 	case SPACE:
@@ -291,13 +291,19 @@ void Background::generateWaves(Background::Stage stage,
 {
 	enemies.clear();
 	
+	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
+
 	switch (stage)
 	{
 	case SPACE: // further below Z should be lesser
-		waveQueue.push(std::pair<int, unsigned int>(-600, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-650, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-700, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-750, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-460, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-510, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-560, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-610, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-750, 1));
+		waveQueue.push(std::pair<int, unsigned int>(-770, 2));
+		waveQueue.push(std::pair<int, unsigned int>(-790, 3));
+		waveQueue.push(std::pair<int, unsigned int>(-1260, 4));
 
 		break;
 	}

@@ -13,7 +13,6 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 		for (unsigned int j = 0; j < 4; j++)
 			textures[i][j] = sf::IntRect(96 + 25*j + i*100, 37, 25, 25);
 	this->sprite.setTextureRect(textures[0][0]);
-
 	this->id = id;
 	alive.restart();
 	sf::Vector3f pos;
@@ -21,7 +20,19 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 	switch (id)
 	{
 	case 0:
-		pos = sf::Vector3f(120, 25, spawnZ);
+		pos = sf::Vector3f(120, 25, (float)spawnZ);
+		break;
+	case 1:
+		pos = sf::Vector3f(-30, 45, (float)spawnZ);
+		break;
+	case 2:
+		pos = sf::Vector3f(-60, 55, (float)spawnZ);
+		break;
+	case 3:
+		pos = sf::Vector3f(-90, 65, (float)spawnZ);
+		break;
+	case 4:
+		pos = sf::Vector3f(0, 71, (float)spawnZ);
 	}
 	this->setPos(pos + sf::Vector3f(0, 69, 0));
 }
@@ -31,21 +42,22 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 /// Run the logic for this enemy.
 /// </summary>
 /// <param name="window"></param>
-void Enemy::update(sf::RenderWindow& window)
+void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 {	
-	runAI();
+	sf::Vector2f vel = runAI();
 
-	unsigned int planeSizeIndex = 0;
-	unsigned int planeVertical = 0;
-	getSizeIndex(planeSizeIndex);
+	unsigned int planeVertical = vel.y > 0;
 
-	sf::Vector3f vel = getVelocity();
-	if (vel.y > 0)
-		planeVertical = 1;
+	// keep up with back
+	sprite.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));
+	sprite.setTextureRect(textures[planeVertical][sizeIndex]);
+	window.draw(sprite);
+}
 
-	sprite.setTextureRect(textures[planeVertical][planeSizeIndex]);
 
-	Character::update(window);
+unsigned int Enemy::getSizeIndex()
+{
+	return sizeIndex;
 }
 
 
@@ -74,6 +86,13 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 		// first fish loop
 		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 190));
 		break;
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+		// first right->charge
+		enemies.push_back(new Enemy(spritesheet, wave, playerZ - 360));
+		break;
 	}
 }
 
@@ -81,40 +100,131 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 /// <summary>
 /// Basic enemy AI. Runs each frame on enemy update.
 /// </summary>
-void Enemy::runAI()
+sf::Vector2f Enemy::runAI()
 {
-	sf::Vector3f vel;
+	sf::Vector2f vel;
 	sf::Int32 msPassed = alive.getElapsedTime().asMilliseconds();
-	double theta = 0;
-	double angleScale = 1;
+	float theta = 0;
+	float scale = 1;
+	sf::Vector2f transl;
 
 	switch (id)
 	{
-	case 0: // fish loop
-		
-		break;
-	case 1:
-		if (msPassed < 1000)
+	case 0: // fish loop COMPLETE
+		scale = 1.7f;
+
+		if (msPassed < 1500)
 		{
-			vel.y = 0.3;
+			theta = -60;
+			if (msPassed < 600)
+				sizeIndex = 1;
+			else if (msPassed < 1200)
+				sizeIndex = 2;
+			else
+				sizeIndex = 3;
+		}
+		else if (msPassed < 2500)
+		{
+			theta = (msPassed-1500)/2800.f*360;
+			theta = theta * PI / 180.f;
+			transl.x = cos(theta) * scale;
+			transl.y = 1.25f * -sin(theta) * scale;
+			theta = 0;
+		}
+		else if (msPassed < 5000)
+		{
+			// add 4k for starting pos of circle
+			theta = (msPassed-3400+4500) / 7500.f * 360;
+			if (msPassed < 3500)
+				sizeIndex = 2;
+			else
+				sizeIndex = 3;
+		}
+		else
+		{
+			theta = 180+60;
+		}
+		break;
+	case 1: // come from right then up little then charge
+	case 2:
+	case 3:
+		if (msPassed < 1500)
+		{
+			sizeIndex = 3;
+			theta = 180+30;
+		}
+		else if (msPassed < 2500)
+		{
+			theta = 90;
+			if (msPassed < 1800)
+				sizeIndex = 2;
+			else if (msPassed < 2100)
+				sizeIndex = 1;
+			else if (msPassed < 2500)
+				sizeIndex = 0;
+		}
+		else if (msPassed < 5500)
+		{
+			theta = 180 + 40;
+			if (msPassed < 3200)
+				sizeIndex = 0;
+			else if (msPassed < 3900)
+				sizeIndex = 1;
+			else if (msPassed < 4500)
+				sizeIndex = 2;
+			else
+				sizeIndex = 3;
+		}
+		else
+		{
+			theta = 180;
+		}
+		break;
+	case 4: // come from top right then down little then charge
+		if (msPassed < 750)
+		{
+			sizeIndex = 0;
+			theta = 180 - 15;
+		}
+		else if (msPassed < 2500)
+		{
+			theta = -90;
+			scale = 0.6;
+			if (msPassed < 1000)
+				sizeIndex = 0;
+			else if (msPassed < 1500)
+				sizeIndex = 1;
+			else if (msPassed < 2000)
+				sizeIndex = 2;
+			else if (msPassed < 2500)
+				sizeIndex = 3;
+		}
+		else if (msPassed < 5500)
+		{
+			theta = 180 + 10;
+			sizeIndex = 3;
+		}
+		else
+		{
+			theta = 180;
 		}
 		break;
 	}
 
 	if (theta != 0)
-	{
-		sf::Vector2f transl = angleTranslate(sf::Vector2f(theta, angleScale));
-		vel = sf::Vector3f(transl.x, vel.y, transl.y);
-	}
-	Character::setVelocity(vel);
+		transl = angleTranslate(theta, scale);
+	
+	sprite.move(transl.x, transl.y);
+	return transl;
 }
 
 
-sf::Vector2f Enemy::angleTranslate(sf::Vector2f angle)
+sf::Vector2f Enemy::angleTranslate(float angle, float scale)
 {
 	sf::Vector2f ret;
-	ret.x = 1.4 * angle.y * cos(angle.x);
-	ret.y = 1.2 * angle.y * sin(angle.x);
+	angle = angle * PI / 180.f;
+	ret.x = cos(angle) * scale;
+	ret.y = -sin(angle) * scale;
 
 	return ret;
 }
