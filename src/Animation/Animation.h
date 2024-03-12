@@ -12,6 +12,7 @@ public:
 		CHARACTER_DEATH,
 		ALT_DEATH,
 		LAUNCH,
+		BULLET_DEATH,
 		RESET
 	};
 
@@ -22,11 +23,12 @@ public:
 	void fCHARACTER_DEATH(sf::Sprite& sprite);
 	void fALT_DEATH(sf::Sprite& sprite);
 	void fLAUNCH(sf::Sprite& sprite);
+	void fBULLET_DEATH(sf::Sprite& sprite);
 	void fRESET(sf::Sprite& sprite);
 	int getState();
 private:
 	sf::Clock timer;
-	sf::IntRect frames[10], revert;
+	sf::IntRect frames[12], revert;
 	int state = 0; 
 	bool kill = false;
 };

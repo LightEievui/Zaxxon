@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -155,7 +155,7 @@ void Game::doCollision(Player* player)
     //Plane Bullet Setup
     std::vector<sf::Vector3f> planeBulletPos;
     sf::Vector3f planePos;
-    planePos = sf::Vector3f(player->getPos().x - 20, player->getPos().y, player->getPos().z - 20);
+    planePos = sf::Vector3f(player->getPos().x - 25, player->getPos().y, player->getPos().z - 20);
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
