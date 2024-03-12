@@ -19,5 +19,4 @@ Entity::~Entity()
 void Entity::kill(Animation::Anim animation)
 {
 	animations.run(this->sprite, animation);
-	std::cout << "w";
 }
