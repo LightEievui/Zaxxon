@@ -21,6 +21,10 @@ Animation::Animation()
 	// Launch animation
 	frames[9] = sf::IntRect(119, 71, 38, 27);
 	frames[8] = sf::IntRect(159, 72, 38, 27);
+
+	// Bullet Death animation
+	frames[10] = sf::IntRect(288, 146, 28, 30);
+	frames[11] = sf::IntRect(384, 320, 27, 30);
 }
 
 
@@ -124,6 +128,24 @@ void Animation::fLAUNCH(sf::Sprite& sprite)
 	}
 
 	kill = false;
+}
+
+
+/// <summary>
+/// Bullet on collision animation.
+/// </summary>
+/// <param name="sprite"></param>
+void Animation::fBULLET_DEATH(sf::Sprite& sprite)
+{
+	int current = 10;
+
+	while (timer.getElapsedTime().asSeconds() < 2 && kill == false)
+	{
+		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
+			current++;
+
+		sprite.setTextureRect(frames[current]);
+	}
 }
 
 
