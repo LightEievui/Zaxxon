@@ -270,10 +270,10 @@ void Background::generateObstacles(Background::Stage stage,
 		0 = closed wall
 		1 = open wall
 		*/
-		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-20.f, 70.f, -120.f), 2, std::vector<int> {0, 1}));
-		walls.at(0)->setPosition(sf::Vector3f(-180.f, 70.f, -120.f), 1);
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(0.f, 70.f, -122.f), 2, std::vector<int> {0, 1}));
+		walls.at(0)->setPosition(sf::Vector3f(-160.f, 70.f, -122.f), 1);
 
-
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-63.f, 130.f, -755.f), 3, std::vector<int> {1, 1, 1}));
 		break;
 	}
 }

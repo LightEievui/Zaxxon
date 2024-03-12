@@ -1,4 +1,5 @@
 #include "../Character.h"
+#define PI 3.1415
 #pragma once
 
 
@@ -14,6 +15,8 @@ public:
 	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int, unsigned int);
 private:
 	void runAI();
+	// angle -> x/z coords
+	sf::Vector2f angleTranslate(sf::Vector2f angle);
 
 	sf::IntRect textures[2][4];
 	sf::Clock alive;
