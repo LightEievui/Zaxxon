@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <chrono>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Background/Background.h"
@@ -36,10 +37,13 @@ private:
 
 	byte fuel = 128;
 	byte completions = 0;
-	byte lives = 3;
+	byte lives = 2;
 	int score = 0;
+	int highScore = 0;
 	float gameSpeed = 1.;
 	byte gameState = 0;
+	unsigned int highScores[6];
+	std::fstream file;
 
 	sf::View mainView;
 	sf::View guiView;
@@ -48,4 +52,5 @@ private:
 	sf::Clock fuelClock;
 
 	void doCollision(Player*);
+	void playerDeath();
 };

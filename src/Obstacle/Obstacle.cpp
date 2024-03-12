@@ -142,11 +142,23 @@ void Obstacle::update(sf::RenderWindow& window)
 		if (count % total == 0 && direction == 0)
 		{
 			sf::Sprite temp;
+
 			temp.setTexture((*spriteSheet));
 			temp.setTextureRect(sf::IntRect(160, 129, 12, 8));
 			temp.setPosition(translateTo2d(getPos()));
 			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
 				
+			bulletSprites.push_back(temp);
+			bulletPositions.push_back(getPos());
+		}
+		else if (count % total == 0 && direction == 1)
+		{
+			sf::Sprite temp;
+
+			temp.setTexture((*spriteSheet));
+			temp.setTextureRect(sf::IntRect(345, 124, 12, 8));
+			temp.setPosition(translateTo2d(getPos()));
+
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(getPos());
 		}
@@ -172,6 +184,7 @@ void Obstacle::update(sf::RenderWindow& window)
 		}
 		else if (count < total && animations.getState() != 3)
 		{
+			std::cout << "on";
 			animations.run(sprite, Animation::LAUNCH);
 		}
 	}
@@ -182,6 +195,10 @@ void Obstacle::update(sf::RenderWindow& window)
 		if (direction == 0)
 		{
 			bulletPositions.at(i).z += 3;
+		}
+		else if (direction == 1)
+		{
+			bulletPositions.at(i).x += 3;
 		}
 		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 
@@ -213,7 +230,7 @@ void Obstacle::setPosition(sf::Vector3f pos)
 /// <returns>A boolean</returns>
 bool Obstacle::isPresent()
 {
-	return animations.getState() != 0 && animations.getState() != 3 ? true : onScreen;
+	return (animations.getState() == 0 || animations.getState() == 3) && onScreen == true ? true : false;
 }
 
 
