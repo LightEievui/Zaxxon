@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -28,7 +28,6 @@ Game::Game()
     flightSound.setBuffer(flightBuffer);
     flightSound.setLoop(true);
     flightSound.play();
-    //obstacles.at(0)->create(sf::Vector3f(-120, 135.6, -700), &spriteSheet, 10, 1);
 
     player = new Player(&spriteSheet, startPos);
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
@@ -232,6 +231,7 @@ void Game::doCollision(Player* player)
             player->kill();
     }
 
+    //TO DO CANNOT FIGURE THEM OUT
     //Wall Collisions
     for (int i = 0; i < walls.size(); i++)
     {
@@ -243,21 +243,26 @@ void Game::doCollision(Player* player)
         {
             //TO DO Fix it so it accounts for the position being top left
             difference = sf::Vector3f
-            (abs(walls.at(i)->getWallPositions().at(j).x - planePos.x),
-                abs(walls.at(i)->getWallPositions().at(j).y - planePos.y),
+            (abs(walls.at(i)->getWallPositions().at(j).x - 10 - planePos.x),
+                abs(walls.at(i)->getWallPositions().at(j).y - 5- planePos.y),
                 abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
             if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+            {
+                //std::cout << "Player Ran into wall" << std::endl;
                 player->kill();
+                
+            }
         }
 
         //Plane runs into wall built into background
-        difference.z = planePos.z - walls.at(i)->getWallPositions().at(0).z;
+        difference.z = abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
 
         //TO DO fix it so the x works and the y plus value is more accurate
-        if (planePos.y < (walls.at(i)->getWallPositions().at(0).y + 20) && difference.z < 20)
+        if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 30)
         {
             player->kill();
+            //std::cout << "Player Ran into Background wall" << std::endl;
         }
     }
 }
