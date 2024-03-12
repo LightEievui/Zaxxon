@@ -32,6 +32,10 @@ Game::Game()
     player = new Player(&spriteSheet, startPos);
     mainView.move(sf::Vector2f(.8f * startPos, -.4f * startPos));
 
+    // Ensure scores file exists
+    file.open("ZaxxonScores");
+    file.close();
+
     // background must be done after player.
     pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls);
 }
@@ -78,6 +82,8 @@ void Game::run() // if random erros later check that stack isnt full
             //mainView.reset(sf::FloatRect(0, 0, 224, 224));
         }*/
 
+        window.clear();
+
         if (gameState == 1)
         {
             window.setView(mainView);
@@ -87,14 +93,12 @@ void Game::run() // if random erros later check that stack isnt full
             if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
             {
                 if (fuel-- == 0)
-                    player->kill();
+                    playerDeath();
 
                 fuelClock.restart();
             }
 
             // Update window & objects
-            window.clear();
-
         background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls);
         for (unsigned int i = 0; i < obstacles.size(); i++)
             obstacles.at(i)->update(window);
@@ -109,12 +113,12 @@ void Game::run() // if random erros later check that stack isnt full
             player->update(window, background.isInSpace((int)player->getPos().z));
 
             window.setView(guiView);
-            gui.render(window, player->getPos().y, score, fuel);
+            gui.render(window, player->getPos().y, score, highScore, fuel, lives);
         }
         else
         {
             window.setView(guiView);
-            gui.startRender(window);
+            gui.startRender(window, highScore);
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
                 gameState = 1;
@@ -169,9 +173,9 @@ void Game::doCollision(Player* player)
                 abs(bulletPos.at(bullets).y - planePos.y),
                 abs(bulletPos.at(bullets).z - planePos.z));
 
-            if (difference.x < 15 && difference.y < 10 && difference.z < 15)
+            if (difference.x < 15 && difference.y < 15 && difference.z < 15)
             {
-                player->kill();
+                playerDeath();
 
                 obstacles.at(i)->bulletKill(bullets);
             }
@@ -219,6 +223,9 @@ void Game::doCollision(Player* player)
                     score += 500;
                 break;
             }
+
+            if (score > highScore)
+                highScore = score;
         }
 
         //Player Running into Obstacles
@@ -228,7 +235,10 @@ void Game::doCollision(Player* player)
                 abs(obstacles.at(i)->getPosition().z - planePos.z));
 
         if (difference.x < 20 && difference.y < 20 && difference.z < 10)
-            player->kill();
+            playerDeath();
+
+        // Enemy bullets collision with player
+        // Player bullets collision with enemy
     }
 
     //TO DO CANNOT FIGURE THEM OUT
@@ -261,8 +271,35 @@ void Game::doCollision(Player* player)
         //TO DO fix it so the x works and the y plus value is more accurate
         if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 30)
         {
-            player->kill();
-            //std::cout << "Player Ran into Background wall" << std::endl;
+            playerDeath();
         }
     }
+}
+
+void Game::playerDeath()
+{
+    player->kill();
+    if (lives > 0)
+        lives -= 1;
+    else
+    {
+        gameState = 0;
+        lives = 2;
+        
+        // We cannot append, eventually we overwrite scores as only top 6 will be shown
+        std::string currentScores = "", line;
+        file.open("ZaxxonScores", std::ios::in);
+        if (file.is_open())
+            while(std::getline(file,line))
+                currentScores = currentScores + line;
+        file.close();
+
+        file.open("ZaxxonScores", std::ios::out);
+        if (file.is_open())
+            file << currentScores << "\n" << score;
+        file.close();
+    }
+
+    fuel = 128;
+    pBackground->resetPos(mainView, *player, 0);
 }
