@@ -30,13 +30,14 @@ public:
 		std::vector<Obstacle*>&, sf::Texture*, std::vector<Wall*>&);
 	void generateWaves(Background::Stage,
 		std::vector<Enemy*>&, sf::Texture*, int);
+	void resetPos(sf::View&, Player&, int);
 
 	bool isInSpace(int z);
+
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
 		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&);
 	bool backgroundFinished(sf::View&);
-	void resetPos(sf::View&, Player&, int);
 
 	sf::Texture initial, space, boss;
 	sf::Sprite back;
