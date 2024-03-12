@@ -36,11 +36,17 @@ std::vector<sf::Sprite>& Character::getBullets()
 }
 
 
+unsigned int Character::getSizeIndex()
+{
+	return sizeIndex;
+}
+
+
 /// <summary>
 /// Get the height sector that character is in.
 /// </summary>
 /// <param name="planeSizeIndex"></param>
-void Character::getSizeIndex(unsigned int& planeSizeIndex)
+void Character::_getSizeIndex(unsigned int& planeSizeIndex)
 {
 	const float y = abs(getPos().y - ((float)yMax));
 	const float qSize = abs((yMax - yMin) / 4.f);
@@ -120,4 +126,5 @@ void Character::setPos(sf::Vector3f pos)
 		pos.y = yMin + 1;
 
 	Entity::setPos(pos);
+	sprite.setPosition(translateTo2d(getPos()));
 }
