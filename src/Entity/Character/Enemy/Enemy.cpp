@@ -85,39 +85,36 @@ void Enemy::runAI()
 {
 	sf::Vector3f vel;
 	sf::Int32 msPassed = alive.getElapsedTime().asMilliseconds();
+	double theta = 0;
+	double angleScale = 1;
 
 	switch (id)
 	{
 	case 0: // fish loop
-		if (msPassed < 2000)
-		{
-			vel.x = -1.5;
-			vel.y = 0.2;
-			vel.z = -1;
-		}
-		else if (msPassed < 3500)
-		{
-			vel.z = -3.5;
-			vel.y = -0.5;
-			vel.x = 1.5;
-		}
-		else if (msPassed < 3000)
-		{
-			vel.x = 0;
-			vel.y = -0.3;
-		}
-		else if (msPassed < 4000)
-		{
-			vel.y = 1;
-			vel.z = 0.3;
-		}
+		
 		break;
 	case 1:
 		if (msPassed < 1000)
 		{
 			vel.y = 0.3;
 		}
+		break;
 	}
 
+	if (theta != 0)
+	{
+		sf::Vector2f transl = angleTranslate(sf::Vector2f(theta, angleScale));
+		vel = sf::Vector3f(transl.x, vel.y, transl.y);
+	}
 	Character::setVelocity(vel);
+}
+
+
+sf::Vector2f Enemy::angleTranslate(sf::Vector2f angle)
+{
+	sf::Vector2f ret;
+	ret.x = 1.4 * angle.y * cos(angle.x);
+	ret.y = 1.2 * angle.y * sin(angle.x);
+
+	return ret;
 }

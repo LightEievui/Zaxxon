@@ -6,9 +6,8 @@
 /// </summary>
 /// <param name="in"></param>
 /// <returns>Vector of 2 floats</returns>
-sf::Vector2f translateTo2d(sf::Vector3f in) 
+sf::Vector2f translateTo2d(sf::Vector3f in)
 {
-	// could be changed to a static method on a class later if want
 	double x = -in.x * 0.6f + -in.z * 0.6f;
 	double y = in.y + -in.x * 0.3f + in.z * 0.3f;
 

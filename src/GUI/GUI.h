@@ -12,8 +12,8 @@ class GUI
 {
 public:
 	GUI(sf::Texture*);
-	void render(sf::RenderWindow&, float, int, byte);
-	void startRender(sf::RenderWindow&);
+	void render(sf::RenderWindow&, float, int, int, byte, byte);
+	void startRender(sf::RenderWindow&, int);
 
 private:
 	sf::Texture* spritesheet;
@@ -31,7 +31,7 @@ private:
 	sf::Sprite enemyText[10];
 
 	sf::Sprite fuelBar[16];
-	sf::Sprite livesBar[2];
+	sf::Sprite livesBar;
 	sf::Sprite enemyLeft[4];
 
 	sf::Sprite pushPlayerText[25];
