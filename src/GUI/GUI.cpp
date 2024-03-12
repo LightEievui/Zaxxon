@@ -127,12 +127,9 @@ GUI::GUI(sf::Texture* spritesheet)
 
 
 	// Lives bar sprites
-	for (byte i = 0; i < 2; i++)
-	{
-		livesBar[i].setTexture(*spritesheet);
-		livesBar[i].setTextureRect(sf::IntRect(344, 288, 16, 16));
-		livesBar[i].setPosition(12.f + i * 16.f, 224.f);
-	}
+	livesBar.setTexture(*spritesheet);
+	livesBar.setTextureRect(sf::IntRect(344, 288, 16, 16));
+	livesBar.setPosition(12.f, 224.f);
 
 	
 	// Enemies left
@@ -175,7 +172,8 @@ GUI::GUI(sf::Texture* spritesheet)
 /// <param name="playerY"></param>
 /// <param name="score"></param>
 /// <param name="fuel"></param>
-void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
+void GUI::render(sf::RenderWindow& window, float playerY, int score, 
+					int highScore, byte fuel, byte lives)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
@@ -246,20 +244,28 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 	// Update score
 	for (byte i = 0; i < 6; i++)
 	{
-		std::string str = std::to_string(score);
+		std::string scoreStr = std::to_string(score);
+		std::string highStr = std::to_string(highScore);
 
-		while (str.length() < 6)
-			str = '0' + str;
+		while (scoreStr.length() < 6)
+			scoreStr = '0' + scoreStr;
+		while (highStr.length() < 6)
+			highStr = '0' + highStr;
 
-		curScore[8 - i] = ZaxxonText::get(spritesheet, str.at(5 - i));
+		curScore[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
 		curScore[8 - i].setPosition(72.f - 8.f * i, 24.f);
+		curScore[8 - i].setColor(sf::Color(222, 222, 247));
+
+		topScore[8 - i] = ZaxxonText::get(spritesheet, highStr.at(5 - i));
+		topScore[8 - i].setPosition(72.f - 8.f * i, 8.f);
+		topScore[8 - i].setColor(sf::Color(0, 222, 247));
 	}
 
 	for (byte i = 0; i < 9; i++)
 	{
 		window.draw(topScore[i]);
 
-		if(i >= 3)
+		if (i >= 3)
 			window.draw(curScore[i]);
 	}
 
@@ -290,15 +296,18 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, byte fuel)
 		window.draw(fuelBar[i]);
 	}
 		
-	for (byte i = 0; i < 2; i++)
-		window.draw(livesBar[i]);
+	for (byte i = 0; i < lives; i++)
+	{
+		livesBar.setPosition(12.f + i * 16.f, 224.f);
+		window.draw(livesBar);
+	}
 
 	for (byte i = 0; i < 4; i++)
 		window.draw(enemyLeft[i]);
 }
 
 
-void GUI::startRender(sf::RenderWindow& window)
+void GUI::startRender(sf::RenderWindow& window, int highScore)
 {
 	for (byte i = 0; i < 10; i++)
 		window.draw(copyright[i]);
