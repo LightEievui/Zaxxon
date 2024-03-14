@@ -89,7 +89,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 
 	//tempVelocity.z = -2;
 	tempVelocity.z = -1.3; //for translateTo2d
-
+	
 	// Position updates
 	setVelocity(tempVelocity);
 	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x-5, 2*224 / 3, getPos().z)));
@@ -99,25 +99,18 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		window.draw(shadow);
 
 	Character::update(window); // updating position using velocity, draw character
-
-	// Updating Bullets
-	erase.clear();
-
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
 		CharacterBullet& bullet = bullets[i];
 		bullet.update(window);
 
-		if (!getWindowViewRect(window).intersects(bullet.getBounds()))
-			erase.push_back(i);
-	}
-
-	for (unsigned int i : erase)
-	{
-		bullets.erase(bullets.begin() + i);
-		bulletsPos.erase(bulletsPos.begin() + i);
-	}
-		
+		if (!getWindowViewRect(window).intersects(bullet.getGlobalBounds()))
+		{
+			bullets.erase(bullets.begin() + i);
+			bulletsPos.erase(bulletsPos.begin() + i);
+			i--;
+		}
+	}		
 }
 
 
