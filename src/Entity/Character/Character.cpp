@@ -30,7 +30,7 @@ void Character::update(sf::RenderWindow& window)
 /// Get the currently fired bullets from this character.
 /// </summary>
 /// <returns>Vector of bullets</returns>
-std::vector<sf::Sprite>& Character::getBullets()
+std::vector<CharacterBullet>& Character::getBullets()
 {
 	return bullets;
 }

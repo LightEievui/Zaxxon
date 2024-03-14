@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Audio.hpp>
 #include "../Character.h"
+#include "Entity/AbstractBullet/CharacterBullet/CharacterBullet.h"
 
 
 class Player : public Character
