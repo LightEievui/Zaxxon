@@ -15,6 +15,7 @@ public:
 	
 	std::vector<sf::Vector3f>& getBulletPosition();
 	std::vector<sf::Sprite>& getBullets();
+	unsigned int getSizeIndex();
 	void killBullet(int);
 
 	void setPos(sf::Vector3f);
@@ -29,7 +30,7 @@ protected:
 	using the currentY and the min / max,
 	assumed there is 4 for everything inheriting character. 
 	*/
-	void getSizeIndex(unsigned int&);
+	void _getSizeIndex(unsigned int&);
 	sf::Vector3f getVelocity();
 
 	void setVelocity(sf::Vector3f);
@@ -38,6 +39,7 @@ protected:
 	sf::Vector3f velocity;
 	std::vector<sf::Sprite> bullets;
 	std::vector<sf::Vector3f> bulletsPos;
+	unsigned int sizeIndex;
 private:
 	sf::IntRect bulletTexture;
 	// SoundBuffer buffer;

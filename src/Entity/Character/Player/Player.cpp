@@ -38,9 +38,8 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 void Player::update(sf::RenderWindow& window, bool inSpace)
 {
 	// Update texture
-	unsigned int planeSizeIndex;
 	unsigned int planeVertical = 0;
-	getSizeIndex(planeSizeIndex);
+	_getSizeIndex(sizeIndex);
 
 	// Keys
 	sf::Vector3f tempVelocity;
@@ -69,8 +68,8 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 	}
 
 	if (!inSpace)
-		planeSizeIndex = 0;
-	sprite.setTextureRect(playerTextures[planeVertical][planeSizeIndex]);
+		sizeIndex = 0;
+	sprite.setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
 	// Spawn bullets
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || 
@@ -81,10 +80,10 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		sf::Sprite temp = sf::Sprite();
 
 		temp.setTexture(*spriteSheet);
-		temp.setTextureRect(sf::IntRect(8 + 16*planeSizeIndex, 47, 16, 8));
+		temp.setTextureRect(sf::IntRect(8 + 16* sizeIndex, 47, 16, 8));
 		temp.setOrigin(0, 8);
-		//temp.setPosition(sprite.getPosition().x + 22 - 2*planeSizeIndex, sprite.getPosition().y + 5 + planeSizeIndex);
-		bulletsPos.push_back(sf::Vector3f(getPos().x - 21, getPos().y + .02* planeSizeIndex, getPos().z - 15));
+		//temp.setPosition(sprite.getPosition().x + 22 - 2*sizeIndex, sprite.getPosition().y + 5 + sizeIndex);
+		bulletsPos.push_back(sf::Vector3f(getPos().x - 21, getPos().y + .02* sizeIndex, getPos().z - 15));
 		temp.setPosition(translateTo2d(bulletsPos.at(bulletsPos.size() - 1)));
 
 		bullets.push_back(temp);
