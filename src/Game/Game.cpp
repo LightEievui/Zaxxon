@@ -108,7 +108,7 @@ void Game::run() // if random erros later check that stack isnt full
             walls.at(i)->drawWalls(window);
 
         for (Enemy* enemy : enemies)
-            enemy->update(window);
+            enemy->update(window, gameSpeed);
 
             player->update(window, background.isInSpace((int)player->getPos().z));
 
@@ -243,13 +243,13 @@ void Game::doCollision(Player* player)
 
     //TO DO CANNOT FIGURE THEM OUT
     //Wall Collisions
-    for (int i = 0; i < walls.size(); i++)
+    for (unsigned int i = 0; i < walls.size(); i++)
     {
         if (!walls.at(i)->checkOnScreen())
             continue;
         
         //Player Running into Wall Sections We Placed
-        for (int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
+        for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
         {
             //TO DO Fix it so it accounts for the position being top left
             difference = sf::Vector3f
@@ -298,6 +298,17 @@ void Game::playerDeath()
         if (file.is_open())
             file << currentScores << "\n" << score;
         file.close();
+    }
+
+    // Enemy bullets collision with player
+    // Player bullets collision with enemy
+    for (Enemy* enemy : enemies)
+    {
+        // size index of bullets important
+        if (enemy->getSizeIndex() == player->getSizeIndex())
+        {
+
+        }
     }
 
     fuel = 128;
