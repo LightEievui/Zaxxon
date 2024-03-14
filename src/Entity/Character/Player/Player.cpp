@@ -77,16 +77,8 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN)
 	{
 		bulletCD.restart();
-		sf::Sprite temp = sf::Sprite();
 
-		temp.setTexture(*spriteSheet);
-		temp.setTextureRect(sf::IntRect(8 + 16* sizeIndex, 47, 16, 8));
-		temp.setOrigin(0, 8);
-		//temp.setPosition(sprite.getPosition().x + 22 - 2*sizeIndex, sprite.getPosition().y + 5 + sizeIndex);
-		bulletsPos.push_back(sf::Vector3f(getPos().x - 21, getPos().y + .02* sizeIndex, getPos().z - 15));
-		temp.setPosition(translateTo2d(bulletsPos.at(bulletsPos.size() - 1)));
-
-		bullets.push_back(temp);
+		bullets.push_back(CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
 		bulletSound.play();
 	}
@@ -113,12 +105,10 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
-		sf::Sprite& bullet = bullets[i];
-		window.draw(bullet);
-		bullet.move(translateTo2d(sf::Vector3f(0,0,-6)));
-		bulletsPos.at(i).z -= 6;
+		CharacterBullet& bullet = bullets[i];
+		bullet.update(window);
 
-		if (!getWindowViewRect(window).intersects(bullet.getGlobalBounds()))
+		if (!getWindowViewRect(window).intersects(bullet.getBounds()))
 			erase.push_back(i);
 	}
 

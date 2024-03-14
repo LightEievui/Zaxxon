@@ -2,7 +2,9 @@
 #define PI 3.1415
 #pragma once
 
-
+/// <summary>
+/// Enemy in the game. These use a recolored player bullet.
+/// </summary>
 class Enemy : public Character
 {
 public:

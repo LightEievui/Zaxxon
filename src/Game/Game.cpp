@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::INITIAL;
+Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -236,9 +236,6 @@ void Game::doCollision(Player* player)
 
         if (difference.x < 20 && difference.y < 20 && difference.z < 10)
             playerDeath();
-
-        // Enemy bullets collision with player
-        // Player bullets collision with enemy
     }
 
     //TO DO CANNOT FIGURE THEM OUT
@@ -274,6 +271,9 @@ void Game::doCollision(Player* player)
             playerDeath();
         }
     }
+
+    // Enemy bullets collision with player
+    // Player bullets collision with enemy
 }
 
 void Game::playerDeath()

@@ -26,7 +26,7 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 		std::cout << "Background file could not load\n";
 
 	back.setTexture(initial);
-	back.setOrigin(sf::Vector2f(0, back.getTexture()->getSize().y));
+	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
 	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls);
 }
@@ -125,7 +125,7 @@ void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* sprit
 	resetPos(mainView, player, startPos);
 
 	generateObstacles(stage, obstacles, spritesheet, walls);
-	generateWaves(stage, enemies, spritesheet, player.getPos().z);
+	generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 }
 
 

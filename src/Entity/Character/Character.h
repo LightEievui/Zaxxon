@@ -3,6 +3,7 @@
 #include "Util/Util.h"
 #include "Animation/Animation.h"
 #include "Entity/Entity.h"
+#include "Entity/AbstractBullet/CharacterBullet/CharacterBullet.h"
 
 
 // Abstract
@@ -14,7 +15,7 @@ public:
 	virtual void kill() = 0;
 	
 	std::vector<sf::Vector3f>& getBulletPosition();
-	std::vector<sf::Sprite>& getBullets();
+	std::vector<CharacterBullet>& getBullets();
 	unsigned int getSizeIndex();
 	void killBullet(int);
 
@@ -37,7 +38,7 @@ protected:
 	void setBullet(sf::IntRect);
 
 	sf::Vector3f velocity;
-	std::vector<sf::Sprite> bullets;
+	std::vector<CharacterBullet> bullets;
 	std::vector<sf::Vector3f> bulletsPos;
 	unsigned int sizeIndex;
 private:
