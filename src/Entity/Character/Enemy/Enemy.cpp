@@ -11,7 +11,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
-			textures[i][j] = sf::IntRect(96 + 25*j + i*100, 37, 25, 25);
+			textures[i][j] = sf::IntRect(96 + 25 * j + i * 100, 37, 25, 25);
 	this->sprite.setTextureRect(textures[0][0]);
 	this->id = id;
 	alive.restart();
@@ -43,7 +43,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 /// </summary>
 /// <param name="window"></param>
 void Enemy::update(sf::RenderWindow& window, float gameSpeed)
-{	
+{
 	sf::Vector2f vel = runAI();
 
 	unsigned int planeVertical = vel.y > 0;
@@ -125,7 +125,7 @@ sf::Vector2f Enemy::runAI()
 		}
 		else if (msPassed < 2500)
 		{
-			theta = (msPassed-1500)/2800.f*360;
+			theta = (msPassed - 1500) / 2800.f * 360;
 			theta = theta * PI / 180.f;
 			transl.x = cos(theta) * scale;
 			transl.y = 1.25f * -sin(theta) * scale;
@@ -134,7 +134,7 @@ sf::Vector2f Enemy::runAI()
 		else if (msPassed < 5000)
 		{
 			// add 4k for starting pos of circle
-			theta = (msPassed-3400+4500) / 7500.f * 360;
+			theta = (msPassed - 3400 + 4500) / 7500.f * 360;
 			if (msPassed < 3500)
 				sizeIndex = 2;
 			else
@@ -142,7 +142,7 @@ sf::Vector2f Enemy::runAI()
 		}
 		else
 		{
-			theta = 180+60;
+			theta = 180 + 60;
 		}
 		break;
 	case 1: // come from right then up little then charge
@@ -151,7 +151,7 @@ sf::Vector2f Enemy::runAI()
 		if (msPassed < 1500)
 		{
 			sizeIndex = 3;
-			theta = 180+30;
+			theta = 180 + 30;
 		}
 		else if (msPassed < 2500)
 		{
@@ -213,7 +213,7 @@ sf::Vector2f Enemy::runAI()
 
 	if (theta != 0)
 		transl = angleTranslate(theta, scale);
-	
+
 	sprite.move(transl.x, transl.y);
 	return transl;
 }

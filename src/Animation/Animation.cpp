@@ -84,7 +84,7 @@ void Animation::fCHARACTER_DEATH(sf::Sprite& sprite)
 		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 2) % 2;
 		sprite.setTextureRect(frames[current]);
 	}
-	
+
 	kill = false;
 	state = 1;
 	//sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
@@ -101,7 +101,7 @@ void Animation::fALT_DEATH(sf::Sprite& sprite)
 
 	while (timer.getElapsedTime().asMilliseconds() < 500 && kill == false)
 	{
-		int current = (static_cast<int>((int)(timer.getElapsedTime().asMilliseconds() * 12)/1000) % 6) + 2;
+		int current = (static_cast<int>((int)(timer.getElapsedTime().asMilliseconds() * 12) / 1000) % 6) + 2;
 		sprite.setTextureRect(frames[current]);
 	}
 
