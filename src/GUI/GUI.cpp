@@ -14,7 +14,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	hudElements.push_back(&heightMeterBg);
 
 	heightH = ZaxxonText::get(spritesheet, 'H');
-	heightH.setPosition(0, 73-8);
+	heightH.setPosition(0, 73 - 8);
 	heightH.setColor(sf::Color(222, 0, 0)); // red right of chars
 	hudElements.push_back(&heightH);
 
@@ -37,7 +37,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		else
 			section.setType(HMSection::LINE);
 
-		section.setPosition(0, heightH.getPosition().y + 16 + 8*i);
+		section.setPosition(0, heightH.getPosition().y + 16 + 8 * i);
 		hudElements.push_back(&section);
 	}
 
@@ -131,7 +131,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	livesBar.setTextureRect(sf::IntRect(344, 288, 16, 16));
 	livesBar.setPosition(12.f, 224.f);
 
-	
+
 	// Enemies left
 	ZaxxonText::string(spritesheet, "X\u000920", enemyLeft);
 	enemyLeft[0].setTextureRect(sf::IntRect(368, 296, 8, 8));
@@ -172,20 +172,20 @@ GUI::GUI(sf::Texture* spritesheet)
 /// <param name="playerY"></param>
 /// <param name="score"></param>
 /// <param name="fuel"></param>
-void GUI::render(sf::RenderWindow& window, float playerY, int score, 
-					int highScore, byte fuel, byte lives)
+void GUI::render(sf::RenderWindow& window, float playerY, int score,
+	int highScore, byte fuel, byte lives)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
 	 should be 8 sections each for line/open and 2 each for top/bottom so
 	 yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
 	*/
-	int yDiff = round(((playerY) - 69)*0.95774647887);
+	int yDiff = round(((playerY)-69) * 0.95774647887);
 	if (yDiff < 0)
 		yDiff = 0;
 
 	// -4 to make 64
-	int selection = (yDiff-2) / 8;
+	int selection = (yDiff - 2) / 8;
 	if (selection < 0)
 		selection = 0;
 
@@ -200,14 +200,14 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 
 		if (localYDiff >= 5)
 		{
-			heightMeterSections[selection + 1].progress(localYDiff-7);
+			heightMeterSections[selection + 1].progress(localYDiff - 7);
 			changingBelow = true;
 		}
 	}
 	else if (yDiff < 8)
 	{
 		// top
-		heightMeterSections[0].progress(12+localYDiff);
+		heightMeterSections[0].progress(12 + localYDiff);
 	}
 	else if (yDiff > 64)
 	{
@@ -215,7 +215,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 	}
 	// temp
 	//std::cout << "ydiff: " << yDiff << " localYDiff: " << localYDiff << "\n";
-	
+
 	for (byte i = 0; i < 10; i++)
 	{
 		HMSection& section = heightMeterSections[i];
@@ -226,7 +226,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 		}
 		else if (i > selection)
 		{
-			if(i != selection+1 || !changingBelow)
+			if (i != selection + 1 || !changingBelow)
 				section.fill();
 		}
 
@@ -295,7 +295,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 		fuelBar[i].setTextureRect(status);
 		window.draw(fuelBar[i]);
 	}
-		
+
 	for (byte i = 0; i < lives; i++)
 	{
 		livesBar.setPosition(12.f + i * 16.f, 224.f);
