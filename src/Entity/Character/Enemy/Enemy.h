@@ -2,6 +2,7 @@
 #define PI 3.1415
 #pragma once
 
+
 /// <summary>
 /// Enemy in the game. These use a recolored player bullet.
 /// </summary>
@@ -16,6 +17,7 @@ public:
 	// Static so can be used from any context.
 	// Will spawn a wave of enemies relative to the player.
 	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int, unsigned int);
+
 private:
 	// returns the velocity it has moved already
 	sf::Vector2f runAI();

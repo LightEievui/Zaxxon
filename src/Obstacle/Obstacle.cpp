@@ -99,7 +99,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 
 Obstacle::~Obstacle()
 {
-	
+
 }
 
 
@@ -147,7 +147,7 @@ void Obstacle::update(sf::RenderWindow& window)
 			temp.setTextureRect(sf::IntRect(160, 129, 12, 8));
 			temp.setPosition(translateTo2d(getPos()));
 			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
-				
+
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(getPos());
 		}
@@ -171,7 +171,7 @@ void Obstacle::update(sf::RenderWindow& window)
 			{
 				animations.run(sprite, Animation::RESET);
 			}
-				
+
 			if (getPos().y > 70.f)
 			{
 				setPos(sf::Vector3f(getPos().x, getPos().y - .5, getPos().z));
@@ -206,7 +206,7 @@ void Obstacle::update(sf::RenderWindow& window)
 	}
 
 	window.draw(sprite);
-	
+
 	if (direction != 2)
 		count = (count + 1) % total;
 	else

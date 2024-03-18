@@ -22,4 +22,3 @@ private:
 	std::vector<sf::Sprite> sprites;
 	std::vector<sf::Vector3f> wallPositions;
 };
-

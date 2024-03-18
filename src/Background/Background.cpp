@@ -53,7 +53,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls
 )
 {
-	if(backgroundFinished(mainView))
+	if (backgroundFinished(mainView))
 	{
 		if (stage == Stage::INITIAL)
 		{
@@ -75,7 +75,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		generateObstacles(stage, obstacles, spritesheet, walls);
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
-		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
+	//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
 	mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
 
 	// spawn waves that have gone past the z set in queue
@@ -111,7 +111,7 @@ void Background::setPosition(sf::Vector2f pos)
 /// <param name="player"></param>
 /// <param name="startPos"></param>
 void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
-	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player, 
+	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
 	int startPos, std::vector<Wall*>& walls
 )
 {
@@ -213,7 +213,7 @@ void Background::generateObstacles(Background::Stage stage,
 	0 = Grey Turrets
 	1 = Green Turrets
 	2 = Shooting Up Bullets
-	
+
 	Stationary Obstacles
 	KEY
 	1 = gas can
@@ -242,7 +242,7 @@ void Background::generateObstacles(Background::Stage stage,
 
 		//Shooting Up Missiles
 		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 100, 2));
-		
+
 		//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -340.f), spriteSheet, 2));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -590.f), spriteSheet, 1));
@@ -290,7 +290,7 @@ void Background::generateWaves(Background::Stage stage,
 	std::vector<Enemy*>& enemies, sf::Texture* spriteSheet, int playerZ)
 {
 	enemies.clear();
-	
+
 	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
 
 	switch (stage)

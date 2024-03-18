@@ -25,9 +25,9 @@ sf::Sprite ZaxxonText::get(sf::Texture* spritemap, char in)
 		column = in, row = 16;
 
 	sf::Sprite retVal;
-	
+
 	retVal.setTexture(*spritemap);
-	retVal.setTextureRect(sf::IntRect(8+8*column, 232+row, 8, 8));
+	retVal.setTextureRect(sf::IntRect(8 + 8 * column, 232 + row, 8, 8));
 
 	return retVal;
 }
