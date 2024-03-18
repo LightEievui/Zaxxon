@@ -14,13 +14,21 @@ There are 3 stages, the basic one with just obstacles, space with enemy planes t
 High scores are saved and listed, see how high you can get!
 
 
-## Build instructions
-For Visual Studio 2022 (ISO C++ 14 standard): \
-Clone the repository, set your build to x86 (32-bit), and build! \
-To switch out [SFML](https://www.sfml-dev.org/) version, simply replace `lib/SFML` with your new version. No guranteed support for versions aside from SFML 2.6.1 32-bit version. \
-The resulting exe file has all resources statically linked, so you can run the exe without any extra files.
-Requires OpenAL32 dynamic library to be in the folder that the exe is ran from.
+# Development
 
-## Developing off this
+## Building for development
+For Visual Studio 2022 (ISO C++ 14 standard): \
+Clone the repository to Visual Studio. Set your build to `x86` (32-bit), make sure you are in `Debug` mode for all debug information and build!
+
+## Building for production
+Follow development build process to begin. Prefer `Release` mode over `Debug` mode.\
+Resulting EXE file must be put in a directory with `openal32.dll` and have a `/res/` path which contains the game assets. \
+Other files are statically linked and are not required to be distributed with the program.
+
+
+## Remixing and forking
 You can freely fork and edit this program how you would like according to the license. \
-Full coverage documentation is provided in `/doc/`, specifically `/doc/html/index.html` for a pretty way to view the documentation.
+Full coverage documentation is provided in `/doc/`, specifically `/doc/html/index.html` for a pretty way to view the documentation. \
+
+### SFML
+To switch out [SFML](https://www.sfml-dev.org/) version, simply replace `lib/SFML` with your new version. No guranteed support for versions aside from SFML 2.6.1 32-bit version.
