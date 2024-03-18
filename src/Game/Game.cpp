@@ -158,7 +158,7 @@ void Game::doCollision(Player* player)
     //Plane Bullet Setup
     std::vector<sf::Vector3f> planeBulletPos;
     sf::Vector3f planePos;
-    planePos = sf::Vector3f(player->getPos().x - 25, player->getPos().y, player->getPos().z - 20);
+    planePos = sf::Vector3f(player->getPos().x - 25, player->getPos().y, player->getPos().z);
 
     for (unsigned int i = 0; i < obstacles.size(); i++)
     {
@@ -173,7 +173,7 @@ void Game::doCollision(Player* player)
                 abs(bulletPos.at(bullets).y - planePos.y),
                 abs(bulletPos.at(bullets).z - planePos.z));
 
-            if (difference.x < 15 && difference.y < 15 && difference.z < 15)
+            if (difference.x < 15 && difference.y < 15 && difference.z < 25)
             {
                 playerDeath();
 
@@ -191,7 +191,7 @@ void Game::doCollision(Player* player)
                 abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
                 abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
 
-            if (!(difference.x < 20 && difference.y < 20 && difference.z < 20))
+            if (!(difference.x < 20 && difference.y < 20 && difference.z < 25))
                 continue;
             obstacles.at(i)->kill();
             std::cout << "KILL";
@@ -234,7 +234,7 @@ void Game::doCollision(Player* player)
                 abs(obstacles.at(i)->getPosition().y - planePos.y),
                 abs(obstacles.at(i)->getPosition().z - planePos.z));
 
-        if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+        if (difference.x < 30 && difference.y < 30 && difference.z < 30)
             playerDeath();
 
         // Enemy bullets collision with player
