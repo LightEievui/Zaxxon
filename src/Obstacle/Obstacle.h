@@ -11,7 +11,7 @@ class Obstacle : public Entity
 {
 public:
 	//For shooting obstacles
-	Obstacle(sf::Vector3f, sf::Texture*, float,  int);
+	Obstacle(sf::Vector3f, sf::Texture*, float, int);
 	//For standby obstacles
 	Obstacle(sf::Vector3f, sf::Texture*, int);
 	~Obstacle();
