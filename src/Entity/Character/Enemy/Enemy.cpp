@@ -190,7 +190,7 @@ sf::Vector2f Enemy::runAI()
 		else if (msPassed < 2500)
 		{
 			theta = -90;
-			scale = 0.6;
+			scale = 0.6f;
 			if (msPassed < 1000)
 				sizeIndex = 0;
 			else if (msPassed < 1500)

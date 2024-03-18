@@ -7,7 +7,7 @@ CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos
 	sprite.setTextureRect(sf::IntRect(8 + 16 * sizeIndex, 47, 16, 8));
 	sprite.setOrigin(0, 8);
 
-	if(type == Player)
+	if (type == Player)
 		setPos(sf::Vector3f(spawnPos.x - 21.f, spawnPos.y + .02f * sizeIndex, spawnPos.z - 15.f));
 	//else if (type == Enemy) ...
 	sprite.setPosition(translateTo2d(getPos()));
@@ -24,7 +24,7 @@ unsigned int CharacterBullet::getSizeIndex()
 
 void CharacterBullet::kill()
 {
-	if(animations.getState() < 2)
+	if (animations.getState() < 2)
 		animations.run(sprite, Animation::Anim::BULLET_DEATH);
 }
 

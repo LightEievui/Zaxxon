@@ -15,8 +15,8 @@ public:
 
 private:
 	const int BULLET_COOLDOWN = 200;
+
 	sf::Clock bulletCD;
-	std::vector<int> erase;
 	sf::IntRect playerTextures[3][4];
 	sf::Sprite shadow;
 	sf::SoundBuffer bulletBuffer;
