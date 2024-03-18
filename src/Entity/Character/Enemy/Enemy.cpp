@@ -66,7 +66,8 @@ unsigned int Enemy::getSizeIndex()
 /// </summary>
 void Enemy::kill()
 {
-
+	if(animations.getState() < 2)
+		animations.run(this->sprite, Animation::CHARACTER_DEATH);
 }
 
 
