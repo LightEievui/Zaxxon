@@ -20,6 +20,8 @@ public:
 	~Animation();
 
 	void run(sf::Sprite&, Anim);
+	int getState();
+private:
 	void fCHARACTER_DEATH(sf::Sprite& sprite);
 	void fALT_DEATH(sf::Sprite& sprite);
 	void fLAUNCH(sf::Sprite& sprite);
@@ -29,7 +31,6 @@ public:
 private:
 	sf::Clock timer;
 	sf::IntRect frames[12], revert;
-	int state = 0; 
+	int state = 0;
 	bool kill = false;
 };
-

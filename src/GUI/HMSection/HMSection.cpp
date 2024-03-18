@@ -20,7 +20,7 @@ void HMSection::setSection(int sect)
 void HMSection::setType(Type type)
 {
 	this->type = type;
-	switch(this->type)
+	switch (this->type)
 	{
 	case LINE:
 		setSection(8);
@@ -79,18 +79,18 @@ void HMSection::progress(int stage)
 		{
 		case TOP:
 		case LINE:
-			change = 8+stage+1;
+			change = 8 + stage + 1;
 			setSection(change); // 
 			break;
 		case OPEN:
-			change = 3+stage+1;
+			change = 3 + stage + 1;
 			setSection(change); // 
 			break;
 		case BOTTOM:
 			break;
 		}
 	}
-	
+
 }
 
 
