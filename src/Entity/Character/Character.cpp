@@ -121,9 +121,9 @@ void Character::killBullet(int bullet)
 void Character::setPos(sf::Vector3f pos)
 {
 	if (pos.y >= yMax)
-		pos.y = yMax - 1;
+		pos.y = yMax - 1.f;
 	else if (pos.y <= yMin)
-		pos.y = yMin + 1;
+		pos.y = yMin + 1.f;
 
 	Entity::setPos(pos);
 	sprite.setPosition(translateTo2d(getPos()));
