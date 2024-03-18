@@ -8,12 +8,26 @@ CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos
 	sprite.setOrigin(0, 8);
 
 	if(type == Player)
-		setPos(sf::Vector3f(spawnPos.x - 21, spawnPos.y + .02 * sizeIndex, spawnPos.z - 15));
+		setPos(sf::Vector3f(spawnPos.x - 21.f, spawnPos.y + .02f * sizeIndex, spawnPos.z - 15.f));
 	//else if (type == Enemy) ...
 	sprite.setPosition(translateTo2d(getPos()));
 	this->sizeIndex = sizeIndex;
 	this->type = type;
 }
+
+
+unsigned int CharacterBullet::getSizeIndex()
+{
+	return sizeIndex;
+}
+
+
+void CharacterBullet::kill()
+{
+	if(animations.getState() < 2)
+		animations.run(sprite, Animation::Anim::BULLET_DEATH);
+}
+
 
 void CharacterBullet::update(sf::RenderWindow& window)
 {

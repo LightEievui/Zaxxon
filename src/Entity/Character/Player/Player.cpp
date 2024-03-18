@@ -104,10 +104,9 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 		CharacterBullet& bullet = bullets[i];
 		bullet.update(window);
 
-		if (!getWindowViewRect(window).intersects(bullet.getGlobalBounds()))
+		if (!getWindowViewRect(window).intersects(bullet.getBounds()))
 		{
 			bullets.erase(bullets.begin() + i);
-			bulletsPos.erase(bulletsPos.begin() + i);
 			i--;
 		}
 	}		

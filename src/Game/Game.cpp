@@ -274,6 +274,19 @@ void Game::doCollision(Player* player)
 
     // Enemy bullets collision with player
     // Player bullets collision with enemy
+    for (CharacterBullet& bullet : player->getBullets())
+    {
+        for (Enemy* enemy : enemies)
+        {
+            if (bullet.getSizeIndex() == enemy->getSizeIndex() &&
+                bullet.getBounds().intersects(enemy->getBounds())
+                )
+            {
+                bullet.kill();
+                enemy->kill();
+            }
+        }
+    }
 }
 
 void Game::playerDeath()
