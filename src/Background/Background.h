@@ -17,11 +17,11 @@ public:
 		BOSS
 	};
 
-	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&, 
+	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&,
 		std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&);
 	~Background();
 
-	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*, 
+	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*,
 		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, std::vector<Wall*>&);
 	void setPosition(sf::Vector2f);
 

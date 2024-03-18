@@ -21,7 +21,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 	this->sprite.setTextureRect(playerTextures[0][0]);
 	this->setPos(sf::Vector3f(0, 69, (int)startPos * -1.33333));
 	this->shadow.setTexture(*spriteSheet);
-	this->shadow.setTextureRect(sf::IntRect(352,18,22,13));
+	this->shadow.setTextureRect(sf::IntRect(352, 18, 22, 13));
 	this->shadow.setColor(sf::Color::Black);
 
 	// Prepare bullet sound
@@ -43,24 +43,24 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 
 	// Keys
 	sf::Vector3f tempVelocity;
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || 
-		sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -10) && 
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -10) &&
 		getPos().x < xMax)
-			tempVelocity.x = 1;
-	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || 
-		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10) && 
+		tempVelocity.x = 1;
+	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10) &&
 		getPos().x > xMin)
-			tempVelocity.x = -1;
+		tempVelocity.x = -1;
 
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || 
-		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -10) && 
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -10) &&
 		getPos().y < yMax)
 	{
 		tempVelocity.y = 0.6f;
 		planeVertical = 2;
 	}
-	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || 
-		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 10) && 
+	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 10) &&
 		getPos().y > yMin)
 	{
 		tempVelocity.y = -0.6f;
@@ -72,7 +72,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 	sprite.setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
 	// Spawn bullets
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || 
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) ||
 		sf::Joystick::isButtonPressed(0, 0)) &&
 		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN)
 	{
@@ -82,20 +82,20 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 
 		bulletSound.play();
 	}
-	#ifndef NDEBUG
+#ifndef NDEBUG
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
 		std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
-	#endif
+#endif
 
 	//tempVelocity.z = -2;
 	tempVelocity.z = -1.3; //for translateTo2d
-	
+
 	// Position updates
 	setVelocity(tempVelocity);
-	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x-5, 2*224 / 3, getPos().z)));
+	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
 
 	// Drawing
-	if(!inSpace)
+	if (!inSpace)
 		window.draw(shadow);
 
 	Character::update(window); // updating position using velocity, draw character
@@ -109,7 +109,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 			bullets.erase(bullets.begin() + i);
 			i--;
 		}
-	}		
+	}
 }
 
 

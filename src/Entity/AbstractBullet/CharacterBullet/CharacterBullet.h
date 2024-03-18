@@ -15,8 +15,8 @@ public:
 	void kill();
 	void update(sf::RenderWindow& window);
 	unsigned int getSizeIndex();
+
 private:
 	unsigned int sizeIndex;
 	BulletType type;
 };
-
