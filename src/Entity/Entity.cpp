@@ -3,7 +3,7 @@
 
 Entity::Entity()
 {
-
+	this->sprite = new sf::Sprite();
 }
 
 
@@ -18,5 +18,5 @@ Entity::~Entity()
 /// </summary>
 void Entity::kill(Animation::Anim animation)
 {
-	animations.run(this->sprite, animation);
+	animations.run(sprite, animation);
 }
