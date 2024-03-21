@@ -79,6 +79,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
         bulletCD.restart();
 
         bullets.push_back(CharacterBullet(spriteSheet, getPos(), sizeIndex));
+        bulletsPos.push_back(getPos());
 
         bulletSound.play();
     }
@@ -104,9 +105,12 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
         CharacterBullet& bullet = bullets[i];
         bullet.update(window);
 
+        bulletsPos.at(i) = bullets.at(i).getPos();
+
         if (!getWindowViewRect(window).intersects(bullet.getBounds()))
         {
             bullets.erase(bullets.begin() + i);
+            bulletsPos.erase(bulletsPos.begin() + i);
             i--;
         }
     }
