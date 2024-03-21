@@ -14,11 +14,11 @@ public:
 
 	void setPos(sf::Vector3f pos) { position = pos; };
 	sf::Vector3f getPos() { return position; };
-	sf::FloatRect getBounds() { return sprite.getGlobalBounds(); };
+	sf::FloatRect getBounds() { return sprite->getGlobalBounds(); };
 
 protected:
 	sf::Texture* spriteSheet;
-	sf::Sprite sprite;
+	sf::Sprite* sprite;
 	Animation animations;
 	bool dead = false;
 

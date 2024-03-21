@@ -292,21 +292,23 @@ void Game::doCollision(Player* player)
 		}
 	}
 
-	// Enemy bullets collision with player
-	// Player bullets collision with enemy
-	for (CharacterBullet& bullet : player->getBullets())
-	{
-		for (Enemy* enemy : enemies)
-		{
-			if (bullet.getSizeIndex() == enemy->getSizeIndex() &&
-				bullet.getBounds().intersects(enemy->getBounds())
-				)
-			{
-				bullet.kill();
-				enemy->kill();
-			}
-		}
-	}
+    // Enemy bullets collision with player
+    // Player bullets collision with enemy
+    for (CharacterBullet* bullet : player->getBullets())
+    {
+        for (unsigned int i = 0; i < enemies.size(); i++)
+        {
+            Enemy* enemy = enemies[i];
+
+            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+                bullet->getBounds().intersects(enemy->getBounds())
+                )
+            {
+                bullet->kill();
+                enemies.erase(enemies.begin() + i--);
+            }
+        }
+    }
 }
 
 
