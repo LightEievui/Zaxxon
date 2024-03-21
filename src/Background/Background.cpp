@@ -84,7 +84,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
 
-	if(stage == Stage::BOSS && !backgroundFinished(mainView))
+	if(!backgroundFinished(mainView))
 	{
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
 		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
