@@ -18,7 +18,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
             a.left += 23;
         }
     }
-    this->sprite.setTextureRect(playerTextures[0][0]);
+    this->sprite->setTextureRect(playerTextures[0][0]);
     this->setPos(sf::Vector3f(0, 69, (int)startPos * -1.33333f));
     this->shadow.setTexture(*spriteSheet);
     this->shadow.setTextureRect(sf::IntRect(352, 18, 22, 13));
@@ -69,7 +69,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 
     if (!inSpace)
         sizeIndex = 0;
-    sprite.setTextureRect(playerTextures[planeVertical][sizeIndex]);
+    sprite->setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
     // Spawn bullets
     if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) ||
@@ -78,7 +78,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
     {
         bulletCD.restart();
 
-        bullets.push_back(CharacterBullet(spriteSheet, getPos(), sizeIndex));
+        bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
         bulletSound.play();
     }
@@ -101,11 +101,12 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
     Character::update(window); // updating position using velocity, draw character
     for (unsigned int i = 0; i < bullets.size(); i++)
     {
-        CharacterBullet& bullet = bullets[i];
-        bullet.update(window);
+        CharacterBullet* bullet = bullets[i];
+        bullet->update(window);
 
-        if (!getWindowViewRect(window).intersects(bullet.getBounds()))
+        if (!getWindowViewRect(window).intersects(bullet->getBounds()))
         {
+            delete bullet;
             bullets.erase(bullets.begin() + i);
             i--;
         }
@@ -118,7 +119,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
 /// </summary>
 void Player::kill()
 {
-    animations.run(this->sprite, Animation::CHARACTER_DEATH);
+    animations.run(sprite, Animation::CHARACTER_DEATH);
     //Not perfect but works
     setPos(sf::Vector3f(0, 69, getPos().z));
 }

@@ -107,8 +107,12 @@ void Game::run() // if random erros later check that stack isnt full
             for (unsigned int i = 0; i < walls.size(); i++)
                 walls.at(i)->drawWalls(window);
 
-            for (Enemy* enemy : enemies)
+            for (unsigned int i = 0; i < enemies.size(); i++)
+            {
+                Enemy* enemy = enemies[i];
+
                 enemy->update(window, gameSpeed);
+            }
 
             player->update(window, background.isInSpace((int)player->getPos().z));
 
@@ -274,16 +278,18 @@ void Game::doCollision(Player* player)
 
     // Enemy bullets collision with player
     // Player bullets collision with enemy
-    for (CharacterBullet& bullet : player->getBullets())
+    for (CharacterBullet* bullet : player->getBullets())
     {
-        for (Enemy* enemy : enemies)
+        for (int i = 0; i < enemies.size(); i++)
         {
-            if (bullet.getSizeIndex() == enemy->getSizeIndex() &&
-                bullet.getBounds().intersects(enemy->getBounds())
+            Enemy* enemy = enemies[i];
+
+            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+                bullet->getBounds().intersects(enemy->getBounds())
                 )
             {
-                bullet.kill();
-                enemy->kill();
+                bullet->kill();
+                enemies.erase(enemies.begin() + i--);
             }
         }
     }
