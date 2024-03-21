@@ -53,15 +53,14 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
         total = delay;
     }
     //Right Green Turrents
-    /*else if (dir == 3)
+    else if (dir == 3)
     {
         sprite.setTexture((*spriteSheet));
-        sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
+        sprite.setTextureRect(sf::IntRect(320, 153, 33, 22));
 
-        sprite
         sprite.setPosition(translateTo2d(pos));
         sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
-    }*/
+    }
 }
 
 
