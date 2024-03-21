@@ -12,7 +12,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
 			textures[i][j] = sf::IntRect(96 + 25 * j + i * 100, 37, 25, 25);
-	this->sprite.setTextureRect(textures[0][0]);
+	this->sprite->setTextureRect(textures[0][0]);
 	this->id = id;
 	alive.restart();
 	sf::Vector3f pos;
@@ -49,9 +49,9 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 	unsigned int planeVertical = vel.y > 0;
 
 	// keep up with back
-	sprite.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));
-	sprite.setTextureRect(textures[planeVertical][sizeIndex]);
-	window.draw(sprite);
+	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));
+	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
+	window.draw(*sprite);
 }
 
 
@@ -66,8 +66,7 @@ unsigned int Enemy::getSizeIndex()
 /// </summary>
 void Enemy::kill()
 {
-	if(animations.getState() < 2)
-		animations.run(this->sprite, Animation::CHARACTER_DEATH);
+	delete this;
 }
 
 
@@ -215,7 +214,7 @@ sf::Vector2f Enemy::runAI()
 	if (theta != 0)
 		transl = angleTranslate(theta, scale);
 
-	sprite.move(transl.x, transl.y);
+	sprite->move(transl.x, transl.y);
 	return transl;
 }
 

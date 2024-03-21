@@ -8,7 +8,7 @@
 Character::Character(sf::Texture* spriteSheet) : Entity()
 {
 	this->spriteSheet = spriteSheet;
-	this->sprite.setTexture(*this->spriteSheet);
+	this->sprite->setTexture(*this->spriteSheet);
 }
 
 
@@ -21,8 +21,8 @@ void Character::update(sf::RenderWindow& window)
 	// update the character's position using it's velocity
 	setPos(getPos() + this->velocity);
 
-	sprite.setPosition(translateTo2d(getPos()));
-	window.draw(sprite);
+	sprite->setPosition(translateTo2d(getPos()));
+	window.draw(*sprite);
 }
 
 
@@ -30,7 +30,7 @@ void Character::update(sf::RenderWindow& window)
 /// Get the currently fired bullets from this character.
 /// </summary>
 /// <returns>Vector of bullets</returns>
-std::vector<CharacterBullet>& Character::getBullets()
+std::vector<CharacterBullet*>& Character::getBullets()
 {
 	return bullets;
 }
@@ -126,5 +126,5 @@ void Character::setPos(sf::Vector3f pos)
 		pos.y = yMin + 1.f;
 
 	Entity::setPos(pos);
-	sprite.setPosition(translateTo2d(getPos()));
+	sprite->setPosition(translateTo2d(getPos()));
 }
