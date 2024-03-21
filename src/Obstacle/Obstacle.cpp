@@ -24,32 +24,32 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
     //Grey Turrets = 0
     if (dir == 0)
     {
-        sprite.setTexture((*spriteSheet));
-        sprite.setTextureRect(sf::IntRect(8, 112, 29, 19));
+        sprite->setTexture((*spriteSheet));
+        sprite->setTextureRect(sf::IntRect(8, 112, 29, 19));
 
-        sprite.setPosition(translateTo2d(pos));
-        sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+        sprite->setPosition(translateTo2d(pos));
+        sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
     }
     //Green Turrets = 1
     else if (dir == 1)
     {
-        sprite.setTexture((*spriteSheet));
-        sprite.setTextureRect(sf::IntRect(48, 117, 30, 17));
+        sprite->setTexture((*spriteSheet));
+        sprite->setTextureRect(sf::IntRect(48, 117, 30, 17));
 
-        sprite.setPosition(translateTo2d(pos));
-        sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+        sprite->setPosition(translateTo2d(pos));
+        sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
     }
     //Shooting Up 
     else if (dir == 2)
     {
         spriteSheet = tex;
 
-        //sprite.setPosition(position);
+        //sprite->setPosition(position);
 
-        sprite.setTexture((*spriteSheet));
-        sprite.setTextureRect(sf::IntRect(72, 69, 32, 30));
-        sprite.setPosition(translateTo2d(pos));
-        sprite.setOrigin(sf::Vector2f(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2));
+        sprite->setTexture((*spriteSheet));
+        sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
+        sprite->setPosition(translateTo2d(pos));
+        sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
         total = delay;
     }
 }
@@ -76,24 +76,24 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
     turret = false;
     spriteSheet = tex;
 
-    sprite.setTexture((*spriteSheet));
+    sprite->setTexture((*spriteSheet));
 
     if (type == 1)
     {
-        sprite.setTextureRect(sf::IntRect(87, 106, 30, 30));
+        sprite->setTextureRect(sf::IntRect(87, 106, 30, 30));
     }
     else if (type == 2)
     {
-        sprite.setTextureRect(sf::IntRect(129, 109, 24, 28));
+        sprite->setTextureRect(sf::IntRect(129, 109, 24, 28));
     }
     else if (type == 3)
     {
         this->type = 6;
-        sprite.setTextureRect(sf::IntRect(92, 35, 29, 25));
+        sprite->setTextureRect(sf::IntRect(92, 35, 29, 25));
     }
 
-    sprite.setPosition(translateTo2d(pos));
-    sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
+    sprite->setPosition(translateTo2d(pos));
+    sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
 }
 
 
@@ -129,7 +129,7 @@ std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 /// <param name="window"></param>
 void Obstacle::update(sf::RenderWindow& window)
 {
-    if (!getWindowViewRect(window).intersects(sprite.getGlobalBounds()) || animations.getState() == 1)
+    if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds()) || animations.getState() == 1)
     {
         onScreen = false;
         return;
@@ -168,14 +168,12 @@ void Obstacle::update(sf::RenderWindow& window)
         if (count >= total)
         {
             if (animations.getState() == 3)
-            {
                 animations.run(sprite, Animation::RESET);
-            }
 
             if (getPos().y > 70.f)
             {
                 setPos(sf::Vector3f(getPos().x, getPos().y - .5f, getPos().z));
-                sprite.setPosition(translateTo2d(getPos()));
+                sprite->setPosition(translateTo2d(getPos()));
             }
             else if (animations.getState() == 0)
             {
@@ -205,7 +203,7 @@ void Obstacle::update(sf::RenderWindow& window)
         window.draw(bulletSprites.at(i));
     }
 
-    window.draw(sprite);
+    window.draw(*sprite);
 
     if (direction != 2)
         count = (count + 1) % total;
@@ -220,7 +218,7 @@ void Obstacle::update(sf::RenderWindow& window)
 /// <param name="pos"></param>
 void Obstacle::setPosition(sf::Vector3f pos)
 {
-    sprite.setPosition(translateTo2d(pos));
+    sprite->setPosition(translateTo2d(pos));
 }
 
 

@@ -15,7 +15,7 @@ public:
 	virtual void kill() = 0;
 
 	std::vector<sf::Vector3f>& getBulletPosition();
-	std::vector<CharacterBullet>& getBullets();
+	std::vector<CharacterBullet*>& getBullets();
 	unsigned int getSizeIndex();
 	void killBullet(int);
 
@@ -38,10 +38,9 @@ protected:
 	void setBullet(sf::IntRect);
 
 	sf::Vector3f velocity;
-	std::vector<CharacterBullet> bullets;
+	std::vector<CharacterBullet*> bullets;
 	std::vector<sf::Vector3f> bulletsPos;
 	unsigned int sizeIndex;
-
 private:
 	sf::IntRect bulletTexture;
 	// SoundBuffer buffer;
