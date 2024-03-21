@@ -8,7 +8,7 @@ class Player : public Character
 {
 public:
 	Player(sf::Texture*, unsigned int);
-	void update(sf::RenderWindow&, bool);
+	void update(sf::RenderWindow&, int);
 	void kill() override;
 	void resetPos(int zOffset = 0);
 	void bulletKill(int);
