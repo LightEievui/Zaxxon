@@ -12,9 +12,10 @@ class Background
 {
 public:
 	enum Stage {
-		INITIAL,
-		SPACE,
-		BOSS
+		INITIAL = 0,
+		SPACE = 1,
+		BOSS = 2,
+		BOSSFIGHT = 3
 	};
 
 	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&,
@@ -22,7 +23,7 @@ public:
 	~Background();
 
 	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*,
-		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, std::vector<Wall*>&);
+		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, std::vector<Wall*>&, bool);
 	void setPosition(sf::Vector2f);
 
 	// MAY want to consider changing to private later
@@ -33,6 +34,7 @@ public:
 	void resetPos(sf::View&, Player&, int);
 
 	bool isInSpace(int z);
+	int getStage();
 
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
