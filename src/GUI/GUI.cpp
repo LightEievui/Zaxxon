@@ -340,20 +340,14 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[])
 		int start = 8;
 		if (i % 7)
 			start += 8;
-		if (i / 7 % 2)
+		if (i >= 21)
 			start += 64;
 
-		int layer = 140;
-		if (!i % 7)
-		{
-			if (i >= 14)
-				layer += 12;
-			if (i >= 28)
-				layer += 12;
-		}
-		highScores[i].setPosition(start + i % 7 * 8, layer);
+		//int layer = 140;
+		//layer += 12 * (i / 7);
+		highScores[i].setPosition(start + i % 7 * 8, 140);
 
-		std::cout << highScores[i].getPosition().x << ' ' << highScores[i].getPosition().y << '\n';
+		//std::cout << highScores[i].getPosition().x << ' ' << highScores[i].getPosition().y << '\n';
 
 	}
 }
