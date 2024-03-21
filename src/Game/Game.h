@@ -42,7 +42,7 @@ private:
 	int highScore = 0;
 	float gameSpeed = 1.;
 	byte gameState = 0;
-	unsigned int highScores[6];
+	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::fstream file;
 
 	sf::View mainView;
