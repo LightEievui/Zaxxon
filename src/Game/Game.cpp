@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -90,16 +90,16 @@ void Game::run() // if random erros later check that stack isnt full
             doCollision(player);
 
             // Fuel slowly runs out, player dies when fuel is empty.
-            if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
-            {
-                if (fuel-- == 0)
-                    playerDeath();
-
-                fuelClock.restart();
-            }
+            //if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+            //{
+            //    if (fuel-- == 0)
+             //       playerDeath();
+//
+              //  fuelClock.restart();
+           // }
 
             // Update window & objects
-            background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls);
+            background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
             for (unsigned int i = 0; i < obstacles.size(); i++)
                 obstacles.at(i)->update(window);
 
@@ -110,7 +110,7 @@ void Game::run() // if random erros later check that stack isnt full
             for (Enemy* enemy : enemies)
                 enemy->update(window, gameSpeed);
 
-            player->update(window, background.isInSpace((int)player->getPos().z));
+            player->update(window, background.getStage());
 
             window.setView(guiView);
             gui.render(window, player->getPos().y, score, highScore, fuel, lives);

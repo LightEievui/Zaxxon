@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Background/Background.h"
 
 
 /// <summary>
@@ -35,7 +36,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// </summary>
 /// <param name="window"></param>
 /// <param name="inSpace"></param>
-void Player::update(sf::RenderWindow& window, bool inSpace)
+void Player::update(sf::RenderWindow& window, int stage)
 {
     // Update texture
     unsigned int planeVertical = 0;
@@ -67,7 +68,7 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
         planeVertical = 1;
     }
 
-    if (!inSpace)
+    if (stage != 1)
         sizeIndex = 0;
     sprite.setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
@@ -87,15 +88,16 @@ void Player::update(sf::RenderWindow& window, bool inSpace)
         std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
 #endif
 
-    //tempVelocity.z = -2;
-    tempVelocity.z = -1.3f; //for translateTo2d
+    if(stage != 3)
+        //tempVelocity.z = -2;
+        tempVelocity.z = -1.3f; //for translateTo2d
 
     // Position updates
     setVelocity(tempVelocity);
     shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
 
     // Drawing
-    if (!inSpace)
+    if (stage != 1)
         window.draw(shadow);
 
     Character::update(window); // updating position using velocity, draw character
