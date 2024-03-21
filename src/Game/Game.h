@@ -4,13 +4,13 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "Background/Background.h"
 #include "Obstacle/Obstacle.h"
 #include "Entity/Entity.h"
 #include "Entity/Character/Player/Player.h"
 #include "Entity/Character/Enemy/Enemy.h"
 #include "GUI/GUI.h"
 #include "Wall/Wall.h"
+#include "Background/Background.h"
 
 
 typedef unsigned char byte;
@@ -50,6 +50,8 @@ private:
 	sf::SoundBuffer flightBuffer;
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
+
+	bool bossState = true;
 
 	void doCollision(Player*);
 	void playerDeath();
