@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -44,15 +44,15 @@ Game::Game()
 	{
 		byte i = 0;
 
-		while (!file.eof())
-			file >> currentScores[i++];
+		//while (!file.eof()) @Alex fix
+			//file >> currentScores[i++];
 
 		file.close();
 	}
 
 	highScore = currentScores[0];
 
-	gui.renderScores(window, currentScores);
+	//gui.renderScores(window, currentScores); // @Alex fix; doesn't exist
 }
 
 
@@ -115,10 +115,10 @@ void Game::run() // if random erros later check that stack isnt full
 				fuelClock.restart();
 			}
 
-			// Update window & objects
-			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls);
-			for (unsigned int i = 0; i < obstacles.size(); i++)
-				obstacles.at(i)->update(window);
+            // Update window & objects
+            background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+            for (unsigned int i = 0; i < obstacles.size(); i++)
+                obstacles.at(i)->update(window);
 
 			//Walls
 			for (unsigned int i = 0; i < walls.size(); i++)
@@ -127,7 +127,7 @@ void Game::run() // if random erros later check that stack isnt full
 			for (Enemy* enemy : enemies)
 				enemy->update(window, gameSpeed);
 
-			player->update(window, background.isInSpace((int)player->getPos().z));
+            player->update(window, background.getStage());
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -292,21 +292,23 @@ void Game::doCollision(Player* player)
 		}
 	}
 
-	// Enemy bullets collision with player
-	// Player bullets collision with enemy
-	for (CharacterBullet& bullet : player->getBullets())
-	{
-		for (Enemy* enemy : enemies)
-		{
-			if (bullet.getSizeIndex() == enemy->getSizeIndex() &&
-				bullet.getBounds().intersects(enemy->getBounds())
-				)
-			{
-				bullet.kill();
-				enemy->kill();
-			}
-		}
-	}
+    // Enemy bullets collision with player
+    // Player bullets collision with enemy
+    for (CharacterBullet* bullet : player->getBullets())
+    {
+        for (unsigned int i = 0; i < enemies.size(); i++)
+        {
+            Enemy* enemy = enemies[i];
+
+            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+                bullet->getBounds().intersects(enemy->getBounds())
+                )
+            {
+                bullet->kill();
+                enemies.erase(enemies.begin() + i--);
+            }
+        }
+    }
 }
 
 
