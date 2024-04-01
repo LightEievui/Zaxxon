@@ -74,7 +74,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 			resetPos(mainView, player, 0);
 		}
 
-		
+
 		if (stage == Stage::BOSS)
 		{
 			stage = Stage::BOSSFIGHT;
@@ -84,7 +84,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
 
-	if(!backgroundFinished(mainView))
+	if (!backgroundFinished(mainView))
 	{
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
 		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
@@ -151,9 +151,9 @@ bool Background::backgroundFinished(sf::View& view)
 	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
-	if (!stage == Stage::BOSS && !stage == Stage::BOSSFIGHT)
+	if (!stage == Stage::BOSS || !stage == Stage::BOSSFIGHT)
 		return wXPos >= 1830;
-		//return wXPos >= back.getGlobalBounds().width; // temp
+	//return wXPos >= back.getGlobalBounds().width; // temp
 	else
 		return wXPos >= 1300;
 }
