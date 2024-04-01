@@ -94,23 +94,12 @@ void Character::setVelocity(sf::Vector3f vel)
 
 
 /// <summary>
-/// Get positions for all of this characters bullets.
-/// </summary>
-/// <returns>Vector of Vectors of 3 floats</returns>
-std::vector<sf::Vector3f>& Character::getBulletPosition()
-{
-	return bulletsPos;
-}
-
-
-/// <summary>
 /// Get rid of bullet by index.
 /// </summary>
 /// <param name="bullet"></param>
 void Character::killBullet(int bullet)
 {
 	bullets.erase(bullets.begin() + bullet);
-	bulletsPos.erase(bulletsPos.begin() + bullet);
 }
 
 

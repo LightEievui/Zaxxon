@@ -11,8 +11,6 @@ public:
 	void update(sf::RenderWindow&, int);
 	void kill() override;
 	void resetPos(int zOffset = 0);
-	void bulletKill(int);
-
 private:
 	const int BULLET_COOLDOWN = 200;
 
