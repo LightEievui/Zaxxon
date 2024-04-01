@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -52,7 +52,7 @@ Game::Game()
 
 	highScore = currentScores[0];
 
-	gui.renderScores(window, currentScores);
+	//gui.renderScores(window, currentScores);
 }
 
 
@@ -115,10 +115,10 @@ void Game::run() // if random erros later check that stack isnt full
 				fuelClock.restart();
 			}
 
-            // Update window & objects
-            background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
-            for (unsigned int i = 0; i < obstacles.size(); i++)
-                obstacles.at(i)->update(window);
+			// Update window & objects
+			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+			for (unsigned int i = 0; i < obstacles.size(); i++)
+				obstacles.at(i)->update(window);
 
 			//Walls
 			for (unsigned int i = 0; i < walls.size(); i++)
@@ -127,7 +127,7 @@ void Game::run() // if random erros later check that stack isnt full
 			for (Enemy* enemy : enemies)
 				enemy->update(window, gameSpeed);
 
-            player->update(window, background.getStage());
+			player->update(window, background.getStage());
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -295,23 +295,23 @@ void Game::doCollision(Player* player)
 		}
 	}
 
-    // Enemy bullets collision with player
-    // Player bullets collision with enemy
-    for (CharacterBullet* bullet : player->getBullets())
-    {
-        for (unsigned int i = 0; i < enemies.size(); i++)
-        {
-            Enemy* enemy = enemies[i];
+	// Enemy bullets collision with player
+	// Player bullets collision with enemy
+	for (CharacterBullet* bullet : player->getBullets())
+	{
+		for (unsigned int i = 0; i < enemies.size(); i++)
+		{
+			Enemy* enemy = enemies[i];
 
-            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
-                bullet->getBounds().intersects(enemy->getBounds())
-                )
-            {
-                bullet->kill();
-                enemies.erase(enemies.begin() + i--);
-            }
-        }
-    }
+			if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+				bullet->getBounds().intersects(enemy->getBounds())
+				)
+			{
+				bullet->kill();
+				enemies.erase(enemies.begin() + i--);
+			}
+		}
+	}
 }
 
 
