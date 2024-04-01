@@ -12,9 +12,14 @@ public:
 	};
 
 	CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, BulletType = Player);
+	~CharacterBullet();
 	void kill();
 	void update(sf::RenderWindow& window);
 	unsigned int getSizeIndex();
+	sf::Vector3f getPosition()
+	{
+
+	};
 
 private:
 	unsigned int sizeIndex;

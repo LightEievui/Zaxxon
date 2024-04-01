@@ -50,7 +50,7 @@ Background::~Background()
 /// <param name="player"></param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	float gameSpeed, sf::Texture* spritesheet, std::vector<Obstacle*>& obstacles,
-	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls
+	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls, bool bossState
 )
 {
 	if (backgroundFinished(mainView))
@@ -59,24 +59,36 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		{
 			stage = Stage::SPACE;
 			back.setTexture(space);
+			resetPos(mainView, player, 0);
 		}
 		else if (stage == Stage::SPACE)
 		{
 			stage = Stage::BOSS;
 			back.setTexture(boss);
+			resetPos(mainView, player, 0);
 		}
-		else
+		else if (!bossState)
 		{
 			stage = Stage::INITIAL;
 			back.setTexture(initial);
+			resetPos(mainView, player, 0);
 		}
-		resetPos(mainView, player, 0);
+
+		
+		if (stage == Stage::BOSS)
+		{
+			stage = Stage::BOSSFIGHT;
+		}
 
 		generateObstacles(stage, obstacles, spritesheet, walls);
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
-	//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
-	mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
+
+	if(!backgroundFinished(mainView))
+	{
+		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
+		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
+	}
 
 	// spawn waves that have gone past the z set in queue
 	if (!waveQueue.empty() && player.getPos().z < waveQueue.front().first)
@@ -139,8 +151,11 @@ bool Background::backgroundFinished(sf::View& view)
 	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
-	return wXPos >= 1830;
-	//return wXPos >= back.getGlobalBounds().width; // temp
+	if (!stage == Stage::BOSS && !stage == Stage::BOSSFIGHT)
+		return wXPos >= 1830;
+		//return wXPos >= back.getGlobalBounds().width; // temp
+	else
+		return wXPos >= 1300;
 }
 
 
@@ -237,8 +252,8 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
 
 		// Need to be Flipped - Green Turret
-		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 3));
 
 		//Shooting Up Missiles
 		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 100, 2));
@@ -307,4 +322,10 @@ void Background::generateWaves(Background::Stage stage,
 
 		break;
 	}
+}
+
+
+int Background::getStage()
+{
+	return stage;
 }
