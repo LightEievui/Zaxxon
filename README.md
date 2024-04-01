@@ -28,7 +28,7 @@ Other files are statically linked and are not required to be distributed with th
 
 ## Remixing and forking
 You can freely fork and edit this program how you would like according to the license. \
-Full coverage documentation is provided in `/doc/`, specifically `/doc/html/index.html` for a pretty way to view the documentation. \
+Full coverage documentation is provided in `/doc/`, specifically `/doc/html/index.html` for a pretty way to view the documentation.
 
 ### SFML
 To switch out [SFML](https://www.sfml-dev.org/) version, simply replace `lib/SFML` with your new version. No guranteed support for versions aside from SFML 2.6.1 32-bit version.
