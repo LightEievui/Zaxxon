@@ -14,6 +14,7 @@ public:
 	GUI(sf::Texture*);
 	void render(sf::RenderWindow&, float, int, int, byte, byte);
 	void startRender(sf::RenderWindow&, int);
+	void renderScores(sf::RenderWindow&, int[]);
 
 private:
 	sf::Texture* spritesheet;
@@ -37,4 +38,7 @@ private:
 	sf::Sprite pushPlayerText[25];
 
 	sf::Clock scoreClock;
+
+	sf::Sprite highScores[42];
+	sf::Sprite highScoresText[10];
 };

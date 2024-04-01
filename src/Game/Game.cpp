@@ -343,6 +343,8 @@ void Game::playerDeath()
 		for (byte i = 0; i < 6; i++)
 			file << currentScores[i] << ' ';
 		file.close();
+
+		gui.renderScores(window, currentScores);
 	}
 
 	// Enemy bullets collision with player
