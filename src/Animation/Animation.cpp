@@ -27,9 +27,9 @@ Animation::Animation()
 	frames[11] = sf::IntRect(384, 320, 27, 30);
 
 	// Normal bullet death animations
-	frames[12] = sf::IntRect(160, 161, 174-160, 175-161);
-	frames[13] = sf::IntRect(136, 160, 151-136, 175-160);
-	frames[14] = sf::IntRect(112, 158, 128-112, 175-158);
+	frames[12] = sf::IntRect(160, 161, 174 - 160, 175 - 161);
+	frames[13] = sf::IntRect(136, 160, 151 - 136, 175 - 160);
+	frames[14] = sf::IntRect(112, 158, 128 - 112, 175 - 158);
 }
 
 
