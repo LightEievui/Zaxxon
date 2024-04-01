@@ -44,15 +44,15 @@ Game::Game()
 	{
 		byte i = 0;
 
-		//while (!file.eof()) @Alex fix
-			//file >> currentScores[i++];
+		while (!file.eof())
+			file >> currentScores[i++];
 
 		file.close();
 	}
 
 	highScore = currentScores[0];
 
-	//gui.renderScores(window, currentScores); // @Alex fix; doesn't exist
+	gui.renderScores(window, currentScores);
 }
 
 
