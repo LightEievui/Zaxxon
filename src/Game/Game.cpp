@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::BOSS;
+Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -343,6 +343,8 @@ void Game::playerDeath()
 		for (byte i = 0; i < 6; i++)
 			file << currentScores[i] << ' ';
 		file.close();
+
+		gui.renderScores(window, currentScores);
 	}
 
 	// Enemy bullets collision with player

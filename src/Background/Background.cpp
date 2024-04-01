@@ -84,7 +84,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
 
-	if(stage == Stage::BOSS && !backgroundFinished(mainView))
+	if(!backgroundFinished(mainView))
 	{
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
 		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
@@ -252,8 +252,8 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
 
 		// Need to be Flipped - Green Turret
-		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 3));
 
 		//Shooting Up Missiles
 		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 100, 2));
