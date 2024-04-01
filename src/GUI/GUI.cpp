@@ -161,6 +161,19 @@ GUI::GUI(sf::Texture* spritesheet)
 		pushPlayerText[i].setColor(sf::Color(0, 222, 247));
 		pushPlayerText[i].setPosition(sf::Vector2f(start + 8.f * i, 92.f));
 	}
+
+	// Start screen, high score text
+	ZaxxonText::string(spritesheet, "HIGHSCORES", highScoresText);
+	for (byte i = 0; i < 10; i++)
+	{
+		byte start = 72;
+
+		if (i >= 4)
+			start += 8;
+
+		highScoresText[i].setColor(sf::Color(222, 222, 0));
+		highScoresText[i].setPosition(sf::Vector2f(start + i * 8, 120));
+	}
 }
 
 
@@ -324,6 +337,9 @@ void GUI::startRender(sf::RenderWindow& window, int highScore)
 
 	for (byte i = 0; i < 42; i++)
 		window.draw(highScores[i]);
+
+	for (byte i = 0; i < 10; i++)
+		window.draw(highScoresText[i]);
 }
 
 
@@ -331,23 +347,28 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[])
 {
 	for (byte i = 0; i < 42; i++)
 	{
-		//std::to_string(scores[i / 7]);
-		if (!i % 7)
+		if (i % 7 == 0)
 			highScores[i] = ZaxxonText::get(spritesheet, '1' + i / 7);
+		else
+		{
+			std::string scoreStr = std::to_string(scores[i / 7]);
+
+			while (scoreStr.length() < 6)
+				scoreStr = '0' + scoreStr;
+
+			highScores[i] = ZaxxonText::get(spritesheet, scoreStr[0 + (i % 7) - 1]);
+		}
 
 		highScores[i].setColor(sf::Color(0, 222, 0));
 
-		int start = 8;
+		int start = 16;
 		if (i % 7)
 			start += 8;
 		if (i >= 21)
-			start += 64;
+			start += 120;
 
-		//int layer = 140;
-		//layer += 12 * (i / 7);
-		highScores[i].setPosition(start + i % 7 * 8, 140);
-
-		//std::cout << highScores[i].getPosition().x << ' ' << highScores[i].getPosition().y << '\n';
-
+		int layer = 140;
+		layer += 12 * (i % 21 / 7);
+		highScores[i].setPosition(start + i % 7 * 8, layer);
 	}
 }
