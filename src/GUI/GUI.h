@@ -40,4 +40,5 @@ private:
 	sf::Clock scoreClock;
 
 	sf::Sprite highScores[42];
+	sf::Sprite highScoresText[10];
 };
