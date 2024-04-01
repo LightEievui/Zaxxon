@@ -14,7 +14,6 @@ public:
 	void update(sf::RenderWindow&);
 	virtual void kill() = 0;
 
-	std::vector<sf::Vector3f>& getBulletPosition();
 	std::vector<CharacterBullet*>& getBullets();
 	unsigned int getSizeIndex();
 	void killBullet(int);
@@ -39,7 +38,6 @@ protected:
 
 	sf::Vector3f velocity;
 	std::vector<CharacterBullet*> bullets;
-	std::vector<sf::Vector3f> bulletsPos;
 	unsigned int sizeIndex;
 private:
 	sf::IntRect bulletTexture;

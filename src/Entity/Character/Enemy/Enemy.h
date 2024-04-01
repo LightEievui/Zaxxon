@@ -28,4 +28,8 @@ private:
 	sf::Clock alive;
 	unsigned int sizeIndex = 0;
 	unsigned int id;
+
+	// bullets
+	bool ableToFire = true;
+	sf::Clock bulletCD;
 };

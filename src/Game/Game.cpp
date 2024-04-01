@@ -197,7 +197,10 @@ void Game::doCollision(Player* player)
 				obstacles.at(i)->bulletKill(bullets);
 			}
 		}
-		bulletPos = player->getBulletPosition();
+
+		bulletPos.clear();
+		for (CharacterBullet* bullet : player->getBullets())
+			bulletPos.push_back(bullet->getPos());
 		size = bulletPos.size();
 
 		//Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
