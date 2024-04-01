@@ -80,6 +80,7 @@ void Player::update(sf::RenderWindow& window, int stage)
         bulletCD.restart();
 
         bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
+        bulletsPos.push_back(getPos());
 
         bulletSound.play();
     }
@@ -106,10 +107,13 @@ void Player::update(sf::RenderWindow& window, int stage)
         CharacterBullet* bullet = bullets[i];
         bullet->update(window);
 
+        bulletsPos.at(i) = bullets.at(i)->getPos();
+
         if (!getWindowViewRect(window).intersects(bullet->getBounds()))
         {
             delete bullet;
             bullets.erase(bullets.begin() + i);
+            bulletsPos.erase(bulletsPos.begin() + i);
             i--;
         }
     }
