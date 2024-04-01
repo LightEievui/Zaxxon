@@ -234,6 +234,7 @@ void Background::generateObstacles(Background::Stage stage,
 	1 = gas can
 	2 = satellite
 	3 = plane
+	4 = blue floating gas can
 	*/
 
 	obstacles.clear();
@@ -289,6 +290,38 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.at(0)->setPosition(sf::Vector3f(-160.f, 70.f, -122.f), 1);
 
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-63.f, 130.f, -755.f), 3, std::vector<int> {1, 1, 1}));
+		//TO DO fix position
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-10.f, 130.f, -1420.f), 2, std::vector<int> {1, 0}));
+		break;
+
+	case SPACE:
+		//TO DO fix positions and speed of movement
+		//TO DO fix it so they give you gas when you shoot them
+		//Blue Space Gas Cans
+		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -720.f), spriteSheet, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -1500.f), spriteSheet, 4));
+		break;
+
+	case BOSS:
+		//test
+		//TO DO add rest of obstacles and walls
+		obstacles.push_back(new Obstacle(sf::Vector3f(-70.f, 139.f, -340.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -380.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -470.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -470.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -470.f), spriteSheet, 2));
+
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -850.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -900.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -950.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -950.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -950.f), spriteSheet, 100, 0));
+
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -1150.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -1200.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -1250.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -1300.f), spriteSheet, 100, 1));
+
 		break;
 	}
 }

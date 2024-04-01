@@ -77,6 +77,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
     1 = gas can
     2 = satellite
     3 = plane
+    4 = blue space gas can
     */
     this->type = type;
 
@@ -100,7 +101,11 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
         this->type = 6;
         sprite->setTextureRect(sf::IntRect(92, 35, 29, 25));
     }
-
+    else if (type == 4)
+    {
+        this->type = 7;
+        sprite->setTextureRect(sf::IntRect(8, 195, 26, 29));
+    }
     sprite->setPosition(translateTo2d(pos));
     sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
 }
@@ -211,13 +216,21 @@ void Obstacle::update(sf::RenderWindow& window)
 
         window.draw(bulletSprites.at(i));
     }
-
-    window.draw(*sprite);
-
+ 
+    if (type != 7 || type == 7 && getPosition().x < 15)
+        window.draw(*sprite);
+ 
     if (direction != 2)
         count = (count + 1) % total;
     else
         count = (count + 1) % 10000;
+
+    if (type == 7)
+    {
+        //std::cout << "YES";
+        setPos(sf::Vector3f(getPosition().x + 1, getPosition().y - 0.6, getPosition().z));
+        sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1, getPos().y - 0.6, getPos().z)));
+    }
 }
 
 
@@ -266,6 +279,7 @@ int Obstacle::getType()
     4 = green cannon
     5 = Shooting Up
     6 = Plane
+    7 = blue floating gas can
     */
 
     return type;
