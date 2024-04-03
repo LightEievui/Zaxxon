@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::INITIAL;
+Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -105,9 +105,11 @@ void Game::run() // if random erros later check that stack isnt full
 		{
 			window.setView(mainView);
 			doCollision(player);
+			bool inSpaceOffCD = background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
+			bool outSpaceOffCD = !background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
 
 			// Fuel slowly runs out, player dies when fuel is empty.
-			if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+			if (inSpaceOffCD || outSpaceOffCD)
 			{
 				if (fuel-- == 0)
 					playerDeath();
@@ -296,6 +298,14 @@ void Game::doCollision(Player* player)
 	}
 
 	// Enemy bullets collision with player
+	for (Enemy* enemy : enemies)
+	{
+		for (CharacterBullet* bullet : enemy->getBullets())
+		{
+
+		}
+
+	}
 	// Player bullets collision with enemy
 	for (CharacterBullet* bullet : player->getBullets())
 	{
@@ -348,17 +358,6 @@ void Game::playerDeath()
 		file.close();
 
 		gui.renderScores(window, currentScores);
-	}
-
-	// Enemy bullets collision with player
-	// Player bullets collision with enemy
-	for (Enemy* enemy : enemies)
-	{
-		// size index of bullets important
-		if (enemy->getSizeIndex() == player->getSizeIndex())
-		{
-
-		}
 	}
 
 	fuel = 128;
