@@ -331,6 +331,9 @@ void Game::doCollision(Player* player)
 		}
 
 	}
+
+	int bulletNum = 0;
+
 	// Player bullets collision with enemy
 	for (CharacterBullet* bullet : player->getBullets())
 	{
@@ -364,7 +367,6 @@ void Game::doCollision(Player* player)
 				{
 					std::cout << "Bullet Ran into wall" << std::endl;
 					bullet->kill();
-					player->killBullet(bulletNum);
 				}
 			}
 
