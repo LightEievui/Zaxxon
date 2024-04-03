@@ -109,8 +109,9 @@ std::vector<sf::Vector3f>& Character::getBulletPosition()
 /// <param name="bullet"></param>
 void Character::killBullet(int bullet)
 {
+	exBullets.push_back(bullets.at(bullet));
 	bullets.erase(bullets.begin() + bullet);
-	bulletsPos.erase(bulletsPos.begin() + bullet);
+	//bulletsPos.erase(bulletsPos.begin() + bullet);
 }
 
 
