@@ -53,6 +53,9 @@ Game::Game()
 	highScore = currentScores[0];
 
 	gui.renderScores(window, currentScores);
+
+	deathSprite.setTexture(spriteSheet);
+	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 }
 
 
@@ -102,13 +105,14 @@ void Game::run() // if random erros later check that stack isnt full
 			// Things to do only when player is alive AKA these will be changed for player death
 			if (player->isAlive())
 			{
+				// Fuel goes down every 0.2 seconds unless in space, then it goes down every 1.6 seconds
 				bool inSpaceOffCD = background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
 				bool outSpaceOffCD = !background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
 				// Collision checks
 				doCollision(player);
 
 				// Fuel slowly runs out, player dies when fuel is empty.
-				if (inSpaceOffCD || outSpaceOffCD)
+				if ((inSpaceOffCD || outSpaceOffCD) && background.getStage() != 3)
 				{
 					if (fuel-- == 0)
 						playerDeath();
@@ -122,28 +126,15 @@ void Game::run() // if random erros later check that stack isnt full
 			else // Start the player death animation here
 			{
 				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState);
-				if (deathClock.getElapsedTime().asSeconds() > 1) // Reset pos backwards
+					
+				if(deathClock.getElapsedTime().asSeconds() > 1)
 				{
-					player->kill();
-
-					// Not perfect but works (moved from player::kill() during death update)
-					player->setPos(sf::Vector3f(0, 69, player->getPos().z));
-
-					// You lose a life, or game over if out of lives
-					if (lives > 0)
-						lives -= 1;
-					else
-						gameOver();
-
-					// Prepare for respawn
-					fuel = 128;
-         			pBackground->resetPos(mainView, *player, 0);
-
-					background.generateObstacles(background.getStage(), obstacles, &spriteSheet, walls);
-					background.generateWaves(background.getStage(), enemies, &spriteSheet, (int)player->getPos().z);
-
-         			if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
-						pBackground->setPosition(sf::Vector2f(0, 244));
+					gameState = 2;
+					pBackground->flashColor(1);
+				}
+				else
+				{
+					pBackground->flashColor(deathClock.getElapsedTime().asMilliseconds() / 200 % 2);
 				}
 			}
 
@@ -151,7 +142,7 @@ void Game::run() // if random erros later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				obstacles.at(i)->update(window);
 
-			//Walls
+			// Draw Walls
 			for (unsigned int i = 0; i < walls.size(); i++)
 				walls.at(i)->drawWalls(window);
 
@@ -163,13 +154,46 @@ void Game::run() // if random erros later check that stack isnt full
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
 		}
-		else
+		else if(gameState == 0)
 		{
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 				gameState = 1, score = 0;
+		}
+		else
+		{
+			window.setView(mainView);
+
+			deathSprite.setPosition(player->getSpritePos());
+			// TODO: TEMPORARY
+			deathSprite.setScale(deathClock.getElapsedTime().asSeconds(), deathClock.getElapsedTime().asSeconds());
+			window.draw(deathSprite);
+
+			window.setView(guiView);
+			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+
+			if (deathClock.getElapsedTime().asSeconds() > 2) // Reset pos backwards
+			{
+				player->kill();
+				gameState = 1;
+
+				// Not perfect but works (moved from player::kill() during death update)
+				player->setPos(sf::Vector3f(0, 69, player->getPos().z));
+
+				// You lose a life, or game over if out of lives
+				if (lives > 0)
+					lives -= 1;
+				else
+					gameOver();
+
+				// Prepare for respawn
+				fuel = 128;
+				pBackground->resetPos(mainView, *player, 0);
+				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
+					pBackground->setPosition(sf::Vector2f(0, 244));
+			}
 		}
 
 		window.display();
@@ -224,7 +248,6 @@ void Game::doCollision(Player* player)
 			if (difference.x < 15 && difference.y < 15 && difference.z < 25)
 			{
 				playerDeath();
-
 				obstacles.at(i)->bulletKill(bullets);
 			}
 		}
@@ -266,6 +289,10 @@ void Game::doCollision(Player* player)
 			case 6:
 				score += 100;
 				break;
+			case 7:
+				score += 300;
+				fuel = 128;
+				break;
 			default:
 				if (rand() % 1 == 0)
 					score += 200;
@@ -288,7 +315,6 @@ void Game::doCollision(Player* player)
 			playerDeath();
 	}
 
-	//TO DO CANNOT FIGURE THEM OUT
 	//Wall Collisions
 	for (unsigned int i = 0; i < walls.size(); i++)
 	{
