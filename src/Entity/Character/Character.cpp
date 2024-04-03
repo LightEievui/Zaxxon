@@ -92,6 +92,25 @@ void Character::setVelocity(sf::Vector3f vel)
 	this->velocity = vel;
 }
 
+/// <summary>
+/// Calls CharacterBullet::update() on each bullet & deletes bullets that are not in the window.
+/// </summary>
+/// <param name="window">Main render window</param>
+void Character::updateBullets(sf::RenderWindow& window)
+{
+	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
+		CharacterBullet* bullet = bullets[i];
+		bullet->update(window);
+
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()))
+		{
+			delete bullet;
+			bullets.erase(bullets.begin() + i);
+			i--;
+		}
+	}
+}
 
 /// <summary>
 /// Get rid of bullet by index.

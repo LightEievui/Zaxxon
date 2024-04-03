@@ -50,7 +50,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
 		sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
-		total = delay;
+		total = (int)delay;
 	}
 	//Right Green Turrents
 	else if (dir == 3)
@@ -228,8 +228,8 @@ void Obstacle::update(sf::RenderWindow& window)
     if (type == 7)
     {
         //std::cout << "YES";
-        setPos(sf::Vector3f(getPosition().x + 1, getPosition().y - 0.6, getPosition().z));
-        sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1, getPos().y - 0.6, getPos().z)));
+        setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, getPosition().z));
+        sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f, getPos().z)));
     }
 }
 

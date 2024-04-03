@@ -101,18 +101,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 		window.draw(shadow);
 
 	Character::update(window); // updating position using velocity, draw character
-	for (unsigned int i = 0; i < bullets.size(); i++)
-	{
-		CharacterBullet* bullet = bullets[i];
-		bullet->update(window);
-
-        if (!getWindowViewRect(window).intersects(bullet->getBounds()))
-        {
-            delete bullet;
-            bullets.erase(bullets.begin() + i);
-            i--;
-        }
-    }
+	Character::updateBullets(window);
 }
 
 

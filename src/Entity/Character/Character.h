@@ -36,6 +36,8 @@ protected:
 	void setVelocity(sf::Vector3f);
 	void setBullet(sf::IntRect);
 
+	void updateBullets(sf::RenderWindow& window);
+
 	sf::Vector3f velocity;
 	std::vector<CharacterBullet*> bullets;
 	unsigned int sizeIndex;
