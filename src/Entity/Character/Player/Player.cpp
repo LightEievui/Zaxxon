@@ -101,8 +101,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 	{
 		bulletCD.restart();
 
-		bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
-		bulletsPos.push_back(getPos());
+    bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
 		bulletSound.play();
 	}
@@ -124,6 +123,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 		window.draw(shadow);
 
 	Character::update(window); // updating position using velocity, draw character
+	Character::updateBullets(window);
 }
 
 
