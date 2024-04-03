@@ -143,9 +143,9 @@ void Game::run() // if random erros later check that stack isnt full
 
 					// Prepare for respawn
 					fuel = 128;
-         	pBackground->resetPos(mainView, *player, 0);
-         	if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
-	        pBackground->setPosition(sf::Vector2f(0, 244));
+         			pBackground->resetPos(mainView, *player, 0);
+         			if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
+						pBackground->setPosition(sf::Vector2f(0, 244));
 				}
 			}
 
@@ -360,7 +360,7 @@ void Game::playerDeath()
 {
 	player->kill();
 	// deathClock is used for player death animation, so start clock here.
-	deathClock.restart();	
+	deathClock.restart();
 }
 
 
@@ -393,23 +393,4 @@ void Game::gameOver()
 	for (byte i = 0; i < 6; i++)
 		file << currentScores[i] << ' ';
 	file.close();
-
-		gui.renderScores(window, currentScores);
-	}
-
-	// Enemy bullets collision with player
-	// Player bullets collision with enemy
-	for (Enemy* enemy : enemies)
-	{
-		// size index of bullets important
-		if (enemy->getSizeIndex() == player->getSizeIndex())
-		{
-
-		}
-	}
-
-	fuel = 128;
-	pBackground->resetPos(mainView, *player, 0);
-	if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
-	pBackground->setPosition(sf::Vector2f(0, 244));
 }

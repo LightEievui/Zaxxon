@@ -38,26 +38,8 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// <param name="inSpace"></param>
 void Player::update(sf::RenderWindow& window, int stage)
 {
-	for (unsigned int i = 0; i < bullets.size(); i++)
-	{
-		CharacterBullet* bullet = bullets[i];
-		bullet->update(window);
-
-		bulletsPos.at(i) = bullets.at(i)->getPos();
-
-		if (!getWindowViewRect(window).intersects(bullet->getBounds()))
-		{
-			delete bullet;
-			bullets.erase(bullets.begin() + i);
-			bulletsPos.erase(bulletsPos.begin() + i);
-			i--;
-		}
-	}
-
 	if (!alive)
-	{
 		return;
-	}
 
 	// If alive after this point
 	// Update texture
@@ -68,23 +50,27 @@ void Player::update(sf::RenderWindow& window, int stage)
 	sf::Vector3f tempVelocity;
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -10) &&
-		getPos().x < xMax)
+		getPos().x < xMax
+	)
 		tempVelocity.x = 1;
 	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10) &&
-		getPos().x > xMin)
+		getPos().x > xMin
+	)
 		tempVelocity.x = -1;
 
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -10) &&
-		getPos().y < yMax)
+		getPos().y < yMax
+	)
 	{
 		tempVelocity.y = 0.6f;
 		planeVertical = 2;
 	}
 	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 10) &&
-		getPos().y > yMin)
+		getPos().y > yMin
+	)
 	{
 		tempVelocity.y = -0.6f;
 		planeVertical = 1;
@@ -97,11 +83,12 @@ void Player::update(sf::RenderWindow& window, int stage)
 	// Spawn bullets
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) ||
 		sf::Joystick::isButtonPressed(0, 0)) &&
-		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN)
+		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN
+	)
 	{
 		bulletCD.restart();
 
-    bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
+		bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
 		bulletSound.play();
 	}
