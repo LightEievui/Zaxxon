@@ -67,6 +67,10 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 			back.setTexture(boss);
 			resetPos(mainView, player, 0);
 		}
+		else if (stage == Stage::BOSS)
+		{
+			stage = Stage::BOSSFIGHT;
+		}
 		else if (!bossState)
 		{
 			stage = Stage::INITIAL;
