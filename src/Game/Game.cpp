@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -242,10 +242,9 @@ void Game::doCollision(Player* player)
 				abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
 				abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
 
-			if (!(difference.x < 20 && difference.y < 20 && difference.z < 25))
+			if (!(difference.x < 20 && difference.y < 15 && difference.z < 25))
 				continue;
 			obstacles.at(i)->kill();
-			std::cout << "KILL";
 			player->killBullet(pBullets);
 			bulletPos.erase(bulletPos.begin() + pBullets);
 			pBullets--;
@@ -285,11 +284,8 @@ void Game::doCollision(Player* player)
 			abs(obstacles.at(i)->getPosition().y - planePos.y),
 			abs(obstacles.at(i)->getPosition().z - planePos.z));
 
-		if (difference.x < 30 && difference.y < 30 && difference.z < 30)
+		if (difference.x < 30 && difference.y < 15 && difference.z < 30)
 			playerDeath();
-
-		// Enemy bullets collision with player
-		// Player bullets collision with enemy
 	}
 
 	//TO DO CANNOT FIGURE THEM OUT
@@ -326,13 +322,21 @@ void Game::doCollision(Player* player)
 		}
 	}
 
+	// TODO Mod bounds does not work.
+	const int hitboxSize = 1;
+	sf::FloatRect modBounds;
+	modBounds = player->getBounds();
+	modBounds.left += modBounds.width / 2 - hitboxSize / 2.f;
+	modBounds.top += modBounds.height / 2 - hitboxSize / 2.f;
+	modBounds.width = hitboxSize;
+	modBounds.height = hitboxSize;
 	// Enemy bullets collision with player
 	for (Enemy* enemy : enemies)
 	{
 		for (CharacterBullet* bullet : enemy->getBullets())
 		{
 			if (bullet->getSizeIndex() == player->getSizeIndex() &&
-				bullet->getBounds().intersects(player->getBounds())
+				bullet->getBounds().intersects(modBounds)
 			)
 				playerDeath();
 		}
@@ -346,9 +350,14 @@ void Game::doCollision(Player* player)
 		for (unsigned int i = 0; i < enemies.size(); i++)
 		{
 			Enemy* enemy = enemies[i];
+			modBounds = enemy->getBounds();
+			modBounds.left += modBounds.width/2 - hitboxSize/2;
+			modBounds.top += modBounds.height/2 - hitboxSize/2;
+			modBounds.width = hitboxSize;
+			modBounds.height = hitboxSize;
 
             if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
-                bullet->getBounds().intersects(enemy->getBounds())
+                bullet->getBounds().intersects(modBounds)
                 )
             {
                 bullet->kill();
@@ -370,9 +379,7 @@ void Game::doCollision(Player* player)
 					abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().z));
 
 				if (difference.x < 20 && difference.y < 20 && difference.z < 10)
-				{
-					bullet->kill();
-				}
+					bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 			}
 
 			//Player Bullets hit walls build into background
@@ -380,9 +387,7 @@ void Game::doCollision(Player* player)
 
 			//TO DO fix it so the x works and the y plus value is more accurate
 			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
-			{
-				bullet->kill();
-			}
+				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
 		bulletNum++;

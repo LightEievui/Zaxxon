@@ -11,6 +11,10 @@ public:
 		Player,
 		Enemy
 	};
+	enum BulletDeathType {
+		WallDeath,
+		EnemyDeath
+	};
 
 	/*
 	Players use 3f & enemies use 2f, I know it's confusing but enemies run on 2f
@@ -23,6 +27,7 @@ public:
 	);
 	~CharacterBullet();
 	void kill();
+	void kill(BulletDeathType type);
 	void update(sf::RenderWindow& window);
 	unsigned int getSizeIndex();
 	sf::Vector3f getPosition()
