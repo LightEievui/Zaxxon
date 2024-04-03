@@ -34,8 +34,7 @@ public:
 	void resetPos(sf::View&, Player&, int);
 
 	bool isInSpace(int z);
-	int getStage();
-
+	Stage getStage();
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
 		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&);
