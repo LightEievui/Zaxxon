@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::BOSS;
+Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -128,7 +128,7 @@ void Game::run() // if random erros later check that stack isnt full
 			else // Start the player death animation here
 			{
 				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState);
-				if (deathClock.getElapsedTime().asSeconds() > 1)
+				if (deathClock.getElapsedTime().asSeconds() > 1) // Reset pos backwards
 				{
 					player->kill();
 
@@ -144,6 +144,10 @@ void Game::run() // if random erros later check that stack isnt full
 					// Prepare for respawn
 					fuel = 128;
          			pBackground->resetPos(mainView, *player, 0);
+
+					background.generateObstacles(background.getStage(), obstacles, &spriteSheet, walls);
+					background.generateWaves(background.getStage(), enemies, &spriteSheet, (int)player->getPos().z);
+
          			if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 						pBackground->setPosition(sf::Vector2f(0, 244));
 				}
@@ -333,9 +337,11 @@ void Game::doCollision(Player* player)
 	{
 		for (CharacterBullet* bullet : enemy->getBullets())
 		{
-
+			if (bullet->getSizeIndex() == player->getSizeIndex() &&
+				bullet->getBounds().intersects(player->getBounds())
+			)
+				playerDeath();
 		}
-
 	}
 	// Player bullets collision with enemy
 	for (CharacterBullet* bullet : player->getBullets())
