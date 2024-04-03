@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -104,21 +104,51 @@ void Game::run() // if random erros later check that stack isnt full
 		if (gameState == 1)
 		{
 			window.setView(mainView);
-			doCollision(player);
 
-			// Fuel slowly runs out, player dies when fuel is empty.
-			if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+			// Things to do only when player is alive AKA these will be changed for player death
+			if (player->isAlive())
 			{
-				if (fuel-- == 0)
-					playerDeath();
+				// Collision checks
+				doCollision(player);
 
-				fuelClock.restart();
+				// Fuel slowly runs out, player dies when fuel is empty.
+				if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+				{
+					// Ran out of fuel
+					if (fuel-- == 0)
+						playerDeath();
+
+					fuelClock.restart();
+				}
+
+				// Move background
+				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+			}
+			else // Start the player death animation here
+			{
+				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+				if (deathClock.getElapsedTime().asSeconds() > 1)
+				{
+					player->kill();
+
+					// Not perfect but works (moved from player::kill() during death update)
+					player->setPos(sf::Vector3f(0, 69, player->getPos().z));
+
+					// You lose a life, or game over if out of lives
+					if (lives > 0)
+						lives -= 1;
+					else
+						gameOver();
+
+					// Prepare for respawn
+					fuel = 128;
+					pBackground->resetPos(mainView, *player, 0);
+				}
 			}
 
-            // Update window & objects
-            background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
-            for (unsigned int i = 0; i < obstacles.size(); i++)
-                obstacles.at(i)->update(window);
+			// Update objects
+			for (unsigned int i = 0; i < obstacles.size(); i++)
+				obstacles.at(i)->update(window);
 
 			//Walls
 			for (unsigned int i = 0; i < walls.size(); i++)
@@ -127,7 +157,7 @@ void Game::run() // if random erros later check that stack isnt full
 			for (Enemy* enemy : enemies)
 				enemy->update(window, gameSpeed);
 
-            player->update(window, background.getStage());
+			player->update(window, background.getStage());
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -277,7 +307,7 @@ void Game::doCollision(Player* player)
 			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
 			{
 				//std::cout << "Player Ran into wall" << std::endl;
-				player->kill();
+				playerDeath();
 
 			}
 		}
@@ -292,72 +322,63 @@ void Game::doCollision(Player* player)
 		}
 	}
 
-    // Enemy bullets collision with player
-    // Player bullets collision with enemy
-    for (CharacterBullet* bullet : player->getBullets())
-    {
-        for (unsigned int i = 0; i < enemies.size(); i++)
-        {
-            Enemy* enemy = enemies[i];
+	// Enemy bullets collision with player
+	// Player bullets collision with enemy
+	for (CharacterBullet* bullet : player->getBullets())
+	{
+		for (unsigned int i = 0; i < enemies.size(); i++)
+		{
+			Enemy* enemy = enemies[i];
 
-            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
-                bullet->getBounds().intersects(enemy->getBounds())
-                )
-            {
-                bullet->kill();
-                enemies.erase(enemies.begin() + i--);
-            }
-        }
-    }
+			if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+				bullet->getBounds().intersects(enemy->getBounds())
+				)
+			{
+				bullet->kill();
+				enemies.erase(enemies.begin() + i--);
+			}
+		}
+	}
 }
 
 
 void Game::playerDeath()
 {
 	player->kill();
-	if (lives > 0)
-		lives -= 1;
-	else
+	// deathClock is used for player death animation, so start clock here.
+	deathClock.restart();	
+}
+
+
+/// <summary>
+/// Run code for when you've fully ran out of lives.
+/// </summary>
+void Game::gameOver()
+{
+	gameState = 0;
+	lives = 2;
+
+	// Replace bottom score?
+	if (currentScores[5] < score)
 	{
-		gameState = 0;
-		lives = 2;
+		currentScores[5] = score;
 
-		// Replace bottom score?
-		if (currentScores[5] < score)
+		// Now sort it
+		for (int i = 0; i < 5; i++)
 		{
-			currentScores[5] = score;
-
-			// Now sort it
-			for (int i = 0; i < 5; i++)
+			if (currentScores[5 - i] > currentScores[4 - i])
 			{
-				if (currentScores[5 - i] > currentScores[4 - i])
-				{
-					int temp = currentScores[5 - i];
-					currentScores[5 - i] = currentScores[4 - i];
-					currentScores[4 - i] = temp;
-				}
+				int temp = currentScores[5 - i];
+				currentScores[5 - i] = currentScores[4 - i];
+				currentScores[4 - i] = temp;
 			}
 		}
-
-		file.open("ZaxxonScores", std::ios::out);
-		for (byte i = 0; i < 6; i++)
-			file << currentScores[i] << ' ';
-		file.close();
-
-		gui.renderScores(window, currentScores);
 	}
 
-	// Enemy bullets collision with player
-	// Player bullets collision with enemy
-	for (Enemy* enemy : enemies)
-	{
-		// size index of bullets important
-		if (enemy->getSizeIndex() == player->getSizeIndex())
-		{
+	file.open("ZaxxonScores", std::ios::out);
+	for (byte i = 0; i < 6; i++)
+		file << currentScores[i] << ' ';
+	file.close();
 
-		}
-	}
-
-	fuel = 128;
-	pBackground->resetPos(mainView, *player, 0);
+	gui.renderScores(window, currentScores);
 }
