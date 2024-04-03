@@ -52,7 +52,7 @@ Game::Game()
 
 	highScore = currentScores[0];
 
-	//gui.renderScores(window, currentScores);
+	gui.renderScores(window, currentScores);
 }
 
 
