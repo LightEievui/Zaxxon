@@ -52,7 +52,7 @@ Game::Game()
 
 	highScore = currentScores[0];
 
-	//gui.renderScores(window, currentScores);
+	gui.renderScores(window, currentScores);
 }
 
 
@@ -92,12 +92,6 @@ void Game::run() // if random erros later check that stack isnt full
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
-		/*else
-		{
-			//reset whenever boss is defeated
-			//mainView.reset(sf::FloatRect(0, 0, 224, 224));
-		}*/
 
 		window.clear();
 
@@ -322,11 +316,11 @@ void Game::doCollision(Player* player)
 			}
 		}
 
-		//Plane runs into wall built into background
+		//Player runs into wall built into background
 		difference.z = abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
 
 		//TO DO fix it so the x works and the y plus value is more accurate
-		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 30)
+		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
 		{
 			playerDeath();
 		}
@@ -343,6 +337,9 @@ void Game::doCollision(Player* player)
 				playerDeath();
 		}
 	}
+
+	int bulletNum = 0;
+
 	// Player bullets collision with enemy
 	for (CharacterBullet* bullet : player->getBullets())
 	{
@@ -350,15 +347,46 @@ void Game::doCollision(Player* player)
 		{
 			Enemy* enemy = enemies[i];
 
-			if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
-				bullet->getBounds().intersects(enemy->getBounds())
-				)
+            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+                bullet->getBounds().intersects(enemy->getBounds())
+                )
+            {
+                bullet->kill();
+				enemies.erase(enemies.begin() + i--);
+            }
+        }
+
+		//Player Bullets hitting walls
+		for (unsigned int i = 0; i < walls.size(); i++)
+		{
+			if (!walls.at(i)->checkOnScreen())
+				continue;
+
+			for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
+			{
+				difference = sf::Vector3f
+				(abs(walls.at(i)->getWallPositions().at(j).x - 10 - bullet->getPos().x),
+					abs(walls.at(i)->getWallPositions().at(j).y - 5 - bullet->getPos().y),
+					abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().z));
+
+				if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+				{
+					bullet->kill();
+				}
+			}
+
+			//Player Bullets hit walls build into background
+			difference.z = abs(bullet->getPos().z - walls.at(i)->getWallPositions().at(0).z);
+
+			//TO DO fix it so the x works and the y plus value is more accurate
+			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
 			{
 				bullet->kill();
-				enemies.erase(enemies.begin() + i--);
 			}
 		}
-	}
+
+		bulletNum++;
+    }
 }
 
 

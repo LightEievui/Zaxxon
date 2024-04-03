@@ -36,11 +36,12 @@ Wall::~Wall()
 
 void Wall::drawWalls(sf::RenderWindow& window)
 {
-	if (!getWindowViewRect(window).intersects(sprites.at(sprites.size() - 1).getGlobalBounds()))
-	{
-		onScreen = false;
-		return;
-	}
+    if (!getWindowViewRect(window).intersects(sprites.at(sprites.size() - 1).getGlobalBounds()) && 
+        !getWindowViewRect(window).intersects(sprites.at(0).getGlobalBounds()))
+    {
+        onScreen = false;
+        return;
+    }
 
 	onScreen = true;
 

@@ -151,7 +151,7 @@ bool Background::backgroundFinished(sf::View& view)
 	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
-	if (stage != Stage::BOSS && stage != Stage::BOSSFIGHT)
+	if (!(stage == Stage::BOSS || stage == Stage::BOSSFIGHT))
 		return wXPos >= 1830;
 	//return wXPos >= back.getGlobalBounds().width; // temp
 	else
@@ -299,32 +299,50 @@ void Background::generateObstacles(Background::Stage stage,
 		break;
 
 	case SPACE:
-		//TO DO fix positions and speed of movement
-		//TO DO fix it so they give you gas when you shoot them
+		//TO DO adjust z position with plane waves / adjust angle of movement if desired
+
 		//Blue Space Gas Cans
-		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -720.f), spriteSheet, 4));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -1500.f), spriteSheet, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -960.f), spriteSheet, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -2500.f), spriteSheet, 4));
 		break;
 
 	case BOSS:
-		//test
 		//TO DO add rest of obstacles and walls
-		obstacles.push_back(new Obstacle(sf::Vector3f(-70.f, 139.f, -340.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -380.f), spriteSheet, 100, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -470.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -470.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -470.f), spriteSheet, 2));
 
-		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -850.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -900.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -950.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -950.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -950.f), spriteSheet, 100, 0));
+		//First Area
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -320.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -370.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -460.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -460.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -460.f), spriteSheet, 2));
 
-		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -1150.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -1200.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -1250.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -1300.f), spriteSheet, 100, 1));
+		//Second Area
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -800.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -865.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -920.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -910.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-140.f, 139.f, -910.f), spriteSheet, 100, 0));
+
+		//Third Area
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -1200.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -1210.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-140.f, 139.f, -1230.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-185.f, 139.f, -1275.f), spriteSheet, 100, 1));
+		
+		//Fourth Area
+		//TO DO
+
+		//Fifth Area
+		//TO DO
+
+		//Sixth Area
+		//TO DO
+
+		//Seventh Area
+		//TO DO
+
+		//Eight Area
+		//TO DO 
 
 		break;
 	}
