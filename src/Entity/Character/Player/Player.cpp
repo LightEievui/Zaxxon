@@ -38,6 +38,28 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// <param name="inSpace"></param>
 void Player::update(sf::RenderWindow& window, int stage)
 {
+	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
+		CharacterBullet* bullet = bullets[i];
+		bullet->update(window);
+
+		bulletsPos.at(i) = bullets.at(i)->getPos();
+
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()))
+		{
+			delete bullet;
+			bullets.erase(bullets.begin() + i);
+			bulletsPos.erase(bulletsPos.begin() + i);
+			i--;
+		}
+	}
+
+	if (dead)
+	{
+		return;
+	}
+
+	// If alive after this point
 	// Update texture
 	unsigned int planeVertical = 0;
 	_getSizeIndex(sizeIndex);
@@ -79,7 +101,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 	{
 		bulletCD.restart();
 
-        bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
+    bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
 		bulletSound.play();
 	}
@@ -101,6 +123,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 		window.draw(shadow);
 
 	Character::update(window); // updating position using velocity, draw character
+  
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
 		CharacterBullet* bullet = bullets[i];
@@ -121,7 +144,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 /// </summary>
 void Player::kill()
 {
-	animations.run(sprite, Animation::CHARACTER_DEATH);
+	dead = true;
 	//Not perfect but works
 	setPos(sf::Vector3f(0, 69, getPos().z));
 }

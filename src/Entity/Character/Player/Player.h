@@ -13,6 +13,7 @@ public:
 	void resetPos(int zOffset = 0);
 private:
 	const int BULLET_COOLDOWN = 200;
+	bool dead = false;
 
 	sf::Clock bulletCD;
 	sf::IntRect playerTextures[3][4];
