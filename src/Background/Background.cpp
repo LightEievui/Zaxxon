@@ -241,7 +241,14 @@ void Background::generateObstacles(Background::Stage stage,
 	4 = blue floating gas can
 	*/
 
+	for (Obstacle* obstacle : obstacles)
+		delete obstacle;
 	obstacles.clear();
+
+	for (Wall* wall : walls)
+		delete wall;
+	walls.clear();
+
 	switch (stage)
 	{
 	case INITIAL:
@@ -359,6 +366,8 @@ void Background::generateObstacles(Background::Stage stage,
 void Background::generateWaves(Background::Stage stage,
 	std::vector<Enemy*>& enemies, sf::Texture* spriteSheet, int playerZ)
 {
+	for (Enemy* enemy : enemies)
+		delete enemy;
 	enemies.clear();
 	std::queue<std::pair<int, unsigned int>>().swap(waveQueue); // waveQueue.clear();
 

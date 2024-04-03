@@ -13,6 +13,7 @@ public:
 		ALT_DEATH,
 		LAUNCH,
 		BULLET_DEATH,
+		WALLBULLET_DEATH,
 		RESET
 	};
 

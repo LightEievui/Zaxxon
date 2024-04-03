@@ -12,6 +12,7 @@ public:
 	virtual void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
 	virtual void update(sf::RenderWindow&) = 0;
 
+	int getAnimationState() { return animations.getState(); };
 	void setPos(sf::Vector3f pos) { position = pos; };
 	sf::Vector3f getPos() { return position; };
 	sf::FloatRect getBounds() { return sprite->getGlobalBounds(); };

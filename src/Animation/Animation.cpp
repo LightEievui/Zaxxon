@@ -23,8 +23,8 @@ Animation::Animation()
 	frames[8] = sf::IntRect(159, 72, 38, 27);
 
 	// Wall bullet Death animation
-	frames[10] = sf::IntRect(288, 146, 28, 30);
-	frames[11] = sf::IntRect(384, 320, 27, 30);
+	frames[10] = sf::IntRect(264, 154, 279 - 264, 175 - 154);
+	frames[11] = sf::IntRect(288, 146, 28, 30);
 
 	// Normal bullet death animations
 	frames[12] = sf::IntRect(160, 161, 174-160, 175-161);
@@ -70,6 +70,9 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 		break;
 	case BULLET_DEATH:
 		animationPtr = &Animation::fBULLET_DEATH;
+		break;
+	case WALLBULLET_DEATH:
+		animationPtr = &Animation::fWALLBULLET_DEATH;
 		break;
 	case LAUNCH:
 		animationPtr = &Animation::fLAUNCH;
@@ -197,7 +200,19 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 
 void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 {
+	int current = 10;
+	state = 2;
 
+	while (timer.getElapsedTime().asSeconds() < 0.7 && sprite != nullptr)
+	{
+		if (timer.getElapsedTime().asMilliseconds() > 350)
+			current = 10;
+		else
+			current = 11;
+		sprite->setTextureRect(frames[current]);
+	}
+	
+	state = 1;
 }
 
 

@@ -111,7 +111,7 @@ void Character::updateBullets(sf::RenderWindow& window)
 		CharacterBullet* bullet = bullets[i];
 		bullet->update(window);
 
-		if (!getWindowViewRect(window).intersects(bullet->getBounds()))
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)
 		{
 			delete bullet;
 			bullets.erase(bullets.begin() + i);
