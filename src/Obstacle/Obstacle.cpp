@@ -162,12 +162,12 @@ void Obstacle::update(sf::RenderWindow& window)
 			temp.setPosition(translateTo2d(getPos()));
 			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
 
-			bulletSprites.push_back(temp);
-			bulletPositions.push_back(getPos());
-		}
-		else if (count % total == 0 && direction == 1)
-		{
-			sf::Sprite temp;
+            bulletSprites.push_back(temp);
+            bulletPositions.push_back(getPos());
+        }
+        else if (count % total == 0 && (direction == 1 || direction == 3))
+        {
+            sf::Sprite temp;
 
 			temp.setTexture((*spriteSheet));
 			temp.setTextureRect(sf::IntRect(345, 124, 12, 8));
@@ -202,17 +202,21 @@ void Obstacle::update(sf::RenderWindow& window)
 	}
 
 
-	for (unsigned int i = 0; i < bulletSprites.size(); i++)
-	{
-		if (direction == 0)
-		{
-			bulletPositions.at(i).z += 3;
-		}
-		else if (direction == 1)
-		{
-			bulletPositions.at(i).x += 3;
-		}
-		bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
+    for (unsigned int i = 0; i < bulletSprites.size(); i++)
+    {
+        if (direction == 0)
+        {
+            bulletPositions.at(i).z += 3;
+        }
+        else if (direction == 1)
+        {
+            bulletPositions.at(i).x += 3;
+        }
+        else if (direction == 3)
+        {
+            bulletPositions.at(i).x -= 3;
+        }
+        bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 
         window.draw(bulletSprites.at(i));
     }
