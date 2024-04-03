@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::INITIAL;
+Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -108,7 +108,7 @@ void Game::run() // if random erros later check that stack isnt full
 				doCollision(player);
 
 				// Fuel slowly runs out, player dies when fuel is empty.
-				if (inSpaceOffCD || outSpaceOffCD)
+				if ((inSpaceOffCD || outSpaceOffCD) && background.getStage() != 3)
 				{
 					if (fuel-- == 0)
 						playerDeath();
@@ -365,7 +365,6 @@ void Game::doCollision(Player* player)
 
 				if (difference.x < 20 && difference.y < 20 && difference.z < 10)
 				{
-					std::cout << "Bullet Ran into wall" << std::endl;
 					bullet->kill();
 				}
 			}
