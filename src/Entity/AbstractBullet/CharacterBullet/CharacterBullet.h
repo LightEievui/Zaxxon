@@ -29,6 +29,7 @@ public:
 	{
 
 	};
+	bool isHit();
 
 private:
 	unsigned int sizeIndex;

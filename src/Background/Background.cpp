@@ -151,7 +151,7 @@ bool Background::backgroundFinished(sf::View& view)
 	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
-	if (stage != Stage::BOSS && stage != Stage::BOSSFIGHT)
+	if (!(stage == Stage::BOSS || stage == Stage::BOSSFIGHT))
 		return wXPos >= 1830;
 	//return wXPos >= back.getGlobalBounds().width; // temp
 	else
