@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::INITIAL;
+Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -147,7 +147,7 @@ void Game::run() // if random erros later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				obstacles.at(i)->update(window);
 
-			//Walls
+			// Draw Walls
 			for (unsigned int i = 0; i < walls.size(); i++)
 				walls.at(i)->drawWalls(window);
 
@@ -220,7 +220,6 @@ void Game::doCollision(Player* player)
 			if (difference.x < 15 && difference.y < 15 && difference.z < 25)
 			{
 				playerDeath();
-
 				obstacles.at(i)->bulletKill(bullets);
 			}
 		}
@@ -288,7 +287,6 @@ void Game::doCollision(Player* player)
 		// Player bullets collision with enemy
 	}
 
-	//TO DO CANNOT FIGURE THEM OUT
 	//Wall Collisions
 	for (unsigned int i = 0; i < walls.size(); i++)
 	{
