@@ -98,7 +98,6 @@ void Player::update(sf::RenderWindow& window, int stage)
 #endif
 
 	if (stage != 3)
-		//tempVelocity.z = -2;
 		tempVelocity.z = -1.3f; //for translateTo2d
 
 	// Position updates

@@ -67,6 +67,10 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 			back.setTexture(boss);
 			resetPos(mainView, player, 0);
 		}
+		else if (stage == Stage::BOSS)
+		{
+			stage = Stage::BOSSFIGHT;
+		}
 		else if (!bossState)
 		{
 			stage = Stage::INITIAL;
@@ -232,6 +236,7 @@ void Background::generateObstacles(Background::Stage stage,
 	0 = Grey Turrets
 	1 = Green Turrets
 	2 = Shooting Up Bullets
+	3 = Green Shooting Right
 
 	Stationary Obstacles
 	KEY
@@ -261,11 +266,9 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -1145.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-142.f, 139.f, -1410.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -1680.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
-
-		// Need to be Flipped - Green Turret
 		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
 
 		//Shooting Up Missiles
 		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 100, 2));
@@ -299,10 +302,11 @@ void Background::generateObstacles(Background::Stage stage,
 		*/
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(0.f, 70.f, -122.f), 2, std::vector<int> {0, 1}));
 		walls.at(0)->setPosition(sf::Vector3f(-160.f, 70.f, -122.f), 1);
-
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-63.f, 130.f, -755.f), 3, std::vector<int> {1, 1, 1}));
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(23.f, 130.f, -1423.f), 3, std::vector<int> {1, 1, 0}));
+
 		//TO DO fix position
-		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-10.f, 130.f, -1420.f), 2, std::vector<int> {1, 0}));
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-30.f, 130.f, -2790.f), 2, std::vector<int> {1, 1}));
 		break;
 
 	case SPACE:
@@ -337,10 +341,20 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-185.f, 139.f, -1275.f), spriteSheet, 100, 1));
 		
 		//Fourth Area
-		//TO DO
+		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -1510.f), spriteSheet, 100, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-200.f, 139.f, -1540.f), spriteSheet, 100, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -1630.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -1670.f), spriteSheet, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -1680.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -1750.f), spriteSheet, 100, 0));
 
 		//Fifth Area
-		//TO DO
+		//TO DO fix positions
+		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -1960.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -2090.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -2160.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-70.f, 139.f, -2170.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-110.f, 139.f, -2170.f), spriteSheet, 1));
 
 		//Sixth Area
 		//TO DO
@@ -393,4 +407,13 @@ void Background::generateWaves(Background::Stage stage,
 Background::Stage Background::getStage()
 {
 	return stage;
+}
+
+
+void Background::flashColor(int state)
+{
+	if (state)
+		back.setColor(sf::Color(255, 255, 255));
+	else
+		back.setColor(sf::Color(222, 100, 100));
 }

@@ -55,6 +55,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
 	//Right Green Turrents
 	else if (dir == 3)
 	{
+		type += 2;
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(320, 153, 33, 22));
 
@@ -229,9 +230,9 @@ void Obstacle::update(sf::RenderWindow& window)
     else
         count = (count + 1) % 10000;
 
+	//For movement of blue space gas cans
     if (type == 7)
     {
-        //std::cout << "YES";
         setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, getPosition().z));
         sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f, getPos().z)));
     }
@@ -284,6 +285,7 @@ int Obstacle::getType()
     5 = Shooting Up
     6 = Plane
     7 = blue floating gas can
+	8 = green shooting right
     */
 
 	return type;
