@@ -19,7 +19,8 @@ public:
 	Animation();
 	~Animation();
 
-	void run(sf::Sprite*, Anim);
+	// size index for some
+	void run(sf::Sprite*, Anim, unsigned int sizeIndex = 0);
 	int getState();
 private:
 	void fCHARACTER_DEATH(sf::Sprite* sprite);
@@ -30,7 +31,8 @@ private:
 	void fRESET(sf::Sprite* sprite);
 
 	sf::Clock timer;
-	sf::IntRect frames[15], revert;
+	sf::IntRect frames[18], revert;
 	int state = 0;
+	unsigned int spriteSizeIndex = 0;
 	bool kill = false;
 };

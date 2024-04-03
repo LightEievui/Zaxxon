@@ -45,12 +45,28 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 {
 	sf::Vector2f vel = runAI();
+	if ((ableToFire &&
+		bulletCD.getElapsedTime().asMilliseconds() > 250
+		&& rand() % 125 == 0)
+#ifndef NDEBUG
+		|| (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+#endif
+	)
+	{
+		bulletCD.restart();
+
+		bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex,
+			CharacterBullet::Enemy, this->sprite->getPosition())
+		);
+	}
 
 	unsigned int planeVertical = vel.y > 0;
 
 	// keep up with back
 	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
+
+	Character::updateBullets(window);
 	window.draw(*sprite);
 }
 

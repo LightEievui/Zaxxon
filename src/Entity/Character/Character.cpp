@@ -92,16 +92,25 @@ void Character::setVelocity(sf::Vector3f vel)
 	this->velocity = vel;
 }
 
-
 /// <summary>
-/// Get positions for all of this characters bullets.
+/// Calls CharacterBullet::update() on each bullet & deletes bullets that are not in the window.
 /// </summary>
-/// <returns>Vector of Vectors of 3 floats</returns>
-std::vector<sf::Vector3f>& Character::getBulletPosition()
+/// <param name="window">Main render window</param>
+void Character::updateBullets(sf::RenderWindow& window)
 {
-	return bulletsPos;
-}
+	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
+		CharacterBullet* bullet = bullets[i];
+		bullet->update(window);
 
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()))
+		{
+			delete bullet;
+			bullets.erase(bullets.begin() + i);
+			i--;
+		}
+	}
+}
 
 /// <summary>
 /// Get rid of bullet by index.
@@ -109,7 +118,6 @@ std::vector<sf::Vector3f>& Character::getBulletPosition()
 /// <param name="bullet"></param>
 void Character::killBullet(int bullet)
 {
-	exBullets.push_back(bullets.at(bullet));
 	bullets.erase(bullets.begin() + bullet);
 	//bulletsPos.erase(bulletsPos.begin() + bullet);
 }
