@@ -51,6 +51,7 @@ private:
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
+	sf::Sprite deathSprite;
 
 	bool bossState = true;
 
