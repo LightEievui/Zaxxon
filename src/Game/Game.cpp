@@ -52,7 +52,7 @@ Game::Game()
 
 	highScore = currentScores[0];
 
-	//gui.renderScores(window, currentScores);
+	gui.renderScores(window, currentScores);
 }
 
 
@@ -103,25 +103,26 @@ void Game::run() // if random erros later check that stack isnt full
 
 		if (gameState == 1)
 		{
-			window.setView(mainView);
+			window.setView(mainView);			
 
 			// Things to do only when player is alive AKA these will be changed for player death
 			if (player->isAlive())
 			{
+				bool inSpaceOffCD = background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
+				bool outSpaceOffCD = !background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
 				// Collision checks
 				doCollision(player);
 
 				// Fuel slowly runs out, player dies when fuel is empty.
-				if (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed)
+				if (inSpaceOffCD || outSpaceOffCD)
 				{
-					// Ran out of fuel
 					if (fuel-- == 0)
 						playerDeath();
 
-					fuelClock.restart();
+						fuelClock.restart();
 				}
 
-				// Move background
+					// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
 			}
 			else // Start the player death animation here
@@ -142,9 +143,9 @@ void Game::run() // if random erros later check that stack isnt full
 
 					// Prepare for respawn
 					fuel = 128;
-         	pBackground->resetPos(mainView, *player, 0);
-         	if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
-	        pBackground->setPosition(sf::Vector2f(0, 244));
+         			pBackground->resetPos(mainView, *player, 0);
+         			if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
+						pBackground->setPosition(sf::Vector2f(0, 244));
 				}
 			}
 
@@ -328,6 +329,14 @@ void Game::doCollision(Player* player)
 	}
 
 	// Enemy bullets collision with player
+	for (Enemy* enemy : enemies)
+	{
+		for (CharacterBullet* bullet : enemy->getBullets())
+		{
+
+		}
+
+	}
 	// Player bullets collision with enemy
 	for (CharacterBullet* bullet : player->getBullets())
 	{
@@ -351,7 +360,7 @@ void Game::playerDeath()
 {
 	player->kill();
 	// deathClock is used for player death animation, so start clock here.
-	deathClock.restart();	
+	deathClock.restart();
 }
 
 
@@ -384,6 +393,4 @@ void Game::gameOver()
 	for (byte i = 0; i < 6; i++)
 		file << currentScores[i] << ' ';
 	file.close();
-
-	gui.renderScores(window, currentScores);
 }
