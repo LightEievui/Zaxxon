@@ -363,4 +363,6 @@ void Game::playerDeath()
 
 	fuel = 128;
 	pBackground->resetPos(mainView, *player, 0);
+	if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
+	pBackground->setPosition(sf::Vector2f(0, 244));
 }
