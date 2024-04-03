@@ -207,6 +207,10 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 		mainView.move((int)(.8f * 350), (int)(-.4f * 350));
 		player.resetPos(startPos + 350);
 		break;
+	case BOSS:
+		back.setPosition(sf::Vector2f(0, 244));
+		player.resetPos(startPos);
+		break;
 	default:
 		back.setPosition(sf::Vector2f(0, 224));
 		player.resetPos(startPos);
