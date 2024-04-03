@@ -6,9 +6,7 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 	spriteSheet = tex;
 
 	/*
-	Closed wall setTextureRect(sf::IntRect(240, 64, 34, 32));
-	Open Wall setTextureRect(sf::IntRect(278, 65, 34, 32));
-	KEY
+	KEY for Vector
 	1 = closed wall piece
 	2 = open wall piece
 	*/
@@ -47,7 +45,6 @@ void Wall::drawWalls(sf::RenderWindow& window)
 
 	for (unsigned int i = 0; i < sprites.size(); i++)
 		window.draw(sprites.at(i));
-
 }
 
 
