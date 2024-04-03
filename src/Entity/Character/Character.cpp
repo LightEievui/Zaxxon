@@ -23,6 +23,14 @@ void Character::update(sf::RenderWindow& window)
 
 	sprite->setPosition(translateTo2d(getPos()));
 	window.draw(*sprite);
+
+	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
+		if (bullets.at(i)->isHit())
+		{
+			bullets.erase(bullets.begin() + i);
+		}
+	}
 }
 
 
