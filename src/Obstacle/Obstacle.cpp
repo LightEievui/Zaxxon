@@ -160,7 +160,7 @@ void Obstacle::update(sf::RenderWindow& window)
             bulletSprites.push_back(temp);
             bulletPositions.push_back(getPos());
         }
-        else if (count % total == 0 && direction == 1)
+        else if (count % total == 0 && (direction == 1 || direction == 3))
         {
             sf::Sprite temp;
 
@@ -206,6 +206,10 @@ void Obstacle::update(sf::RenderWindow& window)
         else if (direction == 1)
         {
             bulletPositions.at(i).x += 3;
+        }
+        else if (direction == 3)
+        {
+            bulletPositions.at(i).x -= 3;
         }
         bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 

@@ -42,11 +42,17 @@ void CharacterBullet::update(sf::RenderWindow& window)
 	{
 		if (animations.getState() == 0)
 			setPos(getPos() + sf::Vector3f(0, 0, -6));
-		else if (animations.getState() > 0)
-			setPos(getPos() + sf::Vector3f(0, 0, 2));
+		else if (animations.getState() == 2)
+			setPos(getPos() + sf::Vector3f(0, 0, 0));
 	}
 	
 
 	sprite->setPosition(translateTo2d(getPos()));
 	window.draw(*sprite);
+}
+
+
+bool CharacterBullet::isHit()
+{
+	return animations.getState() == 1;
 }
