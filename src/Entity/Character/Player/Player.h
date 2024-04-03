@@ -12,10 +12,11 @@ public:
 	void kill() override;
 	void resetPos(int zOffset = 0);
 	void bulletKill(int);
+	bool isAlive();
 
 private:
 	const int BULLET_COOLDOWN = 200;
-	bool dead = false;
+	bool alive = true;
 
 	sf::Clock bulletCD;
 	sf::IntRect playerTextures[3][4];
