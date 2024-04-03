@@ -20,3 +20,8 @@ void Entity::kill(Animation::Anim animation)
 {
 	animations.run(sprite, animation);
 }
+
+sf::Vector2f Entity::getSpritePos()
+{
+	return sprite->getPosition();
+}

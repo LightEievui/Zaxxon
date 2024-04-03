@@ -370,6 +370,7 @@ void Background::generateWaves(Background::Stage stage,
 	std::vector<Enemy*>& enemies, sf::Texture* spriteSheet, int playerZ)
 {
 	enemies.clear();
+	std::queue<std::pair<int, unsigned int>>().swap(waveQueue); // waveQueue.clear();
 
 	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
 
@@ -390,7 +391,16 @@ void Background::generateWaves(Background::Stage stage,
 }
 
 
-int Background::getStage()
+Background::Stage Background::getStage()
 {
 	return stage;
+}
+
+
+void Background::flashColor(int state)
+{
+	if (state)
+		back.setColor(sf::Color(255, 255, 255));
+	else
+		back.setColor(sf::Color(222, 100, 100));
 }

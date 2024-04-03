@@ -33,8 +33,10 @@ public:
 		std::vector<Enemy*>&, sf::Texture*, int);
 	void resetPos(sf::View&, Player&, int);
 
-	bool isInSpace(int z);
-	int getStage();
+	Stage getStage();
+	bool isInSpace(int);
+
+	void flashColor(int);
 
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
