@@ -50,9 +50,11 @@ private:
 	sf::SoundBuffer flightBuffer;
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
+	sf::Clock deathClock;
 
 	bool bossState = true;
 
 	void doCollision(Player*);
 	void playerDeath();
+	void gameOver();
 };

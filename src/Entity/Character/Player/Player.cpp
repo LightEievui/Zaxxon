@@ -38,6 +38,28 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// <param name="inSpace"></param>
 void Player::update(sf::RenderWindow& window, int stage)
 {
+	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
+		CharacterBullet* bullet = bullets[i];
+		bullet->update(window);
+
+		bulletsPos.at(i) = bullets.at(i)->getPos();
+
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()))
+		{
+			delete bullet;
+			bullets.erase(bullets.begin() + i);
+			bulletsPos.erase(bulletsPos.begin() + i);
+			i--;
+		}
+	}
+
+	if (!alive)
+	{
+		return;
+	}
+
+	// If alive after this point
 	// Update texture
 	unsigned int planeVertical = 0;
 	_getSizeIndex(sizeIndex);
@@ -79,7 +101,7 @@ void Player::update(sf::RenderWindow& window, int stage)
 	{
 		bulletCD.restart();
 
-        bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
+    bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
 		bulletSound.play();
 	}
@@ -106,13 +128,11 @@ void Player::update(sf::RenderWindow& window, int stage)
 
 
 /// <summary>
-/// Run animations and other code for when player dies.
+/// Modify variables for when player dies or respawns.
 /// </summary>
 void Player::kill()
 {
-	animations.run(sprite, Animation::CHARACTER_DEATH);
-	//Not perfect but works
-	setPos(sf::Vector3f(0, 69, getPos().z));
+	alive = !alive;
 }
 
 
@@ -123,4 +143,14 @@ void Player::kill()
 void Player::resetPos(int zOffset)
 {
 	setPos(sf::Vector3f(getPos().x, getPos().y, zOffset * -1.33333f));
+}
+
+
+/// <summary>
+/// Check if player is alive
+/// </summary>
+/// <returns></returns>
+bool Player::isAlive()
+{
+	return alive;
 }

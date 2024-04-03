@@ -93,7 +93,6 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 {
 	state = 2;
 
-	// TODO: Not the real character death
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
 		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 2) % 2;
@@ -102,7 +101,6 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	kill = false;
 	state = 1;
-	//sprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
 }
 
 
