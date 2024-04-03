@@ -30,6 +30,9 @@ Animation::Animation()
 	frames[12] = sf::IntRect(160, 161, 174-160, 175-161);
 	frames[13] = sf::IntRect(136, 160, 151-136, 175-160);
 	frames[14] = sf::IntRect(112, 158, 128-112, 175-158);
+	frames[15] = sf::IntRect(80, 156, 99 - 80, 175 - 156);
+	frames[16] = sf::IntRect(48, 151, 70 - 48, 175 - 151);
+	frames[17] = sf::IntRect(8, 150, 34 - 8, 176 - 150);
 }
 
 
@@ -43,9 +46,10 @@ Animation::~Animation()
 /// </summary>
 /// <param name="sprite">Nullable</param>
 /// <param name="anim"></param>
-void Animation::run(sf::Sprite* sprite, Anim anim)
+void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 {
 	timer.restart();
+	this->spriteSizeIndex = sizeIndex;
 
 	// safety check
 	if (sprite == nullptr)
@@ -147,15 +151,43 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 {
 	int current = 10;
+	bool lastWentUp = false;
 	state = 2;
+
+	switch (spriteSizeIndex)
+	{
+	case 0:
+		current = 16;
+		break;
+	case 1:
+	case 2:
+		current = 14;
+		break;
+	case 3:
+		current = 12;
+		break;
+	default:
+		throw std::out_of_range("Sprite Size Index out of range!");
+	}
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
+		if (sprite == nullptr)
+			return;
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
-		if (sprite == nullptr)
-			return;
+		// change every 1/2 second
+		if (timer.getElapsedTime().asMilliseconds() % 500 == 0)
+		{
+			if (lastWentUp)
+				current--;
+			else
+				current++;
+
+			lastWentUp = !lastWentUp;
+		}
+
 		sprite->setTextureRect(frames[current]);
 	}
 

@@ -52,7 +52,7 @@ Game::Game()
 
 	highScore = currentScores[0];
 
-	gui.renderScores(window, currentScores);
+	//gui.renderScores(window, currentScores);
 }
 
 
@@ -142,7 +142,9 @@ void Game::run() // if random erros later check that stack isnt full
 
 					// Prepare for respawn
 					fuel = 128;
-					pBackground->resetPos(mainView, *player, 0);
+         	pBackground->resetPos(mainView, *player, 0);
+         	if(pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
+	        pBackground->setPosition(sf::Vector2f(0, 244));
 				}
 			}
 
@@ -227,7 +229,10 @@ void Game::doCollision(Player* player)
 				obstacles.at(i)->bulletKill(bullets);
 			}
 		}
-		bulletPos = player->getBulletPosition();
+
+		bulletPos.clear();
+		for (CharacterBullet* bullet : player->getBullets())
+			bulletPos.push_back(bullet->getPos());
 		size = bulletPos.size();
 
 		//Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
