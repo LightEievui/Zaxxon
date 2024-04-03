@@ -65,10 +65,8 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 	// keep up with back
 	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
-	for (CharacterBullet* bullet : bullets)
-		bullet->update(window);
 
-
+	Character::updateBullets(window);
 	window.draw(*sprite);
 }
 
