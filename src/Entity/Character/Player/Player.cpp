@@ -98,7 +98,12 @@ void Player::update(sf::RenderWindow& window, int stage)
 #endif
 
 	if (stage != 3)
-		tempVelocity.z = -1.3f; //for translateTo2d
+	{
+		if (stage != 1)
+			tempVelocity.z = -1.3f; //for moving with background
+		else // space moves 2/3 speed
+			tempVelocity.z = -1.3f * 0.66f;
+	}
 
 	// Position updates
 	setVelocity(tempVelocity);

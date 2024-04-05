@@ -11,6 +11,7 @@ Background::Stage startStage = Background::SPACE;
 Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
+	srand(time(NULL));
 	spriteSheet.loadFromFile("./res/spritesheet.png");
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);

@@ -9,7 +9,7 @@
 class Enemy : public Character
 {
 public:
-	Enemy(sf::Texture*, unsigned int, int);
+	Enemy(sf::Texture* texture, unsigned int id, int spawnZ, int randOffset = 0);
 	void update(sf::RenderWindow&, float gameSpeed);
 	void kill() override;
 	bool getTranslate2() { return true; };
@@ -30,6 +30,7 @@ private:
 	bool dead = false;
 	unsigned int sizeIndex = 0;
 	unsigned int id;
+	int randOffset = 0;
 
 	// bullets
 	bool ableToFire = true;
