@@ -17,6 +17,7 @@ public:
 	// Static so can be used from any context.
 	// Will spawn a wave of enemies relative to the player.
 	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int, unsigned int);
+	bool isDead() { return dead; };
 
 private:
 	// returns the velocity it has moved already
@@ -26,6 +27,7 @@ private:
 
 	sf::IntRect textures[2][4];
 	sf::Clock alive;
+	bool dead = false;
 	unsigned int sizeIndex = 0;
 	unsigned int id;
 
