@@ -11,7 +11,7 @@ Background::Stage startStage = Background::INITIAL;
 Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
-	spriteSheet.loadFromFile("./res/fixed_spritesheet.png");
+	spriteSheet.loadFromFile("./res/spritesheet.png");
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -100,7 +100,7 @@ void Game::run() // if random erros later check that stack isnt full
 
 		if (gameState == 1)
 		{
-			window.setView(mainView);			
+			window.setView(mainView);
 
 			// Things to do only when player is alive AKA these will be changed for player death
 			if (player->isAlive())
@@ -117,23 +117,25 @@ void Game::run() // if random erros later check that stack isnt full
 					if (fuel-- == 0)
 						playerDeath();
 
-						fuelClock.restart();
+					fuelClock.restart();
 				}
 
-					// Move background
+				// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
 			}
 			else // Start the player death animation here
 			{
 				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState);
-					
-				if(deathClock.getElapsedTime().asSeconds() > 1)
+
+				if (deathClock.getElapsedTime().asSeconds() > 1)
 				{
+					// Make sure background is set back to default
 					gameState = 2;
 					pBackground->flashColor(1);
 				}
 				else
 				{
+					// Flash background red for start of player death animation
 					pBackground->flashColor(deathClock.getElapsedTime().asMilliseconds() / 200 % 2);
 				}
 			}
@@ -154,7 +156,7 @@ void Game::run() // if random erros later check that stack isnt full
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
 		}
-		else if(gameState == 0)
+		else if (gameState == 0)
 		{
 			window.setView(guiView);
 			gui.startRender(window, highScore);
@@ -166,10 +168,39 @@ void Game::run() // if random erros later check that stack isnt full
 		{
 			window.setView(mainView);
 
-			deathSprite.setPosition(player->getSpritePos());
-			// TODO: TEMPORARY
-			deathSprite.setScale(deathClock.getElapsedTime().asSeconds(), deathClock.getElapsedTime().asSeconds());
-			window.draw(deathSprite);
+			// Change color of death explosion, 3 stages
+			switch (deathClock.getElapsedTime().asMilliseconds() / 100 % 3)
+			{
+			case 0:
+				deathSprite.setColor(sf::Color(255, 255, 255));
+				break;
+			case 1:
+				deathSprite.setColor(sf::Color(222, 0, 0));
+				break;
+			case 2:
+				deathSprite.setColor(sf::Color(0, 0, 0));
+				break;
+			}
+
+			double time = deathClock.getElapsedTime().asSeconds();
+			sf::Vector2f pos = player->getSpritePos();
+
+			// Set position for each death explosion based on current time
+			for (byte i = 0; i < 12; i++)
+			{
+				deathSprite.setPosition(pos);
+
+				if (i < 3) // Above
+					deathSprite.move(-1 * (1 + i % 3) * time * 5, -3 * (1 + i % 3) * time * 5);
+				else if (i < 6) // Left
+					deathSprite.move(-3 * (1 + i % 3) * time * 5, 1 * (1 + i % 3) * time * 5);
+				else if (i < 9) // Below
+					deathSprite.move(1 * (1 + i % 3) * time * 5, 3 * (1 + i % 3) * time * 5);
+				else // Right
+					deathSprite.move(3 * (1 + i % 3) * time * 5, -1 * (1 + i % 3) * time * 5);
+
+				window.draw(deathSprite);
+			}
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -363,7 +394,7 @@ void Game::doCollision(Player* player)
 		{
 			if (bullet->getSizeIndex() == player->getSizeIndex() &&
 				bullet->getBounds().intersects(modBounds)
-			)
+				)
 				playerDeath();
 		}
 	}
@@ -377,19 +408,19 @@ void Game::doCollision(Player* player)
 		{
 			Enemy* enemy = enemies[i];
 			modBounds = enemy->getBounds();
-			modBounds.left += modBounds.width/2 - hitboxSize/2;
-			modBounds.top += modBounds.height/2 - hitboxSize/2;
+			modBounds.left += modBounds.width / 2 - hitboxSize / 2;
+			modBounds.top += modBounds.height / 2 - hitboxSize / 2;
 			modBounds.width = hitboxSize;
 			modBounds.height = hitboxSize;
 
-            if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
-                bullet->getBounds().intersects(modBounds)
-                )
-            {
-                bullet->kill();
+			if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
+				bullet->getBounds().intersects(modBounds)
+				)
+			{
+				bullet->kill();
 				enemies.erase(enemies.begin() + i--);
-            }
-        }
+			}
+		}
 
 		//Player Bullets hitting walls
 		for (unsigned int i = 0; i < walls.size(); i++)
@@ -417,7 +448,7 @@ void Game::doCollision(Player* player)
 		}
 
 		bulletNum++;
-    }
+	}
 }
 
 
