@@ -96,9 +96,9 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 {
 	state = 2;
 
-	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
+	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
-		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 2) % 2;
+		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
 		sprite->setTextureRect(frames[current]);
 	}
 

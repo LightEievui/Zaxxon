@@ -339,7 +339,7 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -1210.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-140.f, 139.f, -1230.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-185.f, 139.f, -1275.f), spriteSheet, 100, 1));
-		
+
 		//Fourth Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -1510.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-200.f, 139.f, -1540.f), spriteSheet, 100, 1));
@@ -404,12 +404,22 @@ void Background::generateWaves(Background::Stage stage,
 }
 
 
+/// <summary>
+/// Get the current stage background is on.
+/// </summary>
+/// <returns>A background stage</returns>
 Background::Stage Background::getStage()
 {
 	return stage;
 }
 
 
+/// <summary>
+/// Flash color of background between the default color and red tinted color
+/// based on state variable passed into the method. 0 is red, 1 is default.
+/// This is used for the first part of the death animation in Game.cpp
+/// </summary>
+/// <param name="state"></param>
 void Background::flashColor(int state)
 {
 	if (state)
