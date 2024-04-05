@@ -80,8 +80,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
     3 = plane
     4 = blue space gas can
     */
-    this->type = type;
 
+    this->type = type;
 	direction = -1;
 	setPos(pos);
 	turret = false;
@@ -90,13 +90,9 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 	sprite->setTexture((*spriteSheet));
 
     if (type == 1)
-    {
         sprite->setTextureRect(sf::IntRect(87, 106, 30, 30));
-    }
     else if (type == 2)
-    {
         sprite->setTextureRect(sf::IntRect(129, 109, 24, 28));
-    }
     else if (type == 3)
     {
         this->type = 6;
@@ -230,7 +226,7 @@ void Obstacle::update(sf::RenderWindow& window)
     else
         count = (count + 1) % 10000;
 
-	//For movement of blue space gas cans
+	//Moves Blue Space Gas Cans
     if (type == 7)
     {
         setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, getPosition().z));

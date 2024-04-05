@@ -18,4 +18,3 @@ private:
 	sf::Sprite body;
 	sf::Clock movementInt;
 };
-
