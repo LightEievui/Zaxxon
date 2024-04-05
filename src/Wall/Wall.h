@@ -19,7 +19,6 @@ public:
 private:
 	sf::Texture* spriteSheet;
 	bool onScreen = false;
-	bool wallUnderneath = false;
 	std::vector<sf::Sprite> sprites;
 	std::vector<sf::Vector3f> wallPositions;
 };

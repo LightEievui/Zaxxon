@@ -9,6 +9,11 @@ void HMSection::setSection(int sect)
 {
 	// 25 sections 8 - 207 x
 	section = sect % 25;
+
+	// Never be negative check
+	if (section < 0)
+		section = 0;
+
 	this->setTextureRect(sf::IntRect(8 + section * 8, 296, 8, 8));
 }
 
@@ -79,12 +84,12 @@ void HMSection::progress(int stage)
 		{
 		case TOP:
 		case LINE:
-			change = 8 + stage + 1;
-			setSection(change); // 
+			change = 9 + stage;
+			setSection(change);
 			break;
 		case OPEN:
-			change = 3 + stage + 1;
-			setSection(change); // 
+			change = 4 + stage;
+			setSection(change);
 			break;
 		case BOTTOM:
 			break;

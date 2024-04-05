@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -349,7 +349,7 @@ void Game::doCollision(Player* player)
 			playerDeath();
 	}
 
-	//Wall Collisions
+	// Wall Collisions
 	for (unsigned int i = 0; i < walls.size(); i++)
 	{
 		if (!walls.at(i)->checkOnScreen())
@@ -485,6 +485,7 @@ void Game::gameOver()
 {
 	gameState = 0;
 	lives = 2;
+	pBackground->setStage(Background::INITIAL);
 
 	// Replace bottom score?
 	if (currentScores[5] < score)
