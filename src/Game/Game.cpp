@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::SPACE;
+Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
