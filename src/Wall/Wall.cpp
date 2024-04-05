@@ -7,8 +7,8 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 
 	/*
 	KEY for Vector
-	1 = closed wall piece
-	2 = open wall piece
+	0 = closed wall piece
+	1 = open wall piece
 	*/
 
 	for (int i = 0; i < size; i++)
@@ -47,7 +47,7 @@ void Wall::drawWalls(sf::RenderWindow& window)
 		window.draw(sprites.at(i));
 }
 
-
+//Sets Position of the Specified Piece
 void Wall::setPosition(sf::Vector3f pos, int piece)
 {
 	sprites.at(piece).setPosition(translateTo2d(pos));
@@ -61,7 +61,7 @@ void Wall::setTexture(int piece, int tex)
 	if (tex == 0)
 		sprites.at(piece).setTextureRect(sf::IntRect(240, 64, 34, 32));
 
-	//Closed Piece
+	//Open Piece
 	if (tex == 1)
 		sprites.at(piece).setTextureRect(sf::IntRect(278, 65, 34, 32));
 }

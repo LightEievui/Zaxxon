@@ -307,9 +307,7 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.at(0)->setPosition(sf::Vector3f(-160.f, 70.f, -122.f), 1);
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-63.f, 130.f, -755.f), 3, std::vector<int> {1, 1, 1}));
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(23.f, 130.f, -1423.f), 3, std::vector<int> {1, 1, 0}));
-
-		//TO DO fix position
-		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-30.f, 130.f, -2790.f), 2, std::vector<int> {1, 1}));
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-26.f, 130.f, -2782.f), 2, std::vector<int> {1, 1}));
 		break;
 
 	case SPACE:
@@ -321,7 +319,12 @@ void Background::generateObstacles(Background::Stage stage,
 		break;
 
 	case BOSS:
-		//TO DO add rest of obstacles and walls
+		//TO DO add rest of walls
+		//TO DO make it loop (the last three walls)
+
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-9.f, 70.f, -106.f), 3, std::vector<int> {0, 1, 1}));
+		walls.at(0)->setPosition(sf::Vector3f(-130.f, 70.f, -106.f), 1);
+		walls.at(0)->setPosition(sf::Vector3f(-168.f, 70.f, -106.f), 2);
 
 		//First Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -320.f), spriteSheet, 1));
@@ -330,12 +333,17 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -460.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -460.f), spriteSheet, 2));
 
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(7.f, 112.f, -550.f), 2, std::vector<int> {0, 1}));
+		walls.at(1)->setPosition(sf::Vector3f(-153.f, 112.f, -550.f), 1);
+
 		//Second Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -800.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -865.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -920.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -910.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-140.f, 139.f, -910.f), spriteSheet, 100, 0));
+
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-136.f, 82.f, -978.f), 2, std::vector<int> {0, 1}));
 
 		//Third Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -1200.f), spriteSheet, 1));
@@ -352,21 +360,12 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-130.f, 139.f, -1750.f), spriteSheet, 100, 0));
 
 		//Fifth Area
-		//TO DO fix positions
-		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -1960.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -2090.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -2160.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-70.f, 139.f, -2170.f), spriteSheet, 1));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-110.f, 139.f, -2170.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 139.f, -1990.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-110.f, 139.f, -2110.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -2180.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -2180.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -2180.f), spriteSheet, 1));
 
-		//Sixth Area
-		//TO DO
-
-		//Seventh Area
-		//TO DO
-
-		//Eight Area
-		//TO DO 
 
 		break;
 	}
@@ -437,4 +436,21 @@ void Background::flashColor(int state)
 		back.setColor(sf::Color(255, 255, 255));
 	else
 		back.setColor(sf::Color(222, 100, 100));
+}
+
+
+/// <summary>
+/// Set the current stage
+/// </summary>
+/// <param name="newStage"></param>
+void Background::setStage(Stage newStage)
+{
+	stage = newStage;
+
+	if (stage == INITIAL)
+		back.setTexture(initial);
+	else if (stage == SPACE)
+		back.setTexture(space);
+	else if (stage == BOSS)
+		back.setTexture(boss);
 }
