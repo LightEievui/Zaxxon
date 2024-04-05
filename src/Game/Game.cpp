@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::INITIAL;
+Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -222,6 +222,8 @@ void Game::run() // if random erros later check that stack isnt full
 				// Prepare for respawn
 				fuel = 128;
 				pBackground->resetPos(mainView, *player, 0);
+				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls);
+				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
 			}
