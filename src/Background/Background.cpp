@@ -91,7 +91,10 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	if (!backgroundFinished(mainView))
 	{
 		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
-		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));//for translateTo2d
+		float modifier = 1;
+		if (stage == SPACE) // space moves 2/3 speed
+			modifier = 0.66f;
+		mainView.move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * modifier)));//for translateTo2d
 	}
 
 	// spawn waves that have gone past the z set in queue
@@ -391,13 +394,21 @@ void Background::generateWaves(Background::Stage stage,
 	{
 	case SPACE: // further below Z should be lesser
 		waveQueue.push(std::pair<int, unsigned int>(-460, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-510, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-560, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-610, 0));
-		waveQueue.push(std::pair<int, unsigned int>(-750, 1));
-		waveQueue.push(std::pair<int, unsigned int>(-770, 2));
-		waveQueue.push(std::pair<int, unsigned int>(-790, 3));
+		waveQueue.push(std::pair<int, unsigned int>(-493, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-526, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-559, 0));
+		waveQueue.push(std::pair<int, unsigned int>(-652, 1));
+		waveQueue.push(std::pair<int, unsigned int>(-665, 2));
+		waveQueue.push(std::pair<int, unsigned int>(-790, 3)); // HERE set to 2/3 difference
 		waveQueue.push(std::pair<int, unsigned int>(-1260, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1350, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1400, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1460, 5));
+		waveQueue.push(std::pair<int, unsigned int>(-1560, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-1610, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-1660, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-1710, 6));
+
 
 		break;
 	}

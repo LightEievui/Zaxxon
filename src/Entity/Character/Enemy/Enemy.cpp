@@ -7,13 +7,14 @@
 /// <param name="texture"></param>
 /// <param name="id"></param>
 /// <param name="spawnZ"></param>
-Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(texture)
+Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ, int randOffset) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
 			textures[i][j] = sf::IntRect(96 + 25 * j + i * 100, 37, 25, 25);
 	this->sprite->setTextureRect(textures[0][0]);
 	this->id = id;
+	this->randOffset = randOffset;
 	alive.restart();
 	sf::Vector3f pos;
 	// y range @ current values: 0 - 71.
@@ -33,6 +34,13 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 		break;
 	case 4:
 		pos = sf::Vector3f(0, 71, (float)spawnZ);
+		break;
+	case 5:
+		pos = sf::Vector3f(-210, 71, (float)spawnZ);
+		break;
+	case 6:
+		pos = sf::Vector3f(-160, 45, (float)spawnZ);
+		break;
 	}
 	this->setPos(pos + sf::Vector3f(0, 69, 0));
 }
@@ -109,8 +117,11 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	case 3:
 	case 4:
 		// first right->charge
-		enemies.push_back(new Enemy(spritesheet, wave, playerZ - 360));
+		enemies.push_back(new Enemy(spritesheet, wave, playerZ - 360, rand() % 600 - 300));
 		break;
+	case 5:
+	case 6:
+		enemies.push_back(new Enemy(spritesheet, wave, playerZ - 190, rand() % 600 - 300));
 	}
 }
 
@@ -146,7 +157,7 @@ sf::Vector2f Enemy::runAI()
 			theta = (msPassed - 1500) / 2800.f * 360;
 			theta = theta * PI / 180.f;
 			transl.x = cos(theta) * scale;
-			transl.y = 1.25f * -sin(theta) * scale;
+			transl.y = 1.25f * -sin(theta) * scale; // eliptical
 			theta = 0;
 		}
 		else if (msPassed < 5000)
@@ -199,12 +210,12 @@ sf::Vector2f Enemy::runAI()
 		}
 		break;
 	case 4: // come from top right then down little then charge
-		if (msPassed < 750)
+		if (msPassed < 750 + randOffset)
 		{
 			sizeIndex = 0;
 			theta = 180 - 15;
 		}
-		else if (msPassed < 2500)
+		else if (msPassed < 2500 + randOffset*2)
 		{
 			theta = -90;
 			scale = 0.6f;
@@ -217,7 +228,7 @@ sf::Vector2f Enemy::runAI()
 			else if (msPassed < 2500)
 				sizeIndex = 3;
 		}
-		else if (msPassed < 5500)
+		else if (msPassed < 5500 + randOffset * 3)
 		{
 			theta = 180 + 10;
 			sizeIndex = 3;
@@ -225,6 +236,32 @@ sf::Vector2f Enemy::runAI()
 		else
 		{
 			theta = 180;
+		}
+		scale = abs(randOffset / 300.f) + 0.5f;
+		break;
+	case 5: // bottom right to slight upward charge
+		theta = 180 - abs(randOffset)/300.f*45;
+		scale = abs(randOffset) / 150.f + 0.5f;
+		sizeIndex = 2;
+		break;
+	case 6: // alternate fish loop (from right)
+		if (msPassed < 1000)
+		{
+			theta = (-msPassed-2000) / 4000.f * 360 ; // 180-270
+			scale = 2.f;
+			sizeIndex = 2;
+		}
+		else if (msPassed < 1700)
+		{
+			theta = (-msPassed - 1700) / 1000.f * 360;
+			sizeIndex = 1;
+			scale = 1.6f;
+		}
+		else
+		{
+			theta = 180 + 45;
+			scale = 1.7f;
+			sizeIndex = 2;
 		}
 		break;
 	}
