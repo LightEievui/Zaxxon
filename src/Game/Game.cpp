@@ -348,7 +348,7 @@ void Game::doCollision(Player* player)
 			playerDeath();
 	}
 
-	//Wall Collisions
+	// Wall Collisions
 	for (unsigned int i = 0; i < walls.size(); i++)
 	{
 		if (!walls.at(i)->checkOnScreen())
@@ -381,21 +381,28 @@ void Game::doCollision(Player* player)
 		}
 	}
 
-	// TODO Mod bounds does not work.
-	const int hitboxSize = 1;
+	// Bounds can be changed here if want to change later.
+	const float hitboxSize = 4, bulletSize = 8;
 	sf::FloatRect modBounds;
 	modBounds = player->getBounds();
-	modBounds.left += modBounds.width / 2 - hitboxSize / 2.f;
-	modBounds.top += modBounds.height / 2 - hitboxSize / 2.f;
+	modBounds.left += modBounds.width / 2.f - hitboxSize / 2.f;
+	modBounds.top += modBounds.height / 2.f - hitboxSize / 2.f;
 	modBounds.width = hitboxSize;
 	modBounds.height = hitboxSize;
+
 	// Enemy bullets collision with player
 	for (Enemy* enemy : enemies)
 	{
 		for (CharacterBullet* bullet : enemy->getBullets())
 		{
+			sf::FloatRect bulletBounds = bullet->getBounds();
+			bulletBounds.left += bulletBounds.width / 2.f - bulletSize/2.f;
+			bulletBounds.top += bulletBounds.height / 2.f - bulletSize/2.f;
+			bulletBounds.width = bulletSize;
+			bulletBounds.height = bulletSize;
+
 			if (bullet->getSizeIndex() == player->getSizeIndex() &&
-				bullet->getBounds().intersects(modBounds)
+				bulletBounds.intersects(modBounds)
 				)
 				playerDeath();
 		}
@@ -406,9 +413,17 @@ void Game::doCollision(Player* player)
 	// Player bullets collision with enemy
 	for (CharacterBullet* bullet : player->getBullets())
 	{
+		sf::FloatRect bulletBounds = bullet->getBounds();
+		bulletBounds.left += bulletBounds.width / 2.f - bulletSize/2.f;
+		bulletBounds.top += bulletBounds.height / 2.f - bulletSize/2.f;
+		bulletBounds.width = bulletSize;
+		bulletBounds.height = bulletSize;
+
 		for (unsigned int i = 0; i < enemies.size(); i++)
 		{
 			Enemy* enemy = enemies[i];
+			if (enemy->isDead())
+				continue;
 			modBounds = enemy->getBounds();
 			modBounds.left += modBounds.width / 2 - hitboxSize / 2;
 			modBounds.top += modBounds.height / 2 - hitboxSize / 2;
@@ -416,11 +431,11 @@ void Game::doCollision(Player* player)
 			modBounds.height = hitboxSize;
 
 			if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
-				bullet->getBounds().intersects(modBounds)
+				bulletBounds.intersects(modBounds)
 				)
 			{
 				bullet->kill();
-				enemies.erase(enemies.begin() + i--);
+				enemy->kill();
 			}
 		}
 
@@ -469,6 +484,7 @@ void Game::gameOver()
 {
 	gameState = 0;
 	lives = 2;
+	pBackground->setStage(Background::INITIAL);
 
 	// Replace bottom score?
 	if (currentScores[5] < score)

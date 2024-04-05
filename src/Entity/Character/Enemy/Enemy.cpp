@@ -45,7 +45,8 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ) : Character(text
 void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 {
 	sf::Vector2f vel = runAI();
-	if ((ableToFire &&
+	if ((!dead && 
+		ableToFire &&
 		bulletCD.getElapsedTime().asMilliseconds() > 250
 		&& rand() % 125 == 0)
 #ifndef NDEBUG
@@ -67,7 +68,8 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
 
 	Character::updateBullets(window);
-	window.draw(*sprite);
+	if(!dead)
+		window.draw(*sprite);
 }
 
 
@@ -82,7 +84,7 @@ unsigned int Enemy::getSizeIndex()
 /// </summary>
 void Enemy::kill()
 {
-	delete this;
+	this->dead = true;
 }
 
 

@@ -426,3 +426,20 @@ void Background::flashColor(int state)
 	else
 		back.setColor(sf::Color(222, 100, 100));
 }
+
+
+/// <summary>
+/// Set the current stage
+/// </summary>
+/// <param name="newStage"></param>
+void Background::setStage(Stage newStage)
+{
+	stage = newStage;
+
+	if (stage == INITIAL)
+		back.setTexture(initial);
+	else if (stage == SPACE)
+		back.setTexture(space);
+	else if (stage == BOSS)
+		back.setTexture(boss);
+}

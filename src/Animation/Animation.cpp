@@ -50,6 +50,7 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 {
 	timer.restart();
 	this->spriteSizeIndex = sizeIndex;
+	std::cout << sizeIndex << "\n";
 
 	// safety check
 	if (sprite == nullptr)
@@ -167,16 +168,14 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 		current = 14;
 		break;
 	case 3:
+	default:
 		current = 12;
 		break;
-	default:
-		throw std::out_of_range("Sprite Size Index out of range!");
 	}
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
-		if (sprite == nullptr)
-			return;
+		
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
@@ -191,6 +190,8 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 			lastWentUp = !lastWentUp;
 		}
 
+		if (sprite == nullptr)
+			return;
 		sprite->setTextureRect(frames[current]);
 	}
 
@@ -209,6 +210,9 @@ void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 			current = 10;
 		else
 			current = 11;
+
+		if (sprite == nullptr)
+			return;
 		sprite->setTextureRect(frames[current]);
 	}
 	
