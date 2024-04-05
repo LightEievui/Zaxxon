@@ -114,7 +114,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	{
 		enemyText[i].setColor(sf::Color(222, 222, 247));
 		// These use integer for the equation, do not 'float' it
-		enemyText[i].setPosition(176 + i % 5 * 8, 200 + i / 5 * 8);
+		enemyText[i].setPosition(sf::Vector2f(176 + i % 5 * 8, 200 + i / 5 * 8));
 	}
 
 
@@ -204,7 +204,9 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 		selection = 0;
 
 	bool changingBelow = false, changingAbove = false;
-	const byte last = 7, localYDiff = (yDiff - 2) % 8;
+	byte last = 7, localYDiff = (yDiff - 2) % 8;
+	if (localYDiff == 6)
+		localYDiff = 7;
 
 	if (yDiff <= 66 && yDiff >= 2)
 	{
@@ -228,7 +230,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 		// bottom
 	}
 	// temp
-	//std::cout << "ydiff: " << yDiff << " localYDiff: " << localYDiff << "\n";
+	//std::cout << "ydiff: " << yDiff << " localYDiff: " << int(localYDiff) << "\n";
 
 	for (byte i = 0; i < 10; i++)
 	{
@@ -369,6 +371,6 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[])
 
 		int layer = 140;
 		layer += 12 * (i % 21 / 7);
-		highScores[i].setPosition(start + i % 7 * 8, layer);
+		highScores[i].setPosition(sf::Vector2f(start + i % 7 * 8, layer));
 	}
 }
