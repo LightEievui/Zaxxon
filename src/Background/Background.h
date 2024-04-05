@@ -34,6 +34,8 @@ public:
 	void resetPos(sf::View&, Player&, int);
 
 	Stage getStage();
+	void setStage(Stage);
+
 	bool isInSpace(int);
 
 	void flashColor(int);
