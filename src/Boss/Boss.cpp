@@ -5,10 +5,10 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* spriteSheet) : Entit
 {
 	setPos(start);
 
-	body.setPosition(translateTo2d(start));
-	body.setTexture(*spriteSheet);
-	body.setTextureRect(sf::IntRect(0, 0, 58, 75));
-	body.setOrigin(sf::Vector2f(body.getGlobalBounds().width / 2, body.getGlobalBounds().height / 2));
+	sprite->setPosition(translateTo2d(start));
+	sprite->setTexture(*spriteSheet);
+	sprite->setTextureRect(sf::IntRect(0, 0, 58, 75));
+	sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
 
 	this->target = target;
 	
@@ -23,11 +23,19 @@ Boss::~Boss()
 
 void Boss::update(sf::RenderWindow& window)
 {
-	if (movementInt.getElapsedTime().asMilliseconds() >= 200)
+	std::cout << "\n" << getPos().x << ", " << getPos().y << ", " << getPos().z;
+	if (movementInt.getElapsedTime().asMilliseconds() >= 100)
 	{
 		movementInt.restart();
 
 		if (target->getPos().x - getPos().x > 5)
-			setPos(sf::Vector3f(0, 0, 0));
+			setPos(sf::Vector3f(getPos().x+5, getPos().y, getPos().z));
+
+		if (target->getPos().x - getPos().x < 5)
+			setPos(sf::Vector3f(getPos().x - 5, getPos().y, getPos().z));
+
+		sprite->setPosition(translateTo2d(getPos()));
 	}
+
+	window.draw(*sprite);
 }

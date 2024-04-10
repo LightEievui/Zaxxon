@@ -11,6 +11,7 @@
 #include "GUI/GUI.h"
 #include "Wall/Wall.h"
 #include "Background/Background.h"
+#include "Boss/Boss.h"
 
 
 typedef unsigned char byte;
@@ -24,7 +25,7 @@ public:
 	void run();
 
 private:
-	sf::Texture spriteSheet;
+	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;
 	sf::RenderWindow window;
 	sf::ContextSettings s;
@@ -34,6 +35,7 @@ private:
 	std::vector<Enemy*> enemies;
 	std::vector<Obstacle*> obstacles;
 	std::vector<Wall*> walls;
+	Boss* boss = nullptr; //file position needs to be moved inside of entity, fsr my home computer struggles to edit file position in visual studio
 
 	byte fuel = 128;
 	byte completions = 0;

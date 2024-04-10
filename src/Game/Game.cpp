@@ -13,6 +13,8 @@ Game::Game()
 {
 	srand(time(NULL));
 	spriteSheet.loadFromFile("./res/spritesheet.png");
+	bossSheet.loadFromFile("./res/ZaxxonFull.png");
+
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -57,6 +59,8 @@ Game::Game()
 
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
+
+	boss = new Boss(sf::Vector3f(-50, 139, -2400.14), player, &bossSheet);
 }
 
 
@@ -152,6 +156,9 @@ void Game::run() // if random erros later check that stack isnt full
 			for (Enemy* enemy : enemies)
 				enemy->update(window, gameSpeed);
 
+			if (pBackground->getStage() == 3)
+				boss->update(window);
+
 			player->update(window, background.getStage());
 
 			window.setView(guiView);
@@ -246,6 +253,9 @@ void Game::run() // if random erros later check that stack isnt full
 	const int enemiesSize = enemies.size();
 	for (int i = 0; i < enemiesSize; i++)
 		delete enemies[i];
+
+	if (boss != nullptr)
+		delete boss;
 }
 
 
