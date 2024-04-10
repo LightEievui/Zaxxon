@@ -7,7 +7,7 @@
 /// <param name="texture"></param>
 /// <param name="id"></param>
 /// <param name="spawnZ"></param>
-Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ, int randOffset) : Character(texture)
+Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos, int randOffset) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
@@ -15,6 +15,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ, int randOffset) 
 	this->sprite->setTextureRect(textures[0][0]);
 	this->id = id;
 	this->randOffset = randOffset;
+	int spawnZ = spawnPos.z;
 	alive.restart();
 	sf::Vector3f pos;
 	// y range @ current values: 0 - 71.
@@ -41,6 +42,8 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, int spawnZ, int randOffset) 
 	case 6:
 		pos = sf::Vector3f(-160, 45, (float)spawnZ);
 		break;
+	case 7:
+		pos = spawnPos;
 	}
 	this->setPos(pos + sf::Vector3f(0, 69, 0));
 }
@@ -72,7 +75,7 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 	unsigned int planeVertical = vel.y > 0;
 
 	// keep up with back
-	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed)));
+	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * 2/3)));
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
 
 	Character::updateBullets(window);
@@ -110,18 +113,23 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	{
 	case 0:
 		// first fish loop
-		enemies.push_back(new Enemy(spritesheet, 0, playerZ - 190));
+		enemies.push_back(new Enemy(spritesheet, 0, sf::Vector3f(0, 0, playerZ - 190)));
 		break;
 	case 1:
 	case 2:
 	case 3:
 	case 4:
-		// first right->charge
-		enemies.push_back(new Enemy(spritesheet, wave, playerZ - 360, rand() % 600 - 300));
+		// first right->charge (top right)
+		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 360), rand() % 600 - 300));
 		break;
 	case 5:
 	case 6:
-		enemies.push_back(new Enemy(spritesheet, wave, playerZ - 190, rand() % 600 - 300));
+		// (bottom left)
+		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 190), rand() % 600 - 300));
+		break;
+	case 7: // 3 ememies from top right
+		for(int i = 0; i < 3; i++)
+			enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(35 - 70*i, 0, playerZ - 360), rand() % 600 - 300));
 	}
 }
 
@@ -263,6 +271,11 @@ sf::Vector2f Enemy::runAI()
 			scale = 1.7f;
 			sizeIndex = 2;
 		}
+		break;
+	case 7: // 3 enemies from top right
+		theta = 210;
+		scale = 1.3f;
+		sizeIndex = 1;
 		break;
 	}
 
