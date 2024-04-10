@@ -21,9 +21,11 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 	}
 	this->sprite->setTextureRect(playerTextures[0][0]);
 	this->setPos(sf::Vector3f(0, 69, (int)startPos * -1.33333f));
-	this->shadow.setTexture(*spriteSheet);
+	this->shadow.setTexture(*texture);
 	this->shadow.setTextureRect(sf::IntRect(352, 18, 22, 13));
 	this->shadow.setColor(sf::Color::Black);
+	this->hitmarker.setTexture(*texture);
+	this->hitmarker.setTextureRect(sf::IntRect(320, 84, 12, 11));
 
 	// Prepare bullet sound
 	bulletBuffer.loadFromFile("res/sfx/08.wav");
@@ -36,7 +38,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// </summary>
 /// <param name="window"></param>
 /// <param name="inSpace"></param>
-void Player::update(sf::RenderWindow& window, int stage)
+void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 {
 	if (!alive)
 		return;
@@ -105,16 +107,24 @@ void Player::update(sf::RenderWindow& window, int stage)
 			tempVelocity.z = -1.3f * 0.66f;
 	}
 
+	// Final adjust based on current game speed
+	tempVelocity.x *= gameSpeed;
+	tempVelocity.y *= gameSpeed;
+	tempVelocity.z *= gameSpeed;
+
 	// Position updates
 	setVelocity(tempVelocity);
 	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
+	hitmarker.setPosition(sprite->getPosition() + sf::Vector2f(40, -15));
 
 	// Drawing
-	if (stage != 1)
-		window.draw(shadow);
-
 	Character::update(window); // updating position using velocity, draw character
 	Character::updateBullets(window);
+
+	if (stage != 1)
+		window.draw(shadow);
+	else if (hitmarkerTimer.getElapsedTime().asMilliseconds() < 150)
+		window.draw(hitmarker);
 }
 
 

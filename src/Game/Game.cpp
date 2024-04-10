@@ -1,8 +1,9 @@
 #include "Game.h"
 
+// Helpful constant values for testing
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::BOSS;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -11,7 +12,10 @@ Background::Stage startStage = Background::BOSS;
 Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
+	// Seed the randomization system for enemies and score system
 	srand(time(NULL));
+
+	// Loading our sprites
 	spriteSheet.loadFromFile("./res/spritesheet.png");
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
 
@@ -24,6 +28,7 @@ Game::Game()
 	mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224. / 256.));
 	window.setView(mainView);
 
+	// GUI must also be set at this time to overlay on the game screen
 	guiView.reset(sf::FloatRect(0.f, 0.f, 224.f, 256.f));
 	guiView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
@@ -86,12 +91,9 @@ Game::~Game()
 /// </summary>
 void Game::run() // if random erros later check that stack isnt full
 {
-	unsigned int fps;
-	double deltaTime;
-	std::chrono::steady_clock::time_point lastTime =
-		std::chrono::high_resolution_clock::now(), currentTime;
 	Background& background = *pBackground;
 
+	// Our game loop, will run forever until game is closed
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -101,8 +103,10 @@ void Game::run() // if random erros later check that stack isnt full
 				window.close();
 		}
 
+		// Each frame, clear the screen before drawing anything new
 		window.clear();
 
+		// State 1 is actively playing the game
 		if (gameState == 1)
 		{
 			window.setView(mainView);
@@ -149,9 +153,11 @@ void Game::run() // if random erros later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				obstacles.at(i)->update(window);
 
-			// Draw Walls
-			for (unsigned int i = 0; i < walls.size(); i++)
-				walls.at(i)->drawWalls(window);
+			// Draw walls that are behind the player
+			for (byte i = 0; i < walls.size(); i++) // For each wall...
+				for(byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
+					if(walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
+						walls.at(i)->drawWalls(window); // Draw it behind player
 
 			for (Enemy* enemy : enemies)
 				enemy->update(window, gameSpeed);
@@ -159,12 +165,18 @@ void Game::run() // if random erros later check that stack isnt full
 			if (pBackground->getStage() == 3)
 				boss->update(window);
 
-			player->update(window, background.getStage());
+			player->update(window, background.getStage(), gameSpeed);
+
+			// Draw walls that are in front of the player
+			for (byte i = 0; i < walls.size(); i++) // For each wall...
+				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
+					if (walls.at(i)->getWallPositions()[j].z >= player->getPos().z) // Then if that wall z is less than player z...
+						walls.at(i)->drawWalls(window); // Draw it in front of player
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
 		}
-		else if (gameState == 0)
+		else if (gameState == 0) // State 0 is main menu screen
 		{
 			window.setView(guiView);
 			gui.startRender(window, highScore);
@@ -237,6 +249,7 @@ void Game::run() // if random erros later check that stack isnt full
 			}
 		}
 
+		// Display everything we just drew to the screen
 		window.display();
 
 		// FPS
@@ -446,6 +459,7 @@ void Game::doCollision(Player* player)
 				bulletBounds.intersects(modBounds)
 				)
 			{
+				player->drawHitmarker();
 				bullet->kill();
 				enemy->kill();
 			}
@@ -481,6 +495,9 @@ void Game::doCollision(Player* player)
 }
 
 
+/// <summary>
+/// Run code for when player dies.
+/// </summary>
 void Game::playerDeath()
 {
 	player->kill();

@@ -158,11 +158,13 @@ bool Background::backgroundFinished(sf::View& view)
 	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
-	if (!(stage == Stage::BOSS || stage == Stage::BOSSFIGHT))
+	if (stage == Stage::BOSS || stage == Stage::BOSSFIGHT)
+		return wXPos >= 1300;
+	else if (stage == Stage::SPACE)
+		return wXPos >= 1150;
+	else
 		return wXPos >= 1830;
 	//return wXPos >= back.getGlobalBounds().width; // temp
-	else
-		return wXPos >= 1300;
 }
 
 
@@ -398,15 +400,20 @@ void Background::generateWaves(Background::Stage stage,
 		waveQueue.push(std::pair<int, unsigned int>(-559, 0));
 		waveQueue.push(std::pair<int, unsigned int>(-652, 1));
 		waveQueue.push(std::pair<int, unsigned int>(-665, 2));
-		waveQueue.push(std::pair<int, unsigned int>(-790, 3)); // HERE set to 2/3 difference
-		waveQueue.push(std::pair<int, unsigned int>(-1260, 4));
-		waveQueue.push(std::pair<int, unsigned int>(-1350, 4));
-		waveQueue.push(std::pair<int, unsigned int>(-1400, 4));
-		waveQueue.push(std::pair<int, unsigned int>(-1460, 5));
-		waveQueue.push(std::pair<int, unsigned int>(-1560, 6));
-		waveQueue.push(std::pair<int, unsigned int>(-1610, 6));
-		waveQueue.push(std::pair<int, unsigned int>(-1660, 6));
-		waveQueue.push(std::pair<int, unsigned int>(-1710, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-678, 3));
+		waveQueue.push(std::pair<int, unsigned int>(-991, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1051, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1084, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1104, 5));
+		waveQueue.push(std::pair<int, unsigned int>(-1170, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-1203, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-1236, 6));
+		waveQueue.push(std::pair<int, unsigned int>(-1269, 6)); 
+		waveQueue.push(std::pair<int, unsigned int>(-1315, 7));
+		waveQueue.push(std::pair<int, unsigned int>(-1350, 3));
+		waveQueue.push(std::pair<int, unsigned int>(-1400, 2));
+		waveQueue.push(std::pair<int, unsigned int>(-1440, 4));
+		waveQueue.push(std::pair<int, unsigned int>(-1490, 4));
 
 
 		break;
