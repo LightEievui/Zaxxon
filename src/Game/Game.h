@@ -46,6 +46,10 @@ private:
 	byte gameState = 0;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::fstream file;
+	unsigned int fps = 0;
+	double deltaTime = 0;
+	std::chrono::steady_clock::time_point lastTime =
+		std::chrono::high_resolution_clock::now(), currentTime;
 
 	sf::View mainView;
 	sf::View guiView;

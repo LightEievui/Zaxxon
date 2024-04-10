@@ -50,7 +50,6 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 {
 	timer.restart();
 	this->spriteSizeIndex = sizeIndex;
-	std::cout << sizeIndex << "\n";
 
 	// safety check
 	if (sprite == nullptr)
@@ -101,6 +100,7 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 	{
 		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
 		sprite->setTextureRect(frames[current]);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 	kill = false;
@@ -120,6 +120,7 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 	{
 		int current = (static_cast<int>((int)(timer.getElapsedTime().asMilliseconds() * 12) / 1000) % 6) + 2;
 		sprite->setTextureRect(frames[current]);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 	kill = false;
@@ -142,6 +143,7 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 			current++;
 
 		sprite->setTextureRect(frames[current]);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 	kill = false;
@@ -193,6 +195,7 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 		if (sprite == nullptr)
 			return;
 		sprite->setTextureRect(frames[current]);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 	state = 1;
@@ -214,6 +217,7 @@ void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 		if (sprite == nullptr)
 			return;
 		sprite->setTextureRect(frames[current]);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 	
 	state = 1;

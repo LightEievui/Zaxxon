@@ -9,7 +9,7 @@
 class Enemy : public Character
 {
 public:
-	Enemy(sf::Texture* texture, unsigned int id, int spawnZ, int randOffset = 0);
+	Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnZ, int randOffset = 0);
 	void update(sf::RenderWindow&, float gameSpeed);
 	void kill() override;
 	bool getTranslate2() { return true; };
