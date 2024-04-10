@@ -23,7 +23,6 @@ Boss::~Boss()
 
 void Boss::update(sf::RenderWindow& window)
 {
-	std::cout << "\n" << getPos().x << ", " << getPos().y << ", " << getPos().z;
 	if (movementInt.getElapsedTime().asMilliseconds() >= 100)
 	{
 		movementInt.restart();
