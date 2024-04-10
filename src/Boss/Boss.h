@@ -7,7 +7,7 @@
 class Boss : Entity
 {
 public:
-	Boss(sf::Vector3f, Entity*, sf::Texture*);
+	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
 	~Boss();
 
 	void update(sf::RenderWindow&);
@@ -16,4 +16,7 @@ private:
 
 	Entity* target;
 	sf::Clock movementInt;
+	int stages = 0;
+
+	sf::Texture spriteSheet;
 };
