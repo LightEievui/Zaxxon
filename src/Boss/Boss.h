@@ -15,6 +15,5 @@ public:
 private:
 
 	Entity* target;
-	sf::Sprite body;
 	sf::Clock movementInt;
 };
