@@ -193,7 +193,6 @@ void Obstacle::update(sf::RenderWindow& window)
 		}
 		else if (count < total && animations.getState() != 3)
 		{
-			std::cout << "on";
 			animations.run(sprite, Animation::LAUNCH);
 		}
 	}
@@ -220,11 +219,8 @@ void Obstacle::update(sf::RenderWindow& window)
  
     if (type != 7 || type == 7 && getPosition().x < 15)
         window.draw(*sprite);
- 
-    if (direction != 2)
-        count = (count + 1) % total;
-    else
-        count = (count + 1) % 10000;
+
+       count = (count + 1) % total;
 
 	//Moves Blue Space Gas Cans
     if (type == 7)
