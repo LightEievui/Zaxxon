@@ -1,6 +1,5 @@
 #include "Game.h"
 
-const float scale = 2;
 const unsigned int startPos = 0;
 Background::Stage startStage = Background::INITIAL;
 
@@ -15,6 +14,9 @@ Game::Game()
 	spriteSheet.loadFromFile("./res/spritesheet.png");
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
 
+
+	float scale = (sf::VideoMode::getDesktopMode().height-72) / 256.f;
+	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2.f-(224.f*scale)/2.f, 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 

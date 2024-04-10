@@ -33,6 +33,11 @@ Animation::Animation()
 	frames[15] = sf::IntRect(80, 156, 99 - 80, 175 - 156);
 	frames[16] = sf::IntRect(48, 151, 70 - 48, 175 - 151);
 	frames[17] = sf::IntRect(8, 150, 34 - 8, 176 - 150);
+
+	// Numbers for obstacles after death
+	frames[18] = sf::IntRect(184, 121, 211-184, 135-121); // 0
+	frames[19] = sf::IntRect(224, 113, 255-224, 136-113); // 200
+	frames[20] = sf::IntRect(264, 113, 295-264, 135-113); // 500
 }
 
 
@@ -104,7 +109,26 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 	}
 
 	kill = false;
-	state = 1;
+	int current = 18;
+
+	switch (spriteSizeIndex)
+	{
+	case 1: // 200
+		current = 19;
+		break;
+	case 2: // 500
+		current = 20;
+		break;
+	}
+	
+	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
+	{
+		sprite->setTextureRect(frames[current]);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	}
+	sprite->setTextureRect(frames[18]);
+
+	state = 2;
 }
 
 

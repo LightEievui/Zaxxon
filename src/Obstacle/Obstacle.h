@@ -25,6 +25,11 @@ public:
 	void bulletKill(int);
 	int getType();
 
+	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH)
+	{ animations.run(sprite, animation, (getType() == 3 || getType() == 4
+		|| getType() == 8) ? 1 : 0); 
+	};
+
 private:
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
