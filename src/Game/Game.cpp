@@ -2,7 +2,7 @@
 
 const float scale = 2;
 const unsigned int startPos = 0;
-Background::Stage startStage = Background::BOSS;
+Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -446,6 +446,7 @@ void Game::doCollision(Player* player)
 				bulletBounds.intersects(modBounds)
 				)
 			{
+				player->drawHitmarker();
 				bullet->kill();
 				enemy->kill();
 			}
