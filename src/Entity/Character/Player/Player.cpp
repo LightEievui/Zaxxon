@@ -38,7 +38,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// </summary>
 /// <param name="window"></param>
 /// <param name="inSpace"></param>
-void Player::update(sf::RenderWindow& window, int stage)
+void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 {
 	if (!alive)
 		return;
@@ -106,6 +106,11 @@ void Player::update(sf::RenderWindow& window, int stage)
 		else // space moves 2/3 speed
 			tempVelocity.z = -1.3f * 0.66f;
 	}
+
+	// Final adjust based on current game speed
+	tempVelocity.x *= gameSpeed;
+	tempVelocity.y *= gameSpeed;
+	tempVelocity.z *= gameSpeed;
 
 	// Position updates
 	setVelocity(tempVelocity);
