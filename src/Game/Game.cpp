@@ -362,10 +362,11 @@ void Game::doCollision(Player* player)
 	// Wall Collisions
 	for (unsigned int i = 0; i < walls.size(); i++)
 	{
+		// If this wall is not visible, we don't need to check its collision
 		if (!walls.at(i)->checkOnScreen())
 			continue;
 
-		//Player Running into Wall Sections We Placed
+		// Now check the sections for each wall if they have been hit or not
 		for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
 		{
 			//TO DO Fix it so it accounts for the position being top left
@@ -386,7 +387,7 @@ void Game::doCollision(Player* player)
 		difference.z = abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
 
 		//TO DO fix it so the x works and the y plus value is more accurate
-		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
+		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 5) && difference.z < 10)
 		{
 			playerDeath();
 		}
