@@ -8,7 +8,7 @@ class Player : public Character
 {
 public:
 	Player(sf::Texture*, unsigned int);
-	void update(sf::RenderWindow&, int);
+	void update(sf::RenderWindow&, int, float);
 	void kill() override;
 	void resetPos(int zOffset = 0);
 	void drawHitmarker() { hitmarkerTimer.restart(); };
