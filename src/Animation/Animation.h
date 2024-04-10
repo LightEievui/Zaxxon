@@ -32,7 +32,7 @@ private:
 	void fRESET(sf::Sprite* sprite);
 
 	sf::Clock timer;
-	sf::IntRect frames[18], revert;
+	sf::IntRect frames[21], revert;
 	int state = 0;
 	unsigned int spriteSizeIndex = 0;
 	bool kill = false;
