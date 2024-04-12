@@ -90,6 +90,8 @@ Game::~Game()
 	for (int i = 0; i < enemiesSize; i++)
 		delete enemies[i];
 
+	delete player;
+	delete boss;
 	delete pBackground;
 }
 
@@ -269,13 +271,6 @@ void Game::run() // if random erros later check that stack isnt full
 		fps = (unsigned int)(1000000000.0 / deltaTime);
 		//std::cout << fps << "\n"; // temp but leave til done production
 	}
-
-	delete player;
-	const int enemiesSize = enemies.size();
-	for (int i = 0; i < enemiesSize; i++)
-		delete enemies[i];
-
-	delete boss;
 }
 
 
