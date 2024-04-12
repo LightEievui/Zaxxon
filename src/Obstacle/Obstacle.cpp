@@ -217,6 +217,15 @@ void Obstacle::update(sf::RenderWindow& window)
         window.draw(bulletSprites.at(i));
     }
  
+	if (animations.getState() == 4 && !moved)
+	{
+		moved = true;
+		if(isTurret())
+			setPos(getPos() + sf::Vector3f(0, 30, 0));
+		else
+			setPos(getPos() + sf::Vector3f(40, 100, 25));
+	}
+
     if (type != 7 || type == 7 && getPosition().x < 15)
         window.draw(*sprite);
 
@@ -247,9 +256,18 @@ void Obstacle::setPosition(sf::Vector3f pos)
 /// <returns>A boolean</returns>
 bool Obstacle::isPresent()
 {
-	return (animations.getState() == 0 || animations.getState() == 3) && onScreen == true ? true : false;
+	return (animations.getState() == 0 || animations.getState() == 3) && onScreen;
 }
 
+/// <summary>
+/// Checks if obstacle is a turret.
+/// </summary>
+/// <returns>Boolean</returns>
+bool Obstacle::isTurret()
+{
+	return getType() == 3 || getType() == 4
+		|| getType() == 8;
+}
 
 /// <summary>
 /// Get rid of obstacles bullet by index (For turrets).
