@@ -11,7 +11,7 @@
 Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : Entity()
 {
 	srand(time((time_t*)NULL));
-	random = (rand() % 1000) + 200;
+	total= (rand() % 250) + 75;
 
 	this->type = dir + 3;
 
@@ -140,6 +140,7 @@ std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 /// <param name="window"></param>
 void Obstacle::update(sf::RenderWindow& window)
 {
+	//Checks if obstacle is on screen
 	if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds()) || animations.getState() == 1)
 	{
 		onScreen = false;
@@ -148,9 +149,10 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	onScreen = true;
 
+	//Shooting mechanics
 	if (turret == true && direction != 2)
 	{
-		if (count % total == 0 && direction == 0)
+		if (count % total == 0 && direction == 0 && animations.getState() == 0)
 		{
 			sf::Sprite temp;
 
@@ -161,8 +163,10 @@ void Obstacle::update(sf::RenderWindow& window)
 
             bulletSprites.push_back(temp);
             bulletPositions.push_back(getPos());
+
+			total = (rand() % 250) + 75;
         }
-        else if (count % total == 0 && (direction == 1 || direction == 3))
+        else if (count % total == 0 && (direction == 1 || direction == 3) && animations.getState() == 0)
         {
             sf::Sprite temp;
 
@@ -172,6 +176,8 @@ void Obstacle::update(sf::RenderWindow& window)
 
 			bulletSprites.push_back(temp);
 			bulletPositions.push_back(getPos());
+
+			total = (rand() % 250) + 75;
 		}
 	}
 	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 3))
@@ -197,7 +203,7 @@ void Obstacle::update(sf::RenderWindow& window)
 		}
 	}
 
-
+	//Gives bullets their direction
     for (unsigned int i = 0; i < bulletSprites.size(); i++)
     {
         if (direction == 0)
@@ -226,10 +232,10 @@ void Obstacle::update(sf::RenderWindow& window)
 			setPos(getPos() + sf::Vector3f(40, 100, 25));
 	}
 
-    if (type != 7 || type == 7 && getPosition().x < 15)
+    if (type != 7 || getPosition().x < 15)
         window.draw(*sprite);
 
-       count = (count + 1) % total;
+    count = (count + 1) % total;
 
 	//Moves Blue Space Gas Cans
     if (type == 7)
