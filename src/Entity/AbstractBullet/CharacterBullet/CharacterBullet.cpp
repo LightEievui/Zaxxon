@@ -18,7 +18,7 @@ CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos
 	else if (type == Enemy)
 	{
 		sprite->setColor(sf::Color(222, 0, 0));
-		sprite->setPosition(spawnPos2f + sf::Vector2f(-3 * (int)(3U - sizeIndex), 20));
+		sprite->setPosition(spawnPos2f + sf::Vector2f(-3.f * (int)(3U - sizeIndex), 20));
 	}
 	this->sizeIndex = sizeIndex;
 	this->type = type;

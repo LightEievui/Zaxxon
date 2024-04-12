@@ -10,9 +10,8 @@
 /// <param name="dir"></param>
 Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : Entity()
 {
-	srand(time((time_t*)NULL));
 	random = (rand() % 1000) + 200;
-
+	this->scoreIndicator = rand() % 3 + 1;
 	this->type = dir + 3;
 
 	setPos(pos);
@@ -201,17 +200,11 @@ void Obstacle::update(sf::RenderWindow& window)
     for (unsigned int i = 0; i < bulletSprites.size(); i++)
     {
         if (direction == 0)
-        {
             bulletPositions.at(i).z += 3;
-        }
         else if (direction == 1)
-        {
             bulletPositions.at(i).x += 3;
-        }
         else if (direction == 3)
-        {
             bulletPositions.at(i).x -= 3;
-        }
         bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
 
         window.draw(bulletSprites.at(i));
@@ -221,9 +214,10 @@ void Obstacle::update(sf::RenderWindow& window)
 	{
 		moved = true;
 		if(isTurret())
-			setPos(getPos() + sf::Vector3f(0, 30, 0));
+			setPos(getPos() + sf::Vector3f(0, 0, 0));
 		else
-			setPos(getPos() + sf::Vector3f(40, 100, 25));
+			setPos(getPos() + sf::Vector3f(0, 15, 0));
+		sprite->setPosition(translateTo2d(getPos()));
 	}
 
     if (type != 7 || type == 7 && getPosition().x < 15)
@@ -299,4 +293,46 @@ int Obstacle::getType()
     */
 
 	return type;
+}
+
+/// <summary>
+/// Gets the score to add when the obstacle is destroyed.
+/// </summary>
+/// <returns>score</returns>
+int Obstacle::getScore()
+{
+	int score = 0;
+
+	switch (type)
+	{
+	case 1:
+		score += 300;
+		break;
+	case 2:
+		score += 1000;
+		break;
+	case 5:
+		score += 150;
+		break;
+	case 6:
+		score += 100;
+		break;
+	case 7:
+		score += 300;
+		break;
+	default:
+		switch (this->scoreIndicator)
+		{
+		case 1:
+			score += 200;
+		case 2:
+			score += 500;
+		case 3:
+			score += 1000;
+			break;
+		}
+		break;
+	}
+
+	return score;
 }

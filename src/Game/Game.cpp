@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::BOSS;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -11,7 +11,7 @@ Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
 	// Seed the randomization system for enemies and score system
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 
 	// Loading our sprites
 	spriteSheet.loadFromFile("./res/spritesheet.png");
@@ -19,7 +19,7 @@ Game::Game()
 
 
 	float scale = (sf::VideoMode::getDesktopMode().height-72) / 256.f;
-	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2.f-(224.f*scale)/2.f, 0));
+	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2-(224.f*scale)/2.f, 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -66,7 +66,7 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -2600.14), player, &bossSheet, &spriteSheet);
+	boss = new Boss(sf::Vector3f(-50, 139, -2600.14f), player, &bossSheet, &spriteSheet);
 }
 
 
@@ -116,8 +116,8 @@ void Game::run() // if random erros later check that stack isnt full
 			if (player->isAlive())
 			{
 				// Fuel goes down every 0.2 seconds unless in space, then it goes down every 1.6 seconds
-				bool inSpaceOffCD = background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
-				bool outSpaceOffCD = !background.isInSpace(player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
+				bool inSpaceOffCD = background.isInSpace((int)player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
+				bool outSpaceOffCD = !background.isInSpace((int)player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
 				// Collision checks
 				doCollision(player);
 
@@ -203,7 +203,7 @@ void Game::run() // if random erros later check that stack isnt full
 				break;
 			}
 
-			double time = deathClock.getElapsedTime().asSeconds();
+			float time = deathClock.getElapsedTime().asSeconds();
 			sf::Vector2f pos = player->getSpritePos();
 
 			// Set position for each death explosion based on current time
@@ -244,7 +244,7 @@ void Game::run() // if random erros later check that stack isnt full
 				fuel = 128;
 				pBackground->resetPos(mainView, *player, 0);
 				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls);
-				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
+				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, (int)player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
 			}
@@ -332,30 +332,14 @@ void Game::doCollision(Player* player)
 			size--;
 
 			//Scoring Swtich Statement
+			score += obstacles.at(i)->getScore();
 			switch (obstacles.at(i)->getType())
 			{
 			case 1:
-				score += 300;
 				fuel = 128;
-				break;
-			case 2:
-				score += 1000;
-				break;
-			case 5:
-				score += 150;
-				break;
-			case 6:
-				score += 100;
 				break;
 			case 7:
-				score += 300;
 				fuel = 128;
-				break;
-			default:
-				if (rand() % 1 == 0)
-					score += 200;
-				else
-					score += 500;
 				break;
 			}
 

@@ -387,7 +387,8 @@ void Background::generateWaves(Background::Stage stage,
 	for (Enemy* enemy : enemies)
 		delete enemy;
 	enemies.clear();
-	std::queue<std::pair<int, unsigned int>>().swap(waveQueue); // waveQueue.clear();
+	// equivalent to waveQueue.clear();
+	std::queue<std::pair<int, unsigned int>>().swap(waveQueue); 
 
 	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
 

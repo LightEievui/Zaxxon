@@ -229,8 +229,6 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 	{
 		// bottom
 	}
-	// temp
-	//std::cout << "ydiff: " << yDiff << " localYDiff: " << int(localYDiff) << "\n";
 
 	for (byte i = 0; i < 10; i++)
 	{
