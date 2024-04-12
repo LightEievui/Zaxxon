@@ -45,3 +45,11 @@ int main()
 	_CrtDumpMemoryLeaks();
 	return 0;
 }
+
+/*
+You have a memory leak in game
+Can remove unneeded {}. obstacle
+Line 232 wrong margin, obstacle
+Controls smooth
+Well structured comments, present everywhere
+*/
