@@ -42,7 +42,7 @@ private:
 	byte lives = 2;
 	int score = 0;
 	int highScore = 0;
-	float gameSpeed = 1.;
+	float gameSpeed = 1.0;
 	byte gameState = 0;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::fstream file;
