@@ -45,6 +45,7 @@ private:
 	float gameSpeed = 1.0;
 	byte gameState = 0;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
+	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
 	std::fstream file;
 	unsigned int fps = 0;
 	double deltaTime = 0;
