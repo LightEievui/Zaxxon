@@ -51,17 +51,20 @@ Game::Game()
 	file.open("ZaxxonScores", std::ios::in);
 	if (file.is_open())
 	{
-		byte i = 0;
-
-		while (!file.eof())
-			file >> currentScores[i++];
+		for (byte i = 0; i < 6; i++)
+		{
+			file >> currentScores[i];
+			
+			for (byte j = 0; j < 3; j++)
+				file >> currentNames[i][j];
+		}
 
 		file.close();
 	}
 
 	highScore = currentScores[0];
 
-	gui.renderScores(window, currentScores);
+	gui.renderScores(window, currentScores, currentNames);
 
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
@@ -82,6 +85,10 @@ Game::~Game()
 	const int wallsSize = walls.size();
 	for (int i = 0; i < wallsSize; i++)
 		delete walls[i];
+
+	const int enemiesSize = enemies.size();
+	for (int i = 0; i < enemiesSize; i++)
+		delete enemies[i];
 
 	delete pBackground;
 }
@@ -268,8 +275,7 @@ void Game::run() // if random erros later check that stack isnt full
 	for (int i = 0; i < enemiesSize; i++)
 		delete enemies[i];
 
-	if (boss != nullptr)
-		delete boss;
+	delete boss;
 }
 
 
@@ -519,6 +525,13 @@ void Game::gameOver()
 
 	file.open("ZaxxonScores", std::ios::out);
 	for (byte i = 0; i < 6; i++)
+	{
 		file << currentScores[i] << ' ';
+
+		for (byte j = 0; j < 3; j++)
+			file << currentNames[i][j];
+
+		file << ' ';
+	}
 	file.close();
 }

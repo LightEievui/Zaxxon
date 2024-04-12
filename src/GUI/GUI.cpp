@@ -321,6 +321,12 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 }
 
 
+/// <summary>
+/// Rendering specifically for the start screen.
+/// This will include the leaderboard will the top 6 scores and names.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="highScore"></param>
 void GUI::startRender(sf::RenderWindow& window, int highScore)
 {
 	for (byte i = 0; i < 10; i++)
@@ -340,11 +346,20 @@ void GUI::startRender(sf::RenderWindow& window, int highScore)
 
 	for (byte i = 0; i < 10; i++)
 		window.draw(highScoresText[i]);
+
+	for (byte i = 0; i < 18; i++)
+		window.draw(highScoresNames[i]);
 }
 
 
-void GUI::renderScores(sf::RenderWindow& window, int scores[])
+/// <summary>
+/// Prepare the leaderboard scores to be rendered.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="scores"></param>
+void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names[])
 {
+	// The score values
 	for (byte i = 0; i < 42; i++)
 	{
 		if (i % 7 == 0)
@@ -370,5 +385,15 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[])
 		int layer = 140;
 		layer += 12 * (i % 21 / 7);
 		highScores[i].setPosition(sf::Vector2f(start + i % 7 * 8, layer));
+	}
+
+	// The names for each score
+	for (byte i = 0; i < 18; i++)
+	{
+		// We use _ for spaces in names
+		if(names[i / 3][i % 3] != '_')
+			highScoresNames[i] = ZaxxonText::get(spritesheet, names[i / 3][i % 3]);
+
+		// Positioning and such will go here when I have time
 	}
 }
