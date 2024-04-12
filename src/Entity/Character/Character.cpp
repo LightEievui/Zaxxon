@@ -12,6 +12,15 @@ Character::Character(sf::Texture* spriteSheet) : Entity()
 }
 
 
+Character::~Character()
+{
+	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
+		delete bullets.at(i);
+	}
+}
+
+
 /// <summary>
 /// Move the character by velocity and redraw them to the screen.
 /// </summary>
