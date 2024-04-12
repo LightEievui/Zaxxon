@@ -33,6 +33,6 @@ public:
 private:
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
-	int direction, count = 0, total = 100, random, type;
+	int direction, count = 1, total = 100, random, type;
 	bool turret = false, onScreen = false, moved = false;
 };
