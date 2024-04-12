@@ -375,11 +375,7 @@ void Game::doCollision(Player* player)
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
 			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
-			{
-				//std::cout << "Player Ran into wall" << std::endl;
 				playerDeath();
-
-			}
 		}
 
 		//Player runs into wall built into background
