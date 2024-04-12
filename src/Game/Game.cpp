@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::BOSS;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -19,6 +19,7 @@ Game::Game()
 
 
 	float scale = (sf::VideoMode::getDesktopMode().height-72) / 256.f;
+	scale = 3;
 	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2.f-(224.f*scale)/2.f, 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
@@ -396,11 +397,7 @@ void Game::doCollision(Player* player)
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
 			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
-			{
-				//std::cout << "Player Ran into wall" << std::endl;
 				playerDeath();
-
-			}
 		}
 
 		//Player runs into wall built into background
