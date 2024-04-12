@@ -110,7 +110,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 
 Obstacle::~Obstacle()
 {
-
+	
 }
 
 
