@@ -38,6 +38,7 @@ Animation::Animation()
 	frames[18] = sf::IntRect(184, 121, 211-184, 135-121); // 0
 	frames[19] = sf::IntRect(224, 113, 255-224, 136-113); // 200
 	frames[20] = sf::IntRect(264, 113, 295-264, 135-113); // 500
+	frames[21] = sf::IntRect(305, 113, 334-305, 135-113); // 1000
 }
 
 
@@ -118,6 +119,9 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 		break;
 	case 2: // 500
 		current = 20;
+		break;
+	case 3: // 1000
+		current = 21;
 		break;
 	}
 
