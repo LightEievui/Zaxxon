@@ -9,7 +9,8 @@ Entity::Entity()
 
 Entity::~Entity()
 {
-
+	if(sprite != nullptr)
+		delete sprite;
 }
 
 
