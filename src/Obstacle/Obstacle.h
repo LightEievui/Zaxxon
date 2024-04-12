@@ -22,17 +22,17 @@ public:
 	std::vector<sf::Vector3f> getBulletLocations();
 	void update(sf::RenderWindow&) override;
 	bool isPresent();
+	bool isTurret();
+
 	void bulletKill(int);
 	int getType();
 
 	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH)
-	{ animations.run(sprite, animation, (getType() == 3 || getType() == 4
-		|| getType() == 8) ? 1 : 0); 
-	};
+	{ animations.run(sprite, animation, isTurret() ? 1 : 0); };
 
 private:
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count = 0, total = 100, random, type;
-	bool turret = false, onScreen = false;
+	bool turret = false, onScreen = false, moved = false;
 };
