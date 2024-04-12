@@ -270,9 +270,9 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -1120.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -1145.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-142.f, 139.f, -1410.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -1680.f), spriteSheet, 100, 0));
-		obstacles.push_back(new Obstacle(sf::Vector3f(0.f, 139.f, -2080.f), spriteSheet, 100, 3));
-		obstacles.push_back(new Obstacle(sf::Vector3f(10.f, 139.f, -2260.f), spriteSheet, 100, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-10.f, 139.f, -1680.f), spriteSheet, 100, 0));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2080.f), spriteSheet, 100, 3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2260.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
 
 		//Shooting Up Missiles
@@ -367,7 +367,6 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -2180.f), spriteSheet, 100, 0));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -2180.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-160.f, 139.f, -2180.f), spriteSheet, 1));
-
 
 		break;
 	}
