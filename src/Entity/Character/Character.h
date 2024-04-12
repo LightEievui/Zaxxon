@@ -11,6 +11,7 @@ class Character : public Entity
 {
 public:
 	Character(sf::Texture*);
+	~Character();
 	void update(sf::RenderWindow&);
 	virtual void kill() = 0;
 

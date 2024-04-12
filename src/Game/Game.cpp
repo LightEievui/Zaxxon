@@ -268,8 +268,7 @@ void Game::run() // if random erros later check that stack isnt full
 	for (int i = 0; i < enemiesSize; i++)
 		delete enemies[i];
 
-	if (boss != nullptr)
-		delete boss;
+	delete boss;
 }
 
 
