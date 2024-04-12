@@ -120,6 +120,8 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 		current = 20;
 		break;
 	}
+
+	state = 4; // wont interact
 	
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
@@ -127,8 +129,6 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 	sprite->setTextureRect(frames[18]);
-
-	state = 2;
 }
 
 
