@@ -23,6 +23,7 @@ public:
 	// size index for some
 	void run(sf::Sprite*, Anim, unsigned int sizeIndex = 0);
 	int getState();
+
 private:
 	void fCHARACTER_DEATH(sf::Sprite* sprite);
 	void fALT_DEATH(sf::Sprite* sprite);

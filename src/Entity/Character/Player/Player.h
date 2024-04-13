@@ -14,6 +14,7 @@ public:
 	void drawHitmarker() { hitmarkerTimer.restart(); };
 
 	bool isAlive();
+
 private:
 	const int BULLET_COOLDOWN = 200;
 	bool alive = true;

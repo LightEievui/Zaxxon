@@ -4,6 +4,7 @@
 Entity::Entity()
 {
 	this->sprite = new sf::Sprite();
+	this->spriteSheet = new sf::Texture();
 }
 
 
@@ -11,6 +12,9 @@ Entity::~Entity()
 {
 	if(sprite != nullptr)
 		delete sprite;
+
+	if (sprite != nullptr)
+		delete spriteSheet;
 }
 
 
