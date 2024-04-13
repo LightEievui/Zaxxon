@@ -177,6 +177,16 @@ GUI::GUI(sf::Texture* spritesheet)
 }
 
 
+GUI::~GUI()
+{
+	delete spritesheet;
+
+	const int hudSize = hudElements.size();
+	for (int i = 0; i < hudSize; i++)
+		delete hudElements[i];
+}
+
+
 /// <summary>
 /// Draw all the GUI to the screen each frame.
 /// Also run logic for certain interactive GUI elements and

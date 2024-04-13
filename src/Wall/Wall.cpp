@@ -28,7 +28,7 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 
 Wall::~Wall()
 {
-
+	delete spriteSheet;
 }
 
 
