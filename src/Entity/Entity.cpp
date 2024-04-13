@@ -13,7 +13,7 @@ Entity::~Entity()
 	if(sprite != nullptr)
 		delete sprite;
 
-	if (sprite != nullptr)
+	if (spriteSheet != nullptr)
 		delete spriteSheet;
 }
 
