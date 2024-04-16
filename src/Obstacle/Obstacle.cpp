@@ -192,8 +192,6 @@ void Obstacle::update(sf::RenderWindow& window)
 	{
 		if (aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs + 750)
 		{
-			launched = true;
-
 			if (animations.getState() == 3)
 				animations.run(sprite, Animation::RESET);
 
