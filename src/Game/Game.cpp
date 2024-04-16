@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::BOSS;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -471,6 +471,9 @@ void Game::doCollision(Player* player)
 			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
+
+		//Player Bullets Hitting Boss
+		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 && abs(bullet->getPos().x - boss->getPos().x) <= 10)
 
 		bulletNum++;
 	}
