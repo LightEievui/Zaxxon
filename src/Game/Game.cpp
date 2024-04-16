@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::INITIAL;
+const Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -70,7 +70,7 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -2600.14), player, &bossSheet, &spriteSheet);
+	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet, &spriteSheet);
 }
 
 
