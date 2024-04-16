@@ -1,6 +1,13 @@
 #include "Wall.h"
 
 
+/// <summary>
+/// Create a section of walls, each one can be a closed or open wall piece
+/// </summary>
+/// <param name="tex"></param>
+/// <param name="pos"></param>
+/// <param name="size"></param>
+/// <param name="walls"></param>
 Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 {
 	spriteSheet = tex;
@@ -26,12 +33,19 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 }
 
 
+/// <summary>
+/// Clean up memory related to wall class
+/// </summary>
 Wall::~Wall()
 {
 
 }
 
 
+/// <summary>
+/// Draw each section of the wall if it will be visible on the screen
+/// </summary>
+/// <param name="window"></param>
 void Wall::drawWalls(sf::RenderWindow& window)
 {
     if (!getWindowViewRect(window).intersects(sprites.at(sprites.size() - 1).getGlobalBounds()) && 
@@ -47,7 +61,12 @@ void Wall::drawWalls(sf::RenderWindow& window)
 		window.draw(sprites.at(i));
 }
 
-//Sets Position of the Specified Piece
+
+/// <summary>
+/// Set position of specificed wall piece
+/// </summary>
+/// <param name="pos"></param>
+/// <param name="piece"></param>
 void Wall::setPosition(sf::Vector3f pos, int piece)
 {
 	sprites.at(piece).setPosition(translateTo2d(pos));
@@ -55,6 +74,11 @@ void Wall::setPosition(sf::Vector3f pos, int piece)
 }
 
 
+/// <summary>
+/// Set texture for if this wall piece should be closed or open
+/// </summary>
+/// <param name="piece"></param>
+/// <param name="tex"></param>
 void Wall::setTexture(int piece, int tex)
 {
 	//Closed Piece
@@ -67,13 +91,20 @@ void Wall::setTexture(int piece, int tex)
 }
 
 
+/// <summary>
+/// Check if this wall will be on screen
+/// </summary>
+/// <returns>A boolean</returns>
 bool Wall::checkOnScreen()
 {
 	return onScreen;
 }
 
 
-//Returns 3d Position of first section of wall
+/// <summary>
+/// Get 3d position of this wall
+/// </summary>
+/// <returns>Vector of 3 float vectors</returns>
 std::vector<sf::Vector3f> Wall::getWallPositions()
 {
 	return wallPositions;
