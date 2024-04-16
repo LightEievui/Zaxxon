@@ -177,6 +177,12 @@ GUI::GUI(sf::Texture* spritesheet)
 }
 
 
+GUI::~GUI()
+{
+	// hudElements consists of objects entirely on the stack it looks like
+}
+
+
 /// <summary>
 /// Draw all the GUI to the screen each frame.
 /// Also run logic for certain interactive GUI elements and
@@ -229,8 +235,6 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 	{
 		// bottom
 	}
-	// temp
-	//std::cout << "ydiff: " << yDiff << " localYDiff: " << int(localYDiff) << "\n";
 
 	for (byte i = 0; i < 10; i++)
 	{

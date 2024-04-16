@@ -60,7 +60,7 @@ unsigned int Character::getSizeIndex()
 
 
 /// <summary>
-/// Get the height sector that character is in.
+/// Get the height sector that character is in. Underscore infront indicates that it is not public.
 /// </summary>
 /// <param name="planeSizeIndex"></param>
 void Character::_getSizeIndex(unsigned int& planeSizeIndex)

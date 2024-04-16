@@ -14,9 +14,9 @@ sf::Sprite ZaxxonText::get(sf::Texture* spritemap, char in)
 	// nums: 48-57 inclusive
 	// other: 0-31 inclusive
 	in = toupper(in);
-	if ((in < 65 || in > 90) && (in < 48 || in > 57) && (in < 0 || in > 31))
-		throw std::invalid_argument("Get char must be in the correct range! Check ZaxxonText.");
-	int column, row = 0;
+	//if ((in < 65 || in > 90) && (in < 48 || in > 57) && (in < 0 || in > 31))
+	//	throw std::invalid_argument("Get char must be in the correct range! Check ZaxxonText.");
+	int column = 0, row = 0;
 	if (in >= 65 && in <= 90)
 		column = in - 'A';
 	else if (in >= 48 && in <= 57)
