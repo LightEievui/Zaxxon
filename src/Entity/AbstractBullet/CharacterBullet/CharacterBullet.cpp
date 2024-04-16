@@ -1,6 +1,14 @@
 #include "CharacterBullet.h"
 
 
+/// <summary>
+/// Create a bullet based on if player or enemy shot it
+/// </summary>
+/// <param name="spritesheet"></param>
+/// <param name="spawnPos"></param>
+/// <param name="sizeIndex"></param>
+/// <param name="type"></param>
+/// <param name="spawnPos2f"></param>
 CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos,
 	unsigned int sizeIndex, BulletType type, sf::Vector2f spawnPos2f
 )
@@ -25,6 +33,9 @@ CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos
 }
 
 
+/// <summary>
+/// Clean up memory related to character bullet
+/// </summary>
 CharacterBullet::~CharacterBullet()
 {
 	delete sprite;
@@ -32,17 +43,29 @@ CharacterBullet::~CharacterBullet()
 }
 
 
+/// <summary>
+/// Get public size index of this character bullet
+/// </summary>
+/// <returns></returns>
 unsigned int CharacterBullet::getSizeIndex()
 {
 	return sizeIndex;
 }
 
+
+/// <summary>
+/// Default kill, run the kill method with enemyDeath as parameter
+/// </summary>
 void CharacterBullet::kill()
 {
 	kill(EnemyDeath);
 }
 
 
+/// <summary>
+/// The bullet hit something, run code to kill bullet based on what it hit.
+/// </summary>
+/// <param name="deathType"></param>
 void CharacterBullet::kill(BulletDeathType deathType)
 {
 	sprite->setColor(sf::Color(255, 255, 255));
@@ -65,6 +88,10 @@ void CharacterBullet::kill(BulletDeathType deathType)
 }
 
 
+/// <summary>
+/// Run the logic for this bullet and then draw it to screen
+/// </summary>
+/// <param name="window"></param>
 void CharacterBullet::update(sf::RenderWindow& window)
 {
 	if (type == Player)
@@ -82,6 +109,10 @@ void CharacterBullet::update(sf::RenderWindow& window)
 }
 
 
+/// <summary>
+/// Check if this bullet has hit something
+/// </summary>
+/// <returns>A boolean</returns>
 bool CharacterBullet::isHit()
 {
 	return animations.getState() == 1;
