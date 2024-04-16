@@ -179,11 +179,7 @@ GUI::GUI(sf::Texture* spritesheet)
 
 GUI::~GUI()
 {
-	delete spritesheet;
-
-	const int hudSize = hudElements.size();
-	for (int i = 0; i < hudSize; i++)
-		delete hudElements[i];
+	// hudElements consists of objects entirely on the stack it looks like
 }
 
 

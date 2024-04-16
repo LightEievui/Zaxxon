@@ -12,9 +12,6 @@ Entity::~Entity()
 {
 	if(sprite != nullptr)
 		delete sprite;
-
-	if (spriteSheet != nullptr)
-		delete spriteSheet;
 }
 
 
