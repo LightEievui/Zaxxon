@@ -23,6 +23,7 @@ public:
 	// size index for some
 	void run(sf::Sprite*, Anim, unsigned int sizeIndex = 0);
 	int getState();
+
 private:
 	void fCHARACTER_DEATH(sf::Sprite* sprite);
 	void fALT_DEATH(sf::Sprite* sprite);
@@ -32,7 +33,7 @@ private:
 	void fRESET(sf::Sprite* sprite);
 
 	sf::Clock timer;
-	sf::IntRect frames[21], revert;
+	sf::IntRect frames[22], revert;
 	int state = 0;
 	unsigned int spriteSizeIndex = 0;
 	bool kill = false;
