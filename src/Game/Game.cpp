@@ -47,7 +47,7 @@ Game::Game()
 	file.close();
 
 	// background must be done after player.
-	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls);
+	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls, zapWalls);
 
 	file.open("ZaxxonScores", std::ios::in);
 	if (file.is_open())
@@ -139,11 +139,11 @@ void Game::run() // if random erros later check that stack isnt full
 				}
 
 				// Move background
-				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
 			}
 			else // Start the player death animation here
 			{
-				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
 				{
@@ -181,6 +181,10 @@ void Game::run() // if random erros later check that stack isnt full
 				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
 					if (walls.at(i)->getWallPositions()[j].z >= player->getPos().z) // Then if that wall z is less than player z...
 						walls.at(i)->drawWalls(window); // Draw it in front of player
+
+			//Move and Draws Zap Walls
+			for (unsigned int i = 0; i < zapWalls.size(); i++)
+				zapWalls.at(i)->drawZapWalls(window);
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -251,7 +255,7 @@ void Game::run() // if random erros later check that stack isnt full
 				// Prepare for respawn
 				fuel = 128;
 				pBackground->resetPos(mainView, *player, 0);
-				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls);
+				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
 				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
