@@ -90,6 +90,10 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 }
 
 
+/// <summary>
+/// Get public size index of this enemy
+/// </summary>
+/// <returns></returns>
 unsigned int Enemy::getSizeIndex()
 {
 	return sizeIndex;

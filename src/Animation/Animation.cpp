@@ -42,6 +42,9 @@ Animation::Animation()
 }
 
 
+/// <summary>
+/// Clean up memory for animation class
+/// </summary>
 Animation::~Animation()
 {
 }
@@ -230,6 +233,10 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 }
 
 
+/// <summary>
+/// Animation for when a bullet hits a wall
+/// </summary>
+/// <param name="sprite"></param>
 void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 {
 	int current = 10;

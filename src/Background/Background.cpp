@@ -15,7 +15,7 @@
 /// <param name="startPos"></param>
 Background::Background(Stage startStage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
-	int startPos, std::vector<Wall*>& walls
+	int startPos, std::vector<Wall*>& walls, std::vector <ZapWalls*>& zapWalls
 )
 {
 	if (!initial.loadFromFile("res/BackgroundInitial.png"))
@@ -25,10 +25,10 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	if (!boss.loadFromFile("res/BackgroundBoss.png"))
 		std::cout << "Background file could not load\n";
 
-	back.setTexture(initial);
+	back.setTexture(boss);
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
-	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls);
+	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls, zapWalls);
 }
 
 
@@ -50,7 +50,7 @@ Background::~Background()
 /// <param name="player"></param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	float gameSpeed, sf::Texture* spritesheet, std::vector<Obstacle*>& obstacles,
-	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls, bool bossState
+	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls, bool bossState, std::vector <ZapWalls*>& zapWalls
 )
 {
 	if (backgroundFinished(mainView))
@@ -84,7 +84,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		//	stage = Stage::BOSSFIGHT;
 		//}
 
-		generateObstacles(stage, obstacles, spritesheet, walls);
+		generateObstacles(stage, obstacles, spritesheet, walls, zapWalls);
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
 
@@ -131,7 +131,7 @@ void Background::setPosition(sf::Vector2f pos)
 /// <param name="startPos"></param>
 void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* spritesheet,
 	std::vector<Obstacle*>& obstacles, std::vector<Enemy*>& enemies, Player& player,
-	int startPos, std::vector<Wall*>& walls
+	int startPos, std::vector<Wall*>& walls, std::vector <ZapWalls*>& zapWalls
 )
 {
 	this->stage = stage;
@@ -143,7 +143,7 @@ void Background::changeStage(Stage stage, sf::View& mainView, sf::Texture* sprit
 		back.setTexture(boss);
 	resetPos(mainView, player, startPos);
 
-	generateObstacles(stage, obstacles, spritesheet, walls);
+	generateObstacles(stage, obstacles, spritesheet, walls, zapWalls);
 	generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 }
 
@@ -159,7 +159,7 @@ bool Background::backgroundFinished(sf::View& view)
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
 	if (stage == Stage::BOSS || stage == Stage::BOSSFIGHT)
-		return wXPos >= 1300;
+		return wXPos >= 2050;
 	else if (stage == Stage::SPACE)
 		return wXPos >= 1150;
 	else
@@ -238,7 +238,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 /// <param name="obstacles"></param>
 /// <param name="spriteSheet"></param>
 void Background::generateObstacles(Background::Stage stage,
-	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet, std::vector<Wall*>& walls)
+	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet, std::vector<Wall*>& walls, std::vector <ZapWalls*>& zapWalls)
 {
 	/*Shooting Obstacles
 	KEY
@@ -262,6 +262,10 @@ void Background::generateObstacles(Background::Stage stage,
 	for (Wall* wall : walls)
 		delete wall;
 	walls.clear();
+
+	for (ZapWalls* zapWalls : zapWalls)
+		delete zapWalls;
+	zapWalls.clear();
 
 	switch (stage)
 	{
@@ -316,6 +320,9 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-63.f, 130.f, -755.f), 3, std::vector<int> {1, 1, 1}));
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(23.f, 130.f, -1423.f), 3, std::vector<int> {1, 1, 0}));
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-26.f, 130.f, -2782.f), 2, std::vector<int> {1, 1}));
+
+		//Zap Walls
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-30, 125, -1900)));
 		break;
 
 	case SPACE:
