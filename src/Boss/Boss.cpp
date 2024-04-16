@@ -1,6 +1,13 @@
 #include "Boss.h"
 
 
+/// <summary>
+/// Prepare the boss variables
+/// </summary>
+/// <param name="start"></param>
+/// <param name="target"></param>
+/// <param name="bossSheet"></param>
+/// <param name="spriteSheet"></param>
 Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Texture* spriteSheet) : Entity()
 {
 	setPos(start);
@@ -18,11 +25,18 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 }
 
 
+/// <summary>
+/// Clean up memory related to the boss
+/// </summary>
 Boss::~Boss() 
 {
 }
 
 
+/// <summary>
+/// Run the logic for the boss each frame and then draw it to the screen
+/// </summary>
+/// <param name="window"></param>
 void Boss::update(sf::RenderWindow& window)
 {
 	if (movementInt.getElapsedTime().asMilliseconds() >= 100)

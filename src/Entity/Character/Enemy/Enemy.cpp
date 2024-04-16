@@ -7,7 +7,8 @@
 /// <param name="texture"></param>
 /// <param name="id"></param>
 /// <param name="spawnZ"></param>
-Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos, int randOffset) : Character(texture)
+Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
+	int randOffset) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
@@ -15,9 +16,10 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos, int r
 	this->sprite->setTextureRect(textures[0][0]);
 	this->id = id;
 	this->randOffset = randOffset;
-	int spawnZ = spawnPos.z;
+	int spawnZ = (int)spawnPos.z;
 	alive.restart();
 	sf::Vector3f pos;
+
 	// y range @ current values: 0 - 71.
 	switch (id)
 	{
@@ -55,7 +57,10 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos, int r
 /// <param name="window"></param>
 void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 {
+	// Find velocity
 	sf::Vector2f vel = runAI();
+
+	// Shooting
 	if ((!dead && 
 		ableToFire &&
 		bulletCD.getElapsedTime().asMilliseconds() > 250
@@ -74,16 +79,21 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 
 	unsigned int planeVertical = vel.y > 0;
 
-	// keep up with back
+	// Moved to keep up with back
 	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * 2/3)));
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
 
+	// 
 	Character::updateBullets(window);
 	if(!dead)
 		window.draw(*sprite);
 }
 
 
+/// <summary>
+/// Get public size index of this enemy
+/// </summary>
+/// <returns></returns>
 unsigned int Enemy::getSizeIndex()
 {
 	return sizeIndex;
@@ -113,29 +123,29 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 	{
 	case 0:
 		// first fish loop
-		enemies.push_back(new Enemy(spritesheet, 0, sf::Vector3f(0, 0, playerZ - 190)));
+		enemies.push_back(new Enemy(spritesheet, 0, sf::Vector3f(0, 0, playerZ - 190.f)));
 		break;
 	case 1:
 	case 2:
 	case 3:
 	case 4:
 		// first right->charge (top right)
-		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 360), rand() % 600 - 300));
+		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 360.f), rand() % 600 - 300));
 		break;
 	case 5:
 	case 6:
 		// (bottom left)
-		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 190), rand() % 600 - 300));
+		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 190.f), rand() % 600 - 300));
 		break;
 	case 7: // 3 ememies from top right
 		for(int i = 0; i < 3; i++)
-			enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(35 - 70*i, 0, playerZ - 360), rand() % 600 - 300));
+			enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(35.f - 70.f*i, 0, playerZ - 360.f), rand() % 600 - 300));
 	}
 }
 
 
 /// <summary>
-/// Basic enemy AI. Runs each frame on enemy update.
+/// Controls movement of enemies. Runs each frame on enemy update. 
 /// </summary>
 sf::Vector2f Enemy::runAI()
 {
@@ -145,9 +155,10 @@ sf::Vector2f Enemy::runAI()
 	float scale = 1;
 	sf::Vector2f transl;
 
+	// size index 0-3 controls size: 0 biggest, 3 smallest
 	switch (id)
 	{
-	case 0: // fish loop COMPLETE
+	case 0: // fish loop
 		scale = 1.7f;
 
 		if (msPassed < 1500)
@@ -287,6 +298,12 @@ sf::Vector2f Enemy::runAI()
 }
 
 
+/// <summary>
+/// Translates an angle and scale to cartesian coordinates using trig.
+/// </summary>
+/// <param name="angle">An angle in degrees.</param>
+/// <param name="scale">The amount to scale the coordinates by.</param>
+/// <returns>A sf::vector2f with respective x and y.</returns>
 sf::Vector2f Enemy::angleTranslate(float angle, float scale)
 {
 	sf::Vector2f ret;
