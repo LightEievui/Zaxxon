@@ -112,6 +112,9 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 }
 
 
+/// <summary>
+/// Clean up memory related to the obstacle class
+/// </summary>
 Obstacle::~Obstacle()
 {
 	
@@ -154,7 +157,7 @@ void Obstacle::update(sf::RenderWindow& window)
 	onScreen = true;
 	float rocketDelayInMs = (1000.f / 60.f) * (float)rocketDelay;
 
-	//Shooting mechanics
+	//Shooting mechanics for bassic turrets
 	if (turret == true && direction != 2)
 	{
 		if (count % total == 0 && direction == 0 && animations.getState() == 0)
@@ -189,6 +192,8 @@ void Obstacle::update(sf::RenderWindow& window)
 	{
 		if (aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs + 750)
 		{
+			launched = true;
+
 			if (animations.getState() == 3)
 				animations.run(sprite, Animation::RESET);
 

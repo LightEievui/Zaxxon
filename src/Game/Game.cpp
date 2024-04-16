@@ -17,7 +17,10 @@ Game::Game()
 	spriteSheet.loadFromFile("./res/spritesheet.png");
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
 
-	float scale = (sf::VideoMode::getDesktopMode().height-72) / 256.f;
+	// Auto scaling, must be rounded to the nearest quarter to avoid visual bug
+	float scale = (sf::VideoMode::getDesktopMode().height-100) / 256.f;
+	scale = round(scale * 4) / 4.f;
+
 	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2-(224.f*scale)/2.f, 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
@@ -45,7 +48,7 @@ Game::Game()
 	file.close();
 
 	// background must be done after player.
-	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls);
+	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls, zapWalls);
 
 	file.open("ZaxxonScores", std::ios::in);
 	if (file.is_open())
@@ -68,7 +71,7 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -2600.14f), player, &bossSheet, &spriteSheet);
+	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet, &spriteSheet);
 }
 
 
@@ -139,11 +142,11 @@ void Game::run() // if random erros later check that stack isnt full
 				}
 
 				// Move background
-				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
 			}
 			else // Start the player death animation here
 			{
-				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState);
+				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
 				{
@@ -182,6 +185,10 @@ void Game::run() // if random erros later check that stack isnt full
 					if (walls.at(i)->getWallPositions()[j].z >= player->getPos().z) // Then if that wall z is less than player z...
 						walls.at(i)->drawWalls(window); // Draw it in front of player
 
+			//Move and Draws Zap Walls
+			for (unsigned int i = 0; i < zapWalls.size(); i++)
+				zapWalls.at(i)->drawZapWalls(window);
+
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
 		}
@@ -197,44 +204,44 @@ void Game::run() // if random erros later check that stack isnt full
 		{
 			window.setView(mainView);
 
-			// Change color of death explosion, 3 stages
-			switch (deathClock.getElapsedTime().asMilliseconds() / 100 % 3)
-			{
-			case 0:
-				deathSprite.setColor(sf::Color(255, 255, 255));
-				break;
-			case 1:
-				deathSprite.setColor(sf::Color(222, 0, 0));
-				break;
-			case 2:
-				deathSprite.setColor(sf::Color(0, 0, 0));
-				break;
-			}
-
 			float time = deathClock.getElapsedTime().asSeconds();
-			sf::Vector2f pos = player->getSpritePos();
 
-			// Set position for each death explosion based on current time
-			for (byte i = 0; i < 12; i++)
+			if (deathClock.getElapsedTime().asSeconds() < 2)
 			{
-				deathSprite.setPosition(pos);
+				// Change color of death explosion, 3 stages
+				switch (deathClock.getElapsedTime().asMilliseconds() / 100 % 3)
+				{
+				case 0:
+					deathSprite.setColor(sf::Color(255, 255, 255));
+					break;
+				case 1:
+					deathSprite.setColor(sf::Color(222, 0, 0));
+					break;
+				case 2:
+					deathSprite.setColor(sf::Color(0, 0, 0));
+					break;
+				}
 
-				if (i < 3) // Above
-					deathSprite.move(-1 * (1 + i % 3) * time * 5, -3 * (1 + i % 3) * time * 5);
-				else if (i < 6) // Left
-					deathSprite.move(-3 * (1 + i % 3) * time * 5, 1 * (1 + i % 3) * time * 5);
-				else if (i < 9) // Below
-					deathSprite.move(1 * (1 + i % 3) * time * 5, 3 * (1 + i % 3) * time * 5);
-				else // Right
-					deathSprite.move(3 * (1 + i % 3) * time * 5, -1 * (1 + i % 3) * time * 5);
+				sf::Vector2f pos = player->getSpritePos();
 
-				window.draw(deathSprite);
+				// Set position for each death explosion based on current time
+				for (byte i = 0; i < 12; i++)
+				{
+					deathSprite.setPosition(pos);
+
+					if (i < 3) // Above
+						deathSprite.move(-1 * (1 + i % 3) * time * 5, -3 * (1 + i % 3) * time * 5);
+					else if (i < 6) // Left
+						deathSprite.move(-3 * (1 + i % 3) * time * 5, 1 * (1 + i % 3) * time * 5);
+					else if (i < 9) // Below
+						deathSprite.move(1 * (1 + i % 3) * time * 5, 3 * (1 + i % 3) * time * 5);
+					else // Right
+						deathSprite.move(3 * (1 + i % 3) * time * 5, -1 * (1 + i % 3) * time * 5);
+
+					window.draw(deathSprite);
+				}
 			}
-
-			window.setView(guiView);
-			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
-
-			if (deathClock.getElapsedTime().asSeconds() > 2) // Reset pos backwards
+			else if (time >= 2 && lives > 0) // Reset pos backwards
 			{
 				player->kill();
 				gameState = 1;
@@ -242,20 +249,28 @@ void Game::run() // if random erros later check that stack isnt full
 				// Not perfect but works (moved from player::kill() during death update)
 				player->setPos(sf::Vector3f(0, 69, player->getPos().z));
 
-				// You lose a life, or game over if out of lives
-				if (lives > 0)
-					lives -= 1;
-				else
-					gameOver();
+				// You lose a life, this is not game over
+				lives -= 1;
 
 				// Prepare for respawn
 				fuel = 128;
 				pBackground->resetPos(mainView, *player, 0);
-				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls);
-				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, (int)player->getPos().z);
+				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
+				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
 			}
+			else if (time < 5) // Show game over text
+			{
+				gui.renderEnd(window, 0);
+			}
+			else // Now actually game over
+			{
+				gameOver();
+			}
+
+			window.setView(guiView);
+			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
 		}
 
 		// Display everything we just drew to the screen
@@ -470,6 +485,9 @@ void Game::doCollision(Player* player)
 			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
+
+		//Player Bullets Hitting Boss
+		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 && abs(bullet->getPos().x - boss->getPos().x) <= 10)
 
 		bulletNum++;
 	}

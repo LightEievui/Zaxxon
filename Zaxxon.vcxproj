@@ -37,6 +37,7 @@
     <ClCompile Include="src\Zaxxon.cpp" />
     <ClCompile Include="src\GUI\ZaxxonText\ZaxxonText.cpp" />
     <ClCompile Include="src\Wall\Wall.cpp" />
+    <ClCompile Include="src\ZapWalls\ZapWalls.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entity\AbstractBullet\BossBullet\BossBullet.h" />
@@ -56,6 +57,7 @@
     <ClInclude Include="src\Util\Util.h" />
     <ClInclude Include="src\GUI\ZaxxonText\ZaxxonText.h" />
     <ClInclude Include="src\Wall\Wall.h" />
+    <ClInclude Include="src\ZapWalls\ZapWalls.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\cannonGrey.png" />
