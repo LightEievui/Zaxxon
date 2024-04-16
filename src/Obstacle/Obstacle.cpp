@@ -107,6 +107,9 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 }
 
 
+/// <summary>
+/// Clean up memory related to the obstacle class
+/// </summary>
 Obstacle::~Obstacle()
 {
 	
