@@ -18,8 +18,7 @@ BossBullet::BossBullet(sf::Vector3f startPos, Player* target, sf::Texture* sprit
 
 BossBullet::~BossBullet()
 {
-	delete target;
-	delete spriteSheet;
+
 }
 
 
