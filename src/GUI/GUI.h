@@ -12,9 +12,11 @@ class GUI
 {
 public:
 	GUI(sf::Texture*);
+	~GUI();
 	void render(sf::RenderWindow&, float, int, int, byte, byte);
 	void startRender(sf::RenderWindow&, int);
 	void renderScores(sf::RenderWindow&, int[], std::string[]);
+	void renderEnd(sf::RenderWindow&, byte);
 
 private:
 	sf::Texture* spritesheet;
@@ -42,4 +44,6 @@ private:
 	sf::Sprite highScores[42];
 	sf::Sprite highScoresText[10];
 	sf::Sprite highScoresNames[18];
+
+	sf::Sprite gameOver[8];
 };

@@ -7,8 +7,10 @@
 class BossBullet : public AbstractBullet
 {
 public:
-	BossBullet(sf::Vector3f, Player*);
+	BossBullet(sf::Vector3f, Player*, sf::Texture*);
 	~BossBullet();
+
+	void update(sf::RenderWindow&);
 
 private:
 	sf::Texture* spriteSheet;
