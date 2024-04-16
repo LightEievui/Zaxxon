@@ -25,7 +25,7 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	if (!boss.loadFromFile("res/BackgroundBoss.png"))
 		std::cout << "Background file could not load\n";
 
-	back.setTexture(initial);
+	back.setTexture(boss);
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
 	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls);
@@ -159,7 +159,7 @@ bool Background::backgroundFinished(sf::View& view)
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
 	if (stage == Stage::BOSS || stage == Stage::BOSSFIGHT)
-		return wXPos >= 1300;
+		return wXPos >= 2050;
 	else if (stage == Stage::SPACE)
 		return wXPos >= 1150;
 	else
