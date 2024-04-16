@@ -35,5 +35,5 @@ private:
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count = 0, total = 100, random, type, scoreIndicator = 0;
-	bool turret = false, onScreen = false, moved = false;
+	bool turret = false, onScreen = false, moved = false, launched = false;
 };

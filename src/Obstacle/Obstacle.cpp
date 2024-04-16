@@ -148,7 +148,7 @@ void Obstacle::update(sf::RenderWindow& window)
 
 	onScreen = true;
 
-	//Shooting mechanics
+	//Shooting mechanics for bassic turrets
 	if (turret == true && direction != 2)
 	{
 		if (count % total == 0 && direction == 0 && animations.getState() == 0)
@@ -179,10 +179,13 @@ void Obstacle::update(sf::RenderWindow& window)
 			total = (rand() % 250) + 75;
 		}
 	}
+	//Upward shooting missile main control
 	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 3))
 	{
-		if (count >= total)
+		if (count >= total-1 || launched == true)
 		{
+			launched = true;
+
 			if (animations.getState() == 3)
 				animations.run(sprite, Animation::RESET);
 
@@ -196,7 +199,7 @@ void Obstacle::update(sf::RenderWindow& window)
 				kill(Animation::ALT_DEATH);
 			}
 		}
-		else if (count < total && animations.getState() != 3)
+		else if (count < total-1 && animations.getState() != 3)
 		{
 			animations.run(sprite, Animation::LAUNCH);
 		}
