@@ -15,9 +15,7 @@ Character::Character(sf::Texture* spriteSheet) : Entity()
 Character::~Character()
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
-	{
-		delete bullets.at(i);
-	}
+		delete bullets[i];
 }
 
 

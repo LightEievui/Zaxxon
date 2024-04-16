@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 0;
+const unsigned int startPos = 500;
 const Background::Stage startStage = Background::INITIAL;
 
 
@@ -16,7 +16,6 @@ Game::Game()
 	// Loading our sprites
 	spriteSheet.loadFromFile("./res/spritesheet.png");
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
-
 
 	float scale = (sf::VideoMode::getDesktopMode().height-72) / 256.f;
 	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2-(224.f*scale)/2.f, 0));
@@ -370,8 +369,8 @@ void Game::doCollision(Player* player)
 		{
 			//TO DO Fix it so it accounts for the position being top left
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x - 10 - planePos.x),
-				abs(walls.at(i)->getWallPositions().at(j).y - 5 - planePos.y),
+			(abs(walls.at(i)->getWallPositions().at(j).x  - planePos.x),
+				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
 			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
@@ -456,8 +455,8 @@ void Game::doCollision(Player* player)
 			for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
 			{
 				difference = sf::Vector3f
-				(abs(walls.at(i)->getWallPositions().at(j).x - 10 - bullet->getPos().x),
-					abs(walls.at(i)->getWallPositions().at(j).y - 5 - bullet->getPos().y),
+				(abs(walls.at(i)->getWallPositions().at(j).x - bullet->getPos().x),
+					abs(walls.at(i)->getWallPositions().at(j).y + 15 - bullet->getPos().y),
 					abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().z));
 
 				if (difference.x < 20 && difference.y < 20 && difference.z < 10)

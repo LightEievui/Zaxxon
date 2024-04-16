@@ -209,11 +209,15 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 	//on the screen
 	mainView.setCenter(sf::Vector2f(112, 100));
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
+
+	int adder = stage == SPACE ? 350 : 0;
+	sf::Vector2f moveVector = sf::Vector2f(.8f * (startPos + adder), -.4f * (startPos + adder));
+	mainView.move(moveVector);
+
 	switch (stage)
 	{
 	case SPACE:
 		back.setPosition(sf::Vector2f(0, 224));
-		mainView.move((int)(.8f * 350), (int)(-.4f * 350));
 		player.resetPos(startPos + 350);
 		break;
 	case BOSS:
@@ -276,7 +280,9 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
 
 		//Shooting Up Missiles
-		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 100, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-79.f, 139.f, -335.f), spriteSheet, 130, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-25.f, 139.f, -534.298f), spriteSheet, 300, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-176.f, 139.6f, -550.697f), spriteSheet, 330, 2));
 
 		//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -340.f), spriteSheet, 2));

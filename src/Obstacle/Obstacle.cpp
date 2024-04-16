@@ -6,9 +6,9 @@
 /// </summary>
 /// <param name="pos"></param>
 /// <param name="tex"></param>
-/// <param name=""></param>
+/// <param name="delay">(type 5 only)Delay in frames before a rocket begins shooting.</param>
 /// <param name="dir"></param>
-Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : Entity()
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, unsigned int delay, int dir) : Entity()
 {
 	random = (rand() % 1000) + 200;
 	this->scoreIndicator = rand() % 3 + 1;
@@ -49,7 +49,12 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, float delay, int dir) : E
 		sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
-		total = (int)delay;
+		rocketDelay = delay;
+
+		rocketExplosionSprite.setTexture(*spriteSheet);
+		rocketExplosionSprite.setTextureRect(sf::IntRect(119, 71, 38, 27));
+		rocketExplosionSprite.setPosition(translateTo2d(pos));
+		rocketExplosionSprite.setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
 	}
 	//Right Green Turrents
 	else if (dir == 3)
@@ -147,6 +152,7 @@ void Obstacle::update(sf::RenderWindow& window)
 	}
 
 	onScreen = true;
+	float rocketDelayInMs = (1000.f / 60.f) * (float)rocketDelay;
 
 	//Shooting mechanics
 	if (turret == true && direction != 2)
@@ -179,9 +185,9 @@ void Obstacle::update(sf::RenderWindow& window)
 			total = (rand() % 250) + 75;
 		}
 	}
-	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 3))
+	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 3)) // Rocket shooting up
 	{
-		if (count >= total)
+		if (aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs + 750)
 		{
 			if (animations.getState() == 3)
 				animations.run(sprite, Animation::RESET);
@@ -192,14 +198,12 @@ void Obstacle::update(sf::RenderWindow& window)
 				sprite->setPosition(translateTo2d(getPos()));
 			}
 			else if (animations.getState() == 0)
-			{
 				kill(Animation::ALT_DEATH);
-			}
 		}
-		else if (count < total && animations.getState() != 3)
-		{
-			animations.run(sprite, Animation::LAUNCH);
-		}
+		else if (aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs &&
+			rocketAnimation.getState() != 3
+		)
+			rocketAnimation.run(&rocketExplosionSprite, Animation::LAUNCH);
 	}
 
 	//Gives bullets their direction
@@ -226,8 +230,14 @@ void Obstacle::update(sf::RenderWindow& window)
 		sprite->setPosition(translateTo2d(getPos()));
 	}
 
-    if (type != 7 || getPosition().x < 15)
+    if (type != 5 && (type != 7 || getPosition().x < 15))
         window.draw(*sprite);
+	if (type == 5 && aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs)
+	{
+		if(aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs + 750)
+			window.draw(*sprite);
+		window.draw(rocketExplosionSprite);
+	}
 
     count = (count + 1) % total;
 
