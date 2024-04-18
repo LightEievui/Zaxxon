@@ -14,6 +14,7 @@ public:
 		LAUNCH,
 		BULLET_DEATH,
 		WALLBULLET_DEATH,
+		ROCKET_FLICKER,
 		RESET
 	};
 
@@ -30,10 +31,11 @@ private:
 	void fLAUNCH(sf::Sprite* sprite);
 	void fBULLET_DEATH(sf::Sprite* sprite);
 	void fWALLBULLET_DEATH(sf::Sprite* sprite);
+	void fROCKET_FLICKER(sf::Sprite* sprite);
 	void fRESET(sf::Sprite* sprite);
 
 	sf::Clock timer;
-	sf::IntRect frames[22], revert;
+	sf::IntRect frames[26], revert;
 	int state = 0;
 	unsigned int spriteSizeIndex = 0;
 	bool kill = false;

@@ -1,7 +1,7 @@
 #include "Game.h"
 
-const unsigned int startPos = 0;
-const Background::Stage startStage = Background::BOSS;
+const unsigned int startPos = 600;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -163,7 +163,7 @@ void Game::run() // if random erros later check that stack isnt full
 
 			// Update objects
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				obstacles.at(i)->update(window);
+				obstacles.at(i)->update(window, player->getPos().z);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
