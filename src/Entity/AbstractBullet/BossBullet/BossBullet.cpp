@@ -1,7 +1,7 @@
 #include "BossBullet.h"
 
 
-BossBullet::BossBullet(sf::Vector3f startPos, Player* target, sf::Texture* spriteSheet)
+BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* spriteSheet)
 {
 	this->target = target;
 
@@ -12,14 +12,34 @@ BossBullet::BossBullet(sf::Vector3f startPos, Player* target, sf::Texture* sprit
 	sprite->setPosition(translateTo2d(startPos));
 
 	setPos(startPos);
+	
+	movementInt.restart();
 }
 
+
+BossBullet::~BossBullet()
+{}
 
 
 void BossBullet::update(sf::RenderWindow& window)
 {
-	setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 4));
-	sprite->setPosition(translateTo2d(getPos()));
+	if (movementInt.getElapsedTime().asMilliseconds() >= 100)
+	{
+		movementInt.restart();
+
+		if ((target->getPos().x - 50) - getPos().x > 1)
+			setPos(sf::Vector3f(getPos().x + 2, getPos().y, getPos().z));
+		if ((target->getPos().x - 50) - getPos().x < 1)
+			setPos(sf::Vector3f(getPos().x - 2, getPos().y, getPos().z));
+
+		if (target->getPos().y - getPos().y > 1)
+			setPos(sf::Vector3f(getPos().x, getPos().y + 2, getPos().z));
+		if (target->getPos().y - getPos().y < 1)
+			setPos(sf::Vector3f(getPos().x, getPos().y - 2, getPos().z));
+
+		setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 7));
+		sprite->setPosition(translateTo2d(getPos()));
+	}
 
 	window.draw(*sprite);
 }
