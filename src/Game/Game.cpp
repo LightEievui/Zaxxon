@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 0;
+const unsigned int startPos = 2500;
 const Background::Stage startStage = Background::BOSS;
 
 
@@ -18,10 +18,10 @@ Game::Game()
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
 
 	// Auto scaling, must be rounded to the nearest quarter to avoid visual bug
-	float scale = (sf::VideoMode::getDesktopMode().height-100) / 256.f;
+	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
 	scale = round(scale * 4) / 4.f;
 
-	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2-(224.f*scale)/2.f, 0));
+	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - (224.f * scale) / 2.f, 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -56,7 +56,7 @@ Game::Game()
 		for (byte i = 0; i < 6; i++)
 		{
 			file >> currentScores[i];
-			
+
 			for (byte j = 0; j < 3; j++)
 				file >> currentNames[i][j];
 		}
@@ -167,8 +167,8 @@ void Game::run() // if random erros later check that stack isnt full
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
-				for(byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
-					if(walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
+				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
+					if (walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
 						walls.at(i)->drawWalls(window); // Draw it behind player
 
 			for (Enemy* enemy : enemies)
@@ -384,7 +384,7 @@ void Game::doCollision(Player* player)
 		{
 			//TO DO Fix it so it accounts for the position being top left
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x  - planePos.x),
+			(abs(walls.at(i)->getWallPositions().at(j).x - planePos.x),
 				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
@@ -417,8 +417,8 @@ void Game::doCollision(Player* player)
 		for (CharacterBullet* bullet : enemy->getBullets())
 		{
 			sf::FloatRect bulletBounds = bullet->getBounds();
-			bulletBounds.left += bulletBounds.width / 2.f - bulletSize/2.f;
-			bulletBounds.top += bulletBounds.height / 2.f - bulletSize/2.f;
+			bulletBounds.left += bulletBounds.width / 2.f - bulletSize / 2.f;
+			bulletBounds.top += bulletBounds.height / 2.f - bulletSize / 2.f;
 			bulletBounds.width = bulletSize;
 			bulletBounds.height = bulletSize;
 
@@ -435,8 +435,8 @@ void Game::doCollision(Player* player)
 	for (CharacterBullet* bullet : player->getBullets())
 	{
 		sf::FloatRect bulletBounds = bullet->getBounds();
-		bulletBounds.left += bulletBounds.width / 2.f - bulletSize/2.f;
-		bulletBounds.top += bulletBounds.height / 2.f - bulletSize/2.f;
+		bulletBounds.left += bulletBounds.width / 2.f - bulletSize / 2.f;
+		bulletBounds.top += bulletBounds.height / 2.f - bulletSize / 2.f;
 		bulletBounds.width = bulletSize;
 		bulletBounds.height = bulletSize;
 
@@ -487,9 +487,30 @@ void Game::doCollision(Player* player)
 		}
 
 		//Player Bullets Hitting Boss
-		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 && abs(bullet->getPos().x - boss->getPos().x) <= 10)
+		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
+			abs(bullet->getPos().x - boss->getPos().x) < 25 &&
+			abs(bullet->getPos().y - boss->getPos().y) <= 30)
+		{
+			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
+
+			std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
+
+			if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
+				abs(bullet->getPos().x - boss->getPos().x - 1) <= 10 &&
+				abs(bullet->getPos().y - boss->getPos().y + 11) <= 10)
+				boss->hit();
+		}
 
 		bulletNum++;
+	}
+
+	BossBullet* bossMissile = boss->getMissile();
+
+	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 20 &&
+		abs(bossMissile->getPos().y - planePos.y) <= 20 &&
+		abs((planePos.x - 25) - bossMissile->getPos().x) <= 20)
+	{
+		playerDeath();
 	}
 }
 
@@ -500,7 +521,7 @@ void Game::doCollision(Player* player)
 void Game::playerDeath()
 {
 	player->kill();
-	// deathClock is used for player death animation, so start clock here.
+	// deathClock is used for player death anzimation, so start clock here.
 	deathClock.restart();
 }
 

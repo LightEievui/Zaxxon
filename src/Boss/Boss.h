@@ -12,12 +12,16 @@ public:
 	~Boss();
 
 	void update(sf::RenderWindow&);
+	void hit();
+	BossBullet* getMissile();
+	bool missileCreated();
 private:
 
 	Entity* target;
 	sf::Clock movementInt;
-	int stages = 0;
+	int stages = 0, hitCount = 20;
 
 	sf::Texture spriteSheet;
-	BossBullet* missle = nullptr;
+	BossBullet* missile = nullptr;
+	bool bulletCreated = false;
 };
