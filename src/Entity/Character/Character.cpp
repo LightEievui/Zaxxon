@@ -12,12 +12,13 @@ Character::Character(sf::Texture* spriteSheet) : Entity()
 }
 
 
+/// <summary>
+/// Clean up memory related to the Character class
+/// </summary>
 Character::~Character()
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
-	{
-		delete bullets.at(i);
-	}
+		delete bullets[i];
 }
 
 
@@ -53,6 +54,10 @@ std::vector<CharacterBullet*>& Character::getBullets()
 }
 
 
+/// <summary>
+/// Get public size index of this character
+/// </summary>
+/// <returns></returns>
 unsigned int Character::getSizeIndex()
 {
 	return sizeIndex;
@@ -60,7 +65,9 @@ unsigned int Character::getSizeIndex()
 
 
 /// <summary>
-/// Get the height sector that character is in. Underscore infront indicates that it is not public.
+/// Get the height sector that character is in.
+/// Underscore infront indicates that it is not public.
+/// 0-3 3 indicates smallest, 0 indicates biggest.
 /// </summary>
 /// <param name="planeSizeIndex"></param>
 void Character::_getSizeIndex(unsigned int& planeSizeIndex)

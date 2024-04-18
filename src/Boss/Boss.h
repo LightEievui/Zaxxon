@@ -5,14 +5,13 @@
 #include "Entity/AbstractBullet/BossBullet/BossBullet.h"
 
 
-class Boss : Entity
+class Boss : public Entity
 {
 public:
 	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
 	~Boss();
 
 	void update(sf::RenderWindow&);
-
 private:
 
 	Entity* target;
