@@ -26,6 +26,6 @@ public:
 	int getSection();
 
 private:
-	int section;
-	int type;
+	int section = 0;
+	int type = 0;
 };

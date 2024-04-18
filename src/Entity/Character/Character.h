@@ -42,6 +42,7 @@ protected:
 	sf::Vector3f velocity;
 	std::vector<CharacterBullet*> bullets;
 	unsigned int sizeIndex;
+
 private:
 	sf::IntRect bulletTexture;
 	// SoundBuffer buffer;

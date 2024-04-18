@@ -35,6 +35,7 @@ private:
 	std::vector<Enemy*> enemies;
 	std::vector<Obstacle*> obstacles;
 	std::vector<Wall*> walls;
+	std::vector<ZapWalls*> zapWalls;
 	Boss* boss = nullptr; //file position needs to be moved inside of entity, fsr my home computer struggles to edit file position in visual studio
 
 	byte fuel = 128;

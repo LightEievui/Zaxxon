@@ -174,6 +174,28 @@ GUI::GUI(sf::Texture* spritesheet)
 		highScoresText[i].setColor(sf::Color(222, 222, 0));
 		highScoresText[i].setPosition(sf::Vector2f(start + i * 8, 120));
 	}
+
+	// Game over text
+	ZaxxonText::string(spritesheet, "GAMEOVER", gameOver);
+	for (byte i = 0; i < 8; i++)
+	{
+		byte start = 128;
+
+		if (i >= 4)
+			start += 16;
+
+		gameOver[i].setColor(sf::Color(222, 222, 222));
+		gameOver[i].setPosition(sf::Vector2f(start + i * 8, 80));
+	}
+}
+
+
+/// <summary>
+/// Clear up memory related to the GUI
+/// </summary>
+GUI::~GUI()
+{
+	// hudElements consists of objects entirely on the stack it looks like
 }
 
 
@@ -376,7 +398,7 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 
 		highScores[i].setColor(sf::Color(0, 222, 0));
 
-		int start = 16;
+		int start = 4;
 		if (i % 7)
 			start += 8;
 		if (i >= 21)
@@ -394,6 +416,27 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 		if(names[i / 3][i % 3] != '_')
 			highScoresNames[i] = ZaxxonText::get(spritesheet, names[i / 3][i % 3]);
 
-		// Positioning and such will go here when I have time
+		highScoresNames[i].setColor(sf::Color(0, 222, 0));
+
+		int start = 76;
+		if (i >= 9)
+			start += 120;
+
+		int layer = 140;
+		layer += 12 * (i % 9 / 3);
+		highScoresNames[i].setPosition(sf::Vector2f(start + i % 3 * 8, layer));
 	}
+}
+
+
+/// <summary>
+/// Specific GUI that renders once you've run out of lives.
+/// This includes the game over text and name entry screen.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="state"></param>
+void GUI::renderEnd(sf::RenderWindow& window, byte state)
+{
+	for (byte i = 0; i < 8; i++)
+		window.draw(gameOver[i]);
 }
