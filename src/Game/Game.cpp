@@ -264,6 +264,10 @@ void Game::run() // if random erros later check that stack isnt full
 			{
 				gui.renderEnd(window, 0);
 			}
+			else if (time < 25) // Name entry screen
+			{
+				gui.renderEnd(window, 1);
+			}
 			else // Now actually game over
 			{
 				gameOver();
