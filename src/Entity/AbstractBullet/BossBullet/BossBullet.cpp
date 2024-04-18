@@ -7,7 +7,7 @@
 /// <param name="startPos"></param>
 /// <param name="target"></param>
 /// <param name="spriteSheet"></param>
-BossBullet::BossBullet(sf::Vector3f startPos, Player* target, sf::Texture* spriteSheet)
+BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* spriteSheet)
 {
 	this->target = target;
 	this->spriteSheet = spriteSheet;
