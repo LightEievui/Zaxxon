@@ -2,16 +2,16 @@
 #include "SFML/Graphics.hpp"
 #include "Entity/Entity.h"
 #include "Util/Util.h"
+#include "Entity/AbstractBullet/BossBullet/BossBullet.h"
 
 
-class Boss : Entity
+class Boss : public Entity
 {
 public:
 	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
 	~Boss();
 
 	void update(sf::RenderWindow&);
-
 private:
 
 	Entity* target;
@@ -19,4 +19,5 @@ private:
 	int stages = 0;
 
 	sf::Texture spriteSheet;
+	BossBullet* missle = nullptr;
 };

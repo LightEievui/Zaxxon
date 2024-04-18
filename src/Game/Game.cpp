@@ -1,7 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::INITIAL;
+const Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -71,7 +71,7 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -2600.14f), player, &bossSheet, &spriteSheet);
+	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet, &spriteSheet);
 }
 
 
@@ -384,8 +384,8 @@ void Game::doCollision(Player* player)
 		{
 			//TO DO Fix it so it accounts for the position being top left
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x - 10 - planePos.x),
-				abs(walls.at(i)->getWallPositions().at(j).y - 5 - planePos.y),
+			(abs(walls.at(i)->getWallPositions().at(j).x  - planePos.x),
+				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
 			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
@@ -486,8 +486,8 @@ void Game::doCollision(Player* player)
 			for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
 			{
 				difference = sf::Vector3f
-				(abs(walls.at(i)->getWallPositions().at(j).x - 10 - bullet->getPos().x),
-					abs(walls.at(i)->getWallPositions().at(j).y - 5 - bullet->getPos().y),
+				(abs(walls.at(i)->getWallPositions().at(j).x - bullet->getPos().x),
+					abs(walls.at(i)->getWallPositions().at(j).y + 15 - bullet->getPos().y),
 					abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().z));
 
 				if (difference.x < 20 && difference.y < 20 && difference.z < 10)
@@ -501,6 +501,9 @@ void Game::doCollision(Player* player)
 			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
+
+		//Player Bullets Hitting Boss
+		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 && abs(bullet->getPos().x - boss->getPos().x) <= 10)
 
 		bulletNum++;
 	}
