@@ -46,4 +46,6 @@ private:
 	sf::Sprite highScoresNames[18];
 
 	sf::Sprite gameOver[8];
+	sf::Sprite scoreEntry[14];
+	sf::Sprite initialsText[9];
 };
