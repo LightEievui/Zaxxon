@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 2500;
+const unsigned int startPos = 0;
 const Background::Stage startStage = Background::BOSS;
 
 
@@ -402,6 +402,22 @@ void Game::doCollision(Player* player)
 		}
 	}
 
+	//Zap Walls Collisions
+	for (unsigned int i = 0; i < zapWalls.size(); i++)
+	{
+		// If this zap wall is not visible, we don't need to check its collision
+		if (!zapWalls.at(i)->checkOnScreen())
+			continue;
+
+		difference = sf::Vector3f
+		(abs(zapWalls.at(i)->getStartPosition().x - planePos.x),
+			abs(zapWalls.at(i)->getStartPosition().y - planePos.y),
+			abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
+
+		if (difference.y < 20 && difference.z < 20)
+				playerDeath();
+	}
+
 	// Bounds can be changed here if want to change later.
 	const float hitboxSize = 4, bulletSize = 8;
 	sf::FloatRect modBounds;
@@ -483,6 +499,21 @@ void Game::doCollision(Player* player)
 
 			//TO DO fix it so the x works and the y plus value is more accurate
 			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
+				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
+		}
+
+		//Player Bullets hitting zap walls
+		for (unsigned int i = 0; i < zapWalls.size(); i++)
+		{
+			if (!zapWalls.at(i)->checkOnScreen())
+				continue;
+
+			difference = sf::Vector3f
+			(abs(zapWalls.at(i)->getStartPosition().x - bullet->getPos().x),
+				abs(zapWalls.at(i)->getStartPosition().y - bullet->getPos().y),
+				abs(zapWalls.at(i)->getStartPosition().z - bullet->getPos().z));
+
+			if (difference.y < 20 && difference.z < 20)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
