@@ -316,7 +316,7 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-26.f, 130.f, -2782.f), 2, std::vector<int> {1, 1}));
 
 		//Zap Walls
-		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-30, 125, -1900)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-10, 125, -1940)));
 		break;
 
 	case SPACE:
