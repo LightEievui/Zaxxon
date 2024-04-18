@@ -262,11 +262,61 @@ void Game::run() // if random erros later check that stack isnt full
 			}
 			else if (time < 5) // Show game over text
 			{
-				gui.renderEnd(window, 0);
+				gui.renderEnd(window);
 			}
 			else if (time < 25) // Name entry screen
 			{
-				gui.renderEnd(window, 1);
+				// Controls for the zaxxon keyboard
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && activeCursor[0])
+				{
+					selector -= 10;
+
+					if (selector > 200)
+						selector -= 226;
+
+					activeCursor[0] = false;
+				}
+				else if(!activeCursor[0] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+					activeCursor[0] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && activeCursor[1])
+				{
+					selector += 10;
+
+					if (selector > 29)
+						selector -= 30;
+
+					activeCursor[1] = false;
+				}
+				else if (!activeCursor[1] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+					activeCursor[1] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && activeCursor[2])
+				{
+					selector--;
+
+					if (selector > 200)
+						selector = 29;
+
+					activeCursor[2] = false;
+				}
+				else if (!activeCursor[2] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+					activeCursor[2] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && activeCursor[3])
+				{
+					selector++;
+
+					if (selector > 29)
+						selector = 0;
+
+					activeCursor[3] = false;
+				}
+				else if (!activeCursor[3] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+					activeCursor[3] = true;
+
+				// Now render the keyboard and other name entry things
+				gui.renderEnd(window, (int)time - 5, selector);
 			}
 			else // Now actually game over
 			{

@@ -215,6 +215,35 @@ GUI::GUI(sf::Texture* spritesheet)
 		initialsText[i].setColor(sf::Color(0, 222, 247));
 		initialsText[i].setPosition(start + i * 8, 60);
 	}
+
+	// Entry time
+	ZaxxonText::string(spritesheet, "ENTRYTIME\u000520\u0006", entryTime);
+	for (byte i = 0; i < 13; i++)
+	{
+		byte start = 100;
+		if (i >= 5)
+			start += 8;
+		if (i >= 9)
+			start += 16;
+
+		entryTime[i].setColor(sf::Color(222, 222, 0));
+		entryTime[i].setPosition(start + i * 8, 80);
+	}
+
+	// Name entry keyboard
+	for (byte i = 0; i < 30; i++)
+	{
+		if (i < 26)
+			keyboard[i] = ZaxxonText::get(spritesheet, 'A' + i);
+		else
+			keyboard[i] = ZaxxonText::get(spritesheet, 0 + i - 26);
+
+		keyboard[i].setColor(sf::Color(0, 222, 0));
+		keyboard[i].setPosition(80 + i % 10 * 16, 100 + i / 10 * 16);
+	}
+
+	cursor.setFillColor(sf::Color::Cyan);
+	cursor.setSize(sf::Vector2f(10, 10));
 }
 
 
@@ -463,9 +492,9 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 /// </summary>
 /// <param name="window"></param>
 /// <param name="state"></param>
-void GUI::renderEnd(sf::RenderWindow& window, byte state)
+void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector)
 {
-	if (state == 0)
+	if (timeLeft == 255)
 	{
 		for (byte i = 0; i < 8; i++)
 			window.draw(gameOver[i]);
@@ -478,4 +507,21 @@ void GUI::renderEnd(sf::RenderWindow& window, byte state)
 
 	for (byte i = 0; i < 9; i++)
 		window.draw(initialsText[i]);
+
+	entryTime[10] = ZaxxonText::get(spritesheet, '0' + timeLeft / 10);
+	entryTime[10].setPosition(212, 80);
+	entryTime[10].setColor(sf::Color(222, 222, 0));
+	entryTime[11] = ZaxxonText::get(spritesheet, '0' + timeLeft % 10);
+	entryTime[11].setPosition(220, 80);
+	entryTime[11].setColor(sf::Color(222, 222, 0));
+
+	for (byte i = 0; i < 13; i++)
+		window.draw(entryTime[i]);
+
+	// Draw cursor before keyboard
+	cursor.setPosition(79 + selector % 10 * 16, 99 + selector / 10 * 16);
+	window.draw(cursor);
+
+	for (byte i = 0; i < 30; i++)
+		window.draw(keyboard[i]);
 }
