@@ -46,11 +46,13 @@ void ZapWalls::drawZapWalls(sf::RenderWindow& window)
 	//Movement every two frames
 	if (count == 2)
 	{
-		if (position.x > -200)
+		//If on screen, move it over
+		if (position.x > -190)
 		{
 			sprite.move(translateTo2d(sf::Vector3f(-58, 0, 0)));
 			position = sf::Vector3f(position.x - 58, position.y, position.z);
 		}
+		//else it is off screen, reset it to start position
 		else
 		{
 			sprite.setPosition(translateTo2d(sf::Vector3f(startPosition)));
