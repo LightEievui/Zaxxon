@@ -27,6 +27,9 @@
 #include "Game/Game.h"
 #include <iostream>
 #include <crtdbg.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 // temp
 #ifdef _DEBUG
@@ -39,6 +42,9 @@
 
 int main()
 {
+#if defined _WIN32 && defined NDEBUG
+	FreeConsole();
+#endif
 	// Startup Zaxxon
 	Game* game = new Game();
 	game->run();

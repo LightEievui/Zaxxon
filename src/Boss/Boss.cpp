@@ -15,7 +15,7 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	sprite->setPosition(translateTo2d(start));
 	sprite->setTexture(*bossSheet);
 	sprite->setTextureRect(sf::IntRect(0, 0, 58, 75));
-	sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width/2, sprite->getGlobalBounds().height/2));
+	sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width * (2/3.), sprite->getGlobalBounds().height * (3/4.)));
 
 	this->target = target;
 
@@ -30,6 +30,10 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 /// </summary>
 Boss::~Boss() 
 {
+	if (missle != nullptr)
+	{
+		delete missle;
+	}
 }
 
 
@@ -52,24 +56,24 @@ void Boss::update(sf::RenderWindow& window)
 		if (abs(getPos().z - target->getPos().z) > 200)
 		{
 			if (stages == 0)
-			{
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 3));
-			}
 			else
-			{
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
-			}
 		}
 		else
 		{
 			sprite->setTextureRect(sf::IntRect(58, 0, 58, 75));
 			stages++;
 			setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
+
+			missle = new BossBullet(getPos(), target, &spriteSheet);
 		}
 
 		sprite->setPosition(translateTo2d(getPos()));
 	}
 
+	if (stages == 1)
+		missle->update(window);
 
 	window.draw(*sprite);
 }
