@@ -7,14 +7,14 @@
 class BossBullet : public AbstractBullet
 {
 public:
-	BossBullet(sf::Vector3f, Player*, sf::Texture*);
+	BossBullet(sf::Vector3f, Entity*, sf::Texture*);
 	~BossBullet();
 
 	void update(sf::RenderWindow&);
 
 private:
 	sf::Texture* spriteSheet;
-	Player* target;
-
+	Entity* target;
+	sf::Clock movementInt;
 };
 

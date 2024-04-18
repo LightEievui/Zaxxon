@@ -159,7 +159,7 @@ bool Background::backgroundFinished(sf::View& view)
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
 	if (stage == Stage::BOSS || stage == Stage::BOSSFIGHT)
-		return wXPos >= 1300;
+		return wXPos >= 1900;
 	else if (stage == Stage::SPACE)
 		return wXPos >= 1150;
 	else
