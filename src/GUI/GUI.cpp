@@ -231,7 +231,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	}
 
 	// Name entry keyboard
-	for (byte i = 0; i < 30; i++)
+	for (byte i = 0; i < 28; i++)
 	{
 		if (i < 26)
 			keyboard[i] = ZaxxonText::get(spritesheet, 'A' + i);
@@ -239,11 +239,18 @@ GUI::GUI(sf::Texture* spritesheet)
 			keyboard[i] = ZaxxonText::get(spritesheet, 0 + i - 26);
 
 		keyboard[i].setColor(sf::Color(0, 222, 0));
-		keyboard[i].setPosition(80 + i % 10 * 16, 100 + i / 10 * 16);
+		keyboard[i].setPosition(100 + i % 10 * 16, 100 + i / 10 * 16);
 	}
 
-	cursor.setFillColor(sf::Color::Cyan);
-	cursor.setSize(sf::Vector2f(10, 10));
+	// Keyboard RUB & END
+	keyboard[28].setTexture(*spritesheet);
+	keyboard[28].setTextureRect(sf::IntRect(200, 248, 29, 8));
+	keyboard[28].setColor(sf::Color(0, 222, 0));
+	keyboard[28].setPosition(keyboard[27].getPosition().x + 13, keyboard[27].getPosition().y);
+
+	// Cursor selector for the keyboard
+	cursor.setTexture(*spritesheet);
+	cursor.setTextureRect(sf::IntRect(316, 264, 16, 16));
 }
 
 
@@ -252,7 +259,6 @@ GUI::GUI(sf::Texture* spritesheet)
 /// </summary>
 GUI::~GUI()
 {
-	// hudElements consists of objects entirely on the stack it looks like
 }
 
 
@@ -509,17 +515,17 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector)
 		window.draw(initialsText[i]);
 
 	entryTime[10] = ZaxxonText::get(spritesheet, '0' + timeLeft / 10);
-	entryTime[10].setPosition(212, 80);
+	entryTime[10].setPosition(204, 80);
 	entryTime[10].setColor(sf::Color(222, 222, 0));
 	entryTime[11] = ZaxxonText::get(spritesheet, '0' + timeLeft % 10);
-	entryTime[11].setPosition(220, 80);
+	entryTime[11].setPosition(212, 80);
 	entryTime[11].setColor(sf::Color(222, 222, 0));
 
 	for (byte i = 0; i < 13; i++)
 		window.draw(entryTime[i]);
 
 	// Draw cursor before keyboard
-	cursor.setPosition(79 + selector % 10 * 16, 99 + selector / 10 * 16);
+	cursor.setPosition(96 + selector % 10 * 16, 96 + selector / 10 * 16);
 	window.draw(cursor);
 
 	for (byte i = 0; i < 30; i++)

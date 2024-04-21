@@ -50,5 +50,5 @@ private:
 	sf::Sprite initialsText[9];
 	sf::Sprite entryTime[13];
 	sf::Sprite keyboard[30];
-	sf::RectangleShape cursor;
+	sf::Sprite cursor;
 };

@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 600;
+const unsigned int startPos = 0;
 const Background::Stage startStage = Background::INITIAL;
 
 
@@ -315,8 +315,15 @@ void Game::run() // if random erros later check that stack isnt full
 				else if (!activeCursor[3] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 					activeCursor[3] = true;
 
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && activeCursor[4])
+				{
+					activeCursor[4] = false;
+				}
+				else if (!activeCursor[4] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+					activeCursor[4] = true;
+
 				// Now render the keyboard and other name entry things
-				gui.renderEnd(window, (int)time - 5, selector);
+				gui.renderEnd(window, 26 - time, selector);
 			}
 			else // Now actually game over
 			{
