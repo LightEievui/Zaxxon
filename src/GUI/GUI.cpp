@@ -498,7 +498,7 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 /// </summary>
 /// <param name="window"></param>
 /// <param name="state"></param>
-void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector)
+void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, const char name[3])
 {
 	if (timeLeft == 255)
 	{
@@ -511,7 +511,14 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector)
 	for (byte i = 0; i < 14; i++)
 		window.draw(scoreEntry[i]);
 
-	for (byte i = 0; i < 9; i++)
+	for (byte i = 9; i < 12; i++)
+	{
+		initialsText[i] = ZaxxonText::get(spritesheet, name[i - 9]);
+		initialsText[i].setColor(sf::Color(0, 222, 247));
+		initialsText[i].setPosition(sf::Vector2f(188 + i * 16, 60));
+	}
+
+	for (byte i = 0; i < 12; i++)
 		window.draw(initialsText[i]);
 
 	entryTime[10] = ZaxxonText::get(spritesheet, '0' + timeLeft / 10);

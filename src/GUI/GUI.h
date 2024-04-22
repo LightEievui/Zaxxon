@@ -16,7 +16,7 @@ public:
 	void render(sf::RenderWindow&, float, int, int, byte, byte);
 	void startRender(sf::RenderWindow&, int);
 	void renderScores(sf::RenderWindow&, int[], std::string[]);
-	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0);
+	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0, const char[3] = "   ");
 
 private:
 	sf::Texture* spritesheet;
@@ -47,7 +47,7 @@ private:
 
 	sf::Sprite gameOver[8];
 	sf::Sprite scoreEntry[14];
-	sf::Sprite initialsText[9];
+	sf::Sprite initialsText[12];
 	sf::Sprite entryTime[13];
 	sf::Sprite keyboard[30];
 	sf::Sprite cursor;
