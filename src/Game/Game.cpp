@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 600;
+const unsigned int startPos = 0;
 const Background::Stage startStage = Background::INITIAL;
 
 
@@ -262,7 +262,82 @@ void Game::run() // if random erros later check that stack isnt full
 			}
 			else if (time < 5) // Show game over text
 			{
-				gui.renderEnd(window, 0);
+				gui.renderEnd(window);
+			}
+			else if (time < 25) // Name entry screen
+			{
+				// Controls for the zaxxon keyboard
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && activeCursor[0])
+				{
+					selector -= 10;
+
+					if (selector > 200)
+						selector -= 226;
+
+					activeCursor[0] = false;
+				}
+				else if(!activeCursor[0] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+					activeCursor[0] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && activeCursor[1])
+				{
+					selector += 10;
+
+					if (selector > 29)
+						selector -= 30;
+
+					activeCursor[1] = false;
+				}
+				else if (!activeCursor[1] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+					activeCursor[1] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && activeCursor[2])
+				{
+					selector--;
+
+					if (selector > 200)
+						selector = 29;
+
+					activeCursor[2] = false;
+				}
+				else if (!activeCursor[2] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+					activeCursor[2] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && activeCursor[3])
+				{
+					selector++;
+
+					if (selector > 29)
+						selector = 0;
+
+					activeCursor[3] = false;
+				}
+				else if (!activeCursor[3] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+					activeCursor[3] = true;
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && activeCursor[4])
+				{
+					activeCursor[4] = false;
+
+					// TODO: Temporary
+					for (byte i = 0; i < 3; i++)
+					{
+						if (selector == 29)
+							gameOver();
+
+						if (name[i] == ' ')
+						{
+							name[i] = 'A' + selector;
+
+							i = 2;
+						}
+					}
+				}
+				else if (!activeCursor[4] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+					activeCursor[4] = true;
+
+				// Now render the keyboard and other name entry things
+				gui.renderEnd(window, 26 - time, selector, name);
 			}
 			else // Now actually game over
 			{
@@ -563,7 +638,7 @@ void Game::playerDeath()
 void Game::gameOver()
 {
 	gameState = 0;
-	lives = 2;
+	lives = 3;
 	pBackground->setStage(Background::INITIAL);
 
 	// Replace bottom score?
