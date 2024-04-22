@@ -47,6 +47,9 @@ private:
 	byte gameState = 0;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
+	char name[3] = { ' ', ' ', ' ' };
+	bool activeCursor[5] = { true, true, true, true, true };
+	byte selector = 0;
 	std::fstream file;
 	unsigned int fps = 0;
 	double deltaTime = 0;
