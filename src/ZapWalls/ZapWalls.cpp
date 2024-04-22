@@ -64,7 +64,7 @@ void ZapWalls::drawZapWalls(sf::RenderWindow& window)
 		count++;
 }
 
-
+//Returns if the zap wall is on screen or not
 bool ZapWalls::checkOnScreen()
 {
 	return onScreen;
