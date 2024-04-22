@@ -15,13 +15,15 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	sprite->setPosition(translateTo2d(start));
 	sprite->setTexture(*bossSheet);
 	sprite->setTextureRect(sf::IntRect(0, 0, 58, 75));
-	sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width * (2/3.), sprite->getGlobalBounds().height * (3/4.)));
+	sprite->setOrigin(sf::Vector2f(0, sprite->getGlobalBounds().height * (3/4.)));
 
 	this->target = target;
 
 	this->spriteSheet = *spriteSheet;
 	
 	movementInt.restart();
+
+	srand(time(NULL));
 }
 
 
@@ -30,9 +32,9 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 /// </summary>
 Boss::~Boss() 
 {
-	if (missle != nullptr)
+	if (missile != nullptr)
 	{
-		delete missle;
+		delete missile;
 	}
 }
 
@@ -47,10 +49,10 @@ void Boss::update(sf::RenderWindow& window)
 	{
 		movementInt.restart();
 
-		if (target->getPos().x - getPos().x > 1)
+		if (target->getPos().x - getPos().x > 3)
 			setPos(sf::Vector3f(getPos().x+3, getPos().y, getPos().z));
 
-		if (target->getPos().x - getPos().x < 1)
+		if (target->getPos().x - getPos().x < 3)
 			setPos(sf::Vector3f(getPos().x - 3, getPos().y, getPos().z));
 
 		if (abs(getPos().z - target->getPos().z) > 200)
@@ -66,14 +68,48 @@ void Boss::update(sf::RenderWindow& window)
 			stages++;
 			setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
 
-			missle = new BossBullet(getPos(), target, &spriteSheet);
+			bulletCreated = true;
+			missile = new BossBullet(getPos(), target, &spriteSheet);
 		}
-
-		sprite->setPosition(translateTo2d(getPos()));
 	}
 
+	if (movementInt.getElapsedTime().asMilliseconds()%25)
+	{
+		if (hitCount < 4)
+		{
+			hitCount++;
+			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.) - 1, getPos().y + ((rand() % 100) / 50.) - 1, getPos().z));
+		}
+		else if (hitCount == 4)
+		{
+			hitCount++;
+			sprite->setColor(sf::Color(255, 255, 255));
+		}
+	}
+
+	sprite->setPosition(translateTo2d(getPos()));
+
 	if (stages == 1)
-		missle->update(window);
+		missile->update(window);
 
 	window.draw(*sprite);
+}
+
+
+void Boss::hit()
+{
+	hitCount = 0;
+	sprite->setColor(sf::Color(225, 100, 100));
+}
+
+
+BossBullet* Boss::getMissile()
+{
+	return missile;
+}
+
+
+bool Boss::missileCreated()
+{
+	return bulletCreated;
 }

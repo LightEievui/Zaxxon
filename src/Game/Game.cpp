@@ -18,10 +18,10 @@ Game::Game()
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
 
 	// Auto scaling, must be rounded to the nearest quarter to avoid visual bug
-	float scale = (sf::VideoMode::getDesktopMode().height-100) / 256.f;
+	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
 	scale = round(scale * 4) / 4.f;
 
-	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width/2-(224.f*scale)/2.f, 0));
+	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - (224.f * scale) / 2.f, 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -56,7 +56,7 @@ Game::Game()
 		for (byte i = 0; i < 6; i++)
 		{
 			file >> currentScores[i];
-			
+
 			for (byte j = 0; j < 3; j++)
 				file >> currentNames[i][j];
 		}
@@ -163,12 +163,12 @@ void Game::run() // if random erros later check that stack isnt full
 
 			// Update objects
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				obstacles.at(i)->update(window);
+				obstacles.at(i)->update(window, player->getPos().z);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
-				for(byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
-					if(walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
+				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
+					if (walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
 						walls.at(i)->drawWalls(window); // Draw it behind player
 
 			for (Enemy* enemy : enemies)
@@ -197,7 +197,7 @@ void Game::run() // if random erros later check that stack isnt full
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+			if (zPressed())
 				gameState = 1, score = 0;
 		}
 		else
@@ -262,7 +262,89 @@ void Game::run() // if random erros later check that stack isnt full
 			}
 			else if (time < 5) // Show game over text
 			{
-				gui.renderEnd(window, 0);
+				window.setView(guiView);
+				gui.renderEnd(window);
+			}
+			else if (time < 25 && currentScores[5] < score) // Name entry
+			{
+				// Controls for the zaxxon keyboard
+				if (upPressed() && activeCursor[0])
+				{
+					selector -= 10;
+
+					if (selector > 200)
+						selector -= 226;
+
+					activeCursor[0] = false;
+				}
+				else if (!activeCursor[0] && !upPressed())
+					activeCursor[0] = true;
+
+				if (downPressed() && activeCursor[1])
+				{
+					selector += 10;
+
+					if (selector > 29)
+						selector -= 30;
+
+					activeCursor[1] = false;
+				}
+				else if (!activeCursor[1] && !downPressed())
+					activeCursor[1] = true;
+
+				if (leftPressed() && activeCursor[2])
+				{
+					selector--;
+
+					if (selector > 200)
+						selector = 29;
+
+					activeCursor[2] = false;
+				}
+				else if (!activeCursor[2] && !leftPressed())
+					activeCursor[2] = true;
+
+				if (rightPressed() && activeCursor[3])
+				{
+					selector++;
+
+					if (selector > 29)
+						selector = 0;
+
+					activeCursor[3] = false;
+				}
+				else if (!activeCursor[3] && !rightPressed())
+					activeCursor[3] = true;
+
+				if (zPressed())
+				{
+					if (selector == 29) // END
+						gameOver();
+					else if (selector == 28) // RUB
+					{
+						for (byte i = 0; i < 3; i++)
+							if (name[2 - i] != '_')
+								name[2 - i] = '_', i = 3;
+					}
+					else // OTHERS
+						for (byte i = 0; i < 3; i++)
+						{
+							if (name[i] == '_')
+							{
+								if (selector == 27)
+									name[i] = ' ';
+								else if (selector == 26)
+									name[i] = 0;
+								else
+									name[i] = 'A' + selector;
+								i = 3;
+							}
+						}
+				}
+
+				// Now render the keyboard and other name entry things
+				window.setView(guiView);
+				gui.renderEnd(window, 26 - time, selector, name);
 			}
 			else // Now actually game over
 			{
@@ -434,8 +516,8 @@ void Game::doCollision(Player* player)
 		for (CharacterBullet* bullet : enemy->getBullets())
 		{
 			sf::FloatRect bulletBounds = bullet->getBounds();
-			bulletBounds.left += bulletBounds.width / 2.f - bulletSize/2.f;
-			bulletBounds.top += bulletBounds.height / 2.f - bulletSize/2.f;
+			bulletBounds.left += bulletBounds.width / 2.f - bulletSize / 2.f;
+			bulletBounds.top += bulletBounds.height / 2.f - bulletSize / 2.f;
 			bulletBounds.width = bulletSize;
 			bulletBounds.height = bulletSize;
 
@@ -452,8 +534,8 @@ void Game::doCollision(Player* player)
 	for (CharacterBullet* bullet : player->getBullets())
 	{
 		sf::FloatRect bulletBounds = bullet->getBounds();
-		bulletBounds.left += bulletBounds.width / 2.f - bulletSize/2.f;
-		bulletBounds.top += bulletBounds.height / 2.f - bulletSize/2.f;
+		bulletBounds.left += bulletBounds.width / 2.f - bulletSize / 2.f;
+		bulletBounds.top += bulletBounds.height / 2.f - bulletSize / 2.f;
 		bulletBounds.width = bulletSize;
 		bulletBounds.height = bulletSize;
 
@@ -519,9 +601,30 @@ void Game::doCollision(Player* player)
 		}
 
 		//Player Bullets Hitting Boss
-		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 && abs(bullet->getPos().x - boss->getPos().x) <= 10)
+		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
+			abs(bullet->getPos().x - boss->getPos().x) < 25 &&
+			abs(bullet->getPos().y - boss->getPos().y) <= 30)
+		{
+			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
+
+			std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
+
+			if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
+				abs(bullet->getPos().x - boss->getPos().x - 1) <= 10 &&
+				abs(bullet->getPos().y - boss->getPos().y + 11) <= 10)
+				boss->hit();
+		}
 
 		bulletNum++;
+	}
+
+	BossBullet* bossMissile = boss->getMissile();
+
+	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 20 &&
+		abs(bossMissile->getPos().y - planePos.y) <= 20 &&
+		abs((planePos.x - 25) - bossMissile->getPos().x) <= 20)
+	{
+		playerDeath();
 	}
 }
 
@@ -532,7 +635,7 @@ void Game::doCollision(Player* player)
 void Game::playerDeath()
 {
 	player->kill();
-	// deathClock is used for player death animation, so start clock here.
+	// deathClock is used for player death anzimation, so start clock here.
 	deathClock.restart();
 }
 
@@ -543,22 +646,30 @@ void Game::playerDeath()
 void Game::gameOver()
 {
 	gameState = 0;
-	lives = 2;
+	lives = 3;
+	selector = 0;
 	pBackground->setStage(Background::INITIAL);
 
 	// Replace bottom score?
 	if (currentScores[5] < score)
 	{
+		// When replacing and sorting, we need to keep the score and
+		// initials for that score together for the leaderboard.
 		currentScores[5] = score;
+		currentNames[5] = name;
 
 		// Now sort it
 		for (int i = 0; i < 5; i++)
 		{
 			if (currentScores[5 - i] > currentScores[4 - i])
 			{
-				int temp = currentScores[5 - i];
+				const int tempScore = currentScores[5 - i];
 				currentScores[5 - i] = currentScores[4 - i];
-				currentScores[4 - i] = temp;
+				currentScores[4 - i] = tempScore;
+
+				const std::string tempName = currentNames[5 - i];
+				currentNames[5 - i] = currentNames[4 - i];
+				currentNames[4 - i] = tempName;
 			}
 		}
 	}
@@ -574,4 +685,7 @@ void Game::gameOver()
 		file << ' ';
 	}
 	file.close();
+
+	// Refresh leaderboard
+	gui.renderScores(window, currentScores, currentNames);
 }

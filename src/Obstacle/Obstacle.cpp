@@ -8,7 +8,7 @@
 /// <param name="tex"></param>
 /// <param name="delay">(type 5 only)Delay in frames before a rocket begins shooting.</param>
 /// <param name="dir"></param>
-Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, unsigned int delay, int dir) : Entity()
+Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Entity()
 {
 	random = (rand() % 1000) + 200;
 	this->scoreIndicator = rand() % 3 + 1;
@@ -38,8 +38,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, unsigned int delay, int d
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
 	}
-	//Shooting Up 
-	else if (dir == 2)
+	//Shooting Up | Red Shooting Up
+	else if (dir == 2 || dir == 4)
 	{
 		spriteSheet = tex;
 
@@ -49,7 +49,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, unsigned int delay, int d
 		sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
-		rocketDelay = delay;
+		rocketZ = delay;
 
 		rocketExplosionSprite.setTexture(*spriteSheet);
 		rocketExplosionSprite.setTextureRect(sf::IntRect(119, 71, 38, 27));
@@ -65,6 +65,13 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, unsigned int delay, int d
 
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
+	}
+	
+	if (dir == 4)
+	{
+		sprite->setColor(sf::Color(255, 0, 0/222));
+		this->direction = 2;
+		this->type = 5;
 	}
 }
 
@@ -145,7 +152,7 @@ std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 /// Run the logic for this obstacle.
 /// </summary>
 /// <param name="window"></param>
-void Obstacle::update(sf::RenderWindow& window)
+void Obstacle::update(sf::RenderWindow& window, int playerZ)
 {
 	//Checks if obstacle is on screen
 	if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds()) || animations.getState() == 1)
@@ -155,7 +162,7 @@ void Obstacle::update(sf::RenderWindow& window)
 	}
 
 	onScreen = true;
-	float rocketDelayInMs = (1000.f / 60.f) * (float)rocketDelay;
+	bool rocketExplosion = playerZ <= -rocketZ, rocketFiring = playerZ <= -rocketZ - 50;
 
 	//Shooting mechanics for bassic turrets
 	if (turret == true && direction != 2)
@@ -188,9 +195,9 @@ void Obstacle::update(sf::RenderWindow& window)
 			total = (rand() % 250) + 75;
 		}
 	}
-	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 3)) // Rocket shooting up
+	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 6 || animations.getState() == 7)) // Rocket shooting up
 	{
-		if (aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs + 750)
+		if (rocketFiring)
 		{
 			if (animations.getState() == 3)
 				animations.run(sprite, Animation::RESET);
@@ -199,12 +206,14 @@ void Obstacle::update(sf::RenderWindow& window)
 			{
 				setPos(sf::Vector3f(getPos().x, getPos().y - .5f, getPos().z));
 				sprite->setPosition(translateTo2d(getPos()));
+				if (animations.getState() == 0 || animations.getState() == 7)
+					animations.run(sprite, Animation::ROCKET_FLICKER);
 			}
-			else if (animations.getState() == 0)
+			else if (animations.getState() == 7)
 				kill(Animation::ALT_DEATH);
 		}
-		else if (aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs &&
-			rocketAnimation.getState() != 3
+		else if (rocketExplosion &&
+			rocketAnimation.getState() < 3
 		)
 			rocketAnimation.run(&rocketExplosionSprite, Animation::LAUNCH);
 	}
@@ -235,11 +244,12 @@ void Obstacle::update(sf::RenderWindow& window)
 
     if (type != 5 && (type != 7 || getPosition().x < 15))
         window.draw(*sprite);
-	if (type == 5 && aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs)
+	if (type == 5 && rocketExplosion)
 	{
-		if(aliveTime.getElapsedTime().asMilliseconds() >= rocketDelayInMs + 750)
+		if(rocketFiring)
 			window.draw(*sprite);
-		window.draw(rocketExplosionSprite);
+		if(rocketAnimation.getState() != 4)
+			window.draw(rocketExplosionSprite);
 	}
 
     count = (count + 1) % total;
@@ -250,6 +260,15 @@ void Obstacle::update(sf::RenderWindow& window)
         setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, getPosition().z));
         sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f, getPos().z)));
     }
+}
+
+
+/// <summary>
+/// Default Entity::update override.
+/// </summary>
+void Obstacle::update(sf::RenderWindow& window)
+{
+	Obstacle::update(window, 0);
 }
 
 

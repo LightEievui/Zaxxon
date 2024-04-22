@@ -19,8 +19,8 @@ Animation::Animation()
 	frames[2] = sf::IntRect(158, 147, 17, 27);
 
 	// Launch animation
-	frames[9] = sf::IntRect(119, 71, 38, 27);
-	frames[8] = sf::IntRect(159, 72, 38, 27);
+	frames[8] = sf::IntRect(119, 71, 38, 27);
+	frames[9] = sf::IntRect(159, 72, 38, 27);
 
 	// Wall bullet Death animation
 	frames[10] = sf::IntRect(264, 154, 279 - 264, 175 - 154);
@@ -39,6 +39,12 @@ Animation::Animation()
 	frames[19] = sf::IntRect(224, 113, 255-224, 136-113); // 200
 	frames[20] = sf::IntRect(264, 113, 295-264, 135-113); // 500
 	frames[21] = sf::IntRect(305, 113, 334-305, 135-113); // 1000
+
+	// rocket flicker
+	frames[22] = sf::IntRect(80, 70, 10, 25);
+	frames[23] = sf::IntRect(102, 70, 10, 25);
+	frames[24] = sf::IntRect(302, 197, 10, 25);
+	frames[25] = sf::IntRect(324, 197, 10, 25);
 }
 
 
@@ -86,6 +92,9 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 	case LAUNCH:
 		animationPtr = &Animation::fLAUNCH;
 		break;
+	case ROCKET_FLICKER:
+		animationPtr = &Animation::fROCKET_FLICKER;
+		break;
 	case RESET:
 		kill = true;
 		animationPtr = &Animation::fRESET;
@@ -93,7 +102,8 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 	}
 
 	// will delete itself.
-	new std::thread(animationPtr, this, sprite);
+	if(animationPtr != nullptr)
+		new std::thread(animationPtr, this, sprite);
 }
 
 
@@ -168,7 +178,7 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 	state = 3;
 	int current = 8;
 
-	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
+	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
@@ -176,6 +186,8 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
+
+	state = 4;
 
 	kill = false;
 }
@@ -256,6 +268,24 @@ void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 	}
 	
 	state = 1;
+}
+
+/// <summary>
+/// Animation for a upward shooting rocket obstacle.
+/// </summary>
+/// <param name="sprite"></param>
+void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
+{
+	state = 6;
+
+	if(sprite != nullptr)
+		sprite->setTextureRect(frames[22]);
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	if(sprite != nullptr)
+		sprite->setTextureRect(frames[23]);
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+	state = 7;
 }
 
 
