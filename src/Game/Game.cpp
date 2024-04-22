@@ -197,8 +197,10 @@ void Game::run() // if random erros later check that stack isnt full
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
-				gameState = 1, score = 0;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && activeCursor[4])
+				gameState = 1, score = 0, activeCursor[4] = false;
+			else if (!activeCursor[4] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+				activeCursor[4] = true;
 		}
 		else
 		{
@@ -262,9 +264,10 @@ void Game::run() // if random erros later check that stack isnt full
 			}
 			else if (time < 5) // Show game over text
 			{
+				window.setView(guiView);
 				gui.renderEnd(window);
 			}
-			else if (time < 25) // Name entry screen
+			else if (time < 25 && currentScores[5] < score) // Name entry
 			{
 				// Controls for the zaxxon keyboard
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && activeCursor[0])
@@ -276,7 +279,7 @@ void Game::run() // if random erros later check that stack isnt full
 
 					activeCursor[0] = false;
 				}
-				else if(!activeCursor[0] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+				else if (!activeCursor[0] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 					activeCursor[0] = true;
 
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && activeCursor[1])
@@ -319,24 +322,34 @@ void Game::run() // if random erros later check that stack isnt full
 				{
 					activeCursor[4] = false;
 
-					// TODO: Temporary
-					for (byte i = 0; i < 3; i++)
+					if (selector == 29) // END
+						gameOver();
+					else if (selector == 28) // RUB
 					{
-						if (selector == 29)
-							gameOver();
-
-						if (name[i] == ' ')
-						{
-							name[i] = 'A' + selector;
-
-							i = 2;
-						}
+						for (byte i = 0; i < 3; i++)
+							if (name[2 - i] != '_')
+								name[2 - i] = '_', i = 3;
 					}
+					else // OTHERS
+						for (byte i = 0; i < 3; i++)
+						{
+							if (name[i] == '_')
+							{
+								if (selector == 27)
+									name[i] = ' ';
+								else if (selector == 26)
+									name[i] = 0;
+								else
+									name[i] = 'A' + selector;
+								i = 3;
+							}
+						}
 				}
 				else if (!activeCursor[4] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 					activeCursor[4] = true;
 
 				// Now render the keyboard and other name entry things
+				window.setView(guiView);
 				gui.renderEnd(window, 26 - time, selector, name);
 			}
 			else // Now actually game over
@@ -490,7 +503,7 @@ void Game::doCollision(Player* player)
 			abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
 
 		if (difference.y < 20 && difference.z < 20)
-				playerDeath();
+			playerDeath();
 	}
 
 	// Bounds can be changed here if want to change later.
@@ -639,21 +652,29 @@ void Game::gameOver()
 {
 	gameState = 0;
 	lives = 3;
+	selector = 0;
 	pBackground->setStage(Background::INITIAL);
 
 	// Replace bottom score?
 	if (currentScores[5] < score)
 	{
+		// When replacing and sorting, we need to keep the score and
+		// initials for that score together for the leaderboard.
 		currentScores[5] = score;
+		currentNames[5] = name;
 
 		// Now sort it
 		for (int i = 0; i < 5; i++)
 		{
 			if (currentScores[5 - i] > currentScores[4 - i])
 			{
-				int temp = currentScores[5 - i];
+				const int tempScore = currentScores[5 - i];
 				currentScores[5 - i] = currentScores[4 - i];
-				currentScores[4 - i] = temp;
+				currentScores[4 - i] = tempScore;
+
+				const std::string tempName = currentNames[5 - i];
+				currentNames[5 - i] = currentNames[4 - i];
+				currentNames[4 - i] = tempName;
 			}
 		}
 	}
@@ -669,4 +690,7 @@ void Game::gameOver()
 		file << ' ';
 	}
 	file.close();
+
+	// Refresh leaderboard
+	gui.renderScores(window, currentScores, currentNames);
 }
