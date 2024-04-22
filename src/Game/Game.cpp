@@ -1,7 +1,7 @@
 #include "Game.h"
 
-const unsigned int startPos = 1600;
-const Background::Stage startStage = Background::BOSS;
+const unsigned int startPos = 0;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -384,11 +384,11 @@ void Game::doCollision(Player* player)
 		{
 			//TO DO Fix it so it accounts for the position being top left
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x  - planePos.x),
+			(abs(walls.at(i)->getWallPositions().at(j).x - planePos.x),
 				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
-			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+			if (difference.x < 15 && difference.y < 15 && difference.z < 10)
 				playerDeath();
 		}
 
@@ -396,10 +396,11 @@ void Game::doCollision(Player* player)
 		difference.z = abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
 
 		//TO DO fix it so the x works and the y plus value is more accurate
-		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 5) && difference.z < 10)
+		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 20)
 		{
 			playerDeath();
 		}
+
 	}
 
 	//Zap Walls Collisions
@@ -414,7 +415,7 @@ void Game::doCollision(Player* player)
 			abs(zapWalls.at(i)->getStartPosition().y - planePos.y),
 			abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
 
-		if (difference.y < 20 && difference.z < 20)
+		if (difference.y < 15 && difference.z < 15)
 				playerDeath();
 	}
 
