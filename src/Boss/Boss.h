@@ -18,10 +18,11 @@ public:
 private:
 
 	Entity* target;
-	sf::Clock movementInt;
-	int stages = 0, hitCount = 20;
+	sf::Clock movementInt, invFrames;
+	int stages = 0, hitCount = 20, hits = 0;
 
 	sf::Texture spriteSheet;
 	BossBullet* missile = nullptr;
 	bool bulletCreated = false;
+	sf::Vector3f targetPoints[3];
 };

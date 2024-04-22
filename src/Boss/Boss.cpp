@@ -24,12 +24,16 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	movementInt.restart();
 
 	srand(time(NULL));
+
+	targetPoints[0] = sf::Vector3f(((rand() % 100) / -100.) * 100., 0, 0);
+	srand(time(NULL)+1);
+	targetPoints[1] = sf::Vector3f((((rand() % 100) / -100.) * 100.) + 20, 0, 0);
 }
 
 
 /// <summary>
 /// Clean up memory related to the boss
-/// </summary>
+/// </summary> 
 Boss::~Boss() 
 {
 	if (missile != nullptr)
@@ -49,15 +53,18 @@ void Boss::update(sf::RenderWindow& window)
 	{
 		movementInt.restart();
 
-		if (target->getPos().x - getPos().x > 3)
+		if (targetPoints[stages].x - getPos().x > 3)
 			setPos(sf::Vector3f(getPos().x+3, getPos().y, getPos().z));
 
-		if (target->getPos().x - getPos().x < 3)
+		if (targetPoints[stages].x - getPos().x < 3)
 			setPos(sf::Vector3f(getPos().x - 3, getPos().y, getPos().z));
 
-		if (abs(getPos().z - target->getPos().z) > 200)
+		if (abs(getPos().z - target->getPos().z) < 250 && stages == 0)
+			stages++;
+
+		if (abs(getPos().z - target->getPos().z) > 150)
 		{
-			if (stages == 0)
+			if (stages < 2)
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 3));
 			else
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
@@ -70,6 +77,7 @@ void Boss::update(sf::RenderWindow& window)
 
 			bulletCreated = true;
 			missile = new BossBullet(getPos(), target, &spriteSheet);
+			missile->damage(hits);
 		}
 	}
 
@@ -89,8 +97,18 @@ void Boss::update(sf::RenderWindow& window)
 
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (stages == 1)
-		missile->update(window);
+	if (stages == 2)
+	{
+		if (missile->isAlive())
+		{
+			delete missile;
+			stages = 0;
+		}
+		else
+			missile->update(window);
+	}
+
+	targetPoints[2] = sf::Vector3f(getPos().x, 0, 0);
 
 	window.draw(*sprite);
 }
@@ -98,8 +116,16 @@ void Boss::update(sf::RenderWindow& window)
 
 void Boss::hit()
 {
-	hitCount = 0;
-	sprite->setColor(sf::Color(225, 100, 100));
+	if (hitCount > 4 && invFrames.getElapsedTime().asMilliseconds() >= 500)
+	{
+		invFrames.restart();
+		hitCount = 0;
+		sprite->setColor(sf::Color(225, 100, 100));
+		hits++;
+
+		if (hits >= 10)
+			stages = 3;
+	}
 }
 
 

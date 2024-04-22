@@ -11,10 +11,15 @@ public:
 	~BossBullet();
 
 	void update(sf::RenderWindow&);
+	void collide();
+	bool isAlive();
+	void damage(int);
 
 private:
 	sf::Texture* spriteSheet;
 	Entity* target;
 	sf::Clock movementInt;
+	bool alive = true;
+	int health = 10;
 };
 
