@@ -318,12 +318,26 @@ void Game::run() // if random erros later check that stack isnt full
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) && activeCursor[4])
 				{
 					activeCursor[4] = false;
+
+					// TODO: Temporary
+					for (byte i = 0; i < 3; i++)
+					{
+						if (selector == 29)
+							gameOver();
+
+						if (name[i] == ' ')
+						{
+							name[i] = 'A' + selector;
+
+							i = 2;
+						}
+					}
 				}
 				else if (!activeCursor[4] && !sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 					activeCursor[4] = true;
 
 				// Now render the keyboard and other name entry things
-				gui.renderEnd(window, 26 - time, selector);
+				gui.renderEnd(window, 26 - time, selector, name);
 			}
 			else // Now actually game over
 			{
@@ -624,7 +638,7 @@ void Game::playerDeath()
 void Game::gameOver()
 {
 	gameState = 0;
-	lives = 2;
+	lives = 3;
 	pBackground->setStage(Background::INITIAL);
 
 	// Replace bottom score?
