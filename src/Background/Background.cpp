@@ -29,6 +29,14 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
 	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls, zapWalls);
+
+	// DEATH OVERLAY CAN BE AN IMAGE INSTEAD
+
+	deathOverlay.setSize(sf::Vector2f(200, 320));
+	deathOverlay.setFillColor(sf::Color(222, 0, 0, 80));
+	deathOverlay.setOrigin(deathOverlay.getSize().x / 2, deathOverlay.getSize().y / 2);
+	deathOverlay.setPosition(224 / 2, 256 / 2);
+	deathOverlay.rotate(66);
 }
 
 
@@ -283,7 +291,7 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2080.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2260.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
-		
+
 
 		//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -340.f), spriteSheet, 2));
@@ -409,7 +417,7 @@ void Background::generateObstacles(Background::Stage stage,
 
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-56.f, 139.f, -2687.f), 3, std::vector<int> {1, 1, 1}));
 		//TO DO add zap wall
-	
+
 		//Seventh Area
 		// TO DO add obstacles
 		//TO DO add walls
@@ -441,7 +449,7 @@ void Background::generateWaves(Background::Stage stage,
 		delete enemy;
 	enemies.clear();
 	// equivalent to waveQueue.clear();
-	std::queue<std::pair<int, unsigned int>>().swap(waveQueue); 
+	std::queue<std::pair<int, unsigned int>>().swap(waveQueue);
 
 	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
 
@@ -462,7 +470,7 @@ void Background::generateWaves(Background::Stage stage,
 		waveQueue.push(std::pair<int, unsigned int>(-1170, 6));
 		waveQueue.push(std::pair<int, unsigned int>(-1203, 6));
 		waveQueue.push(std::pair<int, unsigned int>(-1236, 6));
-		waveQueue.push(std::pair<int, unsigned int>(-1269, 6)); 
+		waveQueue.push(std::pair<int, unsigned int>(-1269, 6));
 		waveQueue.push(std::pair<int, unsigned int>(-1315, 7));
 		waveQueue.push(std::pair<int, unsigned int>(-1350, 3));
 		waveQueue.push(std::pair<int, unsigned int>(-1400, 2));
@@ -491,12 +499,9 @@ Background::Stage Background::getStage()
 /// This is used for the first part of the death animation in Game.cpp
 /// </summary>
 /// <param name="state"></param>
-void Background::flashColor(int state)
+void Background::flashColor(sf::RenderWindow& window)
 {
-	if (state)
-		back.setColor(sf::Color(255, 255, 255));
-	else
-		back.setColor(sf::Color(222, 100, 100));
+	window.draw(deathOverlay);
 }
 
 

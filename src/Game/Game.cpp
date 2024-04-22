@@ -149,15 +149,17 @@ void Game::run() // if random erros later check that stack isnt full
 				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
-				{
 					// Make sure background is set back to default
 					gameState = 2;
-					pBackground->flashColor(1);
-				}
 				else
 				{
 					// Flash background red for start of player death animation
-					pBackground->flashColor(deathClock.getElapsedTime().asMilliseconds() / 200 % 2);
+					if (deathClock.getElapsedTime().asMilliseconds() / 200 % 2)
+					{
+						window.setView(guiView);
+						pBackground->flashColor(window);
+						window.setView(mainView);
+					}
 				}
 			}
 

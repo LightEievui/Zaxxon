@@ -39,7 +39,7 @@ public:
 
 	bool isInSpace(int);
 
-	void flashColor(int);
+	void flashColor(sf::RenderWindow&);
 
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
@@ -48,6 +48,7 @@ private:
 
 	sf::Texture initial, space, boss;
 	sf::Sprite back;
+	sf::RectangleShape deathOverlay;
 	Stage stage = Stage::INITIAL;
 	std::queue<std::pair<int, unsigned int>> waveQueue; // playerZ: id
 };
