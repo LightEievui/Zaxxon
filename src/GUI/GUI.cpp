@@ -179,20 +179,20 @@ GUI::GUI(sf::Texture* spritesheet)
 	ZaxxonText::string(spritesheet, "GAMEOVER", gameOver);
 	for (byte i = 0; i < 8; i++)
 	{
-		byte start = 128;
+		byte start = 60;
 
 		if (i >= 4)
 			start += 16;
 
 		gameOver[i].setColor(sf::Color(222, 222, 222));
-		gameOver[i].setPosition(sf::Vector2f(start + i * 8, 80));
+		gameOver[i].setPosition(sf::Vector2f(start + i * 8, 115));
 	}
 
 	// High score entry
 	ZaxxonText::string(spritesheet, "HIGHSCOREENTRY", scoreEntry);
 	for (byte i = 0; i < 14; i++)
 	{
-		byte start = 100;
+		byte start = 32;
 
 		if (i >= 4)
 			start += 8;
@@ -200,34 +200,34 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		scoreEntry[i].setColor(sf::Color(222, 0, 0));
-		scoreEntry[i].setPosition(start + i * 8, 40);
+		scoreEntry[i].setPosition(start + i * 8, 75);
 	}
 
 	// Initials :
 	ZaxxonText::string(spritesheet, "INITIALS\u0003", initialsText);
 	for (byte i = 0; i < 9; i++)
 	{
-		byte start = 100;
+		byte start = 32;
 
 		if (i == 8)
 			start += 8;
 
 		initialsText[i].setColor(sf::Color(0, 222, 247));
-		initialsText[i].setPosition(start + i * 8, 60);
+		initialsText[i].setPosition(start + i * 8, 95);
 	}
 
 	// Entry time
 	ZaxxonText::string(spritesheet, "ENTRYTIME\u000520\u0006", entryTime);
 	for (byte i = 0; i < 13; i++)
 	{
-		byte start = 100;
+		byte start = 32;
 		if (i >= 5)
 			start += 8;
 		if (i >= 9)
 			start += 16;
 
 		entryTime[i].setColor(sf::Color(222, 222, 0));
-		entryTime[i].setPosition(start + i * 8, 80);
+		entryTime[i].setPosition(start + i * 8, 115);
 	}
 
 	// Name entry keyboard
@@ -239,7 +239,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			keyboard[i] = ZaxxonText::get(spritesheet, 0 + i - 26);
 
 		keyboard[i].setColor(sf::Color(0, 222, 0));
-		keyboard[i].setPosition(100 + i % 10 * 16, 100 + i / 10 * 16);
+		keyboard[i].setPosition(32 + i % 10 * 16, 135 + i / 10 * 16);
 	}
 
 	// Keyboard RUB & END
@@ -513,26 +513,27 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 
 	for (byte i = 9; i < 12; i++)
 	{
-		initialsText[i] = ZaxxonText::get(spritesheet, name[i - 9]);
+		if (name[i] != '_' && name[i] != ' ')
+			initialsText[i] = ZaxxonText::get(spritesheet, name[i - 9]);
 		initialsText[i].setColor(sf::Color(0, 222, 247));
-		initialsText[i].setPosition(sf::Vector2f(188 + i * 16, 60));
+		initialsText[i].setPosition(sf::Vector2f(120 + (i - 9) * 16, 95));
 	}
 
 	for (byte i = 0; i < 12; i++)
 		window.draw(initialsText[i]);
 
 	entryTime[10] = ZaxxonText::get(spritesheet, '0' + timeLeft / 10);
-	entryTime[10].setPosition(204, 80);
+	entryTime[10].setPosition(136, 115);
 	entryTime[10].setColor(sf::Color(222, 222, 0));
 	entryTime[11] = ZaxxonText::get(spritesheet, '0' + timeLeft % 10);
-	entryTime[11].setPosition(212, 80);
+	entryTime[11].setPosition(144, 115);
 	entryTime[11].setColor(sf::Color(222, 222, 0));
 
 	for (byte i = 0; i < 13; i++)
 		window.draw(entryTime[i]);
 
 	// Draw cursor before keyboard
-	cursor.setPosition(96 + selector % 10 * 16, 96 + selector / 10 * 16);
+	cursor.setPosition(28 + selector % 10 * 16, 131 + selector / 10 * 16);
 	window.draw(cursor);
 
 	for (byte i = 0; i < 30; i++)
