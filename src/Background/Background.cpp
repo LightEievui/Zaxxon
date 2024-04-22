@@ -269,7 +269,6 @@ void Background::generateObstacles(Background::Stage stage,
 
 	switch (stage)
 	{
-		//TO DO add rest of zap walls
 	case INITIAL:
 		//Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -380.f), spriteSheet, 100, 1));
@@ -335,13 +334,12 @@ void Background::generateObstacles(Background::Stage stage,
 		break;
 
 	case BOSS:
-		//TO DO add rest of walls
-		//TO DO add rest of obstacles
+		//Area are made by the sections of map between walls
 
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-9.f, 70.f, -106.f), 3, std::vector<int> {0, 1, 1}));
 		walls.at(0)->setPosition(sf::Vector3f(-130.f, 70.f, -106.f), 1);
 		walls.at(0)->setPosition(sf::Vector3f(-168.f, 70.f, -106.f), 2);
-
+		
 		//First Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -320.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -370.f), spriteSheet, 100, 1));
@@ -352,6 +350,9 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(7.f, 112.f, -550.f), 2, std::vector<int> {0, 1}));
 		walls.at(1)->setPosition(sf::Vector3f(-153.f, 112.f, -550.f), 1);
 
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-10, 90, -550)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-10, 70, -550)));
+
 		//Second Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -800.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-90.f, 139.f, -865.f), spriteSheet, 1));
@@ -361,6 +362,8 @@ void Background::generateObstacles(Background::Stage stage,
 
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-136.f, 82.f, -978.f), 2, std::vector<int> {0, 1}));
 
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-30, 60, -978)));
+
 		//Third Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -1200.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.f, -1210.f), spriteSheet, 1));
@@ -369,6 +372,10 @@ void Background::generateObstacles(Background::Stage stage,
 
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(27.f, 139.f, -1408.f), 3, std::vector<int> {1, 0, 1}));
 		walls.at(3)->setPosition(sf::Vector3f(-133.f, 139.f, -1407.f), 2);
+
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 120, -1407)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 100, -1407)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 80, -1407)));
 
 		//Fourth Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -1510.f), spriteSheet, 100, 3));
@@ -382,6 +389,9 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.at(4)->setPosition(sf::Vector3f(-112.f, 112.f, -1829.f), 1);
 		walls.at(4)->setPosition(sf::Vector3f(-152.f, 112.f, -1829.f), 2);
 
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 90, -1829)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 70, -1829)));
+
 		//Fifth Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 139.f, -1990.f), spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-110.f, 139.f, -2110.f), spriteSheet, 1));
@@ -393,6 +403,8 @@ void Background::generateObstacles(Background::Stage stage,
 		walls.at(5)->setPosition(sf::Vector3f(-133.f, 82.f, -2259.f), 1);
 		walls.at(5)->setPosition(sf::Vector3f(-173.f, 82.f, -2259.f), 2);
 
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-20, 60, -2259)));
+		
 		//Sixth Area
 		obstacles.push_back(new Obstacle(sf::Vector3f(-40.f, 139.f, -2420.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-105.f, 139.f, -2540.f), spriteSheet, 100, 0));
@@ -400,19 +412,28 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-155.f, 139.f, -2580.f), spriteSheet, 2));
 
 		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-56.f, 139.f, -2687.f), 3, std::vector<int> {1, 1, 1}));
-		//TO DO add zap wall
 	
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 120, -2687)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 100, -2687)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(0, 80, -2687)));
+		
 		//Seventh Area
-		// TO DO add obstacles
-		//TO DO add walls
-		// TO DO add zap walls
+		obstacles.push_back(new Obstacle(sf::Vector3f(-55.f, 139.f, -2820.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-60.f, 139.f, -2875.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -2950.f), spriteSheet, 100,  3));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-50.f, 139.f, -3010.f), spriteSheet, 1));
+
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(-40.f, 82.f, -3060.f), 3, std::vector<int> {0, 1, 1}));
+		walls.at(7)->setPosition(sf::Vector3f(-161.f, 82.f, -3060.f), 1);
+		walls.at(7)->setPosition(sf::Vector3f(-201.f, 82.f, -3060.f), 2);
+		
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-50, 60, -3060)));
+		zapWalls.push_back(new ZapWalls(spriteSheet, sf::Vector3f(-50, 40, -3060)));
 
 		//Eight Area
-		//TO DO add obstacles
-		//TO DO add walls
-
-		//Ninth Area
-		//TO DO add obstacles
+		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 139.f, -3240.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-80.f, 139.f, -3250.f), spriteSheet, 1));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 139.f, -3330.f), spriteSheet, 1));
 
 		break;
 	}
