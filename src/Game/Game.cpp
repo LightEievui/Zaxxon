@@ -701,4 +701,7 @@ void Game::gameOver()
 
 	// Refresh leaderboard
 	gui.renderScores(window, currentScores, currentNames);
+
+	// Refresh name
+	name[0] = '_', name[1] = '_', name[2] = '_';
 }
