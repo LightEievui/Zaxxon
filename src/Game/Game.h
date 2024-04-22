@@ -48,7 +48,7 @@ private:
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
 	char name[3] = { '_', '_', '_' };
-	bool activeCursor[5] = { true, true, true, true, true };
+	bool activeCursor[4] = { true, true, true, true};
 	byte selector = 0;
 	std::fstream file;
 	unsigned int fps = 0;
