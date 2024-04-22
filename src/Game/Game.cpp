@@ -1,7 +1,7 @@
 #include "Game.h"
 
-const unsigned int startPos = 600;
-const Background::Stage startStage = Background::INITIAL;
+const unsigned int startPos = 2000;
+const Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -445,6 +445,7 @@ void Game::doCollision(Player* player)
 		}
 	}
 
+	BossBullet* bossMissile = boss->getMissile();
 	int bulletNum = 0;
 
 	// Player bullets collision with enemy
@@ -519,29 +520,37 @@ void Game::doCollision(Player* player)
 
 		//Player Bullets Hitting Boss
 		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
-			abs(bullet->getPos().x - boss->getPos().x) < 25 &&
+			abs(bullet->getPos().x - boss->getPos().x) < 40 &&
 			abs(bullet->getPos().y - boss->getPos().y) <= 30)
 		{
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 
-			std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
+			//std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
 
 			if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
-				abs(bullet->getPos().x - boss->getPos().x - 1) <= 10 &&
-				abs(bullet->getPos().y - boss->getPos().y + 11) <= 10)
+				abs(bullet->getPos().x - boss->getPos().x + 33) <= 10 &&
+				abs(bullet->getPos().y - boss->getPos().y + 21) <= 10)
 				boss->hit();
+		}
+
+		//Player bullets hitting boss missile
+		if (boss->missileCreated() && abs(bullet->getPos().z - bossMissile->getPos().z) <= 10 &&
+			abs(bullet->getPos().x - bossMissile->getPos().x + 50) < 10 &&
+			abs(bullet->getPos().y - bossMissile->getPos().y) <= 10)
+		{
+			bossMissile->damage(1);
+			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
 		bulletNum++;
 	}
 
-	BossBullet* bossMissile = boss->getMissile();
-
-	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 20 &&
+	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 5 &&
 		abs(bossMissile->getPos().y - planePos.y) <= 20 &&
 		abs((planePos.x - 25) - bossMissile->getPos().x) <= 20)
 	{
 		playerDeath();
+		bossMissile->collide();
 	}
 }
 
