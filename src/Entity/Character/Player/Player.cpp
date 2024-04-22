@@ -50,29 +50,17 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 
 	// Keys
 	sf::Vector3f tempVelocity;
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
-		sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -10) &&
-		getPos().x < xMax
-	)
+	if (leftPressed() && getPos().x < xMax)
 		tempVelocity.x = 1;
-	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
-		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10) &&
-		getPos().x > xMin
-	)
+	else if (rightPressed() && getPos().x > xMin)
 		tempVelocity.x = -1;
 
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
-		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -10) &&
-		getPos().y < yMax
-	)
+	if (upPressed() && getPos().y < yMax)
 	{
 		tempVelocity.y = 0.6f;
 		planeVertical = 2;
 	}
-	else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
-		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 10) &&
-		getPos().y > yMin
-	)
+	else if (downPressed() && getPos().y > yMin)
 	{
 		tempVelocity.y = -0.6f;
 		planeVertical = 1;
@@ -83,10 +71,7 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	sprite->setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
 	// Spawn bullets
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) ||
-		sf::Joystick::isButtonPressed(0, 0)) &&
-		bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN
-	)
+	if (zPressed() && bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN)
 	{
 		bulletCD.restart();
 
