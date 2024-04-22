@@ -25,3 +25,5 @@ sf::FloatRect getWindowViewRect(sf::RenderWindow& window)
 	return sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
 		window.getView().getSize().y);
 }
+
+sf::Font debugFont;
