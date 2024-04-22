@@ -94,7 +94,6 @@ bool rightPressed()
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10;
 }
-}
 
 
 sf::Font debugFont;
