@@ -313,10 +313,12 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-176.f, 139.6f, -550.697f), spriteSheet, 370, 2));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-15.f, 139.6f, -857.029f), spriteSheet, 650, 2));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-135.f, 139.f, -840.029f), spriteSheet, 650, 2));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-62.f, 143.6f, -1048.13f), spriteSheet, 850, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-62.f, 139.f, -1048.13f), spriteSheet, 850, 2));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-141.f, 139.f, -1218.6f), spriteSheet, 950, 2));
-		obstacles.push_back(new Obstacle(sf::Vector3f(-10.f, 143.6f, -1258.41f), spriteSheet, 1050, 4));
-
+		obstacles.push_back(new Obstacle(sf::Vector3f(-10.f, 139.f, -1258.41f), spriteSheet, 1050, 2));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -1515.31f), spriteSheet, 1350, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-185.f, 139.f, -1460.61f), spriteSheet, 1350, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-145.f, 139.f, -1644.61f), spriteSheet, 1450, 4));
 		// 
 
 		/* Walls
