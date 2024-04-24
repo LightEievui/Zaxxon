@@ -29,6 +29,12 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
 	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls, zapWalls);
+
+	if (!death.loadFromFile("res/BackgroundDeath.png"))
+		std::cout << "Death overlay file failed to load\n";
+
+	deathOverlay.setTexture(death);
+	deathOverlay.setColor(sf::Color(255, 255, 255, 100));
 }
 
 
@@ -282,7 +288,7 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2080.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-5.f, 139.f, -2260.f), spriteSheet, 100, 3));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f), spriteSheet, 100, 0));
-		
+
 
 		//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -340.f), spriteSheet, 2));
@@ -464,7 +470,7 @@ void Background::generateWaves(Background::Stage stage,
 		delete enemy;
 	enemies.clear();
 	// equivalent to waveQueue.clear();
-	std::queue<std::pair<int, unsigned int>>().swap(waveQueue); 
+	std::queue<std::pair<int, unsigned int>>().swap(waveQueue);
 
 	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
 
@@ -485,7 +491,7 @@ void Background::generateWaves(Background::Stage stage,
 		waveQueue.push(std::pair<int, unsigned int>(-1170, 6));
 		waveQueue.push(std::pair<int, unsigned int>(-1203, 6));
 		waveQueue.push(std::pair<int, unsigned int>(-1236, 6));
-		waveQueue.push(std::pair<int, unsigned int>(-1269, 6)); 
+		waveQueue.push(std::pair<int, unsigned int>(-1269, 6));
 		waveQueue.push(std::pair<int, unsigned int>(-1315, 7));
 		waveQueue.push(std::pair<int, unsigned int>(-1350, 3));
 		waveQueue.push(std::pair<int, unsigned int>(-1400, 2));
@@ -514,12 +520,9 @@ Background::Stage Background::getStage()
 /// This is used for the first part of the death animation in Game.cpp
 /// </summary>
 /// <param name="state"></param>
-void Background::flashColor(int state)
+void Background::flashColor(sf::RenderWindow& window)
 {
-	if (state)
-		back.setColor(sf::Color(255, 255, 255));
-	else
-		back.setColor(sf::Color(222, 100, 100));
+	window.draw(deathOverlay);
 }
 
 
