@@ -25,3 +25,75 @@ sf::FloatRect getWindowViewRect(sf::RenderWindow& window)
 	return sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
 		window.getView().getSize().y);
 }
+
+
+/// <summary>
+/// Detects if main button is pressed, automatically gets rid of
+/// inputs that are a held key over first press.
+/// </summary>
+/// <returns>A boolean</returns>
+bool zPressed()
+{
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) ||
+		sf::Joystick::isButtonPressed(0, 0)) && util_zPress)
+	{
+		util_zPress = false;
+		return true;
+	}
+
+	else if (!util_zPress && !(sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Joystick::isButtonPressed(0, 0)))
+		util_zPress = true;
+
+	return false;
+}
+
+
+/// <summary>
+/// Detects if up is current pressed, will handle both keyboard and controller.
+/// This will consider holding the stick in this direction as constant 'presses'
+/// </summary>
+/// <returns>A boolean</returns>
+bool upPressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) < -10;
+}
+
+
+/// <summary>
+/// Detects if down is current pressed, will handle both keyboard and controller.
+/// This will consider holding the stick in this direction as constant 'presses'
+/// </summary>
+/// <returns>A boolean</returns>
+bool downPressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::Y) > 10;
+}
+
+
+/// <summary>
+/// Detects if left is current pressed, will handle both keyboard and controller.
+/// This will consider holding the stick in this direction as constant 'presses'
+/// </summary>
+/// <returns>A boolean</returns>
+bool leftPressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::X) < -10;
+}
+
+
+/// <summary>
+/// Detects if right is current pressed, will handle both keyboard and controller.
+/// This will consider holding the stick in this direction as constant 'presses'
+/// </summary>
+/// <returns>A boolean</returns>
+bool rightPressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
+		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10;
+}
+
+
+sf::Font debugFont;

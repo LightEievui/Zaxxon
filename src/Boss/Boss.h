@@ -15,6 +15,7 @@ public:
 	void hit();
 	BossBullet* getMissile();
 	bool missileCreated();
+	bool isDestroyed();
 private:
 
 	Entity* target;
@@ -23,6 +24,6 @@ private:
 
 	sf::Texture spriteSheet;
 	BossBullet* missile = nullptr;
-	bool bulletCreated = false;
-	sf::Vector3f targetPoints[3];
+	bool bulletCreated = false, destroyed = false;
+	float targetXPoints[3];
 };

@@ -39,13 +39,13 @@ BossBullet::~BossBullet()
 /// <param name="window"></param>
 void BossBullet::update(sf::RenderWindow& window)
 {
-	if (alive == true && movementInt.getElapsedTime().asMilliseconds() >= 100)
+	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.getState() == 0)
 	{
 		movementInt.restart();
 
-		if ((target->getPos().x - 50) - getPos().x > 3)
+		if ((target->getPos().x) - getPos().x > 5)
 			setPos(sf::Vector3f(getPos().x + 5, getPos().y, getPos().z));
-		if ((target->getPos().x - 50) - getPos().x < 3)
+		if ((target->getPos().x) - getPos().x < 5)
 			setPos(sf::Vector3f(getPos().x - 5, getPos().y, getPos().z));
 
 		if (target->getPos().y - getPos().y > 3)
@@ -61,24 +61,27 @@ void BossBullet::update(sf::RenderWindow& window)
 		collide();
 
 	window.draw(*sprite);
+
+	if (health <= 0)
+		collide();
 }
 
 
 
 void BossBullet::collide()
 {
-	alive = false;
-	animations.run(sprite, Animation::ALT_DEATH);
-}
-
-
-bool BossBullet::isAlive()
-{
-	return animations.getState() == 1;
+	if (animations.getState() == 0)
+		animations.run(sprite, Animation::ALT_DEATH);
 }
 
 
 void BossBullet::damage(int hit)
 {
 	health -= hit;
+}
+
+
+bool BossBullet::isDestroyed() 
+{
+	return animations.getState() == 1;
 }
