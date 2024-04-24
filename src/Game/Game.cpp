@@ -143,6 +143,16 @@ void Game::run() // if random erros later check that stack isnt full
 
 				// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
+
+				//Check if the boss has been defeated
+				if (boss->isDestroyed())
+				{
+					background.setStage(Background::INITIAL);
+					fuel = 128;
+					background.resetPos(mainView, *player, 0);
+					background.generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
+					background.generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
+				}
 			}
 			else // Start the player death animation here
 			{
@@ -261,6 +271,8 @@ void Game::run() // if random erros later check that stack isnt full
 				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
+				if (pBackground->getStage() == Background::BOSSFIGHT)
+					pBackground->setStage(Background::BOSS);
 			}
 			else if (time < 5) // Show game over text
 			{
@@ -387,7 +399,7 @@ void Game::doCollision(Player* player)
 	//Plane Bullet Setup
 	std::vector<sf::Vector3f> planeBulletPos;
 	sf::Vector3f planePos;
-	planePos = sf::Vector3f(player->getPos().x - 25, player->getPos().y, player->getPos().z);
+	planePos = sf::Vector3f(player->getPos().x, player->getPos().y, player->getPos().z);
 
 	for (unsigned int i = 0; i < obstacles.size(); i++)
 	{
@@ -452,7 +464,7 @@ void Game::doCollision(Player* player)
 			abs(obstacles.at(i)->getPosition().y - planePos.y),
 			abs(obstacles.at(i)->getPosition().z - planePos.z));
 
-		if (difference.x < 30 && difference.y < 15 && difference.z < 30)
+		if (difference.x < 20 && difference.y < 15 && difference.z < 30)
 			playerDeath();
 	}
 
@@ -472,7 +484,7 @@ void Game::doCollision(Player* player)
 				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
-			if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+			if (difference.x < 15 && difference.y < 15 && difference.z < 10)
 				playerDeath();
 		}
 
@@ -480,10 +492,11 @@ void Game::doCollision(Player* player)
 		difference.z = abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
 
 		//TO DO fix it so the x works and the y plus value is more accurate
-		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 5) && difference.z < 10)
+		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 20)
 		{
 			playerDeath();
 		}
+
 	}
 
 	//Zap Walls Collisions
@@ -498,8 +511,8 @@ void Game::doCollision(Player* player)
 			abs(zapWalls.at(i)->getStartPosition().y - planePos.y),
 			abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
 
-		if (difference.y < 20 && difference.z < 20)
-			playerDeath();
+		if (difference.y < 15 && difference.z < 15)
+				playerDeath();
 	}
 
 	// Bounds can be changed here if want to change later.
@@ -603,16 +616,16 @@ void Game::doCollision(Player* player)
 
 		//Player Bullets Hitting Boss
 		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
-			abs(bullet->getPos().x - boss->getPos().x) < 25 &&
-			abs(bullet->getPos().y - boss->getPos().y) <= 30)
+			abs(bullet->getPos().x - boss->getPos().x) < 35 &&
+			abs(bullet->getPos().y - boss->getPos().y) <= 35)
 		{
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 
-			std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
+			//std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
 
 			if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
-				abs(bullet->getPos().x - boss->getPos().x - 1) <= 10 &&
-				abs(bullet->getPos().y - boss->getPos().y + 11) <= 10)
+				abs(bullet->getPos().x - boss->getPos().x + 33) <= 10 &&
+				abs(bullet->getPos().y - boss->getPos().y + 21) <= 10)
 				boss->hit();
 		}
 
@@ -626,6 +639,7 @@ void Game::doCollision(Player* player)
 		abs((planePos.x - 25) - bossMissile->getPos().x) <= 20)
 	{
 		playerDeath();
+		bossMissile->collide();
 	}
 }
 
@@ -689,4 +703,7 @@ void Game::gameOver()
 
 	// Refresh leaderboard
 	gui.renderScores(window, currentScores, currentNames);
+
+	// Refresh name
+	name[0] = '_', name[1] = '_', name[2] = '_';
 }

@@ -24,6 +24,10 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	movementInt.restart();
 
 	srand(time(NULL));
+	targetXPoints[0] = (rand() % 100) * -1;
+	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1;
+
+	invFrames.restart();
 }
 
 
@@ -49,15 +53,18 @@ void Boss::update(sf::RenderWindow& window)
 	{
 		movementInt.restart();
 
-		if (target->getPos().x - getPos().x > 3)
-			setPos(sf::Vector3f(getPos().x+3, getPos().y, getPos().z));
+		if (targetXPoints[stages] - getPos().x > 3)
+			setPos(sf::Vector3f(getPos().x + 3, getPos().y, getPos().z));
 
-		if (target->getPos().x - getPos().x < 3)
+		if (targetXPoints[stages] - getPos().x < 3)
 			setPos(sf::Vector3f(getPos().x - 3, getPos().y, getPos().z));
 
-		if (abs(getPos().z - target->getPos().z) > 200)
+		if (abs(getPos().z - target->getPos().z) < 250 && stages == 0)
+			stages++;
+
+		if (abs(getPos().z - target->getPos().z) > 150)
 		{
-			if (stages == 0)
+			if (stages < 2)
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 3));
 			else
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
@@ -70,17 +77,18 @@ void Boss::update(sf::RenderWindow& window)
 
 			bulletCreated = true;
 			missile = new BossBullet(getPos(), target, &spriteSheet);
+			missile->damage(hits);
 		}
 	}
 
 	if (movementInt.getElapsedTime().asMilliseconds()%25)
 	{
-		if (hitCount < 4)
+		if (hitCount < 10)
 		{
 			hitCount++;
 			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.) - 1, getPos().y + ((rand() % 100) / 50.) - 1, getPos().z));
 		}
-		else if (hitCount == 4)
+		else if (hitCount == 10)
 		{
 			hitCount++;
 			sprite->setColor(sf::Color(255, 255, 255));
@@ -89,8 +97,20 @@ void Boss::update(sf::RenderWindow& window)
 
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (stages == 1)
-		missile->update(window);
+	if (stages == 2 && missile != nullptr)
+	{
+		if (missile->isDestroyed())
+		{
+			delete missile;
+			missile = nullptr;
+			bulletCreated = false;
+		}		
+		else
+			missile->update(window);
+		
+	}
+
+	targetXPoints[3] = getPos().x;
 
 	window.draw(*sprite);
 }
@@ -98,8 +118,13 @@ void Boss::update(sf::RenderWindow& window)
 
 void Boss::hit()
 {
-	hitCount = 0;
-	sprite->setColor(sf::Color(225, 100, 100));
+	if (invFrames.getElapsedTime().asMilliseconds() >= 200)
+	{
+		invFrames.restart();
+		hitCount = 0;
+		sprite->setColor(sf::Color(225, 100, 100));
+		hits++;
+	}
 }
 
 
@@ -112,4 +137,10 @@ BossBullet* Boss::getMissile()
 bool Boss::missileCreated()
 {
 	return bulletCreated;
+}
+
+
+bool Boss::isDestroyed()
+{
+	return destroyed;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Animation/Animation.h"
 #include <SFML/Graphics.hpp>
+#include <Util/Util.h>
 
 
 class Entity
@@ -23,7 +24,7 @@ protected:
 	sf::Sprite* sprite;
 	Animation animations;
 	bool dead = false;
-
+	sf::Text debugText;
 private:
 	sf::Vector3f position;
 };

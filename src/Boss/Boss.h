@@ -15,13 +15,15 @@ public:
 	void hit();
 	BossBullet* getMissile();
 	bool missileCreated();
+	bool isDestroyed();
 private:
 
 	Entity* target;
-	sf::Clock movementInt;
-	int stages = 0, hitCount = 20;
+	sf::Clock movementInt, invFrames;
+	int stages = 0, hitCount = 20, hits;
 
 	sf::Texture spriteSheet;
 	BossBullet* missile = nullptr;
-	bool bulletCreated = false;
+	bool bulletCreated = false, destroyed = false;
+	float targetXPoints[3];
 };
