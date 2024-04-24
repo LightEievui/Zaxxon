@@ -8,6 +8,10 @@ Entity::Entity()
 {
 	this->sprite = new sf::Sprite();
 	this->spriteSheet = new sf::Texture();
+
+	debugFont.loadFromFile("C:\\Windows\\Fonts\\arial.ttf");
+	debugText.setFont(debugFont);
+	debugText.setScale(sf::Vector2f(0.2f, 0.2f));
 }
 
 

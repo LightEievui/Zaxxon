@@ -24,10 +24,10 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	movementInt.restart();
 
 	srand(time(NULL));
+	targetXPoints[0] = (rand() % 100) * -1;
+	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1;
 
-	targetPoints[0] = sf::Vector3f(((rand() % 100) / -100.) * 100., 0, 0);
-	srand(time(NULL)+1);
-	targetPoints[1] = sf::Vector3f((((rand() % 100) / -100.) * 100.) + 20, 0, 0);
+	invFrames.restart();
 }
 
 
@@ -53,10 +53,10 @@ void Boss::update(sf::RenderWindow& window)
 	{
 		movementInt.restart();
 
-		if (targetPoints[stages].x - getPos().x > 3)
-			setPos(sf::Vector3f(getPos().x+3, getPos().y, getPos().z));
+		if (targetXPoints[stages] - getPos().x > 3)
+			setPos(sf::Vector3f(getPos().x + 3, getPos().y, getPos().z));
 
-		if (targetPoints[stages].x - getPos().x < 3)
+		if (targetXPoints[stages] - getPos().x < 3)
 			setPos(sf::Vector3f(getPos().x - 3, getPos().y, getPos().z));
 
 		if (abs(getPos().z - target->getPos().z) < 250 && stages == 0)
@@ -83,12 +83,12 @@ void Boss::update(sf::RenderWindow& window)
 
 	if (movementInt.getElapsedTime().asMilliseconds()%25)
 	{
-		if (hitCount < 4)
+		if (hitCount < 10)
 		{
 			hitCount++;
 			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.) - 1, getPos().y + ((rand() % 100) / 50.) - 1, getPos().z));
 		}
-		else if (hitCount == 4)
+		else if (hitCount == 10)
 		{
 			hitCount++;
 			sprite->setColor(sf::Color(255, 255, 255));
@@ -97,18 +97,20 @@ void Boss::update(sf::RenderWindow& window)
 
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (stages == 2)
+	if (stages == 2 && missile != nullptr)
 	{
-		if (missile->isAlive())
+		if (missile->isDestroyed())
 		{
 			delete missile;
-			stages = 0;
-		}
+			missile = nullptr;
+			bulletCreated = false;
+		}		
 		else
 			missile->update(window);
+		
 	}
 
-	targetPoints[2] = sf::Vector3f(getPos().x, 0, 0);
+	targetXPoints[3] = getPos().x;
 
 	window.draw(*sprite);
 }
@@ -116,13 +118,12 @@ void Boss::update(sf::RenderWindow& window)
 
 void Boss::hit()
 {
-	if (hitCount > 4 && invFrames.getElapsedTime().asMilliseconds() >= 500)
+	if (invFrames.getElapsedTime().asMilliseconds() >= 200)
 	{
 		invFrames.restart();
 		hitCount = 0;
 		sprite->setColor(sf::Color(225, 100, 100));
 		hits++;
-
 		if (hits >= 10)
 			stages = 3;
 	}
@@ -138,4 +139,10 @@ BossBullet* Boss::getMissile()
 bool Boss::missileCreated()
 {
 	return bulletCreated;
+}
+
+
+bool Boss::isDestroyed()
+{
+	return destroyed;
 }
