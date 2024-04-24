@@ -44,7 +44,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 		spriteSheet = tex;
 
 		//sprite->setPosition(position);
-
+		setPos(pos + sf::Vector3f(-14,0,0));
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite->setPosition(translateTo2d(pos));
@@ -53,7 +53,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 
 		rocketExplosionSprite.setTexture(*spriteSheet);
 		rocketExplosionSprite.setTextureRect(sf::IntRect(119, 71, 38, 27));
-		rocketExplosionSprite.setPosition(translateTo2d(pos));
+		rocketExplosionSprite.setPosition(translateTo2d(pos) + sf::Vector2f(0, 0));
 		rocketExplosionSprite.setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
 	}
 	//Right Green Turrents
@@ -69,7 +69,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 	
 	if (dir == 4)
 	{
-		sprite->setColor(sf::Color(255, 0, 0/222));
+		redRocket = true;
 		this->direction = 2;
 		this->type = 5;
 	}
@@ -126,6 +126,18 @@ Obstacle::~Obstacle()
 {
 	
 }
+
+/// <summary>
+/// Death animation.
+/// </summary>
+/// <param name="animation"></param>
+void Obstacle::kill(Animation::Anim animation)
+{
+	if (type == 5)
+		animation = Animation::ALT_DEATH;
+	animations.run(sprite, Animation::RESET);
+	animations.run(sprite, animation, isTurret() ? scoreIndicator : 0);
+};
 
 
 /// <summary>
@@ -204,10 +216,10 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 
 			if (getPos().y > 70.f)
 			{
-				setPos(sf::Vector3f(getPos().x, getPos().y - .5f, getPos().z));
+				setPos(sf::Vector3f(getPos().x, getPos().y - 0.5f, getPos().z));
 				sprite->setPosition(translateTo2d(getPos()));
 				if (animations.getState() == 0 || animations.getState() == 7)
-					animations.run(sprite, Animation::ROCKET_FLICKER);
+					animations.run(sprite, Animation::ROCKET_FLICKER, redRocket);
 			}
 			else if (animations.getState() == 7)
 				kill(Animation::ALT_DEATH);
@@ -260,6 +272,17 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
         setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, getPosition().z));
         sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f, getPos().z)));
     }
+
+#ifndef NDEBUG
+	debugText.setString(std::to_string((int)getPos().x) + " " +
+		std::to_string((int)getPos().y) + " " + std::to_string((int)getPos().z)
+		+ " " + std::to_string(animations.getState())
+	);
+	debugText.setPosition(sprite->getPosition());
+	if(drawDebugText)
+		window.draw(debugText);
+#endif // !NDEBUG
+
 }
 
 
@@ -288,7 +311,7 @@ void Obstacle::setPosition(sf::Vector3f pos)
 /// <returns>A boolean</returns>
 bool Obstacle::isPresent()
 {
-	return (animations.getState() == 0 || animations.getState() == 3) && onScreen;
+	return animations.getState() != 1 && animations.getState() != 2 && animations.getState() != 4 && onScreen;
 }
 
 /// <summary>

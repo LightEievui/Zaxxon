@@ -43,8 +43,12 @@ Animation::Animation()
 	// rocket flicker
 	frames[22] = sf::IntRect(80, 70, 10, 25);
 	frames[23] = sf::IntRect(102, 70, 10, 25);
+
+	// red rocket flicker
 	frames[24] = sf::IntRect(302, 197, 10, 25);
 	frames[25] = sf::IntRect(324, 197, 10, 25);
+
+	kill = false;
 }
 
 
@@ -72,7 +76,6 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 
 	//get the original texture so that the RESET animation can do so.
 	revert = sprite->getTextureRect();
-	kill = false;
 
 	animation animationPtr = nullptr;
 	switch (anim)
@@ -97,7 +100,6 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 		break;
 	case RESET:
 		kill = true;
-		animationPtr = &Animation::fRESET;
 		break;
 	}
 
@@ -278,25 +280,25 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 {
 	state = 6;
 
-	if(sprite != nullptr)
-		sprite->setTextureRect(frames[22]);
+	if (!kill && sprite != nullptr)
+	{
+		if (spriteSizeIndex == 0) // green
+			sprite->setTextureRect(frames[22]);
+		else // red
+			sprite->setTextureRect(frames[24]);
+	}
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	if(sprite != nullptr)
-		sprite->setTextureRect(frames[23]);
+	if (!kill && sprite != nullptr)
+	{
+		if (spriteSizeIndex == 0) // green
+			sprite->setTextureRect(frames[23]);
+		else // red
+			sprite->setTextureRect(frames[25]);
+	}
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-	state = 7;
-}
-
-
-/// <summary>
-/// Resets the sprite too what it was before the last animation
-/// </summary>
-/// <param name="sprite"></param>
-void Animation::fRESET(sf::Sprite* sprite)
-{
-	state = 0;
-	sprite->setTextureRect(revert);
+	if(!kill)
+		state = 7;
 }
 
 

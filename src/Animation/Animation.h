@@ -21,7 +21,7 @@ public:
 	Animation();
 	~Animation();
 
-	// size index for some
+	// size index as an extra var for some animations
 	void run(sf::Sprite*, Anim, unsigned int sizeIndex = 0);
 	int getState();
 
@@ -32,7 +32,6 @@ private:
 	void fBULLET_DEATH(sf::Sprite* sprite);
 	void fWALLBULLET_DEATH(sf::Sprite* sprite);
 	void fROCKET_FLICKER(sf::Sprite* sprite);
-	void fRESET(sf::Sprite* sprite);
 
 	sf::Clock timer;
 	sf::IntRect frames[26], revert;

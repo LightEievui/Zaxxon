@@ -11,3 +11,5 @@ bool upPressed();
 bool downPressed();
 bool leftPressed();
 bool rightPressed();
+sf::FloatRect getWindowViewRect(sf::RenderWindow&);
+extern sf::Font debugFont;

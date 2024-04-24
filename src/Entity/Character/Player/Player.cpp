@@ -106,6 +106,15 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	Character::update(window); // updating position using velocity, draw character
 	Character::updateBullets(window);
 
+#ifndef NDEBUG
+	debugText.setString(std::to_string((int)getPos().x) + " " +
+		std::to_string((int)getPos().y) + " " + std::to_string((int)getPos().z)
+	);
+	debugText.setPosition(sprite->getPosition());
+	window.draw(debugText);
+#endif // !NDEBUG
+
+
 	if (stage != 1)
 		window.draw(shadow);
 	else if (hitmarkerTimer.getElapsedTime().asMilliseconds() < 150)
