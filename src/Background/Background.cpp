@@ -30,13 +30,11 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setPosition(sf::Vector2f(0, 240));
 	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls, zapWalls);
 
-	// DEATH OVERLAY CAN BE AN IMAGE INSTEAD
+	if (!death.loadFromFile("res/BackgroundDeath.png"))
+		std::cout << "Death overlay file failed to load\n";
 
-	deathOverlay.setSize(sf::Vector2f(200, 320));
-	deathOverlay.setFillColor(sf::Color(222, 0, 0, 80));
-	deathOverlay.setOrigin(deathOverlay.getSize().x / 2, deathOverlay.getSize().y / 2);
-	deathOverlay.setPosition(224 / 2, 256 / 2);
-	deathOverlay.rotate(66);
+	deathOverlay.setTexture(death);
+	deathOverlay.setColor(sf::Color(255, 255, 255, 100));
 }
 
 
