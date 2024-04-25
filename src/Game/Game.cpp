@@ -1,7 +1,7 @@
 #include "Game.h"
 
-const unsigned int startPos = 0;
-const Background::Stage startStage = Background::INITIAL;
+const unsigned int startPos = 2500;
+const Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -121,6 +121,7 @@ void Game::run() // if random erros later check that stack isnt full
 		// State 1 is actively playing the game
 		if (gameState == 1)
 		{
+			std::cout << background.getStage();
 			window.setView(mainView);
 
 			// Things to do only when player is alive AKA these will be changed for player death
@@ -145,13 +146,14 @@ void Game::run() // if random erros later check that stack isnt full
 				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
 
 				//Check if the boss has been defeated
-				if (boss->isDestroyed())
+				if (background.getStage() == 3 && boss->isDestroyed())
 				{
-					background.setStage(Background::INITIAL);
 					fuel = 128;
+					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
-					background.generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
-					background.generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
+					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet, walls, zapWalls);
+					background.generateWaves(Background::INITIAL, enemies, &spriteSheet, player->getPos().z);
+					
 				}
 			}
 			else // Start the player death animation here
@@ -266,13 +268,13 @@ void Game::run() // if random erros later check that stack isnt full
 
 				// Prepare for respawn
 				fuel = 128;
+				if (pBackground->getStage() == Background::BOSSFIGHT)
+					pBackground->setStage(Background::BOSS);
 				pBackground->resetPos(mainView, *player, 0);
 				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
 				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
-				if (pBackground->getStage() == Background::BOSSFIGHT)
-					pBackground->setStage(Background::BOSS);
 			}
 			else if (time < 5) // Show game over text
 			{
@@ -617,8 +619,8 @@ void Game::doCollision(Player* player)
 
 		//Player Bullets Hitting Boss
 		if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
-			abs(bullet->getPos().x - boss->getPos().x) < 35 &&
-			abs(bullet->getPos().y - boss->getPos().y) <= 35)
+			abs(bullet->getPos().x - boss->getPos().x) < 40 &&
+			abs(bullet->getPos().y - boss->getPos().y) <= 40)
 		{
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 
@@ -632,19 +634,17 @@ void Game::doCollision(Player* player)
 
 		//Player bullets hitting boss missile
 		if (boss->missileCreated() && abs(bullet->getPos().z - bossMissile->getPos().z) <= 10 &&
-			abs(bullet->getPos().x - bossMissile->getPos().x + 50) < 10 &&
-			abs(bullet->getPos().y - bossMissile->getPos().y) <= 10)
+			abs(bullet->getPos().x - bossMissile->getPos().x - 50) < 20 &&
+			abs(bullet->getPos().y - bossMissile->getPos().y) <= 20)
 		{
-			bossMissile->damage(1);
+			bossMissile->damage(2);
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
 		bulletNum++;
 	}
 
-	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 5 &&
-		abs(bossMissile->getPos().y - planePos.y) <= 20 &&
-		abs((planePos.x - 25) - bossMissile->getPos().x) <= 20)
+	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 5)
 	{
 		playerDeath();
 		bossMissile->collide();

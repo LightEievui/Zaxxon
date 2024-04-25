@@ -36,6 +36,7 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 /// </summary> 
 Boss::~Boss() 
 {
+	
 	if (missile != nullptr)
 	{
 		delete missile;
@@ -110,7 +111,13 @@ void Boss::update(sf::RenderWindow& window)
 		
 	}
 
-	targetXPoints[3] = getPos().x;
+	if (getPos().z <= -4000 && stages >= 2)
+	{
+		destroyed = true;
+		stages++;
+	}
+
+	targetXPoints[2] = getPos().x;
 
 	window.draw(*sprite);
 }
