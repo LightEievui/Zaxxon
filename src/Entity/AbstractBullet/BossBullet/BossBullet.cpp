@@ -21,6 +21,7 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* sprit
 	setPos(startPos);
 	
 	movementInt.restart();
+	invTimer.restart();
 }
 
 
@@ -43,9 +44,9 @@ void BossBullet::update(sf::RenderWindow& window)
 	{
 		movementInt.restart();
 
-		if ((target->getPos().x) - getPos().x > 5)
+		if ((target->getPos().x - 50) - getPos().x > 5)
 			setPos(sf::Vector3f(getPos().x + 5, getPos().y, getPos().z));
-		if ((target->getPos().x) - getPos().x < 5)
+		if ((target->getPos().x - 50) - getPos().x < 5)
 			setPos(sf::Vector3f(getPos().x - 5, getPos().y, getPos().z));
 
 		if (target->getPos().y - getPos().y > 3)
@@ -57,7 +58,7 @@ void BossBullet::update(sf::RenderWindow& window)
 		sprite->setPosition(translateTo2d(getPos()));
 	}
 
-	if (health <= 0 && alive == true)
+	if (health <= 0 && animations.getState() == 0)
 		collide();
 
 	window.draw(*sprite);
@@ -77,7 +78,11 @@ void BossBullet::collide()
 
 void BossBullet::damage(int hit)
 {
-	health -= hit;
+	if (invTimer.getElapsedTime().asMilliseconds() >= 75)
+	{
+		invTimer.restart();
+		health -= hit;
+	}
 }
 
 

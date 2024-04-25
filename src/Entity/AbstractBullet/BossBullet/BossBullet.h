@@ -18,7 +18,7 @@ public:
 private:
 	sf::Texture* spriteSheet;
 	Entity* target;
-	sf::Clock movementInt;
+	sf::Clock movementInt, invTimer;
 
 	int health = 10;
 };
