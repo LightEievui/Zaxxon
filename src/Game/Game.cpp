@@ -113,7 +113,19 @@ void Game::run() // if random errors later check that stack isnt full
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			if (event.type == sf::Event::MouseButtonPressed)
+				score += 10000;
 		}
+
+		window.clear();
+		window.setView(guiView);
+		gui.renderWin(window);
+		gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+		window.display();
+		window.setView(mainView);
+
+		sf::Clock tempClock;
+		while (tempClock.getElapsedTime().asSeconds() < 5);
 
 		// Each frame, clear the screen before drawing anything new
 		window.clear();
@@ -148,7 +160,17 @@ void Game::run() // if random errors later check that stack isnt full
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
 				{
-					fuel = 128;
+					window.clear();
+					window.setView(guiView);
+					gui.renderWin(window);
+					gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+					window.display();
+					window.setView(mainView);
+
+					sf::Clock tempClock;
+					while (tempClock.getElapsedTime().asSeconds() < 5);
+
+					fuel = 128, score += 1000;
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
 					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet, walls, zapWalls);

@@ -17,6 +17,7 @@ public:
 	void startRender(sf::RenderWindow&, int);
 	void renderScores(sf::RenderWindow&, int[], std::string[]);
 	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0, const char[3] = "   ");
+	void renderWin(sf::RenderWindow&);
 
 private:
 	sf::Texture* spritesheet;
@@ -51,4 +52,6 @@ private:
 	sf::Sprite entryTime[13];
 	sf::Sprite keyboard[30];
 	sf::Sprite cursor;
+
+	sf::Sprite endScreen[40];
 };

@@ -251,6 +251,35 @@ GUI::GUI(sf::Texture* spritesheet)
 	// Cursor selector for the keyboard
 	cursor.setTexture(*spritesheet);
 	cursor.setTextureRect(sf::IntRect(316, 264, 16, 16));
+
+	// End screen
+	ZaxxonText::string(spritesheet,
+		"CONGRATULATIONS\u0012YOUGETBONUS1000PTS\u0000GOOD\u0012", endScreen);
+	for (byte i = 0; i < 40; i++)
+	{
+		// Different positions/colors for each 3 lines of text
+		if (i < 16)
+		{
+			short start = 40;
+
+			if (i == 15)
+				start += 8;
+
+			endScreen[i].setPosition(start + i * 8, 80);
+			endScreen[i].setColor(sf::Color(0, 222, 247));
+		}
+		else if (i < 35)
+		{
+			short start = 16;
+
+			if()
+			endScreen[i].setColor(sf::Color(222, 222, 0));
+		}
+		else
+		{
+			endScreen[i].setColor(sf::Color(222, 222, 222));
+		}
+	}
 }
 
 
@@ -538,4 +567,15 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 
 	for (byte i = 0; i < 30; i++)
 		window.draw(keyboard[i]);
+}
+
+
+/// <summary>
+/// Render the win screen each lap completed.
+/// </summary>
+/// <param name="window"></param>
+void GUI::renderWin(sf::RenderWindow& window)
+{
+	for (byte i = 0; i < 40; i++)
+		window.draw(endScreen[i]);
 }
