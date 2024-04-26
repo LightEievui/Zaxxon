@@ -63,7 +63,7 @@
     <ClCompile Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Boss\Boss.cpp">
+    <ClCompile Include="src\Entity\Boss\Boss.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Entity\AbstractBullet\BossBullet\BossBullet.cpp">
@@ -119,7 +119,7 @@
     <ClInclude Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Boss\Boss.h">
+    <ClInclude Include="src\Entity\Boss\Boss.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Entity\AbstractBullet\BossBullet\BossBullet.h">
