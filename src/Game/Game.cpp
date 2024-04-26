@@ -101,7 +101,7 @@ Game::~Game()
 /// <summary>
 /// Start the game, main game loop is also managed in here.
 /// </summary>
-void Game::run() // if random erros later check that stack isnt full
+void Game::run() // if random errors later check that stack isnt full
 {
 	Background& background = *pBackground;
 

@@ -123,6 +123,9 @@ void Boss::update(sf::RenderWindow& window)
 }
 
 
+/// <summary>
+/// Run visual effects and code for when you land a hit on the boss.
+/// </summary>
 void Boss::hit()
 {
 	if (invFrames.getElapsedTime().asMilliseconds() >= 200)
@@ -137,18 +140,30 @@ void Boss::hit()
 }
 
 
+/// <summary>
+/// Get the boss missile separately.
+/// </summary>
+/// <returns>The missile as a BossBullet*</returns>
 BossBullet* Boss::getMissile()
 {
 	return missile;
 }
 
 
+/// <summary>
+/// Check if the boss missile exists.
+/// </summary>
+/// <returns>A boolean</returns>
 bool Boss::missileCreated()
 {
 	return bulletCreated;
 }
 
 
+/// <summary>
+/// Check if the boss has been defeated.
+/// </summary>
+/// <returns>A boolean</returns>
 bool Boss::isDestroyed()
 {
 	return destroyed;

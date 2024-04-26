@@ -11,7 +11,7 @@
 #include "GUI/GUI.h"
 #include "Wall/Wall.h"
 #include "Background/Background.h"
-#include "Boss/Boss.h"
+#include "Entity/Boss/Boss.h"
 
 
 typedef unsigned char byte;
