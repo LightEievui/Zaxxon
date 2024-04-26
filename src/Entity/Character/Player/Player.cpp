@@ -49,22 +49,39 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	_getSizeIndex(sizeIndex);
 
 	// Keys
-	sf::Vector3f tempVelocity;
-	if (leftPressed() && getPos().x < xMax)
-		tempVelocity.x = 1;
-	else if (rightPressed() && getPos().x > xMin)
-		tempVelocity.x = -1;
+	sf::Vector3f tempVelocity = getVelocity();
+	const float acceleration = 1.f / 5.f;
 
-	if (upPressed() && getPos().y < yMax)
-	{
-		tempVelocity.y = 0.6f;
-		planeVertical = 2;
-	}
-	else if (downPressed() && getPos().y > yMin)
-	{
-		tempVelocity.y = -0.6f;
+	if (leftPressed() && getPos().x < xMax && tempVelocity.x < 1.f)
+		tempVelocity.x += acceleration;
+	else if (rightPressed() && getPos().x > xMin && tempVelocity.x > -1.f)
+		tempVelocity.x -= acceleration;
+	else if (tempVelocity.x < 0)
+		tempVelocity.x += acceleration;
+	else if (tempVelocity.x > 0)
+		tempVelocity.x -= acceleration;
+	
+	if (tempVelocity.x < acceleration && tempVelocity.x > -acceleration)
+		tempVelocity.x = 0;
+
+	if (upPressed() && getPos().y < yMax && tempVelocity.y < 0.6f)
+		tempVelocity.y += acceleration / 0.6f;
+	else if (downPressed() && getPos().y > yMin && tempVelocity.y > -0.6f)
+		tempVelocity.y -= acceleration / 0.6f;
+	else if (tempVelocity.y < 0)
+		tempVelocity.y += acceleration / 0.6f;
+	else if (tempVelocity.y > 0)
+		tempVelocity.y -= acceleration / 0.6f;
+
+	if (tempVelocity.y < acceleration / 0.6f && tempVelocity.y > -acceleration / 0.6f)
+		tempVelocity.y = 0;
+
+	if (tempVelocity.y == 0)
+		planeVertical = 0;
+	else if (tempVelocity.y < 0)
 		planeVertical = 1;
-	}
+	else if (tempVelocity.y > 0)
+		planeVertical = 2;
 
 	if (stage != 1)
 		sizeIndex = 0;
@@ -93,9 +110,9 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	}
 
 	// Final adjust based on current game speed
-	tempVelocity.x *= gameSpeed;
-	tempVelocity.y *= gameSpeed;
-	tempVelocity.z *= gameSpeed;
+	//tempVelocity.x *= gameSpeed;
+	//tempVelocity.y *= gameSpeed;
+	//tempVelocity.z *= gameSpeed;
 
 	// Position updates
 	setVelocity(tempVelocity);
