@@ -8,6 +8,9 @@ class ObstacleBullet : public AbstractBullet
 public:
 	ObstacleBullet(sf::Vector3f, sf::Texture*, BulletType);
 
-	void update(sf::RenderWindow);
+	void update(sf::RenderWindow&);
+
+private:
+	BulletType type;
 };
 

@@ -68,7 +68,7 @@ void CharacterBullet::kill()
 /// <param name="deathType"></param>
 void CharacterBullet::kill(BulletDeathType deathType)
 {
-	sprite->setColor(sf::Color(255, 255, 255));
+	sprite->setColor(sf::Color( 255, 255, 255 ));
 	switch (deathType)
 	{
 	case BulletDeathType::WallDeath:
