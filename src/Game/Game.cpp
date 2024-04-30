@@ -195,6 +195,11 @@ void Game::run() // if random errors later check that stack isnt full
 					if (walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
 						walls.at(i)->drawWalls(window); // Draw it behind player
 
+			// Draw zap walls that are behind the player
+			for (byte i = 0; i < zapWalls.size(); i++)
+				if (zapWalls.at(i)->getStartPosition().z < player->getPos().z)
+					zapWalls.at(i)->drawZapWalls(window);
+
 			for (Enemy* enemy : enemies)
 				enemy->update(window, gameSpeed);
 
@@ -209,9 +214,10 @@ void Game::run() // if random errors later check that stack isnt full
 					if (walls.at(i)->getWallPositions()[j].z >= player->getPos().z) // Then if that wall z is less than player z...
 						walls.at(i)->drawWalls(window); // Draw it in front of player
 
-			//Move and Draws Zap Walls
-			for (unsigned int i = 0; i < zapWalls.size(); i++)
-				zapWalls.at(i)->drawZapWalls(window);
+			// Draw zap walls that are in front of the player
+			for (byte i = 0; i < zapWalls.size(); i++)
+				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
+					zapWalls.at(i)->drawZapWalls(window);
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
