@@ -43,7 +43,7 @@ GUI::GUI(sf::Texture* spritesheet)
 
 
 	// Copyright text
-	ZaxxonText::string(spritesheet, "\x1C\x1DSEGA1982", copyright);
+	ZaxxonText::string(spritesheet, "\x1D\x1ESEGA1982", copyright);
 
 	for (byte i = 0; i < 10; i++)
 	{
@@ -134,7 +134,7 @@ GUI::GUI(sf::Texture* spritesheet)
 
 
 	// Enemies left
-	ZaxxonText::string(spritesheet, "X\u000920", enemyLeft);
+	ZaxxonText::string(spritesheet, "X\u000a20", enemyLeft);
 	enemyLeft[0].setTextureRect(sf::IntRect(368, 296, 8, 8));
 
 	for (byte i = 0; i < 4; i++)
@@ -204,7 +204,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	}
 
 	// Initials :
-	ZaxxonText::string(spritesheet, "INITIALS\u0003", initialsText);
+	ZaxxonText::string(spritesheet, "INITIALS\u0004", initialsText);
 	for (byte i = 0; i < 9; i++)
 	{
 		byte start = 32;
@@ -217,7 +217,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	}
 
 	// Entry time
-	ZaxxonText::string(spritesheet, "ENTRYTIME\u000520\u0006", entryTime);
+	ZaxxonText::string(spritesheet, "ENTRYTIME\u000620\u0007", entryTime);
 	for (byte i = 0; i < 13; i++)
 	{
 		byte start = 32;
@@ -251,6 +251,50 @@ GUI::GUI(sf::Texture* spritesheet)
 	// Cursor selector for the keyboard
 	cursor.setTexture(*spritesheet);
 	cursor.setTextureRect(sf::IntRect(316, 264, 16, 16));
+
+	// End screen
+	ZaxxonText::string(spritesheet,
+		"CONGRATULATIONS\u000cYOUGETBONUS1000PTS\u0001GOOD\u000c", endScreen);
+	for (byte i = 0; i < 40; i++)
+	{
+		// Different positions/colors for each 3 lines of text
+		if (i < 16)
+		{
+			short start = 40;
+
+			if (i == 15)
+				start += 8;
+
+			endScreen[i].setPosition(start + i * 8, 80);
+			endScreen[i].setColor(sf::Color(0, 222, 247));
+		}
+		else if (i < 35)
+		{
+			short start = 16;
+
+			if (i > 18)
+				start += 8;
+			if (i > 21)
+				start += 8;
+			if (i > 26)
+				start += 8;
+			if (i > 30)
+				start += 8;
+
+			endScreen[i].setPosition(start + (i - 16) * 8, 100);
+			endScreen[i].setColor(sf::Color(222, 222, 0));
+		}
+		else
+		{
+			short start = 88;
+
+			if (i == 39)
+				start += 8;
+
+			endScreen[i].setPosition(start + (i - 35) * 8, 120);
+			endScreen[i].setColor(sf::Color(222, 222, 222));
+		}
+	}
 }
 
 
@@ -276,8 +320,8 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
-	 should be 8 sections each for line/open and 2 each for top/bottom so
-	 yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
+	should be 8 sections each for line/open and 2 each for top/bottom so
+	yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
 	*/
 	int yDiff = (int)round((playerY - 69.f) * 0.95774647887f);
 	if (yDiff < 0)
@@ -538,4 +582,15 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 
 	for (byte i = 0; i < 30; i++)
 		window.draw(keyboard[i]);
+}
+
+
+/// <summary>
+/// Render the win screen each lap completed.
+/// </summary>
+/// <param name="window"></param>
+void GUI::renderWin(sf::RenderWindow& window)
+{
+	for (byte i = 0; i < 40; i++)
+		window.draw(endScreen[i]);
 }

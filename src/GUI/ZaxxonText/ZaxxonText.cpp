@@ -22,7 +22,7 @@ sf::Sprite ZaxxonText::get(sf::Texture* spritemap, char in)
 	else if (in >= 48 && in <= 57)
 		column = in - '0' + 26;
 	else
-		column = in, row = 16;
+		column = in - 1, row = 16;
 
 	sf::Sprite retVal;
 

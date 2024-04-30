@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 1600;
+const unsigned int startPos = 0;
 const Background::Stage startStage = Background::INITIAL;
 
 
@@ -148,7 +148,17 @@ void Game::run() // if random errors later check that stack isnt full
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
 				{
-					fuel = 128;
+					window.clear();
+					window.setView(guiView);
+					gui.renderWin(window);
+					gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+					window.display();
+					window.setView(mainView);
+
+					sf::Clock tempClock;
+					while (tempClock.getElapsedTime().asSeconds() < 5);
+
+					fuel = 128, score += 1000;
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
 					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet, walls, zapWalls);
