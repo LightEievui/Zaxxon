@@ -10,7 +10,7 @@
 /// <param name="dir"></param>
 Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Entity()
 {
-	random = (rand() % 1000) + 200;
+	total = (rand() % 250) + 75;
 	this->scoreIndicator = rand() % 3 + 1;
 	this->type = dir + 3;
 
@@ -27,7 +27,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 		sprite->setTextureRect(sf::IntRect(8, 112, 29, 19));
 
 		sprite->setPosition(translateTo2d(pos));
-		sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
+		sprite->setOrigin(sprite->getGlobalBounds().width / 2, 
+			sprite->getGlobalBounds().height / 2);
 	}
 	//Green Turrets = 1
 	else if (dir == 1)
@@ -36,7 +37,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 		sprite->setTextureRect(sf::IntRect(48, 117, 30, 17));
 
 		sprite->setPosition(translateTo2d(pos));
-		sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
+		sprite->setOrigin(sprite->getGlobalBounds().width / 2, 
+			sprite->getGlobalBounds().height / 2);
 	}
 	//Shooting Up | Red Shooting Up
 	else if (dir == 2 || dir == 4)
@@ -48,13 +50,15 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite->setPosition(translateTo2d(pos));
-		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
+		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, 
+			sprite->getGlobalBounds().height / 2));
 		rocketZ = delay;
 
 		rocketExplosionSprite.setTexture(*spriteSheet);
 		rocketExplosionSprite.setTextureRect(sf::IntRect(119, 71, 38, 27));
 		rocketExplosionSprite.setPosition(translateTo2d(pos) + sf::Vector2f(0, 0));
-		rocketExplosionSprite.setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2));
+		rocketExplosionSprite.setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2, 
+			sprite->getGlobalBounds().height / 2));
 	}
 	//Right Green Turrents
 	else if (dir == 3)
@@ -64,7 +68,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 		sprite->setTextureRect(sf::IntRect(320, 153, 33, 22));
 
 		sprite->setPosition(translateTo2d(pos));
-		sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
+		sprite->setOrigin(sprite->getGlobalBounds().width / 2, 
+			sprite->getGlobalBounds().height / 2);
 	}
 	
 	if (dir == 4)
@@ -115,7 +120,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
         sprite->setTextureRect(sf::IntRect(8, 195, 26, 29));
     }
     sprite->setPosition(translateTo2d(pos));
-    sprite->setOrigin(sprite->getGlobalBounds().width / 2, sprite->getGlobalBounds().height / 2);
+    sprite->setOrigin(sprite->getGlobalBounds().width / 2, 
+		sprite->getGlobalBounds().height / 2);
 }
 
 
@@ -167,7 +173,8 @@ std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 void Obstacle::update(sf::RenderWindow& window, int playerZ)
 {
 	//Checks if obstacle is on screen
-	if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds()) || animations.getState() == 1)
+	if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds()) 
+		|| animations.getState() == 1)
 	{
 		onScreen = false;
 		return;
@@ -193,7 +200,8 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 
 			total = (rand() % 250) + 75;
         }
-        else if (count % total == 0 && (direction == 1 || direction == 3) && animations.getState() == 0)
+        else if (count % total == 0 && (direction == 1 || direction == 3) 
+			&& animations.getState() == 0)
         {
             sf::Sprite temp;
 
@@ -207,7 +215,8 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 			total = (rand() % 250) + 75;
 		}
 	}
-	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 6 || animations.getState() == 7)) // Rocket shooting up
+	else if (direction == 2 && (animations.getState() == 0 
+		|| animations.getState() == 6 || animations.getState() == 7)) // Rocket shooting up
 	{
 		if (rocketFiring)
 		{
@@ -269,8 +278,10 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	//Moves Blue Space Gas Cans
     if (type == 7)
     {
-        setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, getPosition().z));
-        sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f, getPos().z)));
+        setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, 
+			getPosition().z));
+        sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f, 
+			getPos().y - 0.6f, getPos().z)));
     }
 
 #ifndef NDEBUG
@@ -311,7 +322,8 @@ void Obstacle::setPosition(sf::Vector3f pos)
 /// <returns>A boolean</returns>
 bool Obstacle::isPresent()
 {
-	return animations.getState() != 1 && animations.getState() != 2 && animations.getState() != 4 && onScreen;
+	return animations.getState() != 1 && animations.getState() != 2 
+		&& animations.getState() != 4 && onScreen;
 }
 
 /// <summary>
