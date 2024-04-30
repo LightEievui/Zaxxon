@@ -41,7 +41,6 @@ GUI::GUI(sf::Texture* spritesheet)
 		hudElements.push_back(&section);
 	}
 
-
 	// Copyright text
 	ZaxxonText::string(spritesheet, "\x1D\x1ESEGA1982", copyright);
 
@@ -58,7 +57,6 @@ GUI::GUI(sf::Texture* spritesheet)
 		copyright[i].setPosition(start + 8.f * i, 248.f);
 	}
 
-
 	// Top score text
 	ZaxxonText::string(spritesheet, "TOP000000", topScore);
 
@@ -73,7 +71,6 @@ GUI::GUI(sf::Texture* spritesheet)
 		topScore[i].setPosition(start + 8.f * i, 8.f);
 	}
 
-
 	// 1up score text
 	ZaxxonText::string(spritesheet, "1UP000000", curScore);
 
@@ -87,7 +84,6 @@ GUI::GUI(sf::Texture* spritesheet)
 
 		curScore[i].setPosition(start + 8.f * i, 24.f);
 	}
-
 
 	// Fuel text
 	ZaxxonText::string(spritesheet, "FUELEF", fuelText);
@@ -106,7 +102,6 @@ GUI::GUI(sf::Texture* spritesheet)
 		}
 	}
 
-
 	// Enemy plane text
 	ZaxxonText::string(spritesheet, "ENEMYPLANE", enemyText);
 
@@ -117,7 +112,6 @@ GUI::GUI(sf::Texture* spritesheet)
 		enemyText[i].setPosition(sf::Vector2f(176 + i % 5 * 8, 200 + i / 5 * 8));
 	}
 
-
 	// Fuel bar sprites
 	for (byte i = 0; i < 16; i++)
 	{
@@ -126,12 +120,10 @@ GUI::GUI(sf::Texture* spritesheet)
 		fuelBar[i].setPosition(60.f + i * 8.f, 240.f);
 	}
 
-
 	// Lives bar sprites
 	livesBar.setTexture(*spritesheet);
 	livesBar.setTextureRect(sf::IntRect(344, 288, 16, 16));
 	livesBar.setPosition(12.f, 224.f);
-
 
 	// Enemies left
 	ZaxxonText::string(spritesheet, "X\u000a20", enemyLeft);
@@ -139,7 +131,6 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	for (byte i = 0; i < 4; i++)
 		enemyLeft[i].setPosition(176.f + i * 8.f, 216.f);
-
 
 	// Start screen, push player button
 	ZaxxonText::string(spritesheet, "PUSH1OR2PLAYERBUTTON", pushPlayerText);

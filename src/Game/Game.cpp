@@ -21,12 +21,15 @@ Game::Game()
 	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
 	scale = round(scale * 4) / 4.f;
 
-	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - (224.f * scale) / 2.f, 0));
+	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2
+		- (224.f * scale) / 2.f, 0));
+
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
 	// Resize window to scale, resize everything else with it using view
-	window.setSize(sf::Vector2u((unsigned int)(224.f * scale), (unsigned int)(256.f * scale)));
+	window.setSize(sf::Vector2u((unsigned int)(224.f * scale), (unsigned int)
+		(256.f * scale)));
 	mainView.reset(sf::FloatRect(0.f, 0.f, 224.f, 224.f));
 	mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224. / 256.));
 	window.setView(mainView);
@@ -48,7 +51,8 @@ Game::Game()
 	file.close();
 
 	// background must be done after player.
-	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles, enemies, *player, startPos, walls, zapWalls);
+	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles,
+		enemies, *player, startPos, walls, zapWalls);
 
 	file.open("ZaxxonScores", std::ios::in);
 	if (file.is_open())
@@ -71,7 +75,8 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet, &spriteSheet);
+	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet,
+		&spriteSheet);
 }
 
 
@@ -124,12 +129,17 @@ void Game::run() // if random errors later check that stack isnt full
 			std::cout << background.getStage();
 			window.setView(mainView);
 
-			// Things to do only when player is alive AKA these will be changed for player death
+			// Things to do only when player is alive AKA these 
+			// will be changed for player death
 			if (player->isAlive())
 			{
-				// Fuel goes down every 0.2 seconds unless in space, then it goes down every 1.6 seconds
-				bool inSpaceOffCD = background.isInSpace((int)player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
-				bool outSpaceOffCD = !background.isInSpace((int)player->getPos().z) && (fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
+				// Fuel goes down every 0.2 seconds unless in space, 
+				// then it goes down every 1.6 seconds
+				bool inSpaceOffCD = background.isInSpace((int)player->getPos().z) && 
+					(fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
+				bool outSpaceOffCD = !background.isInSpace((int)player->getPos().z) && 
+					(fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
+
 				// Collision checks
 				doCollision(player);
 
@@ -143,7 +153,8 @@ void Game::run() // if random errors later check that stack isnt full
 				}
 
 				// Move background
-				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
+				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles,
+					enemies, *player, walls, bossState, zapWalls);
 
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
@@ -161,14 +172,17 @@ void Game::run() // if random errors later check that stack isnt full
 					fuel = 128, score += 1000;
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
-					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet, walls, zapWalls);
-					background.generateWaves(Background::INITIAL, enemies, &spriteSheet, player->getPos().z);
+					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet,
+						walls, zapWalls);
+					background.generateWaves(Background::INITIAL, enemies, &spriteSheet,
+						player->getPos().z);
 					
 				}
 			}
 			else // Start the player death animation here
 			{
-				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
+				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies,
+					*player, walls, bossState, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
 					// Make sure background is set back to default
@@ -482,7 +496,7 @@ void Game::doCollision(Player* player)
 			abs(obstacles.at(i)->getPosition().y - planePos.y),
 			abs(obstacles.at(i)->getPosition().z - planePos.z));
 
-		if (difference.x < 20 && difference.y < 15 && difference.z < 30)
+		if (difference.x < 15 && difference.y < 15 && difference.z < 25)
 			playerDeath();
 	}
 
@@ -496,13 +510,13 @@ void Game::doCollision(Player* player)
 		// Now check the sections for each wall if they have been hit or not
 		for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
 		{
-			//TO DO Fix it so it accounts for the position being top left
+			
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x - planePos.x),
+			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - planePos.x),
 				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
 
-			if (difference.x < 15 && difference.y < 15 && difference.z < 10)
+			if (difference.x < 20 && difference.y < 15 && difference.z < 10)
 				playerDeath();
 		}
 
@@ -529,7 +543,7 @@ void Game::doCollision(Player* player)
 			abs(zapWalls.at(i)->getStartPosition().y - planePos.y),
 			abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
 
-		if (difference.y < 15 && difference.z < 15)
+		if (difference.y < 10 && difference.z < 10)
 				playerDeath();
 	}
 
@@ -602,18 +616,17 @@ void Game::doCollision(Player* player)
 			for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
 			{
 				difference = sf::Vector3f
-				(abs(walls.at(i)->getWallPositions().at(j).x - bullet->getPos().x),
+				(abs(walls.at(i)->getWallPositions().at(j).x - 20 - bullet->getPos().x),
 					abs(walls.at(i)->getWallPositions().at(j).y + 15 - bullet->getPos().y),
 					abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().z));
 
-				if (difference.x < 20 && difference.y < 20 && difference.z < 10)
+				if (difference.x < 30 && difference.y < 20 && difference.z < 20)
 					bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 			}
 
 			//Player Bullets hit walls build into background
 			difference.z = abs(bullet->getPos().z - walls.at(i)->getWallPositions().at(0).z);
 
-			//TO DO fix it so the x works and the y plus value is more accurate
 			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
@@ -629,7 +642,7 @@ void Game::doCollision(Player* player)
 				abs(zapWalls.at(i)->getStartPosition().y - bullet->getPos().y),
 				abs(zapWalls.at(i)->getStartPosition().z - bullet->getPos().z));
 
-			if (difference.y < 20 && difference.z < 20)
+			if (difference.y < 15 && difference.z < 15)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
