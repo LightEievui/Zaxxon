@@ -5,7 +5,7 @@
 #include "Util/Util.h"
 #include <time.h>
 #include "Entity/Entity.h"
-#include "Entity/AbstractBullet/CharacterBullet/CharacterBullet.h"
+#include "Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h"
 
 
 class Obstacle : public Entity
@@ -32,7 +32,7 @@ public:
 
 	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
 private:
-	std::vector<sf::Sprite> bulletSprites;
+	std::vector<ObstacleBullet> bullets;
 	std::vector<sf::Vector3f> bulletPositions;
 	int direction, count = 0, total = 100, random = 0, type = 0, scoreIndicator = 0;
 	bool turret = false, onScreen = false, moved = false, redRocket = false;

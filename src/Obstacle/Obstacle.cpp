@@ -179,41 +179,31 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	//Shooting mechanics for bassic turrets
 	if (turret == true && direction != 2)
 	{
+		//Creates bullets for grey cannons
 		if (count % total == 0 && direction == 0 && animations.getState() == 0)
 		{
-			sf::Sprite temp;
-
-			temp.setTexture((*spriteSheet));
-			temp.setTextureRect(sf::IntRect(160, 129, 12, 8));
-			temp.setPosition(translateTo2d(getPos()));
-			temp.setOrigin(sf::Vector2f(0, temp.getGlobalBounds().height));
-
-            bulletSprites.push_back(temp);
-            bulletPositions.push_back(getPos());
+			bullets.push_back(ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::zBullet));
 
 			total = (rand() % 250) + 75;
         }
+		//Creates bullets for green cannons
         else if (count % total == 0 && (direction == 1 || direction == 3) && animations.getState() == 0)
         {
-            sf::Sprite temp;
-
-			temp.setTexture((*spriteSheet));
-			temp.setTextureRect(sf::IntRect(345, 124, 12, 8));
-			temp.setPosition(translateTo2d(getPos()));
-
-			bulletSprites.push_back(temp);
-			bulletPositions.push_back(getPos());
+			bullets.push_back(ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::xBullet));
 
 			total = (rand() % 250) + 75;
 		}
 	}
-	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 6 || animations.getState() == 7)) // Rocket shooting up
+	//Controls the firing of up shooting missiles which are delayed from shooting afer entering the screen
+	else if (direction == 2 && (animations.getState() == 0 || animations.getState() == 6 || animations.getState() == 7))
 	{
 		if (rocketFiring)
 		{
+			//Is the animation of launch still starting if so reset it
 			if (animations.getState() == 3)
 				animations.run(sprite, Animation::RESET);
 
+			//is it below its explode height
 			if (getPos().y > 70.f)
 			{
 				setPos(sf::Vector3f(getPos().x, getPos().y - 0.5f, getPos().z));
@@ -231,19 +221,13 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	}
 
 	//Gives bullets their direction
-    for (unsigned int i = 0; i < bulletSprites.size(); i++)
+    for (unsigned int i = 0; i < bullets.size(); i++)
     {
-        if (direction == 0)
-            bulletPositions.at(i).z += 3;
-        else if (direction == 1)
-            bulletPositions.at(i).x += 3;
-        else if (direction == 3)
-            bulletPositions.at(i).x -= 3;
-        bulletSprites.at(i).setPosition(translateTo2d(bulletPositions.at(i)));
-
-        window.draw(bulletSprites.at(i));
+		bulletPositions.at(i) = bullets.at(i).getPos();
+		bullets.at(i).update(window);
     }
- 
+	
+	//Offset position on death
 	if (animations.getState() == 4 && !moved)
 	{
 		moved = true;
@@ -330,7 +314,7 @@ bool Obstacle::isTurret()
 /// <param name="bullet"></param>
 void Obstacle::bulletKill(int bullet)
 {
-	bulletSprites.erase(bulletSprites.begin() + (bullet));
+	bullets.erase(bullets.begin() + (bullet));
 	bulletPositions.erase(bulletPositions.begin() + bullet);
 }
 
