@@ -1,7 +1,7 @@
 #include "Game.h"
 
-const unsigned int startPos = 2500;
-const Background::Stage startStage = Background::BOSS;
+const unsigned int startPos = 1600;
+const Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
