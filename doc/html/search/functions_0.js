@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['animation_0',['Animation',['../class_animation.html#a83f0a16cef7117f187ad596de38dd9d6',1,'Animation']]]
+  ['_5fgetsizeindex_0',['_getSizeIndex',['../class_character.html#a40ac52813d37c391b4cd6db06a8f1216',1,'Character']]]
 ];

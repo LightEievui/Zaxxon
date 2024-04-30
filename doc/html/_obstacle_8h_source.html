@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -22,9 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
   </td>
  </tr>
  </tbody>
@@ -53,6 +59,23 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_obstacle_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,64 +97,83 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4c0909797020742ef81036129a52d3cc.html">Obstacle</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Obstacle.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="_obstacle_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Util/Util.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_util_8h.html">Util/Util.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Entity/Entity.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity/Entity.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_obstacle.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_obstacle.html">Obstacle</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_entity.html">Entity</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">//For shooting obstacles</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_obstacle.html#a92816aa47ab3cbb031423f16ab75a920">Obstacle</a>(sf::Vector3f, sf::Texture*, <span class="keywordtype">float</span>,  <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">//For standby obstacles</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="class_obstacle.html#a92816aa47ab3cbb031423f16ab75a920">Obstacle</a>(sf::Vector3f, sf::Texture*, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_obstacle.html">~Obstacle</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> setTexture(std::string);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">setPosition</a>(sf::Vector3f);;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    sf::Vector3f <a class="code hl_function" href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">getPosition</a>();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::vector&lt;sf::Vector3f&gt; <a class="code hl_function" href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">getBulletLocations</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#a71cf873dada3977dbbda2ee3c80a8f14">update</a>(sf::RenderWindow&amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">isPresent</a>();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7">bulletKill</a>(<span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114">getType</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::vector&lt;sf::Sprite&gt; bulletSprites;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::vector&lt;sf::Vector3f&gt; bulletPositions;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">int</span> direction, count, total = 100, random, type;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> turret = <span class="keyword">false</span>, onScreen = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_obstacle.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="class_obstacle.html">Obstacle</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_entity.html">Entity</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//For shooting obstacles</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_function" href="class_obstacle.html#a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle</a>(sf::Vector3f, sf::Texture*, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//For standby obstacles</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_obstacle.html#a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle</a>(sf::Vector3f, sf::Texture*, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="class_obstacle.html#af2f9cc9c6cff75dca0974fd5ac4f71a9">~Obstacle</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_obstacle.html#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">setTexture</a>(std::string);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">setPosition</a>(sf::Vector3f);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    sf::Vector3f <a class="code hl_function" href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">getPosition</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::vector&lt;sf::Vector3f&gt; <a class="code hl_function" href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">getBulletLocations</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#acd60ac9d097142b295ece68202d39655">update</a>(sf::RenderWindow&amp;, <span class="keywordtype">int</span> playerZ);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#acd60ac9d097142b295ece68202d39655">update</a>(sf::RenderWindow&amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">isPresent</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_obstacle.html#a0f354a517c0b6b2e9bafc1e36af706af">isTurret</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7">bulletKill</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114">getType</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_obstacle.html#ac3450be68b7a60ab4ed285893f6f1deb">getScore</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_obstacle.html#ac7300c4d9c730103c707972be1380ff9">kill</a>(<a class="code hl_enumeration" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a> <a class="code hl_typedef" href="_animation_8cpp.html#ace719c3edb14f8a32929395ba2524d64">animation</a> = <a class="code hl_enumvalue" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::vector&lt;sf::Sprite&gt; bulletSprites;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::vector&lt;sf::Vector3f&gt; bulletPositions;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> direction, count = 0, total = 100, random = 0, type = 0, scoreIndicator = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> turret = <span class="keyword">false</span>, onScreen = <span class="keyword">false</span>, moved = <span class="keyword">false</span>, redRocket = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> drawDebugText = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    sf::Sprite rocketExplosionSprite;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="class_animation.html">Animation</a> rocketAnimation;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> rocketZ = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
 </div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition</b> Entity.h:7</div></div>
-<div class="ttc" id="aclass_obstacle_html"><div class="ttname"><a href="class_obstacle.html">Obstacle</a></div><div class="ttdef"><b>Definition</b> Obstacle.h:11</div></div>
-<div class="ttc" id="aclass_obstacle_html_a214183fffe9a6301fbe708313c96b6e7"><div class="ttname"><a href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">Obstacle::getBulletLocations</a></div><div class="ttdeci">std::vector&lt; sf::Vector3f &gt; getBulletLocations()</div><div class="ttdoc">Get positions for all bullets of the obstacle (For turrets).</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:119</div></div>
-<div class="ttc" id="aclass_obstacle_html_a39869e565df81ce8a50e42668cd0fab7"><div class="ttname"><a href="class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7">Obstacle::bulletKill</a></div><div class="ttdeci">void bulletKill(int)</div><div class="ttdoc">Get rid of obstacles bullet by index (For turrets).</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:201</div></div>
-<div class="ttc" id="aclass_obstacle_html_a712e425583cff17617c280a10399bf1e"><div class="ttname"><a href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">Obstacle::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector3f)</div><div class="ttdoc">Set the position of this obstacle.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:181</div></div>
-<div class="ttc" id="aclass_obstacle_html_a71cf873dada3977dbbda2ee3c80a8f14"><div class="ttname"><a href="class_obstacle.html#a71cf873dada3977dbbda2ee3c80a8f14">Obstacle::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;) override</div><div class="ttdoc">Run the logic for this obstacle.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:129</div></div>
-<div class="ttc" id="aclass_obstacle_html_a73b7da779f5fff618bb71fbd811a5f30"><div class="ttname"><a href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">Obstacle::getPosition</a></div><div class="ttdeci">sf::Vector3f getPosition()</div><div class="ttdoc">Get position of the obstacle.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:109</div></div>
-<div class="ttc" id="aclass_obstacle_html_a92816aa47ab3cbb031423f16ab75a920"><div class="ttname"><a href="class_obstacle.html#a92816aa47ab3cbb031423f16ab75a920">Obstacle::Obstacle</a></div><div class="ttdeci">Obstacle(sf::Vector3f, sf::Texture *, float, int)</div><div class="ttdoc">Create a turret obstacle with shooting and direction.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:11</div></div>
-<div class="ttc" id="aclass_obstacle_html_ad28c6a458187a5f5ec68c8cc3c425114"><div class="ttname"><a href="class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114">Obstacle::getType</a></div><div class="ttdeci">int getType()</div><div class="ttdoc">Get what type of obstacle this is.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:212</div></div>
-<div class="ttc" id="aclass_obstacle_html_af395b8077b863766f840f75377a9c6fc"><div class="ttname"><a href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">Obstacle::isPresent</a></div><div class="ttdeci">bool isPresent()</div><div class="ttdoc">Check if this obstacle exists.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:191</div></div>
+<div class="ttc" id="a_animation_8cpp_html_ace719c3edb14f8a32929395ba2524d64"><div class="ttname"><a href="_animation_8cpp.html#ace719c3edb14f8a32929395ba2524d64">animation</a></div><div class="ttdeci">void(Animation::* animation)(sf::Sprite *)</div><div class="ttdef"><b>Definition</b> Animation.cpp:2</div></div>
+<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
+<div class="ttc" id="a_util_8h_html"><div class="ttname"><a href="_util_8h.html">Util.h</a></div></div>
+<div class="ttc" id="aclass_animation_html"><div class="ttname"><a href="class_animation.html">Animation</a></div><div class="ttdoc">Class to handle (almost) all in-game animations.</div><div class="ttdef"><b>Definition</b> Animation.h:12</div></div>
+<div class="ttc" id="aclass_animation_html_a60f8fa9f33af072a23f28b8b69b42d18"><div class="ttname"><a href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a></div><div class="ttdeci">Anim</div><div class="ttdef"><b>Definition</b> Animation.h:14</div></div>
+<div class="ttc" id="aclass_animation_html_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892"><div class="ttname"><a href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a></div><div class="ttdeci">@ CHARACTER_DEATH</div><div class="ttdef"><b>Definition</b> Animation.h:15</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for all entities in the game.</div><div class="ttdef"><b>Definition</b> Entity.h:11</div></div>
+<div class="ttc" id="aclass_obstacle_html"><div class="ttname"><a href="class_obstacle.html">Obstacle</a></div><div class="ttdoc">Still obstacles that spawn across the levels.</div><div class="ttdef"><b>Definition</b> Obstacle.h:14</div></div>
+<div class="ttc" id="aclass_obstacle_html_a0f354a517c0b6b2e9bafc1e36af706af"><div class="ttname"><a href="class_obstacle.html#a0f354a517c0b6b2e9bafc1e36af706af">Obstacle::isTurret</a></div><div class="ttdeci">bool isTurret()</div><div class="ttdoc">Checks if obstacle is a turret.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:321</div></div>
+<div class="ttc" id="aclass_obstacle_html_a214183fffe9a6301fbe708313c96b6e7"><div class="ttname"><a href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">Obstacle::getBulletLocations</a></div><div class="ttdeci">std::vector&lt; sf::Vector3f &gt; getBulletLocations()</div><div class="ttdoc">Get positions for all bullets of the obstacle (For turrets).</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:157</div></div>
+<div class="ttc" id="aclass_obstacle_html_a29b7f49fb1b9b7e4d24eb8f05cc12dc3"><div class="ttname"><a href="class_obstacle.html#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">Obstacle::setTexture</a></div><div class="ttdeci">void setTexture(std::string)</div></div>
+<div class="ttc" id="aclass_obstacle_html_a39869e565df81ce8a50e42668cd0fab7"><div class="ttname"><a href="class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7">Obstacle::bulletKill</a></div><div class="ttdeci">void bulletKill(int)</div><div class="ttdoc">Get rid of obstacles bullet by index (For turrets).</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:331</div></div>
+<div class="ttc" id="aclass_obstacle_html_a712e425583cff17617c280a10399bf1e"><div class="ttname"><a href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">Obstacle::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector3f)</div><div class="ttdoc">Set the position of this obstacle.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:302</div></div>
+<div class="ttc" id="aclass_obstacle_html_a73b7da779f5fff618bb71fbd811a5f30"><div class="ttname"><a href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">Obstacle::getPosition</a></div><div class="ttdeci">sf::Vector3f getPosition()</div><div class="ttdoc">Get position of the obstacle.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:147</div></div>
+<div class="ttc" id="aclass_obstacle_html_a76b8db02b4d3cc504e13ec2f53e3d461"><div class="ttname"><a href="class_obstacle.html#a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle::Obstacle</a></div><div class="ttdeci">Obstacle(sf::Vector3f, sf::Texture *, int, int)</div><div class="ttdoc">Create a turret obstacle with shooting and direction.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:11</div></div>
+<div class="ttc" id="aclass_obstacle_html_ac3450be68b7a60ab4ed285893f6f1deb"><div class="ttname"><a href="class_obstacle.html#ac3450be68b7a60ab4ed285893f6f1deb">Obstacle::getScore</a></div><div class="ttdeci">int getScore()</div><div class="ttdoc">Gets the score to add when the obstacle is destroyed.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:363</div></div>
+<div class="ttc" id="aclass_obstacle_html_ac7300c4d9c730103c707972be1380ff9"><div class="ttname"><a href="class_obstacle.html#ac7300c4d9c730103c707972be1380ff9">Obstacle::kill</a></div><div class="ttdeci">void kill(Animation::Anim animation=Animation::CHARACTER_DEATH)</div><div class="ttdoc">Death animation.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:134</div></div>
+<div class="ttc" id="aclass_obstacle_html_acd60ac9d097142b295ece68202d39655"><div class="ttname"><a href="class_obstacle.html#acd60ac9d097142b295ece68202d39655">Obstacle::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;, int playerZ)</div><div class="ttdoc">Run the logic for this obstacle.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:167</div></div>
+<div class="ttc" id="aclass_obstacle_html_ad28c6a458187a5f5ec68c8cc3c425114"><div class="ttname"><a href="class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114">Obstacle::getType</a></div><div class="ttdeci">int getType()</div><div class="ttdoc">Get what type of obstacle this is.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:342</div></div>
+<div class="ttc" id="aclass_obstacle_html_af2f9cc9c6cff75dca0974fd5ac4f71a9"><div class="ttname"><a href="class_obstacle.html#af2f9cc9c6cff75dca0974fd5ac4f71a9">Obstacle::~Obstacle</a></div><div class="ttdeci">~Obstacle()</div><div class="ttdoc">Clean up memory related to the obstacle class.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:125</div></div>
+<div class="ttc" id="aclass_obstacle_html_af395b8077b863766f840f75377a9c6fc"><div class="ttname"><a href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">Obstacle::isPresent</a></div><div class="ttdeci">bool isPresent()</div><div class="ttdoc">Check if this obstacle exists.</div><div class="ttdef"><b>Definition</b> Obstacle.cpp:312</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4c0909797020742ef81036129a52d3cc.html">Obstacle</a></li><li class="navelem"><a class="el" href="_obstacle_8h.html">Obstacle.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

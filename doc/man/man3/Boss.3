@@ -1,0 +1,185 @@
+.TH "Boss" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Boss \- The boss entity you fight at the end of the level loop\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Boss\&.h>\fP
+.PP
+Inherits \fBEntity\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBoss\fP (sf::Vector3f, \fBEntity\fP *, sf::Texture *, sf::Texture *)"
+.br
+.RI "Prepare the boss variables\&. "
+.ti -1c
+.RI "\fB~Boss\fP ()"
+.br
+.RI "Clean up memory related to the boss\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &)"
+.br
+.RI "Run the logic for the boss each frame and then draw it to the screen\&. "
+.ti -1c
+.RI "void \fBhit\fP ()"
+.br
+.RI "Run visual effects and code for when you land a hit on the boss\&. "
+.ti -1c
+.RI "\fBBossBullet\fP * \fBgetMissile\fP ()"
+.br
+.RI "Get the boss missile separately\&. "
+.ti -1c
+.RI "bool \fBmissileCreated\fP ()"
+.br
+.RI "Check if the boss missile exists\&. "
+.ti -1c
+.RI "bool \fBisDestroyed\fP ()"
+.br
+.RI "Check if the boss has been defeated\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "\fB~Entity\fP ()"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The boss entity you fight at the end of the level loop\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Boss::Boss (sf::Vector3f start, \fBEntity\fP * target, sf::Texture * bossSheet, sf::Texture * spriteSheet)"
+
+.PP
+Prepare the boss variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart\fP 
+.br
+\fItarget\fP 
+.br
+\fIbossSheet\fP 
+.br
+\fIspriteSheet\fP 
+.RE
+.PP
+
+.SS "Boss::~Boss ()"
+
+.PP
+Clean up memory related to the boss\&. 
+.br
+ 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBBossBullet\fP * Boss::getMissile ()"
+
+.PP
+Get the boss missile separately\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The missile as a BossBullet*
+.RE
+.PP
+
+.SS "void Boss::hit ()"
+
+.PP
+Run visual effects and code for when you land a hit on the boss\&. 
+.SS "bool Boss::isDestroyed ()"
+
+.PP
+Check if the boss has been defeated\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "bool Boss::missileCreated ()"
+
+.PP
+Check if the boss missile exists\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "void Boss::update (sf::RenderWindow & window)\fR [virtual]\fP"
+
+.PP
+Run the logic for the boss each frame and then draw it to the screen\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Implements \fBEntity\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

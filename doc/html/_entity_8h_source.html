@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -22,9 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
   </td>
  </tr>
  </tbody>
@@ -53,6 +59,23 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_entity_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,50 +97,73 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_afc99902bfecf368d324149b3dedaf36.html">Entity</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Entity.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Animation/Animation.h&quot;</span></div>
+<a href="_entity_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_animation_8h.html">Animation/Animation.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="_util_8h.html">Util/Util.h</a>&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_entity.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="class_entity.html">Entity</a></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="class_entity.html">Entity</a>();</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_entity.html">~Entity</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_entity.html#a522648b330daab91b49f78f0737a943f">kill</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(sf::RenderWindow&amp;) = 0;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> setPos(sf::Vector3f pos) { position = pos; };</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    sf::Vector3f getPos() { <span class="keywordflow">return</span> position; };</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    sf::FloatRect getBounds() { <span class="keywordflow">return</span> sprite.getGlobalBounds(); };</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    sf::Texture* spriteSheet;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    sf::Sprite sprite;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_animation.html">Animation</a> animations;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> dead = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    sf::Vector3f position;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_entity.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_entity.html">Entity</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">kill</a>(<a class="code hl_enumeration" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a> <a class="code hl_typedef" href="_animation_8cpp.html#ace719c3edb14f8a32929395ba2524d64">animation</a> = <a class="code hl_enumvalue" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_entity.html#a7d014114fcea80281536d5525019190c">   17</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_entity.html#a7d014114fcea80281536d5525019190c">update</a>(sf::RenderWindow&amp;) = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">   19</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</a>.<a class="code hl_function" href="class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac">getState</a>(); };</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">   20</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a>(sf::Vector3f pos) { position = pos; };</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">   21</a></span>    sf::Vector3f <a class="code hl_function" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>() { <span class="keywordflow">return</span> position; };</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">   22</a></span>    sf::FloatRect <a class="code hl_function" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a>-&gt;getGlobalBounds(); };</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    sf::Vector2f <a class="code hl_function" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">getSpritePos</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">   25</a></span>    sf::Texture* <a class="code hl_variable" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">   26</a></span>    sf::Sprite* <a class="code hl_variable" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">   27</a></span>    <a class="code hl_class" href="class_animation.html">Animation</a> <a class="code hl_variable" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_entity.html#a799462330dd8c754cdada5dab432b4dc">   28</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_entity.html#a799462330dd8c754cdada5dab432b4dc">dead</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">   29</a></span>    sf::Text <a class="code hl_variable" href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">   30</a></span>    sf::Font <a class="code hl_variable" href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">debugFont</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    sf::Vector3f position;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 </div>
-<div class="ttc" id="aclass_animation_html"><div class="ttname"><a href="class_animation.html">Animation</a></div><div class="ttdef"><b>Definition</b> Animation.h:8</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition</b> Entity.h:7</div></div>
-<div class="ttc" id="aclass_entity_html_a522648b330daab91b49f78f0737a943f"><div class="ttname"><a href="class_entity.html#a522648b330daab91b49f78f0737a943f">Entity::kill</a></div><div class="ttdeci">virtual void kill()</div><div class="ttdoc">Run death animation code for the killed entity.</div><div class="ttdef"><b>Definition</b> Entity.cpp:19</div></div>
+<div class="ttc" id="a_animation_8cpp_html_ace719c3edb14f8a32929395ba2524d64"><div class="ttname"><a href="_animation_8cpp.html#ace719c3edb14f8a32929395ba2524d64">animation</a></div><div class="ttdeci">void(Animation::* animation)(sf::Sprite *)</div><div class="ttdef"><b>Definition</b> Animation.cpp:2</div></div>
+<div class="ttc" id="a_animation_8h_html"><div class="ttname"><a href="_animation_8h.html">Animation.h</a></div></div>
+<div class="ttc" id="a_util_8h_html"><div class="ttname"><a href="_util_8h.html">Util.h</a></div></div>
+<div class="ttc" id="aclass_animation_html"><div class="ttname"><a href="class_animation.html">Animation</a></div><div class="ttdoc">Class to handle (almost) all in-game animations.</div><div class="ttdef"><b>Definition</b> Animation.h:12</div></div>
+<div class="ttc" id="aclass_animation_html_a60f8fa9f33af072a23f28b8b69b42d18"><div class="ttname"><a href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a></div><div class="ttdeci">Anim</div><div class="ttdef"><b>Definition</b> Animation.h:14</div></div>
+<div class="ttc" id="aclass_animation_html_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892"><div class="ttname"><a href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a></div><div class="ttdeci">@ CHARACTER_DEATH</div><div class="ttdef"><b>Definition</b> Animation.h:15</div></div>
+<div class="ttc" id="aclass_animation_html_aa1d5fabe9f7d60e3811f945abc2f24ac"><div class="ttname"><a href="class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac">Animation::getState</a></div><div class="ttdeci">int getState()</div><div class="ttdoc">Checks if current animation has finished running.</div><div class="ttdef"><b>Definition</b> Animation.cpp:309</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for all entities in the game.</div><div class="ttdef"><b>Definition</b> Entity.h:11</div></div>
+<div class="ttc" id="aclass_entity_html_a1783cc856808b2d78c4e46fa9c85a524"><div class="ttname"><a href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">Entity::setPos</a></div><div class="ttdeci">void setPos(sf::Vector3f pos)</div><div class="ttdef"><b>Definition</b> Entity.h:20</div></div>
+<div class="ttc" id="aclass_entity_html_a17d1b17b5f2c2b7c137ee7b8347358c3"><div class="ttname"><a href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">Entity::getPos</a></div><div class="ttdeci">sf::Vector3f getPos()</div><div class="ttdef"><b>Definition</b> Entity.h:21</div></div>
+<div class="ttc" id="aclass_entity_html_a3ea146cebd4310647bd49a4f08940fe5"><div class="ttname"><a href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">Entity::kill</a></div><div class="ttdeci">virtual void kill(Animation::Anim animation=Animation::CHARACTER_DEATH)</div><div class="ttdoc">Run death animation code for the killed entity.</div><div class="ttdef"><b>Definition</b> Entity.cpp:31</div></div>
+<div class="ttc" id="aclass_entity_html_a5c8dfa06fdc253fd93eafc998a919d00"><div class="ttname"><a href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">Entity::debugFont</a></div><div class="ttdeci">sf::Font debugFont</div><div class="ttdef"><b>Definition</b> Entity.h:30</div></div>
+<div class="ttc" id="aclass_entity_html_a799462330dd8c754cdada5dab432b4dc"><div class="ttname"><a href="class_entity.html#a799462330dd8c754cdada5dab432b4dc">Entity::dead</a></div><div class="ttdeci">bool dead</div><div class="ttdef"><b>Definition</b> Entity.h:28</div></div>
+<div class="ttc" id="aclass_entity_html_a7d014114fcea80281536d5525019190c"><div class="ttname"><a href="class_entity.html#a7d014114fcea80281536d5525019190c">Entity::update</a></div><div class="ttdeci">virtual void update(sf::RenderWindow &amp;)=0</div></div>
+<div class="ttc" id="aclass_entity_html_a9727d15d18ccb10fa72dfe15799adcdd"><div class="ttname"><a href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">Entity::getBounds</a></div><div class="ttdeci">sf::FloatRect getBounds()</div><div class="ttdef"><b>Definition</b> Entity.h:22</div></div>
+<div class="ttc" id="aclass_entity_html_a980f368aa07ce358583982821533a54a"><div class="ttname"><a href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity::Entity</a></div><div class="ttdeci">Entity()</div><div class="ttdoc">Setup Entity class variables.</div><div class="ttdef"><b>Definition</b> Entity.cpp:7</div></div>
+<div class="ttc" id="aclass_entity_html_aa3c0e2d55bf2cffe2c8937ff68bf031d"><div class="ttname"><a href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">Entity::animations</a></div><div class="ttdeci">Animation animations</div><div class="ttdef"><b>Definition</b> Entity.h:27</div></div>
+<div class="ttc" id="aclass_entity_html_ac3f2dbf1633dd3080b7e2835367170bd"><div class="ttname"><a href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">Entity::spriteSheet</a></div><div class="ttdeci">sf::Texture * spriteSheet</div><div class="ttdef"><b>Definition</b> Entity.h:25</div></div>
+<div class="ttc" id="aclass_entity_html_ac653cdb194e9a3d1c5ad211bf1ab23b0"><div class="ttname"><a href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">Entity::debugText</a></div><div class="ttdeci">sf::Text debugText</div><div class="ttdef"><b>Definition</b> Entity.h:29</div></div>
+<div class="ttc" id="aclass_entity_html_ac9ef7fc00806615984a06ca8c71b10bc"><div class="ttname"><a href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">Entity::getAnimationState</a></div><div class="ttdeci">int getAnimationState()</div><div class="ttdef"><b>Definition</b> Entity.h:19</div></div>
+<div class="ttc" id="aclass_entity_html_ad641a9c7d92d65cb688651e48029e82d"><div class="ttname"><a href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">Entity::getSpritePos</a></div><div class="ttdeci">sf::Vector2f getSpritePos()</div><div class="ttdoc">Get the position of the related sprite for this entity.</div><div class="ttdef"><b>Definition</b> Entity.cpp:41</div></div>
+<div class="ttc" id="aclass_entity_html_adf6d3f7cb1b2ba029b6b048a395cc8ae"><div class="ttname"><a href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">Entity::~Entity</a></div><div class="ttdeci">~Entity()</div><div class="ttdoc">Clean up memory related to Entity class.</div><div class="ttdef"><b>Definition</b> Entity.cpp:21</div></div>
+<div class="ttc" id="aclass_entity_html_af83f70f8107d85626fb383599cc0f7ae"><div class="ttname"><a href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">Entity::sprite</a></div><div class="ttdeci">sf::Sprite * sprite</div><div class="ttdef"><b>Definition</b> Entity.h:26</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_afc99902bfecf368d324149b3dedaf36.html">Entity</a></li><li class="navelem"><a class="el" href="_entity_8h.html">Entity.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

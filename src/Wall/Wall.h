@@ -4,6 +4,9 @@
 #include "Util/Util.h"
 
 
+/// <summary>
+/// Class for the normal walls (stone brick).
+/// </summary>
 class Wall
 {
 public:

@@ -5,6 +5,9 @@
 #include <vector>
 
 
+/// <summary>
+/// Class to handle (almost) all in-game animations.
+/// </summary>
 class Animation
 {
 public:

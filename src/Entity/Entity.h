@@ -4,6 +4,9 @@
 #include <Util/Util.h>
 
 
+/// <summary>
+/// Abstract class for all entities in the game.
+/// </summary>
 class Entity
 {
 public:

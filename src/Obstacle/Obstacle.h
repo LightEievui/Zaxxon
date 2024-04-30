@@ -7,6 +7,9 @@
 #include "Entity/Entity.h"
 
 
+/// <summary>
+/// Still obstacles that spawn across the levels.
+/// </summary>
 class Obstacle : public Entity
 {
 public:

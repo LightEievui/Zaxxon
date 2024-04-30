@@ -3,7 +3,9 @@
 #include "Util/Util.h"
 
 
-
+/// <summary>
+/// The bullet used by the player and enemies
+/// </summary>
 class CharacterBullet : public AbstractBullet
 {
 public:

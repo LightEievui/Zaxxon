@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -22,9 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
   </td>
  </tr>
  </tbody>
@@ -53,6 +59,23 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_background_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,71 +97,99 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9fcfb789ecabade8749ffa7f9106c60f.html">Background</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Background.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Entity/Character/Player/Player.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Entity/Character/Enemy/Enemy.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Obstacle/Obstacle.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_background.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_background.html">Background</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">enum</span> Stage {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        INITIAL,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        SPACE,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        BOSS</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    };</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="class_background.html#a1fac54c7e81db155fbef597121344108">Background</a>(Stage, sf::View&amp;, sf::Texture*, std::vector&lt;Obstacle*&gt;&amp;, </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        std::vector&lt;Enemy*&gt;&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_background.html">~Background</a>();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#a2a139f9d39a237ff2556c56eae438be5">update</a>(sf::RenderWindow&amp;, sf::View&amp;, <span class="keywordtype">float</span>, sf::Texture*, </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        std::vector&lt;Obstacle*&gt;&amp;, std::vector&lt;Enemy*&gt;&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">setPosition</a>(sf::Vector2f);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// MAY want to consider changing to private later</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#aadb6a9246b8e7532fff5d9de5b96b93c">generateObstacles</a>(Background::Stage, </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        std::vector&lt;Obstacle*&gt;&amp;, sf::Texture*);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">generateWaves</a>(Background::Stage, std::vector&lt;Enemy*&gt;&amp;, </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        sf::Texture*, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_background.html#abd3150983c5f3a2df47b761966235635">isInSpace</a>(<span class="keywordtype">int</span> z);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> changeStage(Stage, sf::View&amp;, sf::Texture*,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::vector&lt;Obstacle*&gt;&amp;, std::vector&lt;Enemy*&gt;&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> backgroundFinished(sf::View&amp;);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> resetPos(sf::View&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    sf::Texture initial, space, boss;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    sf::Sprite back;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    Stage stage = Stage::INITIAL;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<a href="_background_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_player_8h.html">Entity/Character/Player/Player.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_enemy_8h.html">Entity/Character/Enemy/Enemy.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_obstacle_8h.html">Obstacle/Obstacle.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_wall_8h.html">Wall/Wall.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_zap_walls_8h.html">ZapWalls/ZapWalls.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_background.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="class_background.html">Background</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">   18</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">   19</a></span>        <a class="code hl_enumvalue" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</a> = 0,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">   20</a></span>        <a class="code hl_enumvalue" href="class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</a> = 1,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">   21</a></span>        <a class="code hl_enumvalue" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</a> = 2,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_enumvalue" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">BOSSFIGHT</a> = 3</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">   23</a></span>    };</div>
 </div>
-<div class="ttc" id="aclass_background_html"><div class="ttname"><a href="class_background.html">Background</a></div><div class="ttdef"><b>Definition</b> Background.h:10</div></div>
-<div class="ttc" id="aclass_background_html_a002ca1b009e940180bb5edb8c49e008f"><div class="ttname"><a href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">Background::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector2f)</div><div class="ttdoc">Set the position of the background.</div><div class="ttdef"><b>Definition</b> Background.cpp:90</div></div>
-<div class="ttc" id="aclass_background_html_a0f5d9a72170c2b943a3d688ef46ffbbb"><div class="ttname"><a href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">Background::generateWaves</a></div><div class="ttdeci">static void generateWaves(Background::Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</div><div class="ttdoc">Handle enemy wave generation.</div><div class="ttdef"><b>Definition</b> Background.cpp:269</div></div>
-<div class="ttc" id="aclass_background_html_a1fac54c7e81db155fbef597121344108"><div class="ttname"><a href="class_background.html#a1fac54c7e81db155fbef597121344108">Background::Background</a></div><div class="ttdeci">Background(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int)</div><div class="ttdoc">Create the background object and initialize each of the necessary images so they are ready to be draw...</div><div class="ttdef"><b>Definition</b> Background.cpp:16</div></div>
-<div class="ttc" id="aclass_background_html_a2a139f9d39a237ff2556c56eae438be5"><div class="ttname"><a href="class_background.html#a2a139f9d39a237ff2556c56eae438be5">Background::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;)</div><div class="ttdoc">Run the background logic, and check if background stage should be swapped.</div><div class="ttdef"><b>Definition</b> Background.cpp:51</div></div>
-<div class="ttc" id="aclass_background_html_aadb6a9246b8e7532fff5d9de5b96b93c"><div class="ttname"><a href="class_background.html#aadb6a9246b8e7532fff5d9de5b96b93c">Background::generateObstacles</a></div><div class="ttdeci">static void generateObstacles(Background::Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *)</div><div class="ttdoc">Place all obstacles for given stage.</div><div class="ttdef"><b>Definition</b> Background.cpp:202</div></div>
-<div class="ttc" id="aclass_background_html_abd3150983c5f3a2df47b761966235635"><div class="ttname"><a href="class_background.html#abd3150983c5f3a2df47b761966235635">Background::isInSpace</a></div><div class="ttdeci">bool isInSpace(int z)</div><div class="ttdoc">Check if background is currently space, this affects the player.</div><div class="ttdef"><b>Definition</b> Background.cpp:146</div></div>
-<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition</b> Player.h:7</div></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="class_background.html#a573d608524347781c400206450327356">Background</a>(<a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a>, sf::View&amp;, sf::Texture*, std::vector&lt;Obstacle*&gt;&amp;,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::vector&lt;Enemy*&gt;&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, <span class="keywordtype">int</span>, std::vector&lt;Wall*&gt;&amp;, std::vector &lt;ZapWalls*&gt;&amp;);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="class_background.html#a36754df1deb720393217ade59da41557">~Background</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#ad531459e6da764948e9376250fe9b15e">update</a>(sf::RenderWindow&amp;, sf::View&amp;, <span class="keywordtype">float</span>, sf::Texture*,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        std::vector&lt;Obstacle*&gt;&amp;, std::vector&lt;Enemy*&gt;&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, std::vector&lt;Wall*&gt;&amp;, <span class="keywordtype">bool</span>, std::vector &lt;ZapWalls*&gt;&amp;);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">setPosition</a>(sf::Vector2f);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// MAY want to consider changing to private later</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#adfd6d7bd7fa3bbfcfa599686d29d7cae">generateObstacles</a>(<a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Background::Stage</a>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::vector&lt;Obstacle*&gt;&amp;, sf::Texture*, std::vector&lt;Wall*&gt;&amp;, std::vector &lt;ZapWalls*&gt;&amp;);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">generateWaves</a>(<a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Background::Stage</a>,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        std::vector&lt;Enemy*&gt;&amp;, sf::Texture*, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#ad04fe2ef8bcaf5516c95846e2e500877">resetPos</a>(sf::View&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a> <a class="code hl_function" href="class_background.html#aa60585bb666a292f5d49049038400b1a">getStage</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#ac333125273a1213f2cb1c4af4081f0b8">setStage</a>(<a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_background.html#a52b2389cd7dfaedff511e72af9f3735c">isInSpace</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_background.html#a093d96b9f25dda122febad2beabc47cd">flashColor</a>(sf::RenderWindow&amp;);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> changeStage(<a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a>, sf::View&amp;, sf::Texture*,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        std::vector&lt;Obstacle*&gt;&amp;, std::vector&lt;Enemy*&gt;&amp;, <a class="code hl_class" href="class_player.html">Player</a>&amp;, <span class="keywordtype">int</span>, std::vector&lt;Wall*&gt;&amp;, std::vector &lt;ZapWalls*&gt;&amp;);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">bool</span> backgroundFinished(sf::View&amp;);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    sf::Texture initial, space, boss, death;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    sf::Sprite back;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    sf::Sprite deathOverlay;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_enumeration" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a> stage = <a class="code hl_enumvalue" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">Stage::INITIAL</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::queue&lt;std::pair&lt;int, unsigned int&gt;&gt; waveQueue; <span class="comment">// playerZ: id</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
+<div class="ttc" id="a_enemy_8h_html"><div class="ttname"><a href="_enemy_8h.html">Enemy.h</a></div></div>
+<div class="ttc" id="a_obstacle_8h_html"><div class="ttname"><a href="_obstacle_8h.html">Obstacle.h</a></div></div>
+<div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
+<div class="ttc" id="a_wall_8h_html"><div class="ttname"><a href="_wall_8h.html">Wall.h</a></div></div>
+<div class="ttc" id="a_zap_walls_8h_html"><div class="ttname"><a href="_zap_walls_8h.html">ZapWalls.h</a></div></div>
+<div class="ttc" id="aclass_background_html"><div class="ttname"><a href="class_background.html">Background</a></div><div class="ttdoc">Holds all backgrounds and methods to fill each level with content.</div><div class="ttdef"><b>Definition</b> Background.h:16</div></div>
+<div class="ttc" id="aclass_background_html_a002ca1b009e940180bb5edb8c49e008f"><div class="ttname"><a href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">Background::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector2f)</div><div class="ttdoc">Set the position of the background.</div><div class="ttdef"><b>Definition</b> Background.cpp:121</div></div>
+<div class="ttc" id="aclass_background_html_a093d96b9f25dda122febad2beabc47cd"><div class="ttname"><a href="class_background.html#a093d96b9f25dda122febad2beabc47cd">Background::flashColor</a></div><div class="ttdeci">void flashColor(sf::RenderWindow &amp;)</div><div class="ttdoc">Flash color of background between the default color and red tinted color based on state variable pass...</div><div class="ttdef"><b>Definition</b> Background.cpp:529</div></div>
+<div class="ttc" id="aclass_background_html_a0f5d9a72170c2b943a3d688ef46ffbbb"><div class="ttname"><a href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">Background::generateWaves</a></div><div class="ttdeci">void generateWaves(Background::Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</div><div class="ttdoc">Handle enemy wave generation.</div><div class="ttdef"><b>Definition</b> Background.cpp:472</div></div>
+<div class="ttc" id="aclass_background_html_a36754df1deb720393217ade59da41557"><div class="ttname"><a href="class_background.html#a36754df1deb720393217ade59da41557">Background::~Background</a></div><div class="ttdeci">~Background()</div><div class="ttdef"><b>Definition</b> Background.cpp:41</div></div>
+<div class="ttc" id="aclass_background_html_a52b2389cd7dfaedff511e72af9f3735c"><div class="ttname"><a href="class_background.html#a52b2389cd7dfaedff511e72af9f3735c">Background::isInSpace</a></div><div class="ttdeci">bool isInSpace(int)</div><div class="ttdoc">Check if background is currently space, this affects the player.</div><div class="ttdef"><b>Definition</b> Background.cpp:182</div></div>
+<div class="ttc" id="aclass_background_html_a573d608524347781c400206450327356"><div class="ttname"><a href="class_background.html#a573d608524347781c400206450327356">Background::Background</a></div><div class="ttdeci">Background(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWalls * &gt; &amp;)</div><div class="ttdoc">Create the background object and initialize each of the necessary images so they are ready to be draw...</div><div class="ttdef"><b>Definition</b> Background.cpp:16</div></div>
+<div class="ttc" id="aclass_background_html_a63cd37625e2bab37186432edd734c6b3"><div class="ttname"><a href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Background::Stage</a></div><div class="ttdeci">Stage</div><div class="ttdef"><b>Definition</b> Background.h:18</div></div>
+<div class="ttc" id="aclass_background_html_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0"><div class="ttname"><a href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">Background::INITIAL</a></div><div class="ttdeci">@ INITIAL</div><div class="ttdef"><b>Definition</b> Background.h:19</div></div>
+<div class="ttc" id="aclass_background_html_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e"><div class="ttname"><a href="class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">Background::BOSSFIGHT</a></div><div class="ttdeci">@ BOSSFIGHT</div><div class="ttdef"><b>Definition</b> Background.h:22</div></div>
+<div class="ttc" id="aclass_background_html_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe"><div class="ttname"><a href="class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">Background::BOSS</a></div><div class="ttdeci">@ BOSS</div><div class="ttdef"><b>Definition</b> Background.h:21</div></div>
+<div class="ttc" id="aclass_background_html_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc"><div class="ttname"><a href="class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">Background::SPACE</a></div><div class="ttdeci">@ SPACE</div><div class="ttdef"><b>Definition</b> Background.h:20</div></div>
+<div class="ttc" id="aclass_background_html_aa60585bb666a292f5d49049038400b1a"><div class="ttname"><a href="class_background.html#aa60585bb666a292f5d49049038400b1a">Background::getStage</a></div><div class="ttdeci">Stage getStage()</div><div class="ttdoc">Get the current stage background is on.</div><div class="ttdef"><b>Definition</b> Background.cpp:517</div></div>
+<div class="ttc" id="aclass_background_html_ac333125273a1213f2cb1c4af4081f0b8"><div class="ttname"><a href="class_background.html#ac333125273a1213f2cb1c4af4081f0b8">Background::setStage</a></div><div class="ttdeci">void setStage(Stage)</div><div class="ttdoc">Set the current stage.</div><div class="ttdef"><b>Definition</b> Background.cpp:539</div></div>
+<div class="ttc" id="aclass_background_html_ad04fe2ef8bcaf5516c95846e2e500877"><div class="ttname"><a href="class_background.html#ad04fe2ef8bcaf5516c95846e2e500877">Background::resetPos</a></div><div class="ttdeci">void resetPos(sf::View &amp;, Player &amp;, int)</div><div class="ttdoc">Reset the position of the background for stage changes.</div><div class="ttdef"><b>Definition</b> Background.cpp:212</div></div>
+<div class="ttc" id="aclass_background_html_ad531459e6da764948e9376250fe9b15e"><div class="ttname"><a href="class_background.html#ad531459e6da764948e9376250fe9b15e">Background::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, std::vector&lt; Wall * &gt; &amp;, bool, std::vector&lt; ZapWalls * &gt; &amp;)</div><div class="ttdoc">Run the background logic, and check if background stage should be swapped.</div><div class="ttdef"><b>Definition</b> Background.cpp:57</div></div>
+<div class="ttc" id="aclass_background_html_adfd6d7bd7fa3bbfcfa599686d29d7cae"><div class="ttname"><a href="class_background.html#adfd6d7bd7fa3bbfcfa599686d29d7cae">Background::generateObstacles</a></div><div class="ttdeci">void generateObstacles(Background::Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWalls * &gt; &amp;)</div><div class="ttdoc">Place all obstacles for given stage.</div><div class="ttdef"><b>Definition</b> Background.cpp:246</div></div>
+<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">The player character, also contains plane controls.</div><div class="ttdef"><b>Definition</b> Player.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_9fcfb789ecabade8749ffa7f9106c60f.html">Background</a></li><li class="navelem"><a class="el" href="_background_8h.html">Background.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

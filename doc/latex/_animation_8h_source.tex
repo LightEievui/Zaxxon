@@ -1,30 +1,47 @@
 \doxysection{Animation.\+h}
 \hypertarget{_animation_8h_source}{}\label{_animation_8h_source}\index{src/Animation/Animation.h@{src/Animation/Animation.h}}
-
+\mbox{\hyperlink{_animation_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <thread>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_animation}{Animation}}}
-\DoxyCodeLine{00008\ \{}
-\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{enum}\ Anim\ \{}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ CHARACTER\_DEATH}
-\DoxyCodeLine{00012\ \ \ \ \ \};}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_animation_a83f0a16cef7117f187ad596de38dd9d6}{Animation}}();}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_animation}{\string~Animation}}();}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a4e1084a8d4b025c9d46d2c030da05518}{run}}(sf::Sprite\&,\ Anim);}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b}{fCHARACTER\_DEATH}}(sf::Sprite\&);}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}{getState}}();}
-\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00021\ \ \ \ \ sf::Clock\ timer;}
-\DoxyCodeLine{00022\ \ \ \ \ sf::IntRect\ frames[2];}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ state\ =\ 0;\ \textcolor{comment}{//if\ you\ want\ to\ change\ this\ that\ is\ fine,\ i\ just\ need\ some\ way\ to\ get\ when\ its\ done.}}
-\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_animation}{Animation}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Anim}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{CHARACTER\_DEATH}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85}{ALT\_DEATH}},}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775}{LAUNCH}},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed}{BULLET\_DEATH}},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728}{WALLBULLET\_DEATH}},}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01}{ROCKET\_FLICKER}},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f}{RESET}}}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_animation_a83f0a16cef7117f187ad596de38dd9d6}{Animation}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_animation_a401b68793d4fbf48d481c030ee4b2a16}{\string~Animation}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ size\ index\ as\ an\ extra\ var\ for\ some\ animations}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_animation_aafa4559f75e244ca439626971d3ea11a}{run}}(sf::Sprite*,\ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Anim}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sizeIndex\ =\ 0);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}{getState}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ fCHARACTER\_DEATH(sf::Sprite*\ sprite);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ fALT\_DEATH(sf::Sprite*\ sprite);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ fLAUNCH(sf::Sprite*\ sprite);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ fBULLET\_DEATH(sf::Sprite*\ sprite);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ fWALLBULLET\_DEATH(sf::Sprite*\ sprite);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ fROCKET\_FLICKER(sf::Sprite*\ sprite);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ sf::Clock\ timer;}
+\DoxyCodeLine{00040\ \ \ \ \ sf::IntRect\ frames[26],\ revert;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ state\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ spriteSizeIndex\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ kill\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00044\ \};}
 
 \end{DoxyCode}

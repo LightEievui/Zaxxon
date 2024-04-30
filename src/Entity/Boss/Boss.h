@@ -5,6 +5,9 @@
 #include "Entity/AbstractBullet/BossBullet/BossBullet.h"
 
 
+/// <summary>
+/// The boss entity you fight at the end of the level loop.
+/// </summary>
 class Boss : public Entity
 {
 public:

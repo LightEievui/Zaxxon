@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -22,9 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
   </td>
  </tr>
  </tbody>
@@ -53,6 +59,23 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_character_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,80 +97,95 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_afc99902bfecf368d324149b3dedaf36.html">Entity</a></li><li class="navelem"><a class="el" href="dir_a707d1be9ea6a2a12b5227746ebb6adf.html">Character</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Character.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="_character_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Util/Util.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Animation/Animation.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Entity/Entity.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_util_8h.html">Util/Util.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_animation_8h.html">Animation/Animation.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity/Entity.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_character_bullet_8h.html">Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// Abstract</span></div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_character.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_character.html">Character</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_entity.html">Entity</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</a>(sf::Texture*);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">update</a>(sf::RenderWindow&amp;);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">   14</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">kill</a>() = 0;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::vector&lt;sf::Vector3f&gt;&amp; <a class="code hl_function" href="class_character.html#a84503e639ff28fdf9648ea921d5ba9d6">getBulletPosition</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    std::vector&lt;sf::Sprite&gt;&amp; <a class="code hl_function" href="class_character.html#aef458dc1aacfd7a7a3263ca862f829ca">getBullets</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> getTranslate2() { <span class="keywordflow">return</span> <span class="keyword">false</span>; };</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">killBullet</a>(<span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">setPos</a>(sf::Vector3f);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> yMax = 140;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> yMin = 69;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> xMin = -180;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> xMax = 0;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">/* </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">    This computes the sizeindex (the quadrant the plane is in)</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    using the currentY and the min / max,</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">    assumed there is 4 for everything inheriting character. </span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#ad41cb97f383d1681e76e580f06bc2481">getSizeIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp;);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    sf::Vector3f <a class="code hl_function" href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">getVelocity</a>();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a46a264779165a349a13bcb364c4106d4">setVelocity</a>(sf::Vector3f);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">setBullet</a>(sf::IntRect);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_character.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_character.html">Character</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_entity.html">Entity</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</a>(sf::Texture*);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="class_character.html#a9e9be564d05ded80962b2045aa70b3fc">~Character</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">update</a>(sf::RenderWindow&amp;);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">   18</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">kill</a>() = 0;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::vector&lt;CharacterBullet*&gt;&amp; <a class="code hl_function" href="class_character.html#a59755f2066960eeade9a67b13f646c79">getBullets</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_character.html#aee0c0987bd819993b7a4e8342e6ab1c4">getSizeIndex</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">killBullet</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">setPos</a>(sf::Vector3f);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_character.html#a602309a031e6db0a570644d8f0b5d5fb">   26</a></span>    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_character.html#a602309a031e6db0a570644d8f0b5d5fb">yMax</a> = 140;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_character.html#a1750fc7b411d6fdac9ca9e6763e126f5">   27</a></span>    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_character.html#a1750fc7b411d6fdac9ca9e6763e126f5">yMin</a> = 69;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_character.html#a682f191a3a01f1a772cd3fa624c0b16e">   28</a></span>    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_character.html#a682f191a3a01f1a772cd3fa624c0b16e">xMin</a> = -160;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_character.html#ae741b4874f8875f33f70663890315a52">   29</a></span>    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_character.html#ae741b4874f8875f33f70663890315a52">xMax</a> = 0;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    This computes the sizeindex (the quadrant the plane is in)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">    using the currentY and the min / max,</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">    assumed there is 4 for everything inheriting character.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a40ac52813d37c391b4cd6db06a8f1216">_getSizeIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp;);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    sf::Vector3f <a class="code hl_function" href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">getVelocity</a>();</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    sf::Vector3f velocity;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::vector&lt;sf::Sprite&gt; bullets;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::vector&lt;sf::Vector3f&gt; bulletsPos;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    sf::IntRect bulletTexture;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// SoundBuffer buffer;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// Sound sound;</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#a46a264779165a349a13bcb364c4106d4">setVelocity</a>(sf::Vector3f);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">setBullet</a>(sf::IntRect);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character.html#ad48b560cdd06bc269869a17661d2ccba">updateBullets</a>(sf::RenderWindow&amp; window);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_character.html#a12d640046cf216dd010f8e71c3466e1e">   44</a></span>    sf::Vector3f <a class="code hl_variable" href="class_character.html#a12d640046cf216dd010f8e71c3466e1e">velocity</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_character.html#aff7b8bd3f067ab04cd547c0dc14e765f">   45</a></span>    std::vector&lt;CharacterBullet*&gt; <a class="code hl_variable" href="class_character.html#aff7b8bd3f067ab04cd547c0dc14e765f">bullets</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_character.html#a95e438488293a98b1a404f39e4f97aeb">   46</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_character.html#a95e438488293a98b1a404f39e4f97aeb">sizeIndex</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    sf::IntRect bulletTexture;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// SoundBuffer buffer;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Sound sound;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
-<div class="ttc" id="aclass_character_html"><div class="ttname"><a href="class_character.html">Character</a></div><div class="ttdef"><b>Definition</b> Character.h:10</div></div>
-<div class="ttc" id="aclass_character_html_a46a264779165a349a13bcb364c4106d4"><div class="ttname"><a href="class_character.html#a46a264779165a349a13bcb364c4106d4">Character::setVelocity</a></div><div class="ttdeci">void setVelocity(sf::Vector3f)</div><div class="ttdoc">Change the velocity of this character.</div><div class="ttdef"><b>Definition</b> Character.cpp:79</div></div>
-<div class="ttc" id="aclass_character_html_a6ea404b0682144a8f21d42e881cb0ce7"><div class="ttname"><a href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">Character::killBullet</a></div><div class="ttdeci">void killBullet(int)</div><div class="ttdoc">Get rid of bullet by index.</div><div class="ttdef"><b>Definition</b> Character.cpp:99</div></div>
-<div class="ttc" id="aclass_character_html_a6eaf7357d3575a2281b5456abfbe1b9d"><div class="ttname"><a href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">Character::kill</a></div><div class="ttdeci">virtual void kill()=0</div><div class="ttdoc">Run death animation code for the killed entity.</div></div>
+<div class="ttc" id="a_animation_8h_html"><div class="ttname"><a href="_animation_8h.html">Animation.h</a></div></div>
+<div class="ttc" id="a_character_bullet_8h_html"><div class="ttname"><a href="_character_bullet_8h.html">CharacterBullet.h</a></div></div>
+<div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
+<div class="ttc" id="a_util_8h_html"><div class="ttname"><a href="_util_8h.html">Util.h</a></div></div>
+<div class="ttc" id="aclass_character_html"><div class="ttname"><a href="class_character.html">Character</a></div><div class="ttdoc">Abstract class to hold information that both player and enemy use.</div><div class="ttdef"><b>Definition</b> Character.h:13</div></div>
+<div class="ttc" id="aclass_character_html_a12d640046cf216dd010f8e71c3466e1e"><div class="ttname"><a href="class_character.html#a12d640046cf216dd010f8e71c3466e1e">Character::velocity</a></div><div class="ttdeci">sf::Vector3f velocity</div><div class="ttdef"><b>Definition</b> Character.h:44</div></div>
+<div class="ttc" id="aclass_character_html_a1750fc7b411d6fdac9ca9e6763e126f5"><div class="ttname"><a href="class_character.html#a1750fc7b411d6fdac9ca9e6763e126f5">Character::yMin</a></div><div class="ttdeci">const int yMin</div><div class="ttdef"><b>Definition</b> Character.h:27</div></div>
+<div class="ttc" id="aclass_character_html_a40ac52813d37c391b4cd6db06a8f1216"><div class="ttname"><a href="class_character.html#a40ac52813d37c391b4cd6db06a8f1216">Character::_getSizeIndex</a></div><div class="ttdeci">void _getSizeIndex(unsigned int &amp;)</div><div class="ttdoc">Get the height sector that character is in. Underscore infront indicates that it is not public....</div><div class="ttdef"><b>Definition</b> Character.cpp:73</div></div>
+<div class="ttc" id="aclass_character_html_a46a264779165a349a13bcb364c4106d4"><div class="ttname"><a href="class_character.html#a46a264779165a349a13bcb364c4106d4">Character::setVelocity</a></div><div class="ttdeci">void setVelocity(sf::Vector3f)</div><div class="ttdoc">Change the velocity of this character.</div><div class="ttdef"><b>Definition</b> Character.cpp:114</div></div>
+<div class="ttc" id="aclass_character_html_a59755f2066960eeade9a67b13f646c79"><div class="ttname"><a href="class_character.html#a59755f2066960eeade9a67b13f646c79">Character::getBullets</a></div><div class="ttdeci">std::vector&lt; CharacterBullet * &gt; &amp; getBullets()</div><div class="ttdoc">Get the currently fired bullets from this character.</div><div class="ttdef"><b>Definition</b> Character.cpp:51</div></div>
+<div class="ttc" id="aclass_character_html_a602309a031e6db0a570644d8f0b5d5fb"><div class="ttname"><a href="class_character.html#a602309a031e6db0a570644d8f0b5d5fb">Character::yMax</a></div><div class="ttdeci">const int yMax</div><div class="ttdef"><b>Definition</b> Character.h:26</div></div>
+<div class="ttc" id="aclass_character_html_a682f191a3a01f1a772cd3fa624c0b16e"><div class="ttname"><a href="class_character.html#a682f191a3a01f1a772cd3fa624c0b16e">Character::xMin</a></div><div class="ttdeci">const int xMin</div><div class="ttdef"><b>Definition</b> Character.h:28</div></div>
+<div class="ttc" id="aclass_character_html_a6ea404b0682144a8f21d42e881cb0ce7"><div class="ttname"><a href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">Character::killBullet</a></div><div class="ttdeci">void killBullet(int)</div><div class="ttdoc">Get rid of bullet by index.</div><div class="ttdef"><b>Definition</b> Character.cpp:143</div></div>
+<div class="ttc" id="aclass_character_html_a6eaf7357d3575a2281b5456abfbe1b9d"><div class="ttname"><a href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">Character::kill</a></div><div class="ttdeci">virtual void kill()=0</div></div>
 <div class="ttc" id="aclass_character_html_a7e22d0af12e2c3c8cb364d22ce8cc9f2"><div class="ttname"><a href="class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character::Character</a></div><div class="ttdeci">Character(sf::Texture *)</div><div class="ttdoc">Create new character who will have sprite from spritesheet.</div><div class="ttdef"><b>Definition</b> Character.cpp:8</div></div>
-<div class="ttc" id="aclass_character_html_a84503e639ff28fdf9648ea921d5ba9d6"><div class="ttname"><a href="class_character.html#a84503e639ff28fdf9648ea921d5ba9d6">Character::getBulletPosition</a></div><div class="ttdeci">std::vector&lt; sf::Vector3f &gt; &amp; getBulletPosition()</div><div class="ttdoc">Get positions for all of this characters bullets.</div><div class="ttdef"><b>Definition</b> Character.cpp:89</div></div>
-<div class="ttc" id="aclass_character_html_aa2ee5df8a31732a36f37bfce88161401"><div class="ttname"><a href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">Character::getVelocity</a></div><div class="ttdeci">sf::Vector3f getVelocity()</div><div class="ttdoc">Get the velocity of character.</div><div class="ttdef"><b>Definition</b> Character.cpp:59</div></div>
-<div class="ttc" id="aclass_character_html_acf35437606532f7df271dd0fd3d6800c"><div class="ttname"><a href="class_character.html#acf35437606532f7df271dd0fd3d6800c">Character::setPos</a></div><div class="ttdeci">void setPos(sf::Vector3f)</div><div class="ttdoc">Set position for the character itself.</div><div class="ttdef"><b>Definition</b> Character.cpp:110</div></div>
-<div class="ttc" id="aclass_character_html_ad41cb97f383d1681e76e580f06bc2481"><div class="ttname"><a href="class_character.html#ad41cb97f383d1681e76e580f06bc2481">Character::getSizeIndex</a></div><div class="ttdeci">void getSizeIndex(unsigned int &amp;)</div><div class="ttdoc">Get the height sector that character is in.</div><div class="ttdef"><b>Definition</b> Character.cpp:43</div></div>
-<div class="ttc" id="aclass_character_html_aef458dc1aacfd7a7a3263ca862f829ca"><div class="ttname"><a href="class_character.html#aef458dc1aacfd7a7a3263ca862f829ca">Character::getBullets</a></div><div class="ttdeci">std::vector&lt; sf::Sprite &gt; &amp; getBullets()</div><div class="ttdoc">Get the currently fired bullets from this character.</div><div class="ttdef"><b>Definition</b> Character.cpp:33</div></div>
-<div class="ttc" id="aclass_character_html_afe32dd9baa581b7895f06c9687d073b4"><div class="ttname"><a href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">Character::setBullet</a></div><div class="ttdeci">void setBullet(sf::IntRect)</div><div class="ttdoc">Change how the bullets from this character look.</div><div class="ttdef"><b>Definition</b> Character.cpp:69</div></div>
-<div class="ttc" id="aclass_character_html_affa4e2459d5f239e0c53ffd11b981f59"><div class="ttname"><a href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">Character::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;)</div><div class="ttdoc">Move the character by velocity and redraw them to the screen.</div><div class="ttdef"><b>Definition</b> Character.cpp:19</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition</b> Entity.h:7</div></div>
+<div class="ttc" id="aclass_character_html_a95e438488293a98b1a404f39e4f97aeb"><div class="ttname"><a href="class_character.html#a95e438488293a98b1a404f39e4f97aeb">Character::sizeIndex</a></div><div class="ttdeci">unsigned int sizeIndex</div><div class="ttdef"><b>Definition</b> Character.h:46</div></div>
+<div class="ttc" id="aclass_character_html_a9e9be564d05ded80962b2045aa70b3fc"><div class="ttname"><a href="class_character.html#a9e9be564d05ded80962b2045aa70b3fc">Character::~Character</a></div><div class="ttdeci">~Character()</div><div class="ttdoc">Clean up memory related to the Character class.</div><div class="ttdef"><b>Definition</b> Character.cpp:18</div></div>
+<div class="ttc" id="aclass_character_html_aa2ee5df8a31732a36f37bfce88161401"><div class="ttname"><a href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">Character::getVelocity</a></div><div class="ttdeci">sf::Vector3f getVelocity()</div><div class="ttdoc">Get the velocity of character.</div><div class="ttdef"><b>Definition</b> Character.cpp:94</div></div>
+<div class="ttc" id="aclass_character_html_acf35437606532f7df271dd0fd3d6800c"><div class="ttname"><a href="class_character.html#acf35437606532f7df271dd0fd3d6800c">Character::setPos</a></div><div class="ttdeci">void setPos(sf::Vector3f)</div><div class="ttdoc">Set position for the character itself.</div><div class="ttdef"><b>Definition</b> Character.cpp:154</div></div>
+<div class="ttc" id="aclass_character_html_ad48b560cdd06bc269869a17661d2ccba"><div class="ttname"><a href="class_character.html#ad48b560cdd06bc269869a17661d2ccba">Character::updateBullets</a></div><div class="ttdeci">void updateBullets(sf::RenderWindow &amp;window)</div><div class="ttdoc">Calls CharacterBullet::update() on each bullet &amp; deletes bullets that are not in the window.</div><div class="ttdef"><b>Definition</b> Character.cpp:123</div></div>
+<div class="ttc" id="aclass_character_html_ae741b4874f8875f33f70663890315a52"><div class="ttname"><a href="class_character.html#ae741b4874f8875f33f70663890315a52">Character::xMax</a></div><div class="ttdeci">const int xMax</div><div class="ttdef"><b>Definition</b> Character.h:29</div></div>
+<div class="ttc" id="aclass_character_html_aee0c0987bd819993b7a4e8342e6ab1c4"><div class="ttname"><a href="class_character.html#aee0c0987bd819993b7a4e8342e6ab1c4">Character::getSizeIndex</a></div><div class="ttdeci">unsigned int getSizeIndex()</div><div class="ttdoc">Get public size index of this character.</div><div class="ttdef"><b>Definition</b> Character.cpp:61</div></div>
+<div class="ttc" id="aclass_character_html_afe32dd9baa581b7895f06c9687d073b4"><div class="ttname"><a href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">Character::setBullet</a></div><div class="ttdeci">void setBullet(sf::IntRect)</div><div class="ttdoc">Change how the bullets from this character look.</div><div class="ttdef"><b>Definition</b> Character.cpp:104</div></div>
+<div class="ttc" id="aclass_character_html_aff7b8bd3f067ab04cd547c0dc14e765f"><div class="ttname"><a href="class_character.html#aff7b8bd3f067ab04cd547c0dc14e765f">Character::bullets</a></div><div class="ttdeci">std::vector&lt; CharacterBullet * &gt; bullets</div><div class="ttdef"><b>Definition</b> Character.h:45</div></div>
+<div class="ttc" id="aclass_character_html_affa4e2459d5f239e0c53ffd11b981f59"><div class="ttname"><a href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">Character::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;)</div><div class="ttdoc">Move the character by velocity and redraw them to the screen.</div><div class="ttdef"><b>Definition</b> Character.cpp:29</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Abstract class for all entities in the game.</div><div class="ttdef"><b>Definition</b> Entity.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_afc99902bfecf368d324149b3dedaf36.html">Entity</a></li><li class="navelem"><a class="el" href="dir_a707d1be9ea6a2a12b5227746ebb6adf.html">Character</a></li><li class="navelem"><a class="el" href="_character_8h.html">Character.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

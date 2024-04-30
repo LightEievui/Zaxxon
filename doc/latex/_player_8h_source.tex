@@ -1,29 +1,35 @@
 \doxysection{Player.\+h}
 \hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{src/Entity/Character/Player/Player.h@{src/Entity/Character/Player/Player.h}}
-
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Character.h"{}}}
-\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_8h}{Entity/Character/Character.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_bullet_8h}{Entity/AbstractBullet/CharacterBullet/CharacterBullet.h}}"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
-\DoxyCodeLine{00007\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_player_ab67b08e4700e1f6e208746e67cb0f701}{Player}}(sf::Texture*,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_abb03d8dd7ecbcc72a4bece2e14d98681}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{bool});}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{kill}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\textcolor{keywordtype}{int}\ zOffset\ =\ 0);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ bulletKill(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BULLET\_COOLDOWN\ =\ 200;}
-\DoxyCodeLine{00017\ \ \ \ \ sf::Clock\ bulletCD;}
-\DoxyCodeLine{00018\ \ \ \ \ std::vector<int>\ erase;}
-\DoxyCodeLine{00019\ \ \ \ \ sf::IntRect\ playerTextures[3][4];}
-\DoxyCodeLine{00020\ \ \ \ \ sf::Sprite\ shadow;}
-\DoxyCodeLine{00021\ \ \ \ \ sf::SoundBuffer\ bulletBuffer;}
-\DoxyCodeLine{00022\ \ \ \ \ sf::Sound\ bulletSound;}
-\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_player_ab67b08e4700e1f6e208746e67cb0f701}{Player}}(sf::Texture*,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a4e06f8ba5175207c534abed70d383418}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{float});}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{kill}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\textcolor{keywordtype}{int}\ zOffset\ =\ 0);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a16cc17c6bffa72c5898b8046dcff565b}{drawHitmarker}}()\ \{\ hitmarkerTimer.restart();\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a06e38c0f57e67eb006c9d09779bd8f8f}{isAlive}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BULLET\_COOLDOWN\ =\ 200;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ alive\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ sf::Sprite\ hitmarker;}
+\DoxyCodeLine{00026\ \ \ \ \ sf::Clock\ bulletCD;}
+\DoxyCodeLine{00027\ \ \ \ \ sf::Clock\ hitmarkerTimer;}
+\DoxyCodeLine{00028\ \ \ \ \ sf::IntRect\ playerTextures[3][4];}
+\DoxyCodeLine{00029\ \ \ \ \ sf::Sprite\ shadow;}
+\DoxyCodeLine{00030\ \ \ \ \ sf::SoundBuffer\ bulletBuffer;}
+\DoxyCodeLine{00031\ \ \ \ \ sf::Sound\ bulletSound;}
+\DoxyCodeLine{00032\ \};}
 
 \end{DoxyCode}

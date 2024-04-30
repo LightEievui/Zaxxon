@@ -8,6 +8,11 @@
 typedef unsigned char byte;
 
 
+/// <summary>
+/// Contains all GUI used in the game, including all text.
+/// These are simple but can take a lot of space due to how much there is.
+/// Different GUIs are split into different render functions.
+/// </summary>
 class GUI
 {
 public:

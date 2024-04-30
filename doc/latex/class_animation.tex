@@ -1,42 +1,107 @@
 \doxysection{Animation Class Reference}
 \hypertarget{class_animation}{}\label{class_animation}\index{Animation@{Animation}}
+
+
+Class to handle (almost) all in-\/game animations.  
+
+
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18} 
-enum {\bfseries Anim} \{ {\bfseries CHARACTER\+\_\+\+DEATH}
+enum \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Anim}} \{ \newline
+\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{CHARACTER\+\_\+\+DEATH}}
+, \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85}{ALT\+\_\+\+DEATH}}
+, \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775}{LAUNCH}}
+, \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed}{BULLET\+\_\+\+DEATH}}
+, \newline
+\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728}{WALLBULLET\+\_\+\+DEATH}}
+, \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01}{ROCKET\+\_\+\+FLICKER}}
+, \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f}{RESET}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_animation_a83f0a16cef7117f187ad596de38dd9d6}\label{class_animation_a83f0a16cef7117f187ad596de38dd9d6} 
-{\bfseries Animation} ()
+\mbox{\hyperlink{class_animation_a83f0a16cef7117f187ad596de38dd9d6}{Animation}} ()
 \begin{DoxyCompactList}\small\item\em Initalize individual animation frames. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_animation_a4e1084a8d4b025c9d46d2c030da05518}{run}} (sf\+::\+Sprite \&, Anim)
-\begin{DoxyCompactList}\small\item\em Run the given animation on sprite. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b}{f\+CHARACTER\+\_\+\+DEATH}} (sf\+::\+Sprite \&)
-\begin{DoxyCompactList}\small\item\em Death animation definition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_animation_a401b68793d4fbf48d481c030ee4b2a16}{\texorpdfstring{$\sim$}{\string~}\+Animation}} ()
+\begin{DoxyCompactList}\small\item\em Clean up memory for animation class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_animation_aafa4559f75e244ca439626971d3ea11a}{run}} (sf\+::\+Sprite \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Anim}}, unsigned int size\+Index=0)
+\begin{DoxyCompactList}\small\item\em Run the given animation on sprite. Note that you should always check if the sprite\texorpdfstring{$\ast$}{*} is null before doing operations. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}{get\+State}} ()
 \begin{DoxyCompactList}\small\item\em Checks if current animation has finished running. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Member Function Documentation}
-\Hypertarget{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b}\label{class_animation_a5a4aaa4baaa8f59a90d471edba3b532b} 
-\index{Animation@{Animation}!fCHARACTER\_DEATH@{fCHARACTER\_DEATH}}
-\index{fCHARACTER\_DEATH@{fCHARACTER\_DEATH}!Animation@{Animation}}
-\doxysubsubsection{\texorpdfstring{fCHARACTER\_DEATH()}{fCHARACTER\_DEATH()}}
-{\footnotesize\ttfamily void Animation\+::f\+CHARACTER\+\_\+\+DEATH (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{sprite }\end{DoxyParamCaption})}
+\doxysubsection{Detailed Description}
+Class to handle (almost) all in-\/game animations. 
 
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18} 
+\index{Animation@{Animation}!Anim@{Anim}}
+\index{Anim@{Anim}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Anim}{Anim}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}}}
 
-
-Death animation definition. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em sprite} & \\
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHARACTER\_DEATH@{CHARACTER\_DEATH}!Animation@{Animation}}\index{Animation@{Animation}!CHARACTER\_DEATH@{CHARACTER\_DEATH}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892} 
+CHARACTER\+\_\+\+DEATH&\\
 \hline
-\end{DoxyParams}
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALT\_DEATH@{ALT\_DEATH}!Animation@{Animation}}\index{Animation@{Animation}!ALT\_DEATH@{ALT\_DEATH}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85} 
+ALT\+\_\+\+DEATH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LAUNCH@{LAUNCH}!Animation@{Animation}}\index{Animation@{Animation}!LAUNCH@{LAUNCH}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775} 
+LAUNCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BULLET\_DEATH@{BULLET\_DEATH}!Animation@{Animation}}\index{Animation@{Animation}!BULLET\_DEATH@{BULLET\_DEATH}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed} 
+BULLET\+\_\+\+DEATH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WALLBULLET\_DEATH@{WALLBULLET\_DEATH}!Animation@{Animation}}\index{Animation@{Animation}!WALLBULLET\_DEATH@{WALLBULLET\_DEATH}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728} 
+WALLBULLET\+\_\+\+DEATH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROCKET\_FLICKER@{ROCKET\_FLICKER}!Animation@{Animation}}\index{Animation@{Animation}!ROCKET\_FLICKER@{ROCKET\_FLICKER}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01} 
+ROCKET\+\_\+\+FLICKER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RESET@{RESET}!Animation@{Animation}}\index{Animation@{Animation}!RESET@{RESET}}}\Hypertarget{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f}\label{class_animation_a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f} 
+RESET&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_animation_a83f0a16cef7117f187ad596de38dd9d6}\label{class_animation_a83f0a16cef7117f187ad596de38dd9d6} 
+\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Animation()}{Animation()}}
+{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initalize individual animation frames. 
+
+\Hypertarget{class_animation_a401b68793d4fbf48d481c030ee4b2a16}\label{class_animation_a401b68793d4fbf48d481c030ee4b2a16} 
+\index{Animation@{Animation}!````~Animation@{\texorpdfstring{$\sim$}{\string~}Animation}}
+\index{````~Animation@{\texorpdfstring{$\sim$}{\string~}Animation}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Animation()}{\string~Animation()}}
+{\footnotesize\ttfamily Animation\+::\texorpdfstring{$\sim$}{\string~}\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clean up memory for animation class. 
+
+
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}\label{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac} 
 \index{Animation@{Animation}!getState@{getState}}
 \index{getState@{getState}!Animation@{Animation}}
@@ -50,19 +115,19 @@ Checks if current animation has finished running.
 \begin{DoxyReturn}{Returns}
 A boolean
 \end{DoxyReturn}
-\Hypertarget{class_animation_a4e1084a8d4b025c9d46d2c030da05518}\label{class_animation_a4e1084a8d4b025c9d46d2c030da05518} 
+\Hypertarget{class_animation_aafa4559f75e244ca439626971d3ea11a}\label{class_animation_aafa4559f75e244ca439626971d3ea11a} 
 \index{Animation@{Animation}!run@{run}}
 \index{run@{run}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily void Animation\+::run (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{sprite,  }\item[{Anim}]{anim }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Animation\+::run (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \texorpdfstring{$\ast$}{*}}]{sprite,  }\item[{\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Anim}}}]{anim,  }\item[{unsigned int}]{size\+Index = {\ttfamily 0} }\end{DoxyParamCaption})}
 
 
 
-Run the given animation on sprite. 
+Run the given animation on sprite. Note that you should always check if the sprite\texorpdfstring{$\ast$}{*} is null before doing operations. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em sprite} & \\
+{\em sprite} & Nullable\\
 \hline
 {\em anim} & \\
 \hline
@@ -71,5 +136,5 @@ Run the given animation on sprite.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Animation/Animation.\+h\item 
-src/\+Animation/Animation.\+cpp\end{DoxyCompactItemize}
+src/\+Animation/\mbox{\hyperlink{_animation_8h}{Animation.\+h}}\item 
+src/\+Animation/\mbox{\hyperlink{_animation_8cpp}{Animation.\+cpp}}\end{DoxyCompactItemize}

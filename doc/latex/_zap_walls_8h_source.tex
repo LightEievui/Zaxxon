@@ -1,0 +1,32 @@
+\doxysection{Zap\+Walls.\+h}
+\hypertarget{_zap_walls_8h_source}{}\label{_zap_walls_8h_source}\index{src/ZapWalls/ZapWalls.h@{src/ZapWalls/ZapWalls.h}}
+\mbox{\hyperlink{_zap_walls_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_zap_walls}{ZapWalls}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_zap_walls_a010dc90e76bcd214ca303184eabb4a10}{ZapWalls}}(sf::Texture*,\ sf::Vector3f);}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_zap_walls_ae249db1f71143ba9cf19164de3e7636e}{\string~ZapWalls}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zap_walls_afa9759fd3dcd7b03096dbb20f5ca42c6}{drawZapWalls}}(sf::RenderWindow\&);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_zap_walls_a109a98b1c0b70431044f0ede0d7dc03e}{checkOnScreen}}();}
+\DoxyCodeLine{00017\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_zap_walls_aa1b9732e459ef7dd1099a5cbe2eb377f}{getStartPosition}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ sf::Texture*\ spriteSheet;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ onScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ \ \ \ \ sf::Sprite\ sprite;}
+\DoxyCodeLine{00023\ \ \ \ \ sf::Vector3f\ position;}
+\DoxyCodeLine{00024\ \ \ \ \ sf::Vector3f\ startPosition;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ offScreenCount\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ drawn\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+
+\end{DoxyCode}

@@ -1,0 +1,295 @@
+.TH "Obstacle" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Obstacle \- Still obstacles that spawn across the levels\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Obstacle\&.h>\fP
+.PP
+Inherits \fBEntity\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBObstacle\fP (sf::Vector3f, sf::Texture *, int, int)"
+.br
+.RI "Create a turret obstacle with shooting and direction\&. "
+.ti -1c
+.RI "\fBObstacle\fP (sf::Vector3f, sf::Texture *, int)"
+.br
+.RI "Create a non-turret obstacle (Still obstacle)\&. "
+.ti -1c
+.RI "\fB~Obstacle\fP ()"
+.br
+.RI "Clean up memory related to the obstacle class\&. "
+.ti -1c
+.RI "void \fBsetTexture\fP (std::string)"
+.br
+.ti -1c
+.RI "void \fBsetPosition\fP (sf::Vector3f)"
+.br
+.RI "Set the position of this obstacle\&. "
+.ti -1c
+.RI "sf::Vector3f \fBgetPosition\fP ()"
+.br
+.RI "Get position of the obstacle\&. "
+.ti -1c
+.RI "std::vector< sf::Vector3f > \fBgetBulletLocations\fP ()"
+.br
+.RI "Get positions for all bullets of the obstacle (For turrets)\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, int playerZ)"
+.br
+.RI "Run the logic for this obstacle\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &) override"
+.br
+.RI "Default \fBEntity::update\fP override\&. "
+.ti -1c
+.RI "bool \fBisPresent\fP ()"
+.br
+.RI "Check if this obstacle exists\&. "
+.ti -1c
+.RI "bool \fBisTurret\fP ()"
+.br
+.RI "Checks if obstacle is a turret\&. "
+.ti -1c
+.RI "void \fBbulletKill\fP (int)"
+.br
+.RI "Get rid of obstacles bullet by index (For turrets)\&. "
+.ti -1c
+.RI "int \fBgetType\fP ()"
+.br
+.RI "Get what type of obstacle this is\&. "
+.ti -1c
+.RI "int \fBgetScore\fP ()"
+.br
+.RI "Gets the score to add when the obstacle is destroyed\&. "
+.ti -1c
+.RI "void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Death animation\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "\fB~Entity\fP ()"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Still obstacles that spawn across the levels\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int delay, int dir)"
+
+.PP
+Create a turret obstacle with shooting and direction\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.br
+\fItex\fP 
+.br
+\fIdelay\fP (type 5 only)Delay in frames before a rocket begins shooting\&.
+.br
+\fIdir\fP 
+.RE
+.PP
+
+.SS "Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int type)"
+
+.PP
+Create a non-turret obstacle (Still obstacle)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.br
+\fItex\fP 
+.br
+\fItype\fP 
+.RE
+.PP
+
+.SS "Obstacle::~Obstacle ()"
+
+.PP
+Clean up memory related to the obstacle class\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void Obstacle::bulletKill (int bullet)"
+
+.PP
+Get rid of obstacles bullet by index (For turrets)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbullet\fP 
+.RE
+.PP
+
+.SS "std::vector< sf::Vector3f > Obstacle::getBulletLocations ()"
+
+.PP
+Get positions for all bullets of the obstacle (For turrets)\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Vector of vectors of 3 floats
+.RE
+.PP
+
+.SS "sf::Vector3f Obstacle::getPosition ()"
+
+.PP
+Get position of the obstacle\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Vector of 3 floats
+.RE
+.PP
+
+.SS "int Obstacle::getScore ()"
+
+.PP
+Gets the score to add when the obstacle is destroyed\&. 
+.PP
+\fBReturns\fP
+.RS 4
+score
+.RE
+.PP
+
+.SS "int Obstacle::getType ()"
+
+.PP
+Get what type of obstacle this is\&. 
+.PP
+\fBReturns\fP
+.RS 4
+An int
+.RE
+.PP
+
+.SS "bool Obstacle::isPresent ()"
+
+.PP
+Check if this obstacle exists\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "bool Obstacle::isTurret ()"
+
+.PP
+Checks if obstacle is a turret\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Boolean
+.RE
+.PP
+
+.SS "void Obstacle::kill (\fBAnimation::Anim\fP animation = \fR\fBAnimation::CHARACTER_DEATH\fP\fP)\fR [virtual]\fP"
+
+.PP
+Death animation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimation\fP 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBEntity\fP\&.
+.SS "void Obstacle::setPosition (sf::Vector3f pos)"
+
+.PP
+Set the position of this obstacle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.RE
+.PP
+
+.SS "void Obstacle::setTexture (std::string)"
+
+.SS "void Obstacle::update (sf::RenderWindow & window)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Default \fBEntity::update\fP override\&. 
+.PP
+Implements \fBEntity\fP\&.
+.SS "void Obstacle::update (sf::RenderWindow & window, int playerZ)"
+
+.PP
+Run the logic for this obstacle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.
