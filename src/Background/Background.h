@@ -9,6 +9,9 @@
 #include "ZapWalls/ZapWalls.h"
 
 
+/// <summary>
+/// Holds all backgrounds and methods to fill each level with content.
+/// </summary>
 class Background
 {
 public:

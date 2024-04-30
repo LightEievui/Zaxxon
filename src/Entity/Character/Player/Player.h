@@ -4,6 +4,9 @@
 #include "Entity/AbstractBullet/CharacterBullet/CharacterBullet.h"
 
 
+/// <summary>
+/// The player character, also contains plane controls.
+/// </summary>
 class Player : public Character
 {
 public:

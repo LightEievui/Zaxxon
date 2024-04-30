@@ -1,0 +1,92 @@
+.TH "AbstractBullet" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AbstractBullet \- Class to hold information that the other bullets share\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <AbstractBullet\&.h>\fP
+.PP
+Inherits \fBEntity\fP\&.
+.PP
+Inherited by \fBBossBullet\fP, and \fBCharacterBullet\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAbstractBullet\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "\fB~Entity\fP ()"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "virtual void \fBupdate\fP (sf::RenderWindow &)=0"
+.br
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to hold information that the other bullets share\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AbstractBullet::AbstractBullet ()\fR [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

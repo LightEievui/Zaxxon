@@ -4,6 +4,9 @@
 #include "SFML/Graphics.hpp"
 
 
+/// <summary>
+/// The missile that the boss shoots
+/// </summary>
 class BossBullet : public AbstractBullet
 {
 public:
@@ -22,4 +25,3 @@ private:
 
 	int health = 10;
 };
-

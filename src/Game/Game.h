@@ -13,10 +13,14 @@
 #include "Background/Background.h"
 #include "Entity/Boss/Boss.h"
 
-
+// Clearer than using unsigned char often
 typedef unsigned char byte;
 
 
+/// <summary>
+/// The main game and all related classes eventually end up being used here.
+/// Game loop is in here and is the 'heart' of the whole program.
+/// </summary>
 class Game
 {
 public:

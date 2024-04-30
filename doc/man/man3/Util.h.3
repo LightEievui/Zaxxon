@@ -1,0 +1,135 @@
+.TH "src/Util/Util.h" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/Util/Util.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <SFML/Graphics\&.hpp>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "sf::Vector2f \fBtranslateTo2d\fP (sf::Vector3f)"
+.br
+.RI "Convert normal 2d coordinates to isometric coordinates\&. "
+.ti -1c
+.RI "sf::FloatRect \fBgetWindowViewRect\fP (sf::RenderWindow &)"
+.br
+.RI "Easily get the current view rectangle with translations\&. "
+.ti -1c
+.RI "bool \fBzPressed\fP ()"
+.br
+.RI "Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press\&. "
+.ti -1c
+.RI "bool \fBupPressed\fP ()"
+.br
+.RI "Detects if up is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. "
+.ti -1c
+.RI "bool \fBdownPressed\fP ()"
+.br
+.RI "Detects if down is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. "
+.ti -1c
+.RI "bool \fBleftPressed\fP ()"
+.br
+.RI "Detects if left is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. "
+.ti -1c
+.RI "bool \fBrightPressed\fP ()"
+.br
+.RI "Detects if right is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool downPressed ()"
+
+.PP
+Detects if down is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "sf::FloatRect getWindowViewRect (sf::RenderWindow & window)"
+
+.PP
+Easily get the current view rectangle with translations\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Float rectangle
+.RE
+.PP
+
+.SS "bool leftPressed ()"
+
+.PP
+Detects if left is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "bool rightPressed ()"
+
+.PP
+Detects if right is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "sf::Vector2f translateTo2d (sf::Vector3f in)"
+
+.PP
+Convert normal 2d coordinates to isometric coordinates\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIin\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Vector of 2 floats
+.RE
+.PP
+
+.SS "bool upPressed ()"
+
+.PP
+Detects if up is current pressed, will handle both keyboard and controller\&. This will consider holding the stick in this direction as constant 'presses'\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "bool zPressed ()"
+
+.PP
+Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

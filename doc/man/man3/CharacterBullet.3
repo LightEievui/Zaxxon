@@ -1,0 +1,227 @@
+.TH "CharacterBullet" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CharacterBullet \- The bullet used by the player and enemies\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <CharacterBullet\&.h>\fP
+.PP
+Inherits \fBAbstractBullet\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBBulletType\fP { \fBPlayer\fP, \fBEnemy\fP }"
+.br
+.ti -1c
+.RI "enum \fBBulletDeathType\fP { \fBWallDeath\fP, \fBEnemyDeath\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCharacterBullet\fP (sf::Texture *spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, \fBBulletType\fP=\fBPlayer\fP, sf::Vector2f=sf::Vector2f(0, 0))"
+.br
+.RI "Create a bullet based on if player or enemy shot it\&. "
+.ti -1c
+.RI "\fB~CharacterBullet\fP ()"
+.br
+.RI "Clean up memory related to character bullet\&. "
+.ti -1c
+.RI "void \fBkill\fP ()"
+.br
+.RI "Default kill, run the kill method with enemyDeath as parameter\&. "
+.ti -1c
+.RI "void \fBkill\fP (\fBBulletDeathType\fP type)"
+.br
+.RI "The bullet hit something, run code to kill bullet based on what it hit\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &window)"
+.br
+.RI "Run the logic for this bullet and then draw it to screen\&. "
+.ti -1c
+.RI "unsigned int \fBgetSizeIndex\fP ()"
+.br
+.RI "Get public size index of this character bullet\&. "
+.ti -1c
+.RI "sf::Vector3f \fBgetPosition\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisHit\fP ()"
+.br
+.RI "Check if this bullet has hit something\&. "
+.in -1c
+
+Public Member Functions inherited from \fBAbstractBullet\fP
+.in +1c
+.ti -1c
+.RI "\fBAbstractBullet\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "\fB~Entity\fP ()"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The bullet used by the player and enemies\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBCharacterBullet::BulletDeathType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWallDeath \fP\fP
+.TP
+\fB\fIEnemyDeath \fP\fP
+.SS "enum \fBCharacterBullet::BulletType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPlayer \fP\fP
+.TP
+\fB\fIEnemy \fP\fP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "CharacterBullet::CharacterBullet (sf::Texture * spritesheet, sf::Vector3f spawnPos, unsigned int sizeIndex, \fBBulletType\fP type = \fR\fBPlayer\fP\fP, sf::Vector2f spawnPos2f = \fRsf::Vector2f(0,0)\fP)"
+
+.PP
+Create a bullet based on if player or enemy shot it\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIspritesheet\fP 
+.br
+\fIspawnPos\fP 
+.br
+\fIsizeIndex\fP 
+.br
+\fItype\fP 
+.br
+\fIspawnPos2f\fP 
+.RE
+.PP
+
+.SS "CharacterBullet::~CharacterBullet ()"
+
+.PP
+Clean up memory related to character bullet\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "sf::Vector3f CharacterBullet::getPosition ()\fR [inline]\fP"
+
+.SS "unsigned int CharacterBullet::getSizeIndex ()"
+
+.PP
+Get public size index of this character bullet\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "bool CharacterBullet::isHit ()"
+
+.PP
+Check if this bullet has hit something\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "void CharacterBullet::kill ()"
+
+.PP
+Default kill, run the kill method with enemyDeath as parameter\&. 
+.SS "void CharacterBullet::kill (\fBBulletDeathType\fP deathType)"
+
+.PP
+The bullet hit something, run code to kill bullet based on what it hit\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdeathType\fP 
+.RE
+.PP
+
+.SS "void CharacterBullet::update (sf::RenderWindow & window)\fR [virtual]\fP"
+
+.PP
+Run the logic for this bullet and then draw it to screen\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Implements \fBEntity\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

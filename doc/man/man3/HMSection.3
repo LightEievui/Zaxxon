@@ -1,0 +1,124 @@
+.TH "HMSection" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HMSection \- The height meter and related methods\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <HMSection\&.h>\fP
+.PP
+Inherits sf::Sprite\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBType\fP { \fBLINE\fP, \fBOPEN\fP, \fBTOP\fP, \fBBOTTOM\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprogress\fP (int)"
+.br
+.RI "Make current section change by a stage\&. "
+.ti -1c
+.RI "void \fBsetSection\fP (int)"
+.br
+.RI "Set the texture by what current section should be\&. "
+.ti -1c
+.RI "void \fBsetType\fP (\fBType\fP)"
+.br
+.RI "Set what type the current section sprite should be\&. "
+.ti -1c
+.RI "void \fBfill\fP ()"
+.br
+.RI "Current section should be full\&. "
+.ti -1c
+.RI "void \fBempty\fP ()"
+.br
+.RI "Current section should be empty\&. "
+.ti -1c
+.RI "int \fBgetSection\fP ()"
+.br
+.RI "Get the current section id\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The height meter and related methods\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBHMSection::Type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILINE \fP\fP
+.TP
+\fB\fIOPEN \fP\fP
+.TP
+\fB\fITOP \fP\fP
+.TP
+\fB\fIBOTTOM \fP\fP
+.SH "Member Function Documentation"
+.PP 
+.SS "void HMSection::empty ()"
+
+.PP
+Current section should be empty\&. 
+.SS "void HMSection::fill ()"
+
+.PP
+Current section should be full\&. 
+.SS "int HMSection::getSection ()"
+
+.PP
+Get the current section id\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void HMSection::progress (int stage)"
+
+.PP
+Make current section change by a stage\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstage\fP 
+.RE
+.PP
+
+.SS "void HMSection::setSection (int sect)"
+
+.PP
+Set the texture by what current section should be\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsect\fP 
+.RE
+.PP
+
+.SS "void HMSection::setType (\fBType\fP type)"
+
+.PP
+Set what type the current section sprite should be\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItype\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

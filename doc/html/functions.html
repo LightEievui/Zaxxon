@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -22,9 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
   </td>
  </tr>
  </tbody>
@@ -49,6 +55,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('functions.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,108 +93,237 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
+
+<h3><a id="index__5F" name="index__5F"></a>- _ -</h3><ul>
+<li>_getSizeIndex()&#160;:&#160;<a class="el" href="class_character.html#a40ac52813d37c391b4cd6db06a8f1216">Character</a></li>
+</ul>
+
 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>AbstractBullet()&#160;:&#160;<a class="el" href="class_abstract_bullet.html#a7101e714c7e25ed57a26c74b59b5ee83">AbstractBullet</a></li>
+<li>ALT_DEATH&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85">Animation</a></li>
+<li>Anim&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation</a></li>
 <li>Animation()&#160;:&#160;<a class="el" href="class_animation.html#a83f0a16cef7117f187ad596de38dd9d6">Animation</a></li>
+<li>animations&#160;:&#160;<a class="el" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">Entity</a></li>
 </ul>
 
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>Background()&#160;:&#160;<a class="el" href="class_background.html#a1fac54c7e81db155fbef597121344108">Background</a></li>
+<li>Background()&#160;:&#160;<a class="el" href="class_background.html#a573d608524347781c400206450327356">Background</a></li>
+<li>BOSS&#160;:&#160;<a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">Background</a></li>
+<li>Boss()&#160;:&#160;<a class="el" href="class_boss.html#a532b2cfc920780c6f4ea432d7e22be79">Boss</a></li>
+<li>BossBullet()&#160;:&#160;<a class="el" href="class_boss_bullet.html#a6aa72332992a0eb9d4fe4d66e9d862c5">BossBullet</a></li>
+<li>BOSSFIGHT&#160;:&#160;<a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">Background</a></li>
+<li>BOTTOM&#160;:&#160;<a class="el" href="class_h_m_section.html#ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">HMSection</a></li>
+<li>BULLET_DEATH&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed">Animation</a></li>
+<li>BulletDeathType&#160;:&#160;<a class="el" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">CharacterBullet</a></li>
 <li>bulletKill()&#160;:&#160;<a class="el" href="class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7">Obstacle</a></li>
+<li>bullets&#160;:&#160;<a class="el" href="class_character.html#aff7b8bd3f067ab04cd547c0dc14e765f">Character</a></li>
+<li>BulletType&#160;:&#160;<a class="el" href="class_character_bullet.html#a120395842230433baba2e78f620e1266">CharacterBullet</a></li>
 </ul>
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>Character()&#160;:&#160;<a class="el" href="class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</a></li>
+<li>CHARACTER_DEATH&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation</a></li>
+<li>CharacterBullet()&#160;:&#160;<a class="el" href="class_character_bullet.html#a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet</a></li>
+<li>checkOnScreen()&#160;:&#160;<a class="el" href="class_wall.html#ab2a34a04c46c9fe0a21d4235b106e8ae">Wall</a>, <a class="el" href="class_zap_walls.html#a109a98b1c0b70431044f0ede0d7dc03e">ZapWalls</a></li>
+<li>collide()&#160;:&#160;<a class="el" href="class_boss_bullet.html#ae644a8610bba9a05a8d29455179c5965">BossBullet</a></li>
+</ul>
+
+
+<h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
+<li>damage()&#160;:&#160;<a class="el" href="class_boss_bullet.html#a968121e064e7f0e9bfca96a32ba2aba2">BossBullet</a></li>
+<li>dead&#160;:&#160;<a class="el" href="class_entity.html#a799462330dd8c754cdada5dab432b4dc">Entity</a></li>
+<li>debugFont&#160;:&#160;<a class="el" href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">Entity</a></li>
+<li>debugText&#160;:&#160;<a class="el" href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">Entity</a></li>
+<li>drawHitmarker()&#160;:&#160;<a class="el" href="class_player.html#a16cc17c6bffa72c5898b8046dcff565b">Player</a></li>
+<li>drawWalls()&#160;:&#160;<a class="el" href="class_wall.html#a274edf0d5b16afba31a8618df97626af">Wall</a></li>
+<li>drawZapWalls()&#160;:&#160;<a class="el" href="class_zap_walls.html#afa9759fd3dcd7b03096dbb20f5ca42c6">ZapWalls</a></li>
 </ul>
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
 <li>empty()&#160;:&#160;<a class="el" href="class_h_m_section.html#a6093acdaf453e4985124eb26d85a628d">HMSection</a></li>
-<li>Enemy()&#160;:&#160;<a class="el" href="class_enemy.html#ae328df4b31d1deea035aa07e9c135062">Enemy</a></li>
+<li>Enemy&#160;:&#160;<a class="el" href="class_character_bullet.html#a120395842230433baba2e78f620e1266a59aba9e70f5342a41140fbf02a371ec9">CharacterBullet</a>, <a class="el" href="class_enemy.html#a78513af724531f981172b56b91951a21">Enemy</a></li>
+<li>EnemyDeath&#160;:&#160;<a class="el" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">CharacterBullet</a></li>
+<li>Entity()&#160;:&#160;<a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a></li>
 </ul>
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>fCHARACTER_DEATH()&#160;:&#160;<a class="el" href="class_animation.html#a5a4aaa4baaa8f59a90d471edba3b532b">Animation</a></li>
 <li>fill()&#160;:&#160;<a class="el" href="class_h_m_section.html#a6e02d19eb07396dc514c8938d578658b">HMSection</a></li>
+<li>flashColor()&#160;:&#160;<a class="el" href="class_background.html#a093d96b9f25dda122febad2beabc47cd">Background</a></li>
 </ul>
 
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
 <li>Game()&#160;:&#160;<a class="el" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a></li>
-<li>generateObstacles()&#160;:&#160;<a class="el" href="class_background.html#aadb6a9246b8e7532fff5d9de5b96b93c">Background</a></li>
+<li>generateObstacles()&#160;:&#160;<a class="el" href="class_background.html#adfd6d7bd7fa3bbfcfa599686d29d7cae">Background</a></li>
 <li>generateWaves()&#160;:&#160;<a class="el" href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">Background</a></li>
 <li>get()&#160;:&#160;<a class="el" href="class_zaxxon_text.html#ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText</a></li>
+<li>getAnimationState()&#160;:&#160;<a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">Entity</a></li>
+<li>getBounds()&#160;:&#160;<a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">Entity</a></li>
 <li>getBulletLocations()&#160;:&#160;<a class="el" href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">Obstacle</a></li>
-<li>getBulletPosition()&#160;:&#160;<a class="el" href="class_character.html#a84503e639ff28fdf9648ea921d5ba9d6">Character</a></li>
-<li>getBullets()&#160;:&#160;<a class="el" href="class_character.html#aef458dc1aacfd7a7a3263ca862f829ca">Character</a></li>
-<li>getPosition()&#160;:&#160;<a class="el" href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">Obstacle</a></li>
+<li>getBullets()&#160;:&#160;<a class="el" href="class_character.html#a59755f2066960eeade9a67b13f646c79">Character</a></li>
+<li>getMissile()&#160;:&#160;<a class="el" href="class_boss.html#ad1c3b7858f8d973b0c920abae83ef80c">Boss</a></li>
+<li>getPos()&#160;:&#160;<a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">Entity</a></li>
+<li>getPosition()&#160;:&#160;<a class="el" href="class_character_bullet.html#a15894a0a65d7f8ca77174cae3ee51450">CharacterBullet</a>, <a class="el" href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">Obstacle</a></li>
+<li>getScore()&#160;:&#160;<a class="el" href="class_obstacle.html#ac3450be68b7a60ab4ed285893f6f1deb">Obstacle</a></li>
 <li>getSection()&#160;:&#160;<a class="el" href="class_h_m_section.html#a8edcc2ebab82a9d1fc1d735d63ca5c52">HMSection</a></li>
-<li>getSizeIndex()&#160;:&#160;<a class="el" href="class_character.html#ad41cb97f383d1681e76e580f06bc2481">Character</a></li>
+<li>getSizeIndex()&#160;:&#160;<a class="el" href="class_character.html#aee0c0987bd819993b7a4e8342e6ab1c4">Character</a>, <a class="el" href="class_character_bullet.html#a47a91c5b356f30dc75cd14f176324e54">CharacterBullet</a>, <a class="el" href="class_enemy.html#a8c811260a36e5b4fdbd022fa4e205863">Enemy</a></li>
+<li>getSpritePos()&#160;:&#160;<a class="el" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">Entity</a></li>
+<li>getStage()&#160;:&#160;<a class="el" href="class_background.html#aa60585bb666a292f5d49049038400b1a">Background</a></li>
+<li>getStartPosition()&#160;:&#160;<a class="el" href="class_zap_walls.html#aa1b9732e459ef7dd1099a5cbe2eb377f">ZapWalls</a></li>
 <li>getState()&#160;:&#160;<a class="el" href="class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac">Animation</a></li>
+<li>getTranslate2()&#160;:&#160;<a class="el" href="class_enemy.html#af933da0510136962e59487e9a6c28ead">Enemy</a></li>
 <li>getType()&#160;:&#160;<a class="el" href="class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114">Obstacle</a></li>
 <li>getVelocity()&#160;:&#160;<a class="el" href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">Character</a></li>
+<li>getWallPositions()&#160;:&#160;<a class="el" href="class_wall.html#a1e18d4eb5e9afcfd35e00adf7090192b">Wall</a></li>
 <li>GUI()&#160;:&#160;<a class="el" href="class_g_u_i.html#abfd2c814235b0c6474cae56fb8e04839">GUI</a></li>
 </ul>
 
 
+<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
+<li>hit()&#160;:&#160;<a class="el" href="class_boss.html#a911178ba0e5f853c0472f8a2ef879c60">Boss</a></li>
+</ul>
+
+
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>isInSpace()&#160;:&#160;<a class="el" href="class_background.html#abd3150983c5f3a2df47b761966235635">Background</a></li>
+<li>INITIAL&#160;:&#160;<a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">Background</a></li>
+<li>isAlive()&#160;:&#160;<a class="el" href="class_player.html#a06e38c0f57e67eb006c9d09779bd8f8f">Player</a></li>
+<li>isDead()&#160;:&#160;<a class="el" href="class_enemy.html#a038e636d16b708f92627348a36750702">Enemy</a></li>
+<li>isDestroyed()&#160;:&#160;<a class="el" href="class_boss.html#a619bf5f3c08aa6ffb395e20dc53cb420">Boss</a>, <a class="el" href="class_boss_bullet.html#abfe6d391d23ed5b47ab7e39d8e17aaf7">BossBullet</a></li>
+<li>isHit()&#160;:&#160;<a class="el" href="class_character_bullet.html#a480f1a3e263507118664bac116e8b1d7">CharacterBullet</a></li>
+<li>isInSpace()&#160;:&#160;<a class="el" href="class_background.html#a52b2389cd7dfaedff511e72af9f3735c">Background</a></li>
 <li>isPresent()&#160;:&#160;<a class="el" href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">Obstacle</a></li>
+<li>isTurret()&#160;:&#160;<a class="el" href="class_obstacle.html#a0f354a517c0b6b2e9bafc1e36af706af">Obstacle</a></li>
 </ul>
 
 
 <h3><a id="index_k" name="index_k"></a>- k -</h3><ul>
-<li>kill()&#160;:&#160;<a class="el" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">Character</a>, <a class="el" href="class_enemy.html#ad0bf56e75378d9524f2d77479d259dde">Enemy</a>, <a class="el" href="class_entity.html#a522648b330daab91b49f78f0737a943f">Entity</a>, <a class="el" href="class_player.html#aa8baacf4fe29a618f2cf4b26327e4d5a">Player</a></li>
+<li>kill()&#160;:&#160;<a class="el" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">Character</a>, <a class="el" href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">CharacterBullet</a>, <a class="el" href="class_enemy.html#ad0bf56e75378d9524f2d77479d259dde">Enemy</a>, <a class="el" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">Entity</a>, <a class="el" href="class_obstacle.html#ac7300c4d9c730103c707972be1380ff9">Obstacle</a>, <a class="el" href="class_player.html#aa8baacf4fe29a618f2cf4b26327e4d5a">Player</a></li>
 <li>killBullet()&#160;:&#160;<a class="el" href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">Character</a></li>
 </ul>
 
 
+<h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<li>LAUNCH&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775">Animation</a></li>
+<li>LINE&#160;:&#160;<a class="el" href="class_h_m_section.html#ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">HMSection</a></li>
+</ul>
+
+
+<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>missileCreated()&#160;:&#160;<a class="el" href="class_boss.html#a6c3d77400a294319ffa376c28c7d187d">Boss</a></li>
+</ul>
+
+
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>Obstacle()&#160;:&#160;<a class="el" href="class_obstacle.html#a92816aa47ab3cbb031423f16ab75a920">Obstacle</a></li>
+<li>Obstacle()&#160;:&#160;<a class="el" href="class_obstacle.html#a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle</a></li>
+<li>OPEN&#160;:&#160;<a class="el" href="class_h_m_section.html#ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">HMSection</a></li>
 </ul>
 
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>Player()&#160;:&#160;<a class="el" href="class_player.html#ab67b08e4700e1f6e208746e67cb0f701">Player</a></li>
+<li>Player&#160;:&#160;<a class="el" href="class_character_bullet.html#a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169">CharacterBullet</a>, <a class="el" href="class_player.html#ab67b08e4700e1f6e208746e67cb0f701">Player</a></li>
 <li>progress()&#160;:&#160;<a class="el" href="class_h_m_section.html#a78bd080598e3778f18a44da90fa1b0d2">HMSection</a></li>
 </ul>
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>render()&#160;:&#160;<a class="el" href="class_g_u_i.html#a5aff7f528f4df787db27666651fe231f">GUI</a></li>
-<li>resetPos()&#160;:&#160;<a class="el" href="class_player.html#a49066b4a0b345abad5a5d4a6ec640140">Player</a></li>
-<li>run()&#160;:&#160;<a class="el" href="class_animation.html#a4e1084a8d4b025c9d46d2c030da05518">Animation</a>, <a class="el" href="class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game</a></li>
+<li>render()&#160;:&#160;<a class="el" href="class_g_u_i.html#a1b817cdd39b52e3322ab2b89c03bc220">GUI</a></li>
+<li>renderEnd()&#160;:&#160;<a class="el" href="class_g_u_i.html#ad8b1804699ac1f39077d5a5b1c91cd2e">GUI</a></li>
+<li>renderScores()&#160;:&#160;<a class="el" href="class_g_u_i.html#a63a1106506cd880d0148d44bc6aabf2a">GUI</a></li>
+<li>RESET&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f">Animation</a></li>
+<li>resetPos()&#160;:&#160;<a class="el" href="class_background.html#ad04fe2ef8bcaf5516c95846e2e500877">Background</a>, <a class="el" href="class_player.html#a49066b4a0b345abad5a5d4a6ec640140">Player</a></li>
+<li>ROCKET_FLICKER&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01">Animation</a></li>
+<li>run()&#160;:&#160;<a class="el" href="class_animation.html#aafa4559f75e244ca439626971d3ea11a">Animation</a>, <a class="el" href="class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>setBullet()&#160;:&#160;<a class="el" href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">Character</a></li>
-<li>setPos()&#160;:&#160;<a class="el" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">Character</a></li>
-<li>setPosition()&#160;:&#160;<a class="el" href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">Background</a>, <a class="el" href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">Obstacle</a></li>
+<li>setPos()&#160;:&#160;<a class="el" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">Character</a>, <a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">Entity</a></li>
+<li>setPosition()&#160;:&#160;<a class="el" href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">Background</a>, <a class="el" href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">Obstacle</a>, <a class="el" href="class_wall.html#a2f5f377219bc2e184db172a9093875d4">Wall</a></li>
 <li>setSection()&#160;:&#160;<a class="el" href="class_h_m_section.html#a3307e1d78540b5624be54eea4af89e13">HMSection</a></li>
+<li>setStage()&#160;:&#160;<a class="el" href="class_background.html#ac333125273a1213f2cb1c4af4081f0b8">Background</a></li>
+<li>setTexture()&#160;:&#160;<a class="el" href="class_obstacle.html#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">Obstacle</a>, <a class="el" href="class_wall.html#a0f4063e0408cb992f6d478308fa52656">Wall</a></li>
 <li>setType()&#160;:&#160;<a class="el" href="class_h_m_section.html#ab9659f8ee7d9a9c01dd244f8c0f3a93f">HMSection</a></li>
 <li>setVelocity()&#160;:&#160;<a class="el" href="class_character.html#a46a264779165a349a13bcb364c4106d4">Character</a></li>
+<li>sizeIndex&#160;:&#160;<a class="el" href="class_character.html#a95e438488293a98b1a404f39e4f97aeb">Character</a></li>
+<li>SPACE&#160;:&#160;<a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">Background</a></li>
 <li>spawnWave()&#160;:&#160;<a class="el" href="class_enemy.html#a965d8a0c6f027a92795b9794158369b7">Enemy</a></li>
+<li>sprite&#160;:&#160;<a class="el" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">Entity</a></li>
+<li>spriteSheet&#160;:&#160;<a class="el" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">Entity</a></li>
+<li>Stage&#160;:&#160;<a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Background</a></li>
+<li>startRender()&#160;:&#160;<a class="el" href="class_g_u_i.html#a41bf32a5de5387392f14b204bd55259e">GUI</a></li>
 <li>string()&#160;:&#160;<a class="el" href="class_zaxxon_text.html#a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText</a></li>
 </ul>
 
 
+<h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>TOP&#160;:&#160;<a class="el" href="class_h_m_section.html#ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">HMSection</a></li>
+<li>Type&#160;:&#160;<a class="el" href="class_h_m_section.html#ad1168eb178424081bd7cec2199b324cf">HMSection</a></li>
+</ul>
+
+
 <h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
-<li>update()&#160;:&#160;<a class="el" href="class_background.html#a2a139f9d39a237ff2556c56eae438be5">Background</a>, <a class="el" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">Character</a>, <a class="el" href="class_enemy.html#a899157d4bd6d049bc094bc92863dccec">Enemy</a>, <a class="el" href="class_obstacle.html#a71cf873dada3977dbbda2ee3c80a8f14">Obstacle</a>, <a class="el" href="class_player.html#abb03d8dd7ecbcc72a4bece2e14d98681">Player</a></li>
+<li>update()&#160;:&#160;<a class="el" href="class_background.html#ad531459e6da764948e9376250fe9b15e">Background</a>, <a class="el" href="class_boss.html#a21b1a76979fe05deca079ade3dca7ed8">Boss</a>, <a class="el" href="class_boss_bullet.html#a3501c85f3336e4a745e6fc7f3a354aaf">BossBullet</a>, <a class="el" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">Character</a>, <a class="el" href="class_character_bullet.html#a02ac0f004985f6ce0010e0f48ad2eeda">CharacterBullet</a>, <a class="el" href="class_enemy.html#accf4abaa4f7531426301612edd476067">Enemy</a>, <a class="el" href="class_entity.html#a7d014114fcea80281536d5525019190c">Entity</a>, <a class="el" href="class_obstacle.html#acd60ac9d097142b295ece68202d39655">Obstacle</a>, <a class="el" href="class_player.html#a4e06f8ba5175207c534abed70d383418">Player</a></li>
+<li>updateBullets()&#160;:&#160;<a class="el" href="class_character.html#ad48b560cdd06bc269869a17661d2ccba">Character</a></li>
+</ul>
+
+
+<h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>velocity&#160;:&#160;<a class="el" href="class_character.html#a12d640046cf216dd010f8e71c3466e1e">Character</a></li>
+</ul>
+
+
+<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
+<li>Wall()&#160;:&#160;<a class="el" href="class_wall.html#a5f29ba541aff9823b15a97451d78e4c6">Wall</a></li>
+<li>WALLBULLET_DEATH&#160;:&#160;<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728">Animation</a></li>
+<li>WallDeath&#160;:&#160;<a class="el" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">CharacterBullet</a></li>
+</ul>
+
+
+<h3><a id="index_x" name="index_x"></a>- x -</h3><ul>
+<li>xMax&#160;:&#160;<a class="el" href="class_character.html#ae741b4874f8875f33f70663890315a52">Character</a></li>
+<li>xMin&#160;:&#160;<a class="el" href="class_character.html#a682f191a3a01f1a772cd3fa624c0b16e">Character</a></li>
+</ul>
+
+
+<h3><a id="index_y" name="index_y"></a>- y -</h3><ul>
+<li>yMax&#160;:&#160;<a class="el" href="class_character.html#a602309a031e6db0a570644d8f0b5d5fb">Character</a></li>
+<li>yMin&#160;:&#160;<a class="el" href="class_character.html#a1750fc7b411d6fdac9ca9e6763e126f5">Character</a></li>
+</ul>
+
+
+<h3><a id="index_z" name="index_z"></a>- z -</h3><ul>
+<li>ZapWalls()&#160;:&#160;<a class="el" href="class_zap_walls.html#a010dc90e76bcd214ca303184eabb4a10">ZapWalls</a></li>
 </ul>
 
 
 <h3><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
+<li>~Animation()&#160;:&#160;<a class="el" href="class_animation.html#a401b68793d4fbf48d481c030ee4b2a16">Animation</a></li>
+<li>~Background()&#160;:&#160;<a class="el" href="class_background.html#a36754df1deb720393217ade59da41557">Background</a></li>
+<li>~Boss()&#160;:&#160;<a class="el" href="class_boss.html#ae2300fbed7e29873d66c5a89beb3a628">Boss</a></li>
+<li>~BossBullet()&#160;:&#160;<a class="el" href="class_boss_bullet.html#a387327aee4bbfba8abd6320f6f5acb35">BossBullet</a></li>
+<li>~Character()&#160;:&#160;<a class="el" href="class_character.html#a9e9be564d05ded80962b2045aa70b3fc">Character</a></li>
+<li>~CharacterBullet()&#160;:&#160;<a class="el" href="class_character_bullet.html#a33e9ec37bf67b693229c5ca84b2866bc">CharacterBullet</a></li>
+<li>~Entity()&#160;:&#160;<a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">Entity</a></li>
 <li>~Game()&#160;:&#160;<a class="el" href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">Game</a></li>
+<li>~GUI()&#160;:&#160;<a class="el" href="class_g_u_i.html#ac9cae2328dcb5d83bdfaeca49a2eb695">GUI</a></li>
+<li>~Obstacle()&#160;:&#160;<a class="el" href="class_obstacle.html#af2f9cc9c6cff75dca0974fd5ac4f71a9">Obstacle</a></li>
+<li>~Wall()&#160;:&#160;<a class="el" href="class_wall.html#a9a2992f2b533e1c160513d1e719f920c">Wall</a></li>
+<li>~ZapWalls()&#160;:&#160;<a class="el" href="class_zap_walls.html#ae249db1f71143ba9cf19164de3e7636e">ZapWalls</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

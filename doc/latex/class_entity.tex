@@ -1,5 +1,14 @@
 \doxysection{Entity Class Reference}
 \hypertarget{class_entity}{}\label{class_entity}\index{Entity@{Entity}}
+
+
+Abstract class for all entities in the game.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
 Inheritance diagram for Entity\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,42 +18,104 @@ Inheritance diagram for Entity\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_entity_a522648b330daab91b49f78f0737a943f}{kill}} ()
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_ace719c3edb14f8a32929395ba2524d64}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
 \begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_entity_a7d014114fcea80281536d5525019190c}{update}} (sf\+::\+Render\+Window \&)=0
 \item 
-\Hypertarget{class_entity_a1783cc856808b2d78c4e46fa9c85a524}\label{class_entity_a1783cc856808b2d78c4e46fa9c85a524} 
-void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
 \item 
-\Hypertarget{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}\label{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3} 
-sf\+::\+Vector3f {\bfseries get\+Pos} ()
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
 \item 
-\Hypertarget{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}\label{class_entity_a9727d15d18ccb10fa72dfe15799adcdd} 
-sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
-\end{DoxyCompactItemize}
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}\label{class_entity_ac3f2dbf1633dd3080b7e2835367170bd} 
-sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
 \item 
-\Hypertarget{class_entity_a48ef4ab143b8d0211877c9f6be42e824}\label{class_entity_a48ef4ab143b8d0211877c9f6be42e824} 
-sf\+::\+Sprite {\bfseries sprite}
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
 \item 
-\Hypertarget{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}\label{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d} 
-\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
 \item 
-\Hypertarget{class_entity_a799462330dd8c754cdada5dab432b4dc}\label{class_entity_a799462330dd8c754cdada5dab432b4dc} 
-bool {\bfseries dead} = false
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Abstract class for all entities in the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_entity_a980f368aa07ce358583982821533a54a}\label{class_entity_a980f368aa07ce358583982821533a54a} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Setup \doxylink{class_entity}{Entity} class variables. 
+
+\Hypertarget{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae} 
+\index{Entity@{Entity}!````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}}
+\index{````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}}
+{\footnotesize\ttfamily Entity\+::\texorpdfstring{$\sim$}{\string~}\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clean up memory related to \doxylink{class_entity}{Entity} class. 
+
+
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_entity_a522648b330daab91b49f78f0737a943f}\label{class_entity_a522648b330daab91b49f78f0737a943f} 
+\Hypertarget{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}\label{class_entity_ac9ef7fc00806615984a06ca8c71b10bc} 
+\index{Entity@{Entity}!getAnimationState@{getAnimationState}}
+\index{getAnimationState@{getAnimationState}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getAnimationState()}{getAnimationState()}}
+{\footnotesize\ttfamily int Entity\+::get\+Animation\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}\label{class_entity_a9727d15d18ccb10fa72dfe15799adcdd} 
+\index{Entity@{Entity}!getBounds@{getBounds}}
+\index{getBounds@{getBounds}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getBounds()}{getBounds()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Entity\+::get\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}\label{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3} 
+\index{Entity@{Entity}!getPos@{getPos}}
+\index{getPos@{getPos}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily sf\+::\+Vector3f Entity\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_entity_ad641a9c7d92d65cb688651e48029e82d}\label{class_entity_ad641a9c7d92d65cb688651e48029e82d} 
+\index{Entity@{Entity}!getSpritePos@{getSpritePos}}
+\index{getSpritePos@{getSpritePos}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getSpritePos()}{getSpritePos()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Entity\+::get\+Sprite\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the position of the related sprite for this entity. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_entity_a3ea146cebd4310647bd49a4f08940fe5}\label{class_entity_a3ea146cebd4310647bd49a4f08940fe5} 
 \index{Entity@{Entity}!kill@{kill}}
 \index{kill@{kill}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{kill()}{kill()}}
-{\footnotesize\ttfamily void Entity\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Entity\+::kill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}}}]{animation = {\ttfamily \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -52,7 +123,13 @@ Run death animation code for the killed entity.
 
 
 
-Reimplemented in \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}{Enemy}}, \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{Player}}, and \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{Character}}.
+Reimplemented in \mbox{\hyperlink{class_obstacle_ac7300c4d9c730103c707972be1380ff9}{Obstacle}}.
+
+\Hypertarget{class_entity_a1783cc856808b2d78c4e46fa9c85a524}\label{class_entity_a1783cc856808b2d78c4e46fa9c85a524} 
+\index{Entity@{Entity}!setPos@{setPos}}
+\index{setPos@{setPos}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void Entity\+::set\+Pos (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{class_entity_a7d014114fcea80281536d5525019190c}\label{class_entity_a7d014114fcea80281536d5525019190c} 
 \index{Entity@{Entity}!update@{update}}
@@ -62,11 +139,50 @@ Reimplemented in \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}
 
 
 
-Implemented in \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{Character}}, \mbox{\hyperlink{class_enemy_a899157d4bd6d049bc094bc92863dccec}{Enemy}}, and \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{Obstacle}}.
+Implemented in \mbox{\hyperlink{class_boss_bullet_a3501c85f3336e4a745e6fc7f3a354aaf}{Boss\+Bullet}}, \mbox{\hyperlink{class_boss_a21b1a76979fe05deca079ade3dca7ed8}{Boss}}, \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{Character}}, \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{Obstacle}}, and \mbox{\hyperlink{class_character_bullet_a02ac0f004985f6ce0010e0f48ad2eeda}{Character\+Bullet}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}\label{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d} 
+\index{Entity@{Entity}!animations@{animations}}
+\index{animations@{animations}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{animations}{animations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_animation}{Animation}} Entity\+::animations\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_entity_a799462330dd8c754cdada5dab432b4dc}\label{class_entity_a799462330dd8c754cdada5dab432b4dc} 
+\index{Entity@{Entity}!dead@{dead}}
+\index{dead@{dead}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{dead}{dead}}
+{\footnotesize\ttfamily bool Entity\+::dead = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}\label{class_entity_a5c8dfa06fdc253fd93eafc998a919d00} 
+\index{Entity@{Entity}!debugFont@{debugFont}}
+\index{debugFont@{debugFont}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{debugFont}{debugFont}}
+{\footnotesize\ttfamily sf\+::\+Font Entity\+::debug\+Font\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}\label{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0} 
+\index{Entity@{Entity}!debugText@{debugText}}
+\index{debugText@{debugText}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{debugText}{debugText}}
+{\footnotesize\ttfamily sf\+::\+Text Entity\+::debug\+Text\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_entity_af83f70f8107d85626fb383599cc0f7ae}\label{class_entity_af83f70f8107d85626fb383599cc0f7ae} 
+\index{Entity@{Entity}!sprite@{sprite}}
+\index{sprite@{sprite}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite\texorpdfstring{$\ast$}{*} Entity\+::sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}\label{class_entity_ac3f2dbf1633dd3080b7e2835367170bd} 
+\index{Entity@{Entity}!spriteSheet@{spriteSheet}}
+\index{spriteSheet@{spriteSheet}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{spriteSheet}{spriteSheet}}
+{\footnotesize\ttfamily sf\+::\+Texture\texorpdfstring{$\ast$}{*} Entity\+::sprite\+Sheet\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Entity/Entity.\+h\item 
-src/\+Entity/Entity.\+cpp\end{DoxyCompactItemize}
+src/\+Entity/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\item 
+src/\+Entity/\mbox{\hyperlink{_entity_8cpp}{Entity.\+cpp}}\end{DoxyCompactItemize}

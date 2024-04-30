@@ -3,6 +3,9 @@
 #include "Util/Util.h"
 
 
+/// <summary>
+/// Class for other walls (blue lightning).
+/// </summary>
 class ZapWalls
 {
 public:

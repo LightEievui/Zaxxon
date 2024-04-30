@@ -1,5 +1,27 @@
 var searchData=
 [
-  ['kill_0',['kill',['../class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d',1,'Character::kill()'],['../class_enemy.html#ad0bf56e75378d9524f2d77479d259dde',1,'Enemy::kill()'],['../class_player.html#aa8baacf4fe29a618f2cf4b26327e4d5a',1,'Player::kill()'],['../class_entity.html#a522648b330daab91b49f78f0737a943f',1,'Entity::kill()']]],
-  ['killbullet_1',['killBullet',['../class_character.html#a6ea404b0682144a8f21d42e881cb0ce7',1,'Character']]]
+  ['game_0',['Game',['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game']]],
+  ['generateobstacles_1',['generateObstacles',['../class_background.html#adfd6d7bd7fa3bbfcfa599686d29d7cae',1,'Background']]],
+  ['generatewaves_2',['generateWaves',['../class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb',1,'Background']]],
+  ['get_3',['get',['../class_zaxxon_text.html#ae3d8b5ffcd7a1374cff38f3243366517',1,'ZaxxonText']]],
+  ['getanimationstate_4',['getAnimationState',['../class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc',1,'Entity']]],
+  ['getbounds_5',['getBounds',['../class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd',1,'Entity']]],
+  ['getbulletlocations_6',['getBulletLocations',['../class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7',1,'Obstacle']]],
+  ['getbullets_7',['getBullets',['../class_character.html#a59755f2066960eeade9a67b13f646c79',1,'Character']]],
+  ['getmissile_8',['getMissile',['../class_boss.html#ad1c3b7858f8d973b0c920abae83ef80c',1,'Boss']]],
+  ['getpos_9',['getPos',['../class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3',1,'Entity']]],
+  ['getposition_10',['getPosition',['../class_character_bullet.html#a15894a0a65d7f8ca77174cae3ee51450',1,'CharacterBullet::getPosition()'],['../class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30',1,'Obstacle::getPosition()']]],
+  ['getscore_11',['getScore',['../class_obstacle.html#ac3450be68b7a60ab4ed285893f6f1deb',1,'Obstacle']]],
+  ['getsection_12',['getSection',['../class_h_m_section.html#a8edcc2ebab82a9d1fc1d735d63ca5c52',1,'HMSection']]],
+  ['getsizeindex_13',['getSizeIndex',['../class_character_bullet.html#a47a91c5b356f30dc75cd14f176324e54',1,'CharacterBullet::getSizeIndex()'],['../class_character.html#aee0c0987bd819993b7a4e8342e6ab1c4',1,'Character::getSizeIndex()'],['../class_enemy.html#a8c811260a36e5b4fdbd022fa4e205863',1,'Enemy::getSizeIndex()']]],
+  ['getspritepos_14',['getSpritePos',['../class_entity.html#ad641a9c7d92d65cb688651e48029e82d',1,'Entity']]],
+  ['getstage_15',['getStage',['../class_background.html#aa60585bb666a292f5d49049038400b1a',1,'Background']]],
+  ['getstartposition_16',['getStartPosition',['../class_zap_walls.html#aa1b9732e459ef7dd1099a5cbe2eb377f',1,'ZapWalls']]],
+  ['getstate_17',['getState',['../class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac',1,'Animation']]],
+  ['gettranslate2_18',['getTranslate2',['../class_enemy.html#af933da0510136962e59487e9a6c28ead',1,'Enemy']]],
+  ['gettype_19',['getType',['../class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114',1,'Obstacle']]],
+  ['getvelocity_20',['getVelocity',['../class_character.html#aa2ee5df8a31732a36f37bfce88161401',1,'Character']]],
+  ['getwallpositions_21',['getWallPositions',['../class_wall.html#a1e18d4eb5e9afcfd35e00adf7090192b',1,'Wall']]],
+  ['getwindowviewrect_22',['getWindowViewRect',['../_util_8cpp.html#abb6b320c3e2bc2c09f352e041a9d57e1',1,'getWindowViewRect(sf::RenderWindow &amp;window):&#160;Util.cpp'],['../_util_8h.html#afd424b36564366fd3f8ad452b8977db2',1,'getWindowViewRect(sf::RenderWindow &amp;):&#160;Util.cpp']]],
+  ['gui_23',['GUI',['../class_g_u_i.html#abfd2c814235b0c6474cae56fb8e04839',1,'GUI']]]
 ];

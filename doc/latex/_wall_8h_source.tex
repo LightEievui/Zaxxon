@@ -1,0 +1,30 @@
+\doxysection{Wall.\+h}
+\hypertarget{_wall_8h_source}{}\label{_wall_8h_source}\index{src/Wall/Wall.h@{src/Wall/Wall.h}}
+\mbox{\hyperlink{_wall_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_wall}{Wall}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_wall_a5f29ba541aff9823b15a97451d78e4c6}{Wall}}(sf::Texture*,\ sf::Vector3f,\ \textcolor{keywordtype}{int}\ size,\ std::vector<int>);}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_wall_a9a2992f2b533e1c160513d1e719f920c}{\string~Wall}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wall_a274edf0d5b16afba31a8618df97626af}{drawWalls}}(sf::RenderWindow\&\ window);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wall_a2f5f377219bc2e184db172a9093875d4}{setPosition}}(sf::Vector3f,\ \textcolor{keywordtype}{int}\ piece\ =\ 0);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wall_a0f4063e0408cb992f6d478308fa52656}{setTexture}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_wall_ab2a34a04c46c9fe0a21d4235b106e8ae}{checkOnScreen}}();}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<sf::Vector3f>\ \mbox{\hyperlink{class_wall_a1e18d4eb5e9afcfd35e00adf7090192b}{getWallPositions}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ sf::Texture*\ spriteSheet;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ onScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<sf::Sprite>\ sprites;}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<sf::Vector3f>\ wallPositions;}
+\DoxyCodeLine{00027\ \};}
+
+\end{DoxyCode}

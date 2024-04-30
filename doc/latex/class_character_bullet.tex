@@ -1,0 +1,246 @@
+\doxysection{Character\+Bullet Class Reference}
+\hypertarget{class_character_bullet}{}\label{class_character_bullet}\index{CharacterBullet@{CharacterBullet}}
+
+
+The bullet used by the player and enemies.  
+
+
+
+
+{\ttfamily \#include $<$Character\+Bullet.\+h$>$}
+
+Inheritance diagram for Character\+Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_character_bullet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_character_bullet_a120395842230433baba2e78f620e1266}{Bullet\+Type}} \{ \mbox{\hyperlink{class_character_bullet_a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169}{Player}}
+, \mbox{\hyperlink{class_character_bullet_a120395842230433baba2e78f620e1266a59aba9e70f5342a41140fbf02a371ec9}{Enemy}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dd}{Bullet\+Death\+Type}} \{ \mbox{\hyperlink{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc}{Wall\+Death}}
+, \mbox{\hyperlink{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0}{Enemy\+Death}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_character_bullet_a983fcb8b0d1e9dc36b37c5e2f3efdfa3}{Character\+Bullet}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}spritesheet, sf\+::\+Vector3f spawn\+Pos, unsigned int sizeindex, \mbox{\hyperlink{class_character_bullet_a120395842230433baba2e78f620e1266}{Bullet\+Type}}=\mbox{\hyperlink{class_player}{Player}}, sf\+::\+Vector2f=sf\+::\+Vector2f(0, 0))
+\begin{DoxyCompactList}\small\item\em Create a bullet based on if player or enemy shot it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_character_bullet_a33e9ec37bf67b693229c5ca84b2866bc}{\texorpdfstring{$\sim$}{\string~}\+Character\+Bullet}} ()
+\begin{DoxyCompactList}\small\item\em Clean up memory related to character bullet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_bullet_a9bcb2df496f840c0bb15dc14558e5f9b}{kill}} ()
+\begin{DoxyCompactList}\small\item\em Default kill, run the kill method with enemy\+Death as parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_bullet_ac9285627ab485a6be4efc7dedc11bc23}{kill}} (\mbox{\hyperlink{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dd}{Bullet\+Death\+Type}} type)
+\begin{DoxyCompactList}\small\item\em The bullet hit something, run code to kill bullet based on what it hit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_bullet_a02ac0f004985f6ce0010e0f48ad2eeda}{update}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Run the logic for this bullet and then draw it to screen. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_character_bullet_a47a91c5b356f30dc75cd14f176324e54}{get\+Size\+Index}} ()
+\begin{DoxyCompactList}\small\item\em Get public size index of this character bullet. \end{DoxyCompactList}\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_character_bullet_a15894a0a65d7f8ca77174cae3ee51450}{get\+Position}} ()
+\item 
+bool \mbox{\hyperlink{class_character_bullet_a480f1a3e263507118664bac116e8b1d7}{is\+Hit}} ()
+\begin{DoxyCompactList}\small\item\em Check if this bullet has hit something. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_bullet_a7101e714c7e25ed57a26c74b59b5ee83}{Abstract\+Bullet}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_ace719c3edb14f8a32929395ba2524d64}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
+\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
+\item 
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
+\item 
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
+\item 
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The bullet used by the player and enemies. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dd}\label{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dd} 
+\index{CharacterBullet@{CharacterBullet}!BulletDeathType@{BulletDeathType}}
+\index{BulletDeathType@{BulletDeathType}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{BulletDeathType}{BulletDeathType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dd}{Character\+Bullet\+::\+Bullet\+Death\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WallDeath@{WallDeath}!CharacterBullet@{CharacterBullet}}\index{CharacterBullet@{CharacterBullet}!WallDeath@{WallDeath}}}\Hypertarget{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc}\label{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc} 
+Wall\+Death&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EnemyDeath@{EnemyDeath}!CharacterBullet@{CharacterBullet}}\index{CharacterBullet@{CharacterBullet}!EnemyDeath@{EnemyDeath}}}\Hypertarget{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0}\label{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0} 
+Enemy\+Death&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_character_bullet_a120395842230433baba2e78f620e1266}\label{class_character_bullet_a120395842230433baba2e78f620e1266} 
+\index{CharacterBullet@{CharacterBullet}!BulletType@{BulletType}}
+\index{BulletType@{BulletType}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{BulletType}{BulletType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_character_bullet_a120395842230433baba2e78f620e1266}{Character\+Bullet\+::\+Bullet\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Player@{Player}!CharacterBullet@{CharacterBullet}}\index{CharacterBullet@{CharacterBullet}!Player@{Player}}}\Hypertarget{class_character_bullet_a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169}\label{class_character_bullet_a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169} 
+Player&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Enemy@{Enemy}!CharacterBullet@{CharacterBullet}}\index{CharacterBullet@{CharacterBullet}!Enemy@{Enemy}}}\Hypertarget{class_character_bullet_a120395842230433baba2e78f620e1266a59aba9e70f5342a41140fbf02a371ec9}\label{class_character_bullet_a120395842230433baba2e78f620e1266a59aba9e70f5342a41140fbf02a371ec9} 
+Enemy&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_character_bullet_a983fcb8b0d1e9dc36b37c5e2f3efdfa3}\label{class_character_bullet_a983fcb8b0d1e9dc36b37c5e2f3efdfa3} 
+\index{CharacterBullet@{CharacterBullet}!CharacterBullet@{CharacterBullet}}
+\index{CharacterBullet@{CharacterBullet}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{CharacterBullet()}{CharacterBullet()}}
+{\footnotesize\ttfamily Character\+Bullet\+::\+Character\+Bullet (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{sf\+::\+Vector3f}]{spawn\+Pos,  }\item[{unsigned int}]{size\+Index,  }\item[{\mbox{\hyperlink{class_character_bullet_a120395842230433baba2e78f620e1266}{Bullet\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_player}{Player}}},  }\item[{sf\+::\+Vector2f}]{spawn\+Pos2f = {\ttfamily sf\+:\+:Vector2f(0,0)} }\end{DoxyParamCaption})}
+
+
+
+Create a bullet based on if player or enemy shot it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spritesheet} & \\
+\hline
+{\em spawn\+Pos} & \\
+\hline
+{\em size\+Index} & \\
+\hline
+{\em type} & \\
+\hline
+{\em spawn\+Pos2f} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_character_bullet_a33e9ec37bf67b693229c5ca84b2866bc}\label{class_character_bullet_a33e9ec37bf67b693229c5ca84b2866bc} 
+\index{CharacterBullet@{CharacterBullet}!````~CharacterBullet@{\texorpdfstring{$\sim$}{\string~}CharacterBullet}}
+\index{````~CharacterBullet@{\texorpdfstring{$\sim$}{\string~}CharacterBullet}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CharacterBullet()}{\string~CharacterBullet()}}
+{\footnotesize\ttfamily Character\+Bullet\+::\texorpdfstring{$\sim$}{\string~}\+Character\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clean up memory related to character bullet. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_character_bullet_a15894a0a65d7f8ca77174cae3ee51450}\label{class_character_bullet_a15894a0a65d7f8ca77174cae3ee51450} 
+\index{CharacterBullet@{CharacterBullet}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector3f Character\+Bullet\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_character_bullet_a47a91c5b356f30dc75cd14f176324e54}\label{class_character_bullet_a47a91c5b356f30dc75cd14f176324e54} 
+\index{CharacterBullet@{CharacterBullet}!getSizeIndex@{getSizeIndex}}
+\index{getSizeIndex@{getSizeIndex}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{getSizeIndex()}{getSizeIndex()}}
+{\footnotesize\ttfamily unsigned int Character\+Bullet\+::get\+Size\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get public size index of this character bullet. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_character_bullet_a480f1a3e263507118664bac116e8b1d7}\label{class_character_bullet_a480f1a3e263507118664bac116e8b1d7} 
+\index{CharacterBullet@{CharacterBullet}!isHit@{isHit}}
+\index{isHit@{isHit}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{isHit()}{isHit()}}
+{\footnotesize\ttfamily bool Character\+Bullet\+::is\+Hit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if this bullet has hit something. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+\Hypertarget{class_character_bullet_a9bcb2df496f840c0bb15dc14558e5f9b}\label{class_character_bullet_a9bcb2df496f840c0bb15dc14558e5f9b} 
+\index{CharacterBullet@{CharacterBullet}!kill@{kill}}
+\index{kill@{kill}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Character\+Bullet\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default kill, run the kill method with enemy\+Death as parameter. 
+
+\Hypertarget{class_character_bullet_ac9285627ab485a6be4efc7dedc11bc23}\label{class_character_bullet_ac9285627ab485a6be4efc7dedc11bc23} 
+\index{CharacterBullet@{CharacterBullet}!kill@{kill}}
+\index{kill@{kill}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Character\+Bullet\+::kill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_character_bullet_a8ca1ff9d465891f7192b244d1ad980dd}{Bullet\+Death\+Type}}}]{death\+Type }\end{DoxyParamCaption})}
+
+
+
+The bullet hit something, run code to kill bullet based on what it hit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em death\+Type} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_character_bullet_a02ac0f004985f6ce0010e0f48ad2eeda}\label{class_character_bullet_a02ac0f004985f6ce0010e0f48ad2eeda} 
+\index{CharacterBullet@{CharacterBullet}!update@{update}}
+\index{update@{update}!CharacterBullet@{CharacterBullet}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Character\+Bullet\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Run the logic for this bullet and then draw it to screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_entity_a7d014114fcea80281536d5525019190c}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Entity/\+Abstract\+Bullet/\+Character\+Bullet/\mbox{\hyperlink{_character_bullet_8h}{Character\+Bullet.\+h}}\item 
+src/\+Entity/\+Abstract\+Bullet/\+Character\+Bullet/\mbox{\hyperlink{_character_bullet_8cpp}{Character\+Bullet.\+cpp}}\end{DoxyCompactItemize}

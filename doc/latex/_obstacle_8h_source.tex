@@ -1,39 +1,48 @@
 \doxysection{Obstacle.\+h}
 \hypertarget{_obstacle_8h_source}{}\label{_obstacle_8h_source}\index{src/Obstacle/Obstacle.h@{src/Obstacle/Obstacle.h}}
-
+\mbox{\hyperlink{_obstacle_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Util/Util.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Entity/Entity.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity/Entity.h}}"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_obstacle}{Obstacle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
-\DoxyCodeLine{00011\ \{}
-\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//For\ shooting\ obstacles}}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{float},\ \ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//For\ standby\ obstacles}}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_obstacle}{\string~Obstacle}}();}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ setTexture(std::string);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a712e425583cff17617c280a10399bf1e}{setPosition}}(sf::Vector3f);;}
-\DoxyCodeLine{00021\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}{getPosition}}();}
-\DoxyCodeLine{00022\ \ \ \ \ std::vector<sf::Vector3f>\ \mbox{\hyperlink{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}{getBulletLocations}}();}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{update}}(sf::RenderWindow\&)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_af395b8077b863766f840f75377a9c6fc}{isPresent}}();}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}{bulletKill}}(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}{getType}}();}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00029\ \ \ \ \ std::vector<sf::Sprite>\ bulletSprites;}
-\DoxyCodeLine{00030\ \ \ \ \ std::vector<sf::Vector3f>\ bulletPositions;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ count,\ total\ =\ 100,\ random,\ type;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ turret\ =\ \textcolor{keyword}{false},\ onScreen\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_obstacle}{Obstacle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//For\ shooting\ obstacles}}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//For\ standby\ obstacles}}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_obstacle_af2f9cc9c6cff75dca0974fd5ac4f71a9}{\string~Obstacle}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a29b7f49fb1b9b7e4d24eb8f05cc12dc3}{setTexture}}(std::string);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a712e425583cff17617c280a10399bf1e}{setPosition}}(sf::Vector3f);}
+\DoxyCodeLine{00024\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}{getPosition}}();}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<sf::Vector3f>\ \mbox{\hyperlink{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}{getBulletLocations}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_acd60ac9d097142b295ece68202d39655}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{int}\ playerZ);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_acd60ac9d097142b295ece68202d39655}{update}}(sf::RenderWindow\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_af395b8077b863766f840f75377a9c6fc}{isPresent}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_a0f354a517c0b6b2e9bafc1e36af706af}{isTurret}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}{bulletKill}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}{getType}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_obstacle_ac3450be68b7a60ab4ed285893f6f1deb}{getScore}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_ac7300c4d9c730103c707972be1380ff9}{kill}}(\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation::Anim}}\ \mbox{\hyperlink{_animation_8cpp_ace719c3edb14f8a32929395ba2524d64}{animation}}\ =\ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation::CHARACTER\_DEATH}});}
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<sf::Sprite>\ bulletSprites;}
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<sf::Vector3f>\ bulletPositions;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ count\ =\ 0,\ total\ =\ 100,\ random\ =\ 0,\ type\ =\ 0,\ scoreIndicator\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ turret\ =\ \textcolor{keyword}{false},\ onScreen\ =\ \textcolor{keyword}{false},\ moved\ =\ \textcolor{keyword}{false},\ redRocket\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ drawDebugText\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00042\ \ \ \ \ sf::Sprite\ rocketExplosionSprite;}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_animation}{Animation}}\ rocketAnimation;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ rocketZ\ =\ 0;}
+\DoxyCodeLine{00045\ \};}
 
 \end{DoxyCode}

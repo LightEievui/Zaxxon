@@ -1,0 +1,35 @@
+\doxysection{Boss.\+h}
+\hypertarget{_boss_8h_source}{}\label{_boss_8h_source}\index{src/Entity/Boss/Boss.h@{src/Entity/Boss/Boss.h}}
+\mbox{\hyperlink{_boss_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity/Entity.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_boss_bullet_8h}{Entity/AbstractBullet/BossBullet/BossBullet.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_boss}{Boss}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_boss_a532b2cfc920780c6f4ea432d7e22be79}{Boss}}(sf::Vector3f,\ \mbox{\hyperlink{class_entity}{Entity}}*,\ sf::Texture*,\ sf::Texture*);}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_boss_ae2300fbed7e29873d66c5a89beb3a628}{\string~Boss}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boss_a21b1a76979fe05deca079ade3dca7ed8}{update}}(sf::RenderWindow\&);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boss_a911178ba0e5f853c0472f8a2ef879c60}{hit}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_boss_bullet}{BossBullet}}*\ \mbox{\hyperlink{class_boss_ad1c3b7858f8d973b0c920abae83ef80c}{getMissile}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_boss_a6c3d77400a294319ffa376c28c7d187d}{missileCreated}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_boss_a619bf5f3c08aa6ffb395e20dc53cb420}{isDestroyed}}();}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}*\ target;}
+\DoxyCodeLine{00025\ \ \ \ \ sf::Clock\ movementInt,\ invFrames;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ stages\ =\ 0,\ hitCount\ =\ 20,\ hits\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ sf::Texture\ spriteSheet;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_boss_bullet}{BossBullet}}*\ missile\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ bulletCreated\ =\ \textcolor{keyword}{false},\ destroyed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ targetXPoints[3];}
+\DoxyCodeLine{00032\ \};}
+
+\end{DoxyCode}

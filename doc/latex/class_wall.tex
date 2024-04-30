@@ -1,0 +1,149 @@
+\doxysection{Wall Class Reference}
+\hypertarget{class_wall}{}\label{class_wall}\index{Wall@{Wall}}
+
+
+Class for the normal walls (stone brick).  
+
+
+
+
+{\ttfamily \#include $<$Wall.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wall_a5f29ba541aff9823b15a97451d78e4c6}{Wall}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}, sf\+::\+Vector3f, int size, std\+::vector$<$ int $>$)
+\begin{DoxyCompactList}\small\item\em Create a section of walls, each one can be a closed or open wall piece. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_wall_a9a2992f2b533e1c160513d1e719f920c}{\texorpdfstring{$\sim$}{\string~}\+Wall}} ()
+\begin{DoxyCompactList}\small\item\em Clean up memory related to wall class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wall_a274edf0d5b16afba31a8618df97626af}{draw\+Walls}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw each section of the wall if it will be visible on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wall_a2f5f377219bc2e184db172a9093875d4}{set\+Position}} (sf\+::\+Vector3f, int piece=0)
+\begin{DoxyCompactList}\small\item\em Set position of specificed wall piece. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_wall_a0f4063e0408cb992f6d478308fa52656}{set\+Texture}} (int, int)
+\begin{DoxyCompactList}\small\item\em Set texture for if this wall piece should be closed or open. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_wall_ab2a34a04c46c9fe0a21d4235b106e8ae}{check\+On\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Check if this wall will be on screen. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Vector3f $>$ \mbox{\hyperlink{class_wall_a1e18d4eb5e9afcfd35e00adf7090192b}{get\+Wall\+Positions}} ()
+\begin{DoxyCompactList}\small\item\em Get 3d position of this wall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the normal walls (stone brick). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_wall_a5f29ba541aff9823b15a97451d78e4c6}\label{class_wall_a5f29ba541aff9823b15a97451d78e4c6} 
+\index{Wall@{Wall}!Wall@{Wall}}
+\index{Wall@{Wall}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{Wall()}{Wall()}}
+{\footnotesize\ttfamily Wall\+::\+Wall (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{tex,  }\item[{sf\+::\+Vector3f}]{pos,  }\item[{int}]{size,  }\item[{std\+::vector$<$ int $>$}]{walls }\end{DoxyParamCaption})}
+
+
+
+Create a section of walls, each one can be a closed or open wall piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tex} & \\
+\hline
+{\em pos} & \\
+\hline
+{\em size} & \\
+\hline
+{\em walls} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wall_a9a2992f2b533e1c160513d1e719f920c}\label{class_wall_a9a2992f2b533e1c160513d1e719f920c} 
+\index{Wall@{Wall}!````~Wall@{\texorpdfstring{$\sim$}{\string~}Wall}}
+\index{````~Wall@{\texorpdfstring{$\sim$}{\string~}Wall}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Wall()}{\string~Wall()}}
+{\footnotesize\ttfamily Wall\+::\texorpdfstring{$\sim$}{\string~}\+Wall (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clean up memory related to wall class. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_wall_ab2a34a04c46c9fe0a21d4235b106e8ae}\label{class_wall_ab2a34a04c46c9fe0a21d4235b106e8ae} 
+\index{Wall@{Wall}!checkOnScreen@{checkOnScreen}}
+\index{checkOnScreen@{checkOnScreen}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{checkOnScreen()}{checkOnScreen()}}
+{\footnotesize\ttfamily bool Wall\+::check\+On\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if this wall will be on screen. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+\Hypertarget{class_wall_a274edf0d5b16afba31a8618df97626af}\label{class_wall_a274edf0d5b16afba31a8618df97626af} 
+\index{Wall@{Wall}!drawWalls@{drawWalls}}
+\index{drawWalls@{drawWalls}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{drawWalls()}{drawWalls()}}
+{\footnotesize\ttfamily void Wall\+::draw\+Walls (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw each section of the wall if it will be visible on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wall_a1e18d4eb5e9afcfd35e00adf7090192b}\label{class_wall_a1e18d4eb5e9afcfd35e00adf7090192b} 
+\index{Wall@{Wall}!getWallPositions@{getWallPositions}}
+\index{getWallPositions@{getWallPositions}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{getWallPositions()}{getWallPositions()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Vector3f $>$ Wall\+::get\+Wall\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get 3d position of this wall. 
+
+\begin{DoxyReturn}{Returns}
+Vector of 3 float vectors
+\end{DoxyReturn}
+\Hypertarget{class_wall_a2f5f377219bc2e184db172a9093875d4}\label{class_wall_a2f5f377219bc2e184db172a9093875d4} 
+\index{Wall@{Wall}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Wall\+::set\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos,  }\item[{int}]{piece = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Set position of specificed wall piece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em piece} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wall_a0f4063e0408cb992f6d478308fa52656}\label{class_wall_a0f4063e0408cb992f6d478308fa52656} 
+\index{Wall@{Wall}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Wall\+::set\+Texture (\begin{DoxyParamCaption}\item[{int}]{piece,  }\item[{int}]{tex }\end{DoxyParamCaption})}
+
+
+
+Set texture for if this wall piece should be closed or open. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & \\
+\hline
+{\em tex} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Wall/\mbox{\hyperlink{_wall_8h}{Wall.\+h}}\item 
+src/\+Wall/\mbox{\hyperlink{_wall_8cpp}{Wall.\+cpp}}\end{DoxyCompactItemize}

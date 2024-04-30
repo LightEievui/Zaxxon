@@ -1,6 +1,6 @@
 /*
 * Time of development:
-* Jan 29 - XXX XX
+* Jan 29 - Apr 30 2024
 *
 * Developer team:
 * Gavin - Team leader / Programmer
@@ -14,7 +14,8 @@
 * and memory usage, with all the features as you'd expect.
 * 
 * Controls:
-* Arrow keys and Z
+* Keyboard: Arrow keys and Z
+* Joystick: Stick0 and button0
 *
 * We hereby certify that this program represents our
 * work and that the design and logic was completed

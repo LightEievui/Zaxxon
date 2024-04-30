@@ -2,7 +2,9 @@
 #pragma once
 
 
-// height meter section
+/// <summary>
+/// The height meter and related methods.
+/// </summary>
 class HMSection : public sf::Sprite
 {
 public:

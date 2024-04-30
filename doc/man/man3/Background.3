@@ -1,0 +1,246 @@
+.TH "Background" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Background \- Holds all backgrounds and methods to fill each level with content\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Background\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBStage\fP { \fBINITIAL\fP = 0, \fBSPACE\fP = 1, \fBBOSS\fP = 2, \fBBOSSFIGHT\fP = 3 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBackground\fP (\fBStage\fP, sf::View &, sf::Texture *, std::vector< \fBObstacle\fP * > &, std::vector< \fBEnemy\fP * > &, \fBPlayer\fP &, int, std::vector< \fBWall\fP * > &, std::vector< \fBZapWalls\fP * > &)"
+.br
+.RI "Create the background object and initialize each of the necessary images so they are ready to be drawn when needed\&. "
+.ti -1c
+.RI "\fB~Background\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, sf::View &, float, sf::Texture *, std::vector< \fBObstacle\fP * > &, std::vector< \fBEnemy\fP * > &, \fBPlayer\fP &, std::vector< \fBWall\fP * > &, bool, std::vector< \fBZapWalls\fP * > &)"
+.br
+.RI "Run the background logic, and check if background stage should be swapped\&. "
+.ti -1c
+.RI "void \fBsetPosition\fP (sf::Vector2f)"
+.br
+.RI "Set the position of the background\&. "
+.ti -1c
+.RI "void \fBgenerateObstacles\fP (\fBBackground::Stage\fP, std::vector< \fBObstacle\fP * > &, sf::Texture *, std::vector< \fBWall\fP * > &, std::vector< \fBZapWalls\fP * > &)"
+.br
+.RI "Place all obstacles for given stage\&. "
+.ti -1c
+.RI "void \fBgenerateWaves\fP (\fBBackground::Stage\fP, std::vector< \fBEnemy\fP * > &, sf::Texture *, int)"
+.br
+.RI "Handle enemy wave generation\&. "
+.ti -1c
+.RI "void \fBresetPos\fP (sf::View &, \fBPlayer\fP &, int)"
+.br
+.RI "Reset the position of the background for stage changes\&. "
+.ti -1c
+.RI "\fBStage\fP \fBgetStage\fP ()"
+.br
+.RI "Get the current stage background is on\&. "
+.ti -1c
+.RI "void \fBsetStage\fP (\fBStage\fP)"
+.br
+.RI "Set the current stage\&. "
+.ti -1c
+.RI "bool \fBisInSpace\fP (int)"
+.br
+.RI "Check if background is currently space, this affects the player\&. "
+.ti -1c
+.RI "void \fBflashColor\fP (sf::RenderWindow &)"
+.br
+.RI "Flash color of background between the default color and red tinted color based on state variable passed into the method\&. 0 is red, 1 is default\&. This is used for the first part of the death animation in \fBGame\&.cpp\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Holds all backgrounds and methods to fill each level with content\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBBackground::Stage\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIINITIAL \fP\fP
+.TP
+\fB\fISPACE \fP\fP
+.TP
+\fB\fIBOSS \fP\fP
+.TP
+\fB\fIBOSSFIGHT \fP\fP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Background::Background (\fBStage\fP startStage, sf::View & mainView, sf::Texture * spritesheet, std::vector< \fBObstacle\fP * > & obstacles, std::vector< \fBEnemy\fP * > & enemies, \fBPlayer\fP & player, int startPos, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWalls\fP * > & zapWalls)"
+
+.PP
+Create the background object and initialize each of the necessary images so they are ready to be drawn when needed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstartStage\fP 
+.br
+\fImainView\fP 
+.br
+\fIspritesheet\fP 
+.br
+\fIobstacles\fP 
+.br
+\fIenemies\fP 
+.br
+\fIplayer\fP 
+.br
+\fIstartPos\fP 
+.RE
+.PP
+
+.SS "Background::~Background ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Background::flashColor (sf::RenderWindow & window)"
+
+.PP
+Flash color of background between the default color and red tinted color based on state variable passed into the method\&. 0 is red, 1 is default\&. This is used for the first part of the death animation in \fBGame\&.cpp\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP 
+.RE
+.PP
+
+.SS "void Background::generateObstacles (\fBBackground::Stage\fP stage, std::vector< \fBObstacle\fP * > & obstacles, sf::Texture * spriteSheet, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWalls\fP * > & zapWalls)"
+
+.PP
+Place all obstacles for given stage\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstage\fP 
+.br
+\fIobstacles\fP 
+.br
+\fIspriteSheet\fP 
+.RE
+.PP
+
+.SS "void Background::generateWaves (\fBBackground::Stage\fP stage, std::vector< \fBEnemy\fP * > & enemies, sf::Texture * spriteSheet, int playerZ)"
+
+.PP
+Handle enemy wave generation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstage\fP 
+.br
+\fIenemies\fP 
+.br
+\fIspriteSheet\fP 
+.br
+\fIplayerZ\fP 
+.RE
+.PP
+
+.SS "\fBBackground::Stage\fP Background::getStage ()"
+
+.PP
+Get the current stage background is on\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A background stage
+.RE
+.PP
+
+.SS "bool Background::isInSpace (int z)"
+
+.PP
+Check if background is currently space, this affects the player\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIz\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.SS "void Background::resetPos (sf::View & mainView, \fBPlayer\fP & player, int startPos)"
+
+.PP
+Reset the position of the background for stage changes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImainView\fP 
+.br
+\fIplayer\fP 
+.br
+\fIstartPos\fP 
+.RE
+.PP
+
+.SS "void Background::setPosition (sf::Vector2f pos)"
+
+.PP
+Set the position of the background\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.RE
+.PP
+
+.SS "void Background::setStage (\fBStage\fP newStage)"
+
+.PP
+Set the current stage\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInewStage\fP 
+.RE
+.PP
+
+.SS "void Background::update (sf::RenderWindow & window, sf::View & mainView, float gameSpeed, sf::Texture * spritesheet, std::vector< \fBObstacle\fP * > & obstacles, std::vector< \fBEnemy\fP * > & enemies, \fBPlayer\fP & player, std::vector< \fBWall\fP * > & walls, bool bossState, std::vector< \fBZapWalls\fP * > & zapWalls)"
+
+.PP
+Run the background logic, and check if background stage should be swapped\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.br
+\fImainView\fP 
+.br
+\fIgameSpeed\fP 
+.br
+\fIspritesheet\fP 
+.br
+\fIobstacles\fP 
+.br
+\fIenemies\fP 
+.br
+\fIplayer\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

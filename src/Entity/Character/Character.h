@@ -6,7 +6,9 @@
 #include "Entity/AbstractBullet/CharacterBullet/CharacterBullet.h"
 
 
-// Abstract
+/// <summary>
+/// Abstract class to hold information that both player and enemy use.
+/// </summary>
 class Character : public Entity
 {
 public:
