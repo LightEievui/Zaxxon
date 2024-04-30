@@ -61,7 +61,8 @@ Animation::~Animation()
 
 
 /// <summary>
-/// Run the given animation on sprite. Note that you should always check if the sprite* is null before doing operations.
+/// Run the given animation on sprite. Note that you should always check 
+/// if the sprite* is null before doing operations.
 /// </summary>
 /// <param name="sprite">Nullable</param>
 /// <param name="anim"></param>
@@ -161,7 +162,8 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asMilliseconds() < 500 && sprite != nullptr)
 	{
-		int current = (static_cast<int>((int)(timer.getElapsedTime().asMilliseconds() * 12) / 1000) % 6) + 2;
+		int current = (static_cast<int>((int)(timer.getElapsedTime().asMilliseconds()
+			* 12) / 1000) % 6) + 2;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}

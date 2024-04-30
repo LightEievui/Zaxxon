@@ -28,7 +28,8 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setTexture(boss);
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
-	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls, zapWalls);
+	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, 
+		startPos, walls, zapWalls);
 
 	if (!death.loadFromFile("res/BackgroundDeath.png"))
 		std::cout << "Death overlay file failed to load\n";
@@ -269,8 +270,8 @@ void Background::generateObstacles(Background::Stage stage,
 		delete wall;
 	walls.clear();
 
-	for (ZapWall* zapWalls : zapWalls)
-		delete zapWalls;
+	for (ZapWall* zapWall : zapWalls)
+		delete zapWall;
 	zapWalls.clear();
 
 	switch (stage)
