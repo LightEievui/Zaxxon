@@ -54,7 +54,7 @@ void BossBullet::update(sf::RenderWindow& window)
 		if (target->getPos().y - getPos().y < 3)
 			setPos(sf::Vector3f(getPos().x, getPos().y - 5, getPos().z));
 
-		setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 7));
+		setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 3));
 		sprite->setPosition(translateTo2d(getPos()));
 	}
 
