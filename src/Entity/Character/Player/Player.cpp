@@ -119,6 +119,12 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
 	hitmarker.setPosition(sprite->getPosition() + sf::Vector2f(40, -15));
 
+	// Shadow before character
+	if (stage != 1)
+		window.draw(shadow);
+	else if (hitmarkerTimer.getElapsedTime().asMilliseconds() < 150)
+		window.draw(hitmarker);
+
 	// Drawing
 	Character::update(window); // updating position using velocity, draw character
 	Character::updateBullets(window);
@@ -130,12 +136,6 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	debugText.setPosition(sprite->getPosition());
 	window.draw(debugText);
 #endif // !NDEBUG
-
-
-	if (stage != 1)
-		window.draw(shadow);
-	else if (hitmarkerTimer.getElapsedTime().asMilliseconds() < 150)
-		window.draw(hitmarker);
 }
 
 
