@@ -324,7 +324,13 @@ void Background::generateObstacles(Background::Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-30.f, 139.f, -1515.31f), spriteSheet, 1350, 4));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-185.f, 139.f, -1460.61f), spriteSheet, 1350, 4));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-145.f, 139.f, -1644.61f), spriteSheet, 1450, 4));
-		// 
+		obstacles.push_back(new Obstacle(sf::Vector3f(-100.f, 139.333f, -1764.57f), spriteSheet, 1700, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-98.4f, 139.f, -2115.49f), spriteSheet, 1850, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-20.2f, 139.333f, -2148.29f), spriteSheet, 1850, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-151.2f, 139.f, -2268.38f), spriteSheet, 2100, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-65.2f, 139.667f, -2257.88f), spriteSheet, 2100, 4));
+		obstacles.push_back(new Obstacle(sf::Vector3f(-42.6f, 139.f, -2617.49f), spriteSheet, 2300, 4));
+		// -4.6f, 139.f, -2628.49f
 
 		/* Walls
 		KEY for Vector
