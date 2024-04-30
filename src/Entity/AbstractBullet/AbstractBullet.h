@@ -5,6 +5,19 @@
 class AbstractBullet : public Entity
 {
 public:
+	enum BulletType {
+		Player,
+		Enemy,
+		Missile,
+		zBullet,
+		xBullet
+	};
+
 	AbstractBullet() : Entity() {}
-	// check for similarities between obstacle bullets and character bullets
+
+	bool isHit();
+	void translate(float);
+
+protected:
+	bool alive = true;
 };

@@ -5,6 +5,7 @@
 #include "Util/Util.h"
 #include <time.h>
 #include "Entity/Entity.h"
+#include "Entity/AbstractBullet/CharacterBullet/CharacterBullet.h"
 
 
 class Obstacle : public Entity

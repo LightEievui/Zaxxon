@@ -84,12 +84,6 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 			resetPos(mainView, player, 0);
 		}
 
-
-		//if (stage == Stage::BOSS)
-		//{
-		//	stage = Stage::BOSSFIGHT;
-		//}
-
 		generateObstacles(stage, obstacles, spritesheet, walls, zapWalls);
 		generateWaves(stage, enemies, spritesheet, (int)player.getPos().z);
 	}
