@@ -116,6 +116,7 @@ void Character::setVelocity(sf::Vector3f vel)
 	this->velocity = vel;
 }
 
+
 /// <summary>
 /// Calls CharacterBullet::update() on each bullet & deletes bullets that are not in the window.
 /// </summary>

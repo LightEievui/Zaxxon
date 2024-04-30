@@ -114,7 +114,8 @@ GUI::GUI(sf::Texture* spritesheet)
 	{
 		enemyText[i].setColor(sf::Color(222, 222, 247));
 		// These use integer for the equation, do not 'float' it
-		enemyText[i].setPosition(sf::Vector2f(176 + i % 5 * 8, 200 + i / 5 * 8));
+		// edit: explicitedly casted it.
+		enemyText[i].setPosition(sf::Vector2f((float)(176 + i % 5 * 8), (float)(200 + i / 5 * 8)));
 	}
 
 
@@ -172,7 +173,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		highScoresText[i].setColor(sf::Color(222, 222, 0));
-		highScoresText[i].setPosition(sf::Vector2f(start + i * 8, 120));
+		highScoresText[i].setPosition(sf::Vector2f((float)(start + i * 8), (float)120));
 	}
 
 	// Game over text
@@ -185,7 +186,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 16;
 
 		gameOver[i].setColor(sf::Color(222, 222, 222));
-		gameOver[i].setPosition(sf::Vector2f(start + i * 8, 115));
+		gameOver[i].setPosition(sf::Vector2f((float)(start + i * 8), (float)115));
 	}
 
 	// High score entry
@@ -200,7 +201,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		scoreEntry[i].setColor(sf::Color(222, 0, 0));
-		scoreEntry[i].setPosition(start + i * 8, 75);
+		scoreEntry[i].setPosition((float)(start + i * 8), (float)75);
 	}
 
 	// Initials :
@@ -213,7 +214,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		initialsText[i].setColor(sf::Color(0, 222, 247));
-		initialsText[i].setPosition(start + i * 8, 95);
+		initialsText[i].setPosition((float)(start + i * 8), (float)95);
 	}
 
 	// Entry time
@@ -227,7 +228,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 16;
 
 		entryTime[i].setColor(sf::Color(222, 222, 0));
-		entryTime[i].setPosition(start + i * 8, 115);
+		entryTime[i].setPosition((float)(start + i * 8), (float)115);
 	}
 
 	// Name entry keyboard
@@ -239,7 +240,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			keyboard[i] = ZaxxonText::get(spritesheet, 0 + i - 26);
 
 		keyboard[i].setColor(sf::Color(0, 222, 0));
-		keyboard[i].setPosition(32 + i % 10 * 16, 135 + i / 10 * 16);
+		keyboard[i].setPosition((float)(32 + i % 10 * 16), (float)(135 + i / 10 * 16));
 	}
 
 	// Keyboard RUB & END
@@ -265,7 +266,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			if (i == 15)
 				start += 8;
 
-			endScreen[i].setPosition(start + i * 8, 80);
+			endScreen[i].setPosition((float)(start + i * 8), (float)80);
 			endScreen[i].setColor(sf::Color(0, 222, 247));
 		}
 		else if (i < 35)
@@ -281,7 +282,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			if (i > 30)
 				start += 8;
 
-			endScreen[i].setPosition(start + (i - 16) * 8, 100);
+			endScreen[i].setPosition((float)(start + (i - 16) * 8), (float)100);
 			endScreen[i].setColor(sf::Color(222, 222, 0));
 		}
 		else
@@ -291,7 +292,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			if (i == 39)
 				start += 8;
 
-			endScreen[i].setPosition(start + (i - 35) * 8, 120);
+			endScreen[i].setPosition((float)(start + (i - 35) * 8), (float)120);
 			endScreen[i].setColor(sf::Color(222, 222, 222));
 		}
 	}
@@ -513,7 +514,7 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 
 		int layer = 140;
 		layer += 12 * (i % 21 / 7);
-		highScores[i].setPosition(sf::Vector2f(start + i % 7 * 8, layer));
+		highScores[i].setPosition(sf::Vector2f((float)(start + i % 7 * 8), (float)layer));
 	}
 
 	// The names for each score
@@ -531,7 +532,7 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 
 		int layer = 140;
 		layer += 12 * (i % 9 / 3);
-		highScoresNames[i].setPosition(sf::Vector2f(start + i % 3 * 8, layer));
+		highScoresNames[i].setPosition(sf::Vector2f((float)(start + i % 3 * 8), (float)layer));
 	}
 }
 
@@ -560,7 +561,7 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 		if (name[i] != '_' && name[i] != ' ')
 			initialsText[i] = ZaxxonText::get(spritesheet, name[i - 9]);
 		initialsText[i].setColor(sf::Color(0, 222, 247));
-		initialsText[i].setPosition(sf::Vector2f(120 + (i - 9) * 16, 95));
+		initialsText[i].setPosition(sf::Vector2f((float)(120 + (i - 9) * 16), (float)95));
 	}
 
 	for (byte i = 0; i < 12; i++)
@@ -577,7 +578,7 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 		window.draw(entryTime[i]);
 
 	// Draw cursor before keyboard
-	cursor.setPosition(28 + selector % 10 * 16, 131 + selector / 10 * 16);
+	cursor.setPosition((float)(28 + selector % 10 * 16), (float)(131 + selector / 10 * 16));
 	window.draw(cursor);
 
 	for (byte i = 0; i < 30; i++)
