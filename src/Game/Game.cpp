@@ -113,6 +113,8 @@ void Game::run() // if random errors later check that stack isnt full
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			if (event.type == sf::Event::MouseButtonPressed)
+				score += 10000;
 		}
 
 		// Each frame, clear the screen before drawing anything new
@@ -121,7 +123,6 @@ void Game::run() // if random errors later check that stack isnt full
 		// State 1 is actively playing the game
 		if (gameState == 1)
 		{
-			std::cout << background.getStage();
 			window.setView(mainView);
 
 			// Things to do only when player is alive AKA these will be changed for player death
@@ -637,7 +638,7 @@ void Game::doCollision(Player* player)
 			abs(bullet->getPos().x - bossMissile->getPos().x - 50) < 20 &&
 			abs(bullet->getPos().y - bossMissile->getPos().y) <= 20)
 		{
-			bossMissile->damage(2);
+			bossMissile->damage(1);
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 

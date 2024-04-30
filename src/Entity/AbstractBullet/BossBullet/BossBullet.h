@@ -13,13 +13,11 @@ public:
 	void update(sf::RenderWindow&);
 	void damage(int);
 	void collide();
-	bool isDestroyed();
-
 private:
 	sf::Texture* spriteSheet;
 	Entity* target;
 	sf::Clock movementInt, invTimer;
 
-	int health = 10;
+	int health = 6;
 };
 

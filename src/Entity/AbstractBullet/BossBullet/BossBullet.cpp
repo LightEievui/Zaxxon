@@ -54,8 +54,7 @@ void BossBullet::update(sf::RenderWindow& window)
 		if (target->getPos().y - getPos().y < 3)
 			setPos(sf::Vector3f(getPos().x, getPos().y - 5, getPos().z));
 
-		setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 7));
-		sprite->setPosition(translateTo2d(getPos()));
+		translate(7);
 	}
 
 	if (health <= 0 && animations.getState() == 0)
@@ -68,11 +67,12 @@ void BossBullet::update(sf::RenderWindow& window)
 }
 
 
-
 void BossBullet::collide()
 {
 	if (animations.getState() == 0)
 		animations.run(sprite, Animation::ALT_DEATH);
+
+	alive = false;
 }
 
 
@@ -83,10 +83,4 @@ void BossBullet::damage(int hit)
 		invTimer.restart();
 		health -= hit;
 	}
-}
-
-
-bool BossBullet::isDestroyed() 
-{
-	return animations.getState() == 1;
 }

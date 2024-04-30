@@ -85,6 +85,8 @@ void CharacterBullet::kill(BulletDeathType deathType)
 	default:
 		break;
 	}
+
+	alive = false;
 }
 
 
@@ -97,23 +99,10 @@ void CharacterBullet::update(sf::RenderWindow& window)
 	if (type == Player)
 	{
 		if (animations.getState() == 0)
-			setPos(getPos() + sf::Vector3f(0, 0, -6));
-		else if (animations.getState() == 2)
-			setPos(getPos() + sf::Vector3f(0, 0, 0));
-		sprite->setPosition(translateTo2d(getPos()));
+			translate(-6);
 	}
 	else if (type == Enemy)
-		sprite->move(translateTo2d(sf::Vector3f(0, 0, 3)));
+		translate(3);
 
 	window.draw(*sprite);
-}
-
-
-/// <summary>
-/// Check if this bullet has hit something
-/// </summary>
-/// <returns>A boolean</returns>
-bool CharacterBullet::isHit()
-{
-	return animations.getState() == 1;
 }

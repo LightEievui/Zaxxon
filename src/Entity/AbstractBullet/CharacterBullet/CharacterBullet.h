@@ -7,13 +7,10 @@
 class CharacterBullet : public AbstractBullet
 {
 public:
-	enum BulletType {
-		Player,
-		Enemy
-	};
 	enum BulletDeathType {
 		WallDeath,
-		EnemyDeath
+		EnemyDeath,
+		MissileDeath
 	};
 
 	/*
@@ -34,7 +31,7 @@ public:
 	{
 
 	};
-	bool isHit();
+
 
 private:
 	unsigned int sizeIndex;
