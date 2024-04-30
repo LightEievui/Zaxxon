@@ -28,7 +28,8 @@ Background::Background(Stage startStage, sf::View& mainView, sf::Texture* sprite
 	back.setTexture(boss);
 	back.setOrigin(sf::Vector2f(0, (float)back.getTexture()->getSize().y));
 	back.setPosition(sf::Vector2f(0, 240));
-	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, startPos, walls, zapWalls);
+	changeStage(startStage, mainView, spritesheet, obstacles, enemies, player, 
+		startPos, walls, zapWalls);
 
 	if (!death.loadFromFile("res/BackgroundDeath.png"))
 		std::cout << "Death overlay file failed to load\n";
@@ -56,7 +57,8 @@ Background::~Background()
 /// <param name="player"></param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	float gameSpeed, sf::Texture* spritesheet, std::vector<Obstacle*>& obstacles,
-	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls, bool bossState, std::vector <ZapWalls*>& zapWalls
+	std::vector<Enemy*>& enemies, Player& player, std::vector<Wall*>& walls,
+	bool bossState, std::vector <ZapWalls*>& zapWalls
 )
 {
 	if (backgroundFinished(mainView))
@@ -244,7 +246,8 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 /// <param name="obstacles"></param>
 /// <param name="spriteSheet"></param>
 void Background::generateObstacles(Background::Stage stage,
-	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet, std::vector<Wall*>& walls, std::vector <ZapWalls*>& zapWalls)
+	std::vector<Obstacle*>& obstacles, sf::Texture* spriteSheet, 
+	std::vector<Wall*>& walls, std::vector <ZapWalls*>& zapWalls)
 {
 	/*Shooting Obstacles
 	KEY
