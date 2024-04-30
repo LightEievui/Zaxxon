@@ -2,7 +2,7 @@
 
 
 
-ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet, BulletType type) : AbstractBullet()
+ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet, BulletType type)
 {
 	sprite->setTexture(*spriteSheet);
 	
@@ -35,9 +35,7 @@ void ObstacleBullet::update(sf::RenderWindow& window)
 	case BulletType::zBullet :
 		translate(3);
 		break;
-	default:
-		break;
 	}
 
-	window.draw(*sprite);
+	std::cout << window.getPosition().x;
 }

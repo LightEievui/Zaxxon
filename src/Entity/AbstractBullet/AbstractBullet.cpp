@@ -3,7 +3,7 @@
 
 bool AbstractBullet::isHit()
 {
-	return alive;
+	return !alive;
 }
 
 
