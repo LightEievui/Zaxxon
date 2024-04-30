@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 1600;
+const unsigned int startPos = 0;
 const Background::Stage startStage = Background::INITIAL;
 
 
@@ -113,19 +113,7 @@ void Game::run() // if random errors later check that stack isnt full
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-			if (event.type == sf::Event::MouseButtonPressed)
-				score += 10000;
 		}
-
-		window.clear();
-		window.setView(guiView);
-		gui.renderWin(window);
-		gui.render(window, player->getPos().y, score, highScore, fuel, lives);
-		window.display();
-		window.setView(mainView);
-
-		sf::Clock tempClock;
-		while (tempClock.getElapsedTime().asSeconds() < 5);
 
 		// Each frame, clear the screen before drawing anything new
 		window.clear();
