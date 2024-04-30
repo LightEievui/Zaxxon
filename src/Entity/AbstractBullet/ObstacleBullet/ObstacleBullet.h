@@ -1,6 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
-#include "Entity/AbstractBullet/AbstractBullet.h"
+#include "../AbstractBullet.h"
 
 
 class ObstacleBullet : public AbstractBullet

@@ -183,6 +183,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 		if (count % total == 0 && direction == 0 && animations.getState() == 0)
 		{
 			bullets.push_back(ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::zBullet));
+			bulletPositions.push_back(getPos());
 
 			total = (rand() % 250) + 75;
         }
@@ -190,6 +191,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
         else if (count % total == 0 && (direction == 1 || direction == 3) && animations.getState() == 0)
         {
 			bullets.push_back(ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::xBullet));
+			bulletPositions.push_back(getPos());
 
 			total = (rand() % 250) + 75;
 		}

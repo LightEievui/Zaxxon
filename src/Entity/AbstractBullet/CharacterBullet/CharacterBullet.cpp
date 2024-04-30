@@ -17,13 +17,13 @@ CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos
 	sprite->setTextureRect(sf::IntRect(8 + 16 * sizeIndex, 47, 16, 8));
 	sprite->setOrigin(0, 8);
 
-	if (type == Player)
+	if (type == BulletType::Player)
 	{
 		sprite->setColor(sf::Color(0, 222, 0));
 		setPos(sf::Vector3f(spawnPos.x - 21.f, spawnPos.y + .02f * sizeIndex, spawnPos.z - 15.f));
 		sprite->setPosition(translateTo2d(getPos()));
 	}
-	else if (type == Enemy)
+	else if (type == BulletType::Enemy)
 	{
 		sprite->setColor(sf::Color(222, 0, 0));
 		sprite->setPosition(spawnPos2f + sf::Vector2f(-3.f * (int)(3U - sizeIndex), 20));
@@ -77,7 +77,7 @@ void CharacterBullet::kill(BulletDeathType deathType)
 		break;
 	case BulletDeathType::EnemyDeath:
 		// adjust position to align better
-		if (this->type == Player)
+		if (this->type == BulletType::Player)
 			setPos(getPos() + sf::Vector3f(0, 0, -16));
 		if (animations.getState() < 2)
 			animations.run(sprite, Animation::Anim::BULLET_DEATH, sizeIndex);
@@ -85,8 +85,6 @@ void CharacterBullet::kill(BulletDeathType deathType)
 	default:
 		break;
 	}
-
-	alive = false;
 }
 
 
@@ -96,13 +94,19 @@ void CharacterBullet::kill(BulletDeathType deathType)
 /// <param name="window"></param>
 void CharacterBullet::update(sf::RenderWindow& window)
 {
-	if (type == Player)
+	if (type == BulletType::Player)
 	{
 		if (animations.getState() == 0)
+		{
 			translate(-6);
+			
+		}
 	}
-	else if (type == Enemy)
+	else if (type == BulletType::Enemy)
 		translate(3);
+
+	if (animations.getState() == 1)
+		alive = false;
 
 	window.draw(*sprite);
 }

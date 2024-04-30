@@ -124,7 +124,7 @@ void Character::updateBullets(sf::RenderWindow& window)
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
-		CharacterBullet* bullet = bullets[i];
+		CharacterBullet* bullet = bullets.at(i);
 		bullet->update(window);
 
 		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)

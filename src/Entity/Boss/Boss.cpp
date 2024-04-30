@@ -23,7 +23,6 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	
 	movementInt.restart();
 
-	srand(time(NULL));
 	targetXPoints[0] = (rand() % 100) * -1;
 	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1;
 
