@@ -463,7 +463,7 @@ void Background::generateObstacles(Background::Stage stage,
 		for (ZapWall* zw : zapWalls)
 			zw->setStartPos(zw->getStartPosition() + sf::Vector3f(0, -6, 0));
 		for (Wall* wall : walls)
-			for(int i = 0; i < wall->getWallPositions().size(); i++)
+			for(unsigned int i = 0; i < wall->getWallPositions().size(); i++)
 				wall->setPosition(wall->getWallPositions()[i] + sf::Vector3f(0, -6, 0), i);
 		break;
 	}

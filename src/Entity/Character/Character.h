@@ -15,6 +15,7 @@ public:
 	Character(sf::Texture*);
 	~Character();
 	void update(sf::RenderWindow&);
+	void update(sf::RenderWindow&, float gameSpeed);
 	virtual void kill() = 0;
 
 	std::vector<CharacterBullet*>& getBullets();

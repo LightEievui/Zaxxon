@@ -1,7 +1,5 @@
 #pragma once
 #include <vector>
-// temp
-#include <iostream>
 #include "ZaxxonText/ZaxxonText.h"
 #include "HMSection/HMSection.h"
 

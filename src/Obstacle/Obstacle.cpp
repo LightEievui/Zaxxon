@@ -12,7 +12,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 {
 	total = (rand() % 250) + 75;
 	this->scoreIndicator = rand() % 3 + 1;
-	this->type = dir + 3;
+	this->type = (ObstacleType)(dir + 3);
 
 	setPos(pos);
 	turret = true;
@@ -63,7 +63,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 	//Right Green Turrents
 	else if (dir == 3)
 	{
-		type += 2;
+		type = GREEN_CANNON_RIGHT;
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(320, 153, 33, 22));
 
@@ -76,7 +76,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay, int dir) : Ent
 	{
 		redRocket = true;
 		this->direction = 2;
-		this->type = 5;
+		this->type = MISSILE_UP;
 	}
 }
 
@@ -97,7 +97,7 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
     4 = blue space gas can
     */
 
-    this->type = type;
+    this->type = (ObstacleType)type;
 	direction = -1;
 	setPos(pos);
 	turret = false;
@@ -111,12 +111,12 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
         sprite->setTextureRect(sf::IntRect(129, 109, 24, 28));
     else if (type == 3)
     {
-        this->type = 6;
+        this->type = PLANE;
         sprite->setTextureRect(sf::IntRect(92, 35, 29, 25));
     }
     else if (type == 4)
     {
-        this->type = 7;
+        this->type = SPACE_FUEL;
         sprite->setTextureRect(sf::IntRect(8, 195, 26, 29));
     }
     sprite->setPosition(translateTo2d(pos));
@@ -263,9 +263,9 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	}
 	sprite->setPosition(translateTo2d(getPos()));
 
-    if (type != 5 && (type != 7 || getPosition().x < 15))
+    if (type != MISSILE_UP && (type != SPACE_FUEL || getPosition().x < 15))
         window.draw(*sprite);
-	if (type == 5 && rocketExplosion)
+	if (type == MISSILE_UP && rocketExplosion)
 	{
 		if(rocketFiring)
 			window.draw(*sprite);
@@ -276,7 +276,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
     count = (count + 1) % total;
 
 	//Moves Blue Space Gas Cans
-    if (type == 7)
+    if (type == SPACE_FUEL)
     {
         setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f, 
 			getPosition().z));
@@ -351,20 +351,8 @@ void Obstacle::bulletKill(int bullet)
 /// Get what type of obstacle this is.
 /// </summary>
 /// <returns>An int</returns>
-int Obstacle::getType()
+Obstacle::ObstacleType Obstacle::getType()
 {
-    /*
-    KEY
-    1 = gas can
-    2 = satellite
-    3 = grey cannon
-    4 = green cannon
-    5 = Shooting Up
-    6 = Plane
-    7 = blue floating gas can
-	8 = green shooting right
-    */
-
 	return type;
 }
 
