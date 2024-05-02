@@ -1,8 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::INITIAL;
-
+const Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -218,7 +217,7 @@ void Game::run() // if random errors later check that stack isnt full
 			if (pBackground->getStage() == 3)
 				boss->update(window);
 
-			if (missile->isDestroyed())
+			if (missile->isHit())
 			{
 				delete missile;
 				missile = new BossBullet(sf::Vector3f(0, 0, 1000), player, &spriteSheet); // spawn off screen
