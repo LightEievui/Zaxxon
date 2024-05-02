@@ -54,7 +54,7 @@ void BossBullet::update(sf::RenderWindow& window)
 		if (target->getPos().y - getPos().y < 3)
 			setPos(sf::Vector3f(getPos().x, getPos().y - 5, getPos().z));
 
-		translate(7);
+		translate(3.5f);
 	}
 
 	if (health <= 0 && animations.getState() == 0)
