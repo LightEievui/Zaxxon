@@ -161,7 +161,7 @@ void Player::resetPos(int zOffset)
 
 bool Player::isMissileable()
 {
-	return missileTimer.getElapsedTime().asSeconds() > 3 && getPos().z < -300;
+	return missileTimer.getElapsedTime().asSeconds() > 5 && getPos().z < -300;
 }
 
 
