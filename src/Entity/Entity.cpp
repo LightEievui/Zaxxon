@@ -20,8 +20,7 @@ Entity::Entity()
 /// </summary>
 Entity::~Entity()
 {
-	if(sprite != nullptr)
-		delete sprite;
+	delete sprite;
 }
 
 
