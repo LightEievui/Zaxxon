@@ -1,8 +1,7 @@
 #include "Game.h"
 
 const unsigned int startPos = 0;
-const Background::Stage startStage = Background::INITIAL;
-
+const Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
