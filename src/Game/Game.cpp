@@ -449,12 +449,15 @@ void Game::doCollision(Player* player)
 	sf::Vector3f planePos;
 	planePos = sf::Vector3f(player->getPos().x, player->getPos().y, player->getPos().z);
 
+	// Obstacle collisions
 	for (unsigned int i = 0; i < obstacles.size(); i++)
 	{
-		if (!obstacles.at(i)->isPresent())
+		Obstacle* obstacle = obstacles.at(i);
+		if (!obstacle->isPresent())
 			continue;
+
 		//Turret Bullets
-		bulletPos = (obstacles.at(i)->getBulletLocations());
+		bulletPos = (obstacle->getBulletLocations());
 
 		for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
 		{
@@ -465,34 +468,37 @@ void Game::doCollision(Player* player)
 			if (difference.x < 15 && difference.y < 15 && difference.z < 25)
 			{
 				playerDeath();
-				obstacles.at(i)->bulletKill(bullets);
+				obstacle->bulletKill(bullets);
 			}
 		}
 
 		bulletPos.clear();
-		for (CharacterBullet* bullet : player->getBullets())
-			bulletPos.push_back(bullet->getPos());
-		size = bulletPos.size();
+		std::vector<CharacterBullet*>& bullets = player->getBullets();
+		size = bullets.size();
 
 		//Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
-		for (unsigned int pBullets = 0; pBullets < size; pBullets++)
+		for (unsigned int bulletIndex = 0; bulletIndex < size; bulletIndex++)
 		{
 			difference = sf::Vector3f
-			(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
-				abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
-				abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
+			(abs(obstacle->getPosition().x - bullets[bulletIndex]->getPos().x),
+				abs(obstacle->getPosition().y - bullets[bulletIndex]->getPos().y),
+				abs(obstacle->getPosition().z - bullets[bulletIndex]->getPos().z)
+			);
 
-			if (!(difference.x < 20 && difference.y < 15 && difference.z < 25))
+			bool hit = obstacleHit(obstacle->getType(), difference,
+				obstacle->getBounds().intersects(bullets[bulletIndex]->getBounds())
+			);
+
+			if (!hit)
 				continue;
-			obstacles.at(i)->kill();
-			player->killBullet(pBullets);
-			bulletPos.erase(bulletPos.begin() + pBullets);
-			pBullets--;
+			obstacle->kill();
+			player->killBullet(bulletIndex);
+			bulletIndex--;
 			size--;
 
 			//Scoring Swtich Statement
-			score += obstacles.at(i)->getScore();
-			switch (obstacles.at(i)->getType())
+			score += obstacle->getScore();
+			switch (obstacle->getType())
 			{
 			case 1:
 				fuel = 128;
@@ -508,11 +514,15 @@ void Game::doCollision(Player* player)
 
 		//Player Running into Obstacles
 		difference = sf::Vector3f
-		(abs(obstacles.at(i)->getPosition().x - planePos.x),
-			abs(obstacles.at(i)->getPosition().y - planePos.y),
-			abs(obstacles.at(i)->getPosition().z - planePos.z));
+		(abs(obstacle->getPosition().x - planePos.x),
+			abs(obstacle->getPosition().y - planePos.y),
+			abs(obstacle->getPosition().z - planePos.z)
+		);
+		bool hit = obstacleHit(obstacle->getType(), difference,
+			player->getBounds().intersects(obstacle->getBounds())
+		);
 
-		if (difference.x < 15 && difference.y < 15 && difference.z < 25)
+		if (hit)
 			playerDeath();
 	}
 
@@ -707,6 +717,33 @@ void Game::doCollision(Player* player)
 		playerDeath();
 		missile->collide();
 	}
+}
+
+bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference, bool intersect2d)
+{
+	bool hit = true;
+	sf::Vector3f obstaclePos, playerPos;
+
+	switch (type)
+	{
+	case Obstacle::GAS_CAN:
+	case Obstacle::SATELLITE:
+	case Obstacle::GREY_CANNON:
+	case Obstacle::PLANE:
+	case Obstacle::SPACE_FUEL:
+	case Obstacle::GREEN_CANNON_RIGHT:
+		hit = difference.x < 20 && difference.y < 15 && difference.z < 25;
+		break;
+	case Obstacle::GREEN_CANNON:
+		hit = difference.x < 20 && difference.y < 8 && difference.z < 25;
+		break;
+	case Obstacle::MISSILE_UP:
+		hit = intersect2d && difference.y < 8 && difference.z < 8;
+		break;
+	}
+	// playerY - playerX
+
+	return hit;
 }
 
 
