@@ -10,7 +10,8 @@ public:
 		Enemy,
 		Missile,
 		zBullet,
-		xBullet
+		xBulletL,
+		xBulletR
 	};
 
 	AbstractBullet() : Entity() {}

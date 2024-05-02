@@ -182,7 +182,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 		//Creates bullets for grey cannons
 		if (count % total == 0 && direction == 0 && animations.getState() == 0)
 		{
-			bullets.push_back(ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::zBullet));
+			bullets.push_back(new ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::zBullet));
 			bulletPositions.push_back(getPos());
 
 			total = (rand() % 250) + 75;
@@ -190,7 +190,18 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 		//Creates bullets for green cannons
         else if (count % total == 0 && (direction == 1 || direction == 3) && animations.getState() == 0)
         {
-			bullets.push_back(ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::xBullet));
+			switch (direction)
+			{
+			case 1:
+				bullets.push_back(new ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::xBulletL));
+				break;
+			case 3:
+				bullets.push_back(new ObstacleBullet(getPos(), spriteSheet, AbstractBullet::BulletType::xBulletR));
+				break;
+			default:
+				break;
+			}
+			
 			bulletPositions.push_back(getPos());
 
 			total = (rand() % 250) + 75;
@@ -225,8 +236,8 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	//Gives bullets their direction
     for (unsigned int i = 0; i < bullets.size(); i++)
     {
-		bulletPositions.at(i) = bullets.at(i).getPos();
-		bullets.at(i).update(window);
+		bulletPositions.at(i) = bullets.at(i)->getPos();
+		bullets.at(i)->update(window);
     }
 	
 	//Offset position on death
