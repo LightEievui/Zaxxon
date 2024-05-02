@@ -7,7 +7,8 @@
 /// <param name="startPos"></param>
 /// <param name="target"></param>
 /// <param name="spriteSheet"></param>
-BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* spriteSheet)
+BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
+                       sf::Texture* spriteSheet)
 {
 	this->target = target;
 	this->spriteSheet = spriteSheet;
@@ -19,7 +20,7 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* sprit
 	sprite->setPosition(translateTo2d(startPos));
 
 	setPos(startPos);
-	
+
 	movementInt.restart();
 	invTimer.restart();
 }
@@ -30,7 +31,6 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* sprit
 /// </summary>
 BossBullet::~BossBullet()
 {
-
 }
 
 
@@ -40,7 +40,8 @@ BossBullet::~BossBullet()
 /// <param name="window"></param>
 void BossBullet::update(sf::RenderWindow& window)
 {
-	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.getState() == 0)
+	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.
+		getState() == 0)
 	{
 		movementInt.restart();
 

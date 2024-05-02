@@ -20,11 +20,12 @@ sf::Vector2f translateTo2d(sf::Vector3f in)
 /// <returns>Float rectangle</returns>
 sf::FloatRect getWindowViewRect(sf::RenderWindow& window)
 {
-	sf::Vector2f wPos = sf::Vector2f(window.getView().getCenter().x 
-		- (window.getView().getSize().x / 2),
-		window.getView().getCenter().y - (window.getView().getSize().y / 2));
+	auto wPos = sf::Vector2f(window.getView().getCenter().x
+	                         - (window.getView().getSize().x / 2),
+	                         window.getView().getCenter().y - (window.getView().
+		                         getSize().y / 2));
 	return sf::FloatRect(wPos.x, wPos.y, window.getView().getSize().x,
-		window.getView().getSize().y);
+	                     window.getView().getSize().y);
 }
 
 
@@ -41,8 +42,7 @@ bool zPressed()
 		util_zPress = false;
 		return true;
 	}
-
-	else if (!util_zPress && !(sf::Keyboard::isKeyPressed(sf::Keyboard::Z) 
+	if (!util_zPress && !(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)
 		|| sf::Joystick::isButtonPressed(0, 0)))
 		util_zPress = true;
 

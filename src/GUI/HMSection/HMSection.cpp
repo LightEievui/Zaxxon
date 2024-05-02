@@ -68,11 +68,13 @@ void HMSection::progress(int stage)
 		case TOP:
 		case LINE:
 			change = 16 - stage;
-			setSection(change); // full 9-16 to 5-8: blank to full so 8-5 then 16-9: full to blank
+			setSection(change);
+		// full 9-16 to 5-8: blank to full so 8-5 then 16-9: full to blank
 			break;
 		case OPEN:
 			change = 24 - stage;
-			setSection(change); // 17-24 to 0-3: blank to full so 3-0 then 24-17: full to blank
+			setSection(change);
+		// 17-24 to 0-3: blank to full so 3-0 then 24-17: full to blank
 			break;
 		case BOTTOM:
 			break;
@@ -95,7 +97,6 @@ void HMSection::progress(int stage)
 			break;
 		}
 	}
-
 }
 
 

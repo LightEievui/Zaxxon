@@ -14,13 +14,13 @@ public:
 	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
 	~Boss();
 
-	void update(sf::RenderWindow&);
+	void update(sf::RenderWindow&) override;
 	void hit();
 	BossBullet* getMissile();
 	bool missileCreated();
 	bool isDestroyed();
-private:
 
+private:
 	Entity* target;
 	sf::Clock movementInt, invFrames;
 	int stages = 0, hitCount = 20, hits = 0;

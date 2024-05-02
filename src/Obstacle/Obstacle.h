@@ -26,7 +26,8 @@ public:
 	8 = green shooting right
 	*/
 
-	enum ObstacleType {
+	enum ObstacleType
+	{
 		GAS_CAN = 1,
 		SATELLITE,
 		GREY_CANNON,
@@ -36,6 +37,7 @@ public:
 		SPACE_FUEL,
 		GREEN_CANNON_RIGHT
 	};
+
 	//For shooting obstacles
 	Obstacle(sf::Vector3f, sf::Texture*, int, int);
 	//For standby obstacles
@@ -54,7 +56,8 @@ public:
 	ObstacleType getType();
 	int getScore();
 
-	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
+	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH) override;
+
 private:
 	std::vector<ObstacleBullet*> bullets;
 	std::vector<sf::Vector3f> bulletPositions;

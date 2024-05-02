@@ -9,7 +9,8 @@
 class CharacterBullet : public AbstractBullet
 {
 public:
-	enum BulletDeathType {
+	enum BulletDeathType
+	{
 		WallDeath,
 		EnemyDeath,
 		MissileDeath
@@ -22,18 +23,18 @@ public:
 	to pass the 2f if an enemy and the 3f will be ignored.
 	*/
 	CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos,
-		unsigned int sizeindex, BulletType = BulletType::Player, sf::Vector2f = sf::Vector2f(0,0)
+	                unsigned int sizeindex, BulletType = Player,
+	                sf::Vector2f = sf::Vector2f(0, 0)
 	);
 	~CharacterBullet();
 	void kill();
 	void kill(BulletDeathType type);
-	void update(sf::RenderWindow& window);
+	void update(sf::RenderWindow& window) override;
 	unsigned int getSizeIndex();
+
 	sf::Vector3f getPosition()
 	{
-
 	};
-
 
 private:
 	unsigned int sizeIndex;

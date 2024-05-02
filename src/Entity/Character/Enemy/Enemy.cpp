@@ -8,7 +8,7 @@
 /// <param name="id"></param>
 /// <param name="spawnZ"></param>
 Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
-	int randOffset) : Character(texture)
+             int randOffset) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
@@ -16,7 +16,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
 	this->sprite->setTextureRect(textures[0][0]);
 	this->id = id;
 	this->randOffset = randOffset;
-	int spawnZ = (int)spawnPos.z;
+	int spawnZ = static_cast<int>(spawnPos.z);
 	alive.restart();
 	sf::Vector3f pos;
 
@@ -24,25 +24,25 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
 	switch (id)
 	{
 	case 0:
-		pos = sf::Vector3f(120, 25, (float)spawnZ);
+		pos = sf::Vector3f(120, 25, static_cast<float>(spawnZ));
 		break;
 	case 1:
-		pos = sf::Vector3f(-30, 45, (float)spawnZ);
+		pos = sf::Vector3f(-30, 45, static_cast<float>(spawnZ));
 		break;
 	case 2:
-		pos = sf::Vector3f(-60, 55, (float)spawnZ);
+		pos = sf::Vector3f(-60, 55, static_cast<float>(spawnZ));
 		break;
 	case 3:
-		pos = sf::Vector3f(-90, 65, (float)spawnZ);
+		pos = sf::Vector3f(-90, 65, static_cast<float>(spawnZ));
 		break;
 	case 4:
-		pos = sf::Vector3f(0, 71, (float)spawnZ);
+		pos = sf::Vector3f(0, 71, static_cast<float>(spawnZ));
 		break;
 	case 5:
-		pos = sf::Vector3f(-210, 71, (float)spawnZ);
+		pos = sf::Vector3f(-210, 71, static_cast<float>(spawnZ));
 		break;
 	case 6:
-		pos = sf::Vector3f(-160, 45, (float)spawnZ);
+		pos = sf::Vector3f(-160, 45, static_cast<float>(spawnZ));
 		break;
 	case 7:
 		pos = spawnPos;
@@ -57,15 +57,14 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
 /// <param name="window"></param>
 void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 {
-	
 	// Find velocity
 	sf::Vector2f vel = runAI();
 
 	// Shooting
-	if ((!dead && 
-		ableToFire &&
-		bulletCD.getElapsedTime().asMilliseconds() > 250
-		&& rand() % 125 == 0)
+	if ((!dead &&
+			ableToFire &&
+			bulletCD.getElapsedTime().asMilliseconds() > 250
+			&& rand() % 125 == 0)
 #ifndef NDEBUG
 		|| (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 #endif
@@ -74,19 +73,20 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 		bulletCD.restart();
 
 		bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex,
-			CharacterBullet::Enemy, this->sprite->getPosition())
+		                                      CharacterBullet::Enemy,
+		                                      this->sprite->getPosition())
 		);
 	}
 
 	unsigned int planeVertical = vel.y > 0;
 
 	// Moved to keep up with back
-	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * 2/3)));
+	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * 2 / 3)));
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
 
 	// 
-	Character::updateBullets(window);
-	if(!dead)
+	updateBullets(window);
+	if (!dead)
 		window.draw(*sprite);
 }
 
@@ -118,29 +118,38 @@ void Enemy::kill()
 /// <param name="playerZ"></param>
 /// <param name="wave"></param>
 void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
-	int playerZ, unsigned int wave)
+                      int playerZ, unsigned int wave)
 {
 	switch (wave)
 	{
 	case 0:
 		// first fish loop
-		enemies.push_back(new Enemy(spritesheet, 0, sf::Vector3f(0, 0, playerZ - 190.f)));
+		enemies.push_back(new Enemy(spritesheet, 0,
+		                            sf::Vector3f(0, 0, playerZ - 190.f)));
 		break;
 	case 1:
 	case 2:
 	case 3:
 	case 4:
 		// first right->charge (top right)
-		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 360.f), rand() % 600 - 300));
+		enemies.push_back(new Enemy(spritesheet, wave,
+		                            sf::Vector3f(0, 0, playerZ - 360.f),
+		                            rand() % 600 - 300));
 		break;
 	case 5:
 	case 6:
 		// (bottom left)
-		enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(0, 0, playerZ - 190.f), rand() % 600 - 300));
+		enemies.push_back(new Enemy(spritesheet, wave,
+		                            sf::Vector3f(0, 0, playerZ - 190.f),
+		                            rand() % 600 - 300));
 		break;
 	case 7: // 3 ememies from top right
-		for(int i = 0; i < 3; i++)
-			enemies.push_back(new Enemy(spritesheet, wave, sf::Vector3f(35.f - 70.f*i, 0, playerZ - 360.f), rand() % 600 - 300));
+		for (int i = 0; i < 3; i++)
+			enemies.push_back(new Enemy(spritesheet, wave,
+			                            sf::Vector3f(
+				                            35.f - 70.f * i, 0,
+				                            playerZ - 360.f),
+			                            rand() % 600 - 300));
 	}
 }
 
@@ -235,7 +244,7 @@ sf::Vector2f Enemy::runAI()
 			sizeIndex = 0;
 			theta = 180 - 15;
 		}
-		else if (msPassed < 2500 + randOffset*2)
+		else if (msPassed < 2500 + randOffset * 2)
 		{
 			theta = -90;
 			scale = 0.6f;
@@ -260,14 +269,14 @@ sf::Vector2f Enemy::runAI()
 		scale = abs(randOffset / 300.f) + 0.5f;
 		break;
 	case 5: // bottom right to slight upward charge
-		theta = 180 - abs(randOffset)/300.f*45;
+		theta = 180 - abs(randOffset) / 300.f * 45;
 		scale = abs(randOffset) / 150.f + 0.5f;
 		sizeIndex = 2;
 		break;
 	case 6: // alternate fish loop (from right)
 		if (msPassed < 1000)
 		{
-			theta = (-msPassed-2000) / 4000.f * 360 ; // 180-270
+			theta = (-msPassed - 2000) / 4000.f * 360; // 180-270
 			scale = 2.f;
 			sizeIndex = 2;
 		}

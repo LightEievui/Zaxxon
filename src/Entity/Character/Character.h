@@ -14,7 +14,7 @@ class Character : public Entity
 public:
 	Character(sf::Texture*);
 	~Character();
-	void update(sf::RenderWindow&);
+	void update(sf::RenderWindow&) override;
 	void update(sf::RenderWindow&, float gameSpeed);
 	virtual void kill() = 0;
 
@@ -23,6 +23,7 @@ public:
 	void killBullet(int);
 
 	void setPos(sf::Vector3f);
+
 protected:
 	const int yMax = 140;
 	const int yMin = 69;

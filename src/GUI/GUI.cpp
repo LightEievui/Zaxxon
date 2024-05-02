@@ -110,7 +110,9 @@ GUI::GUI(sf::Texture* spritesheet)
 		enemyText[i].setColor(sf::Color(222, 222, 247));
 		// These use integer for the equation, do not 'float' it
 		// edit: explicitedly casted it.
-		enemyText[i].setPosition(sf::Vector2f((float)(176 + i % 5 * 8), (float)(200 + i / 5 * 8)));
+		enemyText[i].setPosition(sf::Vector2f(
+			static_cast<float>(176 + i % 5 * 8),
+			static_cast<float>(200 + i / 5 * 8)));
 	}
 
 	// Fuel bar sprites
@@ -164,7 +166,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		highScoresText[i].setColor(sf::Color(222, 222, 0));
-		highScoresText[i].setPosition(sf::Vector2f((float)(start + i * 8), (float)120));
+		highScoresText[i].setPosition(sf::Vector2f(
+			static_cast<float>(start + i * 8), static_cast<float>(120)));
 	}
 
 	// Game over text
@@ -177,7 +180,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 16;
 
 		gameOver[i].setColor(sf::Color(222, 222, 222));
-		gameOver[i].setPosition(sf::Vector2f((float)(start + i * 8), (float)115));
+		gameOver[i].setPosition(sf::Vector2f(static_cast<float>(start + i * 8),
+		                                     static_cast<float>(115)));
 	}
 
 	// High score entry
@@ -192,7 +196,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		scoreEntry[i].setColor(sf::Color(222, 0, 0));
-		scoreEntry[i].setPosition((float)(start + i * 8), (float)75);
+		scoreEntry[i].setPosition(static_cast<float>(start + i * 8),
+		                          static_cast<float>(75));
 	}
 
 	// Initials :
@@ -205,7 +210,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 8;
 
 		initialsText[i].setColor(sf::Color(0, 222, 247));
-		initialsText[i].setPosition((float)(start + i * 8), (float)95);
+		initialsText[i].setPosition(static_cast<float>(start + i * 8),
+		                            static_cast<float>(95));
 	}
 
 	// Entry time
@@ -219,7 +225,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			start += 16;
 
 		entryTime[i].setColor(sf::Color(222, 222, 0));
-		entryTime[i].setPosition((float)(start + i * 8), (float)115);
+		entryTime[i].setPosition(static_cast<float>(start + i * 8),
+		                         static_cast<float>(115));
 	}
 
 	// Name entry keyboard
@@ -231,14 +238,16 @@ GUI::GUI(sf::Texture* spritesheet)
 			keyboard[i] = ZaxxonText::get(spritesheet, 0 + i - 26);
 
 		keyboard[i].setColor(sf::Color(0, 222, 0));
-		keyboard[i].setPosition((float)(32 + i % 10 * 16), (float)(135 + i / 10 * 16));
+		keyboard[i].setPosition(static_cast<float>(32 + i % 10 * 16),
+		                        static_cast<float>(135 + i / 10 * 16));
 	}
 
 	// Keyboard RUB & END
 	keyboard[28].setTexture(*spritesheet);
 	keyboard[28].setTextureRect(sf::IntRect(200, 248, 29, 8));
 	keyboard[28].setColor(sf::Color(0, 222, 0));
-	keyboard[28].setPosition(keyboard[27].getPosition().x + 13, keyboard[27].getPosition().y);
+	keyboard[28].setPosition(keyboard[27].getPosition().x + 13,
+	                         keyboard[27].getPosition().y);
 
 	// Cursor selector for the keyboard
 	cursor.setTexture(*spritesheet);
@@ -246,7 +255,8 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	// End screen
 	ZaxxonText::string(spritesheet,
-		"CONGRATULATIONS\u000cYOUGETBONUS1000PTS\u0001GOOD\u000c", endScreen);
+	                   "CONGRATULATIONS\u000cYOUGETBONUS1000PTS\u0001GOOD\u000c",
+	                   endScreen);
 	for (byte i = 0; i < 40; i++)
 	{
 		// Different positions/colors for each 3 lines of text
@@ -257,7 +267,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			if (i == 15)
 				start += 8;
 
-			endScreen[i].setPosition((float)(start + i * 8), (float)80);
+			endScreen[i].setPosition(static_cast<float>(start + i * 8),
+			                         static_cast<float>(80));
 			endScreen[i].setColor(sf::Color(0, 222, 247));
 		}
 		else if (i < 35)
@@ -273,7 +284,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			if (i > 30)
 				start += 8;
 
-			endScreen[i].setPosition((float)(start + (i - 16) * 8), (float)100);
+			endScreen[i].setPosition(static_cast<float>(start + (i - 16) * 8),
+			                         static_cast<float>(100));
 			endScreen[i].setColor(sf::Color(222, 222, 0));
 		}
 		else
@@ -283,7 +295,8 @@ GUI::GUI(sf::Texture* spritesheet)
 			if (i == 39)
 				start += 8;
 
-			endScreen[i].setPosition((float)(start + (i - 35) * 8), (float)120);
+			endScreen[i].setPosition(static_cast<float>(start + (i - 35) * 8),
+			                         static_cast<float>(120));
 			endScreen[i].setColor(sf::Color(222, 222, 222));
 		}
 	}
@@ -308,14 +321,14 @@ GUI::~GUI()
 /// <param name="score"></param>
 /// <param name="fuel"></param>
 void GUI::render(sf::RenderWindow& window, float playerY, int score,
-	int highScore, byte fuel, byte lives)
+                 int highScore, byte fuel, byte lives)
 {
 	window.draw(heightMeterBg);
 	/* 69top 135bottom 66 in between, multiply by below number to get 68
 	should be 8 sections each for line/open and 2 each for top/bottom so
 	yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
 	*/
-	int yDiff = (int)round((playerY - 69.f) * 0.95774647887f);
+	int yDiff = static_cast<int>(round((playerY - 69.f) * 0.95774647887f));
 	if (yDiff < 0)
 		yDiff = 0;
 
@@ -478,7 +491,8 @@ void GUI::startRender(sf::RenderWindow& window, int highScore)
 /// </summary>
 /// <param name="window"></param>
 /// <param name="scores"></param>
-void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names[])
+void GUI::renderScores(sf::RenderWindow& window, int scores[],
+                       std::string names[])
 {
 	// The score values
 	for (byte i = 0; i < 42; i++)
@@ -492,7 +506,8 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 			while (scoreStr.length() < 6)
 				scoreStr = '0' + scoreStr;
 
-			highScores[i] = ZaxxonText::get(spritesheet, scoreStr[0 + (i % 7) - 1]);
+			highScores[i] = ZaxxonText::get(spritesheet,
+			                                scoreStr[0 + (i % 7) - 1]);
 		}
 
 		highScores[i].setColor(sf::Color(0, 222, 0));
@@ -505,7 +520,8 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 
 		int layer = 140;
 		layer += 12 * (i % 21 / 7);
-		highScores[i].setPosition(sf::Vector2f((float)(start + i % 7 * 8), (float)layer));
+		highScores[i].setPosition(sf::Vector2f(
+			static_cast<float>(start + i % 7 * 8), static_cast<float>(layer)));
 	}
 
 	// The names for each score
@@ -513,7 +529,8 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 	{
 		// We use _ for spaces in names
 		if (names[i / 3][i % 3] != '_')
-			highScoresNames[i] = ZaxxonText::get(spritesheet, names[i / 3][i % 3]);
+			highScoresNames[i] = ZaxxonText::get(
+				spritesheet, names[i / 3][i % 3]);
 
 		highScoresNames[i].setColor(sf::Color(0, 222, 0));
 
@@ -523,7 +540,8 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 
 		int layer = 140;
 		layer += 12 * (i % 9 / 3);
-		highScoresNames[i].setPosition(sf::Vector2f((float)(start + i % 3 * 8), (float)layer));
+		highScoresNames[i].setPosition(sf::Vector2f(
+			static_cast<float>(start + i % 3 * 8), static_cast<float>(layer)));
 	}
 }
 
@@ -534,7 +552,8 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[], std::string names
 /// </summary>
 /// <param name="window"></param>
 /// <param name="state"></param>
-void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, const char name[3])
+void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector,
+                    const char name[3])
 {
 	if (timeLeft == 255)
 	{
@@ -552,7 +571,8 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 		if (name[i] != '_' && name[i] != ' ')
 			initialsText[i] = ZaxxonText::get(spritesheet, name[i - 9]);
 		initialsText[i].setColor(sf::Color(0, 222, 247));
-		initialsText[i].setPosition(sf::Vector2f((float)(120 + (i - 9) * 16), (float)95));
+		initialsText[i].setPosition(sf::Vector2f(
+			static_cast<float>(120 + (i - 9) * 16), static_cast<float>(95)));
 	}
 
 	for (byte i = 0; i < 12; i++)
@@ -569,7 +589,8 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector, cons
 		window.draw(entryTime[i]);
 
 	// Draw cursor before keyboard
-	cursor.setPosition((float)(28 + selector % 10 * 16), (float)(131 + selector / 10 * 16));
+	cursor.setPosition(static_cast<float>(28 + selector % 10 * 16),
+	                   static_cast<float>(131 + selector / 10 * 16));
 	window.draw(cursor);
 
 	for (byte i = 0; i < 30; i++)
