@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.cpp" />
     <ClCompile Include="src\Entity\AbstractBullet\ObstacleBullet\ObstacleBullet.cpp" />
     <ClCompile Include="src\Entity\AbstractBullet\BossBullet\BossBullet.cpp" />
     <ClCompile Include="src\Entity\Boss\Boss.cpp" />
-    <ClCompile Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.cpp" />
     <ClCompile Include="src\Entity\AbstractBullet\AbstractBullet.cpp" />
     <ClCompile Include="src\Entity\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />

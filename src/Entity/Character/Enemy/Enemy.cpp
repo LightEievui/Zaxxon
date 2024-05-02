@@ -57,6 +57,7 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
 /// <param name="window"></param>
 void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 {
+	
 	// Find velocity
 	sf::Vector2f vel = runAI();
 

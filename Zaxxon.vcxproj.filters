@@ -60,9 +60,6 @@
     <ClCompile Include="src\Entity\AbstractBullet\AbstractBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Entity\Boss\Boss.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,7 +69,10 @@
     <ClCompile Include="src\ZapWalls\ZapWalls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ObstacleBullet.cpp">
+    <ClCompile Include="src\Entity\AbstractBullet\ObstacleBullet\ObstacleBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,7 +131,7 @@
     <ClInclude Include="src\ZapWalls\ZapWalls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ObstacleBullet.h">
+    <ClInclude Include="src\Entity\AbstractBullet\ObstacleBullet\ObstacleBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
