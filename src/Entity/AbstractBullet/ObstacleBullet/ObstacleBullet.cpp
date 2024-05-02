@@ -1,7 +1,6 @@
 #include "ObstacleBullet.h"
 
 
-
 ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet, BulletType type)
 {
 	sprite->setTexture(*spriteSheet);
@@ -32,7 +31,6 @@ ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet, Bulle
 
 ObstacleBullet::~ObstacleBullet()
 {
-	if (sprite != nullptr)
 		delete sprite;
 }
 
