@@ -120,8 +120,8 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
-		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 4) %
-			2;
+		int current = 
+			static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
@@ -308,7 +308,7 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 /// Checks if current animation has finished running.
 /// </summary>
 /// <returns>A boolean</returns>
-int Animation::getState()
+int Animation::getState() const
 {
 	return state;
 }

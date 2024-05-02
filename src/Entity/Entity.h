@@ -11,7 +11,7 @@ class Entity
 {
 public:
 	Entity();
-	~Entity();
+	virtual ~Entity() = 0;
 
 	virtual void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
 	virtual void update(sf::RenderWindow&) = 0;

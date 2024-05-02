@@ -21,7 +21,7 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet,
 
 	this->target = target;
 
-	this->spriteSheet = *spriteSheet;
+	this->spriteSheet = spriteSheet;
 
 	movementInt.restart();
 
@@ -76,7 +76,7 @@ void Boss::update(sf::RenderWindow& window)
 			bulletCreated = true;
 			missile = new BossBullet(
 				sf::Vector3f(getPos().x - 33, getPos().y - 19, getPos().z),
-				target, &spriteSheet);
+				target, spriteSheet);
 			missile->damage(hits);
 		}
 	}
@@ -144,7 +144,7 @@ void Boss::hit()
 /// Get the boss missile separately.
 /// </summary>
 /// <returns>The missile as a BossBullet*</returns>
-BossBullet* Boss::getMissile()
+BossBullet* Boss::getMissile() const
 {
 	return missile;
 }
@@ -154,7 +154,7 @@ BossBullet* Boss::getMissile()
 /// Check if the boss missile exists.
 /// </summary>
 /// <returns>A boolean</returns>
-bool Boss::missileCreated()
+bool Boss::missileCreated() const
 {
 	return bulletCreated;
 }
@@ -164,7 +164,7 @@ bool Boss::missileCreated()
 /// Check if the boss has been defeated.
 /// </summary>
 /// <returns>A boolean</returns>
-bool Boss::isDestroyed()
+bool Boss::isDestroyed() const
 {
 	return destroyed;
 }

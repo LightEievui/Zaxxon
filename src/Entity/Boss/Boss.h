@@ -16,16 +16,15 @@ public:
 
 	void update(sf::RenderWindow&) override;
 	void hit();
-	BossBullet* getMissile();
-	bool missileCreated();
-	bool isDestroyed();
+	BossBullet* getMissile() const;
+	bool missileCreated() const;
+	bool isDestroyed() const;
 
 private:
 	Entity* target;
 	sf::Clock movementInt, invFrames;
 	int stages = 0, hitCount = 20, hits = 0;
 
-	sf::Texture spriteSheet;
 	BossBullet* missile = nullptr;
 	bool bulletCreated = false, destroyed = false;
 	float targetXPoints[3];

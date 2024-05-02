@@ -34,7 +34,7 @@ void Character::update(sf::RenderWindow& window)
 
 void Character::update(sf::RenderWindow& window, float gameSpeed)
 {
-	// update the character's position using it's velocity
+	// update the character's position using its velocity
 	setPos(getPos() + this->velocity * gameSpeed);
 
 	sprite->setPosition(translateTo2d(getPos()));
@@ -60,7 +60,7 @@ std::vector<CharacterBullet*>& Character::getBullets()
 /// Get public size index of this character
 /// </summary>
 /// <returns></returns>
-unsigned int Character::getSizeIndex()
+unsigned int Character::getSizeIndex() const
 {
 	return sizeIndex;
 }
@@ -93,7 +93,7 @@ void Character::_getSizeIndex(unsigned int& planeSizeIndex)
 /// Get the velocity of character.
 /// </summary>
 /// <returns>Vector of 3 floats</returns>
-sf::Vector3f Character::getVelocity()
+sf::Vector3f Character::getVelocity() const
 {
 	return velocity;
 }
@@ -120,7 +120,8 @@ void Character::setVelocity(sf::Vector3f vel)
 
 
 /// <summary>
-/// Calls CharacterBullet::update() on each bullet & deletes bullets that are not in the window.
+/// Calls CharacterBullet::update() on each bullet
+/// & deletes bullets that are not in the window.
 /// </summary>
 /// <param name="window">Main render window</param>
 void Character::updateBullets(sf::RenderWindow& window)
