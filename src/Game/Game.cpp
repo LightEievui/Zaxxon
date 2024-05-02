@@ -21,9 +21,7 @@ Game::Game()
 	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
 	scale = round(scale * 4) / 4.f;
 
-	window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2
-		- (224.f * scale) / 2.f, 0));
-
+	window.setPosition(sf::Vector2i((int)(sf::VideoMode::getDesktopMode().width / 2.f - (224.f * scale) / 2.f), 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -75,8 +73,8 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet,
-		&spriteSheet);
+	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet, &spriteSheet);
+	missile = new BossBullet(sf::Vector3f(0, 0, 1000), player, &spriteSheet); // spawn off screen
 }
 
 
@@ -100,6 +98,7 @@ Game::~Game()
 	delete player;
 	delete boss;
 	delete pBackground;
+	delete missile;
 }
 
 
@@ -115,10 +114,8 @@ void Game::run() // if random errors later check that stack isnt full
 	{
 		sf::Event event;
 		while (window.pollEvent(event))
-		{
 			if (event.type == sf::Event::Closed)
 				window.close();
-		}
 
 		// Each frame, clear the screen before drawing anything new
 		window.clear();
@@ -126,7 +123,6 @@ void Game::run() // if random errors later check that stack isnt full
 		// State 1 is actively playing the game
 		if (gameState == 1)
 		{
-			std::cout << background.getStage();
 			window.setView(mainView);
 
 			// Things to do only when player is alive AKA these 
@@ -151,7 +147,6 @@ void Game::run() // if random errors later check that stack isnt full
 
 					fuelClock.restart();
 				}
-
 				// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles,
 					enemies, *player, walls, bossState, zapWalls);
@@ -172,11 +167,10 @@ void Game::run() // if random errors later check that stack isnt full
 					fuel = 128, score += 1000;
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
-					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet,
-						walls, zapWalls);
-					background.generateWaves(Background::INITIAL, enemies, &spriteSheet,
-						player->getPos().z);
-					
+					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet, walls, zapWalls);
+					background.generateWaves(Background::INITIAL, enemies, &spriteSheet, (int)player->getPos().z);
+					missile->setPos(sf::Vector3f(0, 0, 1000));
+
 				}
 			}
 			else // Start the player death animation here
@@ -199,9 +193,10 @@ void Game::run() // if random errors later check that stack isnt full
 				}
 			}
 
-			// Update objects
+			// Draw obstacles that are behind the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				obstacles.at(i)->update(window, player->getPos().z);
+				if(obstacles.at(i)->getPosition().z < player->getPos().z)
+					obstacles.at(i)->update(window, (int)player->getPos().z);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -212,15 +207,32 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw zap walls that are behind the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z < player->getPos().z)
-					zapWalls.at(i)->drawZapWalls(window);
+					zapWalls.at(i)->update(window);
 
+			// Draw enemies that are under the player
 			for (Enemy* enemy : enemies)
-				enemy->update(window, gameSpeed);
+				if(enemy->getPos().y > player->getPos().y)
+					enemy->update(window, gameSpeed);
 
 			if (pBackground->getStage() == 3)
 				boss->update(window);
 
+			if (missile->isDestroyed())
+			{
+				delete missile;
+				missile = new BossBullet(sf::Vector3f(0, 0, 1000), player, &spriteSheet); // spawn off screen
+			}
+			if (player->isMissileable() && abs(player->getPos().z - missile->getPos().z) > 1000)
+				missile->setPos(player->getPos() + sf::Vector3f(0, 40, -400));
+			missile->update(window);
+
+
 			player->update(window, background.getStage(), gameSpeed);
+
+			// Draw obstacles that are in front of the player
+			for (unsigned int i = 0; i < obstacles.size(); i++)
+				if (obstacles.at(i)->getPosition().z >= player->getPos().z)
+					obstacles.at(i)->update(window, (int)player->getPos().z);
 
 			// Draw walls that are in front of the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -231,7 +243,12 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw zap walls that are in front of the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
-					zapWalls.at(i)->drawZapWalls(window);
+					zapWalls.at(i)->update(window);
+
+			// Draw enemies that are above the player
+			for (Enemy* enemy : enemies)
+				if (enemy->getPos().y <= player->getPos().y)
+					enemy->update(window, gameSpeed);
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -302,9 +319,8 @@ void Game::run() // if random errors later check that stack isnt full
 					pBackground->setStage(Background::BOSS);
 				pBackground->resetPos(mainView, *player, 0);
 				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
-				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
-				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
-					pBackground->setPosition(sf::Vector2f(0, 244));
+				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, (int)player->getPos().z);
+				missile->setPos(sf::Vector3f(0, 0, 1000));
 			}
 			else if (time < 5) // Show game over text
 			{
@@ -390,7 +406,7 @@ void Game::run() // if random errors later check that stack isnt full
 
 				// Now render the keyboard and other name entry things
 				window.setView(guiView);
-				gui.renderEnd(window, 26 - time, selector, name);
+				gui.renderEnd(window, (byte)(26 - time), selector, name);
 			}
 			else // Now actually game over
 			{
@@ -532,7 +548,7 @@ void Game::doCollision(Player* player)
 	for (unsigned int i = 0; i < zapWalls.size(); i++)
 	{
 		// If this zap wall is not visible, we don't need to check its collision
-		if (!zapWalls.at(i)->checkOnScreen())
+		if (!zapWalls.at(i)->isOnScreen())
 			continue;
 
 		difference = sf::Vector3f
@@ -631,7 +647,7 @@ void Game::doCollision(Player* player)
 		//Player Bullets hitting zap walls
 		for (unsigned int i = 0; i < zapWalls.size(); i++)
 		{
-			if (!zapWalls.at(i)->checkOnScreen())
+			if (!zapWalls.at(i)->isOnScreen())
 				continue;
 
 			difference = sf::Vector3f
@@ -667,13 +683,30 @@ void Game::doCollision(Player* player)
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
+		//Player bullets hitting boss missile
+		if (abs(bullet->getPos().z - missile->getPos().z) <= 10 &&
+			abs(bullet->getPos().x - missile->getPos().x - 50) < 20 &&
+			abs(bullet->getPos().y - missile->getPos().y) <= 20)
+		{
+			missile->damage(1);
+			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
+		}
+
 		bulletNum++;
 	}
 
+	// boss missile
 	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 5)
 	{
 		playerDeath();
 		bossMissile->collide();
+	}
+
+	// game missile
+	if (abs(missile->getPos().z - planePos.z) <= 5)
+	{
+		playerDeath();
+		missile->collide();
 	}
 }
 

@@ -108,6 +108,8 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 		else // space moves 2/3 speed
 			tempVelocity.z = -1.3f * 0.66f;
 	}
+	else
+		tempVelocity.z = 0;
 
 	// Final adjust based on current game speed
 	//tempVelocity.x *= gameSpeed;
@@ -124,6 +126,10 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 		window.draw(shadow);
 	else if (hitmarkerTimer.getElapsedTime().asMilliseconds() < 150)
 		window.draw(hitmarker);
+
+	// if you stay above 80 for 3s then you get missile after you
+	if (getPos().y > 80)
+		missileTimer.restart();
 
 	// Drawing
 	Character::update(window); // updating position using velocity, draw character
@@ -155,6 +161,12 @@ void Player::kill()
 void Player::resetPos(int zOffset)
 {
 	setPos(sf::Vector3f(getPos().x, getPos().y, zOffset * -1.33333f));
+}
+
+
+bool Player::isMissileable()
+{
+	return missileTimer.getElapsedTime().asSeconds() > 3;
 }
 
 

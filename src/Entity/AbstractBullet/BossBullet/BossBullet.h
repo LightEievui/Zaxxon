@@ -17,7 +17,6 @@ public:
 	void damage(int);
 	void collide();
 	bool isDestroyed();
-
 private:
 	sf::Texture* spriteSheet;
 	Entity* target;

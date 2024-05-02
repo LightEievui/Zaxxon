@@ -15,7 +15,7 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	sprite->setPosition(translateTo2d(start));
 	sprite->setTexture(*bossSheet);
 	sprite->setTextureRect(sf::IntRect(0, 0, 58, 75));
-	sprite->setOrigin(sf::Vector2f(0, sprite->getGlobalBounds().height * (3/4.)));
+	sprite->setOrigin(sf::Vector2f(0, sprite->getGlobalBounds().height * (3.f/4.f)));
 
 	this->target = target;
 
@@ -23,9 +23,8 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 	
 	movementInt.restart();
 
-	srand(time(NULL));
-	targetXPoints[0] = (rand() % 100) * -1;
-	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1;
+	targetXPoints[0] = (rand() % 100) * -1.f;
+	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1.f;
 
 	invFrames.restart();
 }
@@ -84,7 +83,7 @@ void Boss::update(sf::RenderWindow& window)
 		if (hitCount < 10)
 		{
 			hitCount++;
-			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.) - 1, getPos().y + ((rand() % 100) / 50.) - 1, getPos().z));
+			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.f) - 1, getPos().y + ((rand() % 100) / 50.f) - 1, getPos().z));
 		}
 		else if (hitCount == 10)
 		{

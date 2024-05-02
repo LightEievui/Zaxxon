@@ -69,7 +69,7 @@
     <ClCompile Include="src\Entity\AbstractBullet\BossBullet\BossBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ZapWalls\ZapWalls.cpp">
+    <ClCompile Include="src\ZapWall\ZapWall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,7 +125,7 @@
     <ClInclude Include="src\Entity\AbstractBullet\BossBullet\BossBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ZapWalls\ZapWalls.h">
+    <ClInclude Include="src\ZapWall\ZapWall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

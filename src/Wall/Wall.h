@@ -17,8 +17,7 @@ public:
 	void setPosition(sf::Vector3f, int piece = 0);
 	void setTexture(int, int);
 	bool checkOnScreen();
-	std::vector<sf::Vector3f> getWallPositions();
-
+	std::vector<sf::Vector3f>& getWallPositions();
 private:
 	sf::Texture* spriteSheet;
 	bool onScreen = false;

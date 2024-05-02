@@ -105,7 +105,7 @@ bool Wall::checkOnScreen()
 /// Get 3d position of this wall
 /// </summary>
 /// <returns>Vector of 3 float vectors</returns>
-std::vector<sf::Vector3f> Wall::getWallPositions()
+std::vector<sf::Vector3f>& Wall::getWallPositions()
 {
 	return wallPositions;
 }
