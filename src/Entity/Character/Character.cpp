@@ -35,7 +35,7 @@ void Character::update(sf::RenderWindow& window)
 void Character::update(sf::RenderWindow& window, float gameSpeed)
 {
 	// update the character's position using it's velocity
-	setPos(getPos() + this->velocity*gameSpeed);
+	setPos(getPos() + this->velocity * gameSpeed);
 
 	sprite->setPosition(translateTo2d(getPos()));
 	window.draw(*sprite);
@@ -43,7 +43,7 @@ void Character::update(sf::RenderWindow& window, float gameSpeed)
 	for (unsigned int i = 0; i < bullets.size(); i++)
 		if (bullets.at(i)->isHit())
 			bullets.erase(bullets.begin() + i);
-
+}
 
 
 /// <summary>
@@ -132,7 +132,6 @@ void Character::updateBullets(sf::RenderWindow& window)
 
 		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)
 		{
-			std::cout << "asfaf   ";
 			delete bullet;
 			bullets.erase(bullets.begin() + i);
 			i--;
