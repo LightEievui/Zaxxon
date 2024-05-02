@@ -8,23 +8,25 @@
 /// <param name="target"></param>
 /// <param name="bossSheet"></param>
 /// <param name="spriteSheet"></param>
-Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Texture* spriteSheet) : Entity()
+Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet,
+           sf::Texture* spriteSheet) : Entity()
 {
 	setPos(start);
 
 	sprite->setPosition(translateTo2d(start));
 	sprite->setTexture(*bossSheet);
 	sprite->setTextureRect(sf::IntRect(0, 0, 58, 75));
-	sprite->setOrigin(sf::Vector2f(0, sprite->getGlobalBounds().height * (3.f/4.f)));
+	sprite->setOrigin(
+		sf::Vector2f(0, sprite->getGlobalBounds().height * (3.f / 4.f)));
 
 	this->target = target;
 
 	this->spriteSheet = *spriteSheet;
-	
+
 	movementInt.restart();
 
 	targetXPoints[0] = (rand() % 100) * -1.f;
-	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1.f;
+	targetXPoints[1] = (abs((rand() - 528) * 72) % 100) * -1.f;
 
 	invFrames.restart();
 }
@@ -33,7 +35,7 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 /// <summary>
 /// Clean up memory related to the boss
 /// </summary> 
-Boss::~Boss() 
+Boss::~Boss()
 {
 	delete missile;
 }
@@ -72,17 +74,21 @@ void Boss::update(sf::RenderWindow& window)
 			setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
 
 			bulletCreated = true;
-			missile = new BossBullet(sf::Vector3f(getPos().x - 33, getPos().y - 19, getPos().z), target, &spriteSheet);
+			missile = new BossBullet(
+				sf::Vector3f(getPos().x - 33, getPos().y - 19, getPos().z),
+				target, &spriteSheet);
 			missile->damage(hits);
 		}
 	}
 
-	if (movementInt.getElapsedTime().asMilliseconds()%25)
+	if (movementInt.getElapsedTime().asMilliseconds() % 25)
 	{
 		if (hitCount < 10)
 		{
 			hitCount++;
-			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.f) - 1, getPos().y + ((rand() % 100) / 50.f) - 1, getPos().z));
+			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.f) - 1,
+			                    getPos().y + ((rand() % 100) / 50.f) - 1,
+			                    getPos().z));
 		}
 		else if (hitCount == 10)
 		{
@@ -113,7 +119,6 @@ void Boss::update(sf::RenderWindow& window)
 		}
 		else
 			missile->update(window);
-
 	}
 }
 

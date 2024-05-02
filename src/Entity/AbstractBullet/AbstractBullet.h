@@ -8,7 +8,8 @@
 class AbstractBullet : public Entity
 {
 public:
-	enum BulletType {
+	enum BulletType
+	{
 		Player,
 		Enemy,
 		Missile,
@@ -17,7 +18,9 @@ public:
 		xBulletR
 	};
 
-	AbstractBullet() : Entity() {}
+	AbstractBullet() : Entity()
+	{
+	}
 
 	bool isHit();
 	void translate(float);

@@ -14,7 +14,7 @@
 #include "Entity/Boss/Boss.h"
 
 // Clearer than using unsigned char often
-typedef unsigned char byte;
+using byte = unsigned char;
 
 
 /// <summary>
@@ -27,6 +27,7 @@ public:
 	Game();
 	~Game();
 	void run();
+
 private:
 	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;
@@ -49,16 +50,17 @@ private:
 	int highScore = 0;
 	float gameSpeed = 1.0;
 	byte gameState = 0;
-	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
-	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
-	char name[3] = { '_', '_', '_' };
-	bool activeCursor[4] = { true, true, true, true};
+	int currentScores[6] = {0, 0, 0, 0, 0, 0};
+	std::string currentNames[6] = {"   ", "   ", "   ", "   ", "   ", "   "};
+	char name[3] = {'_', '_', '_'};
+	bool activeCursor[4] = {true, true, true, true};
 	byte selector = 0;
 	std::fstream file;
 	unsigned int fps = 0;
 	double deltaTime = 0;
 	std::chrono::steady_clock::time_point lastTime =
-		std::chrono::high_resolution_clock::now(), currentTime;
+		                                      std::chrono::high_resolution_clock::now()
+	                                      , currentTime;
 
 	sf::View mainView;
 	sf::View guiView;
@@ -71,7 +73,8 @@ private:
 	bool bossState = true;
 
 	void doCollision(Player*);
-	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference, bool intersect2d);
+	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
+	                 bool intersect2d);
 	void playerDeath();
 	void gameOver();
 };

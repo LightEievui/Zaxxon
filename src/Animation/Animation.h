@@ -10,7 +10,8 @@
 class Animation
 {
 public:
-	const enum Anim {
+	const enum Anim
+	{
 		CHARACTER_DEATH,
 		ALT_DEATH,
 		LAUNCH,

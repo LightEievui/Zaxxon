@@ -28,7 +28,7 @@ Character::~Character()
 /// <param name="window"></param>
 void Character::update(sf::RenderWindow& window)
 {
-	Character::update(window, 1);
+	update(window, 1);
 }
 
 
@@ -74,7 +74,7 @@ unsigned int Character::getSizeIndex()
 /// <param name="planeSizeIndex"></param>
 void Character::_getSizeIndex(unsigned int& planeSizeIndex)
 {
-	const float y = abs(getPos().y - ((float)yMax));
+	const float y = abs(getPos().y - static_cast<float>(yMax));
 	const float qSize = abs((yMax - yMin) / 4.f);
 	planeSizeIndex = 3; // smallest
 
@@ -130,7 +130,8 @@ void Character::updateBullets(sf::RenderWindow& window)
 		CharacterBullet* bullet = bullets.at(i);
 		bullet->update(window);
 
-		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet
+			->getAnimationState() == 1)
 		{
 			delete bullet;
 			bullets.erase(bullets.begin() + i);

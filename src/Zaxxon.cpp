@@ -48,7 +48,7 @@ int main()
 	FreeConsole();
 #endif
 	// Startup Zaxxon
-	Game* game = new Game();
+	auto game = new Game();
 	game->run();
 
 	// Game finished, remove it from memory

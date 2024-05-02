@@ -3,7 +3,7 @@
 #include "ZaxxonText/ZaxxonText.h"
 #include "HMSection/HMSection.h"
 
-typedef unsigned char byte;
+using byte = unsigned char;
 
 
 /// <summary>
@@ -18,8 +18,9 @@ public:
 	~GUI();
 	void render(sf::RenderWindow&, float, int, int, byte, byte);
 	void startRender(sf::RenderWindow&, int);
-	void renderScores(sf::RenderWindow&, int[], std::string[]);
-	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0, const char[3] = "   ");
+	void renderScores(sf::RenderWindow&, int [], std::string []);
+	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0,
+	               const char [3] = "   ");
 	void renderWin(sf::RenderWindow&);
 
 private:

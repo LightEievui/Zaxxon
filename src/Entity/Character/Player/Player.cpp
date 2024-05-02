@@ -10,7 +10,7 @@
 Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 {
 	// 1st @ 8 13 24 32
-	sf::IntRect a = sf::IntRect(8, 13, 23, 23);
+	auto a = sf::IntRect(8, 13, 23, 23);
 	for (unsigned int i = 0; i < 3; i++)
 	{
 		for (unsigned int j = 0; j < 4; j++)
@@ -20,7 +20,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 		}
 	}
 	this->sprite->setTextureRect(playerTextures[0][0]);
-	this->setPos(sf::Vector3f(0, 69, (int)startPos * -1.33333f));
+	this->setPos(sf::Vector3f(0, 69, static_cast<int>(startPos) * -1.33333f));
 	this->shadow.setTexture(*texture);
 	this->shadow.setTextureRect(sf::IntRect(352, 18, 22, 13));
 	this->shadow.setColor(sf::Color::Black);
@@ -50,7 +50,7 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 
 	// Keys
 	sf::Vector3f tempVelocity = getVelocity();
-	const float acceleration = 1.f / 5.f;
+	constexpr float acceleration = 1.f / 5.f;
 
 	if (leftPressed() && getPos().x < xMax && tempVelocity.x < 1.f)
 		tempVelocity.x += acceleration;
@@ -60,7 +60,7 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 		tempVelocity.x += acceleration;
 	else if (tempVelocity.x > 0)
 		tempVelocity.x -= acceleration;
-	
+
 	if (tempVelocity.x < acceleration && tempVelocity.x > -acceleration)
 		tempVelocity.x = 0;
 
@@ -73,7 +73,8 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	else if (tempVelocity.y > 0)
 		tempVelocity.y -= acceleration / 0.6f;
 
-	if (tempVelocity.y < acceleration / 0.6f && tempVelocity.y > -acceleration / 0.6f)
+	if (tempVelocity.y < acceleration / 0.6f && tempVelocity.y > -acceleration /
+		0.6f)
 		tempVelocity.y = 0;
 
 	if (tempVelocity.y == 0)
@@ -88,17 +89,20 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	sprite->setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
 	// Spawn bullets
-	if (zPressed() && bulletCD.getElapsedTime().asMilliseconds() > BULLET_COOLDOWN)
+	if (zPressed() && bulletCD.getElapsedTime().asMilliseconds() >
+		BULLET_COOLDOWN)
 	{
 		bulletCD.restart();
 
-		bullets.push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
+		bullets.
+			push_back(new CharacterBullet(spriteSheet, getPos(), sizeIndex));
 
 		bulletSound.play();
 	}
 #ifndef NDEBUG
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
-		std::cout << getPos().x << " " << getPos().y << " " << getPos().z << "\n";
+		std::cout << getPos().x << " " << getPos().y << " " << getPos().z <<
+			"\n";
 #endif
 
 	if (stage != 3)
@@ -113,7 +117,8 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 
 	// Position updates
 	setVelocity(tempVelocity);
-	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
+	shadow.setPosition(
+		translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
 	hitmarker.setPosition(sprite->getPosition() + sf::Vector2f(40, -15));
 
 	// Shadow before character
@@ -127,12 +132,14 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 		missileTimer.restart();
 
 	// Drawing
-	Character::update(window, gameSpeed); // updating position using velocity, draw character
-	Character::updateBullets(window);
+	Character::update(window, gameSpeed);
+	// updating position using velocity, draw character
+	updateBullets(window);
 
 #ifndef NDEBUG
-	debugText.setString(std::to_string((int)getPos().x) + " " +
-		std::to_string((int)getPos().y) + " " + std::to_string((int)getPos().z)
+	debugText.setString(std::to_string(static_cast<int>(getPos().x)) + " " +
+		std::to_string(static_cast<int>(getPos().y)) + " " + std::to_string(
+			static_cast<int>(getPos().z))
 	);
 	debugText.setPosition(sprite->getPosition());
 	window.draw(debugText);

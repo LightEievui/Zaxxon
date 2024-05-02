@@ -9,24 +9,29 @@
 /// <param name="sizeIndex"></param>
 /// <param name="type"></param>
 /// <param name="spawnPos2f"></param>
-CharacterBullet::CharacterBullet(sf::Texture* spritesheet, sf::Vector3f spawnPos,
-	unsigned int sizeIndex, BulletType type, sf::Vector2f spawnPos2f
+CharacterBullet::CharacterBullet(sf::Texture* spritesheet,
+                                 sf::Vector3f spawnPos,
+                                 unsigned int sizeIndex, BulletType type,
+                                 sf::Vector2f spawnPos2f
 )
 {
 	sprite->setTexture(*spritesheet);
 	sprite->setTextureRect(sf::IntRect(8 + 16 * sizeIndex, 47, 16, 8));
 	sprite->setOrigin(0, 8);
 
-	if (type == BulletType::Player)
+	if (type == Player)
 	{
 		sprite->setColor(sf::Color(0, 222, 0));
-		setPos(sf::Vector3f(spawnPos.x - 21.f, spawnPos.y + .02f * sizeIndex, spawnPos.z - 15.f));
+		setPos(sf::Vector3f(spawnPos.x - 21.f, spawnPos.y + .02f * sizeIndex,
+		                    spawnPos.z - 15.f));
 		sprite->setPosition(translateTo2d(getPos()));
 	}
-	else if (type == BulletType::Enemy)
+	else if (type == Enemy)
 	{
 		sprite->setColor(sf::Color(222, 0, 0));
-		sprite->setPosition(spawnPos2f + sf::Vector2f(-3.f * (int)(3U - sizeIndex), 20));
+		sprite->setPosition(
+			spawnPos2f + sf::Vector2f(-3.f * static_cast<int>(3U - sizeIndex),
+			                          20));
 	}
 	this->sizeIndex = sizeIndex;
 	this->type = type;
@@ -68,16 +73,17 @@ void CharacterBullet::kill()
 /// <param name="deathType"></param>
 void CharacterBullet::kill(BulletDeathType deathType)
 {
-	sprite->setColor(sf::Color( 255, 255, 255 ));
+	sprite->setColor(sf::Color(255, 255, 255));
 	switch (deathType)
 	{
-	case BulletDeathType::WallDeath:
+	case WallDeath:
 		if (animations.getState() < 1)
-			animations.run(sprite, Animation::Anim::WALLBULLET_DEATH, sizeIndex);
+			animations.run(sprite, Animation::Anim::WALLBULLET_DEATH,
+			               sizeIndex);
 		break;
-	case BulletDeathType::EnemyDeath:
+	case EnemyDeath:
 		// adjust position to align better
-		if (this->type == BulletType::Player)
+		if (this->type == Player)
 			setPos(getPos() + sf::Vector3f(0, 0, -16));
 		if (animations.getState() < 2)
 			animations.run(sprite, Animation::Anim::BULLET_DEATH, sizeIndex);
@@ -94,14 +100,14 @@ void CharacterBullet::kill(BulletDeathType deathType)
 /// <param name="window"></param>
 void CharacterBullet::update(sf::RenderWindow& window)
 {
-	if (type == BulletType::Player)
+	if (type == Player)
 	{
 		if (animations.getState() == 0)
 		{
 			translate(-6);
 		}
 	}
-	else if (type == BulletType::Enemy)
+	else if (type == Enemy)
 		sprite->move(translateTo2d(sf::Vector3f(0, 0, 3)));
 
 	if (animations.getState() == 1)

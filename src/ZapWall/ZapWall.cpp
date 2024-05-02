@@ -16,7 +16,6 @@ ZapWall::ZapWall(sf::Texture* tex, sf::Vector3f pos)
 
 ZapWall::~ZapWall()
 {
-
 }
 
 
@@ -42,7 +41,7 @@ void ZapWall::update(sf::RenderWindow& window)
 	drawn = true;
 
 	window.draw(*sprite);
-	
+
 	//Movement every two frames
 	if (count == 2)
 	{
