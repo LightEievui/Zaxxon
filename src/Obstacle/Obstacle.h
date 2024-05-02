@@ -19,7 +19,6 @@ public:
 	Obstacle(sf::Vector3f, sf::Texture*, int);
 	~Obstacle();
 
-	void setTexture(std::string);
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
 	std::vector<sf::Vector3f> getBulletLocations();

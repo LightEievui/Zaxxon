@@ -193,9 +193,10 @@ void Game::run() // if random errors later check that stack isnt full
 				}
 			}
 
-			// Update objects
+			// Draw obstacles that are behind the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				obstacles.at(i)->update(window, (int)player->getPos().z);
+				if(obstacles.at(i)->getPosition().z < player->getPos().z)
+					obstacles.at(i)->update(window, (int)player->getPos().z);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -208,8 +209,10 @@ void Game::run() // if random errors later check that stack isnt full
 				if (zapWalls.at(i)->getStartPosition().z < player->getPos().z)
 					zapWalls.at(i)->update(window);
 
+			// Draw enemies that are under the player
 			for (Enemy* enemy : enemies)
-				enemy->update(window, gameSpeed);
+				if(enemy->getPos().y > player->getPos().y)
+					enemy->update(window, gameSpeed);
 
 			if (pBackground->getStage() == 3)
 				boss->update(window);
@@ -226,6 +229,11 @@ void Game::run() // if random errors later check that stack isnt full
 
 			player->update(window, background.getStage(), gameSpeed);
 
+			// Draw obstacles that are in front of the player
+			for (unsigned int i = 0; i < obstacles.size(); i++)
+				if (obstacles.at(i)->getPosition().z >= player->getPos().z)
+					obstacles.at(i)->update(window, (int)player->getPos().z);
+
 			// Draw walls that are in front of the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
 				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
@@ -236,6 +244,11 @@ void Game::run() // if random errors later check that stack isnt full
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
 					zapWalls.at(i)->update(window);
+
+			// Draw enemies that are above the player
+			for (Enemy* enemy : enemies)
+				if (enemy->getPos().y <= player->getPos().y)
+					enemy->update(window, gameSpeed);
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
