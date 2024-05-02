@@ -257,11 +257,12 @@ void Game::run() // if random errors later check that stack isnt full
 		{
 			window.setView(guiView);
 			gui.startRender(window, highScore);
+			player->restartMissileTimer();
 
 			if (zPressed())
 				gameState = 1, score = 0;
 		}
-		else
+		else // dying
 		{
 			window.setView(mainView);
 
@@ -321,6 +322,7 @@ void Game::run() // if random errors later check that stack isnt full
 				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
 				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, (int)player->getPos().z);
 				missile->setPos(sf::Vector3f(0, 0, 1000));
+				player->restartMissileTimer();
 			}
 			else if (time < 5) // Show game over text
 			{
@@ -409,9 +411,7 @@ void Game::run() // if random errors later check that stack isnt full
 				gui.renderEnd(window, (byte)(26 - time), selector, name);
 			}
 			else // Now actually game over
-			{
 				gameOver();
-			}
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
@@ -728,14 +728,14 @@ bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference, boo
 	{
 	case Obstacle::GAS_CAN:
 	case Obstacle::SATELLITE:
-	case Obstacle::GREY_CANNON:
 	case Obstacle::PLANE:
 	case Obstacle::SPACE_FUEL:
 	case Obstacle::GREEN_CANNON_RIGHT:
 		hit = difference.x < 20 && difference.y < 15 && difference.z < 25;
 		break;
+	case Obstacle::GREY_CANNON:
 	case Obstacle::GREEN_CANNON:
-		hit = difference.x < 20 && difference.y < 8 && difference.z < 25;
+		hit = difference.x < 20 && difference.y < 5 && difference.z < 25;
 		break;
 	case Obstacle::MISSILE_UP:
 		hit = intersect2d && difference.y < 8 && difference.z < 8;
