@@ -525,10 +525,7 @@ void Game::doCollision(Player* player)
 
 		//TO DO fix it so the x works and the y plus value is more accurate
 		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 20)
-		{
 			playerDeath();
-		}
-
 	}
 
 	//Zap Walls Collisions
