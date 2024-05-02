@@ -19,6 +19,7 @@ public:
 	bool isAlive();
 	bool isMissileable(); // if the player should be shot by missile
 
+	void restartMissileTimer() { missileTimer.restart(); };
 private:
 	const int BULLET_COOLDOWN = 200;
 	bool alive = true;
