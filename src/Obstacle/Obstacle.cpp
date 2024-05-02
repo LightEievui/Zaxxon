@@ -260,8 +260,8 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 			setPos(getPos() + sf::Vector3f(0, 0, 0));
 		else
 			setPos(getPos() + sf::Vector3f(0, 15, 0));
-		sprite->setPosition(translateTo2d(getPos()));
 	}
+	sprite->setPosition(translateTo2d(getPos()));
 
     if (type != 5 && (type != 7 || getPosition().x < 15))
         window.draw(*sprite);

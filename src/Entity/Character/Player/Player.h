@@ -17,14 +17,14 @@ public:
 	void drawHitmarker() { hitmarkerTimer.restart(); };
 
 	bool isAlive();
+	bool isMissileable(); // if the player should be shot by missile
 
 private:
 	const int BULLET_COOLDOWN = 200;
 	bool alive = true;
 
 	sf::Sprite hitmarker;
-	sf::Clock bulletCD;
-	sf::Clock hitmarkerTimer;
+	sf::Clock bulletCD, hitmarkerTimer, missileTimer;
 	sf::IntRect playerTextures[3][4];
 	sf::Sprite shadow;
 	sf::SoundBuffer bulletBuffer;

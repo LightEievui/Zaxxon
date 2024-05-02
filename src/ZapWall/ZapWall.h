@@ -1,26 +1,26 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Util/Util.h"
+#include "Entity/Entity.h"
 
 
 /// <summary>
 /// Class for other walls (blue lightning).
 /// </summary>
-class ZapWalls
+class ZapWall : public Entity
 {
 public:
-	ZapWalls(sf::Texture*, sf::Vector3f);
-	~ZapWalls();
+	ZapWall(sf::Texture*, sf::Vector3f);
+	~ZapWall();
 
-	void drawZapWalls(sf::RenderWindow&);
-	bool checkOnScreen();
+	void update(sf::RenderWindow&);
+
+	void setStartPos(sf::Vector3f pos);
+	bool isOnScreen();
 	sf::Vector3f getStartPosition();
 
 private:
-	sf::Texture* spriteSheet;
 	bool onScreen = false;
-	sf::Sprite sprite;
-	sf::Vector3f position;
 	sf::Vector3f startPosition;
 	int count = 0;
 	int offScreenCount = 0;

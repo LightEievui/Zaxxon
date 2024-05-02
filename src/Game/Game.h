@@ -27,7 +27,6 @@ public:
 	Game();
 	~Game();
 	void run();
-
 private:
 	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;
@@ -39,8 +38,9 @@ private:
 	std::vector<Enemy*> enemies;
 	std::vector<Obstacle*> obstacles;
 	std::vector<Wall*> walls;
-	std::vector<ZapWalls*> zapWalls;
-	Boss* boss = nullptr; //file position needs to be moved inside of entity, fsr my home computer struggles to edit file position in visual studio
+	std::vector<ZapWall*> zapWalls;
+	Boss* boss = nullptr;
+	BossBullet* missile = nullptr;
 
 	byte fuel = 128;
 	byte completions = 0;
