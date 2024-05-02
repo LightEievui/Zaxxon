@@ -541,9 +541,7 @@ void Game::doCollision(Player* player)
 
 		//TO DO fix it so the x works and the y plus value is more accurate
 		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 20)
-		{
 			playerDeath();
-		}
 
 	}
 
@@ -668,8 +666,6 @@ void Game::doCollision(Player* player)
 			abs(bullet->getPos().y - boss->getPos().y) <= 40)
 		{
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
-
-			//std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
 
 			if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
 				abs(bullet->getPos().x - boss->getPos().x + 33) <= 10 &&

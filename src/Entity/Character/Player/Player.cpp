@@ -111,11 +111,6 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	else
 		tempVelocity.z = 0;
 
-	// Final adjust based on current game speed
-	//tempVelocity.x *= gameSpeed;
-	//tempVelocity.y *= gameSpeed;
-	//tempVelocity.z *= gameSpeed;
-
 	// Position updates
 	setVelocity(tempVelocity);
 	shadow.setPosition(translateTo2d(sf::Vector3f(getPos().x - 5, 2 * 224 / 3, getPos().z)));
@@ -127,12 +122,12 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	else if (hitmarkerTimer.getElapsedTime().asMilliseconds() < 150)
 		window.draw(hitmarker);
 
-	// if you stay above 80 for 3s then you get missile after you
-	if (getPos().y > 80)
+	// if you stay above 80 for 3s and stage is initial then you get missile after you
+	if (getPos().y > 80 || stage != 0)
 		missileTimer.restart();
 
 	// Drawing
-	Character::update(window); // updating position using velocity, draw character
+	Character::update(window, gameSpeed); // updating position using velocity, draw character
 	Character::updateBullets(window);
 
 #ifndef NDEBUG
@@ -166,7 +161,7 @@ void Player::resetPos(int zOffset)
 
 bool Player::isMissileable()
 {
-	return missileTimer.getElapsedTime().asSeconds() > 3;
+	return missileTimer.getElapsedTime().asSeconds() > 3 && getPos().z < -300;
 }
 
 

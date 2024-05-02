@@ -28,19 +28,21 @@ Character::~Character()
 /// <param name="window"></param>
 void Character::update(sf::RenderWindow& window)
 {
+	Character::update(window, 1);
+}
+
+
+void Character::update(sf::RenderWindow& window, float gameSpeed)
+{
 	// update the character's position using it's velocity
-	setPos(getPos() + this->velocity);
+	setPos(getPos() + this->velocity*gameSpeed);
 
 	sprite->setPosition(translateTo2d(getPos()));
 	window.draw(*sprite);
 
 	for (unsigned int i = 0; i < bullets.size(); i++)
-	{
 		if (bullets.at(i)->isHit())
-		{
 			bullets.erase(bullets.begin() + i);
-		}
-	}
 }
 
 

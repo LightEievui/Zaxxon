@@ -13,6 +13,28 @@
 class Obstacle : public Entity
 {
 public:
+	/*
+	KEY
+	1 = gas can
+	2 = satellite
+	3 = grey cannon
+	4 = green cannon
+	5 = Shooting Up
+	6 = Plane
+	7 = blue floating gas can
+	8 = green shooting right
+	*/
+
+	enum ObstacleType {
+		GAS_CAN = 1,
+		SATELLITE,
+		GREY_CANNON,
+		GREEN_CANNON,
+		MISSILE_UP,
+		PLANE,
+		SPACE_FUEL,
+		GREEN_CANNON_RIGHT
+	};
 	//For shooting obstacles
 	Obstacle(sf::Vector3f, sf::Texture*, int, int);
 	//For standby obstacles
@@ -28,14 +50,15 @@ public:
 	bool isTurret();
 
 	void bulletKill(int);
-	int getType();
+	ObstacleType getType();
 	int getScore();
 
 	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
 private:
 	std::vector<sf::Sprite> bulletSprites;
 	std::vector<sf::Vector3f> bulletPositions;
-	int direction, count = 1, total = 100, type = 0, scoreIndicator = 0;
+	int direction, count = 1, total = 100, scoreIndicator = 0;
+	ObstacleType type;
 	bool turret = false, onScreen = false, moved = false, redRocket = false;
 	const bool drawDebugText = true;
 	sf::Sprite rocketExplosionSprite;
