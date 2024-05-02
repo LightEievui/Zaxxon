@@ -14,4 +14,3 @@ public:
 private:
 	BulletType type;
 };
-
