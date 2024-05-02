@@ -4,6 +4,7 @@ const unsigned int startPos = 0;
 const Background::Stage startStage = Background::INITIAL;
 
 
+
 /// <summary>
 /// Initialize everything needed for the main game functionality.
 /// </summary>
@@ -688,7 +689,7 @@ void Game::doCollision(Player* player)
 			abs(bullet->getPos().x - bossMissile->getPos().x - 50) < 20 &&
 			abs(bullet->getPos().y - bossMissile->getPos().y) <= 20)
 		{
-			bossMissile->damage(2);
+			bossMissile->damage(1);
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
