@@ -35,8 +35,7 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 /// </summary> 
 Boss::~Boss() 
 {
-	if (missile != nullptr)
-		delete missile;
+	delete missile;
 }
 
 
