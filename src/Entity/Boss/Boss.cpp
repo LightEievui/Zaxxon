@@ -73,7 +73,7 @@ void Boss::update(sf::RenderWindow& window)
 			setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
 
 			bulletCreated = true;
-			missile = new BossBullet(getPos(), target, &spriteSheet);
+			missile = new BossBullet(sf::Vector3f(getPos().x - 33, getPos().y - 19, getPos().z), target, &spriteSheet);
 			missile->damage(hits);
 		}
 	}
@@ -94,19 +94,6 @@ void Boss::update(sf::RenderWindow& window)
 
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (stages == 2 && missile != nullptr)
-	{
-		if (missile->isDestroyed())
-		{
-			delete missile;
-			missile = nullptr;
-			bulletCreated = false;
-		}		
-		else
-			missile->update(window);
-		
-	}
-
 	if (getPos().z <= -4000 && stages >= 2)
 	{
 		destroyed = true;
@@ -116,6 +103,19 @@ void Boss::update(sf::RenderWindow& window)
 	targetXPoints[2] = getPos().x;
 
 	window.draw(*sprite);
+
+	if (stages == 2 && missile != nullptr)
+	{
+		if (missile->isHit())
+		{
+			delete missile;
+			missile = nullptr;
+			bulletCreated = false;
+		}
+		else
+			missile->update(window);
+
+	}
 }
 
 

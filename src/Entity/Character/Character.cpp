@@ -43,7 +43,7 @@ void Character::update(sf::RenderWindow& window, float gameSpeed)
 	for (unsigned int i = 0; i < bullets.size(); i++)
 		if (bullets.at(i)->isHit())
 			bullets.erase(bullets.begin() + i);
-}
+
 
 
 /// <summary>
@@ -127,11 +127,12 @@ void Character::updateBullets(sf::RenderWindow& window)
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
-		CharacterBullet* bullet = bullets[i];
+		CharacterBullet* bullet = bullets.at(i);
 		bullet->update(window);
 
 		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)
 		{
+			std::cout << "asfaf   ";
 			delete bullet;
 			bullets.erase(bullets.begin() + i);
 			i--;
