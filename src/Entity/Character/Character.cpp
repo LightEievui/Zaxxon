@@ -38,6 +38,8 @@ void Character::update(sf::RenderWindow& window)
 	{
 		if (bullets.at(i)->isHit())
 		{
+
+			
 			bullets.erase(bullets.begin() + i);
 		}
 	}
@@ -129,6 +131,7 @@ void Character::updateBullets(sf::RenderWindow& window)
 
 		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)
 		{
+			std::cout << "asfaf   ";
 			delete bullet;
 			bullets.erase(bullets.begin() + i);
 			i--;

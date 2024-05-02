@@ -99,11 +99,10 @@ void CharacterBullet::update(sf::RenderWindow& window)
 		if (animations.getState() == 0)
 		{
 			translate(-6);
-			
 		}
 	}
 	else if (type == BulletType::Enemy)
-		translate(3);
+		sprite->move(translateTo2d(sf::Vector3f(0, 0, 3)));
 
 	if (animations.getState() == 1)
 		alive = false;
