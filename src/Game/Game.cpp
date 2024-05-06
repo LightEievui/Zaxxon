@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const unsigned int startPos = 0;
+const unsigned int startPos = 1700;
 const Background::Stage startStage = Background::INITIAL;
 
 
@@ -528,11 +528,11 @@ void Game::doCollision(Player* player)
 		{
 			
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - planePos.x),
+			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - (planePos.x-10)),
 				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
-				abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
+				abs(walls.at(i)->getWallPositions().at(j).z - 10 - planePos.z));
 
-			if (difference.x < 20 && difference.y < 15 && difference.z < 10)
+			if (difference.x < 25 && difference.y < 15 && difference.z < 10)
 				playerDeath();
 		}
 
@@ -631,9 +631,9 @@ void Game::doCollision(Player* player)
 				difference = sf::Vector3f
 				(abs(walls.at(i)->getWallPositions().at(j).x - 20 - bullet->getPos().x),
 					abs(walls.at(i)->getWallPositions().at(j).y + 15 - bullet->getPos().y),
-					abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().z));
+					abs(walls.at(i)->getWallPositions().at(j).z - 10 - bullet->getPos().z));
 
-				if (difference.x < 30 && difference.y < 20 && difference.z < 20)
+				if (difference.x < 25 && difference.y < 20 && difference.z < 20)
 					bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 			}
 
