@@ -13,7 +13,7 @@ public:
 	ZapWall(sf::Texture*, sf::Vector3f);
 	~ZapWall();
 
-	void update(sf::RenderWindow&) override;
+	void update(sf::RenderWindow&, float) override;
 
 	void setStartPos(sf::Vector3f pos);
 	bool isOnScreen();

@@ -40,20 +40,20 @@ ObstacleBullet::~ObstacleBullet()
 }
 
 
-void ObstacleBullet::update(sf::RenderWindow& window)
+void ObstacleBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
 	switch (type)
 	{
 	case xBulletL:
-		setPos(sf::Vector3f(getPos().x + 3, getPos().y, getPos().z));
+		setPos(sf::Vector3f(getPos().x + 3 * gameSpeed, getPos().y, getPos().z));
 		sprite->setPosition(translateTo2d(getPos()));
 		break;
 	case xBulletR:
-		setPos(sf::Vector3f(getPos().x - 3, getPos().y, getPos().z));
+		setPos(sf::Vector3f(getPos().x - 3 * gameSpeed, getPos().y, getPos().z));
 		sprite->setPosition(translateTo2d(getPos()));
 		break;
 	case zBullet:
-		translate(3);
+		translate(3 * gameSpeed);
 		break;
 	}
 

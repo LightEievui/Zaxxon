@@ -210,8 +210,8 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw obstacles that are behind the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPosition().z < player->getPos().z)
-					obstacles.at(i)->update(
-						window, static_cast<int>(player->getPos().z));
+					obstacles.at(i)->update(window,
+						static_cast<int>(player->getPos().z));
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -224,7 +224,7 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw zap walls that are behind the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z < player->getPos().z)
-					zapWalls.at(i)->update(window);
+					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Draw enemies that are under the player
 			for (Enemy* enemy : enemies)
@@ -232,7 +232,7 @@ void Game::run() // if random errors later check that stack isnt full
 					enemy->update(window, gameSpeed);
 
 			if (pBackground->getStage() == 3)
-				boss->update(window);
+				boss->update(window, gameSpeed);
 
 			if (missile->isHit())
 			{
@@ -243,7 +243,7 @@ void Game::run() // if random errors later check that stack isnt full
 			if (player->isMissileable() && abs(
 				player->getPos().z - missile->getPos().z) > 1000)
 				missile->setPos(player->getPos() + sf::Vector3f(0, 40, -400));
-			missile->update(window);
+			missile->update(window, gameSpeed);
 
 
 			player->update(window, background.getStage(), gameSpeed);
@@ -266,7 +266,7 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw zap walls that are in front of the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
-					zapWalls.at(i)->update(window);
+					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Draw enemies that are above the player
 			for (Enemy* enemy : enemies)
@@ -530,10 +530,10 @@ void Game::doCollision(Player* player)
 			switch (obstacle->getType())
 			{
 			case 1:
-				fuel = 128;
+				fuel += 16;
 				break;
 			case 7:
-				fuel = 128;
+				fuel += 16;
 				break;
 			}
 

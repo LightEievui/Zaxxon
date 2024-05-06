@@ -14,7 +14,7 @@ public:
 	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
 	~Boss();
 
-	void update(sf::RenderWindow&) override;
+	void update(sf::RenderWindow&, float gameSpeed) override;
 	void hit();
 	BossBullet* getMissile() const;
 	bool missileCreated() const;

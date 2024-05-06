@@ -45,7 +45,7 @@ Boss::~Boss()
 /// Run the logic for the boss each frame and then draw it to the screen
 /// </summary>
 /// <param name="window"></param>
-void Boss::update(sf::RenderWindow& window)
+void Boss::update(sf::RenderWindow& window, float gameSpeed)
 {
 	if (movementInt.getElapsedTime().asMilliseconds() >= 100)
 	{
@@ -118,7 +118,7 @@ void Boss::update(sf::RenderWindow& window)
 			bulletCreated = false;
 		}
 		else
-			missile->update(window);
+			missile->update(window, gameSpeed);
 	}
 }
 

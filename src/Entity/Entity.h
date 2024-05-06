@@ -14,7 +14,7 @@ public:
 	virtual ~Entity() = 0;
 
 	virtual void kill(Animation::Anim animation = Animation::CHARACTER_DEATH);
-	virtual void update(sf::RenderWindow&) = 0;
+	virtual void update(sf::RenderWindow&, float) = 0;
 
 	int getAnimationState() { return animations.getState(); };
 	void setPos(sf::Vector3f pos) { position = pos; };
