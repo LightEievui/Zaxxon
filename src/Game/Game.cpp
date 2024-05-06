@@ -11,7 +11,7 @@ Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
 	// Seed the randomization system for enemies and score system
-	srand(static_cast<unsigned int>(time(NULL)));
+	srand(static_cast<unsigned int>(time(nullptr)));
 
 	// Loading our sprites
 	spriteSheet.loadFromFile("./res/spritesheet.png");
@@ -23,7 +23,7 @@ Game::Game()
 
 	window.setPosition(sf::Vector2i(
 		static_cast<int>(sf::VideoMode::getDesktopMode().width / 2.f - (224.f *
-				scale) / 2.f), 0));
+			scale) / 2.f), 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -211,7 +211,8 @@ void Game::run() // if random errors later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPosition().z < player->getPos().z)
 					obstacles.at(i)->update(window,
-						static_cast<int>(player->getPos().z), gameSpeed);
+					                        static_cast<int>(player->getPos().
+						                        z), gameSpeed);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -252,7 +253,7 @@ void Game::run() // if random errors later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPosition().z >= player->getPos().z)
 					obstacles.at(i)->update(
-						window, static_cast<int>(player->getPos().z));
+						window, static_cast<int>(player->getPos().z), gameSpeed);
 
 			// Draw walls that are in front of the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
