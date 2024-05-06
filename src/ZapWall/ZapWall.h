@@ -11,9 +11,9 @@ class ZapWall : public Entity
 {
 public:
 	ZapWall(sf::Texture*, sf::Vector3f);
-	~ZapWall();
+	~ZapWall() override;
 
-	void update(sf::RenderWindow&);
+	void update(sf::RenderWindow&, float) override;
 
 	void setStartPos(sf::Vector3f pos);
 	bool isOnScreen();
@@ -26,4 +26,3 @@ private:
 	int offScreenCount = 0;
 	bool drawn = false;
 };
-

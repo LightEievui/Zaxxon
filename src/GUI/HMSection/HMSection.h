@@ -8,7 +8,8 @@
 class HMSection : public sf::Sprite
 {
 public:
-	enum Type {
+	enum Type
+	{
 		LINE,
 		OPEN,
 		TOP,

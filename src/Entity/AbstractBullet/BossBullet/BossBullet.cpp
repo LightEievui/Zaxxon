@@ -7,7 +7,8 @@
 /// <param name="startPos"></param>
 /// <param name="target"></param>
 /// <param name="spriteSheet"></param>
-BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* spriteSheet)
+BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
+                       sf::Texture* spriteSheet)
 {
 	this->target = target;
 	this->spriteSheet = spriteSheet;
@@ -19,7 +20,7 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* sprit
 	sprite->setPosition(translateTo2d(startPos));
 
 	setPos(startPos);
-	
+
 	movementInt.restart();
 	invTimer.restart();
 }
@@ -30,7 +31,6 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* sprit
 /// </summary>
 BossBullet::~BossBullet()
 {
-
 }
 
 
@@ -38,24 +38,28 @@ BossBullet::~BossBullet()
 /// Run logic for boss bullet then draw it to screen
 /// </summary>
 /// <param name="window"></param>
-void BossBullet::update(sf::RenderWindow& window)
+void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
-	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.getState() == 0)
+	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.
+		getState() == 0)
 	{
 		movementInt.restart();
 
 		if ((target->getPos().x - 50) - getPos().x > 5)
-			setPos(sf::Vector3f(getPos().x + 5, getPos().y, getPos().z));
+			setPos(sf::Vector3f(getPos().x + 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 		if ((target->getPos().x - 50) - getPos().x < 5)
-			setPos(sf::Vector3f(getPos().x - 5, getPos().y, getPos().z));
+			setPos(sf::Vector3f(getPos().x - 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 
 		if (target->getPos().y - getPos().y > 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y + 5, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y + 5 * gameSpeed,
+			                    getPos().z));
 		if (target->getPos().y - getPos().y < 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y - 5, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y - 5 * gameSpeed,
+			                    getPos().z));
 
-		setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 3));
-		sprite->setPosition(translateTo2d(getPos()));
+		translate(3.5f);
 	}
 
 	if (health <= 0 && animations.getState() == 0)
@@ -68,11 +72,12 @@ void BossBullet::update(sf::RenderWindow& window)
 }
 
 
-
 void BossBullet::collide()
 {
 	if (animations.getState() == 0)
 		animations.run(sprite, Animation::ALT_DEATH);
+
+	alive = false;
 }
 
 
@@ -83,10 +88,4 @@ void BossBullet::damage(int hit)
 		invTimer.restart();
 		health -= hit;
 	}
-}
-
-
-bool BossBullet::isDestroyed() 
-{
-	return animations.getState() == 1;
 }

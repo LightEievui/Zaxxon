@@ -21,6 +21,7 @@
 * work and that the design and logic was completed
 * without outside assistance.
 */
+
 // temp
 #define _CRTDBG_MAP_ALLOC
 
@@ -47,7 +48,7 @@ int main()
 	FreeConsole();
 #endif
 	// Startup Zaxxon
-	Game* game = new Game();
+	auto game = new Game();
 	game->run();
 
 	// Game finished, remove it from memory

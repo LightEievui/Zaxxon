@@ -8,23 +8,25 @@
 /// <param name="target"></param>
 /// <param name="bossSheet"></param>
 /// <param name="spriteSheet"></param>
-Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Texture* spriteSheet) : Entity()
+Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet,
+           sf::Texture* spriteSheet) : Entity()
 {
 	setPos(start);
 
 	sprite->setPosition(translateTo2d(start));
 	sprite->setTexture(*bossSheet);
 	sprite->setTextureRect(sf::IntRect(0, 0, 58, 75));
-	sprite->setOrigin(sf::Vector2f(0, sprite->getGlobalBounds().height * (3.f/4.f)));
+	sprite->setOrigin(
+		sf::Vector2f(0, sprite->getGlobalBounds().height * (3.f / 4.f)));
 
 	this->target = target;
 
-	this->spriteSheet = *spriteSheet;
-	
+	this->spriteSheet = spriteSheet;
+
 	movementInt.restart();
 
 	targetXPoints[0] = (rand() % 100) * -1.f;
-	targetXPoints[1] = (abs((rand()-528)*72) % 100) * -1.f;
+	targetXPoints[1] = (abs((rand() - 528) * 72) % 100) * -1.f;
 
 	invFrames.restart();
 }
@@ -33,10 +35,9 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet, sf::Textu
 /// <summary>
 /// Clean up memory related to the boss
 /// </summary> 
-Boss::~Boss() 
+Boss::~Boss()
 {
-	if (missile != nullptr)
-		delete missile;
+	delete missile;
 }
 
 
@@ -44,7 +45,7 @@ Boss::~Boss()
 /// Run the logic for the boss each frame and then draw it to the screen
 /// </summary>
 /// <param name="window"></param>
-void Boss::update(sf::RenderWindow& window)
+void Boss::update(sf::RenderWindow& window, float gameSpeed)
 {
 	if (movementInt.getElapsedTime().asMilliseconds() >= 100)
 	{
@@ -73,17 +74,21 @@ void Boss::update(sf::RenderWindow& window)
 			setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
 
 			bulletCreated = true;
-			missile = new BossBullet(getPos(), target, &spriteSheet);
+			missile = new BossBullet(
+				sf::Vector3f(getPos().x - 33, getPos().y - 19, getPos().z),
+				target, spriteSheet);
 			missile->damage(hits);
 		}
 	}
 
-	if (movementInt.getElapsedTime().asMilliseconds()%25)
+	if (movementInt.getElapsedTime().asMilliseconds() % 25)
 	{
 		if (hitCount < 10)
 		{
 			hitCount++;
-			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.f) - 1, getPos().y + ((rand() % 100) / 50.f) - 1, getPos().z));
+			setPos(sf::Vector3f(getPos().x + ((rand() % 100) / 50.f) - 1,
+			                    getPos().y + ((rand() % 100) / 50.f) - 1,
+			                    getPos().z));
 		}
 		else if (hitCount == 10)
 		{
@@ -94,19 +99,6 @@ void Boss::update(sf::RenderWindow& window)
 
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (stages == 2 && missile != nullptr)
-	{
-		if (missile->isDestroyed())
-		{
-			delete missile;
-			missile = nullptr;
-			bulletCreated = false;
-		}		
-		else
-			missile->update(window);
-		
-	}
-
 	if (getPos().z <= -4000 && stages >= 2)
 	{
 		destroyed = true;
@@ -116,6 +108,18 @@ void Boss::update(sf::RenderWindow& window)
 	targetXPoints[2] = getPos().x;
 
 	window.draw(*sprite);
+
+	if (stages == 2 && missile != nullptr)
+	{
+		if (missile->isHit())
+		{
+			delete missile;
+			missile = nullptr;
+			bulletCreated = false;
+		}
+		else
+			missile->update(window, gameSpeed);
+	}
 }
 
 
@@ -140,7 +144,7 @@ void Boss::hit()
 /// Get the boss missile separately.
 /// </summary>
 /// <returns>The missile as a BossBullet*</returns>
-BossBullet* Boss::getMissile()
+BossBullet* Boss::getMissile() const
 {
 	return missile;
 }
@@ -150,7 +154,7 @@ BossBullet* Boss::getMissile()
 /// Check if the boss missile exists.
 /// </summary>
 /// <returns>A boolean</returns>
-bool Boss::missileCreated()
+bool Boss::missileCreated() const
 {
 	return bulletCreated;
 }
@@ -160,7 +164,7 @@ bool Boss::missileCreated()
 /// Check if the boss has been defeated.
 /// </summary>
 /// <returns>A boolean</returns>
-bool Boss::isDestroyed()
+bool Boss::isDestroyed() const
 {
 	return destroyed;
 }

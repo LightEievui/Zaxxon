@@ -1,7 +1,7 @@
 #include "Game.h"
 
-const unsigned int startPos = 1700;
-const Background::Stage startStage = Background::INITIAL;
+constexpr unsigned int startPos = 0;
+constexpr Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
@@ -11,7 +11,7 @@ Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
 	// Seed the randomization system for enemies and score system
-	srand((unsigned int)time(NULL));
+	srand(static_cast<unsigned int>(time(nullptr)));
 
 	// Loading our sprites
 	spriteSheet.loadFromFile("./res/spritesheet.png");
@@ -21,13 +21,15 @@ Game::Game()
 	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
 	scale = round(scale * 4) / 4.f;
 
-	window.setPosition(sf::Vector2i((int)(sf::VideoMode::getDesktopMode().width / 2.f - (224.f * scale) / 2.f), 0));
+	window.setPosition(sf::Vector2i(
+		static_cast<int>(sf::VideoMode::getDesktopMode().width / 2.f - (224.f *
+			scale) / 2.f), 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
 	// Resize window to scale, resize everything else with it using view
-	window.setSize(sf::Vector2u((unsigned int)(224.f * scale), (unsigned int)
-		(256.f * scale)));
+	window.setSize(sf::Vector2u(static_cast<unsigned int>(224.f * scale),
+	                            static_cast<unsigned int>(256.f * scale)));
 	mainView.reset(sf::FloatRect(0.f, 0.f, 224.f, 224.f));
 	mainView.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 224. / 256.));
 	window.setView(mainView);
@@ -50,7 +52,7 @@ Game::Game()
 
 	// background must be done after player.
 	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles,
-		enemies, *player, startPos, walls, zapWalls);
+	                             enemies, *player, startPos, walls, zapWalls);
 
 	file.open("ZaxxonScores", std::ios::in);
 	if (file.is_open())
@@ -73,8 +75,10 @@ Game::Game()
 	deathSprite.setTexture(spriteSheet);
 	deathSprite.setTextureRect(sf::IntRect(80, 156, 19, 19));
 
-	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet, &spriteSheet);
-	missile = new BossBullet(sf::Vector3f(0, 0, 1000), player, &spriteSheet); // spawn off screen
+	boss = new Boss(sf::Vector3f(-50, 139, -3800), player, &bossSheet,
+	                &spriteSheet);
+	missile = new BossBullet(sf::Vector3f(0, 0, 1000), player, &spriteSheet);
+	// spawn off-screen
 }
 
 
@@ -131,16 +135,19 @@ void Game::run() // if random errors later check that stack isnt full
 			{
 				// Fuel goes down every 0.2 seconds unless in space, 
 				// then it goes down every 1.6 seconds
-				bool inSpaceOffCD = background.isInSpace((int)player->getPos().z) && 
+				bool inSpaceOffCD = background.isInSpace(
+						static_cast<int>(player->getPos().z)) &&
 					(fuelClock.getElapsedTime().asSeconds() >= 1.6 / gameSpeed);
-				bool outSpaceOffCD = !background.isInSpace((int)player->getPos().z) && 
+				bool outSpaceOffCD = !background.isInSpace(
+						static_cast<int>(player->getPos().z)) &&
 					(fuelClock.getElapsedTime().asSeconds() >= 0.2 / gameSpeed);
 
 				// Collision checks
 				doCollision(player);
 
 				// Fuel slowly runs out, player dies when fuel is empty.
-				if ((inSpaceOffCD || outSpaceOffCD) && background.getStage() != 3)
+				if ((inSpaceOffCD || outSpaceOffCD) && background.getStage() !=
+					3)
 				{
 					if (fuel-- == 0)
 						playerDeath();
@@ -148,8 +155,9 @@ void Game::run() // if random errors later check that stack isnt full
 					fuelClock.restart();
 				}
 				// Move background
-				background.update(window, mainView, gameSpeed, &spriteSheet, obstacles,
-					enemies, *player, walls, bossState, zapWalls);
+				background.update(window, mainView, gameSpeed, &spriteSheet,
+				                  obstacles,
+				                  enemies, *player, walls, bossState, zapWalls);
 
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
@@ -157,7 +165,8 @@ void Game::run() // if random errors later check that stack isnt full
 					window.clear();
 					window.setView(guiView);
 					gui.renderWin(window);
-					gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+					gui.render(window, player->getPos().y, score, highScore,
+					           fuel, lives);
 					window.display();
 					window.setView(mainView);
 
@@ -167,19 +176,24 @@ void Game::run() // if random errors later check that stack isnt full
 					fuel = 128, score += 1000;
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
-					background.generateObstacles(Background::INITIAL, obstacles, &spriteSheet, walls, zapWalls);
-					background.generateWaves(Background::INITIAL, enemies, &spriteSheet, (int)player->getPos().z);
+					background.generateObstacles(
+						Background::INITIAL, obstacles, &spriteSheet, walls,
+						zapWalls);
+					background.generateWaves(Background::INITIAL, enemies,
+					                         &spriteSheet,
+					                         static_cast<int>(player->getPos().
+						                         z));
 					missile->setPos(sf::Vector3f(0, 0, 1000));
-
 				}
 			}
 			else // Start the player death animation here
 			{
-				background.update(window, mainView, 0, &spriteSheet, obstacles, enemies,
-					*player, walls, bossState, zapWalls);
+				background.update(window, mainView, 0, &spriteSheet, obstacles,
+				                  enemies,
+				                  *player, walls, bossState, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
-					// Make sure background is set back to default
+				// Make sure background is set back to default
 					gameState = 2;
 				else
 				{
@@ -195,36 +209,42 @@ void Game::run() // if random errors later check that stack isnt full
 
 			// Draw obstacles that are behind the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				if(obstacles.at(i)->getPosition().z < player->getPos().z)
-					obstacles.at(i)->update(window, (int)player->getPos().z);
+				if (obstacles.at(i)->getPosition().z < player->getPos().z)
+					obstacles.at(i)->update(window,
+					                        static_cast<int>(player->getPos().
+						                        z), gameSpeed);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
-				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
-					if (walls.at(i)->getWallPositions()[j].z < player->getPos().z) // Then if that wall z is more than player z...
+				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1;
+				     j++) // Then for each section in that wall...
+					if (walls.at(i)->getWallPositions()[j].z < player->getPos().
+						z) // Then if that wall z is more than player z...
 						walls.at(i)->drawWalls(window); // Draw it behind player
 
 			// Draw zap walls that are behind the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z < player->getPos().z)
-					zapWalls.at(i)->update(window);
+					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Draw enemies that are under the player
 			for (Enemy* enemy : enemies)
-				if(enemy->getPos().y > player->getPos().y)
+				if (enemy->getPos().y > player->getPos().y)
 					enemy->update(window, gameSpeed);
 
 			if (pBackground->getStage() == 3)
-				boss->update(window);
+				boss->update(window, gameSpeed);
 
-			if (missile->isDestroyed())
+			if (missile->isHit())
 			{
 				delete missile;
-				missile = new BossBullet(sf::Vector3f(0, 0, 1000), player, &spriteSheet); // spawn off screen
+				missile = new BossBullet(sf::Vector3f(0, 0, 1000), player,
+				                         &spriteSheet); // spawn off screen
 			}
-			if (player->isMissileable() && abs(player->getPos().z - missile->getPos().z) > 1000)
+			if (player->isMissileable() && abs(
+				player->getPos().z - missile->getPos().z) > 1000)
 				missile->setPos(player->getPos() + sf::Vector3f(0, 40, -400));
-			missile->update(window);
+			missile->update(window, gameSpeed);
 
 
 			player->update(window, background.getStage(), gameSpeed);
@@ -232,18 +252,22 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw obstacles that are in front of the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPosition().z >= player->getPos().z)
-					obstacles.at(i)->update(window, (int)player->getPos().z);
+					obstacles.at(i)->update(
+						window, static_cast<int>(player->getPos().z), gameSpeed);
 
 			// Draw walls that are in front of the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
-				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1; j++) // Then for each section in that wall...
-					if (walls.at(i)->getWallPositions()[j].z >= player->getPos().z) // Then if that wall z is less than player z...
-						walls.at(i)->drawWalls(window); // Draw it in front of player
+				for (byte j = 0; j < walls.at(i)->getWallPositions().size() - 1;
+				     j++) // Then for each section in that wall...
+					if (walls.at(i)->getWallPositions()[j].z >= player->getPos()
+						.z) // Then if that wall z is less than player z...
+						walls.at(i)->drawWalls(window);
+			// Draw it in front of player
 
 			// Draw zap walls that are in front of the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
-					zapWalls.at(i)->update(window);
+					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Draw enemies that are above the player
 			for (Enemy* enemy : enemies)
@@ -251,17 +275,19 @@ void Game::run() // if random errors later check that stack isnt full
 					enemy->update(window, gameSpeed);
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+			gui.render(window, player->getPos().y, score, highScore, fuel,
+			           lives);
 		}
 		else if (gameState == 0) // State 0 is main menu screen
 		{
 			window.setView(guiView);
 			gui.startRender(window, highScore);
+			player->restartMissileTimer();
 
 			if (zPressed())
 				gameState = 1, score = 0;
 		}
-		else
+		else // dying
 		{
 			window.setView(mainView);
 
@@ -291,13 +317,17 @@ void Game::run() // if random errors later check that stack isnt full
 					deathSprite.setPosition(pos);
 
 					if (i < 3) // Above
-						deathSprite.move(-1 * (1 + i % 3) * time * 5, -3 * (1 + i % 3) * time * 5);
+						deathSprite.move(-1 * (1 + i % 3) * time * 5,
+						                 -3 * (1 + i % 3) * time * 5);
 					else if (i < 6) // Left
-						deathSprite.move(-3 * (1 + i % 3) * time * 5, 1 * (1 + i % 3) * time * 5);
+						deathSprite.move(-3 * (1 + i % 3) * time * 5,
+						                 1 * (1 + i % 3) * time * 5);
 					else if (i < 9) // Below
-						deathSprite.move(1 * (1 + i % 3) * time * 5, 3 * (1 + i % 3) * time * 5);
+						deathSprite.move(1 * (1 + i % 3) * time * 5,
+						                 3 * (1 + i % 3) * time * 5);
 					else // Right
-						deathSprite.move(3 * (1 + i % 3) * time * 5, -1 * (1 + i % 3) * time * 5);
+						deathSprite.move(3 * (1 + i % 3) * time * 5,
+						                 -1 * (1 + i % 3) * time * 5);
 
 					window.draw(deathSprite);
 				}
@@ -318,9 +348,15 @@ void Game::run() // if random errors later check that stack isnt full
 				if (pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setStage(Background::BOSS);
 				pBackground->resetPos(mainView, *player, 0);
-				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
-				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, (int)player->getPos().z);
+				pBackground->generateObstacles(pBackground->getStage(),
+				                               obstacles, &spriteSheet, walls,
+				                               zapWalls);
+				pBackground->generateWaves(pBackground->getStage(), enemies,
+				                           &spriteSheet,
+				                           static_cast<int>(player->getPos().
+					                           z));
 				missile->setPos(sf::Vector3f(0, 0, 1000));
+				player->restartMissileTimer();
 			}
 			else if (time < 5) // Show game over text
 			{
@@ -406,28 +442,19 @@ void Game::run() // if random errors later check that stack isnt full
 
 				// Now render the keyboard and other name entry things
 				window.setView(guiView);
-				gui.renderEnd(window, (byte)(26 - time), selector, name);
+				gui.renderEnd(window, static_cast<byte>(26 - time), selector,
+				              name);
 			}
 			else // Now actually game over
-			{
 				gameOver();
-			}
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+			gui.render(window, player->getPos().y, score, highScore, fuel,
+			           lives);
 		}
 
 		// Display everything we just drew to the screen
 		window.display();
-
-		// FPS
-		currentTime = std::chrono::high_resolution_clock::now();
-		deltaTime = (std::chrono::duration_cast
-			<std::chrono::nanoseconds>(currentTime - lastTime).count());
-		lastTime = std::chrono::high_resolution_clock::now();
-
-		fps = (unsigned int)(1000000000.0 / deltaTime);
-		//std::cout << fps << "\n"; // temp but leave til done production
 	}
 }
 
@@ -447,58 +474,67 @@ void Game::doCollision(Player* player)
 	//Plane Bullet Setup
 	std::vector<sf::Vector3f> planeBulletPos;
 	sf::Vector3f planePos;
-	planePos = sf::Vector3f(player->getPos().x, player->getPos().y, player->getPos().z);
+	planePos = sf::Vector3f(player->getPos().x, player->getPos().y,
+	                        player->getPos().z);
 
+	// Obstacle collisions
 	for (unsigned int i = 0; i < obstacles.size(); i++)
 	{
-		if (!obstacles.at(i)->isPresent())
+		Obstacle* obstacle = obstacles.at(i);
+		if (!obstacle->isPresent())
 			continue;
+
 		//Turret Bullets
-		bulletPos = (obstacles.at(i)->getBulletLocations());
+		bulletPos = (obstacle->getBulletLocations());
 
 		for (unsigned int bullets = 0; bullets < bulletPos.size(); bullets++)
 		{
 			difference = sf::Vector3f(abs(bulletPos.at(bullets).x - planePos.x),
-				abs(bulletPos.at(bullets).y - planePos.y),
-				abs(bulletPos.at(bullets).z - planePos.z));
+			                          abs(bulletPos.at(bullets).y - planePos.y),
+			                          abs(bulletPos.at(
+				                          bullets).z - planePos.z));
 
 			if (difference.x < 15 && difference.y < 15 && difference.z < 25)
 			{
 				playerDeath();
-				obstacles.at(i)->bulletKill(bullets);
+				obstacle->bulletKill(bullets);
 			}
 		}
 
 		bulletPos.clear();
-		for (CharacterBullet* bullet : player->getBullets())
-			bulletPos.push_back(bullet->getPos());
-		size = bulletPos.size();
+		std::vector<CharacterBullet*>& bullets = player->getBullets();
+		size = bullets.size();
 
 		//Player Bullets Hitting Obstacles -- This only really works with translateTo2d 
-		for (unsigned int pBullets = 0; pBullets < size; pBullets++)
+		for (unsigned int bulletIndex = 0; bulletIndex < size; bulletIndex++)
 		{
 			difference = sf::Vector3f
-			(abs(obstacles.at(i)->getPosition().x - bulletPos.at(pBullets).x),
-				abs(obstacles.at(i)->getPosition().y - bulletPos.at(pBullets).y),
-				abs(obstacles.at(i)->getPosition().z - bulletPos.at(pBullets).z));
+			(abs(obstacle->getPosition().x - bullets[bulletIndex]->getPos().x),
+			 abs(obstacle->getPosition().y - bullets[bulletIndex]->getPos().y),
+			 abs(obstacle->getPosition().z - bullets[bulletIndex]->getPos().z)
+			);
 
-			if (!(difference.x < 20 && difference.y < 15 && difference.z < 25))
+			bool hit = obstacleHit(obstacle->getType(), difference,
+			                       obstacle->getBounds().intersects(
+				                       bullets[bulletIndex]->getBounds())
+			);
+
+			if (!hit)
 				continue;
-			obstacles.at(i)->kill();
-			player->killBullet(pBullets);
-			bulletPos.erase(bulletPos.begin() + pBullets);
-			pBullets--;
+			obstacle->kill();
+			player->killBullet(bulletIndex);
+			bulletIndex--;
 			size--;
 
 			//Scoring Swtich Statement
-			score += obstacles.at(i)->getScore();
-			switch (obstacles.at(i)->getType())
+			score += obstacle->getScore();
+			switch (obstacle->getType())
 			{
 			case 1:
-				fuel = 128;
+				fuel += 16;
 				break;
 			case 7:
-				fuel = 128;
+				fuel += 16;
 				break;
 			}
 
@@ -508,11 +544,16 @@ void Game::doCollision(Player* player)
 
 		//Player Running into Obstacles
 		difference = sf::Vector3f
-		(abs(obstacles.at(i)->getPosition().x - planePos.x),
-			abs(obstacles.at(i)->getPosition().y - planePos.y),
-			abs(obstacles.at(i)->getPosition().z - planePos.z));
+		(abs(obstacle->getPosition().x - planePos.x),
+		 abs(obstacle->getPosition().y - planePos.y),
+		 abs(obstacle->getPosition().z - planePos.z)
+		);
+		bool hit = obstacleHit(obstacle->getType(), difference,
+		                       player->getBounds().intersects(
+			                       obstacle->getBounds())
+		);
 
-		if (difference.x < 15 && difference.y < 15 && difference.z < 25)
+		if (hit)
 			playerDeath();
 	}
 
@@ -524,9 +565,9 @@ void Game::doCollision(Player* player)
 			continue;
 
 		// Now check the sections for each wall if they have been hit or not
-		for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
+		for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j
+		     ++)
 		{
-			
 			difference = sf::Vector3f
 			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - (planePos.x-10)),
 				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
@@ -537,10 +578,12 @@ void Game::doCollision(Player* player)
 		}
 
 		//Player runs into wall built into background
-		difference.z = abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
+		difference.z =
+			abs(planePos.z - walls.at(i)->getWallPositions().at(0).z);
 
 		//TO DO fix it so the x works and the y plus value is more accurate
-		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 20)
+		if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) &&
+			difference.z < 20)
 			playerDeath();
 	}
 
@@ -553,15 +596,15 @@ void Game::doCollision(Player* player)
 
 		difference = sf::Vector3f
 		(abs(zapWalls.at(i)->getStartPosition().x - planePos.x),
-			abs(zapWalls.at(i)->getStartPosition().y - planePos.y),
-			abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
+		 abs(zapWalls.at(i)->getStartPosition().y - planePos.y),
+		 abs(zapWalls.at(i)->getStartPosition().z - planePos.z));
 
 		if (difference.y < 10 && difference.z < 10)
-				playerDeath();
+			playerDeath();
 	}
 
 	// Bounds can be changed here if want to change later.
-	const float hitboxSize = 4, bulletSize = 8;
+	constexpr float hitboxSize = 4, bulletSize = 8;
 	sf::FloatRect modBounds;
 	modBounds = player->getBounds();
 	modBounds.left += modBounds.width / 2.f - hitboxSize / 2.f;
@@ -582,7 +625,7 @@ void Game::doCollision(Player* player)
 
 			if (bullet->getSizeIndex() == player->getSizeIndex() &&
 				bulletBounds.intersects(modBounds)
-				)
+			)
 				playerDeath();
 		}
 	}
@@ -612,7 +655,7 @@ void Game::doCollision(Player* player)
 
 			if (bullet->getSizeIndex() == enemy->getSizeIndex() &&
 				bulletBounds.intersects(modBounds)
-				)
+			)
 			{
 				player->drawHitmarker();
 				bullet->kill();
@@ -626,7 +669,8 @@ void Game::doCollision(Player* player)
 			if (!walls.at(i)->checkOnScreen())
 				continue;
 
-			for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size(); j++)
+			for (unsigned int j = 0; j < walls.at(i)->getWallPositions().size();
+			     j++)
 			{
 				difference = sf::Vector3f
 				(abs(walls.at(i)->getWallPositions().at(j).x - 20 - bullet->getPos().x),
@@ -638,9 +682,11 @@ void Game::doCollision(Player* player)
 			}
 
 			//Player Bullets hit walls build into background
-			difference.z = abs(bullet->getPos().z - walls.at(i)->getWallPositions().at(0).z);
+			difference.z = abs(
+				bullet->getPos().z - walls.at(i)->getWallPositions().at(0).z);
 
-			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) && difference.z < 10)
+			if (planePos.y > (walls.at(i)->getWallPositions().at(0).y + 10) &&
+				difference.z < 10)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
@@ -652,8 +698,8 @@ void Game::doCollision(Player* player)
 
 			difference = sf::Vector3f
 			(abs(zapWalls.at(i)->getStartPosition().x - bullet->getPos().x),
-				abs(zapWalls.at(i)->getStartPosition().y - bullet->getPos().y),
-				abs(zapWalls.at(i)->getStartPosition().z - bullet->getPos().z));
+			 abs(zapWalls.at(i)->getStartPosition().y - bullet->getPos().y),
+			 abs(zapWalls.at(i)->getStartPosition().z - bullet->getPos().z));
 
 			if (difference.y < 15 && difference.z < 15)
 				bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
@@ -666,8 +712,6 @@ void Game::doCollision(Player* player)
 		{
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 
-			//std::cout << bullet->getPos().x - boss->getPos().x << ", " << bullet->getPos().y - boss->getPos().y << std::endl;
-
 			if (abs(bullet->getPos().z - boss->getPos().z) <= 10 &&
 				abs(bullet->getPos().x - boss->getPos().x + 33) <= 10 &&
 				abs(bullet->getPos().y - boss->getPos().y + 21) <= 10)
@@ -675,11 +719,12 @@ void Game::doCollision(Player* player)
 		}
 
 		//Player bullets hitting boss missile
-		if (boss->missileCreated() && abs(bullet->getPos().z - bossMissile->getPos().z) <= 10 &&
+		if (boss->missileCreated() && abs(
+				bullet->getPos().z - bossMissile->getPos().z) <= 10 &&
 			abs(bullet->getPos().x - bossMissile->getPos().x - 50) < 20 &&
 			abs(bullet->getPos().y - bossMissile->getPos().y) <= 20)
 		{
-			bossMissile->damage(2);
+			bossMissile->damage(1);
 			bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 		}
 
@@ -696,7 +741,8 @@ void Game::doCollision(Player* player)
 	}
 
 	// boss missile
-	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <= 5)
+	if (boss->missileCreated() && abs(bossMissile->getPos().z - planePos.z) <=
+		5)
 	{
 		playerDeath();
 		bossMissile->collide();
@@ -708,6 +754,34 @@ void Game::doCollision(Player* player)
 		playerDeath();
 		missile->collide();
 	}
+}
+
+bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
+                       bool intersect2d)
+{
+	bool hit = true;
+	sf::Vector3f obstaclePos, playerPos;
+
+	switch (type)
+	{
+	case Obstacle::GAS_CAN:
+	case Obstacle::SATELLITE:
+	case Obstacle::PLANE:
+	case Obstacle::SPACE_FUEL:
+	case Obstacle::GREEN_CANNON_RIGHT:
+		hit = difference.x < 20 && difference.y < 15 && difference.z < 25;
+		break;
+	case Obstacle::GREY_CANNON:
+	case Obstacle::GREEN_CANNON:
+		hit = difference.x < 20 && difference.y < 5 && difference.z < 25;
+		break;
+	case Obstacle::MISSILE_UP:
+		hit = intersect2d && difference.y < 8 && difference.z < 8;
+		break;
+	}
+	// playerY - playerX
+
+	return hit;
 }
 
 
