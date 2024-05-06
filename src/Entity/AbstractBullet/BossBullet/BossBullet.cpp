@@ -46,14 +46,18 @@ void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 		movementInt.restart();
 
 		if ((target->getPos().x - 50) - getPos().x > 5)
-			setPos(sf::Vector3f(getPos().x + 5 * gameSpeed, getPos().y, getPos().z));
+			setPos(sf::Vector3f(getPos().x + 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 		if ((target->getPos().x - 50) - getPos().x < 5)
-			setPos(sf::Vector3f(getPos().x - 5 * gameSpeed, getPos().y, getPos().z));
+			setPos(sf::Vector3f(getPos().x - 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 
 		if (target->getPos().y - getPos().y > 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y + 5 * gameSpeed, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y + 5 * gameSpeed,
+			                    getPos().z));
 		if (target->getPos().y - getPos().y < 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y - 5 * gameSpeed, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y - 5 * gameSpeed,
+			                    getPos().z));
 
 		translate(3.5f);
 	}
