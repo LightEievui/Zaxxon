@@ -8,6 +8,23 @@
 class AbstractBullet : public Entity
 {
 public:
-	AbstractBullet() : Entity() {}
-	// check for similarities between obstacle bullets and character bullets
+	enum BulletType
+	{
+		Player,
+		Enemy,
+		Missile,
+		zBullet,
+		xBulletL,
+		xBulletR
+	};
+
+	AbstractBullet() : Entity()
+	{
+	}
+
+	bool isHit();
+	void translate(float);
+
+protected:
+	bool alive = true;
 };

@@ -1,5 +1,5 @@
 #pragma once
-#include "..\AbstractBullet.h"
+#include "../AbstractBullet.h"
 #include "Entity/Character/Player/Player.h"
 #include "SFML/Graphics.hpp"
 
@@ -11,16 +11,15 @@ class BossBullet : public AbstractBullet
 {
 public:
 	BossBullet(sf::Vector3f, Entity*, sf::Texture*);
-	~BossBullet();
+	~BossBullet() override;
 
-	void update(sf::RenderWindow&);
+	void update(sf::RenderWindow&, float) override;
 	void damage(int);
 	void collide();
-	bool isDestroyed();
+
 private:
 	sf::Texture* spriteSheet;
 	Entity* target;
 	sf::Clock movementInt, invTimer;
-
-	int health = 10;
+	int health = 6;
 };

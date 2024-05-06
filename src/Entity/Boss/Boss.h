@@ -12,20 +12,19 @@ class Boss : public Entity
 {
 public:
 	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
-	~Boss();
+	~Boss() override;
 
-	void update(sf::RenderWindow&);
+	void update(sf::RenderWindow&, float gameSpeed) override;
 	void hit();
-	BossBullet* getMissile();
-	bool missileCreated();
-	bool isDestroyed();
-private:
+	BossBullet* getMissile() const;
+	bool missileCreated() const;
+	bool isDestroyed() const;
 
+private:
 	Entity* target;
 	sf::Clock movementInt, invFrames;
 	int stages = 0, hitCount = 20, hits = 0;
 
-	sf::Texture spriteSheet;
 	BossBullet* missile = nullptr;
 	bool bulletCreated = false, destroyed = false;
 	float targetXPoints[3];

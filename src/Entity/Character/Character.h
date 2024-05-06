@@ -13,15 +13,16 @@ class Character : public Entity
 {
 public:
 	Character(sf::Texture*);
-	~Character();
-	void update(sf::RenderWindow&);
+	~Character() override;
+	void update(sf::RenderWindow&, float) override;
 	virtual void kill() = 0;
 
 	std::vector<CharacterBullet*>& getBullets();
-	unsigned int getSizeIndex();
+	unsigned int getSizeIndex() const;
 	void killBullet(int);
 
 	void setPos(sf::Vector3f);
+
 protected:
 	const int yMax = 140;
 	const int yMin = 69;
@@ -34,12 +35,12 @@ protected:
 	assumed there is 4 for everything inheriting character.
 	*/
 	void _getSizeIndex(unsigned int&);
-	sf::Vector3f getVelocity();
+	sf::Vector3f getVelocity() const;
 
 	void setVelocity(sf::Vector3f);
 	void setBullet(sf::IntRect);
 
-	void updateBullets(sf::RenderWindow& window);
+	void updateBullets(sf::RenderWindow& window, float);
 
 	sf::Vector3f velocity;
 	std::vector<CharacterBullet*> bullets;

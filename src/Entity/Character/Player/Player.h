@@ -14,10 +14,12 @@ public:
 	void update(sf::RenderWindow&, int, float);
 	void kill() override;
 	void resetPos(int zOffset = 0);
-	void drawHitmarker() { hitmarkerTimer.restart(); };
+	void drawHitmarker() { hitmarkerTimer.restart(); }
 
 	bool isAlive();
 	bool isMissileable(); // if the player should be shot by missile
+
+	void restartMissileTimer() { missileTimer.restart(); };
 
 private:
 	const int BULLET_COOLDOWN = 200;
