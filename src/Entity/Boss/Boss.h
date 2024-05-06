@@ -12,7 +12,7 @@ class Boss : public Entity
 {
 public:
 	Boss(sf::Vector3f, Entity*, sf::Texture*, sf::Texture*);
-	~Boss();
+	~Boss() override;
 
 	void update(sf::RenderWindow&, float gameSpeed) override;
 	void hit();
