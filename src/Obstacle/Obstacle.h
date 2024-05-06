@@ -42,7 +42,7 @@ public:
 	Obstacle(sf::Vector3f, sf::Texture*, int, int);
 	//For standby obstacles
 	Obstacle(sf::Vector3f, sf::Texture*, int);
-	~Obstacle();
+	~Obstacle() override;
 
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
