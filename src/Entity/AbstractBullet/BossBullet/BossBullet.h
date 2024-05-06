@@ -13,7 +13,7 @@ public:
 	BossBullet(sf::Vector3f, Entity*, sf::Texture*);
 	~BossBullet();
 
-	void update(sf::RenderWindow&) override;
+	void update(sf::RenderWindow&, float) override;
 	void damage(int);
 	void collide();
 

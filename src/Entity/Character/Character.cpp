@@ -26,12 +26,6 @@ Character::~Character()
 /// Move the character by velocity and redraw them to the screen.
 /// </summary>
 /// <param name="window"></param>
-void Character::update(sf::RenderWindow& window)
-{
-	update(window, 1);
-}
-
-
 void Character::update(sf::RenderWindow& window, float gameSpeed)
 {
 	// update the character's position using its velocity
@@ -124,12 +118,12 @@ void Character::setVelocity(sf::Vector3f vel)
 /// & deletes bullets that are not in the window.
 /// </summary>
 /// <param name="window">Main render window</param>
-void Character::updateBullets(sf::RenderWindow& window)
+void Character::updateBullets(sf::RenderWindow& window, float gameSpeed)
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
 		CharacterBullet* bullet = bullets.at(i);
-		bullet->update(window);
+		bullet->update(window, gameSpeed);
 
 		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet
 			->getAnimationState() == 1)

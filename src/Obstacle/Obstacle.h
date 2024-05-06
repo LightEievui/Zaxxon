@@ -47,8 +47,8 @@ public:
 	void setPosition(sf::Vector3f);
 	sf::Vector3f getPosition();
 	std::vector<sf::Vector3f> getBulletLocations();
-	void update(sf::RenderWindow&, int playerZ);
-	void update(sf::RenderWindow&) override;
+	void update(sf::RenderWindow&, int playerZ, float);
+	void update(sf::RenderWindow&, float) override;
 	bool isPresent();
 	bool isTurret();
 

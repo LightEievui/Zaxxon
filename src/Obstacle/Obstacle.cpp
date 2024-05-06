@@ -172,7 +172,7 @@ std::vector<sf::Vector3f> Obstacle::getBulletLocations()
 /// Run the logic for this obstacle.
 /// </summary>
 /// <param name="window"></param>
-void Obstacle::update(sf::RenderWindow& window, int playerZ)
+void Obstacle::update(sf::RenderWindow& window, int playerZ, float gameSpeed)
 {
 	//Checks if obstacle is on screen
 	if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds())
@@ -256,7 +256,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
 		bulletPositions.at(i) = bullets.at(i)->getPos();
-		bullets.at(i)->update(window);
+		bullets.at(i)->update(window, gameSpeed);
 	}
 
 	//Offset position on death
@@ -307,9 +307,9 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 /// <summary>
 /// Default Entity::update override.
 /// </summary>
-void Obstacle::update(sf::RenderWindow& window)
+void Obstacle::update(sf::RenderWindow& window, float gameSpeed)
 {
-	update(window, 0);
+	update(window, 0, gameSpeed);
 }
 
 
