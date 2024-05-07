@@ -11,7 +11,6 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
                        sf::Texture* spriteSheet)
 {
 	this->target = target;
-	this->spriteSheet = spriteSheet;
 
 	sprite->setTexture(*spriteSheet);
 	sprite->setTextureRect(sf::IntRect(38, 74, 39, 27));
