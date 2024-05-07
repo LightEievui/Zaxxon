@@ -99,6 +99,10 @@ Game::~Game()
 	for (int i = 0; i < enemiesSize; i++)
 		delete enemies[i];
 
+	const int zapWallsSize = zapWalls.size();
+	for (int i = 0; i < zapWallsSize; i++)
+		delete zapWalls[i];
+
 	delete player;
 	delete boss;
 	delete pBackground;

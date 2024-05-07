@@ -22,6 +22,9 @@
 * without outside assistance.
 */
 
+// memory detection (temp)
+#include <vld.h>
+
 // temp
 #define _CRTDBG_MAP_ALLOC
 
