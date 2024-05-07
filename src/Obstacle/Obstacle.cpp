@@ -133,6 +133,8 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 /// </summary>
 Obstacle::~Obstacle()
 {
+	for (int i = 0; i < bullets.size(); i++)
+		delete bullets[i];
 }
 
 /// <summary>

@@ -34,6 +34,16 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 
 
 /// <summary>
+/// Clean up memory related to the player
+/// </summary>
+Player::~Player()
+{
+	for (int i = 0; i < bullets.size(); i++)
+		delete bullets[i];
+}
+
+
+/// <summary>
 /// Run all the logic and controls for player.
 /// </summary>
 /// <param name="window"></param>
