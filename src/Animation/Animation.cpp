@@ -57,6 +57,10 @@ Animation::Animation()
 /// </summary>
 Animation::~Animation()
 {
+	kill = true;
+	if(pThread != nullptr)
+		pThread->join();
+	delete pThread;
 }
 
 
@@ -104,9 +108,15 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 		break;
 	}
 
-	// will delete itself.
 	if (animationPtr != nullptr)
-		new std::thread(animationPtr, this, sprite);
+	{
+		kill = true;
+		if (pThread != nullptr)
+			pThread->join();
+		delete pThread;
+		kill = false;
+		pThread = new std::thread(animationPtr, this, sprite);
+	}
 }
 
 
@@ -120,13 +130,14 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
+		if (kill)
+			return;
 		int current =
 			static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
-	kill = false;
 	int current = 18;
 
 	switch (spriteSizeIndex)
@@ -146,6 +157,8 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
+		if (kill)
+			return;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
@@ -163,13 +176,14 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asMilliseconds() < 500 && sprite != nullptr)
 	{
+		if (kill)
+			return;
 		int current = (timer.getElapsedTime().asMilliseconds()
 			* 12 / 1000 % 6) + 2;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
-	kill = false;
 	state = 1;
 }
 
@@ -185,6 +199,8 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
+		if (kill)
+			return;
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
@@ -193,8 +209,6 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 	}
 
 	state = 4;
-
-	kill = false;
 }
 
 
@@ -225,6 +239,8 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
+		if (kill)
+			return;
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
@@ -260,6 +276,8 @@ void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 0.7 && sprite != nullptr)
 	{
+		if (kill)
+			return;
 		if (timer.getElapsedTime().asMilliseconds() > 350)
 			current = 10;
 		else
@@ -289,6 +307,8 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 		else // red
 			sprite->setTextureRect(frames[24]);
 	}
+	else
+		return;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	if (!kill && sprite != nullptr)
 	{
@@ -297,6 +317,8 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 		else // red
 			sprite->setTextureRect(frames[25]);
 	}
+	else
+		return;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 	if (!kill)

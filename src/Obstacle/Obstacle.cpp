@@ -133,6 +133,9 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 /// </summary>
 Obstacle::~Obstacle()
 {
+	const int bulletsSize = bullets.size();
+	for (int i = 0; i < bulletsSize; i++)
+		delete bullets[i];
 }
 
 /// <summary>
@@ -349,6 +352,7 @@ bool Obstacle::isTurret()
 /// <param name="bullet"></param>
 void Obstacle::bulletKill(int bullet)
 {
+	delete bullets[bullet];
 	bullets.erase(bullets.begin() + (bullet));
 	bulletPositions.erase(bulletPositions.begin() + bullet);
 }
