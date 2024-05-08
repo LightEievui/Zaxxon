@@ -1,7 +1,11 @@
 #include "ZapWall.h"
 
 
-//Sets up sprite
+/// <summary>
+/// ZapWall constructor.
+/// </summary>
+/// <param name="tex"></param>
+/// <param name="pos"></param>
 ZapWall::ZapWall(sf::Texture* tex, sf::Vector3f pos)
 {
 	spriteSheet = tex;
@@ -14,12 +18,11 @@ ZapWall::ZapWall(sf::Texture* tex, sf::Vector3f pos)
 }
 
 
-ZapWall::~ZapWall()
-{
-}
-
-
-//Moves the wall and draws
+/// <summary>
+/// Update the ZapWall.
+/// </summary>
+/// <param name="window"></param>
+/// <param name="gameSpeed"></param>
 void ZapWall::update(sf::RenderWindow& window, float gameSpeed)
 {
 	//Only draws if on screen and has delay so it does not stop too early
@@ -62,6 +65,7 @@ void ZapWall::update(sf::RenderWindow& window, float gameSpeed)
 	else
 		count++;
 }
+
 
 /// <summary>
 /// Sets start pos for the ZapWall.

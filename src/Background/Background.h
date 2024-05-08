@@ -32,8 +32,6 @@ public:
 	            std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&,
 	            std::vector<Wall*>&, std::vector<ZapWall*>&);
 	void setPosition(sf::Vector2f);
-
-	// MAY want to consider changing to private later
 	void generateObstacles(Stage,
 	                       std::vector<Obstacle*>&, sf::Texture*,
 	                       std::vector<Wall*>&, std::vector<ZapWall*>&);

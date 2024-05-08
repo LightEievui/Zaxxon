@@ -5,7 +5,7 @@
 /// Create a boss bullet based on it's position
 /// </summary>
 /// <param name="startPos"></param>
-/// <param name="target"></param>
+/// <param name="target">The entity that the missile is targetting.</param>
 /// <param name="spriteSheet"></param>
 BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
                        sf::Texture* spriteSheet)
@@ -26,15 +26,7 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
 
 
 /// <summary>
-/// Clean up memory related to boss bullet class
-/// </summary>
-BossBullet::~BossBullet()
-{
-}
-
-
-/// <summary>
-/// Run logic for boss bullet then draw it to screen
+/// Run logic for boss bullet then draw it to screen.
 /// </summary>
 /// <param name="window"></param>
 void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
@@ -70,6 +62,9 @@ void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 }
 
 
+/// <summary>
+/// Run the death animation and set to dead.
+/// </summary>
 void BossBullet::collide()
 {
 	if (animations.getState() == 0)
@@ -79,6 +74,10 @@ void BossBullet::collide()
 }
 
 
+/// <summary>
+/// Damage the missile.
+/// </summary>
+/// <param name="hit">Amount to damage.</param>
 void BossBullet::damage(int hit)
 {
 	if (invTimer.getElapsedTime().asMilliseconds() >= 75)

@@ -11,7 +11,6 @@ class Player : public Character
 {
 public:
 	Player(sf::Texture*, unsigned int);
-	~Player();
 
 	void update(sf::RenderWindow&, int, float);
 	void kill() override;
@@ -19,10 +18,9 @@ public:
 	void drawHitmarker() { hitmarkerTimer.restart(); }
 
 	bool isAlive();
-	bool isMissileable(); // if the player should be shot by missile
+	bool isMissileable();
 
 	void restartMissileTimer() { missileTimer.restart(); };
-
 private:
 	const int BULLET_COOLDOWN = 200;
 	bool alive = true;

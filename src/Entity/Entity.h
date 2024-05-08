@@ -21,7 +21,6 @@ public:
 	sf::Vector3f getPos() { return position; };
 	sf::FloatRect getBounds() { return sprite->getGlobalBounds(); };
 	sf::Vector2f getSpritePos();
-
 protected:
 	sf::Texture* spriteSheet;
 	sf::Sprite* sprite;
@@ -29,7 +28,6 @@ protected:
 	bool dead = false;
 	sf::Text debugText;
 	sf::Font debugFont;
-
 private:
 	sf::Vector3f position;
 };

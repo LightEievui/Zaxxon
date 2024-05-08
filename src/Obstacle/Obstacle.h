@@ -55,7 +55,6 @@ public:
 	int getScore();
 
 	void kill(Animation::Anim animation = Animation::CHARACTER_DEATH) override;
-
 private:
 	std::vector<ObstacleBullet*> bullets;
 	std::vector<sf::Vector3f> bulletPositions;

@@ -2,18 +2,19 @@
 
 
 /// <summary>
-/// Create new character who will have sprite from spritesheet.
+/// Create a new character who will have sprite from spritesheet.
 /// </summary>
 /// <param name="spriteSheet"></param>
 Character::Character(sf::Texture* spriteSheet) : Entity()
 {
 	this->spriteSheet = spriteSheet;
 	this->sprite->setTexture(*this->spriteSheet);
+	this->sizeIndex = 0;
 }
 
 
 /// <summary>
-/// Clean up memory related to the Character class
+/// Clean up memory related to the Character class.
 /// </summary>
 Character::~Character()
 {
@@ -36,12 +37,13 @@ void Character::update(sf::RenderWindow& window, float gameSpeed)
 	window.draw(*sprite);
 
 	for (unsigned int i = 0; i < bullets.size(); i++)
+	{
 		if (bullets.at(i)->isHit())
 		{
 			delete bullets[i];
 			bullets.erase(bullets.begin() + i);
 		}
-		
+	}
 }
 
 
@@ -91,7 +93,7 @@ void Character::_getSizeIndex(unsigned int& planeSizeIndex)
 /// <summary>
 /// Get the velocity of character.
 /// </summary>
-/// <returns>Vector of 3 floats</returns>
+/// <returns>sf::Vector3f</returns>
 sf::Vector3f Character::getVelocity() const
 {
 	return velocity;
@@ -139,6 +141,7 @@ void Character::updateBullets(sf::RenderWindow& window, float gameSpeed)
 		}
 	}
 }
+
 
 /// <summary>
 /// Get rid of bullet by index.
