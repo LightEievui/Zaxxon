@@ -101,7 +101,6 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 		}
 		else if (hitCount == 10)
 		{
-			sprite->setTextureRect(sf::IntRect(58, 0, 58, 75));
 			hitCount++;
 			sprite->setColor(sf::Color(255, 255, 255));
 		}
@@ -127,8 +126,9 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 		{
 			delete missile;
 			missile = nullptr;
-			bulletCreated = false;
 		}
+		else if (missile->collided())
+			bulletCreated = false;
 		else
 			missile->update(window, gameSpeed);
 	}
@@ -148,7 +148,10 @@ void Boss::hit()
 		sprite->setColor(sf::Color(225, 100, 100));
 		hits++;
 		if (hits >= 10)
+		{
+			sprite->setTextureRect(sf::IntRect(58, 0, 58, 75));
 			stages = 3;
+		}
 	}
 }
 

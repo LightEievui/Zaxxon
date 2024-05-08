@@ -761,6 +761,7 @@ void Game::doCollision(Player* player)
 	}
 }
 
+
 bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
                        bool intersect2d)
 {

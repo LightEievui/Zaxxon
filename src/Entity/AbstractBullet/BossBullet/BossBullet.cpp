@@ -1,4 +1,5 @@
 #include "BossBullet.h"
+#include <iostream>
 
 
 /// <summary>
@@ -63,22 +64,31 @@ void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 	}
 
 	//if the bullet dies treat it as a collision
-	if (health <= 0 && animations.getState() == 0)
+	if (health <= 0)
 		collide();
 
 	window.draw(*sprite);
 }
 
 
+/// <summary>
+/// Destroy the bullet
+/// </summary>
 void BossBullet::collide()
 {
 	if (animations.getState() == 0)
+	{
 		animations.run(sprite, Animation::ALT_DEATH);
+	}
 
 	alive = false;
 }
 
 
+/// <summary>
+/// Decrease the health of the bullet
+/// </summary>
+/// <param name="hit"></param>
 void BossBullet::damage(int hit)
 {
 	if (invTimer.getElapsedTime().asMilliseconds() >= 75)
@@ -87,3 +97,4 @@ void BossBullet::damage(int hit)
 		health -= hit;
 	}
 }
+
