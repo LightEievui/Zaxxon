@@ -74,6 +74,7 @@ void CharacterBullet::kill()
 void CharacterBullet::kill(BulletDeathType deathType)
 {
 	sprite->setColor(sf::Color(255, 255, 255));
+	//death conditions and animations based on what is dying
 	switch (deathType)
 	{
 	case WallDeath:
@@ -107,6 +108,7 @@ void CharacterBullet::update(sf::RenderWindow& window)
 			translate(-6);
 		}
 	}
+	//doesn't use translate because it uses 2d movement
 	else if (type == Enemy)
 		sprite->move(translateTo2d(sf::Vector3f(0, 0, 3)));
 

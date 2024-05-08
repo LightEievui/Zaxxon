@@ -21,6 +21,7 @@ Background::Background(Stage startStage, sf::View& mainView,
                        std::vector<ZapWall*>& zapWalls
 )
 {
+	//load background textures
 	if (!initial.loadFromFile("res/BackgroundInitial.png"))
 		std::cout << "Background file could not load\n";
 	if (!space.loadFromFile("res/BackgroundSpace2.png"))
@@ -62,10 +63,11 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
                         float gameSpeed, sf::Texture* spritesheet,
                         std::vector<Obstacle*>& obstacles,
                         std::vector<Enemy*>& enemies, Player& player,
-                        std::vector<Wall*>& walls, bool bossState,
+                        std::vector<Wall*>& walls,
                         std::vector<ZapWall*>& zapWalls
 )
 {
+	//checks the transition between stages
 	if (backgroundFinished(mainView))
 	{
 		if (stage == INITIAL)
@@ -83,12 +85,6 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 		else if (stage == BOSS)
 		{
 			stage = BOSSFIGHT;
-		}
-		else if (!bossState)
-		{
-			stage = INITIAL;
-			back.setTexture(initial);
-			resetPos(mainView, player, 0);
 		}
 
 		generateObstacles(stage, obstacles, spritesheet, walls, zapWalls);

@@ -69,8 +69,6 @@ private:
 	sf::Clock deathClock;
 	sf::Sprite deathSprite;
 
-	bool bossState = true;
-
 	void doCollision(Player*);
 	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
 	                 bool intersect2d);
