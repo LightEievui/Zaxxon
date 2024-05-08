@@ -6,13 +6,15 @@
 /// Create the background object and initialize each of the necessary images
 /// so they are ready to be drawn when needed.
 /// </summary>
-/// <param name="startStage"></param>
-/// <param name="mainView"></param>
+/// <param name="startStage">Stage that Background will start on.</param>
+/// <param name="mainView">The 3d view.</param>
 /// <param name="spritesheet"></param>
-/// <param name="obstacles"></param>
-/// <param name="enemies"></param>
+/// <param name="obstacles">Obstacle list.</param>
+/// <param name="enemies">Enemy list.</param>
 /// <param name="player"></param>
-/// <param name="startPos"></param>
+/// <param name="startPos">The Z the background should go to at start.</param>
+/// <param name="walls">Wall list.</param>
+/// <param name="zapWalls">Zap wall list.</param>
 Background::Background(Stage startStage, sf::View& mainView,
                        sf::Texture* spritesheet,
                        std::vector<Obstacle*>& obstacles,
@@ -53,12 +55,14 @@ Background::~Background()
 /// Run the background logic, and check if background stage should be swapped.
 /// </summary>
 /// <param name="window"></param>
-/// <param name="mainView"></param>
+/// <param name="mainView">3d View</param>
 /// <param name="gameSpeed"></param>
 /// <param name="spritesheet"></param>
 /// <param name="obstacles"></param>
 /// <param name="enemies"></param>
 /// <param name="player"></param>
+/// <param name="walls">Wall list.</param>
+/// <param name="zapWalls">Zap wall list.</param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
                         float gameSpeed, sf::Texture* spritesheet,
                         std::vector<Obstacle*>& obstacles,
@@ -94,13 +98,11 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 
 	if (!backgroundFinished(mainView))
 	{
-		//mainView.move(sf::Vector2f(.8f * gameSpeed, -.4f * gameSpeed));
 		float modifier = 1;
 		if (stage == SPACE) // space moves 2/3 speed
 			modifier = 0.66f;
 		mainView.move(
 			translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * modifier)));
-		//for translateTo2d
 	}
 
 	// spawn waves that have gone past the z set in queue
@@ -137,6 +139,8 @@ void Background::setPosition(sf::Vector2f pos)
 /// <param name="enemies"></param>
 /// <param name="player"></param>
 /// <param name="startPos"></param>
+/// <param name="walls">Wall list.</param>
+/// <param name="zapWalls">Zap wall list.</param>
 void Background::changeStage(Stage stage, sf::View& mainView,
                              sf::Texture* spritesheet,
                              std::vector<Obstacle*>& obstacles,
@@ -167,7 +171,6 @@ void Background::changeStage(Stage stage, sf::View& mainView,
 /// <returns>A boolean</returns>
 bool Background::backgroundFinished(sf::View& view)
 {
-	//float wXPos = view.getCenter().x + (view.getSize().x / 2); // temp
 	float wXPos = view.getCenter().x - (view.getSize().x / 2);
 
 	if (stage == BOSS)
@@ -175,7 +178,6 @@ bool Background::backgroundFinished(sf::View& view)
 	if (stage == SPACE)
 		return wXPos >= 1150;
 	return wXPos >= 1830;
-	//return wXPos >= back.getGlobalBounds().width; // temp
 }
 
 

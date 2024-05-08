@@ -115,7 +115,7 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 
 
 /// <summary>
-/// Death animation definition.
+/// Death animation definition. Used when obstacles die.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
@@ -157,7 +157,7 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 
 /// <summary>
-/// Alternate death animation definition
+/// Alternate death animation definition. Used by Obstacles.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fALT_DEATH(sf::Sprite* sprite)
@@ -177,7 +177,7 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 
 
 /// <summary>
-/// missle launch animation definition
+/// Missle launch animation definition
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fLAUNCH(sf::Sprite* sprite)
@@ -199,7 +199,7 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 
 
 /// <summary>
-/// Bullet on collision animation.
+/// Bullet on collision with Obstacles or Enemies animation.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fBULLET_DEATH(sf::Sprite* sprite)
@@ -250,7 +250,7 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 
 
 /// <summary>
-/// Animation for when a bullet hits a wall
+/// Animation for when a bullet hits a wall or zap wall.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
