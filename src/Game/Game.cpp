@@ -1,7 +1,7 @@
 #include "Game.h"
 
 constexpr unsigned int startPos = 0;
-constexpr Background::Stage startStage = Background::BOSS;
+constexpr Background::Stage startStage = Background::INITIAL;
 
 
 /// <summary>
