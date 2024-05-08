@@ -44,8 +44,6 @@ public:
 	Obstacle(sf::Vector3f, sf::Texture*, int);
 	~Obstacle() override;
 
-	void setPosition(sf::Vector3f);
-	sf::Vector3f getPosition();
 	std::vector<sf::Vector3f> getBulletLocations();
 	void update(sf::RenderWindow&, int playerZ, float);
 	void update(sf::RenderWindow&, float) override;
