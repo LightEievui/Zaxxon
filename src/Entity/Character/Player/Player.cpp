@@ -38,6 +38,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// </summary>
 /// <param name="window"></param>
 /// <param name="inSpace"></param>
+/// <param name="gameSpeed"></param>
 void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 {
 	if (!alive)

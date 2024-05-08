@@ -77,7 +77,7 @@ void ZapWall::setStartPos(sf::Vector3f pos)
 
 
 /// <summary>
-/// 
+/// Returns wether the wall intersects with the view
 /// </summary>
 /// <returns>If the ZapWall is on screen</returns>
 bool ZapWall::isOnScreen()
@@ -87,7 +87,7 @@ bool ZapWall::isOnScreen()
 
 
 /// <summary>
-/// 
+/// Returns the initial position of the wall
 /// </summary>
 /// <returns>Start position</returns>
 sf::Vector3f ZapWall::getStartPosition()
