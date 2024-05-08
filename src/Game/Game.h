@@ -32,7 +32,6 @@ private:
 	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;
 	sf::RenderWindow window;
-	sf::ContextSettings s;
 	GUI gui;
 
 	Player* player;
@@ -69,8 +68,6 @@ private:
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
 	sf::Sprite deathSprite;
-
-	bool bossState = true;
 
 	void doCollision(Player*);
 	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
