@@ -42,11 +42,11 @@ public:
 	Obstacle(sf::Vector3f, sf::Texture*, int, int);
 	//For standby obstacles
 	Obstacle(sf::Vector3f, sf::Texture*, int);
-	~Obstacle();
+	~Obstacle() override;
 
 	std::vector<sf::Vector3f> getBulletLocations();
-	void update(sf::RenderWindow&, int playerZ);
-	void update(sf::RenderWindow&) override;
+	void update(sf::RenderWindow&, int playerZ, float);
+	void update(sf::RenderWindow&, float) override;
 	bool isPresent();
 	bool isTurret();
 

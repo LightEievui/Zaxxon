@@ -99,18 +99,18 @@ void CharacterBullet::kill(BulletDeathType deathType)
 /// Run the logic for this bullet and then draw it to screen
 /// </summary>
 /// <param name="window"></param>
-void CharacterBullet::update(sf::RenderWindow& window)
+void CharacterBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
 	if (type == Player)
 	{
 		if (animations.getState() == 0)
 		{
-			translate(-6);
+			translate(-6 * gameSpeed);
 		}
 	}
 	//doesn't use translate because it uses 2d movement
 	else if (type == Enemy)
-		sprite->move(translateTo2d(sf::Vector3f(0, 0, 3)));
+		sprite->move(translateTo2d(sf::Vector3f(0, 0, 3 * gameSpeed)));
 
 	if (animations.getState() == 1)
 		alive = false;

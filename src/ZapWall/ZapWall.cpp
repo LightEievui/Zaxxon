@@ -20,7 +20,7 @@ ZapWall::~ZapWall()
 
 
 //Moves the wall and draws
-void ZapWall::update(sf::RenderWindow& window)
+void ZapWall::update(sf::RenderWindow& window, float gameSpeed)
 {
 	//Only draws if on screen and has delay so it does not stop too early
 	if (!getWindowViewRect(window).intersects(sprite->getGlobalBounds()))

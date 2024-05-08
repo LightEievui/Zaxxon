@@ -11,7 +11,6 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
                        sf::Texture* spriteSheet)
 {
 	this->target = target;
-	this->spriteSheet = spriteSheet;
 
 	sprite->setTexture(*spriteSheet);
 	sprite->setTextureRect(sf::IntRect(38, 74, 39, 27));
@@ -38,7 +37,7 @@ BossBullet::~BossBullet()
 /// Run logic for boss bullet then draw it to screen
 /// </summary>
 /// <param name="window"></param>
-void BossBullet::update(sf::RenderWindow& window)
+void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
 	//moves toward the target(player) in a similar manner to the boss
 	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.
@@ -47,14 +46,18 @@ void BossBullet::update(sf::RenderWindow& window)
 		movementInt.restart();
 
 		if ((target->getPos().x - 50) - getPos().x > 5)
-			setPos(sf::Vector3f(getPos().x + 5, getPos().y, getPos().z));
+			setPos(sf::Vector3f(getPos().x + 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 		if ((target->getPos().x - 50) - getPos().x < 5)
-			setPos(sf::Vector3f(getPos().x - 5, getPos().y, getPos().z));
+			setPos(sf::Vector3f(getPos().x - 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 
 		if (target->getPos().y - getPos().y > 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y + 5, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y + 5 * gameSpeed,
+			                    getPos().z));
 		if (target->getPos().y - getPos().y < 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y - 5, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y - 5 * gameSpeed,
+			                    getPos().z));
 
 		translate(3.5f);
 	}
