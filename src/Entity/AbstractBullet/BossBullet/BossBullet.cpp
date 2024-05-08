@@ -65,7 +65,7 @@ void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 
 	//if the bullet dies treat it as a collision
 	if (health <= 0)
-		collide();
+		alive = false;
 
 	window.draw(*sprite);
 }

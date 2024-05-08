@@ -126,9 +126,8 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 		{
 			delete missile;
 			missile = nullptr;
-		}
-		else if (missile->collided())
 			bulletCreated = false;
+		}
 		else
 			missile->update(window, gameSpeed);
 	}
