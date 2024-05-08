@@ -57,10 +57,11 @@ Animation::Animation()
 /// </summary>
 Animation::~Animation()
 {
-	kill = true;
-	if(pThread != nullptr)
-		pThread->join();
-	delete pThread;
+	for (std::thread* thread : threads)
+	{
+		thread->join();
+		delete thread;
+	}
 }
 
 
@@ -109,14 +110,7 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 	}
 
 	if (animationPtr != nullptr)
-	{
-		kill = true;
-		if (pThread != nullptr)
-			pThread->join();
-		delete pThread;
-		kill = false;
-		pThread = new std::thread(animationPtr, this, sprite);
-	}
+		threads.push_back(new std::thread(animationPtr, this, sprite));
 }
 
 
@@ -130,8 +124,6 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
-		if (kill)
-			return;
 		int current =
 			static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
 		sprite->setTextureRect(frames[current]);
@@ -157,8 +149,6 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
-		if (kill)
-			return;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
@@ -176,8 +166,6 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asMilliseconds() < 500 && sprite != nullptr)
 	{
-		if (kill)
-			return;
 		int current = (timer.getElapsedTime().asMilliseconds()
 			* 12 / 1000 % 6) + 2;
 		sprite->setTextureRect(frames[current]);
@@ -199,8 +187,6 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
-		if (kill)
-			return;
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
@@ -239,8 +225,6 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
-		if (kill)
-			return;
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
@@ -276,8 +260,6 @@ void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 0.7 && sprite != nullptr)
 	{
-		if (kill)
-			return;
 		if (timer.getElapsedTime().asMilliseconds() > 350)
 			current = 10;
 		else
