@@ -217,7 +217,7 @@ void Game::run() // if random errors later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPos().z < player->getPos().z)
 					obstacles.at(i)->update(
-						window, static_cast<int>(player->getPos().z));
+						window, static_cast<int>(player->getPos().z), gameSpeed);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
