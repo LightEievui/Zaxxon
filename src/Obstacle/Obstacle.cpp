@@ -149,16 +149,6 @@ void Obstacle::kill(Animation::Anim animation)
 
 
 /// <summary>
-/// Get position of the obstacle.
-/// </summary>
-/// <returns>Vector of 3 floats</returns>
-sf::Vector3f Obstacle::getPosition()
-{
-	return getPos();
-}
-
-
-/// <summary>
 /// Get positions for all bullets of the obstacle (For turrets).
 /// </summary>
 /// <returns>Vector of vectors of 3 floats</returns>
@@ -270,7 +260,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	}
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (type != MISSILE_UP && (type != SPACE_FUEL || getPosition().x < 15))
+	if (type != MISSILE_UP && (type != SPACE_FUEL || getPos().x < 15))
 		window.draw(*sprite);
 	if (type == MISSILE_UP && rocketExplosion)
 	{
@@ -285,8 +275,8 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 	//Moves Blue Space Gas Cans
 	if (type == SPACE_FUEL)
 	{
-		setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f,
-		                    getPosition().z));
+		setPos(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f,
+			getPos().z));
 		sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f,
 			getPos().y - 0.6f, getPos().z)));
 	}
@@ -310,16 +300,6 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ)
 void Obstacle::update(sf::RenderWindow& window)
 {
 	update(window, 0);
-}
-
-
-/// <summary>
-/// Set the position of this obstacle.
-/// </summary>
-/// <param name="pos"></param>
-void Obstacle::setPosition(sf::Vector3f pos)
-{
-	sprite->setPosition(translateTo2d(pos));
 }
 
 

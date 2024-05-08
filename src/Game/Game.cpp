@@ -209,7 +209,7 @@ void Game::run() // if random errors later check that stack isnt full
 
 			// Draw obstacles that are behind the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				if (obstacles.at(i)->getPosition().z < player->getPos().z)
+				if (obstacles.at(i)->getPos().z < player->getPos().z)
 					obstacles.at(i)->update(
 						window, static_cast<int>(player->getPos().z));
 
@@ -250,7 +250,7 @@ void Game::run() // if random errors later check that stack isnt full
 
 			// Draw obstacles that are in front of the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				if (obstacles.at(i)->getPosition().z >= player->getPos().z)
+				if (obstacles.at(i)->getPos().z >= player->getPos().z)
 					obstacles.at(i)->update(
 						window, static_cast<int>(player->getPos().z));
 
@@ -508,9 +508,9 @@ void Game::doCollision(Player* player)
 		for (unsigned int bulletIndex = 0; bulletIndex < size; bulletIndex++)
 		{
 			difference = sf::Vector3f
-			(abs(obstacle->getPosition().x - bullets[bulletIndex]->getPos().x),
-			 abs(obstacle->getPosition().y - bullets[bulletIndex]->getPos().y),
-			 abs(obstacle->getPosition().z - bullets[bulletIndex]->getPos().z)
+			(abs(obstacle->getPos().x - bullets[bulletIndex]->getPos().x),
+			 abs(obstacle->getPos().y - bullets[bulletIndex]->getPos().y),
+			 abs(obstacle->getPos().z - bullets[bulletIndex]->getPos().z)
 			);
 
 			bool hit = obstacleHit(obstacle->getType(), difference,
@@ -543,9 +543,9 @@ void Game::doCollision(Player* player)
 
 		//Player Running into Obstacles
 		difference = sf::Vector3f
-		(abs(obstacle->getPosition().x - planePos.x),
-		 abs(obstacle->getPosition().y - planePos.y),
-		 abs(obstacle->getPosition().z - planePos.z)
+		(abs(obstacle->getPos().x - planePos.x),
+		 abs(obstacle->getPos().y - planePos.y),
+		 abs(obstacle->getPos().z - planePos.z)
 		);
 		bool hit = obstacleHit(obstacle->getType(), difference,
 		                       player->getBounds().intersects(
