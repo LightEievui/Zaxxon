@@ -84,7 +84,6 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 	sprite->move(translateTo2d(sf::Vector3f(0, 0, -1.3f * gameSpeed * 2 / 3)));
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
 
-	// 
 	updateBullets(window, gameSpeed);
 	if (!dead)
 		window.draw(*sprite);
@@ -166,6 +165,7 @@ sf::Vector2f Enemy::runAI()
 	sf::Vector2f transl;
 
 	// size index 0-3 controls size: 0 biggest, 3 smallest
+	// theta and scale represent polar coordinates.
 	switch (id)
 	{
 	case 0: // fish loop

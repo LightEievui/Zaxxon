@@ -74,20 +74,19 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	//checks the transition between stages
 	if (backgroundFinished(mainView))
 	{
-		if (stage == INITIAL)
+		switch (stage)
 		{
+		case INITIAL:
 			stage = SPACE;
 			back.setTexture(space);
 			resetPos(mainView, player, 0);
-		}
-		else if (stage == SPACE)
-		{
+			break;
+		case SPACE:
 			stage = BOSS;
 			back.setTexture(boss);
 			resetPos(mainView, player, 0);
-		}
-		else if (stage == BOSS)
-		{
+			break;
+		case BOSS:
 			stage = BOSSFIGHT;
 		}
 
@@ -203,7 +202,6 @@ bool Background::isInSpace(int z)
 	case BOSS:
 		if (z > -123)
 			inSpace = true;
-		break;
 	}
 
 	return inSpace;
@@ -225,7 +223,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 		sf::Vector2f(0, static_cast<float>(back.getTexture()->getSize().y)));
 
 	int adder = stage == SPACE ? 350 : 0;
-	auto moveVector = sf::Vector2f(.8f * (startPos + adder),
+	sf::Vector2f moveVector = sf::Vector2f(.8f * (startPos + adder),
 	                               -.4f * (startPos + adder));
 	mainView.move(moveVector);
 
@@ -312,7 +310,6 @@ void Background::generateObstacles(Stage stage,
 		obstacles.push_back(new Obstacle(sf::Vector3f(-180.f, 139.f, -2335.f),
 		                                 spriteSheet, 100, 0));
 
-
 	//Non-Shooting
 		obstacles.push_back(new Obstacle(sf::Vector3f(-170.f, 139.f, -340.f),
 		                                 spriteSheet, 2));
@@ -390,7 +387,6 @@ void Background::generateObstacles(Stage stage,
 			sf::Vector3f(-65.2f, 139.667f, -2257.88f), spriteSheet, 2100, 4));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-42.6f, 139.f, -2617.49f),
 		                                 spriteSheet, 2300, 4));
-	// -4.6f, 139.f, -2628.49f
 
 	/* Walls
 	KEY for Vector
@@ -416,8 +412,6 @@ void Background::generateObstacles(Stage stage,
 		break;
 
 	case SPACE:
-		//TO DO adjust z position with plane waves / adjust angle of movement if desired
-
 		//Blue Space Gas Cans
 		obstacles.push_back(new Obstacle(sf::Vector3f(-120.f, 139.f, -960.f),
 		                                 spriteSheet, 4));
@@ -590,7 +584,7 @@ void Background::generateObstacles(Stage stage,
 		                                 spriteSheet, 1));
 		obstacles.push_back(new Obstacle(sf::Vector3f(-35.f, 139.f, -3330.f),
 		                                 spriteSheet, 1));
-
+		//Adjusting Positions
 		for (Obstacle* obstacle : obstacles)
 			obstacle->setPos(obstacle->getPos() + sf::Vector3f(0, -6, 0));
 		for (ZapWall* zw : zapWalls)
@@ -622,7 +616,6 @@ void Background::generateWaves(Stage stage,
 	std::queue<std::pair<int, unsigned int>>().swap(waveQueue);
 
 	// format waveQueue.push(std::pair<int, unsigned int>(spawnZ, waveId));
-
 	switch (stage)
 	{
 	case SPACE: // further below Z should be lesser
@@ -646,8 +639,6 @@ void Background::generateWaves(Stage stage,
 		waveQueue.push(std::pair<int, unsigned int>(-1400, 2));
 		waveQueue.push(std::pair<int, unsigned int>(-1440, 4));
 		waveQueue.push(std::pair<int, unsigned int>(-1490, 4));
-
-
 		break;
 	}
 }

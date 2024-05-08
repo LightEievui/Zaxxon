@@ -1,8 +1,7 @@
 #include "ObstacleBullet.h"
 
-
 /// <summary>
-/// Initialize based on which type of bullet this is.
+/// Constructor for ObstacleBullet.
 /// </summary>
 /// <param name="pos"></param>
 /// <param name="spriteSheet"></param>
@@ -40,17 +39,7 @@ ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet,
 
 
 /// <summary>
-/// Delete the sprite when bullet is finished.
-/// </summary>
-ObstacleBullet::~ObstacleBullet()
-{
-	delete sprite;
-	sprite = nullptr;
-}
-
-
-/// <summary>
-/// Run the logic and draw this bullet.
+/// Update the ObstacleBullet.
 /// </summary>
 /// <param name="window"></param>
 /// <param name="gameSpeed"></param>
@@ -71,7 +60,6 @@ void ObstacleBullet::update(sf::RenderWindow& window, float gameSpeed)
 		break;
 	case zBullet:
 		translate(3 * gameSpeed);
-		break;
 	}
 
 	window.draw(*sprite);

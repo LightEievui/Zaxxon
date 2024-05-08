@@ -9,8 +9,7 @@
 /// <param name="startPos"></param>
 Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 {
-	// 1st @ 8 13 24 32
-	auto a = sf::IntRect(8, 13, 23, 23);
+	sf::IntRect a = sf::IntRect(8, 13, 23, 23);
 	for (unsigned int i = 0; i < 3; i++)
 	{
 		for (unsigned int j = 0; j < 4; j++)
@@ -19,6 +18,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 			a.left += 23;
 		}
 	}
+
 	this->sprite->setTextureRect(playerTextures[0][0]);
 	this->setPos(sf::Vector3f(0, 69, static_cast<int>(startPos) * -1.33333f));
 	this->shadow.setTexture(*texture);
@@ -30,15 +30,6 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 	// Prepare bullet sound
 	bulletBuffer.loadFromFile("res/sfx/08.wav");
 	bulletSound.setBuffer(bulletBuffer);
-}
-
-
-/// <summary>
-/// Clean up memory related to the player
-/// </summary>
-Player::~Player()
-{
-	
 }
 
 
@@ -178,6 +169,10 @@ void Player::resetPos(int zOffset)
 }
 
 
+/// <summary>
+/// Returns whether the horizontal missile should shoot at the player or not.
+/// </summary>
+/// <returns></returns>
 bool Player::isMissileable()
 {
 	return missileTimer.getElapsedTime().asSeconds() > 5 && getPos().z < -300;
@@ -185,7 +180,7 @@ bool Player::isMissileable()
 
 
 /// <summary>
-/// Check if player is alive
+/// Check if player is alive.
 /// </summary>
 /// <returns></returns>
 bool Player::isAlive()

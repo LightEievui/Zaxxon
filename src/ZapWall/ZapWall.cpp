@@ -2,7 +2,7 @@
 
 
 /// <summary>
-/// Sets up sprite
+/// ZapWall constructor.
 /// </summary>
 /// <param name="tex"></param>
 /// <param name="pos"></param>
@@ -18,13 +18,8 @@ ZapWall::ZapWall(sf::Texture* tex, sf::Vector3f pos)
 }
 
 
-ZapWall::~ZapWall()
-{
-}
-
-
 /// <summary>
-/// Moves the wall and draws
+/// Update the ZapWall.
 /// </summary>
 /// <param name="window"></param>
 /// <param name="gameSpeed"></param>
@@ -70,6 +65,7 @@ void ZapWall::update(sf::RenderWindow& window, float gameSpeed)
 	else
 		count++;
 }
+
 
 /// <summary>
 /// Sets start pos for the ZapWall.

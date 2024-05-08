@@ -19,7 +19,6 @@ public:
 	BossBullet* getMissile() const;
 	bool missileCreated() const;
 	bool isDestroyed() const;
-
 private:
 	Entity* target;
 	sf::Clock movementInt, invFrames;

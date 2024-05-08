@@ -22,18 +22,12 @@ public:
 	void killBullet(int);
 
 	void setPos(sf::Vector3f);
-
 protected:
 	const int yMax = 140;
 	const int yMin = 69;
 	const int xMin = -160;
 	const int xMax = 0;
 
-	/*
-	This computes the sizeindex (the quadrant the plane is in)
-	using the currentY and the min / max,
-	assumed there is 4 for everything inheriting character.
-	*/
 	void _getSizeIndex(unsigned int&);
 	sf::Vector3f getVelocity() const;
 
@@ -45,9 +39,6 @@ protected:
 	sf::Vector3f velocity;
 	std::vector<CharacterBullet*> bullets;
 	unsigned int sizeIndex;
-
 private:
 	sf::IntRect bulletTexture;
-	// SoundBuffer buffer;
-	// Sound sound;
 };
