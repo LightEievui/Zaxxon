@@ -161,7 +161,7 @@ void Game::run() // if random errors later check that stack isnt full
 				// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet,
 				                  obstacles,
-				                  enemies, *player, walls, bossState, zapWalls);
+				                  enemies, *player, walls, zapWalls);
 
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
@@ -178,6 +178,8 @@ void Game::run() // if random errors later check that stack isnt full
 					while (tempClock.getElapsedTime().asSeconds() < 5);
 
 					fuel = 128, score += 1000;
+
+					//sets the background back to the initial stage
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
 					background.generateObstacles(
@@ -194,7 +196,7 @@ void Game::run() // if random errors later check that stack isnt full
 			{
 				background.update(window, mainView, 0, &spriteSheet, obstacles,
 				                  enemies,
-				                  *player, walls, bossState, zapWalls);
+				                  *player, walls, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
 				// Make sure background is set back to default
@@ -213,10 +215,9 @@ void Game::run() // if random errors later check that stack isnt full
 
 			// Draw obstacles that are behind the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				if (obstacles.at(i)->getPosition().z < player->getPos().z)
-					obstacles.at(i)->update(window,
-					                        static_cast<int>(player->getPos().
-						                        z), gameSpeed);
+				if (obstacles.at(i)->getPos().z < player->getPos().z)
+					obstacles.at(i)->update(
+						window, static_cast<int>(player->getPos().z));
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -255,7 +256,7 @@ void Game::run() // if random errors later check that stack isnt full
 
 			// Draw obstacles that are in front of the player
 			for (unsigned int i = 0; i < obstacles.size(); i++)
-				if (obstacles.at(i)->getPosition().z >= player->getPos().z)
+				if (obstacles.at(i)->getPos().z >= player->getPos().z)
 					obstacles.at(i)->update(
 						window, static_cast<int>(player->getPos().z), gameSpeed);
 
@@ -513,9 +514,9 @@ void Game::doCollision(Player* player)
 		for (unsigned int bulletIndex = 0; bulletIndex < size; bulletIndex++)
 		{
 			difference = sf::Vector3f
-			(abs(obstacle->getPosition().x - bullets[bulletIndex]->getPos().x),
-			 abs(obstacle->getPosition().y - bullets[bulletIndex]->getPos().y),
-			 abs(obstacle->getPosition().z - bullets[bulletIndex]->getPos().z)
+			(abs(obstacle->getPos().x - bullets[bulletIndex]->getPos().x),
+			 abs(obstacle->getPos().y - bullets[bulletIndex]->getPos().y),
+			 abs(obstacle->getPos().z - bullets[bulletIndex]->getPos().z)
 			);
 
 			bool hit = obstacleHit(obstacle->getType(), difference,
@@ -548,9 +549,9 @@ void Game::doCollision(Player* player)
 
 		//Player Running into Obstacles
 		difference = sf::Vector3f
-		(abs(obstacle->getPosition().x - planePos.x),
-		 abs(obstacle->getPosition().y - planePos.y),
-		 abs(obstacle->getPosition().z - planePos.z)
+		(abs(obstacle->getPos().x - planePos.x),
+		 abs(obstacle->getPos().y - planePos.y),
+		 abs(obstacle->getPos().z - planePos.z)
 		);
 		bool hit = obstacleHit(obstacle->getType(), difference,
 		                       player->getBounds().intersects(

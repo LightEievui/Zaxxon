@@ -39,6 +39,7 @@ BossBullet::~BossBullet()
 /// <param name="window"></param>
 void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
+	//moves toward the target(player) in a similar manner to the boss
 	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.
 		getState() == 0)
 	{
@@ -61,13 +62,11 @@ void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 		translate(3.5f);
 	}
 
+	//if the bullet dies treat it as a collision
 	if (health <= 0 && animations.getState() == 0)
 		collide();
 
 	window.draw(*sprite);
-
-	if (health <= 0)
-		collide();
 }
 
 

@@ -25,9 +25,11 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet,
 
 	movementInt.restart();
 
+	//defines random movement, goes to two seperate points
 	targetXPoints[0] = (rand() % 100) * -1.f;
 	targetXPoints[1] = (abs((rand() - 528) * 72) % 100) * -1.f;
 
+	//timer for invincibility frames
 	invFrames.restart();
 }
 
@@ -37,7 +39,8 @@ Boss::Boss(sf::Vector3f start, Entity* target, sf::Texture* bossSheet,
 /// </summary> 
 Boss::~Boss()
 {
-	delete missile;
+	if (missile != nullptr)
+		delete missile;
 }
 
 
@@ -49,6 +52,8 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 {
 	if (movementInt.getElapsedTime().asMilliseconds() >= 100)
 	{
+		//moves to the target position every 100 millisecond to mimic gittery 
+		//movment of the game
 		movementInt.restart();
 
 		if (targetXPoints[stages] - getPos().x > 3)
@@ -60,6 +65,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 		if (abs(getPos().z - target->getPos().z) < 250 && stages == 0)
 			stages++;
 
+		//if the boss is far enough away from the player continue moving it
 		if (abs(getPos().z - target->getPos().z) > 150)
 		{
 			if (stages < 2)
@@ -67,6 +73,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 			else
 				setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
 		}
+		//else stop it and shoot the missile
 		else
 		{
 			sprite->setTextureRect(sf::IntRect(58, 0, 58, 75));
@@ -74,6 +81,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 			setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z - 7));
 
 			bulletCreated = true;
+			//gives the missile the position of the player
 			missile = new BossBullet(
 				sf::Vector3f(getPos().x - 33, getPos().y - 19, getPos().z),
 				target, spriteSheet);
@@ -81,6 +89,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 		}
 	}
 
+	//detects the hits to the missile and adds the shaking animation
 	if (movementInt.getElapsedTime().asMilliseconds() % 25)
 	{
 		if (hitCount < 10)
@@ -92,6 +101,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 		}
 		else if (hitCount == 10)
 		{
+			sprite->setTextureRect(sf::IntRect(58, 0, 58, 75));
 			hitCount++;
 			sprite->setColor(sf::Color(255, 255, 255));
 		}
@@ -99,6 +109,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 
 	sprite->setPosition(translateTo2d(getPos()));
 
+	//if it retreats all the way it has been defeated
 	if (getPos().z <= -4000 && stages >= 2)
 	{
 		destroyed = true;
@@ -109,6 +120,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 
 	window.draw(*sprite);
 
+	//if the missile dies delete it and record that action
 	if (stages == 2 && missile != nullptr)
 	{
 		if (missile->isHit())
@@ -128,6 +140,7 @@ void Boss::update(sf::RenderWindow& window, float gameSpeed)
 /// </summary>
 void Boss::hit()
 {
+	//damages the boss and starts the timer of invincibility
 	if (invFrames.getElapsedTime().asMilliseconds() >= 200)
 	{
 		invFrames.restart();
