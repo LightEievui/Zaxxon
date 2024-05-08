@@ -21,38 +21,36 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay,
 
 	spriteSheet = tex;
 
-	//Grey Turrets = 0
-	if (dir == 0)
+	switch (dir)
 	{
+	//grey turrets
+	case 0:
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(8, 112, 29, 19));
 
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sprite->getGlobalBounds().width / 2,
-		                  sprite->getGlobalBounds().height / 2);
-	}
-	//Green Turrets = 1
-	else if (dir == 1)
-	{
+			sprite->getGlobalBounds().height / 2);
+		break;
+	//green turrets
+	case 1:
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(48, 117, 30, 17));
 
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sprite->getGlobalBounds().width / 2,
-		                  sprite->getGlobalBounds().height / 2);
-	}
-	//Shooting Up | Red Shooting Up
-	else if (dir == 2 || dir == 4)
-	{
+			sprite->getGlobalBounds().height / 2);
+		break;
+	//shooting up & red shooting up
+	case 4:
+	case 2:
 		spriteSheet = tex;
-
-		//sprite->setPosition(position);
 		setPos(pos + sf::Vector3f(-14, 0, 0));
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(72, 69, 32, 30));
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width / 2,
-		                               sprite->getGlobalBounds().height / 2));
+			sprite->getGlobalBounds().height / 2));
 		rocketZ = delay;
 
 		rocketExplosionSprite.setTexture(*spriteSheet);
@@ -62,17 +60,17 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int delay,
 		rocketExplosionSprite.setOrigin(sf::Vector2f(
 			sprite->getGlobalBounds().width / 2,
 			sprite->getGlobalBounds().height / 2));
-	}
-	//Right Green Turrents
-	else if (dir == 3)
-	{
+		break;
+	//right green turrets
+	case 3:
 		type = GREEN_CANNON_RIGHT;
 		sprite->setTexture((*spriteSheet));
 		sprite->setTextureRect(sf::IntRect(320, 153, 33, 22));
 
 		sprite->setPosition(translateTo2d(pos));
 		sprite->setOrigin(sprite->getGlobalBounds().width / 2,
-		                  sprite->getGlobalBounds().height / 2);
+			sprite->getGlobalBounds().height / 2);
+		break;
 	}
 
 	if (dir == 4)
@@ -108,20 +106,24 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 
 	sprite->setTexture((*spriteSheet));
 
-	if (type == 1)
-		sprite->setTextureRect(sf::IntRect(87, 106, 30, 30));
-	else if (type == 2)
-		sprite->setTextureRect(sf::IntRect(129, 109, 24, 28));
-	else if (type == 3)
+	switch (type)
 	{
+	case 1:
+		sprite->setTextureRect(sf::IntRect(87, 106, 30, 30));
+		break;
+	case 2:
+		sprite->setTextureRect(sf::IntRect(129, 109, 24, 28));
+		break;
+	case 3:
 		this->type = PLANE;
 		sprite->setTextureRect(sf::IntRect(92, 35, 29, 25));
-	}
-	else if (type == 4)
-	{
+		break;
+	case 4:
 		this->type = SPACE_FUEL;
 		sprite->setTextureRect(sf::IntRect(8, 195, 26, 29));
+		break;
 	}
+
 	sprite->setPosition(translateTo2d(pos));
 	sprite->setOrigin(sprite->getGlobalBounds().width / 2,
 	                  sprite->getGlobalBounds().height / 2);
@@ -133,6 +135,9 @@ Obstacle::Obstacle(sf::Vector3f pos, sf::Texture* tex, int type) : Entity()
 /// </summary>
 Obstacle::~Obstacle()
 {
+	const int bulletsSize = bullets.size();
+	for (int i = 0; i < bulletsSize; i++)
+		delete bullets[i];
 }
 
 /// <summary>
@@ -146,16 +151,6 @@ void Obstacle::kill(Animation::Anim animation)
 	animations.run(sprite, Animation::RESET);
 	animations.run(sprite, animation, isTurret() ? scoreIndicator : 0);
 };
-
-
-/// <summary>
-/// Get position of the obstacle.
-/// </summary>
-/// <returns>Vector of 3 floats</returns>
-sf::Vector3f Obstacle::getPosition()
-{
-	return getPos();
-}
 
 
 /// <summary>
@@ -270,7 +265,7 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ, float gameSpeed)
 	}
 	sprite->setPosition(translateTo2d(getPos()));
 
-	if (type != MISSILE_UP && (type != SPACE_FUEL || getPosition().x < 15))
+	if (type != MISSILE_UP && (type != SPACE_FUEL || getPos().x < 15))
 		window.draw(*sprite);
 	if (type == MISSILE_UP && rocketExplosion)
 	{
@@ -285,8 +280,8 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ, float gameSpeed)
 	//Moves Blue Space Gas Cans
 	if (type == SPACE_FUEL)
 	{
-		setPos(sf::Vector3f(getPosition().x + 1.f, getPosition().y - 0.6f,
-		                    getPosition().z));
+		setPos(sf::Vector3f(getPos().x + 1.f, getPos().y - 0.6f,
+			getPos().z));
 		sprite->setPosition(translateTo2d(sf::Vector3f(getPos().x + 1.f,
 			getPos().y - 0.6f, getPos().z)));
 	}
@@ -310,16 +305,6 @@ void Obstacle::update(sf::RenderWindow& window, int playerZ, float gameSpeed)
 void Obstacle::update(sf::RenderWindow& window, float gameSpeed)
 {
 	update(window, 0, gameSpeed);
-}
-
-
-/// <summary>
-/// Set the position of this obstacle.
-/// </summary>
-/// <param name="pos"></param>
-void Obstacle::setPosition(sf::Vector3f pos)
-{
-	sprite->setPosition(translateTo2d(pos));
 }
 
 
@@ -349,6 +334,7 @@ bool Obstacle::isTurret()
 /// <param name="bullet"></param>
 void Obstacle::bulletKill(int bullet)
 {
+	delete bullets[bullet];
 	bullets.erase(bullets.begin() + (bullet));
 	bulletPositions.erase(bulletPositions.begin() + bullet);
 }

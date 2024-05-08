@@ -32,11 +32,8 @@ ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet,
 
 ObstacleBullet::~ObstacleBullet()
 {
-	if (sprite != nullptr)
-	{
-		delete sprite;
-		sprite = nullptr;
-	}
+	delete sprite;
+	sprite = nullptr;
 }
 
 

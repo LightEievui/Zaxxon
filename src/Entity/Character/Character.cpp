@@ -17,7 +17,8 @@ Character::Character(sf::Texture* spriteSheet) : Entity()
 /// </summary>
 Character::~Character()
 {
-	for (unsigned int i = 0; i < bullets.size(); i++)
+	const int bulletSize = bullets.size();
+	for (int i = 0; i < bulletSize; i++)
 		delete bullets[i];
 }
 
@@ -36,7 +37,11 @@ void Character::update(sf::RenderWindow& window, float gameSpeed)
 
 	for (unsigned int i = 0; i < bullets.size(); i++)
 		if (bullets.at(i)->isHit())
+		{
+			delete bullets[i];
 			bullets.erase(bullets.begin() + i);
+		}
+		
 }
 
 
@@ -122,11 +127,11 @@ void Character::updateBullets(sf::RenderWindow& window, float gameSpeed)
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
-		CharacterBullet* bullet = bullets.at(i);
+		CharacterBullet* bullet = bullets[i];
 		bullet->update(window, gameSpeed);
 
-		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet
-			->getAnimationState() == 1)
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->
+			getAnimationState() == 1)
 		{
 			delete bullet;
 			bullets.erase(bullets.begin() + i);
@@ -141,6 +146,7 @@ void Character::updateBullets(sf::RenderWindow& window, float gameSpeed)
 /// <param name="bullet"></param>
 void Character::killBullet(int bullet)
 {
+	delete bullets[bullet];
 	bullets.erase(bullets.begin() + bullet);
 }
 

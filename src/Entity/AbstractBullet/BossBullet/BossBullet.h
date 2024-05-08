@@ -18,7 +18,6 @@ public:
 	void collide();
 
 private:
-	sf::Texture* spriteSheet;
 	Entity* target;
 	sf::Clock movementInt, invTimer;
 	int health = 6;

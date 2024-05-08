@@ -57,6 +57,11 @@ Animation::Animation()
 /// </summary>
 Animation::~Animation()
 {
+	for (std::thread* thread : threads)
+	{
+		thread->join();
+		delete thread;
+	}
 }
 
 
@@ -104,9 +109,8 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 		break;
 	}
 
-	// will delete itself.
 	if (animationPtr != nullptr)
-		new std::thread(animationPtr, this, sprite);
+		threads.push_back(new std::thread(animationPtr, this, sprite));
 }
 
 
@@ -126,7 +130,6 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
-	kill = false;
 	int current = 18;
 
 	switch (spriteSizeIndex)
@@ -169,7 +172,6 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
-	kill = false;
 	state = 1;
 }
 
@@ -193,8 +195,6 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 	}
 
 	state = 4;
-
-	kill = false;
 }
 
 
@@ -289,6 +289,8 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 		else // red
 			sprite->setTextureRect(frames[24]);
 	}
+	else
+		return;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	if (!kill && sprite != nullptr)
 	{
@@ -297,6 +299,8 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 		else // red
 			sprite->setTextureRect(frames[25]);
 	}
+	else
+		return;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 	if (!kill)
