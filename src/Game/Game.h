@@ -27,7 +27,6 @@ public:
 	Game();
 	~Game();
 	void run();
-
 private:
 	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;

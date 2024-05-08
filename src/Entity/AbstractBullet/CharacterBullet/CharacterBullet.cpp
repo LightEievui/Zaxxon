@@ -2,13 +2,17 @@
 
 
 /// <summary>
-/// Create a bullet based on if player or enemy shot it
+/// Create a bullet based on if player or enemy shot it. Players use 3f &
+/// enemies use 2f, enemies run on 2f space while players are on 3f space
+/// and it's not possible to convert from 2f to 3f,
+/// so enemies have to pass their 2f position to the bullets. Just make sure
+/// to pass the 2f if an enemy and the 3f will be ignored.
 /// </summary>
 /// <param name="spritesheet"></param>
-/// <param name="spawnPos"></param>
-/// <param name="sizeIndex"></param>
+/// <param name="spawnPos">Ignored if spawnPos2f is defined.</param>
+/// <param name="sizeIndex">Size of bullet.</param>
 /// <param name="type"></param>
-/// <param name="spawnPos2f"></param>
+/// <param name="spawnPos2f">Optional, pass through when enemy.</param>
 CharacterBullet::CharacterBullet(sf::Texture* spritesheet,
                                  sf::Vector3f spawnPos,
                                  unsigned int sizeIndex, BulletType type,
@@ -35,16 +39,6 @@ CharacterBullet::CharacterBullet(sf::Texture* spritesheet,
 	}
 	this->sizeIndex = sizeIndex;
 	this->type = type;
-}
-
-
-/// <summary>
-/// Clean up memory related to character bullet
-/// </summary>
-CharacterBullet::~CharacterBullet()
-{
-	delete sprite;
-	sprite = nullptr;
 }
 
 
@@ -88,9 +82,6 @@ void CharacterBullet::kill(BulletDeathType deathType)
 			setPos(getPos() + sf::Vector3f(0, 0, -16));
 		if (animations.getState() < 2)
 			animations.run(sprite, Animation::Anim::BULLET_DEATH, sizeIndex);
-		break;
-	default:
-		break;
 	}
 }
 

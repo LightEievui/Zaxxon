@@ -20,7 +20,6 @@ public:
 	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int,
 	                      unsigned int);
 	bool isDead() { return dead; };
-
 private:
 	// returns the velocity it has moved already
 	sf::Vector2f runAI();

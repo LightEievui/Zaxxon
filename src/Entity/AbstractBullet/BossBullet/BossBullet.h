@@ -11,12 +11,10 @@ class BossBullet : public AbstractBullet
 {
 public:
 	BossBullet(sf::Vector3f, Entity*, sf::Texture*);
-	~BossBullet() override;
 
 	void update(sf::RenderWindow&, float) override;
 	void damage(int);
 	void collide();
-
 private:
 	Entity* target;
 	sf::Clock movementInt, invTimer;

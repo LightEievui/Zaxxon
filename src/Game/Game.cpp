@@ -1,7 +1,7 @@
 #include "Game.h"
 
 constexpr unsigned int startPos = 0;
-constexpr Background::Stage startStage = Background::INITIAL;
+constexpr Background::Stage startStage = Background::BOSS;
 
 
 /// <summary>
@@ -575,7 +575,7 @@ void Game::doCollision(Player* player)
 		{
 			difference = sf::Vector3f
 			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - (planePos.x-10)),
-				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
+				abs(walls.at(i)->getWallPositions().at(j).y + 14 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - 10 - planePos.z));
 
 			if (difference.x < 25 && difference.y < 15 && difference.z < 10)
@@ -762,6 +762,13 @@ void Game::doCollision(Player* player)
 }
 
 
+/// <summary>
+/// Returns whether the obstacle hit based on the difference and type.
+/// </summary>
+/// <param name="type"></param>
+/// <param name="difference"></param>
+/// <param name="intersect2d"></param>
+/// <returns></returns>
 bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
                        bool intersect2d)
 {
@@ -785,7 +792,6 @@ bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
 		hit = intersect2d && difference.y < 8 && difference.z < 8;
 		break;
 	}
-	// playerY - playerX
 
 	return hit;
 }

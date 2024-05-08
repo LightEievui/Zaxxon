@@ -304,14 +304,6 @@ GUI::GUI(sf::Texture* spritesheet)
 
 
 /// <summary>
-/// Clear up memory related to the GUI
-/// </summary>
-GUI::~GUI()
-{
-}
-
-
-/// <summary>
 /// Draw all the GUI to the screen each frame.
 /// Also run logic for certain interactive GUI elements and
 /// update them as needed.

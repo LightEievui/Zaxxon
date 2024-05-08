@@ -2,7 +2,7 @@
 
 
 /// <summary>
-/// Returns the dead/alive state of the bullet via a bool
+/// Returns whether the bullet is dead or not.
 /// </summary>
 /// <returns></returns>
 bool AbstractBullet::isHit()
@@ -12,12 +12,11 @@ bool AbstractBullet::isHit()
 
 
 /// <summary>
-/// Moves the bullet by some vector in the Z
+/// Move a certain amount on the Z axis.
 /// </summary>
 /// <param name="movement"></param>
 void AbstractBullet::translate(float movement)
 {
-	//moves along the z axis, a functionality for all bullets
 	setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + (movement)));
 	sprite->setPosition(translateTo2d(getPos()));
 }
