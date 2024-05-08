@@ -38,8 +38,7 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 /// </summary>
 Player::~Player()
 {
-	for (int i = 0; i < bullets.size(); i++)
-		delete bullets[i];
+	
 }
 
 

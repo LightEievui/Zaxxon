@@ -36,7 +36,7 @@ private:
 	void fWALLBULLET_DEATH(sf::Sprite* sprite);
 	void fROCKET_FLICKER(sf::Sprite* sprite);
 
-	std::thread* pThread = nullptr;
+	std::vector<std::thread*> threads;
 	sf::Clock timer;
 	sf::IntRect frames[26], revert;
 	int state = 0;
