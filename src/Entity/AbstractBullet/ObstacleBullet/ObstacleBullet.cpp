@@ -11,21 +11,24 @@ ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet,
 {
 	sprite->setTexture(*spriteSheet);
 
-	if (type == xBulletR)
+	//checks for the bullet direction
+	switch (type)
 	{
+	case xBulletR:
 		sprite->setTextureRect(sf::IntRect(345, 124, 14, 9));
 		sprite->setOrigin(sf::Vector2f(sprite->getGlobalBounds().width,
-		                               sprite->getGlobalBounds().height));
-	}
-	else if (type == xBulletL)
-	{
+			sprite->getGlobalBounds().height));
+		break;
+	case xBulletL:
 		sprite->setTextureRect(sf::IntRect(345, 124, 14, 9));
 		sprite->setOrigin(sf::Vector2f(0, 0));
-	}
-	else if (type == zBullet)
-	{
+		break;
+	case zBullet:
 		sprite->setTextureRect(sf::IntRect(160, 127, 14, 9));
 		sprite->setOrigin(sf::Vector2f(0, sprite->getGlobalBounds().height));
+		break;
+	default:
+		break;
 	}
 
 	setPos(pos);
@@ -42,6 +45,7 @@ ObstacleBullet::ObstacleBullet(sf::Vector3f pos, sf::Texture* spriteSheet,
 /// <param name="gameSpeed"></param>
 void ObstacleBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
+	//change movement based on type
 	switch (type)
 	{
 	case xBulletL:
