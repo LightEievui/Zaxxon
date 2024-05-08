@@ -18,13 +18,10 @@ public:
 		xBulletR
 	};
 
-	AbstractBullet() : Entity()
-	{
-	}
+	AbstractBullet() : Entity() {}
 
 	bool isHit();
 	void translate(float);
-
 protected:
 	bool alive = true;
 };

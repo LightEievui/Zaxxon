@@ -1,5 +1,6 @@
 #include "Util.h"
 
+
 /// <summary>
 /// Convert normal 2d coordinates to isometric coordinates.
 /// </summary>
@@ -12,6 +13,7 @@ sf::Vector2f translateTo2d(sf::Vector3f in)
 
 	return sf::Vector2f(x, y);
 }
+
 
 /// <summary>
 /// Easily get the current view rectangle with translations.
@@ -96,6 +98,3 @@ bool rightPressed()
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10;
 }
-
-
-sf::Font debugFont;

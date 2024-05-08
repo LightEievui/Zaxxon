@@ -217,7 +217,7 @@ void Game::run() // if random errors later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPos().z < player->getPos().z)
 					obstacles.at(i)->update(
-						window, static_cast<int>(player->getPos().z));
+						window, static_cast<int>(player->getPos().z), gameSpeed);
 
 			// Draw walls that are behind the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -575,7 +575,7 @@ void Game::doCollision(Player* player)
 		{
 			difference = sf::Vector3f
 			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - (planePos.x-10)),
-				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
+				abs(walls.at(i)->getWallPositions().at(j).y + 14 - planePos.y),
 				abs(walls.at(i)->getWallPositions().at(j).z - 10 - planePos.z));
 
 			if (difference.x < 25 && difference.y < 15 && difference.z < 10)
@@ -761,6 +761,14 @@ void Game::doCollision(Player* player)
 	}
 }
 
+
+/// <summary>
+/// Returns whether the obstacle hit based on the difference and type.
+/// </summary>
+/// <param name="type"></param>
+/// <param name="difference"></param>
+/// <param name="intersect2d"></param>
+/// <returns></returns>
 bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
                        bool intersect2d)
 {
@@ -784,7 +792,6 @@ bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
 		hit = intersect2d && difference.y < 8 && difference.z < 8;
 		break;
 	}
-	// playerY - playerX
 
 	return hit;
 }

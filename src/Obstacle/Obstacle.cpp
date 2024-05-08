@@ -318,6 +318,7 @@ bool Obstacle::isPresent()
 		&& animations.getState() != 4 && onScreen;
 }
 
+
 /// <summary>
 /// Checks if obstacle is a turret.
 /// </summary>
@@ -327,6 +328,7 @@ bool Obstacle::isTurret()
 	return getType() == 3 || getType() == 4
 		|| getType() == 8;
 }
+
 
 /// <summary>
 /// Get rid of obstacles bullet by index (For turrets).
@@ -348,6 +350,7 @@ Obstacle::ObstacleType Obstacle::getType()
 {
 	return type;
 }
+
 
 /// <summary>
 /// Gets the score to add when the obstacle is destroyed.
@@ -379,13 +382,13 @@ int Obstacle::getScore()
 		{
 		case 1:
 			score += 200;
+			break;
 		case 2:
 			score += 500;
+			break;
 		case 3:
 			score += 1000;
-			break;
 		}
-		break;
 	}
 
 	return score;

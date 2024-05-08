@@ -35,14 +35,6 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 
 
 /// <summary>
-/// Clean up memory related to wall class
-/// </summary>
-Wall::~Wall()
-{
-}
-
-
-/// <summary>
 /// Draw each section of the wall if it will be visible on the screen
 /// </summary>
 /// <param name="window"></param>

@@ -11,14 +11,12 @@ class ZapWall : public Entity
 {
 public:
 	ZapWall(sf::Texture*, sf::Vector3f);
-	~ZapWall() override;
 
 	void update(sf::RenderWindow&, float) override;
 
 	void setStartPos(sf::Vector3f pos);
 	bool isOnScreen();
 	sf::Vector3f getStartPosition();
-
 private:
 	bool onScreen = false;
 	sf::Vector3f startPosition;
