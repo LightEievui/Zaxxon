@@ -157,7 +157,7 @@ void Game::run() // if random errors later check that stack isnt full
 				// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet,
 				                  obstacles,
-				                  enemies, *player, walls, bossState, zapWalls);
+				                  enemies, *player, walls, zapWalls);
 
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
@@ -174,6 +174,8 @@ void Game::run() // if random errors later check that stack isnt full
 					while (tempClock.getElapsedTime().asSeconds() < 5);
 
 					fuel = 128, score += 1000;
+
+					//sets the background back to the initial stage
 					background.setStage(Background::INITIAL);
 					background.resetPos(mainView, *player, 0);
 					background.generateObstacles(
@@ -190,7 +192,7 @@ void Game::run() // if random errors later check that stack isnt full
 			{
 				background.update(window, mainView, 0, &spriteSheet, obstacles,
 				                  enemies,
-				                  *player, walls, bossState, zapWalls);
+				                  *player, walls, zapWalls);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
 				// Make sure background is set back to default
