@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: src/Wall/Wall.h Source File</title>
+<title>Zaxxon: C:/Zaxxon/src/Wall/Wall.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -112,36 +112,33 @@ $(function(){initNavTree('_wall_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_wall.html#a5f29ba541aff9823b15a97451d78e4c6">Wall</a>(sf::Texture*, sf::Vector3f, <span class="keywordtype">int</span> size, std::vector&lt;int&gt;);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_wall.html#a9a2992f2b533e1c160513d1e719f920c">~Wall</a>();</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_wall.html#a274edf0d5b16afba31a8618df97626af">drawWalls</a>(sf::RenderWindow&amp; window);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_wall.html#a2f5f377219bc2e184db172a9093875d4">setPosition</a>(sf::Vector3f, <span class="keywordtype">int</span> piece = 0);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_wall.html#a0f4063e0408cb992f6d478308fa52656">setTexture</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_wall.html#ab2a34a04c46c9fe0a21d4235b106e8ae">checkOnScreen</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::vector&lt;sf::Vector3f&gt; <a class="code hl_function" href="class_wall.html#a1e18d4eb5e9afcfd35e00adf7090192b">getWallPositions</a>();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    sf::Texture* spriteSheet;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> onScreen = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::vector&lt;sf::Sprite&gt; sprites;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::vector&lt;sf::Vector3f&gt; wallPositions;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_wall.html#a274edf0d5b16afba31a8618df97626af">drawWalls</a>(sf::RenderWindow&amp; window);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_wall.html#a2f5f377219bc2e184db172a9093875d4">setPosition</a>(sf::Vector3f, <span class="keywordtype">int</span> piece = 0);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_wall.html#a0f4063e0408cb992f6d478308fa52656">setTexture</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_wall.html#ab2a34a04c46c9fe0a21d4235b106e8ae">checkOnScreen</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::vector&lt;sf::Vector3f&gt;&amp; <a class="code hl_function" href="class_wall.html#a6132a9e93316cba66ee61a78ea96040b">getWallPositions</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    sf::Texture* spriteSheet;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> onScreen = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::vector&lt;sf::Sprite&gt; sprites;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;sf::Vector3f&gt; wallPositions;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
 </div>
 <div class="ttc" id="a_util_8h_html"><div class="ttname"><a href="_util_8h.html">Util.h</a></div></div>
-<div class="ttc" id="aclass_wall_html"><div class="ttname"><a href="class_wall.html">Wall</a></div><div class="ttdoc">Class for the normal walls (stone brick).</div><div class="ttdef"><b>Definition</b> Wall.h:11</div></div>
-<div class="ttc" id="aclass_wall_html_a0f4063e0408cb992f6d478308fa52656"><div class="ttname"><a href="class_wall.html#a0f4063e0408cb992f6d478308fa52656">Wall::setTexture</a></div><div class="ttdeci">void setTexture(int, int)</div><div class="ttdoc">Set texture for if this wall piece should be closed or open.</div><div class="ttdef"><b>Definition</b> Wall.cpp:82</div></div>
-<div class="ttc" id="aclass_wall_html_a1e18d4eb5e9afcfd35e00adf7090192b"><div class="ttname"><a href="class_wall.html#a1e18d4eb5e9afcfd35e00adf7090192b">Wall::getWallPositions</a></div><div class="ttdeci">std::vector&lt; sf::Vector3f &gt; getWallPositions()</div><div class="ttdoc">Get 3d position of this wall.</div><div class="ttdef"><b>Definition</b> Wall.cpp:108</div></div>
-<div class="ttc" id="aclass_wall_html_a274edf0d5b16afba31a8618df97626af"><div class="ttname"><a href="class_wall.html#a274edf0d5b16afba31a8618df97626af">Wall::drawWalls</a></div><div class="ttdeci">void drawWalls(sf::RenderWindow &amp;window)</div><div class="ttdoc">Draw each section of the wall if it will be visible on the screen.</div><div class="ttdef"><b>Definition</b> Wall.cpp:49</div></div>
-<div class="ttc" id="aclass_wall_html_a2f5f377219bc2e184db172a9093875d4"><div class="ttname"><a href="class_wall.html#a2f5f377219bc2e184db172a9093875d4">Wall::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector3f, int piece=0)</div><div class="ttdoc">Set position of specificed wall piece.</div><div class="ttdef"><b>Definition</b> Wall.cpp:70</div></div>
-<div class="ttc" id="aclass_wall_html_a5f29ba541aff9823b15a97451d78e4c6"><div class="ttname"><a href="class_wall.html#a5f29ba541aff9823b15a97451d78e4c6">Wall::Wall</a></div><div class="ttdeci">Wall(sf::Texture *, sf::Vector3f, int size, std::vector&lt; int &gt;)</div><div class="ttdoc">Create a section of walls, each one can be a closed or open wall piece.</div><div class="ttdef"><b>Definition</b> Wall.cpp:11</div></div>
-<div class="ttc" id="aclass_wall_html_a9a2992f2b533e1c160513d1e719f920c"><div class="ttname"><a href="class_wall.html#a9a2992f2b533e1c160513d1e719f920c">Wall::~Wall</a></div><div class="ttdeci">~Wall()</div><div class="ttdoc">Clean up memory related to wall class.</div><div class="ttdef"><b>Definition</b> Wall.cpp:39</div></div>
-<div class="ttc" id="aclass_wall_html_ab2a34a04c46c9fe0a21d4235b106e8ae"><div class="ttname"><a href="class_wall.html#ab2a34a04c46c9fe0a21d4235b106e8ae">Wall::checkOnScreen</a></div><div class="ttdeci">bool checkOnScreen()</div><div class="ttdoc">Check if this wall will be on screen.</div><div class="ttdef"><b>Definition</b> Wall.cpp:98</div></div>
+<div class="ttc" id="aclass_wall_html"><div class="ttname"><a href="class_wall.html">Wall</a></div><div class="ttdoc">Class for the normal walls (stone brick).</div><div class="ttdef"><b>Definition</b> <a href="#l00010">Wall.h:11</a></div></div>
+<div class="ttc" id="aclass_wall_html_a0f4063e0408cb992f6d478308fa52656"><div class="ttname"><a href="class_wall.html#a0f4063e0408cb992f6d478308fa52656">Wall::setTexture</a></div><div class="ttdeci">void setTexture(int, int)</div><div class="ttdoc">Set texture for if this wall piece should be closed or open.</div><div class="ttdef"><b>Definition</b> <a href="_wall_8cpp_source.html#l00075">Wall.cpp:75</a></div></div>
+<div class="ttc" id="aclass_wall_html_a274edf0d5b16afba31a8618df97626af"><div class="ttname"><a href="class_wall.html#a274edf0d5b16afba31a8618df97626af">Wall::drawWalls</a></div><div class="ttdeci">void drawWalls(sf::RenderWindow &amp;window)</div><div class="ttdoc">Draw each section of the wall if it will be visible on the screen.</div><div class="ttdef"><b>Definition</b> <a href="_wall_8cpp_source.html#l00041">Wall.cpp:41</a></div></div>
+<div class="ttc" id="aclass_wall_html_a2f5f377219bc2e184db172a9093875d4"><div class="ttname"><a href="class_wall.html#a2f5f377219bc2e184db172a9093875d4">Wall::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector3f, int piece=0)</div><div class="ttdoc">Set position of specificed wall piece.</div><div class="ttdef"><b>Definition</b> <a href="_wall_8cpp_source.html#l00063">Wall.cpp:63</a></div></div>
+<div class="ttc" id="aclass_wall_html_a5f29ba541aff9823b15a97451d78e4c6"><div class="ttname"><a href="class_wall.html#a5f29ba541aff9823b15a97451d78e4c6">Wall::Wall</a></div><div class="ttdeci">Wall(sf::Texture *, sf::Vector3f, int size, std::vector&lt; int &gt;)</div><div class="ttdoc">Create a section of walls, each one can be a closed or open wall piece.</div><div class="ttdef"><b>Definition</b> <a href="_wall_8cpp_source.html#l00011">Wall.cpp:11</a></div></div>
+<div class="ttc" id="aclass_wall_html_a6132a9e93316cba66ee61a78ea96040b"><div class="ttname"><a href="class_wall.html#a6132a9e93316cba66ee61a78ea96040b">Wall::getWallPositions</a></div><div class="ttdeci">std::vector&lt; sf::Vector3f &gt; &amp; getWallPositions()</div><div class="ttdoc">Get 3d position of this wall.</div><div class="ttdef"><b>Definition</b> <a href="_wall_8cpp_source.html#l00101">Wall.cpp:101</a></div></div>
+<div class="ttc" id="aclass_wall_html_ab2a34a04c46c9fe0a21d4235b106e8ae"><div class="ttname"><a href="class_wall.html#ab2a34a04c46c9fe0a21d4235b106e8ae">Wall::checkOnScreen</a></div><div class="ttdeci">bool checkOnScreen()</div><div class="ttdoc">Check if this wall will be on screen.</div><div class="ttdef"><b>Definition</b> <a href="_wall_8cpp_source.html#l00091">Wall.cpp:91</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_24f92e7f5f442c989e44a94151eab5fc.html">Wall</a></li><li class="navelem"><a class="el" href="_wall_8h.html">Wall.h</a></li>
+    <li class="navelem"><a class="el" href="dir_82065fcfece22a58f0c2e177bd225074.html">Zaxxon</a></li><li class="navelem"><a class="el" href="dir_d030179c1ca07159d4124dc786a04913.html">src</a></li><li class="navelem"><a class="el" href="dir_69216dd9288db45c675730ac6bd3a41a.html">Wall</a></li><li class="navelem"><a class="el" href="_wall_8h.html">Wall.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

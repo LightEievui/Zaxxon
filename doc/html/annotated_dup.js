@@ -13,8 +13,9 @@ var annotated_dup =
     [ "GUI", "class_g_u_i.html", "class_g_u_i" ],
     [ "HMSection", "class_h_m_section.html", "class_h_m_section" ],
     [ "Obstacle", "class_obstacle.html", "class_obstacle" ],
+    [ "ObstacleBullet", "class_obstacle_bullet.html", "class_obstacle_bullet" ],
     [ "Player", "class_player.html", "class_player" ],
     [ "Wall", "class_wall.html", "class_wall" ],
-    [ "ZapWalls", "class_zap_walls.html", "class_zap_walls" ],
+    [ "ZapWall", "class_zap_wall.html", "class_zap_wall" ],
     [ "ZaxxonText", "class_zaxxon_text.html", null ]
 ];

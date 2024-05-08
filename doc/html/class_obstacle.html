@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -94,6 +94,7 @@ $(function(){initNavTree('class_obstacle.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_obstacle-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Obstacle Class Reference</div></div>
@@ -104,9 +105,11 @@ $(function(){initNavTree('class_obstacle.html',''); initResizable(); });
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_obstacle_8h_source.html">Obstacle.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Obstacle:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for Obstacle:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
   <img src="class_obstacle.png" usemap="#Obstacle_map" alt=""/>
   <map id="Obstacle_map" name="Obstacle_map">
@@ -114,6 +117,22 @@ Inheritance diagram for Obstacle:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa5327a6a717468b71fc3c7b95ee7ebda" id="r_aa5327a6a717468b71fc3c7b95ee7ebda"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebda">ObstacleType</a> { <br />
+&#160;&#160;<a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b">GAS_CAN</a> = 1
+, <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a">SATELLITE</a>
+, <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036">GREY_CANNON</a>
+, <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8">GREEN_CANNON</a>
+, <br />
+&#160;&#160;<a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a">MISSILE_UP</a>
+, <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d">PLANE</a>
+, <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701">SPACE_FUEL</a>
+, <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e">GREEN_CANNON_RIGHT</a>
+<br />
+ }</td></tr>
+<tr class="separator:aa5327a6a717468b71fc3c7b95ee7ebda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a76b8db02b4d3cc504e13ec2f53e3d461" id="r_a76b8db02b4d3cc504e13ec2f53e3d461"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle</a> (sf::Vector3f, sf::Texture *, int, int)</td></tr>
@@ -122,26 +141,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d24e681dc227109b688b2f4a49c5a61" id="r_a4d24e681dc227109b688b2f4a49c5a61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d24e681dc227109b688b2f4a49c5a61">Obstacle</a> (sf::Vector3f, sf::Texture *, int)</td></tr>
 <tr class="memdesc:a4d24e681dc227109b688b2f4a49c5a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a non-turret obstacle (Still obstacle).  <br /></td></tr>
 <tr class="separator:a4d24e681dc227109b688b2f4a49c5a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f9cc9c6cff75dca0974fd5ac4f71a9" id="r_af2f9cc9c6cff75dca0974fd5ac4f71a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2f9cc9c6cff75dca0974fd5ac4f71a9">~Obstacle</a> ()</td></tr>
-<tr class="memdesc:af2f9cc9c6cff75dca0974fd5ac4f71a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to the obstacle class.  <br /></td></tr>
-<tr class="separator:af2f9cc9c6cff75dca0974fd5ac4f71a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b7f49fb1b9b7e4d24eb8f05cc12dc3" id="r_a29b7f49fb1b9b7e4d24eb8f05cc12dc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">setTexture</a> (std::string)</td></tr>
-<tr class="separator:a29b7f49fb1b9b7e4d24eb8f05cc12dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712e425583cff17617c280a10399bf1e" id="r_a712e425583cff17617c280a10399bf1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712e425583cff17617c280a10399bf1e">setPosition</a> (sf::Vector3f)</td></tr>
-<tr class="memdesc:a712e425583cff17617c280a10399bf1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of this obstacle.  <br /></td></tr>
-<tr class="separator:a712e425583cff17617c280a10399bf1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73b7da779f5fff618bb71fbd811a5f30" id="r_a73b7da779f5fff618bb71fbd811a5f30"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73b7da779f5fff618bb71fbd811a5f30">getPosition</a> ()</td></tr>
-<tr class="memdesc:a73b7da779f5fff618bb71fbd811a5f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get position of the obstacle.  <br /></td></tr>
-<tr class="separator:a73b7da779f5fff618bb71fbd811a5f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8021dd6ca94132eae1c0ffcdfefa8be0" id="r_a8021dd6ca94132eae1c0ffcdfefa8be0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8021dd6ca94132eae1c0ffcdfefa8be0">~Obstacle</a> () override</td></tr>
+<tr class="memdesc:a8021dd6ca94132eae1c0ffcdfefa8be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to the obstacle class.  <br /></td></tr>
+<tr class="separator:a8021dd6ca94132eae1c0ffcdfefa8be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a214183fffe9a6301fbe708313c96b6e7" id="r_a214183fffe9a6301fbe708313c96b6e7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector3f &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a214183fffe9a6301fbe708313c96b6e7">getBulletLocations</a> ()</td></tr>
 <tr class="memdesc:a214183fffe9a6301fbe708313c96b6e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get positions for all bullets of the obstacle (For turrets).  <br /></td></tr>
 <tr class="separator:a214183fffe9a6301fbe708313c96b6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd60ac9d097142b295ece68202d39655" id="r_acd60ac9d097142b295ece68202d39655"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd60ac9d097142b295ece68202d39655">update</a> (sf::RenderWindow &amp;, int playerZ)</td></tr>
-<tr class="memdesc:acd60ac9d097142b295ece68202d39655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the logic for this obstacle.  <br /></td></tr>
-<tr class="separator:acd60ac9d097142b295ece68202d39655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cf873dada3977dbbda2ee3c80a8f14" id="r_a71cf873dada3977dbbda2ee3c80a8f14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71cf873dada3977dbbda2ee3c80a8f14">update</a> (sf::RenderWindow &amp;) override</td></tr>
-<tr class="memdesc:a71cf873dada3977dbbda2ee3c80a8f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="class_entity.html#a7d014114fcea80281536d5525019190c">Entity::update</a> override.  <br /></td></tr>
-<tr class="separator:a71cf873dada3977dbbda2ee3c80a8f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af69cc091c4b73003552b2586f550c1d7" id="r_af69cc091c4b73003552b2586f550c1d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af69cc091c4b73003552b2586f550c1d7">update</a> (sf::RenderWindow &amp;, int playerZ, float)</td></tr>
+<tr class="memdesc:af69cc091c4b73003552b2586f550c1d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the logic for this obstacle.  <br /></td></tr>
+<tr class="separator:af69cc091c4b73003552b2586f550c1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4272be0d3dddafd42040adab4d8a968" id="r_ab4272be0d3dddafd42040adab4d8a968"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4272be0d3dddafd42040adab4d8a968">update</a> (sf::RenderWindow &amp;, float) override</td></tr>
+<tr class="memdesc:ab4272be0d3dddafd42040adab4d8a968"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="class_entity.html#ac3121e79d75452497acb36dd06f0b2b2">Entity::update</a> override.  <br /></td></tr>
+<tr class="separator:ab4272be0d3dddafd42040adab4d8a968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af395b8077b863766f840f75377a9c6fc" id="r_af395b8077b863766f840f75377a9c6fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af395b8077b863766f840f75377a9c6fc">isPresent</a> ()</td></tr>
 <tr class="memdesc:af395b8077b863766f840f75377a9c6fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if this obstacle exists.  <br /></td></tr>
 <tr class="separator:af395b8077b863766f840f75377a9c6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,22 +162,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a39869e565df81ce8a50e42668cd0fab7" id="r_a39869e565df81ce8a50e42668cd0fab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39869e565df81ce8a50e42668cd0fab7">bulletKill</a> (int)</td></tr>
 <tr class="memdesc:a39869e565df81ce8a50e42668cd0fab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rid of obstacles bullet by index (For turrets).  <br /></td></tr>
 <tr class="separator:a39869e565df81ce8a50e42668cd0fab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad28c6a458187a5f5ec68c8cc3c425114" id="r_ad28c6a458187a5f5ec68c8cc3c425114"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad28c6a458187a5f5ec68c8cc3c425114">getType</a> ()</td></tr>
-<tr class="memdesc:ad28c6a458187a5f5ec68c8cc3c425114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get what type of obstacle this is.  <br /></td></tr>
-<tr class="separator:ad28c6a458187a5f5ec68c8cc3c425114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5991a00aef5976389d5c59450368b3" id="r_a1e5991a00aef5976389d5c59450368b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebda">ObstacleType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e5991a00aef5976389d5c59450368b3">getType</a> ()</td></tr>
+<tr class="memdesc:a1e5991a00aef5976389d5c59450368b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get what type of obstacle this is.  <br /></td></tr>
+<tr class="separator:a1e5991a00aef5976389d5c59450368b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3450be68b7a60ab4ed285893f6f1deb" id="r_ac3450be68b7a60ab4ed285893f6f1deb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3450be68b7a60ab4ed285893f6f1deb">getScore</a> ()</td></tr>
 <tr class="memdesc:ac3450be68b7a60ab4ed285893f6f1deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the score to add when the obstacle is destroyed.  <br /></td></tr>
 <tr class="separator:ac3450be68b7a60ab4ed285893f6f1deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7300c4d9c730103c707972be1380ff9" id="r_ac7300c4d9c730103c707972be1380ff9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7300c4d9c730103c707972be1380ff9">kill</a> (<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a> <a class="el" href="_animation_8cpp.html#ace719c3edb14f8a32929395ba2524d64">animation</a>=<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a>)</td></tr>
-<tr class="memdesc:ac7300c4d9c730103c707972be1380ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Death animation.  <br /></td></tr>
-<tr class="separator:ac7300c4d9c730103c707972be1380ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4865fafe3cf6a31b3444c2557550f8" id="r_a3b4865fafe3cf6a31b3444c2557550f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b4865fafe3cf6a31b3444c2557550f8">kill</a> (<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a> <a class="el" href="_animation_8cpp.html#a35d522d607d8608fbcb1be1ad18ae0b3">animation</a>=<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a>) override</td></tr>
+<tr class="memdesc:a3b4865fafe3cf6a31b3444c2557550f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Death animation.  <br /></td></tr>
+<tr class="separator:a3b4865fafe3cf6a31b3444c2557550f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a980f368aa07ce358583982821533a54a inherit pub_methods_class_entity" id="r_a980f368aa07ce358583982821533a54a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a> ()</td></tr>
 <tr class="memdesc:a980f368aa07ce358583982821533a54a inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class variables.  <br /></td></tr>
 <tr class="separator:a980f368aa07ce358583982821533a54a inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity" id="r_adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
-<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class.  <br /></td></tr>
-<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2da1e8a32161accc56f39ac52cebd86 inherit pub_methods_class_entity" id="r_ac2da1e8a32161accc56f39ac52cebd86"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac2da1e8a32161accc56f39ac52cebd86">~Entity</a> ()=0</td></tr>
+<tr class="memdesc:ac2da1e8a32161accc56f39ac52cebd86 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class.  <br /></td></tr>
+<tr class="separator:ac2da1e8a32161accc56f39ac52cebd86 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ef7fc00806615984a06ca8c71b10bc inherit pub_methods_class_entity" id="r_ac9ef7fc00806615984a06ca8c71b10bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a> ()</td></tr>
 <tr class="separator:ac9ef7fc00806615984a06ca8c71b10bc inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1783cc856808b2d78c4e46fa9c85a524 inherit pub_methods_class_entity" id="r_a1783cc856808b2d78c4e46fa9c85a524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a> (sf::Vector3f pos)</td></tr>
@@ -197,7 +208,36 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Still obstacles that spawn across the levels. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+
+<p class="definition">Definition at line <a class="el" href="_obstacle_8h_source.html#l00014">14</a> of file <a class="el" href="_obstacle_8h_source.html">Obstacle.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="aa5327a6a717468b71fc3c7b95ee7ebda" name="aa5327a6a717468b71fc3c7b95ee7ebda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5327a6a717468b71fc3c7b95ee7ebda">&#9670;&#160;</a></span>ObstacleType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b" name="aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b"></a>GAS_CAN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a" name="aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a"></a>SATELLITE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036" name="aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036"></a>GREY_CANNON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8" name="aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8"></a>GREEN_CANNON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a" name="aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a"></a>MISSILE_UP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d" name="aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d"></a>PLANE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701" name="aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701"></a>SPACE_FUEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e" name="aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e"></a>GREEN_CANNON_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_obstacle_8h_source.html#l00029">29</a> of file <a class="el" href="_obstacle_8h_source.html">Obstacle.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a76b8db02b4d3cc504e13ec2f53e3d461" name="a76b8db02b4d3cc504e13ec2f53e3d461"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76b8db02b4d3cc504e13ec2f53e3d461">&#9670;&#160;</a></span>Obstacle() <span class="overload">[1/2]</span></h2>
 
@@ -238,6 +278,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00011">11</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a4d24e681dc227109b688b2f4a49c5a61" name="a4d24e681dc227109b688b2f4a49c5a61"></a>
@@ -274,13 +316,18 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00091">91</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
-<a id="af2f9cc9c6cff75dca0974fd5ac4f71a9" name="af2f9cc9c6cff75dca0974fd5ac4f71a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2f9cc9c6cff75dca0974fd5ac4f71a9">&#9670;&#160;</a></span>~Obstacle()</h2>
+<a id="a8021dd6ca94132eae1c0ffcdfefa8be0" name="a8021dd6ca94132eae1c0ffcdfefa8be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8021dd6ca94132eae1c0ffcdfefa8be0">&#9670;&#160;</a></span>~Obstacle()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Obstacle::~Obstacle </td>
@@ -289,9 +336,16 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Clean up memory related to the obstacle class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00136">136</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,6 +373,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00337">337</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a214183fffe9a6301fbe708313c96b6e7" name="a214183fffe9a6301fbe708313c96b6e7"></a>
@@ -339,25 +395,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get positions for all bullets of the obstacle (For turrets). </p>
 <dl class="section return"><dt>Returns</dt><dd>Vector of vectors of 3 floats</dd></dl>
 
-</div>
-</div>
-<a id="a73b7da779f5fff618bb71fbd811a5f30" name="a73b7da779f5fff618bb71fbd811a5f30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73b7da779f5fff618bb71fbd811a5f30">&#9670;&#160;</a></span>getPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sf::Vector3f Obstacle::getPosition </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get position of the obstacle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vector of 3 floats</dd></dl>
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00160">160</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
 
 </div>
 </div>
@@ -379,16 +417,18 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets the score to add when the obstacle is destroyed. </p>
 <dl class="section return"><dt>Returns</dt><dd>score</dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00359">359</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
-<a id="ad28c6a458187a5f5ec68c8cc3c425114" name="ad28c6a458187a5f5ec68c8cc3c425114"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad28c6a458187a5f5ec68c8cc3c425114">&#9670;&#160;</a></span>getType()</h2>
+<a id="a1e5991a00aef5976389d5c59450368b3" name="a1e5991a00aef5976389d5c59450368b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5991a00aef5976389d5c59450368b3">&#9670;&#160;</a></span>getType()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Obstacle::getType </td>
+          <td class="memname"><a class="el" href="#aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</a> Obstacle::getType </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -398,6 +438,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Get what type of obstacle this is. </p>
 <dl class="section return"><dt>Returns</dt><dd>An int</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00349">349</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
 
 </div>
 </div>
@@ -419,6 +461,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Check if this obstacle exists. </p>
 <dl class="section return"><dt>Returns</dt><dd>A boolean</dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00315">315</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a0f354a517c0b6b2e9bafc1e36af706af" name="a0f354a517c0b6b2e9bafc1e36af706af"></a>
@@ -439,10 +483,12 @@ Additional Inherited Members</h2></td></tr>
 <p>Checks if obstacle is a turret. </p>
 <dl class="section return"><dt>Returns</dt><dd>Boolean</dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00326">326</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
-<a id="ac7300c4d9c730103c707972be1380ff9" name="ac7300c4d9c730103c707972be1380ff9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7300c4d9c730103c707972be1380ff9">&#9670;&#160;</a></span>kill()</h2>
+<a id="a3b4865fafe3cf6a31b3444c2557550f8" name="a3b4865fafe3cf6a31b3444c2557550f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4865fafe3cf6a31b3444c2557550f8">&#9670;&#160;</a></span>kill()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -459,7 +505,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -474,52 +520,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">Entity</a>.</p>
 
-</div>
-</div>
-<a id="a712e425583cff17617c280a10399bf1e" name="a712e425583cff17617c280a10399bf1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a712e425583cff17617c280a10399bf1e">&#9670;&#160;</a></span>setPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Obstacle::setPosition </td>
-          <td>(</td>
-          <td class="paramtype">sf::Vector3f</td>          <td class="paramname"><span class="paramname"><em>pos</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the position of this obstacle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00147">147</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a29b7f49fb1b9b7e4d24eb8f05cc12dc3" name="a29b7f49fb1b9b7e4d24eb8f05cc12dc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">&#9670;&#160;</a></span>setTexture()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Obstacle::setTexture </td>
-          <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a71cf873dada3977dbbda2ee3c80a8f14" name="a71cf873dada3977dbbda2ee3c80a8f14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71cf873dada3977dbbda2ee3c80a8f14">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
+<a id="ab4272be0d3dddafd42040adab4d8a968" name="ab4272be0d3dddafd42040adab4d8a968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4272be0d3dddafd42040adab4d8a968">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -530,8 +536,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void Obstacle::update </td>
           <td>(</td>
-          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span></td><td>)</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>gameSpeed</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -541,14 +551,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default <a class="el" href="class_entity.html#a7d014114fcea80281536d5525019190c">Entity::update</a> override. </p>
+<p>Default <a class="el" href="class_entity.html#ac3121e79d75452497acb36dd06f0b2b2">Entity::update</a> override. </p>
 
-<p>Implements <a class="el" href="class_entity.html#a7d014114fcea80281536d5525019190c">Entity</a>.</p>
+<p>Implements <a class="el" href="class_entity.html#ac3121e79d75452497acb36dd06f0b2b2">Entity</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00305">305</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
 
 </div>
 </div>
-<a id="acd60ac9d097142b295ece68202d39655" name="acd60ac9d097142b295ece68202d39655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd60ac9d097142b295ece68202d39655">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
+<a id="af69cc091c4b73003552b2586f550c1d7" name="af69cc091c4b73003552b2586f550c1d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af69cc091c4b73003552b2586f550c1d7">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -561,7 +573,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerZ</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>playerZ</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>gameSpeed</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -574,11 +591,13 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_obstacle_8cpp_source.html#l00170">170</a> of file <a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/Obstacle/<a class="el" href="_obstacle_8h_source.html">Obstacle.h</a></li>
-<li>src/Obstacle/<a class="el" href="_obstacle_8cpp.html">Obstacle.cpp</a></li>
+<li>C:/Zaxxon/src/Obstacle/<a class="el" href="_obstacle_8h_source.html">Obstacle.h</a></li>
+<li>C:/Zaxxon/src/Obstacle/<a class="el" href="_obstacle_8cpp_source.html">Obstacle.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

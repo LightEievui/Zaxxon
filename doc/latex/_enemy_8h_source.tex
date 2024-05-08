@@ -1,41 +1,42 @@
 \doxysection{Enemy.\+h}
-\hypertarget{_enemy_8h_source}{}\label{_enemy_8h_source}\index{src/Entity/Character/Enemy/Enemy.h@{src/Entity/Character/Enemy/Enemy.h}}
+\hypertarget{_enemy_8h_source}{}\label{_enemy_8h_source}\index{C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h@{C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h}}
 \mbox{\hyperlink{_enemy_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_8h}{../Character.h}}"{}}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PI\ 3.1415f}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_enemy}{Enemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_enemy_a78513af724531f981172b56b91951a21}{Enemy}}(sf::Texture*\ texture,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ sf::Vector3f\ spawnZ,\ \textcolor{keywordtype}{int}\ randOffset\ =\ 0);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_accf4abaa4f7531426301612edd476067}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float}\ gameSpeed);}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}{kill}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_enemy_af933da0510136962e59487e9a6c28ead}{getTranslate2}}()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a8c811260a36e5b4fdbd022fa4e205863}{getSizeIndex}}();}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Static\ so\ can\ be\ used\ from\ any\ context.}}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Will\ spawn\ a\ wave\ of\ enemies\ relative\ to\ the\ player.}}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_a965d8a0c6f027a92795b9794158369b7}{spawnWave}}(std::vector<Enemy*>\&,\ sf::Texture*,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_enemy_a038e636d16b708f92627348a36750702}{isDead}}()\ \{\ \textcolor{keywordflow}{return}\ dead;\ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ velocity\ it\ has\ moved\ already}}
-\DoxyCodeLine{00024\ \ \ \ \ sf::Vector2f\ runAI();}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ angle\ -\/>\ x/z\ coords}}
-\DoxyCodeLine{00026\ \ \ \ \ sf::Vector2f\ angleTranslate(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keywordtype}{float}\ scale);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ sf::IntRect\ textures[2][4];}
-\DoxyCodeLine{00029\ \ \ \ \ sf::Clock\ alive;}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sizeIndex\ =\ 0;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ randOffset\ =\ 0;}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ bullets}}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ ableToFire\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00037\ \ \ \ \ sf::Clock\ bulletCD;}
-\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_8h}{../Character.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00002}\mbox{\hyperlink{_enemy_8h_a598a3330b3c21701223ee0ca14316eca}{00002}}\ \textcolor{preprocessor}{\#define\ PI\ 3.1415f}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00003}00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00009}\mbox{\hyperlink{class_enemy}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_enemy}{Enemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00011}00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_enemy_a78513af724531f981172b56b91951a21}{Enemy}}(sf::Texture*\ texture,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ sf::Vector3f\ spawnZ,}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ randOffset\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_abb114c1514e9ba90c319ddb7e0f40e59}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float}\ gameSpeed)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_ad0bf56e75378d9524f2d77479d259dde}{kill}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00016}\mbox{\hyperlink{class_enemy_af933da0510136962e59487e9a6c28ead}{00016}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_enemy_af933da0510136962e59487e9a6c28ead}{getTranslate2}}()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_enemy_a8c811260a36e5b4fdbd022fa4e205863}{getSizeIndex}}();}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ Static\ so\ can\ be\ used\ from\ any\ context.}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//\ Will\ spawn\ a\ wave\ of\ enemies\ relative\ to\ the\ player.}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_a965d8a0c6f027a92795b9794158369b7}{spawnWave}}(std::vector<Enemy*>\&,\ sf::Texture*,\ \textcolor{keywordtype}{int},}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00022}\mbox{\hyperlink{class_enemy_a038e636d16b708f92627348a36750702}{00022}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_enemy_a038e636d16b708f92627348a36750702}{isDead}}()\ \{\ \textcolor{keywordflow}{return}\ dead;\ \};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00023}00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ velocity\ it\ has\ moved\ already}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00025}00025\ \ \ \ \ sf::Vector2f\ runAI();}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ angle\ -\/>\ x/z\ coords}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00027}00027\ \ \ \ \ sf::Vector2f\ angleTranslate(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keywordtype}{float}\ scale);}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00029}00029\ \ \ \ \ sf::IntRect\ textures[2][4];}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00030}00030\ \ \ \ \ sf::Clock\ alive;}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sizeIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ randOffset\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ bullets}}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ ableToFire\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00038}00038\ \ \ \ \ sf::Clock\ bulletCD;}
+\DoxyCodeLine{\Hypertarget{_enemy_8h_source_l00039}00039\ \};}
 
 \end{DoxyCode}

@@ -1,0 +1,539 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_character" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Character</compoundname>
+    <basecompoundref refid="class_entity" prot="public" virt="non-virtual">Entity</basecompoundref>
+    <derivedcompoundref refid="class_enemy" prot="public" virt="non-virtual">Enemy</derivedcompoundref>
+    <derivedcompoundref refid="class_player" prot="public" virt="non-virtual">Player</derivedcompoundref>
+    <includes refid="_character_8h" local="no">Character.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_character_1a602309a031e6db0a570644d8f0b5d5fb" prot="protected" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Character::yMax</definition>
+        <argsstring></argsstring>
+        <name>yMax</name>
+        <qualifiedname>Character::yMax</qualifiedname>
+        <initializer>= 140</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="26" column="11" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a1750fc7b411d6fdac9ca9e6763e126f5" prot="protected" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Character::yMin</definition>
+        <argsstring></argsstring>
+        <name>yMin</name>
+        <qualifiedname>Character::yMin</qualifiedname>
+        <initializer>= 69</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="27" column="11" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a682f191a3a01f1a772cd3fa624c0b16e" prot="protected" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Character::xMin</definition>
+        <argsstring></argsstring>
+        <name>xMin</name>
+        <qualifiedname>Character::xMin</qualifiedname>
+        <initializer>= -160</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="28" column="11" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1ae741b4874f8875f33f70663890315a52" prot="protected" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Character::xMax</definition>
+        <argsstring></argsstring>
+        <name>xMax</name>
+        <qualifiedname>Character::xMax</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="29" column="11" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a12d640046cf216dd010f8e71c3466e1e" prot="protected" static="no" mutable="no">
+        <type>sf::Vector3f</type>
+        <definition>sf::Vector3f Character::velocity</definition>
+        <argsstring></argsstring>
+        <name>velocity</name>
+        <qualifiedname>Character::velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="39" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1aff7b8bd3f067ab04cd547c0dc14e765f" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_character_bullet" kindref="compound">CharacterBullet</ref> * &gt;</type>
+        <definition>std::vector&lt;CharacterBullet*&gt; Character::bullets</definition>
+        <argsstring></argsstring>
+        <name>bullets</name>
+        <qualifiedname>Character::bullets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="40" column="13" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a95e438488293a98b1a404f39e4f97aeb" prot="protected" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Character::sizeIndex</definition>
+        <argsstring></argsstring>
+        <name>sizeIndex</name>
+        <qualifiedname>Character::sizeIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="41" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_character_1a42fcd0ca04459e9e36357b99cc94fd9d" prot="private" static="no" mutable="no">
+        <type>sf::IntRect</type>
+        <definition>sf::IntRect Character::bulletTexture</definition>
+        <argsstring></argsstring>
+        <name>bulletTexture</name>
+        <qualifiedname>Character::bulletTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="43" column="13" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Character::Character</definition>
+        <argsstring>(sf::Texture *)</argsstring>
+        <name>Character</name>
+        <qualifiedname>Character::Character</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spriteSheet</defname>
+        </param>
+        <briefdescription>
+<para>Create a new character who will have sprite from spritesheet. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spriteSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="15" column="1" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="8" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a5e399f512bf22a9e8558a4bae1ec9555" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Character::~Character</definition>
+        <argsstring>() override</argsstring>
+        <name>~Character</name>
+        <qualifiedname>Character::~Character</qualifiedname>
+        <briefdescription>
+<para>Clean up memory related to the <ref refid="class_character" kindref="compound">Character</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="16" column="1" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Character::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float) override</argsstring>
+        <name>update</name>
+        <qualifiedname>Character::update</qualifiedname>
+        <reimplements refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</reimplements>
+        <reimplementedby refid="class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59">update</reimplementedby>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Move the character by velocity and redraw them to the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="17" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="31" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a6eaf7357d3575a2281b5456abfbe1b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Character::kill</definition>
+        <argsstring>()=0</argsstring>
+        <name>kill</name>
+        <qualifiedname>Character::kill</qualifiedname>
+        <reimplementedby refid="class_enemy_1ad0bf56e75378d9524f2d77479d259dde">kill</reimplementedby>
+        <reimplementedby refid="class_player_1aa8baacf4fe29a618f2cf4b26327e4d5a">kill</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="18" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a59755f2066960eeade9a67b13f646c79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="class_character_bullet" kindref="compound">CharacterBullet</ref> * &gt; &amp;</type>
+        <definition>std::vector&lt; CharacterBullet * &gt; &amp; Character::getBullets</definition>
+        <argsstring>()</argsstring>
+        <name>getBullets</name>
+        <qualifiedname>Character::getBullets</qualifiedname>
+        <briefdescription>
+<para>Get the currently fired bullets from this character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Vector of bullets</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="20" column="13" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1abb29539c98416153a4f079ca83879cfc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Character::getSizeIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>getSizeIndex</name>
+        <qualifiedname>Character::getSizeIndex</qualifiedname>
+        <briefdescription>
+<para>Get public size index of this character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="21" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a6ea404b0682144a8f21d42e881cb0ce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::killBullet</definition>
+        <argsstring>(int)</argsstring>
+        <name>killBullet</name>
+        <qualifiedname>Character::killBullet</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>bullet</defname>
+        </param>
+        <briefdescription>
+<para>Get rid of bullet by index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bullet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="22" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="150" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1acf35437606532f7df271dd0fd3d6800c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::setPos</definition>
+        <argsstring>(sf::Vector3f)</argsstring>
+        <name>setPos</name>
+        <qualifiedname>Character::setPos</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>pos</defname>
+        </param>
+        <briefdescription>
+<para>Set position for the character itself. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="24" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="161" bodyend="170"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_character_1a40ac52813d37c391b4cd6db06a8f1216" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::_getSizeIndex</definition>
+        <argsstring>(unsigned int &amp;)</argsstring>
+        <name>_getSizeIndex</name>
+        <qualifiedname>Character::_getSizeIndex</qualifiedname>
+        <param>
+          <type>unsigned int &amp;</type>
+          <defname>planeSizeIndex</defname>
+        </param>
+        <briefdescription>
+<para>Get the height sector that character is in. Underscore infront indicates that it is not public. 0-3 3 indicates smallest, 0 indicates biggest. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>planeSizeIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="31" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="76" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1adba5c58a1b24bff604893e28519a1f34" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector3f</type>
+        <definition>sf::Vector3f Character::getVelocity</definition>
+        <argsstring>() const</argsstring>
+        <name>getVelocity</name>
+        <qualifiedname>Character::getVelocity</qualifiedname>
+        <briefdescription>
+<para>Get the velocity of character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>sf::Vector3f</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="32" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a46a264779165a349a13bcb364c4106d4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::setVelocity</definition>
+        <argsstring>(sf::Vector3f)</argsstring>
+        <name>setVelocity</name>
+        <qualifiedname>Character::setVelocity</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>vel</defname>
+        </param>
+        <briefdescription>
+<para>Change the velocity of this character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vel</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="34" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1afe32dd9baa581b7895f06c9687d073b4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::setBullet</definition>
+        <argsstring>(sf::IntRect)</argsstring>
+        <name>setBullet</name>
+        <qualifiedname>Character::setBullet</qualifiedname>
+        <param>
+          <type>sf::IntRect</type>
+          <defname>bulletTexture</defname>
+        </param>
+        <briefdescription>
+<para>Change how the bullets from this character look. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bulletTexture</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="35" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a450a222c641925d6bda2f2c9241c220b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::updateBullets</definition>
+        <argsstring>(sf::RenderWindow &amp;window, float)</argsstring>
+        <name>updateBullets</name>
+        <qualifiedname>Character::updateBullets</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Calls <ref refid="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b" kindref="member">CharacterBullet::update()</ref> on each bullet &amp; deletes bullets that are not in the window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Main render window</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="37" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Character.cpp" bodystart="128" bodyend="143"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Abstract class to hold information that both player and enemy use. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Character</label>
+        <link refid="class_character"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Enemy</label>
+        <link refid="class_enemy"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+      <node id="4">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="1">
+        <label>Character</label>
+        <link refid="class_character"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/Character/Character.h" line="12" column="1" bodyfile="C:/Zaxxon/src/Entity/Character/Character.h" bodystart="13" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_character_1a40ac52813d37c391b4cd6db06a8f1216" prot="protected" virt="non-virtual"><scope>Character</scope><name>_getSizeIndex</name></member>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>Character</scope><name>animations</name></member>
+      <member refid="class_character_1aff7b8bd3f067ab04cd547c0dc14e765f" prot="protected" virt="non-virtual"><scope>Character</scope><name>bullets</name></member>
+      <member refid="class_character_1a42fcd0ca04459e9e36357b99cc94fd9d" prot="private" virt="non-virtual"><scope>Character</scope><name>bulletTexture</name></member>
+      <member refid="class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2" prot="public" virt="non-virtual"><scope>Character</scope><name>Character</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>Character</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>Character</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>Character</scope><name>debugText</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>Character</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>Character</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>Character</scope><name>getBounds</name></member>
+      <member refid="class_character_1a59755f2066960eeade9a67b13f646c79" prot="public" virt="non-virtual"><scope>Character</scope><name>getBullets</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>Character</scope><name>getPos</name></member>
+      <member refid="class_character_1abb29539c98416153a4f079ca83879cfc" prot="public" virt="non-virtual"><scope>Character</scope><name>getSizeIndex</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>Character</scope><name>getSpritePos</name></member>
+      <member refid="class_character_1adba5c58a1b24bff604893e28519a1f34" prot="protected" virt="non-virtual"><scope>Character</scope><name>getVelocity</name></member>
+      <member refid="class_character_1a6eaf7357d3575a2281b5456abfbe1b9d" prot="public" virt="pure-virtual"><scope>Character</scope><name>kill</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual" ambiguityscope="Entity::"><scope>Character</scope><name>kill</name></member>
+      <member refid="class_character_1a6ea404b0682144a8f21d42e881cb0ce7" prot="public" virt="non-virtual"><scope>Character</scope><name>killBullet</name></member>
+      <member refid="class_character_1afe32dd9baa581b7895f06c9687d073b4" prot="protected" virt="non-virtual"><scope>Character</scope><name>setBullet</name></member>
+      <member refid="class_character_1acf35437606532f7df271dd0fd3d6800c" prot="public" virt="non-virtual"><scope>Character</scope><name>setPos</name></member>
+      <member refid="class_character_1a46a264779165a349a13bcb364c4106d4" prot="protected" virt="non-virtual"><scope>Character</scope><name>setVelocity</name></member>
+      <member refid="class_character_1a95e438488293a98b1a404f39e4f97aeb" prot="protected" virt="non-virtual"><scope>Character</scope><name>sizeIndex</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>Character</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>Character</scope><name>spriteSheet</name></member>
+      <member refid="class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479" prot="public" virt="virtual"><scope>Character</scope><name>update</name></member>
+      <member refid="class_character_1a450a222c641925d6bda2f2c9241c220b" prot="protected" virt="non-virtual"><scope>Character</scope><name>updateBullets</name></member>
+      <member refid="class_character_1a12d640046cf216dd010f8e71c3466e1e" prot="protected" virt="non-virtual"><scope>Character</scope><name>velocity</name></member>
+      <member refid="class_character_1ae741b4874f8875f33f70663890315a52" prot="protected" virt="non-virtual"><scope>Character</scope><name>xMax</name></member>
+      <member refid="class_character_1a682f191a3a01f1a772cd3fa624c0b16e" prot="protected" virt="non-virtual"><scope>Character</scope><name>xMin</name></member>
+      <member refid="class_character_1a602309a031e6db0a570644d8f0b5d5fb" prot="protected" virt="non-virtual"><scope>Character</scope><name>yMax</name></member>
+      <member refid="class_character_1a1750fc7b411d6fdac9ca9e6763e126f5" prot="protected" virt="non-virtual"><scope>Character</scope><name>yMin</name></member>
+      <member refid="class_character_1a5e399f512bf22a9e8558a4bae1ec9555" prot="public" virt="non-virtual"><scope>Character</scope><name>~Character</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>Character</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

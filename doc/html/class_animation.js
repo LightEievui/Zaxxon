@@ -11,6 +11,6 @@ var class_animation =
     ] ],
     [ "Animation", "class_animation.html#a83f0a16cef7117f187ad596de38dd9d6", null ],
     [ "~Animation", "class_animation.html#a401b68793d4fbf48d481c030ee4b2a16", null ],
-    [ "getState", "class_animation.html#aa1d5fabe9f7d60e3811f945abc2f24ac", null ],
+    [ "getState", "class_animation.html#a90e29926b57befdba44ef5835cb10e06", null ],
     [ "run", "class_animation.html#aafa4559f75e244ca439626971d3ea11a", null ]
 ];

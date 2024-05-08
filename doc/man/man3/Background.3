@@ -20,14 +20,14 @@ Background \- Holds all backgrounds and methods to fill each level with content\
 
 .in +1c
 .ti -1c
-.RI "\fBBackground\fP (\fBStage\fP, sf::View &, sf::Texture *, std::vector< \fBObstacle\fP * > &, std::vector< \fBEnemy\fP * > &, \fBPlayer\fP &, int, std::vector< \fBWall\fP * > &, std::vector< \fBZapWalls\fP * > &)"
+.RI "\fBBackground\fP (\fBStage\fP, sf::View &, sf::Texture *, std::vector< \fBObstacle\fP * > &, std::vector< \fBEnemy\fP * > &, \fBPlayer\fP &, int, std::vector< \fBWall\fP * > &, std::vector< \fBZapWall\fP * > &)"
 .br
 .RI "Create the background object and initialize each of the necessary images so they are ready to be drawn when needed\&. "
 .ti -1c
 .RI "\fB~Background\fP ()"
 .br
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &, sf::View &, float, sf::Texture *, std::vector< \fBObstacle\fP * > &, std::vector< \fBEnemy\fP * > &, \fBPlayer\fP &, std::vector< \fBWall\fP * > &, bool, std::vector< \fBZapWalls\fP * > &)"
+.RI "void \fBupdate\fP (sf::RenderWindow &, sf::View &, float, sf::Texture *, std::vector< \fBObstacle\fP * > &, std::vector< \fBEnemy\fP * > &, \fBPlayer\fP &, std::vector< \fBWall\fP * > &, std::vector< \fBZapWall\fP * > &)"
 .br
 .RI "Run the background logic, and check if background stage should be swapped\&. "
 .ti -1c
@@ -35,11 +35,11 @@ Background \- Holds all backgrounds and methods to fill each level with content\
 .br
 .RI "Set the position of the background\&. "
 .ti -1c
-.RI "void \fBgenerateObstacles\fP (\fBBackground::Stage\fP, std::vector< \fBObstacle\fP * > &, sf::Texture *, std::vector< \fBWall\fP * > &, std::vector< \fBZapWalls\fP * > &)"
+.RI "void \fBgenerateObstacles\fP (\fBStage\fP, std::vector< \fBObstacle\fP * > &, sf::Texture *, std::vector< \fBWall\fP * > &, std::vector< \fBZapWall\fP * > &)"
 .br
 .RI "Place all obstacles for given stage\&. "
 .ti -1c
-.RI "void \fBgenerateWaves\fP (\fBBackground::Stage\fP, std::vector< \fBEnemy\fP * > &, sf::Texture *, int)"
+.RI "void \fBgenerateWaves\fP (\fBStage\fP, std::vector< \fBEnemy\fP * > &, sf::Texture *, int)"
 .br
 .RI "Handle enemy wave generation\&. "
 .ti -1c
@@ -66,6 +66,8 @@ Background \- Holds all backgrounds and methods to fill each level with content\
 .SH "Detailed Description"
 .PP 
 Holds all backgrounds and methods to fill each level with content\&. 
+.PP
+Definition at line \fB15\fP of file \fBBackground\&.h\fP\&.
 .SH "Member Enumeration Documentation"
 .PP 
 .SS "enum \fBBackground::Stage\fP"
@@ -81,33 +83,43 @@ Holds all backgrounds and methods to fill each level with content\&.
 \fB\fIBOSS \fP\fP
 .TP
 \fB\fIBOSSFIGHT \fP\fP
+.PP
+Definition at line \fB18\fP of file \fBBackground\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "Background::Background (\fBStage\fP startStage, sf::View & mainView, sf::Texture * spritesheet, std::vector< \fBObstacle\fP * > & obstacles, std::vector< \fBEnemy\fP * > & enemies, \fBPlayer\fP & player, int startPos, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWalls\fP * > & zapWalls)"
+.SS "Background::Background (\fBStage\fP startStage, sf::View & mainView, sf::Texture * spritesheet, std::vector< \fBObstacle\fP * > & obstacles, std::vector< \fBEnemy\fP * > & enemies, \fBPlayer\fP & player, int startPos, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWall\fP * > & zapWalls)"
 
 .PP
 Create the background object and initialize each of the necessary images so they are ready to be drawn when needed\&. 
 .PP
 \fBParameters\fP
 .RS 4
-\fIstartStage\fP 
+\fIstartStage\fP Stage that \fBBackground\fP will start on\&.
 .br
-\fImainView\fP 
+\fImainView\fP The 3d view\&.
 .br
 \fIspritesheet\fP 
 .br
-\fIobstacles\fP 
+\fIobstacles\fP \fBObstacle\fP list\&.
 .br
-\fIenemies\fP 
+\fIenemies\fP \fBEnemy\fP list\&.
 .br
 \fIplayer\fP 
 .br
-\fIstartPos\fP 
+\fIstartPos\fP The Z the background should go to at start\&.
+.br
+\fIwalls\fP \fBWall\fP list\&.
+.br
+\fIzapWalls\fP Zap wall list\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB18\fP of file \fBBackground\&.cpp\fP\&.
 .SS "Background::~Background ()"
 
+.PP
+Definition at line \fB49\fP of file \fBBackground\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void Background::flashColor (sf::RenderWindow & window)"
@@ -121,7 +133,9 @@ Flash color of background between the default color and red tinted color based o
 .RE
 .PP
 
-.SS "void Background::generateObstacles (\fBBackground::Stage\fP stage, std::vector< \fBObstacle\fP * > & obstacles, sf::Texture * spriteSheet, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWalls\fP * > & zapWalls)"
+.PP
+Definition at line \fB663\fP of file \fBBackground\&.cpp\fP\&.
+.SS "void Background::generateObstacles (\fBStage\fP stage, std::vector< \fBObstacle\fP * > & obstacles, sf::Texture * spriteSheet, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWall\fP * > & zapWalls)"
 
 .PP
 Place all obstacles for given stage\&. 
@@ -136,7 +150,9 @@ Place all obstacles for given stage\&.
 .RE
 .PP
 
-.SS "void Background::generateWaves (\fBBackground::Stage\fP stage, std::vector< \fBEnemy\fP * > & enemies, sf::Texture * spriteSheet, int playerZ)"
+.PP
+Definition at line \fB253\fP of file \fBBackground\&.cpp\fP\&.
+.SS "void Background::generateWaves (\fBStage\fP stage, std::vector< \fBEnemy\fP * > & enemies, sf::Texture * spriteSheet, int playerZ)"
 
 .PP
 Handle enemy wave generation\&. 
@@ -153,6 +169,8 @@ Handle enemy wave generation\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB608\fP of file \fBBackground\&.cpp\fP\&.
 .SS "\fBBackground::Stage\fP Background::getStage ()"
 
 .PP
@@ -164,6 +182,8 @@ A background stage
 .RE
 .PP
 
+.PP
+Definition at line \fB651\fP of file \fBBackground\&.cpp\fP\&.
 .SS "bool Background::isInSpace (int z)"
 
 .PP
@@ -180,6 +200,8 @@ A boolean
 .RE
 .PP
 
+.PP
+Definition at line \fB188\fP of file \fBBackground\&.cpp\fP\&.
 .SS "void Background::resetPos (sf::View & mainView, \fBPlayer\fP & player, int startPos)"
 
 .PP
@@ -195,6 +217,8 @@ Reset the position of the background for stage changes\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB217\fP of file \fBBackground\&.cpp\fP\&.
 .SS "void Background::setPosition (sf::Vector2f pos)"
 
 .PP
@@ -206,6 +230,8 @@ Set the position of the background\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB124\fP of file \fBBackground\&.cpp\fP\&.
 .SS "void Background::setStage (\fBStage\fP newStage)"
 
 .PP
@@ -217,7 +243,9 @@ Set the current stage\&.
 .RE
 .PP
 
-.SS "void Background::update (sf::RenderWindow & window, sf::View & mainView, float gameSpeed, sf::Texture * spritesheet, std::vector< \fBObstacle\fP * > & obstacles, std::vector< \fBEnemy\fP * > & enemies, \fBPlayer\fP & player, std::vector< \fBWall\fP * > & walls, bool bossState, std::vector< \fBZapWalls\fP * > & zapWalls)"
+.PP
+Definition at line \fB673\fP of file \fBBackground\&.cpp\fP\&.
+.SS "void Background::update (sf::RenderWindow & window, sf::View & mainView, float gameSpeed, sf::Texture * spritesheet, std::vector< \fBObstacle\fP * > & obstacles, std::vector< \fBEnemy\fP * > & enemies, \fBPlayer\fP & player, std::vector< \fBWall\fP * > & walls, std::vector< \fBZapWall\fP * > & zapWalls)"
 
 .PP
 Run the background logic, and check if background stage should be swapped\&. 
@@ -226,7 +254,7 @@ Run the background logic, and check if background stage should be swapped\&.
 .RS 4
 \fIwindow\fP 
 .br
-\fImainView\fP 
+\fImainView\fP 3d View
 .br
 \fIgameSpeed\fP 
 .br
@@ -237,9 +265,15 @@ Run the background logic, and check if background stage should be swapped\&.
 \fIenemies\fP 
 .br
 \fIplayer\fP 
+.br
+\fIwalls\fP \fBWall\fP list\&.
+.br
+\fIzapWalls\fP Zap wall list\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB66\fP of file \fBBackground\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

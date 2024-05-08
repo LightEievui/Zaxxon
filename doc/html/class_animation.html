@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -132,12 +132,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aafa4559f75e244ca439626971d3ea11a" id="r_aafa4559f75e244ca439626971d3ea11a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafa4559f75e244ca439626971d3ea11a">run</a> (sf::Sprite *, <a class="el" href="#a60f8fa9f33af072a23f28b8b69b42d18">Anim</a>, unsigned int sizeIndex=0)</td></tr>
 <tr class="memdesc:aafa4559f75e244ca439626971d3ea11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given animation on sprite. Note that you should always check if the sprite* is null before doing operations.  <br /></td></tr>
 <tr class="separator:aafa4559f75e244ca439626971d3ea11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1d5fabe9f7d60e3811f945abc2f24ac" id="r_aa1d5fabe9f7d60e3811f945abc2f24ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1d5fabe9f7d60e3811f945abc2f24ac">getState</a> ()</td></tr>
-<tr class="memdesc:aa1d5fabe9f7d60e3811f945abc2f24ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if current animation has finished running.  <br /></td></tr>
-<tr class="separator:aa1d5fabe9f7d60e3811f945abc2f24ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e29926b57befdba44ef5835cb10e06" id="r_a90e29926b57befdba44ef5835cb10e06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90e29926b57befdba44ef5835cb10e06">getState</a> () const</td></tr>
+<tr class="memdesc:a90e29926b57befdba44ef5835cb10e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if current animation has finished running.  <br /></td></tr>
+<tr class="separator:a90e29926b57befdba44ef5835cb10e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class to handle (almost) all in-game animations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00010">10</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a60f8fa9f33af072a23f28b8b69b42d18" name="a60f8fa9f33af072a23f28b8b69b42d18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60f8fa9f33af072a23f28b8b69b42d18">&#9670;&#160;</a></span>Anim</h2>
@@ -160,6 +162,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f" name="a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f"></a>RESET&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8h_source.html#l00013">13</a> of file <a class="el" href="_animation_8h_source.html">Animation.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -180,6 +184,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Initalize individual animation frames. </p>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8cpp_source.html#l00007">7</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a401b68793d4fbf48d481c030ee4b2a16" name="a401b68793d4fbf48d481c030ee4b2a16"></a>
@@ -199,11 +205,13 @@ Public Member Functions</h2></td></tr>
 
 <p>Clean up memory for animation class. </p>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8cpp_source.html#l00058">58</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa1d5fabe9f7d60e3811f945abc2f24ac" name="aa1d5fabe9f7d60e3811f945abc2f24ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1d5fabe9f7d60e3811f945abc2f24ac">&#9670;&#160;</a></span>getState()</h2>
+<a id="a90e29926b57befdba44ef5835cb10e06" name="a90e29926b57befdba44ef5835cb10e06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e29926b57befdba44ef5835cb10e06">&#9670;&#160;</a></span>getState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,13 +220,15 @@ Public Member Functions</h2></td></tr>
           <td class="memname">int Animation::getState </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Checks if current animation has finished running. </p>
 <dl class="section return"><dt>Returns</dt><dd>A boolean</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_animation_8cpp_source.html#l00315">315</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -255,11 +265,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_animation_8cpp_source.html#l00074">74</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/Animation/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
-<li>src/Animation/<a class="el" href="_animation_8cpp.html">Animation.cpp</a></li>
+<li>C:/Zaxxon/src/Animation/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
+<li>C:/Zaxxon/src/Animation/<a class="el" href="_animation_8cpp_source.html">Animation.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

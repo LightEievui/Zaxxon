@@ -37,6 +37,13 @@ Inherits \fBCharacter\fP\&.
 .RI "bool \fBisAlive\fP ()"
 .br
 .RI "Check if player is alive\&. "
+.ti -1c
+.RI "bool \fBisMissileable\fP ()"
+.br
+.RI "Returns whether the horizontal missile should shoot at the player or not\&. "
+.ti -1c
+.RI "void \fBrestartMissileTimer\fP ()"
+.br
 .in -1c
 
 Public Member Functions inherited from \fBCharacter\fP
@@ -44,13 +51,13 @@ Public Member Functions inherited from \fBCharacter\fP
 .ti -1c
 .RI "\fBCharacter\fP (sf::Texture *)"
 .br
-.RI "Create new character who will have sprite from spritesheet\&. "
+.RI "Create a new character who will have sprite from spritesheet\&. "
 .ti -1c
-.RI "\fB~Character\fP ()"
+.RI "\fB~Character\fP () override"
 .br
 .RI "Clean up memory related to the \fBCharacter\fP class\&. "
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &)"
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
 .br
 .RI "Move the character by velocity and redraw them to the screen\&. "
 .ti -1c
@@ -58,7 +65,7 @@ Public Member Functions inherited from \fBCharacter\fP
 .br
 .RI "Get the currently fired bullets from this character\&. "
 .ti -1c
-.RI "unsigned int \fBgetSizeIndex\fP ()"
+.RI "unsigned int \fBgetSizeIndex\fP () const"
 .br
 .RI "Get public size index of this character\&. "
 .ti -1c
@@ -78,7 +85,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Setup \fBEntity\fP class variables\&. "
 .ti -1c
-.RI "\fB~Entity\fP ()"
+.RI "virtual \fB~Entity\fP ()=0"
 .br
 .RI "Clean up memory related to \fBEntity\fP class\&. "
 .ti -1c
@@ -112,7 +119,7 @@ Protected Member Functions inherited from \fBCharacter\fP
 .br
 .RI "Get the height sector that character is in\&. Underscore infront indicates that it is not public\&. 0-3 3 indicates smallest, 0 indicates biggest\&. "
 .ti -1c
-.RI "sf::Vector3f \fBgetVelocity\fP ()"
+.RI "sf::Vector3f \fBgetVelocity\fP () const"
 .br
 .RI "Get the velocity of character\&. "
 .ti -1c
@@ -124,7 +131,7 @@ Protected Member Functions inherited from \fBCharacter\fP
 .br
 .RI "Change how the bullets from this character look\&. "
 .ti -1c
-.RI "void \fBupdateBullets\fP (sf::RenderWindow &window)"
+.RI "void \fBupdateBullets\fP (sf::RenderWindow &window, float)"
 .br
 .RI "Calls \fBCharacterBullet::update()\fP on each bullet & deletes bullets that are not in the window\&. "
 .in -1c
@@ -178,6 +185,8 @@ Protected Attributes inherited from \fBEntity\fP
 .SH "Detailed Description"
 .PP 
 The player character, also contains plane controls\&. 
+.PP
+Definition at line \fB10\fP of file \fBPlayer\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Player::Player (sf::Texture * texture, unsigned int startPos)"
@@ -193,10 +202,14 @@ Create player character at position and load resources for them\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB10\fP of file \fBPlayer\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void Player::drawHitmarker ()\fR [inline]\fP"
 
+.PP
+Definition at line \fB18\fP of file \fBPlayer\&.h\fP\&.
 .SS "bool Player::isAlive ()"
 
 .PP
@@ -208,12 +221,29 @@ Check if player is alive\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB186\fP of file \fBPlayer\&.cpp\fP\&.
+.SS "bool Player::isMissileable ()"
+
+.PP
+Returns whether the horizontal missile should shoot at the player or not\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB176\fP of file \fBPlayer\&.cpp\fP\&.
 .SS "void Player::kill ()\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Modify variables for when player dies or respawns\&. 
 .PP
 Implements \fBCharacter\fP\&.
+.PP
+Definition at line \fB156\fP of file \fBPlayer\&.cpp\fP\&.
 .SS "void Player::resetPos (int zOffset = \fR0\fP)"
 
 .PP
@@ -225,6 +255,12 @@ Reset the players position to default\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB166\fP of file \fBPlayer\&.cpp\fP\&.
+.SS "void Player::restartMissileTimer ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBPlayer\&.h\fP\&.
 .SS "void Player::update (sf::RenderWindow & window, int stage, float gameSpeed)"
 
 .PP
@@ -235,9 +271,13 @@ Run all the logic and controls for player\&.
 \fIwindow\fP 
 .br
 \fIinSpace\fP 
+.br
+\fIgameSpeed\fP 
 .RE
 .PP
 
+.PP
+Definition at line \fB42\fP of file \fBPlayer\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

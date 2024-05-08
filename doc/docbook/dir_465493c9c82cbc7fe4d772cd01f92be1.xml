@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_465493c9c82cbc7fe4d772cd01f92be1" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/Character/Player Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Player Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__player_8cpp">Player.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__player_8h">Player.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

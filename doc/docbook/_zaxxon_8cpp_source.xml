@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__zaxxon_8cpp_source" xml:lang="en-US">
+<title>Zaxxon.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Zaxxon.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__zaxxon_8cpp_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00002"/>00002 <emphasis role="comment">*&#32;Time&#32;of&#32;development:</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00003"/>00003 <emphasis role="comment">*&#32;Jan&#32;29&#32;-&#32;May&#32;8&#32;2024</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00004"/>00004 <emphasis role="comment">*</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00005"/>00005 <emphasis role="comment">*&#32;Developer&#32;team:</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00006"/>00006 <emphasis role="comment">*&#32;Gavin&#32;-&#32;Team&#32;leader&#32;/&#32;Programmer</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00007"/>00007 <emphasis role="comment">*&#32;Alex&#32;-&#32;Administrator&#32;/&#32;Language&#32;lawyer</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00008"/>00008 <emphasis role="comment">*&#32;Andrew&#32;-&#32;Chief&#32;programmer</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00009"/>00009 <emphasis role="comment">*&#32;John&#32;-&#32;Copilot&#32;/&#32;Tester</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00010"/>00010 <emphasis role="comment">*</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00011"/>00011 <emphasis role="comment">*&#32;Program:</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00012"/>00012 <emphasis role="comment">*&#32;Recreation&#32;of&#32;the&#32;popular&#32;Zaxxon&#32;Sega&#32;arcade&#32;game&#32;in&#32;C++.</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00013"/>00013 <emphasis role="comment">*&#32;An&#32;easy&#32;way&#32;to&#32;enjoy&#32;the&#32;classic&#32;game&#32;with&#32;optimized&#32;performance</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00014"/>00014 <emphasis role="comment">*&#32;and&#32;memory&#32;usage,&#32;with&#32;all&#32;the&#32;features&#32;as&#32;you&apos;d&#32;expect.</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00015"/>00015 <emphasis role="comment">*&#32;</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00016"/>00016 <emphasis role="comment">*&#32;Controls:</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00017"/>00017 <emphasis role="comment">*&#32;Keyboard:&#32;Arrow&#32;keys&#32;and&#32;Z</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00018"/>00018 <emphasis role="comment">*&#32;Joystick:&#32;Stick0&#32;and&#32;button0</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00019"/>00019 <emphasis role="comment">*</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00020"/>00020 <emphasis role="comment">*&#32;We&#32;hereby&#32;certify&#32;that&#32;this&#32;program&#32;represents&#32;our</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00021"/>00021 <emphasis role="comment">*&#32;work&#32;and&#32;that&#32;the&#32;design&#32;and&#32;logic&#32;was&#32;completed</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00022"/>00022 <emphasis role="comment">*&#32;without&#32;outside&#32;assistance.</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00023"/>00023 <emphasis role="comment">*/</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00024"/>00024 
+<anchor xml:id="__zaxxon_8cpp_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__game_8h">Game/Game.h</link>&quot;</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00027"/>00027 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00028"/>00028 
+<anchor xml:id="__zaxxon_8cpp_source_1l00029"/>00029 
+<anchor xml:id="__zaxxon_8cpp_source_1l00030"/><link linkend="__zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4">00030</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4">main</link>()
+<anchor xml:id="__zaxxon_8cpp_source_1l00031"/>00031 {
+<anchor xml:id="__zaxxon_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Startup&#32;Zaxxon</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;game&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_game">Game</link>();
+<anchor xml:id="__zaxxon_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;game-&gt;run();
+<anchor xml:id="__zaxxon_8cpp_source_1l00035"/>00035 
+<anchor xml:id="__zaxxon_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Game&#32;finished,&#32;remove&#32;it&#32;from&#32;memory</emphasis>
+<anchor xml:id="__zaxxon_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;game;
+<anchor xml:id="__zaxxon_8cpp_source_1l00038"/>00038 }
+</programlisting></section>

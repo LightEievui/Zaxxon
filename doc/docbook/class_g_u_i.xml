@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_g_u_i" xml:lang="en-US">
+<title>GUI Class Reference</title>
+<indexterm><primary>GUI</primary></indexterm>
+<para>
+
+<para>Contains all <link linkend="_class_g_u_i">GUI</link> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;GUI.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839">GUI</link> (sf::Texture *)</para>
+
+<para>Initializes the <link linkend="_class_g_u_i">GUI</link> (graphical user interface) </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220">render</link> (sf::RenderWindow &amp;, float, int, int, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link>, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link>)</para>
+
+<para>Draw all the <link linkend="_class_g_u_i">GUI</link> to the screen each frame. Also run logic for certain interactive <link linkend="_class_g_u_i">GUI</link> elements and update them as needed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_u_i_1a41bf32a5de5387392f14b204bd55259e">startRender</link> (sf::RenderWindow &amp;, int)</para>
+
+<para>Rendering specifically for the start screen. This will include the leaderboard will the top 6 scores and names. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a">renderScores</link> (sf::RenderWindow &amp;, int[], std::string[])</para>
+
+<para>Prepare the leaderboard scores to be rendered. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e">renderEnd</link> (sf::RenderWindow &amp;, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link>=255, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link>=0, const char[3]=&quot;   &quot;)</para>
+
+<para>Specific <link linkend="_class_g_u_i">GUI</link> that renders once you&apos;ve run out of lives. This includes the game over text and name entry screen. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705">renderWin</link> (sf::RenderWindow &amp;)</para>
+
+<para>Render the win screen each lap completed. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Contains all <link linkend="_class_g_u_i">GUI</link> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions. </para>
+<para>
+Definition at line <link linkend="__g_u_i_8h_source_1l00014">14</link> of file <link linkend="__g_u_i_8h_source">GUI.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839"/><section>
+    <title>GUI()</title>
+<indexterm><primary>GUI</primary><secondary>GUI</secondary></indexterm>
+<indexterm><primary>GUI</primary><secondary>GUI</secondary></indexterm>
+<para><computeroutput>GUI::GUI (sf::Texture * spritesheet)</computeroutput></para><para>
+
+<para>Initializes the <link linkend="_class_g_u_i">GUI</link> (graphical user interface) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>spritesheet</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__g_u_i_8cpp_source_1l00008">8</link> of file <link linkend="__g_u_i_8cpp_source">GUI.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>GUI</secondary></indexterm>
+<indexterm><primary>GUI</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void GUI::render (sf::RenderWindow &amp; window, float playerY, int score, int highScore, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> fuel, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> lives)</computeroutput></para><para>
+
+<para>Draw all the <link linkend="_class_g_u_i">GUI</link> to the screen each frame. Also run logic for certain interactive <link linkend="_class_g_u_i">GUI</link> elements and update them as needed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>playerY</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>score</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>fuel</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__g_u_i_8cpp_source_1l00315">315</link> of file <link linkend="__g_u_i_8cpp_source">GUI.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e"/><section>
+    <title>renderEnd()</title>
+<indexterm><primary>renderEnd</primary><secondary>GUI</secondary></indexterm>
+<indexterm><primary>GUI</primary><secondary>renderEnd</secondary></indexterm>
+<para><computeroutput>void GUI::renderEnd (sf::RenderWindow &amp; window, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> timeLeft = <computeroutput>255</computeroutput>
+, <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> selector = <computeroutput>0</computeroutput>
+, const char name[3] = <computeroutput>&quot;&#160;&#160;&#160;&quot;</computeroutput>
+)</computeroutput></para><para>
+
+<para>Specific <link linkend="_class_g_u_i">GUI</link> that renders once you&apos;ve run out of lives. This includes the game over text and name entry screen. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>state</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__g_u_i_8cpp_source_1l00547">547</link> of file <link linkend="__g_u_i_8cpp_source">GUI.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a"/><section>
+    <title>renderScores()</title>
+<indexterm><primary>renderScores</primary><secondary>GUI</secondary></indexterm>
+<indexterm><primary>GUI</primary><secondary>renderScores</secondary></indexterm>
+<para><computeroutput>void GUI::renderScores (sf::RenderWindow &amp; window, int scores[], std::string names[])</computeroutput></para><para>
+
+<para>Prepare the leaderboard scores to be rendered. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>scores</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__g_u_i_8cpp_source_1l00486">486</link> of file <link linkend="__g_u_i_8cpp_source">GUI.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705"/><section>
+    <title>renderWin()</title>
+<indexterm><primary>renderWin</primary><secondary>GUI</secondary></indexterm>
+<indexterm><primary>GUI</primary><secondary>renderWin</secondary></indexterm>
+<para><computeroutput>void GUI::renderWin (sf::RenderWindow &amp; window)</computeroutput></para><para>
+
+<para>Render the win screen each lap completed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__g_u_i_8cpp_source_1l00597">597</link> of file <link linkend="__g_u_i_8cpp_source">GUI.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_g_u_i_1a41bf32a5de5387392f14b204bd55259e"/><section>
+    <title>startRender()</title>
+<indexterm><primary>startRender</primary><secondary>GUI</secondary></indexterm>
+<indexterm><primary>GUI</primary><secondary>startRender</secondary></indexterm>
+<para><computeroutput>void GUI::startRender (sf::RenderWindow &amp; window, int highScore)</computeroutput></para><para>
+
+<para>Rendering specifically for the start screen. This will include the leaderboard will the top 6 scores and names. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>highScore</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__g_u_i_8cpp_source_1l00456">456</link> of file <link linkend="__g_u_i_8cpp_source">GUI.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/GUI/<link linkend="__g_u_i_8h">GUI.h</link>C:/Zaxxon/src/GUI/<link linkend="__g_u_i_8cpp">GUI.cpp</link></section>
+</section>

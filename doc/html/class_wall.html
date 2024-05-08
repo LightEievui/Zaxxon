@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -110,9 +110,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f29ba541aff9823b15a97451d78e4c6" id="r_a5f29ba541aff9823b15a97451d78e4c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f29ba541aff9823b15a97451d78e4c6">Wall</a> (sf::Texture *, sf::Vector3f, int size, std::vector&lt; int &gt;)</td></tr>
 <tr class="memdesc:a5f29ba541aff9823b15a97451d78e4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a section of walls, each one can be a closed or open wall piece.  <br /></td></tr>
 <tr class="separator:a5f29ba541aff9823b15a97451d78e4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a2992f2b533e1c160513d1e719f920c" id="r_a9a2992f2b533e1c160513d1e719f920c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a2992f2b533e1c160513d1e719f920c">~Wall</a> ()</td></tr>
-<tr class="memdesc:a9a2992f2b533e1c160513d1e719f920c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to wall class.  <br /></td></tr>
-<tr class="separator:a9a2992f2b533e1c160513d1e719f920c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a274edf0d5b16afba31a8618df97626af" id="r_a274edf0d5b16afba31a8618df97626af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a274edf0d5b16afba31a8618df97626af">drawWalls</a> (sf::RenderWindow &amp;window)</td></tr>
 <tr class="memdesc:a274edf0d5b16afba31a8618df97626af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw each section of the wall if it will be visible on the screen.  <br /></td></tr>
 <tr class="separator:a274edf0d5b16afba31a8618df97626af"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,12 +122,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2a34a04c46c9fe0a21d4235b106e8ae" id="r_ab2a34a04c46c9fe0a21d4235b106e8ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2a34a04c46c9fe0a21d4235b106e8ae">checkOnScreen</a> ()</td></tr>
 <tr class="memdesc:ab2a34a04c46c9fe0a21d4235b106e8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if this wall will be on screen.  <br /></td></tr>
 <tr class="separator:ab2a34a04c46c9fe0a21d4235b106e8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e18d4eb5e9afcfd35e00adf7090192b" id="r_a1e18d4eb5e9afcfd35e00adf7090192b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector3f &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e18d4eb5e9afcfd35e00adf7090192b">getWallPositions</a> ()</td></tr>
-<tr class="memdesc:a1e18d4eb5e9afcfd35e00adf7090192b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 3d position of this wall.  <br /></td></tr>
-<tr class="separator:a1e18d4eb5e9afcfd35e00adf7090192b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6132a9e93316cba66ee61a78ea96040b" id="r_a6132a9e93316cba66ee61a78ea96040b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector3f &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6132a9e93316cba66ee61a78ea96040b">getWallPositions</a> ()</td></tr>
+<tr class="memdesc:a6132a9e93316cba66ee61a78ea96040b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get 3d position of this wall.  <br /></td></tr>
+<tr class="separator:a6132a9e93316cba66ee61a78ea96040b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the normal walls (stone brick). </p>
+
+<p class="definition">Definition at line <a class="el" href="_wall_8h_source.html#l00010">10</a> of file <a class="el" href="_wall_8h_source.html">Wall.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f29ba541aff9823b15a97451d78e4c6" name="a5f29ba541aff9823b15a97451d78e4c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f29ba541aff9823b15a97451d78e4c6">&#9670;&#160;</a></span>Wall()</h2>
@@ -172,24 +171,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="a9a2992f2b533e1c160513d1e719f920c" name="a9a2992f2b533e1c160513d1e719f920c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a2992f2b533e1c160513d1e719f920c">&#9670;&#160;</a></span>~Wall()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Wall::~Wall </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clean up memory related to wall class. </p>
+<p class="definition">Definition at line <a class="el" href="_wall_8cpp_source.html#l00011">11</a> of file <a class="el" href="_wall_8cpp_source.html">Wall.cpp</a>.</p>
 
 </div>
 </div>
@@ -211,6 +193,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Check if this wall will be on screen. </p>
 <dl class="section return"><dt>Returns</dt><dd>A boolean</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_wall_8cpp_source.html#l00091">91</a> of file <a class="el" href="_wall_8cpp_source.html">Wall.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,16 +221,18 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_wall_8cpp_source.html#l00041">41</a> of file <a class="el" href="_wall_8cpp_source.html">Wall.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a1e18d4eb5e9afcfd35e00adf7090192b" name="a1e18d4eb5e9afcfd35e00adf7090192b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e18d4eb5e9afcfd35e00adf7090192b">&#9670;&#160;</a></span>getWallPositions()</h2>
+<a id="a6132a9e93316cba66ee61a78ea96040b" name="a6132a9e93316cba66ee61a78ea96040b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6132a9e93316cba66ee61a78ea96040b">&#9670;&#160;</a></span>getWallPositions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; sf::Vector3f &gt; Wall::getWallPositions </td>
+          <td class="memname">std::vector&lt; sf::Vector3f &gt; &amp; Wall::getWallPositions </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -256,6 +242,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Get 3d position of this wall. </p>
 <dl class="section return"><dt>Returns</dt><dd>Vector of 3 float vectors</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_wall_8cpp_source.html#l00101">101</a> of file <a class="el" href="_wall_8cpp_source.html">Wall.cpp</a>.</p>
 
 </div>
 </div>
@@ -287,6 +275,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_wall_8cpp_source.html#l00063">63</a> of file <a class="el" href="_wall_8cpp_source.html">Wall.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a0f4063e0408cb992f6d478308fa52656" name="a0f4063e0408cb992f6d478308fa52656"></a>
@@ -317,11 +307,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_wall_8cpp_source.html#l00075">75</a> of file <a class="el" href="_wall_8cpp_source.html">Wall.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/Wall/<a class="el" href="_wall_8h_source.html">Wall.h</a></li>
-<li>src/Wall/<a class="el" href="_wall_8cpp.html">Wall.cpp</a></li>
+<li>C:/Zaxxon/src/Wall/<a class="el" href="_wall_8h_source.html">Wall.h</a></li>
+<li>C:/Zaxxon/src/Wall/<a class="el" href="_wall_8cpp_source.html">Wall.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

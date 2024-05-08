@@ -14,20 +14,24 @@ Contains all \doxylink{class_g_u_i}{GUI} used in the game, including all text. T
 \item 
 \mbox{\hyperlink{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839}{GUI}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*})
 \begin{DoxyCompactList}\small\item\em Initializes the \doxylink{class_g_u_i}{GUI} (graphical user interface) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}{\texorpdfstring{$\sim$}{\string~}\+GUI}} ()
-\begin{DoxyCompactList}\small\item\em Clear up memory related to the \doxylink{class_g_u_i}{GUI}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_u_i_a1b817cdd39b52e3322ab2b89c03bc220}{render}} (sf\+::\+Render\+Window \&, float, int, int, \mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}, \mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}})
+void \mbox{\hyperlink{class_g_u_i_a1b817cdd39b52e3322ab2b89c03bc220}{render}} (sf\+::\+Render\+Window \&, float, int, int, \mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}, \mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}})
 \begin{DoxyCompactList}\small\item\em Draw all the \doxylink{class_g_u_i}{GUI} to the screen each frame. Also run logic for certain interactive \doxylink{class_g_u_i}{GUI} elements and update them as needed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_u_i_a41bf32a5de5387392f14b204bd55259e}{start\+Render}} (sf\+::\+Render\+Window \&, int)
 \begin{DoxyCompactList}\small\item\em Rendering specifically for the start screen. This will include the leaderboard will the top 6 scores and names. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_u_i_a63a1106506cd880d0148d44bc6aabf2a}{render\+Scores}} (sf\+::\+Render\+Window \&, int\mbox{[}$\,$\mbox{]}, std\+::string\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Prepare the leaderboard scores to be rendered. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e}{render\+End}} (sf\+::\+Render\+Window \&, \mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}=255, \mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}=0, const char\mbox{[}3\mbox{]}="{}   "{})
-\begin{DoxyCompactList}\small\item\em Specific \doxylink{class_g_u_i}{GUI} that renders once you\textquotesingle{}ve run out of lives. This includes the game over text and name entry screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e}{render\+End}} (sf\+::\+Render\+Window \&, \mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}=255, \mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}=0, const char\mbox{[}3\mbox{]}="{}   "{})
+\begin{DoxyCompactList}\small\item\em Specific \doxylink{class_g_u_i}{GUI} that renders once you\textquotesingle{}ve run out of lives. This includes the game over text and name entry screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_u_i_a7be71ee8e625cb46a458be2aca82f705}{render\+Win}} (sf\+::\+Render\+Window \&)
+\begin{DoxyCompactList}\small\item\em Render the win screen each lap completed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Contains all \doxylink{class_g_u_i}{GUI} used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions. 
+
+Definition at line \mbox{\hyperlink{_g_u_i_8h_source_l00014}{14}} of file \mbox{\hyperlink{_g_u_i_8h_source}{GUI.\+h}}.
+
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839}\label{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839} 
@@ -45,15 +49,9 @@ Initializes the \doxylink{class_g_u_i}{GUI} (graphical user interface)
 {\em spritesheet} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695}\label{class_g_u_i_ac9cae2328dcb5d83bdfaeca49a2eb695} 
-\index{GUI@{GUI}!````~GUI@{\texorpdfstring{$\sim$}{\string~}GUI}}
-\index{````~GUI@{\texorpdfstring{$\sim$}{\string~}GUI}!GUI@{GUI}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GUI()}{\string~GUI()}}
-{\footnotesize\ttfamily GUI\+::\texorpdfstring{$\sim$}{\string~}\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
-
-Clear up memory related to the \doxylink{class_g_u_i}{GUI}. 
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
 
 
 
@@ -62,7 +60,7 @@ Clear up memory related to the \doxylink{class_g_u_i}{GUI}.
 \index{GUI@{GUI}!render@{render}}
 \index{render@{render}!GUI@{GUI}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
-{\footnotesize\ttfamily void GUI\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{playerY,  }\item[{int}]{score,  }\item[{int}]{high\+Score,  }\item[{\mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}}]{fuel,  }\item[{\mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}}]{lives }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GUI\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{playerY,  }\item[{int}]{score,  }\item[{int}]{high\+Score,  }\item[{\mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}}]{fuel,  }\item[{\mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}}]{lives }\end{DoxyParamCaption})}
 
 
 
@@ -79,11 +77,15 @@ Draw all the \doxylink{class_g_u_i}{GUI} to the screen each frame. Also run logi
 {\em fuel} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00315}{315}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
 \Hypertarget{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e}\label{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e} 
 \index{GUI@{GUI}!renderEnd@{renderEnd}}
 \index{renderEnd@{renderEnd}!GUI@{GUI}}
 \doxysubsubsection{\texorpdfstring{renderEnd()}{renderEnd()}}
-{\footnotesize\ttfamily void GUI\+::render\+End (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}}]{time\+Left = {\ttfamily 255},  }\item[{\mbox{\hyperlink{_g_u_i_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}}]{selector = {\ttfamily 0},  }\item[{const char}]{name\mbox{[}3\mbox{]} = {\ttfamily "{}~~~"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GUI\+::render\+End (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}}]{time\+Left = {\ttfamily 255},  }\item[{\mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}}]{selector = {\ttfamily 0},  }\item[{const char}]{name\mbox{[}3\mbox{]} = {\ttfamily "{}~~~"{}} }\end{DoxyParamCaption})}
 
 
 
@@ -96,6 +98,10 @@ Specific \doxylink{class_g_u_i}{GUI} that renders once you\textquotesingle{}ve r
 {\em state} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00547}{547}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
 \Hypertarget{class_g_u_i_a63a1106506cd880d0148d44bc6aabf2a}\label{class_g_u_i_a63a1106506cd880d0148d44bc6aabf2a} 
 \index{GUI@{GUI}!renderScores@{renderScores}}
 \index{renderScores@{renderScores}!GUI@{GUI}}
@@ -113,6 +119,29 @@ Prepare the leaderboard scores to be rendered.
 {\em scores} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00486}{486}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+\Hypertarget{class_g_u_i_a7be71ee8e625cb46a458be2aca82f705}\label{class_g_u_i_a7be71ee8e625cb46a458be2aca82f705} 
+\index{GUI@{GUI}!renderWin@{renderWin}}
+\index{renderWin@{renderWin}!GUI@{GUI}}
+\doxysubsubsection{\texorpdfstring{renderWin()}{renderWin()}}
+{\footnotesize\ttfamily void GUI\+::render\+Win (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Render the win screen each lap completed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00597}{597}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
 \Hypertarget{class_g_u_i_a41bf32a5de5387392f14b204bd55259e}\label{class_g_u_i_a41bf32a5de5387392f14b204bd55259e} 
 \index{GUI@{GUI}!startRender@{startRender}}
 \index{startRender@{startRender}!GUI@{GUI}}
@@ -132,7 +161,11 @@ Rendering specifically for the start screen. This will include the leaderboard w
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_g_u_i_8cpp_source_l00456}{456}} of file \mbox{\hyperlink{_g_u_i_8cpp_source}{GUI.\+cpp}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+GUI/\mbox{\hyperlink{_g_u_i_8h}{GUI.\+h}}\item 
-src/\+GUI/\mbox{\hyperlink{_g_u_i_8cpp}{GUI.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Zaxxon/src/\+GUI/\mbox{\hyperlink{_g_u_i_8h}{GUI.\+h}}\item 
+C\+:/\+Zaxxon/src/\+GUI/\mbox{\hyperlink{_g_u_i_8cpp}{GUI.\+cpp}}\end{DoxyCompactItemize}

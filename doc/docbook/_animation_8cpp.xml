@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__animation_8cpp" xml:lang="en-US">
+<title>C:/Zaxxon/src/Animation/Animation.cpp File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Animation/Animation.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;Animation.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link> = void(Animation::*)(sf::Sprite*)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3"/><section>
+    <title>animation</title>
+<indexterm><primary>animation</primary><secondary>Animation.cpp</secondary></indexterm>
+<indexterm><primary>Animation.cpp</primary><secondary>animation</secondary></indexterm>
+<para><computeroutput>using <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link> = void(Animation::*)(sf::Sprite*)</computeroutput></para><para>
+Definition at line <link linkend="__animation_8cpp_source_1l00002">2</link> of file <link linkend="__animation_8cpp_source">Animation.cpp</link>.</para>
+</section>
+</section>
+</section>

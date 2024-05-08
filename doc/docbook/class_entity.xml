@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_entity" xml:lang="en-US">
+<title>Entity Class Reference</title>
+<indexterm><primary>Entity</primary></indexterm>
+<para>
+
+<para>Abstract class for all entities in the game. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Entity.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Entity:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_entity.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_entity_1a980f368aa07ce358583982821533a54a">Entity</link> ()</para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86">~Entity</link> ()=0</para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5">kill</link> (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>=<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link>)</para>
+
+<para>Run death animation code for the killed entity. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</link> (sf::RenderWindow &amp;, float)=0</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link> (sf::Vector3f pos)</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link> ()</para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link> ()</para>
+</listitem>
+            <listitem><para>sf::Vector2f <link linkend="_class_entity_1ad641a9c7d92d65cb688651e48029e82d">getSpritePos</link> ()</para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>sf::Texture * <link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link></para>
+</listitem>
+            <listitem><para>sf::Sprite * <link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_animation">Animation</link> <link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_entity_1a799462330dd8c754cdada5dab432b4dc">dead</link> = false</para>
+</listitem>
+            <listitem><para>sf::Text <link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link></para>
+</listitem>
+            <listitem><para>sf::Font <link linkend="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00">debugFont</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Abstract class for all entities in the game. </para>
+<para>
+Definition at line <link linkend="__entity_8h_source_1l00010">10</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_entity_1a980f368aa07ce358583982821533a54a"/><section>
+    <title>Entity()</title>
+<indexterm><primary>Entity</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>Entity</secondary></indexterm>
+<para><computeroutput>Entity::Entity ( )</computeroutput></para><para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</para>
+<para>
+Definition at line <link linkend="__entity_8cpp_source_1l00007">7</link> of file <link linkend="__entity_8cpp_source">Entity.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86"/><section>
+    <title>~Entity()</title>
+<indexterm><primary>~Entity</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>~Entity</secondary></indexterm>
+<para><computeroutput>Entity::~Entity ( )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</para>
+<para>
+Definition at line <link linkend="__entity_8cpp_source_1l00021">21</link> of file <link linkend="__entity_8cpp_source">Entity.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc"/><section>
+    <title>getAnimationState()</title>
+<indexterm><primary>getAnimationState</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>getAnimationState</secondary></indexterm>
+<para><computeroutput>int Entity::getAnimationState ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00019">19</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd"/><section>
+    <title>getBounds()</title>
+<indexterm><primary>getBounds</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>getBounds</secondary></indexterm>
+<para><computeroutput>sf::FloatRect Entity::getBounds ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00022">22</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3"/><section>
+    <title>getPos()</title>
+<indexterm><primary>getPos</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>getPos</secondary></indexterm>
+<para><computeroutput>sf::Vector3f Entity::getPos ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00021">21</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1ad641a9c7d92d65cb688651e48029e82d"/><section>
+    <title>getSpritePos()</title>
+<indexterm><primary>getSpritePos</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>getSpritePos</secondary></indexterm>
+<para><computeroutput>sf::Vector2f Entity::getSpritePos ( )</computeroutput></para><para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__entity_8cpp_source_1l00040">40</link> of file <link linkend="__entity_8cpp_source">Entity.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5"/><section>
+    <title>kill()</title>
+<indexterm><primary>kill</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>kill</secondary></indexterm>
+<para><computeroutput>void Entity::kill (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> animation = <computeroutput><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link></computeroutput>
+)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Run death animation code for the killed entity. </para>
+</para>
+<para>
+Reimplemented in <link linkend="_class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8">Obstacle</link>.</para>
+<para>
+Definition at line <link linkend="__entity_8cpp_source_1l00030">30</link> of file <link linkend="__entity_8cpp_source">Entity.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524"/><section>
+    <title>setPos()</title>
+<indexterm><primary>setPos</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>setPos</secondary></indexterm>
+<para><computeroutput>void Entity::setPos (sf::Vector3f pos)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00020">20</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>virtual void Entity::update (sf::RenderWindow &amp; , float )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_boss_1ae9cf8c000e924a806d64e7488ce6f58a">Boss</link>, <link linkend="_class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59">Enemy</link>, <link linkend="_class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594">BossBullet</link>, <link linkend="_class_obstacle_bullet_1acf03e80fd20b8f5df01c83ac8a7d4cbe">ObstacleBullet</link>, <link linkend="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">Character</link>, <link linkend="_class_obstacle_1ab4272be0d3dddafd42040adab4d8a968">Obstacle</link>, <link linkend="_class_zap_wall_1a749a7515b945420293924b3887033d93">ZapWall</link>, and <link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">CharacterBullet</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d"/><section>
+    <title>animations</title>
+<indexterm><primary>animations</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>animations</secondary></indexterm>
+<para><computeroutput><link linkend="_class_animation">Animation</link> Entity::animations<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00027">27</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1a799462330dd8c754cdada5dab432b4dc"/><section>
+    <title>dead</title>
+<indexterm><primary>dead</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>dead</secondary></indexterm>
+<para><computeroutput>bool Entity::dead = false<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00028">28</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00"/><section>
+    <title>debugFont</title>
+<indexterm><primary>debugFont</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>debugFont</secondary></indexterm>
+<para><computeroutput>sf::Font Entity::debugFont<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00030">30</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0"/><section>
+    <title>debugText</title>
+<indexterm><primary>debugText</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>debugText</secondary></indexterm>
+<para><computeroutput>sf::Text Entity::debugText<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00029">29</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1af83f70f8107d85626fb383599cc0f7ae"/><section>
+    <title>sprite</title>
+<indexterm><primary>sprite</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>sprite</secondary></indexterm>
+<para><computeroutput>sf::Sprite* Entity::sprite<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00026">26</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<anchor xml:id="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd"/><section>
+    <title>spriteSheet</title>
+<indexterm><primary>spriteSheet</primary><secondary>Entity</secondary></indexterm>
+<indexterm><primary>Entity</primary><secondary>spriteSheet</secondary></indexterm>
+<para><computeroutput>sf::Texture* Entity::spriteSheet<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__entity_8h_source_1l00025">25</link> of file <link linkend="__entity_8h_source">Entity.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Entity/<link linkend="__entity_8h">Entity.h</link>C:/Zaxxon/src/Entity/<link linkend="__entity_8cpp">Entity.cpp</link></section>
+</section>

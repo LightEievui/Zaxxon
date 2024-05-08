@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_d030179c1ca07159d4124dc786a04913" kind="dir">
+    <compoundname>C:/Zaxxon/src</compoundname>
+    <innerdir refid="dir_62fbeb234f4aa6b46a05f1b8945030da">C:/Zaxxon/src/Animation</innerdir>
+    <innerdir refid="dir_5b02342c91d8ee5c9a30e9625c86eb5f">C:/Zaxxon/src/Background</innerdir>
+    <innerdir refid="dir_711d1bdbb9967277a53c7aa37a950250">C:/Zaxxon/src/Entity</innerdir>
+    <innerdir refid="dir_e7439984c44108d3b2049a9eeb8658b3">C:/Zaxxon/src/Game</innerdir>
+    <innerdir refid="dir_3dc41743cf215070094f95f5fb1d1567">C:/Zaxxon/src/GUI</innerdir>
+    <innerdir refid="dir_8e61506d23c6dcc8583b3d2e06a12732">C:/Zaxxon/src/Obstacle</innerdir>
+    <innerdir refid="dir_08620529e5769e8df5e308e12b97b6a6">C:/Zaxxon/src/Util</innerdir>
+    <innerdir refid="dir_69216dd9288db45c675730ac6bd3a41a">C:/Zaxxon/src/Wall</innerdir>
+    <innerdir refid="dir_0a97b57148dcc880346fb0ca062df9b8">C:/Zaxxon/src/ZapWall</innerdir>
+    <innerfile refid="_zaxxon_8cpp">Zaxxon.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/"/>
+  </compounddef>
+</doxygen>

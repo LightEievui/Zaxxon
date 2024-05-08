@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__character_8cpp_source" xml:lang="en-US">
+<title>Character.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Character.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__character_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__character_8h">Character.h</link>&quot;</emphasis>
+<anchor xml:id="__character_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__character_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__character_8cpp_source_1l00008"/><link linkend="_class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2">00008</link> <link linkend="_class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character::Character</link>(sf::Texture*&#32;spriteSheet)&#32;:&#32;<link linkend="_class_entity">Entity</link>()
+<anchor xml:id="__character_8cpp_source_1l00009"/>00009 {
+<anchor xml:id="__character_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;this-&gt;spriteSheet&#32;=&#32;<link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link>;
+<anchor xml:id="__character_8cpp_source_1l00011"/>00011 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTexture(*this-&gt;spriteSheet);
+<anchor xml:id="__character_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>&#32;=&#32;0;
+<anchor xml:id="__character_8cpp_source_1l00013"/>00013 }
+<anchor xml:id="__character_8cpp_source_1l00014"/>00014 
+<anchor xml:id="__character_8cpp_source_1l00015"/>00015 
+<anchor xml:id="__character_8cpp_source_1l00019"/><link linkend="_class_character_1a5e399f512bf22a9e8558a4bae1ec9555">00019</link> <link linkend="_class_character_1a5e399f512bf22a9e8558a4bae1ec9555">Character::~Character</link>()
+<anchor xml:id="__character_8cpp_source_1l00020"/>00020 {
+<anchor xml:id="__character_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;bulletSize&#32;=&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.size();
+<anchor xml:id="__character_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bulletSize;&#32;i++)
+<anchor xml:id="__character_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>[i];
+<anchor xml:id="__character_8cpp_source_1l00024"/>00024 }
+<anchor xml:id="__character_8cpp_source_1l00025"/>00025 
+<anchor xml:id="__character_8cpp_source_1l00026"/>00026 
+<anchor xml:id="__character_8cpp_source_1l00031"/><link linkend="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">00031</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">Character::update</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__character_8cpp_source_1l00032"/>00032 {
+<anchor xml:id="__character_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;update&#32;the&#32;character&apos;s&#32;position&#32;using&#32;its&#32;velocity</emphasis>
+<anchor xml:id="__character_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">setPos</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()&#32;+&#32;this-&gt;<link linkend="_class_character_1a12d640046cf216dd010f8e71c3466e1e">velocity</link>&#32;*&#32;gameSpeed);
+<anchor xml:id="__character_8cpp_source_1l00035"/>00035 
+<anchor xml:id="__character_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__character_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;window.draw(*<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>);
+<anchor xml:id="__character_8cpp_source_1l00038"/>00038 
+<anchor xml:id="__character_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.size();&#32;i++)
+<anchor xml:id="__character_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.at(i)-&gt;isHit())
+<anchor xml:id="__character_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>[i];
+<anchor xml:id="__character_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.erase(<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.begin()&#32;+&#32;i);
+<anchor xml:id="__character_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_8cpp_source_1l00047"/>00047 }
+<anchor xml:id="__character_8cpp_source_1l00048"/>00048 
+<anchor xml:id="__character_8cpp_source_1l00049"/>00049 
+<anchor xml:id="__character_8cpp_source_1l00054"/><link linkend="_class_character_1a59755f2066960eeade9a67b13f646c79">00054</link> std::vector&lt;CharacterBullet*&gt;&amp;&#32;<link linkend="_class_character_1a59755f2066960eeade9a67b13f646c79">Character::getBullets</link>()
+<anchor xml:id="__character_8cpp_source_1l00055"/>00055 {
+<anchor xml:id="__character_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>;
+<anchor xml:id="__character_8cpp_source_1l00057"/>00057 }
+<anchor xml:id="__character_8cpp_source_1l00058"/>00058 
+<anchor xml:id="__character_8cpp_source_1l00059"/>00059 
+<anchor xml:id="__character_8cpp_source_1l00064"/><link linkend="_class_character_1abb29539c98416153a4f079ca83879cfc">00064</link> <emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1abb29539c98416153a4f079ca83879cfc">Character::getSizeIndex</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="__character_8cpp_source_1l00065"/>00065 <emphasis role="keyword"></emphasis>{
+<anchor xml:id="__character_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>;
+<anchor xml:id="__character_8cpp_source_1l00067"/>00067 }
+<anchor xml:id="__character_8cpp_source_1l00068"/>00068 
+<anchor xml:id="__character_8cpp_source_1l00069"/>00069 
+<anchor xml:id="__character_8cpp_source_1l00076"/><link linkend="_class_character_1a40ac52813d37c391b4cd6db06a8f1216">00076</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a40ac52813d37c391b4cd6db06a8f1216">Character::_getSizeIndex</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&amp;&#32;planeSizeIndex)
+<anchor xml:id="__character_8cpp_source_1l00077"/>00077 {
+<anchor xml:id="__character_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;y&#32;=&#32;abs(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;-&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link>));
+<anchor xml:id="__character_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;qSize&#32;=&#32;abs((<link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link>&#32;-&#32;<link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">yMin</link>)&#32;/&#32;4.f);
+<anchor xml:id="__character_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;planeSizeIndex&#32;=&#32;3;&#32;<emphasis role="comment">//&#32;smallest</emphasis>
+<anchor xml:id="__character_8cpp_source_1l00081"/>00081 
+<anchor xml:id="__character_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;1;&#32;i&#32;&lt;&#32;4;&#32;i++)
+<anchor xml:id="__character_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(y&#32;&gt;&#32;qSize&#32;*&#32;i&#32;&amp;&amp;&#32;y&#32;&lt;&#32;qSize&#32;*&#32;(i&#32;+&#32;1))
+<anchor xml:id="__character_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;planeSizeIndex&#32;=&#32;3&#32;-&#32;i;
+<anchor xml:id="__character_8cpp_source_1l00085"/>00085 
+<anchor xml:id="__character_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;&gt;=&#32;<link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link>)
+<anchor xml:id="__character_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;planeSizeIndex&#32;=&#32;3;
+<anchor xml:id="__character_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;&lt;=&#32;<link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">yMin</link>)
+<anchor xml:id="__character_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;planeSizeIndex&#32;=&#32;0;
+<anchor xml:id="__character_8cpp_source_1l00090"/>00090 }
+<anchor xml:id="__character_8cpp_source_1l00091"/>00091 
+<anchor xml:id="__character_8cpp_source_1l00092"/>00092 
+<anchor xml:id="__character_8cpp_source_1l00097"/><link linkend="_class_character_1adba5c58a1b24bff604893e28519a1f34">00097</link> sf::Vector3f&#32;<link linkend="_class_character_1adba5c58a1b24bff604893e28519a1f34">Character::getVelocity</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="__character_8cpp_source_1l00098"/>00098 <emphasis role="keyword"></emphasis>{
+<anchor xml:id="__character_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_character_1a12d640046cf216dd010f8e71c3466e1e">velocity</link>;
+<anchor xml:id="__character_8cpp_source_1l00100"/>00100 }
+<anchor xml:id="__character_8cpp_source_1l00101"/>00101 
+<anchor xml:id="__character_8cpp_source_1l00102"/>00102 
+<anchor xml:id="__character_8cpp_source_1l00107"/><link linkend="_class_character_1afe32dd9baa581b7895f06c9687d073b4">00107</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1afe32dd9baa581b7895f06c9687d073b4">Character::setBullet</link>(sf::IntRect&#32;bulletTexture)
+<anchor xml:id="__character_8cpp_source_1l00108"/>00108 {
+<anchor xml:id="__character_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;this-&gt;bulletTexture&#32;=&#32;bulletTexture;
+<anchor xml:id="__character_8cpp_source_1l00110"/>00110 }
+<anchor xml:id="__character_8cpp_source_1l00111"/>00111 
+<anchor xml:id="__character_8cpp_source_1l00112"/>00112 
+<anchor xml:id="__character_8cpp_source_1l00117"/><link linkend="_class_character_1a46a264779165a349a13bcb364c4106d4">00117</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a46a264779165a349a13bcb364c4106d4">Character::setVelocity</link>(sf::Vector3f&#32;vel)
+<anchor xml:id="__character_8cpp_source_1l00118"/>00118 {
+<anchor xml:id="__character_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_character_1a12d640046cf216dd010f8e71c3466e1e">velocity</link>&#32;=&#32;vel;
+<anchor xml:id="__character_8cpp_source_1l00120"/>00120 }
+<anchor xml:id="__character_8cpp_source_1l00121"/>00121 
+<anchor xml:id="__character_8cpp_source_1l00122"/>00122 
+<anchor xml:id="__character_8cpp_source_1l00128"/><link linkend="_class_character_1a450a222c641925d6bda2f2c9241c220b">00128</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a450a222c641925d6bda2f2c9241c220b">Character::updateBullets</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__character_8cpp_source_1l00129"/>00129 {
+<anchor xml:id="__character_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.size();&#32;i++)
+<anchor xml:id="__character_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_character_bullet">CharacterBullet</link>*&#32;bullet&#32;=&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>[i];
+<anchor xml:id="__character_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bullet-&gt;<link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">update</link>(window,&#32;gameSpeed);
+<anchor xml:id="__character_8cpp_source_1l00134"/>00134 
+<anchor xml:id="__character_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="__util_8cpp_1abb6b320c3e2bc2c09f352e041a9d57e1">getWindowViewRect</link>(window).intersects(bullet-&gt;<link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link>())&#32;||&#32;bullet-&gt;
+<anchor xml:id="__character_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link>()&#32;==&#32;1)
+<anchor xml:id="__character_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;bullet;
+<anchor xml:id="__character_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.erase(<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.begin()&#32;+&#32;i);
+<anchor xml:id="__character_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;i--;
+<anchor xml:id="__character_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_8cpp_source_1l00143"/>00143 }
+<anchor xml:id="__character_8cpp_source_1l00144"/>00144 
+<anchor xml:id="__character_8cpp_source_1l00145"/>00145 
+<anchor xml:id="__character_8cpp_source_1l00150"/><link linkend="_class_character_1a6ea404b0682144a8f21d42e881cb0ce7">00150</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a6ea404b0682144a8f21d42e881cb0ce7">Character::killBullet</link>(<emphasis role="keywordtype">int</emphasis>&#32;bullet)
+<anchor xml:id="__character_8cpp_source_1l00151"/>00151 {
+<anchor xml:id="__character_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>[bullet];
+<anchor xml:id="__character_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.erase(<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.begin()&#32;+&#32;bullet);
+<anchor xml:id="__character_8cpp_source_1l00154"/>00154 }
+<anchor xml:id="__character_8cpp_source_1l00155"/>00155 
+<anchor xml:id="__character_8cpp_source_1l00156"/>00156 
+<anchor xml:id="__character_8cpp_source_1l00161"/><link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">00161</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">Character::setPos</link>(sf::Vector3f&#32;pos)
+<anchor xml:id="__character_8cpp_source_1l00162"/>00162 {
+<anchor xml:id="__character_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pos.y&#32;&gt;=&#32;<link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link>)
+<anchor xml:id="__character_8cpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos.y&#32;=&#32;<link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link>&#32;-&#32;1.f;
+<anchor xml:id="__character_8cpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pos.y&#32;&lt;=&#32;<link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">yMin</link>)
+<anchor xml:id="__character_8cpp_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos.y&#32;=&#32;<link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">yMin</link>&#32;+&#32;1.f;
+<anchor xml:id="__character_8cpp_source_1l00167"/>00167 
+<anchor xml:id="__character_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">Entity::setPos</link>(pos);
+<anchor xml:id="__character_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__character_8cpp_source_1l00170"/>00170 }
+</programlisting></section>

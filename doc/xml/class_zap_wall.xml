@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_zap_wall" kind="class" language="C++" prot="public">
+    <compoundname>ZapWall</compoundname>
+    <basecompoundref refid="class_entity" prot="public" virt="non-virtual">Entity</basecompoundref>
+    <includes refid="_zap_wall_8h" local="no">ZapWall.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_zap_wall_1ac3a6e14392d85b181619398489c9290f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ZapWall::onScreen</definition>
+        <argsstring></argsstring>
+        <name>onScreen</name>
+        <qualifiedname>ZapWall::onScreen</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="21" column="6" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_zap_wall_1a08418634cb324c2ed001315aefbcd332" prot="private" static="no" mutable="no">
+        <type>sf::Vector3f</type>
+        <definition>sf::Vector3f ZapWall::startPosition</definition>
+        <argsstring></argsstring>
+        <name>startPosition</name>
+        <qualifiedname>ZapWall::startPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="22" column="14" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_zap_wall_1a1849c60660cbfd2ae2c35d1e393acf9d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ZapWall::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>ZapWall::count</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="23" column="5" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_zap_wall_1adca47ce8f38df09b292098c8ae1dd298" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ZapWall::offScreenCount</definition>
+        <argsstring></argsstring>
+        <name>offScreenCount</name>
+        <qualifiedname>ZapWall::offScreenCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="24" column="5" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_zap_wall_1afa5c2c1e43db01c8376578f38ea7948d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ZapWall::drawn</definition>
+        <argsstring></argsstring>
+        <name>drawn</name>
+        <qualifiedname>ZapWall::drawn</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="25" column="6" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_zap_wall_1a3b02529cde8076102e462dc6b7c6351c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ZapWall::ZapWall</definition>
+        <argsstring>(sf::Texture *, sf::Vector3f)</argsstring>
+        <name>ZapWall</name>
+        <qualifiedname>ZapWall::ZapWall</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>tex</defname>
+        </param>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>pos</defname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_zap_wall" kindref="compound">ZapWall</ref> constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tex</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="13" column="1" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.cpp" bodystart="9" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zap_wall_1a749a7515b945420293924b3887033d93" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ZapWall::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float) override</argsstring>
+        <name>update</name>
+        <qualifiedname>ZapWall::update</qualifiedname>
+        <reimplements refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</reimplements>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Update the <ref refid="class_zap_wall" kindref="compound">ZapWall</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gameSpeed</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="15" column="6" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.cpp" bodystart="26" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zap_wall_1a80af1a48975d457f8bee45eba0c4f416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ZapWall::setStartPos</definition>
+        <argsstring>(sf::Vector3f pos)</argsstring>
+        <name>setStartPos</name>
+        <qualifiedname>ZapWall::setStartPos</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Sets start pos for the <ref refid="class_zap_wall" kindref="compound">ZapWall</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="17" column="6" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.cpp" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zap_wall_1aa8f5edb8998f1dbd276120174c1ca01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ZapWall::isOnScreen</definition>
+        <argsstring>()</argsstring>
+        <name>isOnScreen</name>
+        <qualifiedname>ZapWall::isOnScreen</qualifiedname>
+        <briefdescription>
+<para>Returns wether the wall intersects with the view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>If the <ref refid="class_zap_wall" kindref="compound">ZapWall</ref> is on screen</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="18" column="6" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zap_wall_1a3bc98afa6d68d364ae39838cc70a5ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector3f</type>
+        <definition>sf::Vector3f ZapWall::getStartPosition</definition>
+        <argsstring>()</argsstring>
+        <name>getStartPosition</name>
+        <qualifiedname>ZapWall::getStartPosition</qualifiedname>
+        <briefdescription>
+<para>Returns the initial position of the wall. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Start position</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="19" column="14" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for other walls (blue lightning). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+      <node id="1">
+        <label>ZapWall</label>
+        <link refid="class_zap_wall"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ZapWall</label>
+        <link refid="class_zap_wall"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/ZapWall/ZapWall.h" line="10" column="1" bodyfile="C:/Zaxxon/src/ZapWall/ZapWall.h" bodystart="11" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>ZapWall</scope><name>animations</name></member>
+      <member refid="class_zap_wall_1a1849c60660cbfd2ae2c35d1e393acf9d" prot="private" virt="non-virtual"><scope>ZapWall</scope><name>count</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>ZapWall</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>ZapWall</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>ZapWall</scope><name>debugText</name></member>
+      <member refid="class_zap_wall_1afa5c2c1e43db01c8376578f38ea7948d" prot="private" virt="non-virtual"><scope>ZapWall</scope><name>drawn</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>getBounds</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>getPos</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>getSpritePos</name></member>
+      <member refid="class_zap_wall_1a3bc98afa6d68d364ae39838cc70a5ee6" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>getStartPosition</name></member>
+      <member refid="class_zap_wall_1aa8f5edb8998f1dbd276120174c1ca01c" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>isOnScreen</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual"><scope>ZapWall</scope><name>kill</name></member>
+      <member refid="class_zap_wall_1adca47ce8f38df09b292098c8ae1dd298" prot="private" virt="non-virtual"><scope>ZapWall</scope><name>offScreenCount</name></member>
+      <member refid="class_zap_wall_1ac3a6e14392d85b181619398489c9290f" prot="private" virt="non-virtual"><scope>ZapWall</scope><name>onScreen</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>setPos</name></member>
+      <member refid="class_zap_wall_1a80af1a48975d457f8bee45eba0c4f416" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>setStartPos</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>ZapWall</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>ZapWall</scope><name>spriteSheet</name></member>
+      <member refid="class_zap_wall_1a08418634cb324c2ed001315aefbcd332" prot="private" virt="non-virtual"><scope>ZapWall</scope><name>startPosition</name></member>
+      <member refid="class_zap_wall_1a749a7515b945420293924b3887033d93" prot="public" virt="virtual"><scope>ZapWall</scope><name>update</name></member>
+      <member refid="class_zap_wall_1a3b02529cde8076102e462dc6b7c6351c" prot="public" virt="non-virtual"><scope>ZapWall</scope><name>ZapWall</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>ZapWall</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

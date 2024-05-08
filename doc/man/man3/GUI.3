@@ -17,10 +17,6 @@ GUI \- Contains all \fBGUI\fP used in the game, including all text\&. These are 
 .br
 .RI "Initializes the \fBGUI\fP (graphical user interface) "
 .ti -1c
-.RI "\fB~GUI\fP ()"
-.br
-.RI "Clear up memory related to the \fBGUI\fP\&. "
-.ti -1c
 .RI "void \fBrender\fP (sf::RenderWindow &, float, int, int, \fBbyte\fP, \fBbyte\fP)"
 .br
 .RI "Draw all the \fBGUI\fP to the screen each frame\&. Also run logic for certain interactive \fBGUI\fP elements and update them as needed\&. "
@@ -36,10 +32,16 @@ GUI \- Contains all \fBGUI\fP used in the game, including all text\&. These are 
 .RI "void \fBrenderEnd\fP (sf::RenderWindow &, \fBbyte\fP=255, \fBbyte\fP=0, const char[3]='   ')"
 .br
 .RI "Specific \fBGUI\fP that renders once you've run out of lives\&. This includes the game over text and name entry screen\&. "
+.ti -1c
+.RI "void \fBrenderWin\fP (sf::RenderWindow &)"
+.br
+.RI "Render the win screen each lap completed\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Contains all \fBGUI\fP used in the game, including all text\&. These are simple but can take a lot of space due to how much there is\&. Different GUIs are split into different render functions\&. 
+.PP
+Definition at line \fB14\fP of file \fBGUI\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "GUI::GUI (sf::Texture * spritesheet)"
@@ -53,10 +55,8 @@ Initializes the \fBGUI\fP (graphical user interface)
 .RE
 .PP
 
-.SS "GUI::~GUI ()"
-
 .PP
-Clear up memory related to the \fBGUI\fP\&. 
+Definition at line \fB8\fP of file \fBGUI\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void GUI::render (sf::RenderWindow & window, float playerY, int score, int highScore, \fBbyte\fP fuel, \fBbyte\fP lives)"
@@ -76,6 +76,8 @@ Draw all the \fBGUI\fP to the screen each frame\&. Also run logic for certain in
 .RE
 .PP
 
+.PP
+Definition at line \fB315\fP of file \fBGUI\&.cpp\fP\&.
 .SS "void GUI::renderEnd (sf::RenderWindow & window, \fBbyte\fP timeLeft = \fR255\fP, \fBbyte\fP selector = \fR0\fP, const char name[3] = \fR'   '\fP)"
 
 .PP
@@ -89,6 +91,8 @@ Specific \fBGUI\fP that renders once you've run out of lives\&. This includes th
 .RE
 .PP
 
+.PP
+Definition at line \fB547\fP of file \fBGUI\&.cpp\fP\&.
 .SS "void GUI::renderScores (sf::RenderWindow & window, int scores[], std::string names[])"
 
 .PP
@@ -102,6 +106,21 @@ Prepare the leaderboard scores to be rendered\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB486\fP of file \fBGUI\&.cpp\fP\&.
+.SS "void GUI::renderWin (sf::RenderWindow & window)"
+
+.PP
+Render the win screen each lap completed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB597\fP of file \fBGUI\&.cpp\fP\&.
 .SS "void GUI::startRender (sf::RenderWindow & window, int highScore)"
 
 .PP
@@ -115,6 +134,8 @@ Rendering specifically for the start screen\&. This will include the leaderboard
 .RE
 .PP
 
+.PP
+Definition at line \fB456\fP of file \fBGUI\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

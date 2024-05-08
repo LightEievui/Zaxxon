@@ -1,0 +1,37 @@
+\doxysection{Zaxxon\+Text.\+cpp}
+\hypertarget{_zaxxon_text_8cpp_source}{}\label{_zaxxon_text_8cpp_source}\index{C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.cpp@{C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.cpp}}
+\mbox{\hyperlink{_zaxxon_text_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_zaxxon_text_8h}{ZaxxonText.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00011}\mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{00011}}\ sf::Sprite\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(sf::Texture*\ spritemap,\ \textcolor{keywordtype}{char}\ in)}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ chars:\ 65-\/90\ inclusive}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ nums:\ 48-\/57\ inclusive}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ other:\ 0-\/31\ inclusive}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00016}00016\ \ \ \ \ in\ =\ toupper(in);}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ column\ =\ 0,\ row\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (in\ >=\ 65\ \&\&\ in\ <=\ 90)}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ column\ =\ in\ -\/\ \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (in\ >=\ 48\ \&\&\ in\ <=\ 57)}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ column\ =\ in\ -\/\ \textcolor{charliteral}{'0'}\ +\ 26;}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ column\ =\ in\ -\/\ 1,\ row\ =\ 16;}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00025}00025\ \ \ \ \ sf::Sprite\ retVal;}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00027}00027\ \ \ \ \ retVal.setTexture(*spritemap);}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00028}00028\ \ \ \ \ retVal.setTextureRect(sf::IntRect(8\ +\ 8\ *\ column,\ 232\ +\ row,\ 8,\ 8));}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ retVal;}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00041}\mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{00041}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(sf::Texture*\ spritemap,\ std::string\ in,\ sf::Sprite*\ arr)}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ in.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ arr[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{get}}(spritemap,\ in[i]);}
+\DoxyCodeLine{\Hypertarget{_zaxxon_text_8cpp_source_l00045}00045\ \}}
+
+\end{DoxyCode}

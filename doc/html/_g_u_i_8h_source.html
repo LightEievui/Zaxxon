@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: src/GUI/GUI.h Source File</title>
+<title>Zaxxon: C:/Zaxxon/src/GUI/GUI.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -103,77 +103,77 @@ $(function(){initNavTree('_g_u_i_8h_source.html',''); initResizable(); });
 <div class="contents">
 <a href="_g_u_i_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// temp</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_zaxxon_text_8h.html">ZaxxonText/ZaxxonText.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_h_m_section_8h.html">HMSection/HMSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_zaxxon_text_8h.html">ZaxxonText/ZaxxonText.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_h_m_section_8h.html">HMSection/HMSection.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">    6</a></span><span class="keyword">using </span><a class="code hl_typedef" href="_game_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a> = <span class="keywordtype">unsigned</span> char;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">    8</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_typedef" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_g_u_i.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_g_u_i.html">GUI</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_g_u_i.html#abfd2c814235b0c6474cae56fb8e04839">GUI</a>(sf::Texture*);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="class_g_u_i.html#ac9cae2328dcb5d83bdfaeca49a2eb695">~GUI</a>();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a1b817cdd39b52e3322ab2b89c03bc220">render</a>(sf::RenderWindow&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">byte</span>, <span class="keywordtype">byte</span>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a41bf32a5de5387392f14b204bd55259e">startRender</a>(sf::RenderWindow&amp;, <span class="keywordtype">int</span>);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a63a1106506cd880d0148d44bc6aabf2a">renderScores</a>(sf::RenderWindow&amp;, <span class="keywordtype">int</span>[], std::string[]);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#ad8b1804699ac1f39077d5a5b1c91cd2e">renderEnd</a>(sf::RenderWindow&amp;, <span class="keywordtype">byte</span> = 255, <span class="keywordtype">byte</span> = 0, <span class="keyword">const</span> <span class="keywordtype">char</span>[3] = <span class="stringliteral">&quot;   &quot;</span>);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    sf::Texture* spritesheet;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    sf::RectangleShape heightMeterBg;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_h_m_section.html">HMSection</a> heightMeterSections[10];</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    sf::Sprite heightH;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    sf::Sprite heightL;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::vector&lt;sf::Transformable*&gt; hudElements;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    sf::Sprite copyright[10];</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    sf::Sprite topScore[9];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    sf::Sprite curScore[9];</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    sf::Sprite fuelText[6];</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    sf::Sprite enemyText[10];</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    sf::Sprite fuelBar[16];</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    sf::Sprite livesBar;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    sf::Sprite enemyLeft[4];</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_g_u_i.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_g_u_i.html">GUI</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_function" href="class_g_u_i.html#abfd2c814235b0c6474cae56fb8e04839">GUI</a>(sf::Texture*);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a1b817cdd39b52e3322ab2b89c03bc220">render</a>(sf::RenderWindow&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">byte</span>, <span class="keywordtype">byte</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a41bf32a5de5387392f14b204bd55259e">startRender</a>(sf::RenderWindow&amp;, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a63a1106506cd880d0148d44bc6aabf2a">renderScores</a>(sf::RenderWindow&amp;, <span class="keywordtype">int</span> [], std::string []);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#ad8b1804699ac1f39077d5a5b1c91cd2e">renderEnd</a>(sf::RenderWindow&amp;, <span class="keywordtype">byte</span> = 255, <span class="keywordtype">byte</span> = 0,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                   <span class="keyword">const</span> <span class="keywordtype">char</span> [3] = <span class="stringliteral">&quot;   &quot;</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_g_u_i.html#a7be71ee8e625cb46a458be2aca82f705">renderWin</a>(sf::RenderWindow&amp;);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    sf::Texture* spritesheet;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    sf::RectangleShape heightMeterBg;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_h_m_section.html">HMSection</a> heightMeterSections[10];</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    sf::Sprite heightH;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    sf::Sprite heightL;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::vector&lt;sf::Transformable*&gt; hudElements;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    sf::Sprite copyright[10];</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    sf::Sprite topScore[9];</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    sf::Sprite curScore[9];</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    sf::Sprite fuelText[6];</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    sf::Sprite enemyText[10];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    sf::Sprite fuelBar[16];</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    sf::Sprite livesBar;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    sf::Sprite enemyLeft[4];</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    sf::Sprite pushPlayerText[25];</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    sf::Sprite pushPlayerText[25];</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    sf::Clock scoreClock;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    sf::Clock scoreClock;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    sf::Sprite highScores[42];</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    sf::Sprite highScoresText[10];</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    sf::Sprite highScoresNames[18];</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    sf::Sprite gameOver[8];</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    sf::Sprite scoreEntry[14];</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    sf::Sprite initialsText[12];</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    sf::Sprite entryTime[13];</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    sf::Sprite keyboard[30];</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    sf::Sprite cursor;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    sf::Sprite highScores[42];</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    sf::Sprite highScoresText[10];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    sf::Sprite highScoresNames[18];</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    sf::Sprite gameOver[8];</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    sf::Sprite scoreEntry[14];</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    sf::Sprite initialsText[12];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    sf::Sprite entryTime[13];</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    sf::Sprite keyboard[30];</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    sf::Sprite cursor;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    sf::Sprite endScreen[40];</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
 </div>
-<div class="ttc" id="a_g_u_i_8h_html_a0c8186d9b9b7880309c27230bbb5e69d"><div class="ttname"><a href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></div><div class="ttdeci">unsigned char byte</div><div class="ttdef"><b>Definition</b> GUI.h:8</div></div>
+<div class="ttc" id="a_game_8h_html_a7528222f65ad403ee1a88ff2b56f9fb7"><div class="ttname"><a href="_game_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a></div><div class="ttdeci">unsigned char byte</div><div class="ttdef"><b>Definition</b> <a href="_game_8h_source.html#l00017">Game.h:17</a></div></div>
 <div class="ttc" id="a_h_m_section_8h_html"><div class="ttname"><a href="_h_m_section_8h.html">HMSection.h</a></div></div>
 <div class="ttc" id="a_zaxxon_text_8h_html"><div class="ttname"><a href="_zaxxon_text_8h.html">ZaxxonText.h</a></div></div>
-<div class="ttc" id="aclass_g_u_i_html"><div class="ttname"><a href="class_g_u_i.html">GUI</a></div><div class="ttdoc">Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...</div><div class="ttdef"><b>Definition</b> GUI.h:17</div></div>
-<div class="ttc" id="aclass_g_u_i_html_a1b817cdd39b52e3322ab2b89c03bc220"><div class="ttname"><a href="class_g_u_i.html#a1b817cdd39b52e3322ab2b89c03bc220">GUI::render</a></div><div class="ttdeci">void render(sf::RenderWindow &amp;, float, int, int, byte, byte)</div><div class="ttdoc">Draw all the GUI to the screen each frame. Also run logic for certain interactive GUI elements and up...</div><div class="ttdef"><b>Definition</b> GUI.cpp:274</div></div>
-<div class="ttc" id="aclass_g_u_i_html_a41bf32a5de5387392f14b204bd55259e"><div class="ttname"><a href="class_g_u_i.html#a41bf32a5de5387392f14b204bd55259e">GUI::startRender</a></div><div class="ttdeci">void startRender(sf::RenderWindow &amp;, int)</div><div class="ttdoc">Rendering specifically for the start screen. This will include the leaderboard will the top 6 scores ...</div><div class="ttdef"><b>Definition</b> GUI.cpp:415</div></div>
-<div class="ttc" id="aclass_g_u_i_html_a63a1106506cd880d0148d44bc6aabf2a"><div class="ttname"><a href="class_g_u_i.html#a63a1106506cd880d0148d44bc6aabf2a">GUI::renderScores</a></div><div class="ttdeci">void renderScores(sf::RenderWindow &amp;, int[], std::string[])</div><div class="ttdoc">Prepare the leaderboard scores to be rendered.</div><div class="ttdef"><b>Definition</b> GUI.cpp:445</div></div>
-<div class="ttc" id="aclass_g_u_i_html_abfd2c814235b0c6474cae56fb8e04839"><div class="ttname"><a href="class_g_u_i.html#abfd2c814235b0c6474cae56fb8e04839">GUI::GUI</a></div><div class="ttdeci">GUI(sf::Texture *)</div><div class="ttdoc">Initializes the GUI (graphical user interface)</div><div class="ttdef"><b>Definition</b> GUI.cpp:8</div></div>
-<div class="ttc" id="aclass_g_u_i_html_ac9cae2328dcb5d83bdfaeca49a2eb695"><div class="ttname"><a href="class_g_u_i.html#ac9cae2328dcb5d83bdfaeca49a2eb695">GUI::~GUI</a></div><div class="ttdeci">~GUI()</div><div class="ttdoc">Clear up memory related to the GUI.</div><div class="ttdef"><b>Definition</b> GUI.cpp:260</div></div>
-<div class="ttc" id="aclass_g_u_i_html_ad8b1804699ac1f39077d5a5b1c91cd2e"><div class="ttname"><a href="class_g_u_i.html#ad8b1804699ac1f39077d5a5b1c91cd2e">GUI::renderEnd</a></div><div class="ttdeci">void renderEnd(sf::RenderWindow &amp;, byte=255, byte=0, const char[3]=&quot;   &quot;)</div><div class="ttdoc">Specific GUI that renders once you've run out of lives. This includes the game over text and name ent...</div><div class="ttdef"><b>Definition</b> GUI.cpp:501</div></div>
-<div class="ttc" id="aclass_h_m_section_html"><div class="ttname"><a href="class_h_m_section.html">HMSection</a></div><div class="ttdoc">The height meter and related methods.</div><div class="ttdef"><b>Definition</b> HMSection.h:9</div></div>
+<div class="ttc" id="aclass_g_u_i_html"><div class="ttname"><a href="class_g_u_i.html">GUI</a></div><div class="ttdoc">Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...</div><div class="ttdef"><b>Definition</b> <a href="#l00014">GUI.h:15</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html_a1b817cdd39b52e3322ab2b89c03bc220"><div class="ttname"><a href="class_g_u_i.html#a1b817cdd39b52e3322ab2b89c03bc220">GUI::render</a></div><div class="ttdeci">void render(sf::RenderWindow &amp;, float, int, int, byte, byte)</div><div class="ttdoc">Draw all the GUI to the screen each frame. Also run logic for certain interactive GUI elements and up...</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8cpp_source.html#l00315">GUI.cpp:315</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html_a41bf32a5de5387392f14b204bd55259e"><div class="ttname"><a href="class_g_u_i.html#a41bf32a5de5387392f14b204bd55259e">GUI::startRender</a></div><div class="ttdeci">void startRender(sf::RenderWindow &amp;, int)</div><div class="ttdoc">Rendering specifically for the start screen. This will include the leaderboard will the top 6 scores ...</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8cpp_source.html#l00456">GUI.cpp:456</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html_a63a1106506cd880d0148d44bc6aabf2a"><div class="ttname"><a href="class_g_u_i.html#a63a1106506cd880d0148d44bc6aabf2a">GUI::renderScores</a></div><div class="ttdeci">void renderScores(sf::RenderWindow &amp;, int[], std::string[])</div><div class="ttdoc">Prepare the leaderboard scores to be rendered.</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8cpp_source.html#l00486">GUI.cpp:486</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html_a7be71ee8e625cb46a458be2aca82f705"><div class="ttname"><a href="class_g_u_i.html#a7be71ee8e625cb46a458be2aca82f705">GUI::renderWin</a></div><div class="ttdeci">void renderWin(sf::RenderWindow &amp;)</div><div class="ttdoc">Render the win screen each lap completed.</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8cpp_source.html#l00597">GUI.cpp:597</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html_abfd2c814235b0c6474cae56fb8e04839"><div class="ttname"><a href="class_g_u_i.html#abfd2c814235b0c6474cae56fb8e04839">GUI::GUI</a></div><div class="ttdeci">GUI(sf::Texture *)</div><div class="ttdoc">Initializes the GUI (graphical user interface)</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8cpp_source.html#l00008">GUI.cpp:8</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html_ad8b1804699ac1f39077d5a5b1c91cd2e"><div class="ttname"><a href="class_g_u_i.html#ad8b1804699ac1f39077d5a5b1c91cd2e">GUI::renderEnd</a></div><div class="ttdeci">void renderEnd(sf::RenderWindow &amp;, byte=255, byte=0, const char[3]=&quot;   &quot;)</div><div class="ttdoc">Specific GUI that renders once you've run out of lives. This includes the game over text and name ent...</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8cpp_source.html#l00547">GUI.cpp:547</a></div></div>
+<div class="ttc" id="aclass_h_m_section_html"><div class="ttname"><a href="class_h_m_section.html">HMSection</a></div><div class="ttdoc">The height meter and related methods.</div><div class="ttdef"><b>Definition</b> <a href="_h_m_section_8h_source.html#l00008">HMSection.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4e4e2e75df7fa6971448b424c011c8b5.html">GUI</a></li><li class="navelem"><a class="el" href="_g_u_i_8h.html">GUI.h</a></li>
+    <li class="navelem"><a class="el" href="dir_82065fcfece22a58f0c2e177bd225074.html">Zaxxon</a></li><li class="navelem"><a class="el" href="dir_d030179c1ca07159d4124dc786a04913.html">src</a></li><li class="navelem"><a class="el" href="dir_3dc41743cf215070094f95f5fb1d1567.html">GUI</a></li><li class="navelem"><a class="el" href="_g_u_i_8h.html">GUI.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

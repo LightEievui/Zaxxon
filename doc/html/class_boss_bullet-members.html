@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -100,25 +100,34 @@ $(function(){initNavTree('class_boss_bullet.html',''); initResizable(); });
 <p>This is the complete list of members for <a class="el" href="class_boss_bullet.html">BossBullet</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_abstract_bullet.html#a7101e714c7e25ed57a26c74b59b5ee83">AbstractBullet</a>()</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_boss_bullet.html#a6aa72332992a0eb9d4fe4d66e9d862c5">BossBullet</a>(sf::Vector3f, Entity *, sf::Texture *)</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_abstract_bullet.html#aa1477f32fb0f60c087182aad82598d96">alive</a></td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_boss_bullet.html#a6aa72332992a0eb9d4fe4d66e9d862c5">BossBullet</a>(sf::Vector3f, Entity *, sf::Texture *)</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabd">BulletType</a> enum name</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_boss_bullet.html#ae644a8610bba9a05a8d29455179c5965">collide</a>()</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_boss_bullet.html#a968121e064e7f0e9bfca96a32ba2aba2">damage</a>(int)</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a799462330dd8c754cdada5dab432b4dc">dead</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">debugFont</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">getSpritePos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_boss_bullet.html#abfe6d391d23ed5b47ab7e39d8e17aaf7">isDestroyed</a>()</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">kill</a>(Animation::Anim animation=Animation::CHARACTER_DEATH)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a>(sf::Vector3f pos)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_boss_bullet.html#a3501c85f3336e4a745e6fc7f3a354aaf">update</a>(sf::RenderWindow &amp;)</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_boss_bullet.html#a387327aee4bbfba8abd6320f6f5acb35">~BossBullet</a>()</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc">Enemy</a> enum value</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">getSpritePos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_abstract_bullet.html#acab32995c786012e42040fe452e46d67">isHit</a>()</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">kill</a>(Animation::Anim animation=Animation::CHARACTER_DEATH)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a">Missile</a> enum value</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400">Player</a> enum value</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a>(sf::Vector3f pos)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_abstract_bullet.html#a47c3c34b0371c2f926470f90f94df2b1">translate</a>(float)</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_boss_bullet.html#ad3b8d306bfa0bad8913a57d3cd3d7594">update</a>(sf::RenderWindow &amp;, float) override</td><td class="entry"><a class="el" href="class_boss_bullet.html">BossBullet</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514">xBulletL</a> enum value</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1">xBulletR</a> enum value</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d">zBullet</a> enum value</td><td class="entry"><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac2da1e8a32161accc56f39ac52cebd86">~Entity</a>()=0</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

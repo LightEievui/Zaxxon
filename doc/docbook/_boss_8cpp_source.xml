@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__boss_8cpp_source" xml:lang="en-US">
+<title>Boss.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Boss/Boss.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__boss_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__boss_8h">Boss.h</link>&quot;</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__boss_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__boss_8cpp_source_1l00011"/><link linkend="_class_boss_1a532b2cfc920780c6f4ea432d7e22be79">00011</link> <link linkend="_class_boss_1a532b2cfc920780c6f4ea432d7e22be79">Boss::Boss</link>(sf::Vector3f&#32;start,&#32;<link linkend="_class_entity">Entity</link>*&#32;target,&#32;sf::Texture*&#32;bossSheet,
+<anchor xml:id="__boss_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Texture*&#32;spriteSheet)&#32;:&#32;<link linkend="_class_entity">Entity</link>()
+<anchor xml:id="__boss_8cpp_source_1l00013"/>00013 {
+<anchor xml:id="__boss_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(start);
+<anchor xml:id="__boss_8cpp_source_1l00015"/>00015 
+<anchor xml:id="__boss_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(start));
+<anchor xml:id="__boss_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTexture(*bossSheet);
+<anchor xml:id="__boss_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(0,&#32;0,&#32;58,&#32;75));
+<anchor xml:id="__boss_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setOrigin(
+<anchor xml:id="__boss_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector2f(0,&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getGlobalBounds().height&#32;*&#32;(3.f&#32;/&#32;4.f)));
+<anchor xml:id="__boss_8cpp_source_1l00021"/>00021 
+<anchor xml:id="__boss_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;this-&gt;target&#32;=&#32;target;
+<anchor xml:id="__boss_8cpp_source_1l00023"/>00023 
+<anchor xml:id="__boss_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;this-&gt;spriteSheet&#32;=&#32;<link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link>;
+<anchor xml:id="__boss_8cpp_source_1l00025"/>00025 
+<anchor xml:id="__boss_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;movementInt.restart();
+<anchor xml:id="__boss_8cpp_source_1l00027"/>00027 
+<anchor xml:id="__boss_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="comment">//defines&#32;random&#32;movement,&#32;goes&#32;to&#32;two&#32;seperate&#32;points</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;targetXPoints[0]&#32;=&#32;(rand()&#32;%&#32;100)&#32;*&#32;-1.f;
+<anchor xml:id="__boss_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;targetXPoints[1]&#32;=&#32;(abs((rand()&#32;-&#32;528)&#32;*&#32;72)&#32;%&#32;100)&#32;*&#32;-1.f;
+<anchor xml:id="__boss_8cpp_source_1l00031"/>00031 
+<anchor xml:id="__boss_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="comment">//timer&#32;for&#32;invincibility&#32;frames</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;invFrames.restart();
+<anchor xml:id="__boss_8cpp_source_1l00034"/>00034 }
+<anchor xml:id="__boss_8cpp_source_1l00035"/>00035 
+<anchor xml:id="__boss_8cpp_source_1l00036"/>00036 
+<anchor xml:id="__boss_8cpp_source_1l00040"/><link linkend="_class_boss_1ad848427ba363777ea9fe753b4f70b26c">00040</link> <link linkend="_class_boss_1ad848427ba363777ea9fe753b4f70b26c">Boss::~Boss</link>()
+<anchor xml:id="__boss_8cpp_source_1l00041"/>00041 {
+<anchor xml:id="__boss_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;missile;
+<anchor xml:id="__boss_8cpp_source_1l00043"/>00043 }
+<anchor xml:id="__boss_8cpp_source_1l00044"/>00044 
+<anchor xml:id="__boss_8cpp_source_1l00045"/>00045 
+<anchor xml:id="__boss_8cpp_source_1l00050"/><link linkend="_class_boss_1ae9cf8c000e924a806d64e7488ce6f58a">00050</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_boss_1ae9cf8c000e924a806d64e7488ce6f58a">Boss::update</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__boss_8cpp_source_1l00051"/>00051 {
+<anchor xml:id="__boss_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(movementInt.getElapsedTime().asMilliseconds()&#32;&gt;=&#32;100)
+<anchor xml:id="__boss_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//moves&#32;to&#32;the&#32;target&#32;position&#32;every&#32;100&#32;millisecond&#32;to&#32;mimic&#32;gittery&#32;</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//movment&#32;of&#32;the&#32;game</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;movementInt.restart();
+<anchor xml:id="__boss_8cpp_source_1l00057"/>00057 
+<anchor xml:id="__boss_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(targetXPoints[stages]&#32;-&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;&gt;&#32;3)
+<anchor xml:id="__boss_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;+&#32;3,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__boss_8cpp_source_1l00060"/>00060 
+<anchor xml:id="__boss_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(targetXPoints[stages]&#32;-&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;&lt;&#32;3)
+<anchor xml:id="__boss_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;-&#32;3,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__boss_8cpp_source_1l00063"/>00063 
+<anchor xml:id="__boss_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(abs(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;-&#32;target-&gt;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z)&#32;&lt;&#32;250&#32;&amp;&amp;&#32;stages&#32;==&#32;0)
+<anchor xml:id="__boss_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stages++;
+<anchor xml:id="__boss_8cpp_source_1l00066"/>00066 
+<anchor xml:id="__boss_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//if&#32;the&#32;boss&#32;is&#32;far&#32;enough&#32;away&#32;from&#32;the&#32;player&#32;continue&#32;moving&#32;it</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(abs(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;-&#32;target-&gt;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z)&#32;&gt;&#32;150)
+<anchor xml:id="__boss_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stages&#32;&lt;&#32;2)
+<anchor xml:id="__boss_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;+&#32;3));
+<anchor xml:id="__boss_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;-&#32;7));
+<anchor xml:id="__boss_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//else&#32;stop&#32;it&#32;and&#32;shoot&#32;the&#32;missile</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(58,&#32;0,&#32;58,&#32;75));
+<anchor xml:id="__boss_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stages++;
+<anchor xml:id="__boss_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;-&#32;7));
+<anchor xml:id="__boss_8cpp_source_1l00081"/>00081 
+<anchor xml:id="__boss_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bulletCreated&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__boss_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//gives&#32;the&#32;missile&#32;the&#32;position&#32;of&#32;the&#32;player</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;missile&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_boss_bullet">BossBullet</link>(
+<anchor xml:id="__boss_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;-&#32;33,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;-&#32;19,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z),
+<anchor xml:id="__boss_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;target,&#32;<link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link>);
+<anchor xml:id="__boss_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;missile-&gt;<link linkend="_class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2">damage</link>(hits);
+<anchor xml:id="__boss_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00090"/>00090 
+<anchor xml:id="__boss_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;<emphasis role="comment">//detects&#32;the&#32;hits&#32;to&#32;the&#32;missile&#32;and&#32;adds&#32;the&#32;shaking&#32;animation</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(movementInt.getElapsedTime().asMilliseconds()&#32;%&#32;25)
+<anchor xml:id="__boss_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(hitCount&#32;&lt;&#32;10)
+<anchor xml:id="__boss_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;hitCount++;
+<anchor xml:id="__boss_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;+&#32;((rand()&#32;%&#32;100)&#32;/&#32;50.f)&#32;-&#32;1,
+<anchor xml:id="__boss_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;+&#32;((rand()&#32;%&#32;100)&#32;/&#32;50.f)&#32;-&#32;1,
+<anchor xml:id="__boss_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__boss_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(hitCount&#32;==&#32;10)
+<anchor xml:id="__boss_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;hitCount++;
+<anchor xml:id="__boss_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setColor(sf::Color(255,&#32;255,&#32;255));
+<anchor xml:id="__boss_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00107"/>00107 
+<anchor xml:id="__boss_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__boss_8cpp_source_1l00109"/>00109 
+<anchor xml:id="__boss_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;<emphasis role="comment">//if&#32;it&#32;retreats&#32;all&#32;the&#32;way&#32;it&#32;has&#32;been&#32;defeated</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;&lt;=&#32;-4000&#32;&amp;&amp;&#32;stages&#32;&gt;=&#32;2)
+<anchor xml:id="__boss_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;destroyed&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__boss_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stages++;
+<anchor xml:id="__boss_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00116"/>00116 
+<anchor xml:id="__boss_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;targetXPoints[2]&#32;=&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x;
+<anchor xml:id="__boss_8cpp_source_1l00118"/>00118 
+<anchor xml:id="__boss_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;window.draw(*<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>);
+<anchor xml:id="__boss_8cpp_source_1l00120"/>00120 
+<anchor xml:id="__boss_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="comment">//if&#32;the&#32;missile&#32;dies&#32;delete&#32;it&#32;and&#32;record&#32;that&#32;action</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stages&#32;==&#32;2&#32;&amp;&amp;&#32;missile&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__boss_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(missile-&gt;<link linkend="_class_abstract_bullet_1acab32995c786012e42040fe452e46d67">isHit</link>())
+<anchor xml:id="__boss_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;missile;
+<anchor xml:id="__boss_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;missile&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__boss_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bulletCreated&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__boss_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;missile-&gt;<link linkend="_class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594">update</link>(window,&#32;gameSpeed);
+<anchor xml:id="__boss_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00133"/>00133 }
+<anchor xml:id="__boss_8cpp_source_1l00134"/>00134 
+<anchor xml:id="__boss_8cpp_source_1l00135"/>00135 
+<anchor xml:id="__boss_8cpp_source_1l00139"/><link linkend="_class_boss_1a911178ba0e5f853c0472f8a2ef879c60">00139</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_boss_1a911178ba0e5f853c0472f8a2ef879c60">Boss::hit</link>()
+<anchor xml:id="__boss_8cpp_source_1l00140"/>00140 {
+<anchor xml:id="__boss_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<emphasis role="comment">//damages&#32;the&#32;boss&#32;and&#32;starts&#32;the&#32;timer&#32;of&#32;invincibility</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(invFrames.getElapsedTime().asMilliseconds()&#32;&gt;=&#32;200)
+<anchor xml:id="__boss_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;invFrames.restart();
+<anchor xml:id="__boss_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;hitCount&#32;=&#32;0;
+<anchor xml:id="__boss_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setColor(sf::Color(225,&#32;100,&#32;100));
+<anchor xml:id="__boss_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;hits++;
+<anchor xml:id="__boss_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(hits&#32;&gt;=&#32;10)
+<anchor xml:id="__boss_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__boss_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(58,&#32;0,&#32;58,&#32;75));
+<anchor xml:id="__boss_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stages&#32;=&#32;3;
+<anchor xml:id="__boss_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__boss_8cpp_source_1l00154"/>00154 }
+<anchor xml:id="__boss_8cpp_source_1l00155"/>00155 
+<anchor xml:id="__boss_8cpp_source_1l00156"/>00156 
+<anchor xml:id="__boss_8cpp_source_1l00161"/><link linkend="_class_boss_1ab76a3a54901df7bc04ff8eb237549fa7">00161</link> <link linkend="_class_boss_bullet">BossBullet</link>*&#32;<link linkend="_class_boss_1ab76a3a54901df7bc04ff8eb237549fa7">Boss::getMissile</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00162"/>00162 <emphasis role="keyword"></emphasis>{
+<anchor xml:id="__boss_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;missile;
+<anchor xml:id="__boss_8cpp_source_1l00164"/>00164 }
+<anchor xml:id="__boss_8cpp_source_1l00165"/>00165 
+<anchor xml:id="__boss_8cpp_source_1l00166"/>00166 
+<anchor xml:id="__boss_8cpp_source_1l00171"/><link linkend="_class_boss_1af650e303d854e6bfb32b7ff64989105d">00171</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_boss_1af650e303d854e6bfb32b7ff64989105d">Boss::missileCreated</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00172"/>00172 <emphasis role="keyword"></emphasis>{
+<anchor xml:id="__boss_8cpp_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;bulletCreated;
+<anchor xml:id="__boss_8cpp_source_1l00174"/>00174 }
+<anchor xml:id="__boss_8cpp_source_1l00175"/>00175 
+<anchor xml:id="__boss_8cpp_source_1l00176"/>00176 
+<anchor xml:id="__boss_8cpp_source_1l00181"/><link linkend="_class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea">00181</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea">Boss::isDestroyed</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="__boss_8cpp_source_1l00182"/>00182 <emphasis role="keyword"></emphasis>{
+<anchor xml:id="__boss_8cpp_source_1l00183"/>00183 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;destroyed;
+<anchor xml:id="__boss_8cpp_source_1l00184"/>00184 }
+</programlisting></section>

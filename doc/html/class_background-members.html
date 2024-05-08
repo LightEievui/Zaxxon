@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -99,12 +99,12 @@ $(function(){initNavTree('class_background.html',''); initResizable(); });
 
 <p>This is the complete list of members for <a class="el" href="class_background.html">Background</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a573d608524347781c400206450327356">Background</a>(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWalls * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#ab4f1a6df90c295ba2fa5b2116c9f7719">Background</a>(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">BOSSFIGHT</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a093d96b9f25dda122febad2beabc47cd">flashColor</a>(sf::RenderWindow &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_background.html#adfd6d7bd7fa3bbfcfa599686d29d7cae">generateObstacles</a>(Background::Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWalls * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">generateWaves</a>(Background::Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#ac607d65614b8f90a0f841a97df4f0b04">generateObstacles</a>(Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#aa319354445ea0a0f224b6dc726b621c2">generateWaves</a>(Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_background.html#aa60585bb666a292f5d49049038400b1a">getStage</a>()</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_background.html#a52b2389cd7dfaedff511e72af9f3735c">isInSpace</a>(int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
@@ -113,7 +113,7 @@ $(function(){initNavTree('class_background.html',''); initResizable(); });
   <tr class="odd"><td class="entry"><a class="el" href="class_background.html#ac333125273a1213f2cb1c4af4081f0b8">setStage</a>(Stage)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a> enum name</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_background.html#ad531459e6da764948e9376250fe9b15e">update</a>(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, std::vector&lt; Wall * &gt; &amp;, bool, std::vector&lt; ZapWalls * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a35213116185226b7b3881b2e71c8a292">update</a>(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a36754df1deb720393217ade59da41557">~Background</a>()</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->

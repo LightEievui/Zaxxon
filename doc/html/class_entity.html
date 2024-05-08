@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -105,20 +105,24 @@ $(function(){initNavTree('class_entity.html',''); initResizable(); });
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_entity_8h_source.html">Entity.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Entity:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for Entity:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
   <img src="class_entity.png" usemap="#Entity_map" alt=""/>
   <map id="Entity_map" name="Entity_map">
-<area href="class_abstract_bullet.html" title="Class to hold information that the other bullets share." alt="AbstractBullet" shape="rect" coords="55,56,155,80"/>
-<area href="class_boss.html" title="The boss entity you fight at the end of the level loop." alt="Boss" shape="rect" coords="165,56,265,80"/>
-<area href="class_character.html" title="Abstract class to hold information that both player and enemy use." alt="Character" shape="rect" coords="275,56,375,80"/>
-<area href="class_obstacle.html" title="Still obstacles that spawn across the levels." alt="Obstacle" shape="rect" coords="385,56,485,80"/>
+<area href="class_abstract_bullet.html" title="Class to hold information that the other bullets share." alt="AbstractBullet" shape="rect" coords="110,56,210,80"/>
+<area href="class_boss.html" title="The boss entity you fight at the end of the level loop." alt="Boss" shape="rect" coords="220,56,320,80"/>
+<area href="class_character.html" title="Abstract class to hold information that both player and enemy use." alt="Character" shape="rect" coords="385,56,485,80"/>
+<area href="class_obstacle.html" title="Still obstacles that spawn across the levels." alt="Obstacle" shape="rect" coords="495,56,595,80"/>
+<area href="class_zap_wall.html" title="Class for other walls (blue lightning)." alt="ZapWall" shape="rect" coords="605,56,705,80"/>
 <area href="class_boss_bullet.html" title="The missile that the boss shoots." alt="BossBullet" shape="rect" coords="0,112,100,136"/>
 <area href="class_character_bullet.html" title="The bullet used by the player and enemies." alt="CharacterBullet" shape="rect" coords="110,112,210,136"/>
-<area href="class_enemy.html" title="Enemy in the game. These use a recolored player bullet." alt="Enemy" shape="rect" coords="220,112,320,136"/>
-<area href="class_player.html" title="The player character, also contains plane controls." alt="Player" shape="rect" coords="330,112,430,136"/>
+<area href="class_obstacle_bullet.html" alt="ObstacleBullet" shape="rect" coords="220,112,320,136"/>
+<area href="class_enemy.html" title="Enemy in the game. These use a recolored player bullet." alt="Enemy" shape="rect" coords="330,112,430,136"/>
+<area href="class_player.html" title="The player character, also contains plane controls." alt="Player" shape="rect" coords="440,112,540,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -127,14 +131,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a980f368aa07ce358583982821533a54a" id="r_a980f368aa07ce358583982821533a54a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a980f368aa07ce358583982821533a54a">Entity</a> ()</td></tr>
 <tr class="memdesc:a980f368aa07ce358583982821533a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class variables.  <br /></td></tr>
 <tr class="separator:a980f368aa07ce358583982821533a54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae" id="r_adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
-<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class.  <br /></td></tr>
-<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea146cebd4310647bd49a4f08940fe5" id="r_a3ea146cebd4310647bd49a4f08940fe5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ea146cebd4310647bd49a4f08940fe5">kill</a> (<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a> <a class="el" href="_animation_8cpp.html#ace719c3edb14f8a32929395ba2524d64">animation</a>=<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a>)</td></tr>
+<tr class="memitem:ac2da1e8a32161accc56f39ac52cebd86" id="r_ac2da1e8a32161accc56f39ac52cebd86"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2da1e8a32161accc56f39ac52cebd86">~Entity</a> ()=0</td></tr>
+<tr class="memdesc:ac2da1e8a32161accc56f39ac52cebd86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up memory related to <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class.  <br /></td></tr>
+<tr class="separator:ac2da1e8a32161accc56f39ac52cebd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea146cebd4310647bd49a4f08940fe5" id="r_a3ea146cebd4310647bd49a4f08940fe5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ea146cebd4310647bd49a4f08940fe5">kill</a> (<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</a> <a class="el" href="_animation_8cpp.html#a35d522d607d8608fbcb1be1ad18ae0b3">animation</a>=<a class="el" href="class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</a>)</td></tr>
 <tr class="memdesc:a3ea146cebd4310647bd49a4f08940fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run death animation code for the killed entity.  <br /></td></tr>
 <tr class="separator:a3ea146cebd4310647bd49a4f08940fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d014114fcea80281536d5525019190c" id="r_a7d014114fcea80281536d5525019190c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d014114fcea80281536d5525019190c">update</a> (sf::RenderWindow &amp;)=0</td></tr>
-<tr class="separator:a7d014114fcea80281536d5525019190c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3121e79d75452497acb36dd06f0b2b2" id="r_ac3121e79d75452497acb36dd06f0b2b2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3121e79d75452497acb36dd06f0b2b2">update</a> (sf::RenderWindow &amp;, float)=0</td></tr>
+<tr class="separator:ac3121e79d75452497acb36dd06f0b2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ef7fc00806615984a06ca8c71b10bc" id="r_ac9ef7fc00806615984a06ca8c71b10bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a> ()</td></tr>
 <tr class="separator:ac9ef7fc00806615984a06ca8c71b10bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1783cc856808b2d78c4e46fa9c85a524" id="r_a1783cc856808b2d78c4e46fa9c85a524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1783cc856808b2d78c4e46fa9c85a524">setPos</a> (sf::Vector3f pos)</td></tr>
@@ -164,6 +168,8 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class for all entities in the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00010">10</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a980f368aa07ce358583982821533a54a" name="a980f368aa07ce358583982821533a54a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a980f368aa07ce358583982821533a54a">&#9670;&#160;</a></span>Entity()</h2>
@@ -182,13 +188,18 @@ Protected Attributes</h2></td></tr>
 
 <p>Setup <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class variables. </p>
 
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00007">7</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
 </div>
 </div>
-<a id="adf6d3f7cb1b2ba029b6b048a395cc8ae" name="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf6d3f7cb1b2ba029b6b048a395cc8ae">&#9670;&#160;</a></span>~Entity()</h2>
+<a id="ac2da1e8a32161accc56f39ac52cebd86" name="ac2da1e8a32161accc56f39ac52cebd86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2da1e8a32161accc56f39ac52cebd86">&#9670;&#160;</a></span>~Entity()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Entity::~Entity </td>
@@ -197,9 +208,16 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Clean up memory related to <a class="el" href="class_entity.html" title="Abstract class for all entities in the game.">Entity</a> class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00021">21</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -227,6 +245,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00019">19</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
 <a id="a9727d15d18ccb10fa72dfe15799adcdd" name="a9727d15d18ccb10fa72dfe15799adcdd"></a>
@@ -251,6 +271,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00022">22</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
 
 </div>
 </div>
@@ -277,6 +299,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00021">21</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
 <a id="ad641a9c7d92d65cb688651e48029e82d" name="ad641a9c7d92d65cb688651e48029e82d"></a>
@@ -296,6 +320,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Get the position of the related sprite for this entity. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00040">40</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -324,7 +350,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Run death animation code for the killed entity. </p>
 
-<p>Reimplemented in <a class="el" href="class_obstacle.html#ac7300c4d9c730103c707972be1380ff9">Obstacle</a>.</p>
+<p>Reimplemented in <a class="el" href="class_obstacle.html#a3b4865fafe3cf6a31b3444c2557550f8">Obstacle</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8cpp_source.html#l00030">30</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,10 +379,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00020">20</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
-<a id="a7d014114fcea80281536d5525019190c" name="a7d014114fcea80281536d5525019190c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d014114fcea80281536d5525019190c">&#9670;&#160;</a></span>update()</h2>
+<a id="ac3121e79d75452497acb36dd06f0b2b2" name="ac3121e79d75452497acb36dd06f0b2b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3121e79d75452497acb36dd06f0b2b2">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,8 +395,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual void Entity::update </td>
           <td>(</td>
-          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -376,7 +410,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_boss_bullet.html#a3501c85f3336e4a745e6fc7f3a354aaf">BossBullet</a>, <a class="el" href="class_boss.html#a21b1a76979fe05deca079ade3dca7ed8">Boss</a>, <a class="el" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">Character</a>, <a class="el" href="class_obstacle.html#a71cf873dada3977dbbda2ee3c80a8f14">Obstacle</a>, and <a class="el" href="class_character_bullet.html#a02ac0f004985f6ce0010e0f48ad2eeda">CharacterBullet</a>.</p>
+<p>Implemented in <a class="el" href="class_boss.html#ae9cf8c000e924a806d64e7488ce6f58a">Boss</a>, <a class="el" href="class_enemy.html#abb114c1514e9ba90c319ddb7e0f40e59">Enemy</a>, <a class="el" href="class_boss_bullet.html#ad3b8d306bfa0bad8913a57d3cd3d7594">BossBullet</a>, <a class="el" href="class_obstacle_bullet.html#acf03e80fd20b8f5df01c83ac8a7d4cbe">ObstacleBullet</a>, <a class="el" href="class_character.html#aafecc5bd1222bb63a2ab0ebf82c9b479">Character</a>, <a class="el" href="class_obstacle.html#ab4272be0d3dddafd42040adab4d8a968">Obstacle</a>, <a class="el" href="class_zap_wall.html#a749a7515b945420293924b3887033d93">ZapWall</a>, and <a class="el" href="class_character_bullet.html#a5e917f7a52f3015799e1008a4fd2654b">CharacterBullet</a>.</p>
 
 </div>
 </div>
@@ -401,6 +435,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00027">27</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
 <a id="a799462330dd8c754cdada5dab432b4dc" name="a799462330dd8c754cdada5dab432b4dc"></a>
@@ -422,6 +458,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00028">28</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
 
 </div>
 </div>
@@ -445,6 +483,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00030">30</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
 <a id="ac653cdb194e9a3d1c5ad211bf1ab23b0" name="ac653cdb194e9a3d1c5ad211bf1ab23b0"></a>
@@ -466,6 +506,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00029">29</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
 
 </div>
 </div>
@@ -489,6 +531,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00026">26</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
 <a id="ac3f2dbf1633dd3080b7e2835367170bd" name="ac3f2dbf1633dd3080b7e2835367170bd"></a>
@@ -511,11 +555,13 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_entity_8h_source.html#l00025">25</a> of file <a class="el" href="_entity_8h_source.html">Entity.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/Entity/<a class="el" href="_entity_8h_source.html">Entity.h</a></li>
-<li>src/Entity/<a class="el" href="_entity_8cpp.html">Entity.cpp</a></li>
+<li>C:/Zaxxon/src/Entity/<a class="el" href="_entity_8h_source.html">Entity.h</a></li>
+<li>C:/Zaxxon/src/Entity/<a class="el" href="_entity_8cpp_source.html">Entity.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

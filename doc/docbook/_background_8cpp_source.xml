@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__background_8cpp_source" xml:lang="en-US">
+<title>Background.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Background/Background.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__background_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__background_8h">Background.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__util_8h">Util/Util.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__background_8cpp_source_1l00004"/>00004 
+<anchor xml:id="__background_8cpp_source_1l00018"/><link linkend="_class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719">00018</link> <link linkend="_class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719">Background::Background</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>&#32;<link linkend="__game_8cpp_1a65dc56b369756c98d37a60c57ce87108">startStage</link>,&#32;sf::View&amp;&#32;mainView,
+<anchor xml:id="__background_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Texture*&#32;spritesheet,
+<anchor xml:id="__background_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;&#32;obstacles,
+<anchor xml:id="__background_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&amp;&#32;enemies,&#32;<link linkend="_class_player">Player</link>&amp;&#32;player,
+<anchor xml:id="__background_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>,&#32;std::vector&lt;Wall*&gt;&amp;&#32;walls,
+<anchor xml:id="__background_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;ZapWall*&gt;&amp;&#32;zapWalls
+<anchor xml:id="__background_8cpp_source_1l00024"/>00024 )
+<anchor xml:id="__background_8cpp_source_1l00025"/>00025 {
+<anchor xml:id="__background_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="comment">//load&#32;background&#32;textures</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!initial.loadFromFile(<emphasis role="stringliteral">&quot;res/BackgroundInitial.png&quot;</emphasis>))
+<anchor xml:id="__background_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Background&#32;file&#32;could&#32;not&#32;load\n&quot;</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!space.loadFromFile(<emphasis role="stringliteral">&quot;res/BackgroundSpace2.png&quot;</emphasis>))
+<anchor xml:id="__background_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Background&#32;file&#32;could&#32;not&#32;load\n&quot;</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!boss.loadFromFile(<emphasis role="stringliteral">&quot;res/BackgroundBoss.png&quot;</emphasis>))
+<anchor xml:id="__background_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Background&#32;file&#32;could&#32;not&#32;load\n&quot;</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00033"/>00033 
+<anchor xml:id="__background_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;back.setTexture(boss);
+<anchor xml:id="__background_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;back.setOrigin(
+<anchor xml:id="__background_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector2f(0,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(back.getTexture()-&gt;getSize().y)));
+<anchor xml:id="__background_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;back.setPosition(sf::Vector2f(0,&#32;240));
+<anchor xml:id="__background_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;changeStage(<link linkend="__game_8cpp_1a65dc56b369756c98d37a60c57ce87108">startStage</link>,&#32;mainView,&#32;spritesheet,&#32;obstacles,&#32;enemies,&#32;player,
+<anchor xml:id="__background_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>,&#32;walls,&#32;zapWalls);
+<anchor xml:id="__background_8cpp_source_1l00040"/>00040 
+<anchor xml:id="__background_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!death.loadFromFile(<emphasis role="stringliteral">&quot;res/BackgroundDeath.png&quot;</emphasis>))
+<anchor xml:id="__background_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Death&#32;overlay&#32;file&#32;failed&#32;to&#32;load\n&quot;</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00043"/>00043 
+<anchor xml:id="__background_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;deathOverlay.setTexture(death);
+<anchor xml:id="__background_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;deathOverlay.setColor(sf::Color(255,&#32;255,&#32;255,&#32;100));
+<anchor xml:id="__background_8cpp_source_1l00046"/>00046 }
+<anchor xml:id="__background_8cpp_source_1l00047"/>00047 
+<anchor xml:id="__background_8cpp_source_1l00048"/>00048 
+<anchor xml:id="__background_8cpp_source_1l00049"/><link linkend="_class_background_1a36754df1deb720393217ade59da41557">00049</link> <link linkend="_class_background_1a36754df1deb720393217ade59da41557">Background::~Background</link>()
+<anchor xml:id="__background_8cpp_source_1l00050"/>00050 {
+<anchor xml:id="__background_8cpp_source_1l00051"/>00051 }
+<anchor xml:id="__background_8cpp_source_1l00052"/>00052 
+<anchor xml:id="__background_8cpp_source_1l00053"/>00053 
+<anchor xml:id="__background_8cpp_source_1l00066"/><link linkend="_class_background_1a35213116185226b7b3881b2e71c8a292">00066</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1a35213116185226b7b3881b2e71c8a292">Background::update</link>(sf::RenderWindow&amp;&#32;window,&#32;sf::View&amp;&#32;mainView,
+<anchor xml:id="__background_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed,&#32;sf::Texture*&#32;spritesheet,
+<anchor xml:id="__background_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;&#32;obstacles,
+<anchor xml:id="__background_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&amp;&#32;enemies,&#32;<link linkend="_class_player">Player</link>&amp;&#32;player,
+<anchor xml:id="__background_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Wall*&gt;&amp;&#32;walls,
+<anchor xml:id="__background_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;ZapWall*&gt;&amp;&#32;zapWalls
+<anchor xml:id="__background_8cpp_source_1l00072"/>00072 )
+<anchor xml:id="__background_8cpp_source_1l00073"/>00073 {
+<anchor xml:id="__background_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="comment">//checks&#32;the&#32;transition&#32;between&#32;stages</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(backgroundFinished(mainView))
+<anchor xml:id="__background_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(stage)
+<anchor xml:id="__background_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>:
+<anchor xml:id="__background_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stage&#32;=&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>;
+<anchor xml:id="__background_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(space);
+<anchor xml:id="__background_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">resetPos</link>(mainView,&#32;player,&#32;0);
+<anchor xml:id="__background_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>:
+<anchor xml:id="__background_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stage&#32;=&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>;
+<anchor xml:id="__background_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(boss);
+<anchor xml:id="__background_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">resetPos</link>(mainView,&#32;player,&#32;0);
+<anchor xml:id="__background_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>:
+<anchor xml:id="__background_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stage&#32;=&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">BOSSFIGHT</link>;
+<anchor xml:id="__background_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00092"/>00092 
+<anchor xml:id="__background_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1ac607d65614b8f90a0f841a97df4f0b04">generateObstacles</link>(stage,&#32;obstacles,&#32;spritesheet,&#32;walls,&#32;zapWalls);
+<anchor xml:id="__background_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1aa319354445ea0a0f224b6dc726b621c2">generateWaves</link>(stage,&#32;enemies,&#32;spritesheet,
+<anchor xml:id="__background_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(player.<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__background_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00097"/>00097 
+<anchor xml:id="__background_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!backgroundFinished(mainView))
+<anchor xml:id="__background_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;modifier&#32;=&#32;1;
+<anchor xml:id="__background_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>)&#32;<emphasis role="comment">//&#32;space&#32;moves&#32;2/3&#32;speed</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;modifier&#32;=&#32;0.66f;
+<anchor xml:id="__background_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mainView.move(
+<anchor xml:id="__background_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(sf::Vector3f(0,&#32;0,&#32;-1.3f&#32;*&#32;gameSpeed&#32;*&#32;modifier)));
+<anchor xml:id="__background_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00106"/>00106 
+<anchor xml:id="__background_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;spawn&#32;waves&#32;that&#32;have&#32;gone&#32;past&#32;the&#32;z&#32;set&#32;in&#32;queue</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!waveQueue.empty()&#32;&amp;&amp;&#32;player.<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;&lt;&#32;waveQueue.front().first)
+<anchor xml:id="__background_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_enemy_1a965d8a0c6f027a92795b9794158369b7">Enemy::spawnWave</link>(enemies,&#32;spritesheet,
+<anchor xml:id="__background_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(player.<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z),
+<anchor xml:id="__background_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.front().second);
+<anchor xml:id="__background_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.pop();
+<anchor xml:id="__background_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00115"/>00115 
+<anchor xml:id="__background_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;window.draw(back);
+<anchor xml:id="__background_8cpp_source_1l00117"/>00117 }
+<anchor xml:id="__background_8cpp_source_1l00118"/>00118 
+<anchor xml:id="__background_8cpp_source_1l00119"/>00119 
+<anchor xml:id="__background_8cpp_source_1l00124"/><link linkend="_class_background_1a002ca1b009e940180bb5edb8c49e008f">00124</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1a002ca1b009e940180bb5edb8c49e008f">Background::setPosition</link>(sf::Vector2f&#32;pos)
+<anchor xml:id="__background_8cpp_source_1l00125"/>00125 {
+<anchor xml:id="__background_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;back.setPosition(pos);
+<anchor xml:id="__background_8cpp_source_1l00127"/>00127 }
+<anchor xml:id="__background_8cpp_source_1l00128"/>00128 
+<anchor xml:id="__background_8cpp_source_1l00129"/>00129 
+<anchor xml:id="__background_8cpp_source_1l00143"/>00143 <emphasis role="keywordtype">void</emphasis>&#32;Background::changeStage(Stage&#32;stage,&#32;sf::View&amp;&#32;mainView,
+<anchor xml:id="__background_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Texture*&#32;spritesheet,
+<anchor xml:id="__background_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;&#32;obstacles,
+<anchor xml:id="__background_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&amp;&#32;enemies,&#32;<link linkend="_class_player">Player</link>&amp;&#32;player,
+<anchor xml:id="__background_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>,&#32;std::vector&lt;Wall*&gt;&amp;&#32;walls,
+<anchor xml:id="__background_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;ZapWall*&gt;&amp;&#32;zapWalls
+<anchor xml:id="__background_8cpp_source_1l00149"/>00149 )
+<anchor xml:id="__background_8cpp_source_1l00150"/>00150 {
+<anchor xml:id="__background_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;this-&gt;stage&#32;=&#32;stage;
+<anchor xml:id="__background_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>)
+<anchor xml:id="__background_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(initial);
+<anchor xml:id="__background_8cpp_source_1l00154"/>00154 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>)
+<anchor xml:id="__background_8cpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(space);
+<anchor xml:id="__background_8cpp_source_1l00156"/>00156 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(boss);
+<anchor xml:id="__background_8cpp_source_1l00158"/>00158 &#32;&#32;&#32;&#32;<link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">resetPos</link>(mainView,&#32;player,&#32;<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>);
+<anchor xml:id="__background_8cpp_source_1l00159"/>00159 
+<anchor xml:id="__background_8cpp_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<link linkend="_class_background_1ac607d65614b8f90a0f841a97df4f0b04">generateObstacles</link>(stage,&#32;obstacles,&#32;spritesheet,&#32;walls,&#32;zapWalls);
+<anchor xml:id="__background_8cpp_source_1l00161"/>00161 &#32;&#32;&#32;&#32;<link linkend="_class_background_1aa319354445ea0a0f224b6dc726b621c2">generateWaves</link>(stage,&#32;enemies,&#32;spritesheet,
+<anchor xml:id="__background_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(player.<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__background_8cpp_source_1l00163"/>00163 }
+<anchor xml:id="__background_8cpp_source_1l00164"/>00164 
+<anchor xml:id="__background_8cpp_source_1l00165"/>00165 
+<anchor xml:id="__background_8cpp_source_1l00171"/>00171 <emphasis role="keywordtype">bool</emphasis>&#32;Background::backgroundFinished(sf::View&amp;&#32;view)
+<anchor xml:id="__background_8cpp_source_1l00172"/>00172 {
+<anchor xml:id="__background_8cpp_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;wXPos&#32;=&#32;view.getCenter().x&#32;-&#32;(view.getSize().x&#32;/&#32;2);
+<anchor xml:id="__background_8cpp_source_1l00174"/>00174 
+<anchor xml:id="__background_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>)
+<anchor xml:id="__background_8cpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;wXPos&#32;&gt;=&#32;2050;
+<anchor xml:id="__background_8cpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>)
+<anchor xml:id="__background_8cpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;wXPos&#32;&gt;=&#32;1150;
+<anchor xml:id="__background_8cpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;wXPos&#32;&gt;=&#32;1830;
+<anchor xml:id="__background_8cpp_source_1l00180"/>00180 }
+<anchor xml:id="__background_8cpp_source_1l00181"/>00181 
+<anchor xml:id="__background_8cpp_source_1l00182"/>00182 
+<anchor xml:id="__background_8cpp_source_1l00188"/><link linkend="_class_background_1a52b2389cd7dfaedff511e72af9f3735c">00188</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_background_1a52b2389cd7dfaedff511e72af9f3735c">Background::isInSpace</link>(<emphasis role="keywordtype">int</emphasis>&#32;z)
+<anchor xml:id="__background_8cpp_source_1l00189"/>00189 {
+<anchor xml:id="__background_8cpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Initial&#32;-2800:&#32;space</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Boss&#32;-123:&#32;No&#32;space</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00192"/>00192 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;inSpace&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(stage)
+<anchor xml:id="__background_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>:
+<anchor xml:id="__background_8cpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(z&#32;&gt;&#32;-123&#32;||&#32;z&#32;&lt;&#32;-2800)
+<anchor xml:id="__background_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;inSpace&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00199"/>00199 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>:
+<anchor xml:id="__background_8cpp_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;inSpace&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00202"/>00202 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>:
+<anchor xml:id="__background_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(z&#32;&gt;&#32;-123)
+<anchor xml:id="__background_8cpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;inSpace&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00206"/>00206 
+<anchor xml:id="__background_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;inSpace;
+<anchor xml:id="__background_8cpp_source_1l00208"/>00208 }
+<anchor xml:id="__background_8cpp_source_1l00209"/>00209 
+<anchor xml:id="__background_8cpp_source_1l00210"/>00210 
+<anchor xml:id="__background_8cpp_source_1l00217"/><link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">00217</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">Background::resetPos</link>(sf::View&amp;&#32;mainView,&#32;<link linkend="_class_player">Player</link>&amp;&#32;player,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>)
+<anchor xml:id="__background_8cpp_source_1l00218"/>00218 {
+<anchor xml:id="__background_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<emphasis role="comment">//Sets&#32;the&#32;origin&#32;to&#32;the&#32;bottom&#32;left&#32;corner&#32;as&#32;that&#32;is&#32;where&#32;it&#32;will&#32;start&#32;</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;<emphasis role="comment">//on&#32;the&#32;screen</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;mainView.setCenter(sf::Vector2f(112,&#32;100));
+<anchor xml:id="__background_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;back.setOrigin(
+<anchor xml:id="__background_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector2f(0,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(back.getTexture()-&gt;getSize().y)));
+<anchor xml:id="__background_8cpp_source_1l00224"/>00224 
+<anchor xml:id="__background_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;adder&#32;=&#32;stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>&#32;?&#32;350&#32;:&#32;0;
+<anchor xml:id="__background_8cpp_source_1l00226"/>00226 &#32;&#32;&#32;&#32;sf::Vector2f&#32;moveVector&#32;=&#32;sf::Vector2f(.8f&#32;*&#32;(<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>&#32;+&#32;adder),
+<anchor xml:id="__background_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-.4f&#32;*&#32;(<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>&#32;+&#32;adder));
+<anchor xml:id="__background_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;mainView.move(moveVector);
+<anchor xml:id="__background_8cpp_source_1l00229"/>00229 
+<anchor xml:id="__background_8cpp_source_1l00230"/>00230 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(stage)
+<anchor xml:id="__background_8cpp_source_1l00231"/>00231 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00232"/>00232 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>:
+<anchor xml:id="__background_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setPosition(sf::Vector2f(0,&#32;224));
+<anchor xml:id="__background_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;player.<link linkend="_class_player_1a49066b4a0b345abad5a5d4a6ec640140">resetPos</link>(<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>&#32;+&#32;350);
+<anchor xml:id="__background_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>:
+<anchor xml:id="__background_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setPosition(sf::Vector2f(0,&#32;238));
+<anchor xml:id="__background_8cpp_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;player.<link linkend="_class_player_1a49066b4a0b345abad5a5d4a6ec640140">resetPos</link>(<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>);
+<anchor xml:id="__background_8cpp_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00240"/>00240 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="__background_8cpp_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setPosition(sf::Vector2f(0,&#32;224));
+<anchor xml:id="__background_8cpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;player.<link linkend="_class_player_1a49066b4a0b345abad5a5d4a6ec640140">resetPos</link>(<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>);
+<anchor xml:id="__background_8cpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00244"/>00244 }
+<anchor xml:id="__background_8cpp_source_1l00245"/>00245 
+<anchor xml:id="__background_8cpp_source_1l00246"/>00246 
+<anchor xml:id="__background_8cpp_source_1l00253"/><link linkend="_class_background_1ac607d65614b8f90a0f841a97df4f0b04">00253</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1ac607d65614b8f90a0f841a97df4f0b04">Background::generateObstacles</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>&#32;stage,
+<anchor xml:id="__background_8cpp_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;&#32;obstacles,
+<anchor xml:id="__background_8cpp_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Texture*&#32;spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Wall*&gt;&amp;&#32;walls,
+<anchor xml:id="__background_8cpp_source_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;ZapWall*&gt;&amp;&#32;zapWalls)
+<anchor xml:id="__background_8cpp_source_1l00258"/>00258 {
+<anchor xml:id="__background_8cpp_source_1l00259"/>00259 &#32;&#32;&#32;&#32;<emphasis role="comment">/*Shooting&#32;Obstacles</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00260"/>00260 <emphasis role="comment">&#32;&#32;&#32;&#32;KEY</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00261"/>00261 <emphasis role="comment">&#32;&#32;&#32;&#32;0&#32;=&#32;Grey&#32;Turrets</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00262"/>00262 <emphasis role="comment">&#32;&#32;&#32;&#32;1&#32;=&#32;Green&#32;Turrets</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00263"/>00263 <emphasis role="comment">&#32;&#32;&#32;&#32;2&#32;=&#32;Shooting&#32;Up&#32;Bullets</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00264"/>00264 <emphasis role="comment">&#32;&#32;&#32;&#32;3&#32;=&#32;Green&#32;Shooting&#32;Right</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00265"/>00265 <emphasis role="comment"></emphasis>
+<anchor xml:id="__background_8cpp_source_1l00266"/>00266 <emphasis role="comment">&#32;&#32;&#32;&#32;Stationary&#32;Obstacles</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00267"/>00267 <emphasis role="comment">&#32;&#32;&#32;&#32;KEY</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00268"/>00268 <emphasis role="comment">&#32;&#32;&#32;&#32;1&#32;=&#32;gas&#32;can</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00269"/>00269 <emphasis role="comment">&#32;&#32;&#32;&#32;2&#32;=&#32;satellite</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00270"/>00270 <emphasis role="comment">&#32;&#32;&#32;&#32;3&#32;=&#32;plane</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00271"/>00271 <emphasis role="comment">&#32;&#32;&#32;&#32;4&#32;=&#32;blue&#32;floating&#32;gas&#32;can</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00272"/>00272 <emphasis role="comment">&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00273"/>00273 
+<anchor xml:id="__background_8cpp_source_1l00274"/>00274 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_obstacle">Obstacle</link>*&#32;obstacle&#32;:&#32;obstacles)
+<anchor xml:id="__background_8cpp_source_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;obstacle;
+<anchor xml:id="__background_8cpp_source_1l00276"/>00276 &#32;&#32;&#32;&#32;obstacles.clear();
+<anchor xml:id="__background_8cpp_source_1l00277"/>00277 
+<anchor xml:id="__background_8cpp_source_1l00278"/>00278 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_wall">Wall</link>*&#32;wall&#32;:&#32;walls)
+<anchor xml:id="__background_8cpp_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;wall;
+<anchor xml:id="__background_8cpp_source_1l00280"/>00280 &#32;&#32;&#32;&#32;walls.clear();
+<anchor xml:id="__background_8cpp_source_1l00281"/>00281 
+<anchor xml:id="__background_8cpp_source_1l00282"/>00282 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_zap_wall">ZapWall</link>*&#32;zapWall&#32;:&#32;zapWalls)
+<anchor xml:id="__background_8cpp_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;zapWall;
+<anchor xml:id="__background_8cpp_source_1l00284"/>00284 &#32;&#32;&#32;&#32;zapWalls.clear();
+<anchor xml:id="__background_8cpp_source_1l00285"/>00285 
+<anchor xml:id="__background_8cpp_source_1l00286"/>00286 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(stage)
+<anchor xml:id="__background_8cpp_source_1l00287"/>00287 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00288"/>00288 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>:
+<anchor xml:id="__background_8cpp_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//Shooting</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-380.f),
+<anchor xml:id="__background_8cpp_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-15.f,&#32;139.f,&#32;-435.f),
+<anchor xml:id="__background_8cpp_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00294"/>00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-90.f,&#32;139.f,&#32;-800.f),
+<anchor xml:id="__background_8cpp_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-947.f),
+<anchor xml:id="__background_8cpp_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-120.f,&#32;139.f,&#32;-1120.f),
+<anchor xml:id="__background_8cpp_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-1145.f),
+<anchor xml:id="__background_8cpp_source_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00302"/>00302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-142.f,&#32;139.f,&#32;-1410.f),
+<anchor xml:id="__background_8cpp_source_1l00303"/>00303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00304"/>00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-10.f,&#32;139.f,&#32;-1680.f),
+<anchor xml:id="__background_8cpp_source_1l00305"/>00305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00306"/>00306 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-5.f,&#32;139.f,&#32;-2080.f),
+<anchor xml:id="__background_8cpp_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00308"/>00308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-5.f,&#32;139.f,&#32;-2260.f),
+<anchor xml:id="__background_8cpp_source_1l00309"/>00309 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00310"/>00310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-2335.f),
+<anchor xml:id="__background_8cpp_source_1l00311"/>00311 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00312"/>00312 
+<anchor xml:id="__background_8cpp_source_1l00313"/>00313 &#32;&#32;&#32;&#32;<emphasis role="comment">//Non-Shooting</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00314"/>00314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-170.f,&#32;139.f,&#32;-340.f),
+<anchor xml:id="__background_8cpp_source_1l00315"/>00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-80.f,&#32;139.f,&#32;-590.f),&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00318"/>00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-12.f,&#32;139.f,&#32;-630.f),&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-160.f,&#32;139.f,&#32;-665.f),
+<anchor xml:id="__background_8cpp_source_1l00321"/>00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-170.f,&#32;139.f,&#32;-910.f),
+<anchor xml:id="__background_8cpp_source_1l00323"/>00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-12.f,&#32;139.f,&#32;-1000.f),
+<anchor xml:id="__background_8cpp_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-50.f,&#32;139.f,&#32;-1100.f),
+<anchor xml:id="__background_8cpp_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-25.f,&#32;139.f,&#32;-1305.f),
+<anchor xml:id="__background_8cpp_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-135.f,&#32;139.f,&#32;-1685.f),
+<anchor xml:id="__background_8cpp_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-40.f,&#32;139.f,&#32;-1770.f),
+<anchor xml:id="__background_8cpp_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-130.f,&#32;139.f,&#32;-1800.f),
+<anchor xml:id="__background_8cpp_source_1l00335"/>00335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00336"/>00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-90.f,&#32;139.f,&#32;-1900.f),
+<anchor xml:id="__background_8cpp_source_1l00337"/>00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00338"/>00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-50.f,&#32;139.f,&#32;-2045.f),
+<anchor xml:id="__background_8cpp_source_1l00339"/>00339 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00340"/>00340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-95.f,&#32;139.f,&#32;-2175.f),
+<anchor xml:id="__background_8cpp_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00342"/>00342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-40.f,&#32;139.f,&#32;-2320.f),
+<anchor xml:id="__background_8cpp_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00344"/>00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00345"/>00345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-5.f,&#32;139.f,&#32;-2435.f),&#32;spriteSheet,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00346"/>00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-45.f,&#32;139.f,&#32;-2460.f),
+<anchor xml:id="__background_8cpp_source_1l00347"/>00347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-125.f,&#32;139.f,&#32;-2490.f),
+<anchor xml:id="__background_8cpp_source_1l00349"/>00349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-100.f,&#32;139.f,&#32;-2635.f),
+<anchor xml:id="__background_8cpp_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-150.f,&#32;139.f,&#32;-2635.f),
+<anchor xml:id="__background_8cpp_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00354"/>00354 
+<anchor xml:id="__background_8cpp_source_1l00355"/>00355 &#32;&#32;&#32;&#32;<emphasis role="comment">//Shooting&#32;Up&#32;Missiles</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00356"/>00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-79.f,&#32;139.f,&#32;-335.f),
+<anchor xml:id="__background_8cpp_source_1l00357"/>00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;130,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-25.f,&#32;139.f,&#32;-534.298f),
+<anchor xml:id="__background_8cpp_source_1l00359"/>00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;300,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00360"/>00360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(
+<anchor xml:id="__background_8cpp_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-176.f,&#32;139.6f,&#32;-550.697f),&#32;spriteSheet,&#32;370,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00362"/>00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-15.f,&#32;139.6f,&#32;-857.029f),
+<anchor xml:id="__background_8cpp_source_1l00363"/>00363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;650,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00364"/>00364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-135.f,&#32;139.f,&#32;-840.029f),
+<anchor xml:id="__background_8cpp_source_1l00365"/>00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;650,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00366"/>00366 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-62.f,&#32;139.f,&#32;-1048.13f),
+<anchor xml:id="__background_8cpp_source_1l00367"/>00367 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;850,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00368"/>00368 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-141.f,&#32;139.f,&#32;-1218.6f),
+<anchor xml:id="__background_8cpp_source_1l00369"/>00369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;950,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00370"/>00370 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-10.f,&#32;139.f,&#32;-1258.41f),
+<anchor xml:id="__background_8cpp_source_1l00371"/>00371 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1050,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00372"/>00372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-30.f,&#32;139.f,&#32;-1515.31f),
+<anchor xml:id="__background_8cpp_source_1l00373"/>00373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1350,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00374"/>00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-185.f,&#32;139.f,&#32;-1460.61f),
+<anchor xml:id="__background_8cpp_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1350,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-145.f,&#32;139.f,&#32;-1644.61f),
+<anchor xml:id="__background_8cpp_source_1l00377"/>00377 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1450,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00378"/>00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(
+<anchor xml:id="__background_8cpp_source_1l00379"/>00379 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-100.f,&#32;139.333f,&#32;-1764.57f),&#32;spriteSheet,&#32;1700,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00380"/>00380 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-98.4f,&#32;139.f,&#32;-2115.49f),
+<anchor xml:id="__background_8cpp_source_1l00381"/>00381 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1850,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00382"/>00382 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(
+<anchor xml:id="__background_8cpp_source_1l00383"/>00383 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-20.2f,&#32;139.333f,&#32;-2148.29f),&#32;spriteSheet,&#32;1850,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00384"/>00384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(
+<anchor xml:id="__background_8cpp_source_1l00385"/>00385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-151.2f,&#32;139.f,&#32;-2268.38f),&#32;spriteSheet,&#32;2100,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00386"/>00386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(
+<anchor xml:id="__background_8cpp_source_1l00387"/>00387 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-65.2f,&#32;139.667f,&#32;-2257.88f),&#32;spriteSheet,&#32;2100,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00388"/>00388 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-42.6f,&#32;139.f,&#32;-2617.49f),
+<anchor xml:id="__background_8cpp_source_1l00389"/>00389 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2300,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00390"/>00390 
+<anchor xml:id="__background_8cpp_source_1l00391"/>00391 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Walls</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00392"/>00392 <emphasis role="comment">&#32;&#32;&#32;&#32;KEY&#32;for&#32;Vector</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00393"/>00393 <emphasis role="comment">&#32;&#32;&#32;&#32;0&#32;=&#32;closed&#32;wall</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00394"/>00394 <emphasis role="comment">&#32;&#32;&#32;&#32;1&#32;=&#32;open&#32;wall</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00395"/>00395 <emphasis role="comment">&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,&#32;sf::Vector3f(0.f,&#32;70.f,&#32;-122.f),
+<anchor xml:id="__background_8cpp_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;2,&#32;std::vector&lt;int&gt;{0,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00398"/>00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(0)-&gt;setPosition(sf::Vector3f(-160.f,&#32;70.f,&#32;-122.f),&#32;1);
+<anchor xml:id="__background_8cpp_source_1l00399"/>00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00400"/>00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-63.f,&#32;130.f,&#32;-755.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{1,&#32;1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00402"/>00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00403"/>00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(23.f,&#32;130.f,&#32;-1423.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00404"/>00404 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{1,&#32;1,&#32;0}));
+<anchor xml:id="__background_8cpp_source_1l00405"/>00405 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00406"/>00406 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-26.f,&#32;130.f,&#32;-2782.f),&#32;2,
+<anchor xml:id="__background_8cpp_source_1l00407"/>00407 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00408"/>00408 
+<anchor xml:id="__background_8cpp_source_1l00409"/>00409 &#32;&#32;&#32;&#32;<emphasis role="comment">//Zap&#32;Walls</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00410"/>00410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00411"/>00411 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-10,&#32;125,&#32;-1940)));
+<anchor xml:id="__background_8cpp_source_1l00412"/>00412 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00413"/>00413 
+<anchor xml:id="__background_8cpp_source_1l00414"/>00414 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>:
+<anchor xml:id="__background_8cpp_source_1l00415"/>00415 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//Blue&#32;Space&#32;Gas&#32;Cans</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00416"/>00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-120.f,&#32;139.f,&#32;-960.f),
+<anchor xml:id="__background_8cpp_source_1l00417"/>00417 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00418"/>00418 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-100.f,&#32;139.f,&#32;-2500.f),
+<anchor xml:id="__background_8cpp_source_1l00419"/>00419 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00420"/>00420 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00421"/>00421 
+<anchor xml:id="__background_8cpp_source_1l00422"/>00422 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>:
+<anchor xml:id="__background_8cpp_source_1l00423"/>00423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//Area&#32;are&#32;made&#32;by&#32;the&#32;sections&#32;of&#32;map&#32;between&#32;walls</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00424"/>00424 
+<anchor xml:id="__background_8cpp_source_1l00425"/>00425 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,&#32;sf::Vector3f(-9.f,&#32;70.f,&#32;-106.f),
+<anchor xml:id="__background_8cpp_source_1l00426"/>00426 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;3,&#32;std::vector&lt;int&gt;{0,&#32;1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00427"/>00427 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(0)-&gt;setPosition(sf::Vector3f(-130.f,&#32;70.f,&#32;-106.f),&#32;1);
+<anchor xml:id="__background_8cpp_source_1l00428"/>00428 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(0)-&gt;setPosition(sf::Vector3f(-168.f,&#32;70.f,&#32;-106.f),&#32;2);
+<anchor xml:id="__background_8cpp_source_1l00429"/>00429 
+<anchor xml:id="__background_8cpp_source_1l00430"/>00430 &#32;&#32;&#32;&#32;<emphasis role="comment">//First&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00431"/>00431 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00432"/>00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-90.f,&#32;139.f,&#32;-320.f),&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00433"/>00433 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-370.f),
+<anchor xml:id="__background_8cpp_source_1l00434"/>00434 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00435"/>00435 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-120.f,&#32;139.f,&#32;-460.f),
+<anchor xml:id="__background_8cpp_source_1l00436"/>00436 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00437"/>00437 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-30.f,&#32;139.f,&#32;-460.f),
+<anchor xml:id="__background_8cpp_source_1l00438"/>00438 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00439"/>00439 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-460.f),
+<anchor xml:id="__background_8cpp_source_1l00440"/>00440 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00441"/>00441 
+<anchor xml:id="__background_8cpp_source_1l00442"/>00442 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,&#32;sf::Vector3f(7.f,&#32;112.f,&#32;-550.f),
+<anchor xml:id="__background_8cpp_source_1l00443"/>00443 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;2,&#32;std::vector&lt;int&gt;{0,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00444"/>00444 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(1)-&gt;setPosition(sf::Vector3f(-153.f,&#32;112.f,&#32;-550.f),&#32;1);
+<anchor xml:id="__background_8cpp_source_1l00445"/>00445 
+<anchor xml:id="__background_8cpp_source_1l00446"/>00446 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00447"/>00447 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-10,&#32;90,&#32;-550)));
+<anchor xml:id="__background_8cpp_source_1l00448"/>00448 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00449"/>00449 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-10,&#32;70,&#32;-550)));
+<anchor xml:id="__background_8cpp_source_1l00450"/>00450 
+<anchor xml:id="__background_8cpp_source_1l00451"/>00451 &#32;&#32;&#32;&#32;<emphasis role="comment">//Second&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00452"/>00452 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00453"/>00453 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-90.f,&#32;139.f,&#32;-800.f),&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00454"/>00454 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00455"/>00455 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-90.f,&#32;139.f,&#32;-865.f),&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00456"/>00456 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(
+<anchor xml:id="__background_8cpp_source_1l00457"/>00457 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-90.f,&#32;139.f,&#32;-920.f),&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00458"/>00458 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-30.f,&#32;139.f,&#32;-910.f),
+<anchor xml:id="__background_8cpp_source_1l00459"/>00459 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00460"/>00460 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-140.f,&#32;139.f,&#32;-910.f),
+<anchor xml:id="__background_8cpp_source_1l00461"/>00461 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00462"/>00462 
+<anchor xml:id="__background_8cpp_source_1l00463"/>00463 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00464"/>00464 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-136.f,&#32;82.f,&#32;-978.f),&#32;2,
+<anchor xml:id="__background_8cpp_source_1l00465"/>00465 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{0,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00466"/>00466 
+<anchor xml:id="__background_8cpp_source_1l00467"/>00467 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00468"/>00468 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-30,&#32;60,&#32;-978)));
+<anchor xml:id="__background_8cpp_source_1l00469"/>00469 
+<anchor xml:id="__background_8cpp_source_1l00470"/>00470 &#32;&#32;&#32;&#32;<emphasis role="comment">//Third&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00471"/>00471 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-50.f,&#32;139.f,&#32;-1200.f),
+<anchor xml:id="__background_8cpp_source_1l00472"/>00472 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00473"/>00473 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-100.f,&#32;139.f,&#32;-1210.f),
+<anchor xml:id="__background_8cpp_source_1l00474"/>00474 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00475"/>00475 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-140.f,&#32;139.f,&#32;-1230.f),
+<anchor xml:id="__background_8cpp_source_1l00476"/>00476 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00477"/>00477 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-185.f,&#32;139.f,&#32;-1275.f),
+<anchor xml:id="__background_8cpp_source_1l00478"/>00478 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00479"/>00479 
+<anchor xml:id="__background_8cpp_source_1l00480"/>00480 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00481"/>00481 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(27.f,&#32;139.f,&#32;-1408.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00482"/>00482 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{1,&#32;0,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00483"/>00483 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(3)-&gt;setPosition(sf::Vector3f(-133.f,&#32;139.f,&#32;-1407.f),&#32;2);
+<anchor xml:id="__background_8cpp_source_1l00484"/>00484 
+<anchor xml:id="__background_8cpp_source_1l00485"/>00485 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00486"/>00486 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;120,&#32;-1407)));
+<anchor xml:id="__background_8cpp_source_1l00487"/>00487 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00488"/>00488 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;100,&#32;-1407)));
+<anchor xml:id="__background_8cpp_source_1l00489"/>00489 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.
+<anchor xml:id="__background_8cpp_source_1l00490"/>00490 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;80,&#32;-1407)));
+<anchor xml:id="__background_8cpp_source_1l00491"/>00491 
+<anchor xml:id="__background_8cpp_source_1l00492"/>00492 &#32;&#32;&#32;&#32;<emphasis role="comment">//Fourth&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00493"/>00493 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-40.f,&#32;139.f,&#32;-1510.f),
+<anchor xml:id="__background_8cpp_source_1l00494"/>00494 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00495"/>00495 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-200.f,&#32;139.f,&#32;-1540.f),
+<anchor xml:id="__background_8cpp_source_1l00496"/>00496 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00497"/>00497 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-30.f,&#32;139.f,&#32;-1630.f),
+<anchor xml:id="__background_8cpp_source_1l00498"/>00498 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00499"/>00499 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-180.f,&#32;139.f,&#32;-1670.f),
+<anchor xml:id="__background_8cpp_source_1l00500"/>00500 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00501"/>00501 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-80.f,&#32;139.f,&#32;-1680.f),
+<anchor xml:id="__background_8cpp_source_1l00502"/>00502 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00503"/>00503 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-130.f,&#32;139.f,&#32;-1750.f),
+<anchor xml:id="__background_8cpp_source_1l00504"/>00504 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00505"/>00505 
+<anchor xml:id="__background_8cpp_source_1l00506"/>00506 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00507"/>00507 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(10.f,&#32;112.f,&#32;-1830.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00508"/>00508 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{0,&#32;1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00509"/>00509 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(4)-&gt;setPosition(sf::Vector3f(-112.f,&#32;112.f,&#32;-1829.f),&#32;1);
+<anchor xml:id="__background_8cpp_source_1l00510"/>00510 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(4)-&gt;setPosition(sf::Vector3f(-152.f,&#32;112.f,&#32;-1829.f),&#32;2);
+<anchor xml:id="__background_8cpp_source_1l00511"/>00511 
+<anchor xml:id="__background_8cpp_source_1l00512"/>00512 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.
+<anchor xml:id="__background_8cpp_source_1l00513"/>00513 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;90,&#32;-1829)));
+<anchor xml:id="__background_8cpp_source_1l00514"/>00514 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.
+<anchor xml:id="__background_8cpp_source_1l00515"/>00515 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;70,&#32;-1829)));
+<anchor xml:id="__background_8cpp_source_1l00516"/>00516 
+<anchor xml:id="__background_8cpp_source_1l00517"/>00517 &#32;&#32;&#32;&#32;<emphasis role="comment">//Fifth&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00518"/>00518 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-35.f,&#32;139.f,&#32;-1990.f),
+<anchor xml:id="__background_8cpp_source_1l00519"/>00519 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00520"/>00520 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-110.f,&#32;139.f,&#32;-2110.f),
+<anchor xml:id="__background_8cpp_source_1l00521"/>00521 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00522"/>00522 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-50.f,&#32;139.f,&#32;-2180.f),
+<anchor xml:id="__background_8cpp_source_1l00523"/>00523 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00524"/>00524 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-100.f,&#32;139.f,&#32;-2180.f),
+<anchor xml:id="__background_8cpp_source_1l00525"/>00525 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00526"/>00526 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-160.f,&#32;139.f,&#32;-2180.f),
+<anchor xml:id="__background_8cpp_source_1l00527"/>00527 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00528"/>00528 
+<anchor xml:id="__background_8cpp_source_1l00529"/>00529 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00530"/>00530 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-15.f,&#32;82.f,&#32;-2260.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00531"/>00531 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{0,&#32;1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00532"/>00532 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(5)-&gt;setPosition(sf::Vector3f(-133.f,&#32;82.f,&#32;-2259.f),&#32;1);
+<anchor xml:id="__background_8cpp_source_1l00533"/>00533 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(5)-&gt;setPosition(sf::Vector3f(-173.f,&#32;82.f,&#32;-2259.f),&#32;2);
+<anchor xml:id="__background_8cpp_source_1l00534"/>00534 
+<anchor xml:id="__background_8cpp_source_1l00535"/>00535 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00536"/>00536 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-20,&#32;60,&#32;-2259)));
+<anchor xml:id="__background_8cpp_source_1l00537"/>00537 
+<anchor xml:id="__background_8cpp_source_1l00538"/>00538 &#32;&#32;&#32;&#32;<emphasis role="comment">//Sixth&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00539"/>00539 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-40.f,&#32;139.f,&#32;-2420.f),
+<anchor xml:id="__background_8cpp_source_1l00540"/>00540 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00541"/>00541 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-105.f,&#32;139.f,&#32;-2540.f),
+<anchor xml:id="__background_8cpp_source_1l00542"/>00542 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00543"/>00543 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-45.f,&#32;139.f,&#32;-2580.f),
+<anchor xml:id="__background_8cpp_source_1l00544"/>00544 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00545"/>00545 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-155.f,&#32;139.f,&#32;-2580.f),
+<anchor xml:id="__background_8cpp_source_1l00546"/>00546 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00547"/>00547 
+<anchor xml:id="__background_8cpp_source_1l00548"/>00548 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00549"/>00549 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-56.f,&#32;139.f,&#32;-2687.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00550"/>00550 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{1,&#32;1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00551"/>00551 
+<anchor xml:id="__background_8cpp_source_1l00552"/>00552 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00553"/>00553 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;120,&#32;-2687)));
+<anchor xml:id="__background_8cpp_source_1l00554"/>00554 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00555"/>00555 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;100,&#32;-2687)));
+<anchor xml:id="__background_8cpp_source_1l00556"/>00556 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.
+<anchor xml:id="__background_8cpp_source_1l00557"/>00557 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(0,&#32;80,&#32;-2687)));
+<anchor xml:id="__background_8cpp_source_1l00558"/>00558 
+<anchor xml:id="__background_8cpp_source_1l00559"/>00559 &#32;&#32;&#32;&#32;<emphasis role="comment">//Seventh&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00560"/>00560 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-55.f,&#32;139.f,&#32;-2820.f),
+<anchor xml:id="__background_8cpp_source_1l00561"/>00561 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00562"/>00562 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-60.f,&#32;139.f,&#32;-2875.f),
+<anchor xml:id="__background_8cpp_source_1l00563"/>00563 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00564"/>00564 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-50.f,&#32;139.f,&#32;-2950.f),
+<anchor xml:id="__background_8cpp_source_1l00565"/>00565 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;100,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00566"/>00566 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-50.f,&#32;139.f,&#32;-3010.f),
+<anchor xml:id="__background_8cpp_source_1l00567"/>00567 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00568"/>00568 
+<anchor xml:id="__background_8cpp_source_1l00569"/>00569 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_wall">Wall</link>(spriteSheet,
+<anchor xml:id="__background_8cpp_source_1l00570"/>00570 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(-40.f,&#32;82.f,&#32;-3060.f),&#32;3,
+<anchor xml:id="__background_8cpp_source_1l00571"/>00571 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;int&gt;{0,&#32;1,&#32;1}));
+<anchor xml:id="__background_8cpp_source_1l00572"/>00572 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(7)-&gt;setPosition(sf::Vector3f(-161.f,&#32;82.f,&#32;-3060.f),&#32;1);
+<anchor xml:id="__background_8cpp_source_1l00573"/>00573 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;walls.at(7)-&gt;setPosition(sf::Vector3f(-201.f,&#32;82.f,&#32;-3060.f),&#32;2);
+<anchor xml:id="__background_8cpp_source_1l00574"/>00574 
+<anchor xml:id="__background_8cpp_source_1l00575"/>00575 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00576"/>00576 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-50,&#32;60,&#32;-3060)));
+<anchor xml:id="__background_8cpp_source_1l00577"/>00577 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zapWalls.push_back(
+<anchor xml:id="__background_8cpp_source_1l00578"/>00578 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_zap_wall">ZapWall</link>(spriteSheet,&#32;sf::Vector3f(-50,&#32;40,&#32;-3060)));
+<anchor xml:id="__background_8cpp_source_1l00579"/>00579 
+<anchor xml:id="__background_8cpp_source_1l00580"/>00580 &#32;&#32;&#32;&#32;<emphasis role="comment">//Eight&#32;Area</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00581"/>00581 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-35.f,&#32;139.f,&#32;-3240.f),
+<anchor xml:id="__background_8cpp_source_1l00582"/>00582 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00583"/>00583 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-80.f,&#32;139.f,&#32;-3250.f),
+<anchor xml:id="__background_8cpp_source_1l00584"/>00584 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00585"/>00585 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacles.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_obstacle">Obstacle</link>(sf::Vector3f(-35.f,&#32;139.f,&#32;-3330.f),
+<anchor xml:id="__background_8cpp_source_1l00586"/>00586 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spriteSheet,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00587"/>00587 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//Adjusting&#32;Positions</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00588"/>00588 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_obstacle">Obstacle</link>*&#32;obstacle&#32;:&#32;obstacles)
+<anchor xml:id="__background_8cpp_source_1l00589"/>00589 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;obstacle-&gt;setPos(obstacle-&gt;getPos()&#32;+&#32;sf::Vector3f(0,&#32;-6,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00590"/>00590 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_zap_wall">ZapWall</link>*&#32;zw&#32;:&#32;zapWalls)
+<anchor xml:id="__background_8cpp_source_1l00591"/>00591 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;zw-&gt;setStartPos(zw-&gt;getStartPosition()&#32;+&#32;sf::Vector3f(0,&#32;-6,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00592"/>00592 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_wall">Wall</link>*&#32;wall&#32;:&#32;walls)
+<anchor xml:id="__background_8cpp_source_1l00593"/>00593 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;wall-&gt;getWallPositions().size();&#32;i++)
+<anchor xml:id="__background_8cpp_source_1l00594"/>00594 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;wall-&gt;setPosition(
+<anchor xml:id="__background_8cpp_source_1l00595"/>00595 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;wall-&gt;getWallPositions()[i]&#32;+&#32;sf::Vector3f(0,&#32;-6,&#32;0),&#32;i);
+<anchor xml:id="__background_8cpp_source_1l00596"/>00596 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00597"/>00597 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00598"/>00598 }
+<anchor xml:id="__background_8cpp_source_1l00599"/>00599 
+<anchor xml:id="__background_8cpp_source_1l00600"/>00600 
+<anchor xml:id="__background_8cpp_source_1l00608"/><link linkend="_class_background_1aa319354445ea0a0f224b6dc726b621c2">00608</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1aa319354445ea0a0f224b6dc726b621c2">Background::generateWaves</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>&#32;stage,
+<anchor xml:id="__background_8cpp_source_1l00609"/>00609 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&amp;&#32;enemies,
+<anchor xml:id="__background_8cpp_source_1l00610"/>00610 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Texture*&#32;spriteSheet,&#32;<emphasis role="keywordtype">int</emphasis>&#32;playerZ)
+<anchor xml:id="__background_8cpp_source_1l00611"/>00611 {
+<anchor xml:id="__background_8cpp_source_1l00612"/>00612 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<link linkend="_class_enemy">Enemy</link>*&#32;enemy&#32;:&#32;enemies)
+<anchor xml:id="__background_8cpp_source_1l00613"/>00613 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;enemy;
+<anchor xml:id="__background_8cpp_source_1l00614"/>00614 &#32;&#32;&#32;&#32;enemies.clear();
+<anchor xml:id="__background_8cpp_source_1l00615"/>00615 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;equivalent&#32;to&#32;waveQueue.clear();</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00616"/>00616 &#32;&#32;&#32;&#32;std::queue&lt;std::pair&lt;int,&#32;unsigned&#32;int&gt;&gt;().swap(waveQueue);
+<anchor xml:id="__background_8cpp_source_1l00617"/>00617 
+<anchor xml:id="__background_8cpp_source_1l00618"/>00618 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;format&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(spawnZ,&#32;waveId));</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00619"/>00619 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(stage)
+<anchor xml:id="__background_8cpp_source_1l00620"/>00620 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8cpp_source_1l00621"/>00621 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>:&#32;<emphasis role="comment">//&#32;further&#32;below&#32;Z&#32;should&#32;be&#32;lesser</emphasis>
+<anchor xml:id="__background_8cpp_source_1l00622"/>00622 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-460,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00623"/>00623 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-493,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00624"/>00624 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-526,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00625"/>00625 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-559,&#32;0));
+<anchor xml:id="__background_8cpp_source_1l00626"/>00626 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-652,&#32;1));
+<anchor xml:id="__background_8cpp_source_1l00627"/>00627 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-665,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00628"/>00628 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-678,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00629"/>00629 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-991,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00630"/>00630 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1051,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00631"/>00631 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1084,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00632"/>00632 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1104,&#32;5));
+<anchor xml:id="__background_8cpp_source_1l00633"/>00633 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1170,&#32;6));
+<anchor xml:id="__background_8cpp_source_1l00634"/>00634 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1203,&#32;6));
+<anchor xml:id="__background_8cpp_source_1l00635"/>00635 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1236,&#32;6));
+<anchor xml:id="__background_8cpp_source_1l00636"/>00636 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1269,&#32;6));
+<anchor xml:id="__background_8cpp_source_1l00637"/>00637 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1315,&#32;7));
+<anchor xml:id="__background_8cpp_source_1l00638"/>00638 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1350,&#32;3));
+<anchor xml:id="__background_8cpp_source_1l00639"/>00639 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1400,&#32;2));
+<anchor xml:id="__background_8cpp_source_1l00640"/>00640 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1440,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00641"/>00641 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;waveQueue.push(std::pair&lt;int,&#32;unsigned&#32;int&gt;(-1490,&#32;4));
+<anchor xml:id="__background_8cpp_source_1l00642"/>00642 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__background_8cpp_source_1l00643"/>00643 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__background_8cpp_source_1l00644"/>00644 }
+<anchor xml:id="__background_8cpp_source_1l00645"/>00645 
+<anchor xml:id="__background_8cpp_source_1l00646"/>00646 
+<anchor xml:id="__background_8cpp_source_1l00651"/><link linkend="_class_background_1aa60585bb666a292f5d49049038400b1a">00651</link> <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Background::Stage</link>&#32;<link linkend="_class_background_1aa60585bb666a292f5d49049038400b1a">Background::getStage</link>()
+<anchor xml:id="__background_8cpp_source_1l00652"/>00652 {
+<anchor xml:id="__background_8cpp_source_1l00653"/>00653 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;stage;
+<anchor xml:id="__background_8cpp_source_1l00654"/>00654 }
+<anchor xml:id="__background_8cpp_source_1l00655"/>00655 
+<anchor xml:id="__background_8cpp_source_1l00656"/>00656 
+<anchor xml:id="__background_8cpp_source_1l00663"/><link linkend="_class_background_1a093d96b9f25dda122febad2beabc47cd">00663</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1a093d96b9f25dda122febad2beabc47cd">Background::flashColor</link>(sf::RenderWindow&amp;&#32;window)
+<anchor xml:id="__background_8cpp_source_1l00664"/>00664 {
+<anchor xml:id="__background_8cpp_source_1l00665"/>00665 &#32;&#32;&#32;&#32;window.draw(deathOverlay);
+<anchor xml:id="__background_8cpp_source_1l00666"/>00666 }
+<anchor xml:id="__background_8cpp_source_1l00667"/>00667 
+<anchor xml:id="__background_8cpp_source_1l00668"/>00668 
+<anchor xml:id="__background_8cpp_source_1l00673"/><link linkend="_class_background_1ac333125273a1213f2cb1c4af4081f0b8">00673</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1ac333125273a1213f2cb1c4af4081f0b8">Background::setStage</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>&#32;newStage)
+<anchor xml:id="__background_8cpp_source_1l00674"/>00674 {
+<anchor xml:id="__background_8cpp_source_1l00675"/>00675 &#32;&#32;&#32;&#32;stage&#32;=&#32;newStage;
+<anchor xml:id="__background_8cpp_source_1l00676"/>00676 
+<anchor xml:id="__background_8cpp_source_1l00677"/>00677 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>)
+<anchor xml:id="__background_8cpp_source_1l00678"/>00678 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(initial);
+<anchor xml:id="__background_8cpp_source_1l00679"/>00679 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>)
+<anchor xml:id="__background_8cpp_source_1l00680"/>00680 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(space);
+<anchor xml:id="__background_8cpp_source_1l00681"/>00681 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;==&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>)
+<anchor xml:id="__background_8cpp_source_1l00682"/>00682 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;back.setTexture(boss);
+<anchor xml:id="__background_8cpp_source_1l00683"/>00683 }
+</programlisting></section>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__game_8cpp" xml:lang="en-US">
+<title>C:/Zaxxon/src/Game/Game.cpp File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Game/Game.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;Game.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>constexpr unsigned int <link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link> = 0</para>
+</listitem>
+            <listitem><para>constexpr <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Background::Stage</link> <link linkend="__game_8cpp_1a65dc56b369756c98d37a60c57ce87108">startStage</link> = <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">Background::INITIAL</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f"/><section>
+    <title>startPos</title>
+<indexterm><primary>startPos</primary><secondary>Game.cpp</secondary></indexterm>
+<indexterm><primary>Game.cpp</primary><secondary>startPos</secondary></indexterm>
+<para><computeroutput>constexpr unsigned int startPos = 0<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__game_8cpp_source_1l00003">3</link> of file <link linkend="__game_8cpp_source">Game.cpp</link>.</para>
+</section>
+<anchor xml:id="__game_8cpp_1a65dc56b369756c98d37a60c57ce87108"/><section>
+    <title>startStage</title>
+<indexterm><primary>startStage</primary><secondary>Game.cpp</secondary></indexterm>
+<indexterm><primary>Game.cpp</primary><secondary>startStage</secondary></indexterm>
+<para><computeroutput>constexpr <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Background::Stage</link> startStage = <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">Background::INITIAL</link><computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__game_8cpp_source_1l00004">4</link> of file <link linkend="__game_8cpp_source">Game.cpp</link>.</para>
+</section>
+</section>
+</section>

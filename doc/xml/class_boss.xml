@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_boss" kind="class" language="C++" prot="public">
+    <compoundname>Boss</compoundname>
+    <basecompoundref refid="class_entity" prot="public" virt="non-virtual">Entity</basecompoundref>
+    <includes refid="_boss_8h" local="no">Boss.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_boss_1ad17b5c88281d5bec21c6bc6c226d49b0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_entity" kindref="compound">Entity</ref> *</type>
+        <definition>Entity* Boss::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <qualifiedname>Boss::target</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="23" column="8" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1ac98f588d63ce0e3bc7e63684fca10c90" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Boss::movementInt</definition>
+        <argsstring></argsstring>
+        <name>movementInt</name>
+        <qualifiedname>Boss::movementInt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="24" column="11" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a233fa3e6974c588ad90bf37160642e0a" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Boss::invFrames</definition>
+        <argsstring></argsstring>
+        <name>invFrames</name>
+        <qualifiedname>Boss::invFrames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="24" column="23" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a4cbde5debb260f3a966df9613b39b382" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Boss::stages</definition>
+        <argsstring></argsstring>
+        <name>stages</name>
+        <qualifiedname>Boss::stages</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="25" column="5" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a55311d6301a3205d1f70317a8f39d3fa" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Boss::hitCount</definition>
+        <argsstring></argsstring>
+        <name>hitCount</name>
+        <qualifiedname>Boss::hitCount</qualifiedname>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="25" column="13" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a9b49ae3d372506733470869386ed4944" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Boss::hits</definition>
+        <argsstring></argsstring>
+        <name>hits</name>
+        <qualifiedname>Boss::hits</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="25" column="23" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a8671d619645e689311b79ee5917ae50d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_boss_bullet" kindref="compound">BossBullet</ref> *</type>
+        <definition>BossBullet* Boss::missile</definition>
+        <argsstring></argsstring>
+        <name>missile</name>
+        <qualifiedname>Boss::missile</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="27" column="12" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a72afc55ea726dbaf699005b0324c93ac" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Boss::bulletCreated</definition>
+        <argsstring></argsstring>
+        <name>bulletCreated</name>
+        <qualifiedname>Boss::bulletCreated</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="28" column="6" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a1463ab1eac423380d20d0ebf25739812" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Boss::destroyed</definition>
+        <argsstring></argsstring>
+        <name>destroyed</name>
+        <qualifiedname>Boss::destroyed</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="28" column="21" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_1a25da5df45f9442d41571b9ce94e52e26" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Boss::targetXPoints[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>targetXPoints</name>
+        <qualifiedname>Boss::targetXPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="29" column="7" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_boss_1a532b2cfc920780c6f4ea432d7e22be79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Boss::Boss</definition>
+        <argsstring>(sf::Vector3f, Entity *, sf::Texture *, sf::Texture *)</argsstring>
+        <name>Boss</name>
+        <qualifiedname>Boss::Boss</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>start</defname>
+        </param>
+        <param>
+          <type><ref refid="class_entity" kindref="compound">Entity</ref> *</type>
+          <defname>target</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>bossSheet</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spriteSheet</defname>
+        </param>
+        <briefdescription>
+<para>Prepare the boss variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bossSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spriteSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="14" column="1" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="11" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_1ad848427ba363777ea9fe753b4f70b26c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Boss::~Boss</definition>
+        <argsstring>() override</argsstring>
+        <name>~Boss</name>
+        <qualifiedname>Boss::~Boss</qualifiedname>
+        <briefdescription>
+<para>Clean up memory related to the boss. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="15" column="1" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_1ae9cf8c000e924a806d64e7488ce6f58a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Boss::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float gameSpeed) override</argsstring>
+        <name>update</name>
+        <qualifiedname>Boss::update</qualifiedname>
+        <reimplements refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</reimplements>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gameSpeed</declname>
+        </param>
+        <briefdescription>
+<para>Run the logic for the boss each frame and then draw it to the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="17" column="6" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="50" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_1a911178ba0e5f853c0472f8a2ef879c60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Boss::hit</definition>
+        <argsstring>()</argsstring>
+        <name>hit</name>
+        <qualifiedname>Boss::hit</qualifiedname>
+        <briefdescription>
+<para>Run visual effects and code for when you land a hit on the boss. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="18" column="6" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="139" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_1ab76a3a54901df7bc04ff8eb237549fa7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_boss_bullet" kindref="compound">BossBullet</ref> *</type>
+        <definition>BossBullet * Boss::getMissile</definition>
+        <argsstring>() const</argsstring>
+        <name>getMissile</name>
+        <qualifiedname>Boss::getMissile</qualifiedname>
+        <briefdescription>
+<para>Get the boss missile separately. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The missile as a BossBullet*</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="19" column="12" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_1af650e303d854e6bfb32b7ff64989105d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Boss::missileCreated</definition>
+        <argsstring>() const</argsstring>
+        <name>missileCreated</name>
+        <qualifiedname>Boss::missileCreated</qualifiedname>
+        <briefdescription>
+<para>Check if the boss missile exists. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="20" column="6" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="171" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Boss::isDestroyed</definition>
+        <argsstring>() const</argsstring>
+        <name>isDestroyed</name>
+        <qualifiedname>Boss::isDestroyed</qualifiedname>
+        <briefdescription>
+<para>Check if the boss has been defeated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="21" column="6" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.cpp" bodystart="181" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The boss entity you fight at the end of the level loop. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Boss</label>
+        <link refid="class_boss"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="1">
+        <label>Boss</label>
+        <link refid="class_boss"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/Boss/Boss.h" line="11" column="1" bodyfile="C:/Zaxxon/src/Entity/Boss/Boss.h" bodystart="12" bodyend="30"/>
+    <listofallmembers>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>Boss</scope><name>animations</name></member>
+      <member refid="class_boss_1a532b2cfc920780c6f4ea432d7e22be79" prot="public" virt="non-virtual"><scope>Boss</scope><name>Boss</name></member>
+      <member refid="class_boss_1a72afc55ea726dbaf699005b0324c93ac" prot="private" virt="non-virtual"><scope>Boss</scope><name>bulletCreated</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>Boss</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>Boss</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>Boss</scope><name>debugText</name></member>
+      <member refid="class_boss_1a1463ab1eac423380d20d0ebf25739812" prot="private" virt="non-virtual"><scope>Boss</scope><name>destroyed</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>Boss</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>Boss</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>Boss</scope><name>getBounds</name></member>
+      <member refid="class_boss_1ab76a3a54901df7bc04ff8eb237549fa7" prot="public" virt="non-virtual"><scope>Boss</scope><name>getMissile</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>Boss</scope><name>getPos</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>Boss</scope><name>getSpritePos</name></member>
+      <member refid="class_boss_1a911178ba0e5f853c0472f8a2ef879c60" prot="public" virt="non-virtual"><scope>Boss</scope><name>hit</name></member>
+      <member refid="class_boss_1a55311d6301a3205d1f70317a8f39d3fa" prot="private" virt="non-virtual"><scope>Boss</scope><name>hitCount</name></member>
+      <member refid="class_boss_1a9b49ae3d372506733470869386ed4944" prot="private" virt="non-virtual"><scope>Boss</scope><name>hits</name></member>
+      <member refid="class_boss_1a233fa3e6974c588ad90bf37160642e0a" prot="private" virt="non-virtual"><scope>Boss</scope><name>invFrames</name></member>
+      <member refid="class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea" prot="public" virt="non-virtual"><scope>Boss</scope><name>isDestroyed</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual"><scope>Boss</scope><name>kill</name></member>
+      <member refid="class_boss_1a8671d619645e689311b79ee5917ae50d" prot="private" virt="non-virtual"><scope>Boss</scope><name>missile</name></member>
+      <member refid="class_boss_1af650e303d854e6bfb32b7ff64989105d" prot="public" virt="non-virtual"><scope>Boss</scope><name>missileCreated</name></member>
+      <member refid="class_boss_1ac98f588d63ce0e3bc7e63684fca10c90" prot="private" virt="non-virtual"><scope>Boss</scope><name>movementInt</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>Boss</scope><name>setPos</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>Boss</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>Boss</scope><name>spriteSheet</name></member>
+      <member refid="class_boss_1a4cbde5debb260f3a966df9613b39b382" prot="private" virt="non-virtual"><scope>Boss</scope><name>stages</name></member>
+      <member refid="class_boss_1ad17b5c88281d5bec21c6bc6c226d49b0" prot="private" virt="non-virtual"><scope>Boss</scope><name>target</name></member>
+      <member refid="class_boss_1a25da5df45f9442d41571b9ce94e52e26" prot="private" virt="non-virtual"><scope>Boss</scope><name>targetXPoints</name></member>
+      <member refid="class_boss_1ae9cf8c000e924a806d64e7488ce6f58a" prot="public" virt="virtual"><scope>Boss</scope><name>update</name></member>
+      <member refid="class_boss_1ad848427ba363777ea9fe753b4f70b26c" prot="public" virt="non-virtual"><scope>Boss</scope><name>~Boss</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>Boss</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

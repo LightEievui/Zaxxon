@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__zaxxon_text_8cpp_source" xml:lang="en-US">
+<title>ZaxxonText.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__zaxxon_text_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__zaxxon_text_8h">ZaxxonText.h</link>&quot;</emphasis>
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00011"/><link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">00011</link> sf::Sprite&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(sf::Texture*&#32;spritemap,&#32;<emphasis role="keywordtype">char</emphasis>&#32;in)
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00012"/>00012 {
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;chars:&#32;65-90&#32;inclusive</emphasis>
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;nums:&#32;48-57&#32;inclusive</emphasis>
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;other:&#32;0-31&#32;inclusive</emphasis>
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;in&#32;=&#32;toupper(in);
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;column&#32;=&#32;0,&#32;row&#32;=&#32;0;
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(in&#32;&gt;=&#32;65&#32;&amp;&amp;&#32;in&#32;&lt;=&#32;90)
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;column&#32;=&#32;in&#32;-&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>;
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(in&#32;&gt;=&#32;48&#32;&amp;&amp;&#32;in&#32;&lt;=&#32;57)
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;column&#32;=&#32;in&#32;-&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;+&#32;26;
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;column&#32;=&#32;in&#32;-&#32;1,&#32;row&#32;=&#32;16;
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00024"/>00024 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;sf::Sprite&#32;retVal;
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00026"/>00026 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;retVal.setTexture(*spritemap);
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;retVal.setTextureRect(sf::IntRect(8&#32;+&#32;8&#32;*&#32;column,&#32;232&#32;+&#32;row,&#32;8,&#32;8));
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00029"/>00029 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;retVal;
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00031"/>00031 }
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00032"/>00032 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00033"/>00033 
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00041"/><link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">00041</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(sf::Texture*&#32;spritemap,&#32;std::string&#32;in,&#32;sf::Sprite*&#32;arr)
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00042"/>00042 {
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;in.size();&#32;i++)
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;arr[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">get</link>(spritemap,&#32;in[i]);
+<anchor xml:id="__zaxxon_text_8cpp_source_1l00045"/>00045 }
+</programlisting></section>

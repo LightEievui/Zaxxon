@@ -19,11 +19,11 @@ Inherits \fBEntity\fP\&.
 .br
 .RI "Prepare the boss variables\&. "
 .ti -1c
-.RI "\fB~Boss\fP ()"
+.RI "\fB~Boss\fP () override"
 .br
 .RI "Clean up memory related to the boss\&. "
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &)"
+.RI "void \fBupdate\fP (sf::RenderWindow &, float gameSpeed) override"
 .br
 .RI "Run the logic for the boss each frame and then draw it to the screen\&. "
 .ti -1c
@@ -31,15 +31,15 @@ Inherits \fBEntity\fP\&.
 .br
 .RI "Run visual effects and code for when you land a hit on the boss\&. "
 .ti -1c
-.RI "\fBBossBullet\fP * \fBgetMissile\fP ()"
+.RI "\fBBossBullet\fP * \fBgetMissile\fP () const"
 .br
 .RI "Get the boss missile separately\&. "
 .ti -1c
-.RI "bool \fBmissileCreated\fP ()"
+.RI "bool \fBmissileCreated\fP () const"
 .br
 .RI "Check if the boss missile exists\&. "
 .ti -1c
-.RI "bool \fBisDestroyed\fP ()"
+.RI "bool \fBisDestroyed\fP () const"
 .br
 .RI "Check if the boss has been defeated\&. "
 .in -1c
@@ -51,7 +51,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Setup \fBEntity\fP class variables\&. "
 .ti -1c
-.RI "\fB~Entity\fP ()"
+.RI "virtual \fB~Entity\fP ()=0"
 .br
 .RI "Clean up memory related to \fBEntity\fP class\&. "
 .ti -1c
@@ -102,6 +102,8 @@ Protected Attributes inherited from \fBEntity\fP
 .SH "Detailed Description"
 .PP 
 The boss entity you fight at the end of the level loop\&. 
+.PP
+Definition at line \fB11\fP of file \fBBoss\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Boss::Boss (sf::Vector3f start, \fBEntity\fP * target, sf::Texture * bossSheet, sf::Texture * spriteSheet)"
@@ -121,15 +123,19 @@ Prepare the boss variables\&.
 .RE
 .PP
 
-.SS "Boss::~Boss ()"
+.PP
+Definition at line \fB11\fP of file \fBBoss\&.cpp\fP\&.
+.SS "Boss::~Boss ()\fR [override]\fP"
 
 .PP
 Clean up memory related to the boss\&. 
 .br
  
+.PP
+Definition at line \fB40\fP of file \fBBoss\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "\fBBossBullet\fP * Boss::getMissile ()"
+.SS "\fBBossBullet\fP * Boss::getMissile () const"
 
 .PP
 Get the boss missile separately\&. 
@@ -140,11 +146,15 @@ The missile as a BossBullet*
 .RE
 .PP
 
+.PP
+Definition at line \fB161\fP of file \fBBoss\&.cpp\fP\&.
 .SS "void Boss::hit ()"
 
 .PP
 Run visual effects and code for when you land a hit on the boss\&. 
-.SS "bool Boss::isDestroyed ()"
+.PP
+Definition at line \fB139\fP of file \fBBoss\&.cpp\fP\&.
+.SS "bool Boss::isDestroyed () const"
 
 .PP
 Check if the boss has been defeated\&. 
@@ -155,7 +165,9 @@ A boolean
 .RE
 .PP
 
-.SS "bool Boss::missileCreated ()"
+.PP
+Definition at line \fB181\fP of file \fBBoss\&.cpp\fP\&.
+.SS "bool Boss::missileCreated () const"
 
 .PP
 Check if the boss missile exists\&. 
@@ -166,7 +178,9 @@ A boolean
 .RE
 .PP
 
-.SS "void Boss::update (sf::RenderWindow & window)\fR [virtual]\fP"
+.PP
+Definition at line \fB171\fP of file \fBBoss\&.cpp\fP\&.
+.SS "void Boss::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Run the logic for the boss each frame and then draw it to the screen\&. 
@@ -179,6 +193,8 @@ Run the logic for the boss each frame and then draw it to the screen\&.
 
 .PP
 Implements \fBEntity\fP\&.
+.PP
+Definition at line \fB50\fP of file \fBBoss\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

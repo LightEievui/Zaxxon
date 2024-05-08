@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -104,18 +104,19 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(); });
 <tr id="row_2_0_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_0_" class="arrow" onclick="dynsection.toggleFolder('2_0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_abstract_bullet.html" target="_self">AbstractBullet</a></td><td class="desc">Class to hold information that the other bullets share </td></tr>
 <tr id="row_2_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_boss_bullet.html" target="_self">BossBullet</a></td><td class="desc">The missile that the boss shoots </td></tr>
 <tr id="row_2_0_1_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_character_bullet.html" target="_self">CharacterBullet</a></td><td class="desc">The bullet used by the player and enemies </td></tr>
-<tr id="row_2_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_boss.html" target="_self">Boss</a></td><td class="desc">The boss entity you fight at the end of the level loop </td></tr>
-<tr id="row_2_2_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_2_" class="arrow" onclick="dynsection.toggleFolder('2_2_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_character.html" target="_self">Character</a></td><td class="desc">Abstract class to hold information that both player and enemy use </td></tr>
-<tr id="row_2_2_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_enemy.html" target="_self">Enemy</a></td><td class="desc"><a class="el" href="class_enemy.html" title="Enemy in the game. These use a recolored player bullet.">Enemy</a> in the game. These use a recolored player bullet </td></tr>
-<tr id="row_2_2_1_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_player.html" target="_self">Player</a></td><td class="desc">The player character, also contains plane controls </td></tr>
-<tr id="row_2_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_obstacle.html" target="_self">Obstacle</a></td><td class="desc">Still obstacles that spawn across the levels </td></tr>
+<tr id="row_2_0_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_obstacle_bullet.html" target="_self">ObstacleBullet</a></td><td class="desc"></td></tr>
+<tr id="row_2_1_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_boss.html" target="_self">Boss</a></td><td class="desc">The boss entity you fight at the end of the level loop </td></tr>
+<tr id="row_2_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_2_" class="arrow" onclick="dynsection.toggleFolder('2_2_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_character.html" target="_self">Character</a></td><td class="desc">Abstract class to hold information that both player and enemy use </td></tr>
+<tr id="row_2_2_0_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_enemy.html" target="_self">Enemy</a></td><td class="desc"><a class="el" href="class_enemy.html" title="Enemy in the game. These use a recolored player bullet.">Enemy</a> in the game. These use a recolored player bullet </td></tr>
+<tr id="row_2_2_1_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_player.html" target="_self">Player</a></td><td class="desc">The player character, also contains plane controls </td></tr>
+<tr id="row_2_3_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_obstacle.html" target="_self">Obstacle</a></td><td class="desc">Still obstacles that spawn across the levels </td></tr>
+<tr id="row_2_4_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_zap_wall.html" target="_self">ZapWall</a></td><td class="desc">Class for other walls (blue lightning) </td></tr>
 <tr id="row_3_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_game.html" target="_self">Game</a></td><td class="desc">The main game and all related classes eventually end up being used here. <a class="el" href="class_game.html" title="The main game and all related classes eventually end up being used here. Game loop is in here and is ...">Game</a> loop is in here and is the 'heart' of the whole program </td></tr>
 <tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_g_u_i.html" target="_self">GUI</a></td><td class="desc">Contains all <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions </td></tr>
 <tr id="row_5_" class="odd"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_5_" class="arrow" onclick="dynsection.toggleFolder('5_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>sf::Sprite</b></td><td class="desc"></td></tr>
 <tr id="row_5_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_h_m_section.html" target="_self">HMSection</a></td><td class="desc">The height meter and related methods </td></tr>
 <tr id="row_6_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_wall.html" target="_self">Wall</a></td><td class="desc">Class for the normal walls (stone brick) </td></tr>
-<tr id="row_7_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_zap_walls.html" target="_self">ZapWalls</a></td><td class="desc">Class for other walls (blue lightning) </td></tr>
-<tr id="row_8_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_zaxxon_text.html" target="_self">ZaxxonText</a></td><td class="desc">Class to grab text sprites from spritesheet given char or string </td></tr>
+<tr id="row_7_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_zaxxon_text.html" target="_self">ZaxxonText</a></td><td class="desc">Class to grab text sprites from spritesheet given char or string </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

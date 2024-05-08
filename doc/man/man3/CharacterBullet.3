@@ -15,10 +15,14 @@ Inherits \fBAbstractBullet\fP\&.
 
 .in +1c
 .ti -1c
-.RI "enum \fBBulletType\fP { \fBPlayer\fP, \fBEnemy\fP }"
+.RI "enum \fBBulletDeathType\fP { \fBWallDeath\fP, \fBEnemyDeath\fP, \fBMissileDeath\fP }"
 .br
+.in -1c
+
+Public Types inherited from \fBAbstractBullet\fP
+.in +1c
 .ti -1c
-.RI "enum \fBBulletDeathType\fP { \fBWallDeath\fP, \fBEnemyDeath\fP }"
+.RI "enum \fBBulletType\fP { \fBPlayer\fP, \fBEnemy\fP, \fBMissile\fP, \fBzBullet\fP, \fBxBulletL\fP, \fBxBulletR\fP }"
 .br
 .in -1c
 .SS "Public Member Functions"
@@ -27,11 +31,7 @@ Inherits \fBAbstractBullet\fP\&.
 .ti -1c
 .RI "\fBCharacterBullet\fP (sf::Texture *spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, \fBBulletType\fP=\fBPlayer\fP, sf::Vector2f=sf::Vector2f(0, 0))"
 .br
-.RI "Create a bullet based on if player or enemy shot it\&. "
-.ti -1c
-.RI "\fB~CharacterBullet\fP ()"
-.br
-.RI "Clean up memory related to character bullet\&. "
+.RI "Create a bullet based on if player or enemy shot it\&. Players use 3f & enemies use 2f, enemies run on 2f space while players are on 3f space and it's not possible to convert from 2f to 3f, so enemies have to pass their 2f position to the bullets\&. Just make sure to pass the 2f if an enemy and the 3f will be ignored\&. "
 .ti -1c
 .RI "void \fBkill\fP ()"
 .br
@@ -41,20 +41,13 @@ Inherits \fBAbstractBullet\fP\&.
 .br
 .RI "The bullet hit something, run code to kill bullet based on what it hit\&. "
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &window)"
+.RI "void \fBupdate\fP (sf::RenderWindow &window, float) override"
 .br
 .RI "Run the logic for this bullet and then draw it to screen\&. "
 .ti -1c
 .RI "unsigned int \fBgetSizeIndex\fP ()"
 .br
 .RI "Get public size index of this character bullet\&. "
-.ti -1c
-.RI "sf::Vector3f \fBgetPosition\fP ()"
-.br
-.ti -1c
-.RI "bool \fBisHit\fP ()"
-.br
-.RI "Check if this bullet has hit something\&. "
 .in -1c
 
 Public Member Functions inherited from \fBAbstractBullet\fP
@@ -62,6 +55,14 @@ Public Member Functions inherited from \fBAbstractBullet\fP
 .ti -1c
 .RI "\fBAbstractBullet\fP ()"
 .br
+.ti -1c
+.RI "bool \fBisHit\fP ()"
+.br
+.RI "Returns whether the bullet is dead or not\&. "
+.ti -1c
+.RI "void \fBtranslate\fP (float)"
+.br
+.RI "Move a certain amount on the Z axis\&. "
 .in -1c
 
 Public Member Functions inherited from \fBEntity\fP
@@ -71,7 +72,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Setup \fBEntity\fP class variables\&. "
 .ti -1c
-.RI "\fB~Entity\fP ()"
+.RI "virtual \fB~Entity\fP ()=0"
 .br
 .RI "Clean up memory related to \fBEntity\fP class\&. "
 .ti -1c
@@ -98,6 +99,13 @@ Public Member Functions inherited from \fBEntity\fP
 .SS "Additional Inherited Members"
 
 
+Protected Attributes inherited from \fBAbstractBullet\fP
+.in +1c
+.ti -1c
+.RI "bool \fBalive\fP = true"
+.br
+.in -1c
+
 Protected Attributes inherited from \fBEntity\fP
 .in +1c
 .ti -1c
@@ -122,6 +130,8 @@ Protected Attributes inherited from \fBEntity\fP
 .SH "Detailed Description"
 .PP 
 The bullet used by the player and enemies\&. 
+.PP
+Definition at line \fB9\fP of file \fBCharacterBullet\&.h\fP\&.
 .SH "Member Enumeration Documentation"
 .PP 
 .SS "enum \fBCharacterBullet::BulletDeathType\fP"
@@ -133,44 +143,35 @@ The bullet used by the player and enemies\&.
 \fB\fIWallDeath \fP\fP
 .TP
 \fB\fIEnemyDeath \fP\fP
-.SS "enum \fBCharacterBullet::BulletType\fP"
-
+.TP
+\fB\fIMissileDeath \fP\fP
 .PP
-\fBEnumerator\fP
-.in +1c
-.TP
-\fB\fIPlayer \fP\fP
-.TP
-\fB\fIEnemy \fP\fP
+Definition at line \fB12\fP of file \fBCharacterBullet\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "CharacterBullet::CharacterBullet (sf::Texture * spritesheet, sf::Vector3f spawnPos, unsigned int sizeIndex, \fBBulletType\fP type = \fR\fBPlayer\fP\fP, sf::Vector2f spawnPos2f = \fRsf::Vector2f(0,0)\fP)"
+.SS "CharacterBullet::CharacterBullet (sf::Texture * spritesheet, sf::Vector3f spawnPos, unsigned int sizeIndex, \fBBulletType\fP type = \fR\fBPlayer\fP\fP, sf::Vector2f spawnPos2f = \fRsf::Vector2f(0, 0)\fP)"
 
 .PP
-Create a bullet based on if player or enemy shot it\&. 
+Create a bullet based on if player or enemy shot it\&. Players use 3f & enemies use 2f, enemies run on 2f space while players are on 3f space and it's not possible to convert from 2f to 3f, so enemies have to pass their 2f position to the bullets\&. Just make sure to pass the 2f if an enemy and the 3f will be ignored\&. 
 .PP
 \fBParameters\fP
 .RS 4
 \fIspritesheet\fP 
 .br
-\fIspawnPos\fP 
+\fIspawnPos\fP Ignored if spawnPos2f is defined\&.
 .br
-\fIsizeIndex\fP 
+\fIsizeIndex\fP Size of bullet\&.
 .br
 \fItype\fP 
 .br
-\fIspawnPos2f\fP 
+\fIspawnPos2f\fP Optional, pass through when enemy\&.
 .RE
 .PP
 
-.SS "CharacterBullet::~CharacterBullet ()"
-
 .PP
-Clean up memory related to character bullet\&. 
+Definition at line \fB16\fP of file \fBCharacterBullet\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "sf::Vector3f CharacterBullet::getPosition ()\fR [inline]\fP"
-
 .SS "unsigned int CharacterBullet::getSizeIndex ()"
 
 .PP
@@ -182,21 +183,14 @@ Get public size index of this character bullet\&.
 .RE
 .PP
 
-.SS "bool CharacterBullet::isHit ()"
-
 .PP
-Check if this bullet has hit something\&. 
-.PP
-\fBReturns\fP
-.RS 4
-A boolean
-.RE
-.PP
-
+Definition at line \fB49\fP of file \fBCharacterBullet\&.cpp\fP\&.
 .SS "void CharacterBullet::kill ()"
 
 .PP
 Default kill, run the kill method with enemyDeath as parameter\&. 
+.PP
+Definition at line \fB58\fP of file \fBCharacterBullet\&.cpp\fP\&.
 .SS "void CharacterBullet::kill (\fBBulletDeathType\fP deathType)"
 
 .PP
@@ -208,7 +202,9 @@ The bullet hit something, run code to kill bullet based on what it hit\&.
 .RE
 .PP
 
-.SS "void CharacterBullet::update (sf::RenderWindow & window)\fR [virtual]\fP"
+.PP
+Definition at line \fB68\fP of file \fBCharacterBullet\&.cpp\fP\&.
+.SS "void CharacterBullet::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Run the logic for this bullet and then draw it to screen\&. 
@@ -221,6 +217,8 @@ Run the logic for this bullet and then draw it to screen\&.
 
 .PP
 Implements \fBEntity\fP\&.
+.PP
+Definition at line \fB93\fP of file \fBCharacterBullet\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

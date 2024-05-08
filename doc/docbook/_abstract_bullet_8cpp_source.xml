@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__abstract_bullet_8cpp_source" xml:lang="en-US">
+<title>AbstractBullet.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__abstract_bullet_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__abstract_bullet_8h">AbstractBullet.h</link>&quot;</emphasis>
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00008"/><link linkend="_class_abstract_bullet_1acab32995c786012e42040fe452e46d67">00008</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_abstract_bullet_1acab32995c786012e42040fe452e46d67">AbstractBullet::isHit</link>()
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00009"/>00009 {
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!<link linkend="_class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96">alive</link>;
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00011"/>00011 }
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00012"/>00012 
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00013"/>00013 
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00018"/><link linkend="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1">00018</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1">AbstractBullet::translate</link>(<emphasis role="keywordtype">float</emphasis>&#32;movement)
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00019"/>00019 {
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;+&#32;(movement)));
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__abstract_bullet_8cpp_source_1l00022"/>00022 }
+</programlisting></section>

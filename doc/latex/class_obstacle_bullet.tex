@@ -1,0 +1,148 @@
+\doxysection{Obstacle\+Bullet Class Reference}
+\hypertarget{class_obstacle_bullet}{}\label{class_obstacle_bullet}\index{ObstacleBullet@{ObstacleBullet}}
+
+
+{\ttfamily \#include $<$Obstacle\+Bullet.\+h$>$}
+
+Inheritance diagram for Obstacle\+Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_obstacle_bullet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_obstacle_bullet_a2d0a98fd778531ae5c1db7295aa0d90c}{Obstacle\+Bullet}} (sf\+::\+Vector3f, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabd}{Bullet\+Type}})
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_obstacle_bullet}{Obstacle\+Bullet}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_obstacle_bullet_acf03e80fd20b8f5df01c83ac8a7d4cbe}{update}} (sf\+::\+Render\+Window \&, float) override
+\begin{DoxyCompactList}\small\item\em Update the \doxylink{class_obstacle_bullet}{Obstacle\+Bullet}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_bullet_a7101e714c7e25ed57a26c74b59b5ee83}{Abstract\+Bullet}} ()
+\item 
+bool \mbox{\hyperlink{class_abstract_bullet_acab32995c786012e42040fe452e46d67}{is\+Hit}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether the bullet is dead or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_abstract_bullet_a47c3c34b0371c2f926470f90f94df2b1}{translate}} (float)
+\begin{DoxyCompactList}\small\item\em Move a certain amount on the Z axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=0
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
+\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
+\item 
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabd}{Bullet\+Type}} \{ \newline
+\mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400}{Player}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc}{Enemy}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a}{Missile}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d}{z\+Bullet}}
+, \newline
+\mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514}{x\+BulletL}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1}{x\+BulletR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_abstract_bullet_aa1477f32fb0f60c087182aad82598d96}{alive}} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
+\item 
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
+\item 
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_bullet_8h_source_l00006}{6}} of file \mbox{\hyperlink{_obstacle_bullet_8h_source}{Obstacle\+Bullet.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_obstacle_bullet_a2d0a98fd778531ae5c1db7295aa0d90c}\label{class_obstacle_bullet_a2d0a98fd778531ae5c1db7295aa0d90c} 
+\index{ObstacleBullet@{ObstacleBullet}!ObstacleBullet@{ObstacleBullet}}
+\index{ObstacleBullet@{ObstacleBullet}!ObstacleBullet@{ObstacleBullet}}
+\doxysubsubsection{\texorpdfstring{ObstacleBullet()}{ObstacleBullet()}}
+{\footnotesize\ttfamily Obstacle\+Bullet\+::\+Obstacle\+Bullet (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet,  }\item[{\mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabd}{Bullet\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_obstacle_bullet}{Obstacle\+Bullet}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+{\em sprite\+Sheet} & \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_bullet_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_obstacle_bullet_8cpp_source}{Obstacle\+Bullet.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_obstacle_bullet_acf03e80fd20b8f5df01c83ac8a7d4cbe}\label{class_obstacle_bullet_acf03e80fd20b8f5df01c83ac8a7d4cbe} 
+\index{ObstacleBullet@{ObstacleBullet}!update@{update}}
+\index{update@{update}!ObstacleBullet@{ObstacleBullet}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Obstacle\+Bullet\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the \doxylink{class_obstacle_bullet}{Obstacle\+Bullet}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em game\+Speed} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity}}.
+
+
+
+Definition at line \mbox{\hyperlink{_obstacle_bullet_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_obstacle_bullet_8cpp_source}{Obstacle\+Bullet.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Zaxxon/src/\+Entity/\+Abstract\+Bullet/\+Obstacle\+Bullet/\mbox{\hyperlink{_obstacle_bullet_8h}{Obstacle\+Bullet.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Entity/\+Abstract\+Bullet/\+Obstacle\+Bullet/\mbox{\hyperlink{_obstacle_bullet_8cpp}{Obstacle\+Bullet.\+cpp}}\end{DoxyCompactItemize}

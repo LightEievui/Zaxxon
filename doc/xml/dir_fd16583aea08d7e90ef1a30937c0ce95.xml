@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_fd16583aea08d7e90ef1a30937c0ce95" kind="dir">
+    <compoundname>C:/Zaxxon/src/GUI/HMSection</compoundname>
+    <innerfile refid="_h_m_section_8cpp">HMSection.cpp</innerfile>
+    <innerfile refid="_h_m_section_8h">HMSection.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/GUI/HMSection/"/>
+  </compounddef>
+</doxygen>

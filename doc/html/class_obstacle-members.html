@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -105,28 +105,34 @@ $(function(){initNavTree('class_obstacle.html',''); initResizable(); });
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">debugFont</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">getBulletLocations</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#a73b7da779f5fff618bb71fbd811a5f30">getPosition</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b">GAS_CAN</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a214183fffe9a6301fbe708313c96b6e7">getBulletLocations</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#ac3450be68b7a60ab4ed285893f6f1deb">getScore</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">getSpritePos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#ad28c6a458187a5f5ec68c8cc3c425114">getType</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">isPresent</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a0f354a517c0b6b2e9bafc1e36af706af">isTurret</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#ac7300c4d9c730103c707972be1380ff9">kill</a>(Animation::Anim animation=Animation::CHARACTER_DEATH)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a1e5991a00aef5976389d5c59450368b3">getType</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8">GREEN_CANNON</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e">GREEN_CANNON_RIGHT</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036">GREY_CANNON</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#af395b8077b863766f840f75377a9c6fc">isPresent</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#a0f354a517c0b6b2e9bafc1e36af706af">isTurret</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a3b4865fafe3cf6a31b3444c2557550f8">kill</a>(Animation::Anim animation=Animation::CHARACTER_DEATH) override</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a">MISSILE_UP</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle</a>(sf::Vector3f, sf::Texture *, int, int)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#a4d24e681dc227109b688b2f4a49c5a61">Obstacle</a>(sf::Vector3f, sf::Texture *, int)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a>(sf::Vector3f pos)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#a712e425583cff17617c280a10399bf1e">setPosition</a>(sf::Vector3f)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a29b7f49fb1b9b7e4d24eb8f05cc12dc3">setTexture</a>(std::string)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebda">ObstacleType</a> enum name</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d">PLANE</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a">SATELLITE</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a>(sf::Vector3f pos)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701">SPACE_FUEL</a> enum value</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#acd60ac9d097142b295ece68202d39655">update</a>(sf::RenderWindow &amp;, int playerZ)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a71cf873dada3977dbbda2ee3c80a8f14">update</a>(sf::RenderWindow &amp;) override</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#af2f9cc9c6cff75dca0974fd5ac4f71a9">~Obstacle</a>()</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_obstacle.html#af69cc091c4b73003552b2586f550c1d7">update</a>(sf::RenderWindow &amp;, int playerZ, float)</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#ab4272be0d3dddafd42040adab4d8a968">update</a>(sf::RenderWindow &amp;, float) override</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac2da1e8a32161accc56f39ac52cebd86">~Entity</a>()=0</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_obstacle.html#a8021dd6ca94132eae1c0ffcdfefa8be0">~Obstacle</a>() override</td><td class="entry"><a class="el" href="class_obstacle.html">Obstacle</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

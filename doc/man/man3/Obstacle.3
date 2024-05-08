@@ -11,6 +11,13 @@ Obstacle \- Still obstacles that spawn across the levels\&.
 \fR#include <Obstacle\&.h>\fP
 .PP
 Inherits \fBEntity\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBObstacleType\fP { \fBGAS_CAN\fP = 1, \fBSATELLITE\fP, \fBGREY_CANNON\fP, \fBGREEN_CANNON\fP, \fBMISSILE_UP\fP, \fBPLANE\fP, \fBSPACE_FUEL\fP, \fBGREEN_CANNON_RIGHT\fP }"
+.br
+.in -1c
 .SS "Public Member Functions"
 
 .in +1c
@@ -23,30 +30,19 @@ Inherits \fBEntity\fP\&.
 .br
 .RI "Create a non-turret obstacle (Still obstacle)\&. "
 .ti -1c
-.RI "\fB~Obstacle\fP ()"
+.RI "\fB~Obstacle\fP () override"
 .br
 .RI "Clean up memory related to the obstacle class\&. "
-.ti -1c
-.RI "void \fBsetTexture\fP (std::string)"
-.br
-.ti -1c
-.RI "void \fBsetPosition\fP (sf::Vector3f)"
-.br
-.RI "Set the position of this obstacle\&. "
-.ti -1c
-.RI "sf::Vector3f \fBgetPosition\fP ()"
-.br
-.RI "Get position of the obstacle\&. "
 .ti -1c
 .RI "std::vector< sf::Vector3f > \fBgetBulletLocations\fP ()"
 .br
 .RI "Get positions for all bullets of the obstacle (For turrets)\&. "
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &, int playerZ)"
+.RI "void \fBupdate\fP (sf::RenderWindow &, int playerZ, float)"
 .br
 .RI "Run the logic for this obstacle\&. "
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &) override"
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
 .br
 .RI "Default \fBEntity::update\fP override\&. "
 .ti -1c
@@ -62,7 +58,7 @@ Inherits \fBEntity\fP\&.
 .br
 .RI "Get rid of obstacles bullet by index (For turrets)\&. "
 .ti -1c
-.RI "int \fBgetType\fP ()"
+.RI "\fBObstacleType\fP \fBgetType\fP ()"
 .br
 .RI "Get what type of obstacle this is\&. "
 .ti -1c
@@ -70,7 +66,7 @@ Inherits \fBEntity\fP\&.
 .br
 .RI "Gets the score to add when the obstacle is destroyed\&. "
 .ti -1c
-.RI "void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.RI "void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP) override"
 .br
 .RI "Death animation\&. "
 .in -1c
@@ -82,7 +78,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Setup \fBEntity\fP class variables\&. "
 .ti -1c
-.RI "\fB~Entity\fP ()"
+.RI "virtual \fB~Entity\fP ()=0"
 .br
 .RI "Clean up memory related to \fBEntity\fP class\&. "
 .ti -1c
@@ -129,6 +125,33 @@ Protected Attributes inherited from \fBEntity\fP
 .SH "Detailed Description"
 .PP 
 Still obstacles that spawn across the levels\&. 
+.PP
+Definition at line \fB14\fP of file \fBObstacle\&.h\fP\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBObstacle::ObstacleType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGAS_CAN \fP\fP
+.TP
+\fB\fISATELLITE \fP\fP
+.TP
+\fB\fIGREY_CANNON \fP\fP
+.TP
+\fB\fIGREEN_CANNON \fP\fP
+.TP
+\fB\fIMISSILE_UP \fP\fP
+.TP
+\fB\fIPLANE \fP\fP
+.TP
+\fB\fISPACE_FUEL \fP\fP
+.TP
+\fB\fIGREEN_CANNON_RIGHT \fP\fP
+.PP
+Definition at line \fB29\fP of file \fBObstacle\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int delay, int dir)"
@@ -148,6 +171,8 @@ Create a turret obstacle with shooting and direction\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB11\fP of file \fBObstacle\&.cpp\fP\&.
 .SS "Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int type)"
 
 .PP
@@ -163,10 +188,14 @@ Create a non-turret obstacle (Still obstacle)\&.
 .RE
 .PP
 
-.SS "Obstacle::~Obstacle ()"
+.PP
+Definition at line \fB91\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "Obstacle::~Obstacle ()\fR [override]\fP"
 
 .PP
 Clean up memory related to the obstacle class\&. 
+.PP
+Definition at line \fB136\fP of file \fBObstacle\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "void Obstacle::bulletKill (int bullet)"
@@ -180,6 +209,8 @@ Get rid of obstacles bullet by index (For turrets)\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB337\fP of file \fBObstacle\&.cpp\fP\&.
 .SS "std::vector< sf::Vector3f > Obstacle::getBulletLocations ()"
 
 .PP
@@ -191,17 +222,8 @@ Vector of vectors of 3 floats
 .RE
 .PP
 
-.SS "sf::Vector3f Obstacle::getPosition ()"
-
 .PP
-Get position of the obstacle\&. 
-.PP
-\fBReturns\fP
-.RS 4
-Vector of 3 floats
-.RE
-.PP
-
+Definition at line \fB160\fP of file \fBObstacle\&.cpp\fP\&.
 .SS "int Obstacle::getScore ()"
 
 .PP
@@ -213,7 +235,9 @@ score
 .RE
 .PP
 
-.SS "int Obstacle::getType ()"
+.PP
+Definition at line \fB359\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "\fBObstacle::ObstacleType\fP Obstacle::getType ()"
 
 .PP
 Get what type of obstacle this is\&. 
@@ -224,6 +248,8 @@ An int
 .RE
 .PP
 
+.PP
+Definition at line \fB349\fP of file \fBObstacle\&.cpp\fP\&.
 .SS "bool Obstacle::isPresent ()"
 
 .PP
@@ -235,6 +261,8 @@ A boolean
 .RE
 .PP
 
+.PP
+Definition at line \fB315\fP of file \fBObstacle\&.cpp\fP\&.
 .SS "bool Obstacle::isTurret ()"
 
 .PP
@@ -246,7 +274,9 @@ Boolean
 .RE
 .PP
 
-.SS "void Obstacle::kill (\fBAnimation::Anim\fP animation = \fR\fBAnimation::CHARACTER_DEATH\fP\fP)\fR [virtual]\fP"
+.PP
+Definition at line \fB326\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "void Obstacle::kill (\fBAnimation::Anim\fP animation = \fR\fBAnimation::CHARACTER_DEATH\fP\fP)\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Death animation\&. 
@@ -259,26 +289,17 @@ Death animation\&.
 
 .PP
 Reimplemented from \fBEntity\fP\&.
-.SS "void Obstacle::setPosition (sf::Vector3f pos)"
-
 .PP
-Set the position of this obstacle\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIpos\fP 
-.RE
-.PP
-
-.SS "void Obstacle::setTexture (std::string)"
-
-.SS "void Obstacle::update (sf::RenderWindow & window)\fR [override]\fP, \fR [virtual]\fP"
+Definition at line \fB147\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "void Obstacle::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Default \fBEntity::update\fP override\&. 
 .PP
 Implements \fBEntity\fP\&.
-.SS "void Obstacle::update (sf::RenderWindow & window, int playerZ)"
+.PP
+Definition at line \fB305\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "void Obstacle::update (sf::RenderWindow & window, int playerZ, float gameSpeed)"
 
 .PP
 Run the logic for this obstacle\&. 
@@ -289,6 +310,8 @@ Run the logic for this obstacle\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB170\fP of file \fBObstacle\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

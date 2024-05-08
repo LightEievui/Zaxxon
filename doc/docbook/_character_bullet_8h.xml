@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__character_bullet_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;../AbstractBullet.h&quot;<?linebreak?>#include &quot;Util/Util.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_character_bullet">CharacterBullet</link></para>
+
+<para>The bullet used by the player and enemies. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

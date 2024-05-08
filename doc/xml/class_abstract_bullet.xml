@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_abstract_bullet" kind="class" language="C++" prot="public">
+    <compoundname>AbstractBullet</compoundname>
+    <basecompoundref refid="class_entity" prot="public" virt="non-virtual">Entity</basecompoundref>
+    <derivedcompoundref refid="class_boss_bullet" prot="public" virt="non-virtual">BossBullet</derivedcompoundref>
+    <derivedcompoundref refid="class_character_bullet" prot="public" virt="non-virtual">CharacterBullet</derivedcompoundref>
+    <derivedcompoundref refid="class_obstacle_bullet" prot="public" virt="non-virtual">ObstacleBullet</derivedcompoundref>
+    <includes refid="_abstract_bullet_8h" local="no">AbstractBullet.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" prot="public" static="no" strong="no">
+        <type></type>
+        <name>BulletType</name>
+        <qualifiedname>AbstractBullet::BulletType</qualifiedname>
+        <enumvalue id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" prot="public">
+          <name>Player</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" prot="public">
+          <name>Enemy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" prot="public">
+          <name>Missile</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" prot="public">
+          <name>zBullet</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" prot="public">
+          <name>xBulletL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" prot="public">
+          <name>xBulletR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" line="11" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" bodystart="12" bodyend="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AbstractBullet::alive</definition>
+        <argsstring></argsstring>
+        <name>alive</name>
+        <qualifiedname>AbstractBullet::alive</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" line="26" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AbstractBullet::AbstractBullet</definition>
+        <argsstring>()</argsstring>
+        <name>AbstractBullet</name>
+        <qualifiedname>AbstractBullet::AbstractBullet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" line="21" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AbstractBullet::isHit</definition>
+        <argsstring>()</argsstring>
+        <name>isHit</name>
+        <qualifiedname>AbstractBullet::isHit</qualifiedname>
+        <briefdescription>
+<para>Returns whether the bullet is dead or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" line="23" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AbstractBullet::translate</definition>
+        <argsstring>(float)</argsstring>
+        <name>translate</name>
+        <qualifiedname>AbstractBullet::translate</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>movement</defname>
+        </param>
+        <briefdescription>
+<para>Move a certain amount on the Z axis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>movement</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" line="24" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp" bodystart="18" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class to hold information that the other bullets share. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BossBullet</label>
+        <link refid="class_boss_bullet"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CharacterBullet</label>
+        <link refid="class_character_bullet"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+      <node id="5">
+        <label>ObstacleBullet</label>
+        <link refid="class_obstacle_bullet"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" line="8" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h" bodystart="9" bodyend="27"/>
+    <listofallmembers>
+      <member refid="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>AbstractBullet</name></member>
+      <member refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>alive</name></member>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>animations</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>BulletType</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>debugText</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>Enemy</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>getBounds</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>getPos</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>getSpritePos</name></member>
+      <member refid="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>isHit</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual"><scope>AbstractBullet</scope><name>kill</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>Missile</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>Player</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>setPos</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>AbstractBullet</scope><name>spriteSheet</name></member>
+      <member refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>translate</name></member>
+      <member refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2" prot="public" virt="pure-virtual"><scope>AbstractBullet</scope><name>update</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>xBulletL</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>xBulletR</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" prot="public" virt="non-virtual"><scope>AbstractBullet</scope><name>zBullet</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>AbstractBullet</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

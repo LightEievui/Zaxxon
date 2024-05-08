@@ -12,13 +12,28 @@ AbstractBullet \- Class to hold information that the other bullets share\&.
 .PP
 Inherits \fBEntity\fP\&.
 .PP
-Inherited by \fBBossBullet\fP, and \fBCharacterBullet\fP\&.
+Inherited by \fBBossBullet\fP, \fBCharacterBullet\fP, and \fBObstacleBullet\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBBulletType\fP { \fBPlayer\fP, \fBEnemy\fP, \fBMissile\fP, \fBzBullet\fP, \fBxBulletL\fP, \fBxBulletR\fP }"
+.br
+.in -1c
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
 .RI "\fBAbstractBullet\fP ()"
 .br
+.ti -1c
+.RI "bool \fBisHit\fP ()"
+.br
+.RI "Returns whether the bullet is dead or not\&. "
+.ti -1c
+.RI "void \fBtranslate\fP (float)"
+.br
+.RI "Move a certain amount on the Z axis\&. "
 .in -1c
 
 Public Member Functions inherited from \fBEntity\fP
@@ -28,7 +43,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Setup \fBEntity\fP class variables\&. "
 .ti -1c
-.RI "\fB~Entity\fP ()"
+.RI "virtual \fB~Entity\fP ()=0"
 .br
 .RI "Clean up memory related to \fBEntity\fP class\&. "
 .ti -1c
@@ -36,7 +51,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Run death animation code for the killed entity\&. "
 .ti -1c
-.RI "virtual void \fBupdate\fP (sf::RenderWindow &)=0"
+.RI "virtual void \fBupdate\fP (sf::RenderWindow &, float)=0"
 .br
 .ti -1c
 .RI "int \fBgetAnimationState\fP ()"
@@ -55,8 +70,13 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Get the position of the related sprite for this entity\&. "
 .in -1c
-.SS "Additional Inherited Members"
+.SS "Protected Attributes"
 
+.in +1c
+.ti -1c
+.RI "bool \fBalive\fP = true"
+.br
+.in -1c
 
 Protected Attributes inherited from \fBEntity\fP
 .in +1c
@@ -82,10 +102,69 @@ Protected Attributes inherited from \fBEntity\fP
 .SH "Detailed Description"
 .PP 
 Class to hold information that the other bullets share\&. 
+.PP
+Definition at line \fB8\fP of file \fBAbstractBullet\&.h\fP\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBAbstractBullet::BulletType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPlayer \fP\fP
+.TP
+\fB\fIEnemy \fP\fP
+.TP
+\fB\fIMissile \fP\fP
+.TP
+\fB\fIzBullet \fP\fP
+.TP
+\fB\fIxBulletL \fP\fP
+.TP
+\fB\fIxBulletR \fP\fP
+.PP
+Definition at line \fB11\fP of file \fBAbstractBullet\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "AbstractBullet::AbstractBullet ()\fR [inline]\fP"
 
+.PP
+Definition at line \fB21\fP of file \fBAbstractBullet\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool AbstractBullet::isHit ()"
+
+.PP
+Returns whether the bullet is dead or not\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB8\fP of file \fBAbstractBullet\&.cpp\fP\&.
+.SS "void AbstractBullet::translate (float movement)"
+
+.PP
+Move a certain amount on the Z axis\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImovement\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB18\fP of file \fBAbstractBullet\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool AbstractBullet::alive = true\fR [protected]\fP"
+
+.PP
+Definition at line \fB26\fP of file \fBAbstractBullet\&.h\fP\&.
 
 .SH "Author"
 .PP 
