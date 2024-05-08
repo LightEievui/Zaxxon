@@ -23,7 +23,7 @@
 */
 
 // memory detection (temp)
-#include <vld.h>
+//#include <vld.h> fsr this is not working
 
 // temp
 #define _CRTDBG_MAP_ALLOC
