@@ -32,7 +32,6 @@ private:
 	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;
 	sf::RenderWindow window;
-	sf::ContextSettings s;
 	GUI gui;
 
 	Player* player;
