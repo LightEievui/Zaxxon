@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__zaxxon_8cpp" xml:lang="en-US">
+<title>C:/Zaxxon/src/Zaxxon.cpp File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Zaxxon.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;SFML/Graphics.hpp&gt;<?linebreak?>#include &quot;Game/Game.h&quot;<?linebreak?>#include &lt;iostream&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="__zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4">main</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>Zaxxon.cpp</secondary></indexterm>
+<indexterm><primary>Zaxxon.cpp</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main ( )</computeroutput></para><para>
+Definition at line <link linkend="__zaxxon_8cpp_source_1l00030">30</link> of file <link linkend="__zaxxon_8cpp_source">Zaxxon.cpp</link>.</para>
+</section>
+</section>
+</section>

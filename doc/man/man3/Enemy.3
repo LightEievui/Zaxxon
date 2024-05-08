@@ -19,7 +19,7 @@ Inherits \fBCharacter\fP\&.
 .br
 .RI "Create new enemy\&. "
 .ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &, float gameSpeed)"
+.RI "void \fBupdate\fP (sf::RenderWindow &, float gameSpeed) override"
 .br
 .RI "Run the logic for this enemy\&. "
 .ti -1c
@@ -43,21 +43,17 @@ Public Member Functions inherited from \fBCharacter\fP
 .ti -1c
 .RI "\fBCharacter\fP (sf::Texture *)"
 .br
-.RI "Create new character who will have sprite from spritesheet\&. "
+.RI "Create a new character who will have sprite from spritesheet\&. "
 .ti -1c
-.RI "\fB~Character\fP ()"
+.RI "\fB~Character\fP () override"
 .br
 .RI "Clean up memory related to the \fBCharacter\fP class\&. "
-.ti -1c
-.RI "void \fBupdate\fP (sf::RenderWindow &)"
-.br
-.RI "Move the character by velocity and redraw them to the screen\&. "
 .ti -1c
 .RI "std::vector< \fBCharacterBullet\fP * > & \fBgetBullets\fP ()"
 .br
 .RI "Get the currently fired bullets from this character\&. "
 .ti -1c
-.RI "unsigned int \fBgetSizeIndex\fP ()"
+.RI "unsigned int \fBgetSizeIndex\fP () const"
 .br
 .RI "Get public size index of this character\&. "
 .ti -1c
@@ -77,7 +73,7 @@ Public Member Functions inherited from \fBEntity\fP
 .br
 .RI "Setup \fBEntity\fP class variables\&. "
 .ti -1c
-.RI "\fB~Entity\fP ()"
+.RI "virtual \fB~Entity\fP ()=0"
 .br
 .RI "Clean up memory related to \fBEntity\fP class\&. "
 .ti -1c
@@ -119,7 +115,7 @@ Protected Member Functions inherited from \fBCharacter\fP
 .br
 .RI "Get the height sector that character is in\&. Underscore infront indicates that it is not public\&. 0-3 3 indicates smallest, 0 indicates biggest\&. "
 .ti -1c
-.RI "sf::Vector3f \fBgetVelocity\fP ()"
+.RI "sf::Vector3f \fBgetVelocity\fP () const"
 .br
 .RI "Get the velocity of character\&. "
 .ti -1c
@@ -131,7 +127,7 @@ Protected Member Functions inherited from \fBCharacter\fP
 .br
 .RI "Change how the bullets from this character look\&. "
 .ti -1c
-.RI "void \fBupdateBullets\fP (sf::RenderWindow &window)"
+.RI "void \fBupdateBullets\fP (sf::RenderWindow &window, float)"
 .br
 .RI "Calls \fBCharacterBullet::update()\fP on each bullet & deletes bullets that are not in the window\&. "
 .in -1c
@@ -185,6 +181,8 @@ Protected Attributes inherited from \fBEntity\fP
 .SH "Detailed Description"
 .PP 
 \fBEnemy\fP in the game\&. These use a recolored player bullet\&. 
+.PP
+Definition at line \fB9\fP of file \fBEnemy\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Enemy::Enemy (sf::Texture * texture, unsigned int id, sf::Vector3f spawnPos, int randOffset = \fR0\fP)"
@@ -202,6 +200,8 @@ Create new enemy\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB10\fP of file \fBEnemy\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "unsigned int Enemy::getSizeIndex ()"
@@ -215,16 +215,24 @@ Get public size index of this enemy\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB97\fP of file \fBEnemy\&.cpp\fP\&.
 .SS "bool Enemy::getTranslate2 ()\fR [inline]\fP"
 
+.PP
+Definition at line \fB16\fP of file \fBEnemy\&.h\fP\&.
 .SS "bool Enemy::isDead ()\fR [inline]\fP"
 
+.PP
+Definition at line \fB22\fP of file \fBEnemy\&.h\fP\&.
 .SS "void Enemy::kill ()\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Extra code for when enemy is killed\&. 
 .PP
 Implements \fBCharacter\fP\&.
+.PP
+Definition at line \fB106\fP of file \fBEnemy\&.cpp\fP\&.
 .SS "void Enemy::spawnWave (std::vector< \fBEnemy\fP * > & enemies, sf::Texture * spritesheet, int playerZ, unsigned int wave)\fR [static]\fP"
 
 .PP
@@ -242,7 +250,9 @@ Enemies come in waves, this will spawn the specified enemy wave by int id\&.
 .RE
 .PP
 
-.SS "void Enemy::update (sf::RenderWindow & window, float gameSpeed)"
+.PP
+Definition at line \fB119\fP of file \fBEnemy\&.cpp\fP\&.
+.SS "void Enemy::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
 
 .PP
 Run the logic for this enemy\&. 
@@ -253,6 +263,10 @@ Run the logic for this enemy\&.
 .RE
 .PP
 
+.PP
+Reimplemented from \fBCharacter\fP\&.
+.PP
+Definition at line \fB58\fP of file \fBEnemy\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

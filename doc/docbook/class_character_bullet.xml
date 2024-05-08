@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_character_bullet" xml:lang="en-US">
+<title>CharacterBullet Class Reference</title>
+<indexterm><primary>CharacterBullet</primary></indexterm>
+<para>
+
+<para>The bullet used by the player and enemies. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;CharacterBullet.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for CharacterBullet:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_character_bullet.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</link> { <link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">WallDeath</link>
+, <link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">EnemyDeath</link>
+, <link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97">MissileDeath</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Types inherited from <link linkend="_class_abstract_bullet">AbstractBullet</link>        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">BulletType</link> { <?linebreak?><link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400">Player</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc">Enemy</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a">Missile</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d">zBullet</link>
+, <?linebreak?><link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514">xBulletL</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1">xBulletR</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet</link> (sf::Texture *spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">BulletType</link>=<link linkend="_class_player">Player</link>, sf::Vector2f=sf::Vector2f(0, 0))</para>
+
+<para>Create a bullet based on if player or enemy shot it. Players use 3f &amp; enemies use 2f, enemies run on 2f space while players are on 3f space and it&apos;s not possible to convert from 2f to 3f, so enemies have to pass their 2f position to the bullets. Just make sure to pass the 2f if an enemy and the 3f will be ignored. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b">kill</link> ()</para>
+
+<para>Default kill, run the kill method with enemyDeath as parameter. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23">kill</link> (<link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</link> type)</para>
+
+<para>The bullet hit something, run code to kill bullet based on what it hit. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">update</link> (sf::RenderWindow &amp;window, float) override</para>
+
+<para>Run the logic for this bullet and then draw it to screen. </para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54">getSizeIndex</link> ()</para>
+
+<para>Get public size index of this character bullet. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_abstract_bullet">AbstractBullet</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83">AbstractBullet</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_abstract_bullet_1acab32995c786012e42040fe452e46d67">isHit</link> ()</para>
+
+<para>Returns whether the bullet is dead or not. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1">translate</link> (float)</para>
+
+<para>Move a certain amount on the Z axis. </para>
+</listitem>
+        </itemizedlist>
+Public Member Functions inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_entity_1a980f368aa07ce358583982821533a54a">Entity</link> ()</para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86">~Entity</link> ()=0</para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5">kill</link> (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>=<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link>)</para>
+
+<para>Run death animation code for the killed entity. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link> (sf::Vector3f pos)</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link> ()</para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link> ()</para>
+</listitem>
+            <listitem><para>sf::Vector2f <link linkend="_class_entity_1ad641a9c7d92d65cb688651e48029e82d">getSpritePos</link> ()</para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Protected Attributes inherited from <link linkend="_class_abstract_bullet">AbstractBullet</link>        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96">alive</link> = true</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Attributes inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para>sf::Texture * <link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link></para>
+</listitem>
+            <listitem><para>sf::Sprite * <link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_animation">Animation</link> <link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_entity_1a799462330dd8c754cdada5dab432b4dc">dead</link> = false</para>
+</listitem>
+            <listitem><para>sf::Text <link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link></para>
+</listitem>
+            <listitem><para>sf::Font <link linkend="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00">debugFont</link></para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>The bullet used by the player and enemies. </para>
+<para>
+Definition at line <link linkend="__character_bullet_8h_source_1l00009">9</link> of file <link linkend="__character_bullet_8h_source">CharacterBullet.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd"/><section>
+    <title>BulletDeathType</title>
+<indexterm><primary>BulletDeathType</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>BulletDeathType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd">CharacterBullet::BulletDeathType</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>WallDeath</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>WallDeath</secondary></indexterm>
+<anchor xml:id="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc"/>WallDeath</entry><entry></entry></row><row><entry><indexterm><primary>EnemyDeath</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>EnemyDeath</secondary></indexterm>
+<anchor xml:id="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0"/>EnemyDeath</entry><entry></entry></row><row><entry><indexterm><primary>MissileDeath</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>MissileDeath</secondary></indexterm>
+<anchor xml:id="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97"/>MissileDeath</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__character_bullet_8h_source_1l00012">12</link> of file <link linkend="__character_bullet_8h_source">CharacterBullet.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3"/><section>
+    <title>CharacterBullet()</title>
+<indexterm><primary>CharacterBullet</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>CharacterBullet</secondary></indexterm>
+<para><computeroutput>CharacterBullet::CharacterBullet (sf::Texture * spritesheet, sf::Vector3f spawnPos, unsigned int sizeIndex, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">BulletType</link> type = <computeroutput><link linkend="_class_player">Player</link></computeroutput>
+, sf::Vector2f spawnPos2f = <computeroutput>sf::Vector2f(0,&#160;0)</computeroutput>
+)</computeroutput></para><para>
+
+<para>Create a bullet based on if player or enemy shot it. Players use 3f &amp; enemies use 2f, enemies run on 2f space while players are on 3f space and it&apos;s not possible to convert from 2f to 3f, so enemies have to pass their 2f position to the bullets. Just make sure to pass the 2f if an enemy and the 3f will be ignored. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>spritesheet</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>spawnPos</entry><entry>
+<para>Ignored if spawnPos2f is defined.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>sizeIndex</entry><entry>
+<para>Size of bullet.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>type</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>spawnPos2f</entry><entry>
+<para>Optional, pass through when enemy.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_bullet_8cpp_source_1l00016">16</link> of file <link linkend="__character_bullet_8cpp_source">CharacterBullet.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54"/><section>
+    <title>getSizeIndex()</title>
+<indexterm><primary>getSizeIndex</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>getSizeIndex</secondary></indexterm>
+<para><computeroutput>unsigned int CharacterBullet::getSizeIndex ( )</computeroutput></para><para>
+
+<para>Get public size index of this character bullet. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__character_bullet_8cpp_source_1l00049">49</link> of file <link linkend="__character_bullet_8cpp_source">CharacterBullet.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b"/><section>
+    <title>kill()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>kill</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>kill</secondary></indexterm>
+<para><computeroutput>void CharacterBullet::kill ( )</computeroutput></para><para>
+
+<para>Default kill, run the kill method with enemyDeath as parameter. </para>
+</para>
+<para>
+Definition at line <link linkend="__character_bullet_8cpp_source_1l00058">58</link> of file <link linkend="__character_bullet_8cpp_source">CharacterBullet.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23"/><section>
+    <title>kill()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>kill</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>kill</secondary></indexterm>
+<para><computeroutput>void CharacterBullet::kill (<link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</link> deathType)</computeroutput></para><para>
+
+<para>The bullet hit something, run code to kill bullet based on what it hit. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>deathType</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_bullet_8cpp_source_1l00068">68</link> of file <link linkend="__character_bullet_8cpp_source">CharacterBullet.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>CharacterBullet</secondary></indexterm>
+<indexterm><primary>CharacterBullet</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void CharacterBullet::update (sf::RenderWindow &amp; window, float gameSpeed)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Run the logic for this bullet and then draw it to screen. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">Entity</link>.</para>
+<para>
+Definition at line <link linkend="__character_bullet_8cpp_source_1l00093">93</link> of file <link linkend="__character_bullet_8cpp_source">CharacterBullet.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/<link linkend="__character_bullet_8h">CharacterBullet.h</link>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/<link linkend="__character_bullet_8cpp">CharacterBullet.cpp</link></section>
+</section>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_8e61506d23c6dcc8583b3d2e06a12732" kind="dir">
+    <compoundname>C:/Zaxxon/src/Obstacle</compoundname>
+    <innerfile refid="_obstacle_8cpp">Obstacle.cpp</innerfile>
+    <innerfile refid="_obstacle_8h">Obstacle.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Obstacle/"/>
+  </compounddef>
+</doxygen>

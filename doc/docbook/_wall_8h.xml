@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__wall_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/Wall/Wall.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Wall/Wall.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;SFML/Graphics.hpp&gt;<?linebreak?>#include &lt;vector&gt;<?linebreak?>#include &quot;Util/Util.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_wall">Wall</link></para>
+
+<para>Class for the normal walls (stone brick). </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

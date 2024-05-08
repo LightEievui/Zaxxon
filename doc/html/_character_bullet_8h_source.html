@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h Source File</title>
+<title>Zaxxon: C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -111,69 +111,48 @@ $(function(){initNavTree('_character_bullet_8h_source.html',''); initResizable()
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a120395842230433baba2e78f620e1266">   12</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_character_bullet.html#a120395842230433baba2e78f620e1266">BulletType</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169">   13</a></span>        <a class="code hl_enumvalue" href="class_character_bullet.html#a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169">Player</a>,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_class" href="class_enemy.html">Enemy</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a120395842230433baba2e78f620e1266a59aba9e70f5342a41140fbf02a371ec9">   15</a></span>    };</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">   12</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">   14</a></span>        <a class="code hl_enumvalue" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">WallDeath</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">   15</a></span>        <a class="code hl_enumvalue" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">EnemyDeath</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97">MissileDeath</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97">   17</a></span>    };</div>
 </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">   16</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">   17</a></span>        <a class="code hl_enumvalue" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">WallDeath</a>,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">EnemyDeath</a></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">   19</a></span>    };</div>
-</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">/*</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    Players use 3f &amp; enemies use 2f, I know it&#39;s confusing but enemies run on 2f</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">    space while players are on 3f space and it&#39;s not possible to convert from 2f to 3f,</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    so enemies have to pass their 2f position to the bullets. Just make sure to pass the</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">    2f if an enemy and the 3f will be ignored.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="class_character_bullet.html#a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet</a>(sf::Texture* spritesheet, sf::Vector3f spawnPos,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sizeindex, <a class="code hl_enumeration" href="class_character_bullet.html#a120395842230433baba2e78f620e1266">BulletType</a> = <a class="code hl_class" href="class_player.html">Player</a>, sf::Vector2f = sf::Vector2f(0,0)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    );</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="class_character_bullet.html#a33e9ec37bf67b693229c5ca84b2866bc">~CharacterBullet</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">kill</a>();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">kill</a>(<a class="code hl_enumeration" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</a> type);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character_bullet.html#a02ac0f004985f6ce0010e0f48ad2eeda">update</a>(sf::RenderWindow&amp; window);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_character_bullet.html#a47a91c5b356f30dc75cd14f176324e54">getSizeIndex</a>();</div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_character_bullet.html#a15894a0a65d7f8ca77174cae3ee51450">   35</a></span>    sf::Vector3f <a class="code hl_function" href="class_character_bullet.html#a15894a0a65d7f8ca77174cae3ee51450">getPosition</a>()</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    };</div>
-</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_character_bullet.html#a480f1a3e263507118664bac116e8b1d7">isHit</a>();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sizeIndex;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_enumeration" href="class_character_bullet.html#a120395842230433baba2e78f620e1266">BulletType</a> type;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_character_bullet.html#a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet</a>(sf::Texture* spritesheet, sf::Vector3f spawnPos,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sizeindex, <a class="code hl_enumeration" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabd">BulletType</a> = <a class="code hl_class" href="class_player.html">Player</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                    sf::Vector2f = sf::Vector2f(0, 0)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    );</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">kill</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">kill</a>(<a class="code hl_enumeration" href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</a> type);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_character_bullet.html#a5e917f7a52f3015799e1008a4fd2654b">update</a>(sf::RenderWindow&amp; window, <span class="keywordtype">float</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_character_bullet.html#a47a91c5b356f30dc75cd14f176324e54">getSizeIndex</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sizeIndex;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumeration" href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabd">BulletType</a> type;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
 </div>
 <div class="ttc" id="a_abstract_bullet_8h_html"><div class="ttname"><a href="_abstract_bullet_8h.html">AbstractBullet.h</a></div></div>
 <div class="ttc" id="a_util_8h_html"><div class="ttname"><a href="_util_8h.html">Util.h</a></div></div>
-<div class="ttc" id="aclass_abstract_bullet_html"><div class="ttname"><a href="class_abstract_bullet.html">AbstractBullet</a></div><div class="ttdoc">Class to hold information that the other bullets share.</div><div class="ttdef"><b>Definition</b> AbstractBullet.h:9</div></div>
-<div class="ttc" id="aclass_character_bullet_html"><div class="ttname"><a href="class_character_bullet.html">CharacterBullet</a></div><div class="ttdoc">The bullet used by the player and enemies.</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:10</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a02ac0f004985f6ce0010e0f48ad2eeda"><div class="ttname"><a href="class_character_bullet.html#a02ac0f004985f6ce0010e0f48ad2eeda">CharacterBullet::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;window)</div><div class="ttdoc">Run the logic for this bullet and then draw it to screen.</div><div class="ttdef"><b>Definition</b> CharacterBullet.cpp:95</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a120395842230433baba2e78f620e1266"><div class="ttname"><a href="class_character_bullet.html#a120395842230433baba2e78f620e1266">CharacterBullet::BulletType</a></div><div class="ttdeci">BulletType</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:12</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169"><div class="ttname"><a href="class_character_bullet.html#a120395842230433baba2e78f620e1266af5f38bbe4e4eba511abff82610a0e169">CharacterBullet::Player</a></div><div class="ttdeci">@ Player</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:13</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a15894a0a65d7f8ca77174cae3ee51450"><div class="ttname"><a href="class_character_bullet.html#a15894a0a65d7f8ca77174cae3ee51450">CharacterBullet::getPosition</a></div><div class="ttdeci">sf::Vector3f getPosition()</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:35</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a33e9ec37bf67b693229c5ca84b2866bc"><div class="ttname"><a href="class_character_bullet.html#a33e9ec37bf67b693229c5ca84b2866bc">CharacterBullet::~CharacterBullet</a></div><div class="ttdeci">~CharacterBullet()</div><div class="ttdoc">Clean up memory related to character bullet.</div><div class="ttdef"><b>Definition</b> CharacterBullet.cpp:39</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a47a91c5b356f30dc75cd14f176324e54"><div class="ttname"><a href="class_character_bullet.html#a47a91c5b356f30dc75cd14f176324e54">CharacterBullet::getSizeIndex</a></div><div class="ttdeci">unsigned int getSizeIndex()</div><div class="ttdoc">Get public size index of this character bullet.</div><div class="ttdef"><b>Definition</b> CharacterBullet.cpp:50</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a480f1a3e263507118664bac116e8b1d7"><div class="ttname"><a href="class_character_bullet.html#a480f1a3e263507118664bac116e8b1d7">CharacterBullet::isHit</a></div><div class="ttdeci">bool isHit()</div><div class="ttdoc">Check if this bullet has hit something.</div><div class="ttdef"><b>Definition</b> CharacterBullet.cpp:116</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980dd"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">CharacterBullet::BulletDeathType</a></div><div class="ttdeci">BulletDeathType</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:16</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">CharacterBullet::EnemyDeath</a></div><div class="ttdeci">@ EnemyDeath</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:18</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">CharacterBullet::WallDeath</a></div><div class="ttdeci">@ WallDeath</div><div class="ttdef"><b>Definition</b> CharacterBullet.h:17</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a983fcb8b0d1e9dc36b37c5e2f3efdfa3"><div class="ttname"><a href="class_character_bullet.html#a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet::CharacterBullet</a></div><div class="ttdeci">CharacterBullet(sf::Texture *spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, BulletType=Player, sf::Vector2f=sf::Vector2f(0, 0))</div><div class="ttdoc">Create a bullet based on if player or enemy shot it.</div><div class="ttdef"><b>Definition</b> CharacterBullet.cpp:12</div></div>
-<div class="ttc" id="aclass_character_bullet_html_a9bcb2df496f840c0bb15dc14558e5f9b"><div class="ttname"><a href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">CharacterBullet::kill</a></div><div class="ttdeci">void kill()</div><div class="ttdoc">Default kill, run the kill method with enemyDeath as parameter.</div><div class="ttdef"><b>Definition</b> CharacterBullet.cpp:59</div></div>
-<div class="ttc" id="aclass_enemy_html"><div class="ttname"><a href="class_enemy.html">Enemy</a></div><div class="ttdoc">Enemy in the game. These use a recolored player bullet.</div><div class="ttdef"><b>Definition</b> Enemy.h:10</div></div>
-<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">The player character, also contains plane controls.</div><div class="ttdef"><b>Definition</b> Player.h:11</div></div>
+<div class="ttc" id="aclass_abstract_bullet_html"><div class="ttname"><a href="class_abstract_bullet.html">AbstractBullet</a></div><div class="ttdoc">Class to hold information that the other bullets share.</div><div class="ttdef"><b>Definition</b> <a href="_abstract_bullet_8h_source.html#l00008">AbstractBullet.h:9</a></div></div>
+<div class="ttc" id="aclass_abstract_bullet_html_ae1d5723249d4287666ad542e3f2bcabd"><div class="ttname"><a href="class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabd">AbstractBullet::BulletType</a></div><div class="ttdeci">BulletType</div><div class="ttdef"><b>Definition</b> <a href="_abstract_bullet_8h_source.html#l00011">AbstractBullet.h:12</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html"><div class="ttname"><a href="class_character_bullet.html">CharacterBullet</a></div><div class="ttdoc">The bullet used by the player and enemies.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">CharacterBullet.h:10</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a47a91c5b356f30dc75cd14f176324e54"><div class="ttname"><a href="class_character_bullet.html#a47a91c5b356f30dc75cd14f176324e54">CharacterBullet::getSizeIndex</a></div><div class="ttdeci">unsigned int getSizeIndex()</div><div class="ttdoc">Get public size index of this character bullet.</div><div class="ttdef"><b>Definition</b> <a href="_character_bullet_8cpp_source.html#l00049">CharacterBullet.cpp:49</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a5e917f7a52f3015799e1008a4fd2654b"><div class="ttname"><a href="class_character_bullet.html#a5e917f7a52f3015799e1008a4fd2654b">CharacterBullet::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;window, float) override</div><div class="ttdoc">Run the logic for this bullet and then draw it to screen.</div><div class="ttdef"><b>Definition</b> <a href="_character_bullet_8cpp_source.html#l00093">CharacterBullet.cpp:93</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980dd"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd">CharacterBullet::BulletDeathType</a></div><div class="ttdeci">BulletDeathType</div><div class="ttdef"><b>Definition</b> <a href="#l00012">CharacterBullet.h:13</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">CharacterBullet::EnemyDeath</a></div><div class="ttdeci">@ EnemyDeath</div><div class="ttdef"><b>Definition</b> <a href="#l00015">CharacterBullet.h:15</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">CharacterBullet::WallDeath</a></div><div class="ttdeci">@ WallDeath</div><div class="ttdef"><b>Definition</b> <a href="#l00014">CharacterBullet.h:14</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97"><div class="ttname"><a href="class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97">CharacterBullet::MissileDeath</a></div><div class="ttdeci">@ MissileDeath</div><div class="ttdef"><b>Definition</b> <a href="#l00017">CharacterBullet.h:16</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a983fcb8b0d1e9dc36b37c5e2f3efdfa3"><div class="ttname"><a href="class_character_bullet.html#a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet::CharacterBullet</a></div><div class="ttdeci">CharacterBullet(sf::Texture *spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, BulletType=Player, sf::Vector2f=sf::Vector2f(0, 0))</div><div class="ttdoc">Create a bullet based on if player or enemy shot it. Players use 3f &amp; enemies use 2f,...</div><div class="ttdef"><b>Definition</b> <a href="_character_bullet_8cpp_source.html#l00016">CharacterBullet.cpp:16</a></div></div>
+<div class="ttc" id="aclass_character_bullet_html_a9bcb2df496f840c0bb15dc14558e5f9b"><div class="ttname"><a href="class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b">CharacterBullet::kill</a></div><div class="ttdeci">void kill()</div><div class="ttdoc">Default kill, run the kill method with enemyDeath as parameter.</div><div class="ttdef"><b>Definition</b> <a href="_character_bullet_8cpp_source.html#l00058">CharacterBullet.cpp:58</a></div></div>
+<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">The player character, also contains plane controls.</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00010">Player.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_afc99902bfecf368d324149b3dedaf36.html">Entity</a></li><li class="navelem"><a class="el" href="dir_f2e982307438cf8094c280088ac75dfa.html">AbstractBullet</a></li><li class="navelem"><a class="el" href="dir_69316fb2d758a799888cc2c27dbb3bd2.html">CharacterBullet</a></li><li class="navelem"><a class="el" href="_character_bullet_8h.html">CharacterBullet.h</a></li>
+    <li class="navelem"><a class="el" href="dir_82065fcfece22a58f0c2e177bd225074.html">Zaxxon</a></li><li class="navelem"><a class="el" href="dir_d030179c1ca07159d4124dc786a04913.html">src</a></li><li class="navelem"><a class="el" href="dir_711d1bdbb9967277a53c7aa37a950250.html">Entity</a></li><li class="navelem"><a class="el" href="dir_f38c96728d7e2924ef8a228719b800dd.html">AbstractBullet</a></li><li class="navelem"><a class="el" href="dir_b31584c1da60c7ddee1a59decc4dda03.html">CharacterBullet</a></li><li class="navelem"><a class="el" href="_character_bullet_8h.html">CharacterBullet.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

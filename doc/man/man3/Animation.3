@@ -32,13 +32,15 @@ Animation \- Class to handle (almost) all in-game animations\&.
 .br
 .RI "Run the given animation on sprite\&. Note that you should always check if the sprite* is null before doing operations\&. "
 .ti -1c
-.RI "int \fBgetState\fP ()"
+.RI "int \fBgetState\fP () const"
 .br
 .RI "Checks if current animation has finished running\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Class to handle (almost) all in-game animations\&. 
+.PP
+Definition at line \fB10\fP of file \fBAnimation\&.h\fP\&.
 .SH "Member Enumeration Documentation"
 .PP 
 .SS "enum \fBAnimation::Anim\fP"
@@ -60,19 +62,25 @@ Class to handle (almost) all in-game animations\&.
 \fB\fIROCKET_FLICKER \fP\fP
 .TP
 \fB\fIRESET \fP\fP
+.PP
+Definition at line \fB13\fP of file \fBAnimation\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Animation::Animation ()"
 
 .PP
 Initalize individual animation frames\&. 
+.PP
+Definition at line \fB7\fP of file \fBAnimation\&.cpp\fP\&.
 .SS "Animation::~Animation ()"
 
 .PP
 Clean up memory for animation class\&. 
+.PP
+Definition at line \fB58\fP of file \fBAnimation\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "int Animation::getState ()"
+.SS "int Animation::getState () const"
 
 .PP
 Checks if current animation has finished running\&. 
@@ -83,6 +91,8 @@ A boolean
 .RE
 .PP
 
+.PP
+Definition at line \fB315\fP of file \fBAnimation\&.cpp\fP\&.
 .SS "void Animation::run (sf::Sprite * sprite, \fBAnim\fP anim, unsigned int sizeIndex = \fR0\fP)"
 
 .PP
@@ -96,6 +106,8 @@ Run the given animation on sprite\&. Note that you should always check if the sp
 .RE
 .PP
 
+.PP
+Definition at line \fB74\fP of file \fBAnimation\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

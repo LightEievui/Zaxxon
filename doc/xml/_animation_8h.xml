@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_animation_8h" kind="file" language="C++">
+    <compoundname>Animation.h</compoundname>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="_animation_8cpp" local="yes">C:/Zaxxon/src/Animation/Animation.cpp</includedby>
+    <includedby refid="_character_8h" local="yes">C:/Zaxxon/src/Entity/Character/Character.h</includedby>
+    <includedby refid="_entity_8h" local="yes">C:/Zaxxon/src/Entity/Entity.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Zaxxon/src/Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="3">
+        <label>thread</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Zaxxon/src/Animation/Animation.cpp</label>
+        <link refid="_animation_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Zaxxon/src/Background/Background.cpp</label>
+        <link refid="_background_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Zaxxon/src/Background/Background.h</label>
+        <link refid="_background_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp</label>
+        <link refid="_abstract_bullet_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp</label>
+        <link refid="_boss_bullet_8cpp"/>
+      </node>
+      <node id="14">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h</label>
+        <link refid="_boss_bullet_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp</label>
+        <link refid="_character_bullet_8cpp"/>
+      </node>
+      <node id="21">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.cpp</label>
+        <link refid="_obstacle_bullet_8cpp"/>
+      </node>
+      <node id="23">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h</label>
+        <link refid="_obstacle_bullet_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.cpp</label>
+        <link refid="_boss_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.h</label>
+        <link refid="_boss_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Zaxxon/src/Entity/Character/Character.cpp</label>
+        <link refid="_character_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Zaxxon/src/Entity/Character/Character.h</label>
+        <link refid="_character_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp</label>
+        <link refid="_enemy_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h</label>
+        <link refid="_enemy_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>C:/Zaxxon/src/Entity/Entity.cpp</label>
+        <link refid="_entity_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Zaxxon/src/Entity/Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>C:/Zaxxon/src/Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Zaxxon/src/Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>C:/Zaxxon/src/Obstacle/Obstacle.cpp</label>
+        <link refid="_obstacle_8cpp"/>
+      </node>
+      <node id="25">
+        <label>C:/Zaxxon/src/Obstacle/Obstacle.h</label>
+        <link refid="_obstacle_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>C:/Zaxxon/src/ZapWall/ZapWall.cpp</label>
+        <link refid="_zap_wall_8cpp"/>
+      </node>
+      <node id="28">
+        <label>C:/Zaxxon/src/ZapWall/ZapWall.h</label>
+        <link refid="_zap_wall_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_animation" prot="public">Animation</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_animation" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_animation" kindref="compound">Animation</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kindref="member">Anim</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" kindref="member">CHARACTER_DEATH</ref>,</highlight></codeline>
+<codeline lineno="16" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85" kindref="member">ALT_DEATH</ref>,</highlight></codeline>
+<codeline lineno="17" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775" kindref="member">LAUNCH</ref>,</highlight></codeline>
+<codeline lineno="18" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed" kindref="member">BULLET_DEATH</ref>,</highlight></codeline>
+<codeline lineno="19" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728" kindref="member">WALLBULLET_DEATH</ref>,</highlight></codeline>
+<codeline lineno="20" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01" kindref="member">ROCKET_FLICKER</ref>,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f" kindref="member">RESET</ref></highlight></codeline>
+<codeline lineno="22" refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_animation_1a83f0a16cef7117f187ad596de38dd9d6" kindref="member">Animation</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_animation_1a401b68793d4fbf48d481c030ee4b2a16" kindref="member">~Animation</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>size<sp/>index<sp/>as<sp/>an<sp/>extra<sp/>var<sp/>for<sp/>some<sp/>animations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" kindref="member">run</ref>(sf::Sprite*,<sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kindref="member">Anim</ref>,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sizeIndex<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kindref="member">getState</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fCHARACTER_DEATH(sf::Sprite*<sp/>sprite);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fALT_DEATH(sf::Sprite*<sp/>sprite);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fLAUNCH(sf::Sprite*<sp/>sprite);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fBULLET_DEATH(sf::Sprite*<sp/>sprite);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fWALLBULLET_DEATH(sf::Sprite*<sp/>sprite);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fROCKET_FLICKER(sf::Sprite*<sp/>sprite);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::thread*&gt;<sp/>threads;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Clock<sp/>timer;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::IntRect<sp/>frames[26],<sp/>revert;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>state<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>spriteSizeIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>kill<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Animation/Animation.h"/>
+  </compounddef>
+</doxygen>

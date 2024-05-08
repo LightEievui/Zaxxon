@@ -1,0 +1,502 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
+  <compound refid="class_abstract_bullet" kind="class"><name>AbstractBullet</name>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" kind="enum"><name>BulletType</name></member>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" kind="enumvalue"><name>Player</name></member>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" kind="enumvalue"><name>Enemy</name></member>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" kind="enumvalue"><name>Missile</name></member>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" kind="enumvalue"><name>zBullet</name></member>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" kind="enumvalue"><name>xBulletL</name></member>
+    <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" kind="enumvalue"><name>xBulletR</name></member>
+    <member refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" kind="variable"><name>alive</name></member>
+    <member refid="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" kind="function"><name>AbstractBullet</name></member>
+    <member refid="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" kind="function"><name>isHit</name></member>
+    <member refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" kind="function"><name>translate</name></member>
+  </compound>
+  <compound refid="class_animation" kind="class"><name>Animation</name>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kind="enum"><name>Anim</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" kind="enumvalue"><name>CHARACTER_DEATH</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85" kind="enumvalue"><name>ALT_DEATH</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775" kind="enumvalue"><name>LAUNCH</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed" kind="enumvalue"><name>BULLET_DEATH</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728" kind="enumvalue"><name>WALLBULLET_DEATH</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01" kind="enumvalue"><name>ROCKET_FLICKER</name></member>
+    <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f" kind="enumvalue"><name>RESET</name></member>
+    <member refid="class_animation_1a379f551a0ded4c7495c5b413dacaea44" kind="variable"><name>threads</name></member>
+    <member refid="class_animation_1a483789663d6c2c0357f65f88a6be9843" kind="variable"><name>timer</name></member>
+    <member refid="class_animation_1a25fb533c7753a8c1013d3b70c3156c7c" kind="variable"><name>frames</name></member>
+    <member refid="class_animation_1a378358592e9e520ac4607b0209abe2ac" kind="variable"><name>revert</name></member>
+    <member refid="class_animation_1a0313fad76f94070d52b943bd29b58eb1" kind="variable"><name>state</name></member>
+    <member refid="class_animation_1a18811a825ee983376d938f6184876207" kind="variable"><name>spriteSizeIndex</name></member>
+    <member refid="class_animation_1af7c447147d8a01f3a10d3eac0823464f" kind="variable"><name>kill</name></member>
+    <member refid="class_animation_1a83f0a16cef7117f187ad596de38dd9d6" kind="function"><name>Animation</name></member>
+    <member refid="class_animation_1a401b68793d4fbf48d481c030ee4b2a16" kind="function"><name>~Animation</name></member>
+    <member refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" kind="function"><name>run</name></member>
+    <member refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kind="function"><name>getState</name></member>
+    <member refid="class_animation_1aede55d493fdb8c6592b9e905cfd1e10b" kind="function"><name>fCHARACTER_DEATH</name></member>
+    <member refid="class_animation_1a8d83019b2af77c46c480835782580842" kind="function"><name>fALT_DEATH</name></member>
+    <member refid="class_animation_1afa42ada93ea59bd265616bf9f78d33ba" kind="function"><name>fLAUNCH</name></member>
+    <member refid="class_animation_1a760f0463ebafb824a984e559405c15b2" kind="function"><name>fBULLET_DEATH</name></member>
+    <member refid="class_animation_1a6d3a7baf855140024fc234ffee1849d9" kind="function"><name>fWALLBULLET_DEATH</name></member>
+    <member refid="class_animation_1a653c226c0610ca5665590e1bdae8887f" kind="function"><name>fROCKET_FLICKER</name></member>
+  </compound>
+  <compound refid="class_background" kind="class"><name>Background</name>
+    <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kind="enum"><name>Stage</name></member>
+    <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0" kind="enumvalue"><name>INITIAL</name></member>
+    <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc" kind="enumvalue"><name>SPACE</name></member>
+    <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe" kind="enumvalue"><name>BOSS</name></member>
+    <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e" kind="enumvalue"><name>BOSSFIGHT</name></member>
+    <member refid="class_background_1aef800902e6536f7382d07de1a2e01860" kind="variable"><name>initial</name></member>
+    <member refid="class_background_1a68fca080fef71e606ffb54e59ceb6cd0" kind="variable"><name>space</name></member>
+    <member refid="class_background_1a11782d139d68c919c240a15d924df664" kind="variable"><name>boss</name></member>
+    <member refid="class_background_1ac30d035b27d32a1f613d46d14b082abf" kind="variable"><name>death</name></member>
+    <member refid="class_background_1a5e3883922c5ae32f6479f563189edd07" kind="variable"><name>back</name></member>
+    <member refid="class_background_1a2c91b15da2d6bdeba667946bb1691ab2" kind="variable"><name>deathOverlay</name></member>
+    <member refid="class_background_1a54fd3ae1fa70b20d936ab749490af6bc" kind="variable"><name>stage</name></member>
+    <member refid="class_background_1af234d5963839889e63807d8092d67bf2" kind="variable"><name>waveQueue</name></member>
+    <member refid="class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719" kind="function"><name>Background</name></member>
+    <member refid="class_background_1a36754df1deb720393217ade59da41557" kind="function"><name>~Background</name></member>
+    <member refid="class_background_1a35213116185226b7b3881b2e71c8a292" kind="function"><name>update</name></member>
+    <member refid="class_background_1a002ca1b009e940180bb5edb8c49e008f" kind="function"><name>setPosition</name></member>
+    <member refid="class_background_1ac607d65614b8f90a0f841a97df4f0b04" kind="function"><name>generateObstacles</name></member>
+    <member refid="class_background_1aa319354445ea0a0f224b6dc726b621c2" kind="function"><name>generateWaves</name></member>
+    <member refid="class_background_1ad04fe2ef8bcaf5516c95846e2e500877" kind="function"><name>resetPos</name></member>
+    <member refid="class_background_1aa60585bb666a292f5d49049038400b1a" kind="function"><name>getStage</name></member>
+    <member refid="class_background_1ac333125273a1213f2cb1c4af4081f0b8" kind="function"><name>setStage</name></member>
+    <member refid="class_background_1a52b2389cd7dfaedff511e72af9f3735c" kind="function"><name>isInSpace</name></member>
+    <member refid="class_background_1a093d96b9f25dda122febad2beabc47cd" kind="function"><name>flashColor</name></member>
+    <member refid="class_background_1a6b607e4abb1e50f345e49eca7fe928b1" kind="function"><name>changeStage</name></member>
+    <member refid="class_background_1a2f093aa4fd0efcce6cb191bdce2574bb" kind="function"><name>backgroundFinished</name></member>
+  </compound>
+  <compound refid="class_boss" kind="class"><name>Boss</name>
+    <member refid="class_boss_1ad17b5c88281d5bec21c6bc6c226d49b0" kind="variable"><name>target</name></member>
+    <member refid="class_boss_1ac98f588d63ce0e3bc7e63684fca10c90" kind="variable"><name>movementInt</name></member>
+    <member refid="class_boss_1a233fa3e6974c588ad90bf37160642e0a" kind="variable"><name>invFrames</name></member>
+    <member refid="class_boss_1a4cbde5debb260f3a966df9613b39b382" kind="variable"><name>stages</name></member>
+    <member refid="class_boss_1a55311d6301a3205d1f70317a8f39d3fa" kind="variable"><name>hitCount</name></member>
+    <member refid="class_boss_1a9b49ae3d372506733470869386ed4944" kind="variable"><name>hits</name></member>
+    <member refid="class_boss_1a8671d619645e689311b79ee5917ae50d" kind="variable"><name>missile</name></member>
+    <member refid="class_boss_1a72afc55ea726dbaf699005b0324c93ac" kind="variable"><name>bulletCreated</name></member>
+    <member refid="class_boss_1a1463ab1eac423380d20d0ebf25739812" kind="variable"><name>destroyed</name></member>
+    <member refid="class_boss_1a25da5df45f9442d41571b9ce94e52e26" kind="variable"><name>targetXPoints</name></member>
+    <member refid="class_boss_1a532b2cfc920780c6f4ea432d7e22be79" kind="function"><name>Boss</name></member>
+    <member refid="class_boss_1ad848427ba363777ea9fe753b4f70b26c" kind="function"><name>~Boss</name></member>
+    <member refid="class_boss_1ae9cf8c000e924a806d64e7488ce6f58a" kind="function"><name>update</name></member>
+    <member refid="class_boss_1a911178ba0e5f853c0472f8a2ef879c60" kind="function"><name>hit</name></member>
+    <member refid="class_boss_1ab76a3a54901df7bc04ff8eb237549fa7" kind="function"><name>getMissile</name></member>
+    <member refid="class_boss_1af650e303d854e6bfb32b7ff64989105d" kind="function"><name>missileCreated</name></member>
+    <member refid="class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea" kind="function"><name>isDestroyed</name></member>
+  </compound>
+  <compound refid="class_boss_bullet" kind="class"><name>BossBullet</name>
+    <member refid="class_boss_bullet_1ab9f63e617c144140a4ef4096f489cbe5" kind="variable"><name>target</name></member>
+    <member refid="class_boss_bullet_1a54727829495f32e2191858b2616909cc" kind="variable"><name>movementInt</name></member>
+    <member refid="class_boss_bullet_1ae094a874914cbbc0ea3d5cb7b91cf5cc" kind="variable"><name>invTimer</name></member>
+    <member refid="class_boss_bullet_1a8f0d8d3603c878330933abbabc21b184" kind="variable"><name>health</name></member>
+    <member refid="class_boss_bullet_1a6aa72332992a0eb9d4fe4d66e9d862c5" kind="function"><name>BossBullet</name></member>
+    <member refid="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594" kind="function"><name>update</name></member>
+    <member refid="class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2" kind="function"><name>damage</name></member>
+    <member refid="class_boss_bullet_1ae644a8610bba9a05a8d29455179c5965" kind="function"><name>collide</name></member>
+  </compound>
+  <compound refid="class_character" kind="class"><name>Character</name>
+    <member refid="class_character_1a602309a031e6db0a570644d8f0b5d5fb" kind="variable"><name>yMax</name></member>
+    <member refid="class_character_1a1750fc7b411d6fdac9ca9e6763e126f5" kind="variable"><name>yMin</name></member>
+    <member refid="class_character_1a682f191a3a01f1a772cd3fa624c0b16e" kind="variable"><name>xMin</name></member>
+    <member refid="class_character_1ae741b4874f8875f33f70663890315a52" kind="variable"><name>xMax</name></member>
+    <member refid="class_character_1a12d640046cf216dd010f8e71c3466e1e" kind="variable"><name>velocity</name></member>
+    <member refid="class_character_1aff7b8bd3f067ab04cd547c0dc14e765f" kind="variable"><name>bullets</name></member>
+    <member refid="class_character_1a95e438488293a98b1a404f39e4f97aeb" kind="variable"><name>sizeIndex</name></member>
+    <member refid="class_character_1a42fcd0ca04459e9e36357b99cc94fd9d" kind="variable"><name>bulletTexture</name></member>
+    <member refid="class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2" kind="function"><name>Character</name></member>
+    <member refid="class_character_1a5e399f512bf22a9e8558a4bae1ec9555" kind="function"><name>~Character</name></member>
+    <member refid="class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479" kind="function"><name>update</name></member>
+    <member refid="class_character_1a6eaf7357d3575a2281b5456abfbe1b9d" kind="function"><name>kill</name></member>
+    <member refid="class_character_1a59755f2066960eeade9a67b13f646c79" kind="function"><name>getBullets</name></member>
+    <member refid="class_character_1abb29539c98416153a4f079ca83879cfc" kind="function"><name>getSizeIndex</name></member>
+    <member refid="class_character_1a6ea404b0682144a8f21d42e881cb0ce7" kind="function"><name>killBullet</name></member>
+    <member refid="class_character_1acf35437606532f7df271dd0fd3d6800c" kind="function"><name>setPos</name></member>
+    <member refid="class_character_1a40ac52813d37c391b4cd6db06a8f1216" kind="function"><name>_getSizeIndex</name></member>
+    <member refid="class_character_1adba5c58a1b24bff604893e28519a1f34" kind="function"><name>getVelocity</name></member>
+    <member refid="class_character_1a46a264779165a349a13bcb364c4106d4" kind="function"><name>setVelocity</name></member>
+    <member refid="class_character_1afe32dd9baa581b7895f06c9687d073b4" kind="function"><name>setBullet</name></member>
+    <member refid="class_character_1a450a222c641925d6bda2f2c9241c220b" kind="function"><name>updateBullets</name></member>
+  </compound>
+  <compound refid="class_character_bullet" kind="class"><name>CharacterBullet</name>
+    <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd" kind="enum"><name>BulletDeathType</name></member>
+    <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc" kind="enumvalue"><name>WallDeath</name></member>
+    <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0" kind="enumvalue"><name>EnemyDeath</name></member>
+    <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97" kind="enumvalue"><name>MissileDeath</name></member>
+    <member refid="class_character_bullet_1aa3b25d057d02cf5c7970e60f32ef0d5b" kind="variable"><name>sizeIndex</name></member>
+    <member refid="class_character_bullet_1a189301840d8fc4c3a63e0d3b3c9de747" kind="variable"><name>type</name></member>
+    <member refid="class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3" kind="function"><name>CharacterBullet</name></member>
+    <member refid="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" kind="function"><name>kill</name></member>
+    <member refid="class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23" kind="function"><name>kill</name></member>
+    <member refid="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b" kind="function"><name>update</name></member>
+    <member refid="class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54" kind="function"><name>getSizeIndex</name></member>
+  </compound>
+  <compound refid="class_enemy" kind="class"><name>Enemy</name>
+    <member refid="class_enemy_1adace0e03456b5af4408ac370f926da17" kind="variable"><name>textures</name></member>
+    <member refid="class_enemy_1a9331167f267c2e43f5db5f1e2c179f2d" kind="variable"><name>alive</name></member>
+    <member refid="class_enemy_1a4b1b61e7bc79aca01f3e4b3ef19cb787" kind="variable"><name>dead</name></member>
+    <member refid="class_enemy_1a69297c393166392cba18a827c71f7c05" kind="variable"><name>sizeIndex</name></member>
+    <member refid="class_enemy_1ab10c61f35af1abbc9dbeb0f118a89677" kind="variable"><name>id</name></member>
+    <member refid="class_enemy_1afa8050a8026933f0b7b4e63a4cc1f9ec" kind="variable"><name>randOffset</name></member>
+    <member refid="class_enemy_1ad500b6c8fbb46dc0f98f60f11a8fa6f2" kind="variable"><name>ableToFire</name></member>
+    <member refid="class_enemy_1a4a0c7e5e88599ff707a292bee654ead1" kind="variable"><name>bulletCD</name></member>
+    <member refid="class_enemy_1a78513af724531f981172b56b91951a21" kind="function"><name>Enemy</name></member>
+    <member refid="class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59" kind="function"><name>update</name></member>
+    <member refid="class_enemy_1ad0bf56e75378d9524f2d77479d259dde" kind="function"><name>kill</name></member>
+    <member refid="class_enemy_1af933da0510136962e59487e9a6c28ead" kind="function"><name>getTranslate2</name></member>
+    <member refid="class_enemy_1a8c811260a36e5b4fdbd022fa4e205863" kind="function"><name>getSizeIndex</name></member>
+    <member refid="class_enemy_1a038e636d16b708f92627348a36750702" kind="function"><name>isDead</name></member>
+    <member refid="class_enemy_1a965d8a0c6f027a92795b9794158369b7" kind="function"><name>spawnWave</name></member>
+    <member refid="class_enemy_1a679f4b8c82ef1a288721dab6248a0f58" kind="function"><name>runAI</name></member>
+    <member refid="class_enemy_1a527fa119a1508b61e800b74e28d735f4" kind="function"><name>angleTranslate</name></member>
+  </compound>
+  <compound refid="class_entity" kind="class"><name>Entity</name>
+    <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" kind="variable"><name>spriteSheet</name></member>
+    <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kind="variable"><name>sprite</name></member>
+    <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kind="variable"><name>animations</name></member>
+    <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" kind="variable"><name>dead</name></member>
+    <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" kind="variable"><name>debugText</name></member>
+    <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" kind="variable"><name>debugFont</name></member>
+    <member refid="class_entity_1a6bf04675f67f192db3ed270a80f577bc" kind="variable"><name>position</name></member>
+    <member refid="class_entity_1a980f368aa07ce358583982821533a54a" kind="function"><name>Entity</name></member>
+    <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" kind="function"><name>~Entity</name></member>
+    <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" kind="function"><name>kill</name></member>
+    <member refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2" kind="function"><name>update</name></member>
+    <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" kind="function"><name>getAnimationState</name></member>
+    <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kind="function"><name>setPos</name></member>
+    <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kind="function"><name>getPos</name></member>
+    <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" kind="function"><name>getBounds</name></member>
+    <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" kind="function"><name>getSpritePos</name></member>
+  </compound>
+  <compound refid="class_game" kind="class"><name>Game</name>
+    <member refid="class_game_1ae735f28341cc82a10d13202b2bc0abf2" kind="variable"><name>spriteSheet</name></member>
+    <member refid="class_game_1a8426dbbfc3a7fb340a07613b9e41491e" kind="variable"><name>bossSheet</name></member>
+    <member refid="class_game_1afe52f8d3aae434939876a96fd82e1bbb" kind="variable"><name>pBackground</name></member>
+    <member refid="class_game_1a223de215aeb661cd423ac145756cc730" kind="variable"><name>window</name></member>
+    <member refid="class_game_1a3a36302cedc89b72420d7d0312fd1d4c" kind="variable"><name>gui</name></member>
+    <member refid="class_game_1abec70aa1c0269a9a7e171af4d79e08bf" kind="variable"><name>player</name></member>
+    <member refid="class_game_1a29e5e11978d28aac90748d484ddd1219" kind="variable"><name>enemies</name></member>
+    <member refid="class_game_1ab5aa737835de38ee3f06b5e60119102f" kind="variable"><name>obstacles</name></member>
+    <member refid="class_game_1a69e4328d91e86f5516c1c1be8f5a9d3e" kind="variable"><name>walls</name></member>
+    <member refid="class_game_1aafaf510fcb9d648868c3e2c9c8ee32c0" kind="variable"><name>zapWalls</name></member>
+    <member refid="class_game_1ad5d5b48c317590c869af8a785dde1f68" kind="variable"><name>boss</name></member>
+    <member refid="class_game_1afa62a098eb7db12410e56709c9d5eff2" kind="variable"><name>missile</name></member>
+    <member refid="class_game_1a56fe738cf4511bd1430bac6e0a77f413" kind="variable"><name>fuel</name></member>
+    <member refid="class_game_1ae382bc02bed2e483028be4b3ec71de41" kind="variable"><name>completions</name></member>
+    <member refid="class_game_1a27b61db2b13af6f8cd6c1e3662843589" kind="variable"><name>lives</name></member>
+    <member refid="class_game_1afaf9404196df9968103d5b0d0ad08139" kind="variable"><name>score</name></member>
+    <member refid="class_game_1ad5542be28169bedf54ee0ff1b51de3bd" kind="variable"><name>highScore</name></member>
+    <member refid="class_game_1abbc9c9079e89d36732949ef05b76661d" kind="variable"><name>gameSpeed</name></member>
+    <member refid="class_game_1a864b86f9fa29c4b462332573bbbfb251" kind="variable"><name>gameState</name></member>
+    <member refid="class_game_1a62e895bbb68139e4f67b5c515cab2250" kind="variable"><name>currentScores</name></member>
+    <member refid="class_game_1ab9277480801a7b3613411cb0baa726a4" kind="variable"><name>currentNames</name></member>
+    <member refid="class_game_1a9a633781d88c7a498f3177594448a9bc" kind="variable"><name>name</name></member>
+    <member refid="class_game_1aeaf995e02f76ac304904d237daf76046" kind="variable"><name>activeCursor</name></member>
+    <member refid="class_game_1a43ec96b7f2f5c8a23ab775c1dee1a597" kind="variable"><name>selector</name></member>
+    <member refid="class_game_1a2d01a2e2ebf27fc437969cd47654e264" kind="variable"><name>file</name></member>
+    <member refid="class_game_1a75268df3792463a2b5a23fad5fecc28b" kind="variable"><name>fps</name></member>
+    <member refid="class_game_1a96c8e603187b7e91bc0a75193f5ed939" kind="variable"><name>deltaTime</name></member>
+    <member refid="class_game_1a4ba778067b016cce4a64fd11ab6d3424" kind="variable"><name>lastTime</name></member>
+    <member refid="class_game_1ae0b74c9568decb2cde230546090af9af" kind="variable"><name>currentTime</name></member>
+    <member refid="class_game_1a28e09ea403fcf58036eb9b0cd7d79395" kind="variable"><name>mainView</name></member>
+    <member refid="class_game_1a6564e9f40718873774794b1ba0f8d471" kind="variable"><name>guiView</name></member>
+    <member refid="class_game_1ac5cecf92bffc162975bf37fe16fa8027" kind="variable"><name>flightBuffer</name></member>
+    <member refid="class_game_1a6d940a1b36a69731f7b04063f2ac2fde" kind="variable"><name>flightSound</name></member>
+    <member refid="class_game_1a6ca3d85e601853809499f3066f5fa578" kind="variable"><name>fuelClock</name></member>
+    <member refid="class_game_1a4076f21db2cd0e71c8834c885e7857d2" kind="variable"><name>deathClock</name></member>
+    <member refid="class_game_1a1666901cce5923a1f236b4c24d87a1aa" kind="variable"><name>deathSprite</name></member>
+    <member refid="class_game_1ad59df6562a58a614fda24622d3715b65" kind="function"><name>Game</name></member>
+    <member refid="class_game_1ae3d112ca6e0e55150d2fdbc704474530" kind="function"><name>~Game</name></member>
+    <member refid="class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa" kind="function"><name>run</name></member>
+    <member refid="class_game_1a07f68ec1f4dbd0f9656a203c148f7745" kind="function"><name>doCollision</name></member>
+    <member refid="class_game_1a2f721cfae68620ac853ddb77ad914368" kind="function"><name>obstacleHit</name></member>
+    <member refid="class_game_1ab7f3eff651c80c1c73bc9ceec036e66e" kind="function"><name>playerDeath</name></member>
+    <member refid="class_game_1ac7d371f3f30513a4f3c57f521fac9b5f" kind="function"><name>gameOver</name></member>
+  </compound>
+  <compound refid="class_g_u_i" kind="class"><name>GUI</name>
+    <member refid="class_g_u_i_1a8378798a81812fb0411b746553429e04" kind="variable"><name>spritesheet</name></member>
+    <member refid="class_g_u_i_1a66e79127a379183e14cd4c27b05b7020" kind="variable"><name>heightMeterBg</name></member>
+    <member refid="class_g_u_i_1af8ef3d49cb6c6950977ef20a53da18b8" kind="variable"><name>heightMeterSections</name></member>
+    <member refid="class_g_u_i_1aa27b14ad45bf680e23aed4f8a9d2ef7b" kind="variable"><name>heightH</name></member>
+    <member refid="class_g_u_i_1ad9ca2b59e1fe9c6583a6ea8ea0ded933" kind="variable"><name>heightL</name></member>
+    <member refid="class_g_u_i_1a735f4ea9fda201bb6382ae50c7c7a5e3" kind="variable"><name>hudElements</name></member>
+    <member refid="class_g_u_i_1a3edb614d79082cf2b3e5aebfb06738b9" kind="variable"><name>copyright</name></member>
+    <member refid="class_g_u_i_1aa49f3a60effbdc2771d200ea74a3e03e" kind="variable"><name>topScore</name></member>
+    <member refid="class_g_u_i_1a43f86d28a91ad9ed0a12917aa8876033" kind="variable"><name>curScore</name></member>
+    <member refid="class_g_u_i_1aee903a2fb3287b3529e8da30058339d0" kind="variable"><name>fuelText</name></member>
+    <member refid="class_g_u_i_1ac7cf29505c459c58e497a3c1579e0a89" kind="variable"><name>enemyText</name></member>
+    <member refid="class_g_u_i_1a49e3837a1c094db1fb13d5de4290a378" kind="variable"><name>fuelBar</name></member>
+    <member refid="class_g_u_i_1aabe2b790cbeae461920fef46ac6c6229" kind="variable"><name>livesBar</name></member>
+    <member refid="class_g_u_i_1aabb95a82582793ec53c4bfd3cf672501" kind="variable"><name>enemyLeft</name></member>
+    <member refid="class_g_u_i_1a7d5f3409d5694aed8e959daeb9cdd31a" kind="variable"><name>pushPlayerText</name></member>
+    <member refid="class_g_u_i_1aec94e4f70ddfbad47479d2e84173a100" kind="variable"><name>scoreClock</name></member>
+    <member refid="class_g_u_i_1a46fbeca7bbe2ee6f3dc748849ffdf755" kind="variable"><name>highScores</name></member>
+    <member refid="class_g_u_i_1a020131878df19fc689234b8ab14e0267" kind="variable"><name>highScoresText</name></member>
+    <member refid="class_g_u_i_1a2e32813c5290f94e7ed57ad563d88a81" kind="variable"><name>highScoresNames</name></member>
+    <member refid="class_g_u_i_1a591761302fe93f1db4518ead5b8ad5d3" kind="variable"><name>gameOver</name></member>
+    <member refid="class_g_u_i_1a272c73356e2604f7d1c4d3eff491fa82" kind="variable"><name>scoreEntry</name></member>
+    <member refid="class_g_u_i_1a392ccc8f5d80230fa6d9280e7b81b837" kind="variable"><name>initialsText</name></member>
+    <member refid="class_g_u_i_1a144b39fdde1f6469b7357638acf5ad53" kind="variable"><name>entryTime</name></member>
+    <member refid="class_g_u_i_1ad2c492c09b31096cf3771b7cdc9a7164" kind="variable"><name>keyboard</name></member>
+    <member refid="class_g_u_i_1a701b76e70021ee98fb27b04a20b6c295" kind="variable"><name>cursor</name></member>
+    <member refid="class_g_u_i_1a6143faab4049a20acfafafea820eb1d5" kind="variable"><name>endScreen</name></member>
+    <member refid="class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839" kind="function"><name>GUI</name></member>
+    <member refid="class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220" kind="function"><name>render</name></member>
+    <member refid="class_g_u_i_1a41bf32a5de5387392f14b204bd55259e" kind="function"><name>startRender</name></member>
+    <member refid="class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a" kind="function"><name>renderScores</name></member>
+    <member refid="class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e" kind="function"><name>renderEnd</name></member>
+    <member refid="class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705" kind="function"><name>renderWin</name></member>
+  </compound>
+  <compound refid="class_h_m_section" kind="class"><name>HMSection</name>
+    <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" kind="enum"><name>Type</name></member>
+    <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119" kind="enumvalue"><name>LINE</name></member>
+    <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c" kind="enumvalue"><name>OPEN</name></member>
+    <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481" kind="enumvalue"><name>TOP</name></member>
+    <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740" kind="enumvalue"><name>BOTTOM</name></member>
+    <member refid="class_h_m_section_1a7e4dec89af14ac23cfdabe1d7a96c848" kind="variable"><name>section</name></member>
+    <member refid="class_h_m_section_1ac318f2abaccfa0cdb547eff3d951c963" kind="variable"><name>type</name></member>
+    <member refid="class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2" kind="function"><name>progress</name></member>
+    <member refid="class_h_m_section_1a3307e1d78540b5624be54eea4af89e13" kind="function"><name>setSection</name></member>
+    <member refid="class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f" kind="function"><name>setType</name></member>
+    <member refid="class_h_m_section_1a6e02d19eb07396dc514c8938d578658b" kind="function"><name>fill</name></member>
+    <member refid="class_h_m_section_1a6093acdaf453e4985124eb26d85a628d" kind="function"><name>empty</name></member>
+    <member refid="class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52" kind="function"><name>getSection</name></member>
+  </compound>
+  <compound refid="class_obstacle" kind="class"><name>Obstacle</name>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda" kind="enum"><name>ObstacleType</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b" kind="enumvalue"><name>GAS_CAN</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a" kind="enumvalue"><name>SATELLITE</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036" kind="enumvalue"><name>GREY_CANNON</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8" kind="enumvalue"><name>GREEN_CANNON</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a" kind="enumvalue"><name>MISSILE_UP</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d" kind="enumvalue"><name>PLANE</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701" kind="enumvalue"><name>SPACE_FUEL</name></member>
+    <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e" kind="enumvalue"><name>GREEN_CANNON_RIGHT</name></member>
+    <member refid="class_obstacle_1a4f5eb980c80471b8673a090238601824" kind="variable"><name>bullets</name></member>
+    <member refid="class_obstacle_1a815d9c1d9a1aa9345b98ad6064730948" kind="variable"><name>bulletPositions</name></member>
+    <member refid="class_obstacle_1a6982b098515ba047420f14ea591c523a" kind="variable"><name>direction</name></member>
+    <member refid="class_obstacle_1a836f8321aee164702cc6de8af373c836" kind="variable"><name>count</name></member>
+    <member refid="class_obstacle_1ab4ec64f36deec58ea2a3fd3da40ed1ea" kind="variable"><name>total</name></member>
+    <member refid="class_obstacle_1aa4299cd06caa0651141ef5a45e4e4041" kind="variable"><name>scoreIndicator</name></member>
+    <member refid="class_obstacle_1a096ac83585d3339dd3bc6a6e9d898357" kind="variable"><name>type</name></member>
+    <member refid="class_obstacle_1a976303782bf2b7d1a00e4cdde77c1f8f" kind="variable"><name>turret</name></member>
+    <member refid="class_obstacle_1abc9745559ccf1b1dcf35fbbe52e1c93b" kind="variable"><name>onScreen</name></member>
+    <member refid="class_obstacle_1aca05ce464d1bd89ed5d5139c2f493377" kind="variable"><name>moved</name></member>
+    <member refid="class_obstacle_1a3032a735eae75be0ae244d086a775f97" kind="variable"><name>redRocket</name></member>
+    <member refid="class_obstacle_1a9ea22934c3b9fe47e19273b8af35f030" kind="variable"><name>drawDebugText</name></member>
+    <member refid="class_obstacle_1a637804556c6d64c76ade9299218a2b42" kind="variable"><name>rocketExplosionSprite</name></member>
+    <member refid="class_obstacle_1a9ac8670be4ded1c79eb8b3c7b23837c1" kind="variable"><name>rocketAnimation</name></member>
+    <member refid="class_obstacle_1abb0c538ccebbbb765fead2154ff02b79" kind="variable"><name>rocketZ</name></member>
+    <member refid="class_obstacle_1a76b8db02b4d3cc504e13ec2f53e3d461" kind="function"><name>Obstacle</name></member>
+    <member refid="class_obstacle_1a4d24e681dc227109b688b2f4a49c5a61" kind="function"><name>Obstacle</name></member>
+    <member refid="class_obstacle_1a8021dd6ca94132eae1c0ffcdfefa8be0" kind="function"><name>~Obstacle</name></member>
+    <member refid="class_obstacle_1a214183fffe9a6301fbe708313c96b6e7" kind="function"><name>getBulletLocations</name></member>
+    <member refid="class_obstacle_1af69cc091c4b73003552b2586f550c1d7" kind="function"><name>update</name></member>
+    <member refid="class_obstacle_1ab4272be0d3dddafd42040adab4d8a968" kind="function"><name>update</name></member>
+    <member refid="class_obstacle_1af395b8077b863766f840f75377a9c6fc" kind="function"><name>isPresent</name></member>
+    <member refid="class_obstacle_1a0f354a517c0b6b2e9bafc1e36af706af" kind="function"><name>isTurret</name></member>
+    <member refid="class_obstacle_1a39869e565df81ce8a50e42668cd0fab7" kind="function"><name>bulletKill</name></member>
+    <member refid="class_obstacle_1a1e5991a00aef5976389d5c59450368b3" kind="function"><name>getType</name></member>
+    <member refid="class_obstacle_1ac3450be68b7a60ab4ed285893f6f1deb" kind="function"><name>getScore</name></member>
+    <member refid="class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8" kind="function"><name>kill</name></member>
+  </compound>
+  <compound refid="class_obstacle_bullet" kind="class"><name>ObstacleBullet</name>
+    <member refid="class_obstacle_bullet_1ada8d18c246f2767b0b3c43bf40fbb65f" kind="variable"><name>type</name></member>
+    <member refid="class_obstacle_bullet_1a2d0a98fd778531ae5c1db7295aa0d90c" kind="function"><name>ObstacleBullet</name></member>
+    <member refid="class_obstacle_bullet_1acf03e80fd20b8f5df01c83ac8a7d4cbe" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="class_player" kind="class"><name>Player</name>
+    <member refid="class_player_1ab1a30ed2fb87c6ef1b36638364b717df" kind="variable"><name>BULLET_COOLDOWN</name></member>
+    <member refid="class_player_1af6ac9227d5db4826d9a0fa697681e469" kind="variable"><name>alive</name></member>
+    <member refid="class_player_1acf3f9797ffb54e436ae5e85d48c2822c" kind="variable"><name>hitmarker</name></member>
+    <member refid="class_player_1a9a017ef31dcfd99d80774b4fdf9cb6c2" kind="variable"><name>bulletCD</name></member>
+    <member refid="class_player_1a4e4a6d5740fd0d8f9e8cf260327d347a" kind="variable"><name>hitmarkerTimer</name></member>
+    <member refid="class_player_1a59680b29f6f2816e5300064b4eb1e4ee" kind="variable"><name>missileTimer</name></member>
+    <member refid="class_player_1af7c621bf449a53f54a2d3ada422fc090" kind="variable"><name>playerTextures</name></member>
+    <member refid="class_player_1a7e16b840443d35bf8bc69dee1540bdfa" kind="variable"><name>shadow</name></member>
+    <member refid="class_player_1ae108ac55072429641c7b50712db4e2a6" kind="variable"><name>bulletBuffer</name></member>
+    <member refid="class_player_1af6b8e6971a24031961d4af791640458a" kind="variable"><name>bulletSound</name></member>
+    <member refid="class_player_1ab67b08e4700e1f6e208746e67cb0f701" kind="function"><name>Player</name></member>
+    <member refid="class_player_1a4e06f8ba5175207c534abed70d383418" kind="function"><name>update</name></member>
+    <member refid="class_player_1aa8baacf4fe29a618f2cf4b26327e4d5a" kind="function"><name>kill</name></member>
+    <member refid="class_player_1a49066b4a0b345abad5a5d4a6ec640140" kind="function"><name>resetPos</name></member>
+    <member refid="class_player_1a16cc17c6bffa72c5898b8046dcff565b" kind="function"><name>drawHitmarker</name></member>
+    <member refid="class_player_1a06e38c0f57e67eb006c9d09779bd8f8f" kind="function"><name>isAlive</name></member>
+    <member refid="class_player_1a9e9bd4067e79f190ea314cb70dcb092d" kind="function"><name>isMissileable</name></member>
+    <member refid="class_player_1a1734ea414509ec38d5c1a7e3b991a782" kind="function"><name>restartMissileTimer</name></member>
+  </compound>
+  <compound refid="class_wall" kind="class"><name>Wall</name>
+    <member refid="class_wall_1a60c99ced032ab62efc11f10462f34caa" kind="variable"><name>spriteSheet</name></member>
+    <member refid="class_wall_1a07e15054d3d7414c3952d4d1ac3b294b" kind="variable"><name>onScreen</name></member>
+    <member refid="class_wall_1aa599512df7ed68e7ec3aca3b86428174" kind="variable"><name>sprites</name></member>
+    <member refid="class_wall_1aee3cbc12a940cfb032deb585eafb1864" kind="variable"><name>wallPositions</name></member>
+    <member refid="class_wall_1a5f29ba541aff9823b15a97451d78e4c6" kind="function"><name>Wall</name></member>
+    <member refid="class_wall_1a274edf0d5b16afba31a8618df97626af" kind="function"><name>drawWalls</name></member>
+    <member refid="class_wall_1a2f5f377219bc2e184db172a9093875d4" kind="function"><name>setPosition</name></member>
+    <member refid="class_wall_1a0f4063e0408cb992f6d478308fa52656" kind="function"><name>setTexture</name></member>
+    <member refid="class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae" kind="function"><name>checkOnScreen</name></member>
+    <member refid="class_wall_1a6132a9e93316cba66ee61a78ea96040b" kind="function"><name>getWallPositions</name></member>
+  </compound>
+  <compound refid="class_zap_wall" kind="class"><name>ZapWall</name>
+    <member refid="class_zap_wall_1ac3a6e14392d85b181619398489c9290f" kind="variable"><name>onScreen</name></member>
+    <member refid="class_zap_wall_1a08418634cb324c2ed001315aefbcd332" kind="variable"><name>startPosition</name></member>
+    <member refid="class_zap_wall_1a1849c60660cbfd2ae2c35d1e393acf9d" kind="variable"><name>count</name></member>
+    <member refid="class_zap_wall_1adca47ce8f38df09b292098c8ae1dd298" kind="variable"><name>offScreenCount</name></member>
+    <member refid="class_zap_wall_1afa5c2c1e43db01c8376578f38ea7948d" kind="variable"><name>drawn</name></member>
+    <member refid="class_zap_wall_1a3b02529cde8076102e462dc6b7c6351c" kind="function"><name>ZapWall</name></member>
+    <member refid="class_zap_wall_1a749a7515b945420293924b3887033d93" kind="function"><name>update</name></member>
+    <member refid="class_zap_wall_1a80af1a48975d457f8bee45eba0c4f416" kind="function"><name>setStartPos</name></member>
+    <member refid="class_zap_wall_1aa8f5edb8998f1dbd276120174c1ca01c" kind="function"><name>isOnScreen</name></member>
+    <member refid="class_zap_wall_1a3bc98afa6d68d364ae39838cc70a5ee6" kind="function"><name>getStartPosition</name></member>
+  </compound>
+  <compound refid="class_zaxxon_text" kind="class"><name>ZaxxonText</name>
+    <member refid="class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517" kind="function"><name>get</name></member>
+    <member refid="class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462" kind="function"><name>string</name></member>
+  </compound>
+  <compound refid="namespacesf" kind="namespace"><name>sf</name>
+  </compound>
+  <compound refid="_animation_8cpp" kind="file"><name>Animation.cpp</name>
+    <member refid="_animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3" kind="typedef"><name>animation</name></member>
+  </compound>
+  <compound refid="_animation_8h" kind="file"><name>Animation.h</name>
+  </compound>
+  <compound refid="_background_8cpp" kind="file"><name>Background.cpp</name>
+  </compound>
+  <compound refid="_background_8h" kind="file"><name>Background.h</name>
+  </compound>
+  <compound refid="_abstract_bullet_8cpp" kind="file"><name>AbstractBullet.cpp</name>
+  </compound>
+  <compound refid="_abstract_bullet_8h" kind="file"><name>AbstractBullet.h</name>
+  </compound>
+  <compound refid="_boss_bullet_8cpp" kind="file"><name>BossBullet.cpp</name>
+  </compound>
+  <compound refid="_boss_bullet_8h" kind="file"><name>BossBullet.h</name>
+  </compound>
+  <compound refid="_character_bullet_8cpp" kind="file"><name>CharacterBullet.cpp</name>
+  </compound>
+  <compound refid="_character_bullet_8h" kind="file"><name>CharacterBullet.h</name>
+  </compound>
+  <compound refid="_obstacle_bullet_8cpp" kind="file"><name>ObstacleBullet.cpp</name>
+  </compound>
+  <compound refid="_obstacle_bullet_8h" kind="file"><name>ObstacleBullet.h</name>
+  </compound>
+  <compound refid="_boss_8cpp" kind="file"><name>Boss.cpp</name>
+  </compound>
+  <compound refid="_boss_8h" kind="file"><name>Boss.h</name>
+  </compound>
+  <compound refid="_character_8cpp" kind="file"><name>Character.cpp</name>
+  </compound>
+  <compound refid="_character_8h" kind="file"><name>Character.h</name>
+  </compound>
+  <compound refid="_enemy_8cpp" kind="file"><name>Enemy.cpp</name>
+  </compound>
+  <compound refid="_enemy_8h" kind="file"><name>Enemy.h</name>
+    <member refid="_enemy_8h_1a598a3330b3c21701223ee0ca14316eca" kind="define"><name>PI</name></member>
+  </compound>
+  <compound refid="_player_8cpp" kind="file"><name>Player.cpp</name>
+  </compound>
+  <compound refid="_player_8h" kind="file"><name>Player.h</name>
+  </compound>
+  <compound refid="_entity_8cpp" kind="file"><name>Entity.cpp</name>
+  </compound>
+  <compound refid="_entity_8h" kind="file"><name>Entity.h</name>
+  </compound>
+  <compound refid="_game_8cpp" kind="file"><name>Game.cpp</name>
+    <member refid="_game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f" kind="variable"><name>startPos</name></member>
+    <member refid="_game_8cpp_1a65dc56b369756c98d37a60c57ce87108" kind="variable"><name>startStage</name></member>
+  </compound>
+  <compound refid="_game_8h" kind="file"><name>Game.h</name>
+    <member refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kind="typedef"><name>byte</name></member>
+  </compound>
+  <compound refid="_g_u_i_8cpp" kind="file"><name>GUI.cpp</name>
+  </compound>
+  <compound refid="_g_u_i_8h" kind="file"><name>GUI.h</name>
+    <member refid="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kind="typedef"><name>byte</name></member>
+  </compound>
+  <compound refid="_h_m_section_8cpp" kind="file"><name>HMSection.cpp</name>
+  </compound>
+  <compound refid="_h_m_section_8h" kind="file"><name>HMSection.h</name>
+  </compound>
+  <compound refid="_zaxxon_text_8cpp" kind="file"><name>ZaxxonText.cpp</name>
+  </compound>
+  <compound refid="_zaxxon_text_8h" kind="file"><name>ZaxxonText.h</name>
+  </compound>
+  <compound refid="_obstacle_8cpp" kind="file"><name>Obstacle.cpp</name>
+  </compound>
+  <compound refid="_obstacle_8h" kind="file"><name>Obstacle.h</name>
+  </compound>
+  <compound refid="_util_8cpp" kind="file"><name>Util.cpp</name>
+    <member refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kind="function"><name>translateTo2d</name></member>
+    <member refid="_util_8cpp_1abb6b320c3e2bc2c09f352e041a9d57e1" kind="function"><name>getWindowViewRect</name></member>
+    <member refid="_util_8cpp_1a311270ca6451600ab7089e74945d30b5" kind="function"><name>zPressed</name></member>
+    <member refid="_util_8cpp_1a7ab82b63c0cbae8095033e452b2d2183" kind="function"><name>upPressed</name></member>
+    <member refid="_util_8cpp_1a63e332f98a6cbd1cb57f319f556ee594" kind="function"><name>downPressed</name></member>
+    <member refid="_util_8cpp_1ae6f4fd7a79c6617ddba5e4bc53033e26" kind="function"><name>leftPressed</name></member>
+    <member refid="_util_8cpp_1af41bb2031bce096d1162c72a1ec3d49c" kind="function"><name>rightPressed</name></member>
+  </compound>
+  <compound refid="_util_8h" kind="file"><name>Util.h</name>
+    <member refid="_util_8h_1a6ce83a28018a4c4d235f9404f5e6e39a" kind="variable"><name>util_zPress</name></member>
+    <member refid="_util_8h_1a647c98cf0903e3d06aaf62139c9b52cf" kind="function"><name>translateTo2d</name></member>
+    <member refid="_util_8h_1afd424b36564366fd3f8ad452b8977db2" kind="function"><name>getWindowViewRect</name></member>
+    <member refid="_util_8h_1a311270ca6451600ab7089e74945d30b5" kind="function"><name>zPressed</name></member>
+    <member refid="_util_8h_1a7ab82b63c0cbae8095033e452b2d2183" kind="function"><name>upPressed</name></member>
+    <member refid="_util_8h_1a63e332f98a6cbd1cb57f319f556ee594" kind="function"><name>downPressed</name></member>
+    <member refid="_util_8h_1ae6f4fd7a79c6617ddba5e4bc53033e26" kind="function"><name>leftPressed</name></member>
+    <member refid="_util_8h_1af41bb2031bce096d1162c72a1ec3d49c" kind="function"><name>rightPressed</name></member>
+  </compound>
+  <compound refid="_wall_8cpp" kind="file"><name>Wall.cpp</name>
+  </compound>
+  <compound refid="_wall_8h" kind="file"><name>Wall.h</name>
+  </compound>
+  <compound refid="_zap_wall_8cpp" kind="file"><name>ZapWall.cpp</name>
+  </compound>
+  <compound refid="_zap_wall_8h" kind="file"><name>ZapWall.h</name>
+  </compound>
+  <compound refid="_zaxxon_8cpp" kind="file"><name>Zaxxon.cpp</name>
+    <member refid="_zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_f38c96728d7e2924ef8a228719b800dd" kind="dir"><name>C:/Zaxxon/src/Entity/AbstractBullet</name>
+  </compound>
+  <compound refid="dir_62fbeb234f4aa6b46a05f1b8945030da" kind="dir"><name>C:/Zaxxon/src/Animation</name>
+  </compound>
+  <compound refid="dir_5b02342c91d8ee5c9a30e9625c86eb5f" kind="dir"><name>C:/Zaxxon/src/Background</name>
+  </compound>
+  <compound refid="dir_615fa148f2d9bff4c3960a659e32d9bf" kind="dir"><name>C:/Zaxxon/src/Entity/Boss</name>
+  </compound>
+  <compound refid="dir_3ad4b4dcca11b550a22283e6fd2470b0" kind="dir"><name>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet</name>
+  </compound>
+  <compound refid="dir_72330ce571fe4a2956ad017643e692dd" kind="dir"><name>C:/Zaxxon/src/Entity/Character</name>
+  </compound>
+  <compound refid="dir_b31584c1da60c7ddee1a59decc4dda03" kind="dir"><name>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet</name>
+  </compound>
+  <compound refid="dir_83308068aba1ad6c8de76d05dd7eac46" kind="dir"><name>C:/Zaxxon/src/Entity/Character/Enemy</name>
+  </compound>
+  <compound refid="dir_711d1bdbb9967277a53c7aa37a950250" kind="dir"><name>C:/Zaxxon/src/Entity</name>
+  </compound>
+  <compound refid="dir_e7439984c44108d3b2049a9eeb8658b3" kind="dir"><name>C:/Zaxxon/src/Game</name>
+  </compound>
+  <compound refid="dir_3dc41743cf215070094f95f5fb1d1567" kind="dir"><name>C:/Zaxxon/src/GUI</name>
+  </compound>
+  <compound refid="dir_fd16583aea08d7e90ef1a30937c0ce95" kind="dir"><name>C:/Zaxxon/src/GUI/HMSection</name>
+  </compound>
+  <compound refid="dir_8e61506d23c6dcc8583b3d2e06a12732" kind="dir"><name>C:/Zaxxon/src/Obstacle</name>
+  </compound>
+  <compound refid="dir_5bb4a1690c5ecfdc95b9d667b257f853" kind="dir"><name>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet</name>
+  </compound>
+  <compound refid="dir_465493c9c82cbc7fe4d772cd01f92be1" kind="dir"><name>C:/Zaxxon/src/Entity/Character/Player</name>
+  </compound>
+  <compound refid="dir_d030179c1ca07159d4124dc786a04913" kind="dir"><name>C:/Zaxxon/src</name>
+  </compound>
+  <compound refid="dir_08620529e5769e8df5e308e12b97b6a6" kind="dir"><name>C:/Zaxxon/src/Util</name>
+  </compound>
+  <compound refid="dir_69216dd9288db45c675730ac6bd3a41a" kind="dir"><name>C:/Zaxxon/src/Wall</name>
+  </compound>
+  <compound refid="dir_0a97b57148dcc880346fb0ca062df9b8" kind="dir"><name>C:/Zaxxon/src/ZapWall</name>
+  </compound>
+  <compound refid="dir_82065fcfece22a58f0c2e177bd225074" kind="dir"><name>C:/Zaxxon</name>
+  </compound>
+  <compound refid="dir_bdf446320f0a5e5cd1ebd0659f195cfc" kind="dir"><name>C:/Zaxxon/src/GUI/ZaxxonText</name>
+  </compound>
+</doxygenindex>

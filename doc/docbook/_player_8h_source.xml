@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__player_8h_source" xml:lang="en-US">
+<title>Player.h</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Player/Player.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__player_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__player_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;SFML/Audio.hpp&gt;</emphasis>
+<anchor xml:id="__player_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__character_8h">Entity/Character/Character.h</link>&quot;</emphasis>
+<anchor xml:id="__player_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__character_bullet_8h">Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</link>&quot;</emphasis>
+<anchor xml:id="__player_8h_source_1l00005"/>00005 
+<anchor xml:id="__player_8h_source_1l00006"/>00006 
+<anchor xml:id="__player_8h_source_1l00010"/><link linkend="_class_player">00010</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_player">Player</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_character">Character</link>
+<anchor xml:id="__player_8h_source_1l00011"/>00011 {
+<anchor xml:id="__player_8h_source_1l00012"/>00012 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__player_8h_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<link linkend="_class_player_1ab67b08e4700e1f6e208746e67cb0f701">Player</link>(sf::Texture*,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>);
+<anchor xml:id="__player_8h_source_1l00014"/>00014 
+<anchor xml:id="__player_8h_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1a4e06f8ba5175207c534abed70d383418">update</link>(sf::RenderWindow&amp;,&#32;<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">float</emphasis>);
+<anchor xml:id="__player_8h_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1aa8baacf4fe29a618f2cf4b26327e4d5a">kill</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="__player_8h_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1a49066b4a0b345abad5a5d4a6ec640140">resetPos</link>(<emphasis role="keywordtype">int</emphasis>&#32;zOffset&#32;=&#32;0);
+<anchor xml:id="__player_8h_source_1l00018"/><link linkend="_class_player_1a16cc17c6bffa72c5898b8046dcff565b">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1a16cc17c6bffa72c5898b8046dcff565b">drawHitmarker</link>()&#32;{&#32;hitmarkerTimer.restart();&#32;}
+<anchor xml:id="__player_8h_source_1l00019"/>00019 
+<anchor xml:id="__player_8h_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_player_1a06e38c0f57e67eb006c9d09779bd8f8f">isAlive</link>();
+<anchor xml:id="__player_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_player_1a9e9bd4067e79f190ea314cb70dcb092d">isMissileable</link>();
+<anchor xml:id="__player_8h_source_1l00022"/>00022 
+<anchor xml:id="__player_8h_source_1l00023"/><link linkend="_class_player_1a1734ea414509ec38d5c1a7e3b991a782">00023</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1a1734ea414509ec38d5c1a7e3b991a782">restartMissileTimer</link>()&#32;{&#32;missileTimer.restart();&#32;};
+<anchor xml:id="__player_8h_source_1l00024"/>00024 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__player_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;BULLET_COOLDOWN&#32;=&#32;200;
+<anchor xml:id="__player_8h_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;alive&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__player_8h_source_1l00027"/>00027 
+<anchor xml:id="__player_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;sf::Sprite&#32;hitmarker;
+<anchor xml:id="__player_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;sf::Clock&#32;bulletCD,&#32;hitmarkerTimer,&#32;missileTimer;
+<anchor xml:id="__player_8h_source_1l00030"/>00030 &#32;&#32;&#32;&#32;sf::IntRect&#32;playerTextures[3][4];
+<anchor xml:id="__player_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;sf::Sprite&#32;shadow;
+<anchor xml:id="__player_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;sf::SoundBuffer&#32;bulletBuffer;
+<anchor xml:id="__player_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;sf::Sound&#32;bulletSound;
+<anchor xml:id="__player_8h_source_1l00034"/>00034 };
+</programlisting></section>

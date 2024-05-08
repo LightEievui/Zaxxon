@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_72330ce571fe4a2956ad017643e692dd" kind="dir">
+    <compoundname>C:/Zaxxon/src/Entity/Character</compoundname>
+    <innerdir refid="dir_83308068aba1ad6c8de76d05dd7eac46">C:/Zaxxon/src/Entity/Character/Enemy</innerdir>
+    <innerdir refid="dir_465493c9c82cbc7fe4d772cd01f92be1">C:/Zaxxon/src/Entity/Character/Player</innerdir>
+    <innerfile refid="_character_8cpp">Character.cpp</innerfile>
+    <innerfile refid="_character_8h">Character.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Entity/Character/"/>
+  </compounddef>
+</doxygen>

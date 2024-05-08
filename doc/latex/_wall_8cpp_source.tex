@@ -1,0 +1,81 @@
+\doxysection{Wall.\+cpp}
+\hypertarget{_wall_8cpp_source}{}\label{_wall_8cpp_source}\index{C:/Zaxxon/src/Wall/Wall.cpp@{C:/Zaxxon/src/Wall/Wall.cpp}}
+\mbox{\hyperlink{_wall_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_wall_8h}{Wall.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00011}\mbox{\hyperlink{class_wall_a5f29ba541aff9823b15a97451d78e4c6}{00011}}\ \mbox{\hyperlink{class_wall_a5f29ba541aff9823b15a97451d78e4c6}{Wall::Wall}}(sf::Texture*\ tex,\ sf::Vector3f\ pos,\ \textcolor{keywordtype}{int}\ size,\ std::vector<int>\ walls)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00013}00013\ \ \ \ \ spriteSheet\ =\ tex;}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00016}00016\ \textcolor{comment}{\ \ \ \ KEY\ for\ Vector}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00017}00017\ \textcolor{comment}{\ \ \ \ 0\ =\ closed\ wall\ piece}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00018}00018\ \textcolor{comment}{\ \ \ \ 1\ =\ open\ wall\ piece}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00019}00019\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ sprites.push\_back(sf::Sprite());}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ sprites.at(i).setTexture(*spriteSheet);}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ sprites.at(i).setPosition(}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(sf::Vector3f(pos.x\ -\/\ 38\ *\ i,\ pos.y,\ pos.z)));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ wallPositions.push\_back(sf::Vector3f(pos.x\ -\/\ 38\ *\ i,\ pos.y,\ pos.z));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (walls.at(i)\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ sprites.at(i).setTextureRect(sf::IntRect(240,\ 64,\ 33,\ 31));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ sprites.at(i).setTextureRect(sf::IntRect(279,\ 64,\ 33,\ 31));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00041}\mbox{\hyperlink{class_wall_a274edf0d5b16afba31a8618df97626af}{00041}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wall_a274edf0d5b16afba31a8618df97626af}{Wall::drawWalls}}(sf::RenderWindow\&\ window)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}{getWindowViewRect}}(window).intersects(}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ sprites.at(sprites.size()\ -\/\ 1).getGlobalBounds())\ \&\&}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ !\mbox{\hyperlink{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}{getWindowViewRect}}(window).intersects(sprites.at(0).getGlobalBounds()))}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ onScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00051}00051\ \ \ \ \ onScreen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ sprites.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ window.draw(sprites.at(i));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00063}\mbox{\hyperlink{class_wall_a2f5f377219bc2e184db172a9093875d4}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wall_a2f5f377219bc2e184db172a9093875d4}{Wall::setPosition}}(sf::Vector3f\ pos,\ \textcolor{keywordtype}{int}\ piece)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00065}00065\ \ \ \ \ sprites.at(piece).setPosition(\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(pos));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00066}00066\ \ \ \ \ wallPositions.at(piece)\ =\ pos;}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00075}\mbox{\hyperlink{class_wall_a0f4063e0408cb992f6d478308fa52656}{00075}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_wall_a0f4063e0408cb992f6d478308fa52656}{Wall::setTexture}}(\textcolor{keywordtype}{int}\ piece,\ \textcolor{keywordtype}{int}\ tex)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//Closed\ Piece}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (tex\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ sprites.at(piece).setTextureRect(sf::IntRect(240,\ 64,\ 34,\ 32));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//Open\ Piece}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (tex\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ sprites.at(piece).setTextureRect(sf::IntRect(278,\ 65,\ 34,\ 32));}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00091}\mbox{\hyperlink{class_wall_ab2a34a04c46c9fe0a21d4235b106e8ae}{00091}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_wall_ab2a34a04c46c9fe0a21d4235b106e8ae}{Wall::checkOnScreen}}()}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00092}00092\ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ onScreen;}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00101}\mbox{\hyperlink{class_wall_a6132a9e93316cba66ee61a78ea96040b}{00101}}\ std::vector<sf::Vector3f>\&\ \mbox{\hyperlink{class_wall_a6132a9e93316cba66ee61a78ea96040b}{Wall::getWallPositions}}()}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{return}\ wallPositions;}
+\DoxyCodeLine{\Hypertarget{_wall_8cpp_source_l00104}00104\ \}}
+
+\end{DoxyCode}

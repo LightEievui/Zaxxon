@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -110,10 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abfd2c814235b0c6474cae56fb8e04839" id="r_abfd2c814235b0c6474cae56fb8e04839"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfd2c814235b0c6474cae56fb8e04839">GUI</a> (sf::Texture *)</td></tr>
 <tr class="memdesc:abfd2c814235b0c6474cae56fb8e04839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a> (graphical user interface)  <br /></td></tr>
 <tr class="separator:abfd2c814235b0c6474cae56fb8e04839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9cae2328dcb5d83bdfaeca49a2eb695" id="r_ac9cae2328dcb5d83bdfaeca49a2eb695"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9cae2328dcb5d83bdfaeca49a2eb695">~GUI</a> ()</td></tr>
-<tr class="memdesc:ac9cae2328dcb5d83bdfaeca49a2eb695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear up memory related to the <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a>.  <br /></td></tr>
-<tr class="separator:ac9cae2328dcb5d83bdfaeca49a2eb695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b817cdd39b52e3322ab2b89c03bc220" id="r_a1b817cdd39b52e3322ab2b89c03bc220"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b817cdd39b52e3322ab2b89c03bc220">render</a> (sf::RenderWindow &amp;, float, int, int, <a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a>, <a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a>)</td></tr>
+<tr class="memitem:a1b817cdd39b52e3322ab2b89c03bc220" id="r_a1b817cdd39b52e3322ab2b89c03bc220"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b817cdd39b52e3322ab2b89c03bc220">render</a> (sf::RenderWindow &amp;, float, int, int, <a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a>, <a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a>)</td></tr>
 <tr class="memdesc:a1b817cdd39b52e3322ab2b89c03bc220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw all the <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a> to the screen each frame. Also run logic for certain interactive <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a> elements and update them as needed.  <br /></td></tr>
 <tr class="separator:a1b817cdd39b52e3322ab2b89c03bc220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41bf32a5de5387392f14b204bd55259e" id="r_a41bf32a5de5387392f14b204bd55259e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41bf32a5de5387392f14b204bd55259e">startRender</a> (sf::RenderWindow &amp;, int)</td></tr>
@@ -122,12 +119,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a63a1106506cd880d0148d44bc6aabf2a" id="r_a63a1106506cd880d0148d44bc6aabf2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63a1106506cd880d0148d44bc6aabf2a">renderScores</a> (sf::RenderWindow &amp;, int[], std::string[])</td></tr>
 <tr class="memdesc:a63a1106506cd880d0148d44bc6aabf2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare the leaderboard scores to be rendered.  <br /></td></tr>
 <tr class="separator:a63a1106506cd880d0148d44bc6aabf2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8b1804699ac1f39077d5a5b1c91cd2e" id="r_ad8b1804699ac1f39077d5a5b1c91cd2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8b1804699ac1f39077d5a5b1c91cd2e">renderEnd</a> (sf::RenderWindow &amp;, <a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a>=255, <a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a>=0, const char[3]=&quot;   &quot;)</td></tr>
+<tr class="memitem:ad8b1804699ac1f39077d5a5b1c91cd2e" id="r_ad8b1804699ac1f39077d5a5b1c91cd2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8b1804699ac1f39077d5a5b1c91cd2e">renderEnd</a> (sf::RenderWindow &amp;, <a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a>=255, <a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a>=0, const char[3]=&quot;   &quot;)</td></tr>
 <tr class="memdesc:ad8b1804699ac1f39077d5a5b1c91cd2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specific <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a> that renders once you've run out of lives. This includes the game over text and name entry screen.  <br /></td></tr>
 <tr class="separator:ad8b1804699ac1f39077d5a5b1c91cd2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be71ee8e625cb46a458be2aca82f705" id="r_a7be71ee8e625cb46a458be2aca82f705"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7be71ee8e625cb46a458be2aca82f705">renderWin</a> (sf::RenderWindow &amp;)</td></tr>
+<tr class="memdesc:a7be71ee8e625cb46a458be2aca82f705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render the win screen each lap completed.  <br /></td></tr>
+<tr class="separator:a7be71ee8e625cb46a458be2aca82f705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions. </p>
+
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8h_source.html#l00014">14</a> of file <a class="el" href="_g_u_i_8h_source.html">GUI.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abfd2c814235b0c6474cae56fb8e04839" name="abfd2c814235b0c6474cae56fb8e04839"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfd2c814235b0c6474cae56fb8e04839">&#9670;&#160;</a></span>GUI()</h2>
@@ -152,24 +154,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="ac9cae2328dcb5d83bdfaeca49a2eb695" name="ac9cae2328dcb5d83bdfaeca49a2eb695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9cae2328dcb5d83bdfaeca49a2eb695">&#9670;&#160;</a></span>~GUI()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GUI::~GUI </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clear up memory related to the <a class="el" href="class_g_u_i.html" title="Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...">GUI</a>. </p>
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8cpp_source.html#l00008">8</a> of file <a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
 
 </div>
 </div>
@@ -203,12 +188,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></td>          <td class="paramname"><span class="paramname"><em>fuel</em>, </span></td>
+          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a></td>          <td class="paramname"><span class="paramname"><em>fuel</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></td>          <td class="paramname"><span class="paramname"><em>lives</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a></td>          <td class="paramname"><span class="paramname"><em>lives</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -223,6 +208,8 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8cpp_source.html#l00315">315</a> of file <a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,12 +227,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></td>          <td class="paramname"><span class="paramname"><em>timeLeft</em><span class="paramdefsep"> = </span><span class="paramdefval">255</span>, </span></td>
+          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a></td>          <td class="paramname"><span class="paramname"><em>timeLeft</em><span class="paramdefsep"> = </span><span class="paramdefval">255</span>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></td>          <td class="paramname"><span class="paramname"><em>selector</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+          <td class="paramtype"><a class="el" href="_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a></td>          <td class="paramname"><span class="paramname"><em>selector</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -263,6 +250,8 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8cpp_source.html#l00547">547</a> of file <a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
 
 </div>
 </div>
@@ -299,6 +288,35 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8cpp_source.html#l00486">486</a> of file <a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7be71ee8e625cb46a458be2aca82f705" name="a7be71ee8e625cb46a458be2aca82f705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be71ee8e625cb46a458be2aca82f705">&#9670;&#160;</a></span>renderWin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GUI::renderWin </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render the win screen each lap completed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8cpp_source.html#l00597">597</a> of file <a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a41bf32a5de5387392f14b204bd55259e" name="a41bf32a5de5387392f14b204bd55259e"></a>
@@ -329,11 +347,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_g_u_i_8cpp_source.html#l00456">456</a> of file <a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/GUI/<a class="el" href="_g_u_i_8h_source.html">GUI.h</a></li>
-<li>src/GUI/<a class="el" href="_g_u_i_8cpp.html">GUI.cpp</a></li>
+<li>C:/Zaxxon/src/GUI/<a class="el" href="_g_u_i_8h_source.html">GUI.h</a></li>
+<li>C:/Zaxxon/src/GUI/<a class="el" href="_g_u_i_8cpp_source.html">GUI.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

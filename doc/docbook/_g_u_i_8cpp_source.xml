@@ -1,0 +1,572 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__g_u_i_8cpp_source" xml:lang="en-US">
+<title>GUI.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/GUI.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__g_u_i_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__g_u_i_8h">GUI.h</link>&quot;</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__g_u_i_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__g_u_i_8cpp_source_1l00008"/><link linkend="_class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839">00008</link> <link linkend="_class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839">GUI::GUI</link>(sf::Texture*&#32;spritesheet)
+<anchor xml:id="__g_u_i_8cpp_source_1l00009"/>00009 {
+<anchor xml:id="__g_u_i_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;this-&gt;spritesheet&#32;=&#32;spritesheet;
+<anchor xml:id="__g_u_i_8cpp_source_1l00011"/>00011 &#32;&#32;&#32;&#32;heightMeterBg.setFillColor(sf::Color::Black);
+<anchor xml:id="__g_u_i_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;heightMeterBg.setPosition(0,&#32;73);
+<anchor xml:id="__g_u_i_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;heightMeterBg.setSize(sf::Vector2f(8,&#32;89));
+<anchor xml:id="__g_u_i_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;hudElements.push_back(&amp;heightMeterBg);
+<anchor xml:id="__g_u_i_8cpp_source_1l00015"/>00015 
+<anchor xml:id="__g_u_i_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;heightH&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;<emphasis role="charliteral">&apos;H&apos;</emphasis>);
+<anchor xml:id="__g_u_i_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;heightH.setPosition(0,&#32;73&#32;-&#32;8);
+<anchor xml:id="__g_u_i_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;heightH.setColor(sf::Color(222,&#32;0,&#32;0));&#32;<emphasis role="comment">//&#32;red&#32;right&#32;of&#32;chars</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;hudElements.push_back(&amp;heightH);
+<anchor xml:id="__g_u_i_8cpp_source_1l00020"/>00020 
+<anchor xml:id="__g_u_i_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;heightL&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;<emphasis role="charliteral">&apos;L&apos;</emphasis>);
+<anchor xml:id="__g_u_i_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;heightL.setPosition(0,&#32;162);
+<anchor xml:id="__g_u_i_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;heightL.setColor(sf::Color(0,&#32;222,&#32;0));&#32;<emphasis role="comment">//&#32;green&#32;right&#32;of&#32;chars</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;hudElements.push_back(&amp;heightL);
+<anchor xml:id="__g_u_i_8cpp_source_1l00025"/>00025 
+<anchor xml:id="__g_u_i_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section">HMSection</link>&amp;&#32;section&#32;=&#32;heightMeterSections[i];
+<anchor xml:id="__g_u_i_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.setTexture(*spritesheet);
+<anchor xml:id="__g_u_i_8cpp_source_1l00030"/>00030 
+<anchor xml:id="__g_u_i_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;==&#32;0)
+<anchor xml:id="__g_u_i_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.<link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">setType</link>(<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">HMSection::TOP</link>);
+<anchor xml:id="__g_u_i_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;==&#32;9)
+<anchor xml:id="__g_u_i_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.<link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">setType</link>(<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">HMSection::BOTTOM</link>);
+<anchor xml:id="__g_u_i_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;%&#32;2&#32;==&#32;1)&#32;<emphasis role="comment">//&#32;odd&#32;number</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.<link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">setType</link>(<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">HMSection::OPEN</link>);
+<anchor xml:id="__g_u_i_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.<link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">setType</link>(<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">HMSection::LINE</link>);
+<anchor xml:id="__g_u_i_8cpp_source_1l00039"/>00039 
+<anchor xml:id="__g_u_i_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.setPosition(0,&#32;heightH.getPosition().y&#32;+&#32;16&#32;+&#32;8&#32;*&#32;i);
+<anchor xml:id="__g_u_i_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;hudElements.push_back(&amp;section);
+<anchor xml:id="__g_u_i_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00043"/>00043 
+<anchor xml:id="__g_u_i_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Copyright&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;\x1D\x1ESEGA1982&quot;</emphasis>,&#32;copyright);
+<anchor xml:id="__g_u_i_8cpp_source_1l00046"/>00046 
+<anchor xml:id="__g_u_i_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;copyright[i].setColor(sf::Color(222,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00050"/>00050 
+<anchor xml:id="__g_u_i_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;124;
+<anchor xml:id="__g_u_i_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;6)
+<anchor xml:id="__g_u_i_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;16;
+<anchor xml:id="__g_u_i_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;2)
+<anchor xml:id="__g_u_i_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00056"/>00056 
+<anchor xml:id="__g_u_i_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;copyright[i].setPosition(start&#32;+&#32;8.f&#32;*&#32;i,&#32;248.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00059"/>00059 
+<anchor xml:id="__g_u_i_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Top&#32;score&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;TOP000000&quot;</emphasis>,&#32;topScore);
+<anchor xml:id="__g_u_i_8cpp_source_1l00062"/>00062 
+<anchor xml:id="__g_u_i_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;9;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;topScore[i].setColor(sf::Color(0,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00066"/>00066 
+<anchor xml:id="__g_u_i_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;0;
+<anchor xml:id="__g_u_i_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;2)
+<anchor xml:id="__g_u_i_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00070"/>00070 
+<anchor xml:id="__g_u_i_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;topScore[i].setPosition(start&#32;+&#32;8.f&#32;*&#32;i,&#32;8.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00073"/>00073 
+<anchor xml:id="__g_u_i_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;1up&#32;score&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;1UP000000&quot;</emphasis>,&#32;curScore);
+<anchor xml:id="__g_u_i_8cpp_source_1l00076"/>00076 
+<anchor xml:id="__g_u_i_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;9;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curScore[i].setColor(sf::Color(222,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00080"/>00080 
+<anchor xml:id="__g_u_i_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;0;
+<anchor xml:id="__g_u_i_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;2)
+<anchor xml:id="__g_u_i_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00084"/>00084 
+<anchor xml:id="__g_u_i_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curScore[i].setPosition(start&#32;+&#32;8.f&#32;*&#32;i,&#32;24.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00087"/>00087 
+<anchor xml:id="__g_u_i_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Fuel&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;FUELEF&quot;</emphasis>,&#32;fuelText);
+<anchor xml:id="__g_u_i_8cpp_source_1l00090"/>00090 
+<anchor xml:id="__g_u_i_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;6;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&lt;&#32;4)
+<anchor xml:id="__g_u_i_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelText[i].setColor(sf::Color(0,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelText[i].setPosition(12.f&#32;+&#32;i&#32;*&#32;8.f,&#32;240.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelText[i].setColor(sf::Color(222,&#32;0,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelText[i].setPosition(52.f&#32;+&#32;(i&#32;-&#32;4.f)&#32;*&#32;136.f,&#32;240.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00104"/>00104 
+<anchor xml:id="__g_u_i_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Enemy&#32;plane&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;ENEMYPLANE&quot;</emphasis>,&#32;enemyText);
+<anchor xml:id="__g_u_i_8cpp_source_1l00107"/>00107 
+<anchor xml:id="__g_u_i_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemyText[i].setColor(sf::Color(222,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;These&#32;use&#32;integer&#32;for&#32;the&#32;equation,&#32;do&#32;not&#32;&apos;float&apos;&#32;it</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;edit:&#32;explicitedly&#32;casted&#32;it.</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemyText[i].setPosition(sf::Vector2f(
+<anchor xml:id="__g_u_i_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(176&#32;+&#32;i&#32;%&#32;5&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(200&#32;+&#32;i&#32;/&#32;5&#32;*&#32;8)));
+<anchor xml:id="__g_u_i_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00117"/>00117 
+<anchor xml:id="__g_u_i_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Fuel&#32;bar&#32;sprites</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;16;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelBar[i].setTexture(*spritesheet);
+<anchor xml:id="__g_u_i_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelBar[i].setTextureRect(sf::IntRect(328,&#32;296,&#32;8,&#32;8));
+<anchor xml:id="__g_u_i_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelBar[i].setPosition(60.f&#32;+&#32;i&#32;*&#32;8.f,&#32;240.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00125"/>00125 
+<anchor xml:id="__g_u_i_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Lives&#32;bar&#32;sprites</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;livesBar.setTexture(*spritesheet);
+<anchor xml:id="__g_u_i_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;livesBar.setTextureRect(sf::IntRect(344,&#32;288,&#32;16,&#32;16));
+<anchor xml:id="__g_u_i_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;livesBar.setPosition(12.f,&#32;224.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00130"/>00130 
+<anchor xml:id="__g_u_i_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Enemies&#32;left</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;X\u000a20&quot;</emphasis>,&#32;enemyLeft);
+<anchor xml:id="__g_u_i_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;enemyLeft[0].setTextureRect(sf::IntRect(368,&#32;296,&#32;8,&#32;8));
+<anchor xml:id="__g_u_i_8cpp_source_1l00134"/>00134 
+<anchor xml:id="__g_u_i_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;4;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemyLeft[i].setPosition(176.f&#32;+&#32;i&#32;*&#32;8.f,&#32;216.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00137"/>00137 
+<anchor xml:id="__g_u_i_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Start&#32;screen,&#32;push&#32;player&#32;button</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;PUSH1OR2PLAYERBUTTON&quot;</emphasis>,&#32;pushPlayerText);
+<anchor xml:id="__g_u_i_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;20;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00143"/>00143 
+<anchor xml:id="__g_u_i_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;4)
+<anchor xml:id="__g_u_i_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;5)
+<anchor xml:id="__g_u_i_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;7)
+<anchor xml:id="__g_u_i_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;8)
+<anchor xml:id="__g_u_i_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;14)
+<anchor xml:id="__g_u_i_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00154"/>00154 
+<anchor xml:id="__g_u_i_8cpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pushPlayerText[i].setColor(sf::Color(0,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pushPlayerText[i].setPosition(sf::Vector2f(start&#32;+&#32;8.f&#32;*&#32;i,&#32;92.f));
+<anchor xml:id="__g_u_i_8cpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00158"/>00158 
+<anchor xml:id="__g_u_i_8cpp_source_1l00159"/>00159 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Start&#32;screen,&#32;high&#32;score&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;HIGHSCORES&quot;</emphasis>,&#32;highScoresText);
+<anchor xml:id="__g_u_i_8cpp_source_1l00161"/>00161 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;72;
+<anchor xml:id="__g_u_i_8cpp_source_1l00164"/>00164 
+<anchor xml:id="__g_u_i_8cpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;4)
+<anchor xml:id="__g_u_i_8cpp_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00167"/>00167 
+<anchor xml:id="__g_u_i_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScoresText[i].setColor(sf::Color(222,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScoresText[i].setPosition(sf::Vector2f(
+<anchor xml:id="__g_u_i_8cpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;*&#32;8),&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(120)));
+<anchor xml:id="__g_u_i_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00172"/>00172 
+<anchor xml:id="__g_u_i_8cpp_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Game&#32;over&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;GAMEOVER&quot;</emphasis>,&#32;gameOver);
+<anchor xml:id="__g_u_i_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;8;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;60;
+<anchor xml:id="__g_u_i_8cpp_source_1l00178"/>00178 
+<anchor xml:id="__g_u_i_8cpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;4)
+<anchor xml:id="__g_u_i_8cpp_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;16;
+<anchor xml:id="__g_u_i_8cpp_source_1l00181"/>00181 
+<anchor xml:id="__g_u_i_8cpp_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;gameOver[i].setColor(sf::Color(222,&#32;222,&#32;222));
+<anchor xml:id="__g_u_i_8cpp_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;gameOver[i].setPosition(sf::Vector2f(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(115)));
+<anchor xml:id="__g_u_i_8cpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00186"/>00186 
+<anchor xml:id="__g_u_i_8cpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;High&#32;score&#32;entry</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;HIGHSCOREENTRY&quot;</emphasis>,&#32;scoreEntry);
+<anchor xml:id="__g_u_i_8cpp_source_1l00189"/>00189 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;14;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;32;
+<anchor xml:id="__g_u_i_8cpp_source_1l00192"/>00192 
+<anchor xml:id="__g_u_i_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;4)
+<anchor xml:id="__g_u_i_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;9)
+<anchor xml:id="__g_u_i_8cpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00197"/>00197 
+<anchor xml:id="__g_u_i_8cpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scoreEntry[i].setColor(sf::Color(222,&#32;0,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scoreEntry[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(75));
+<anchor xml:id="__g_u_i_8cpp_source_1l00201"/>00201 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00202"/>00202 
+<anchor xml:id="__g_u_i_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Initials&#32;:</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;INITIALS\u0004&quot;</emphasis>,&#32;initialsText);
+<anchor xml:id="__g_u_i_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;9;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00206"/>00206 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;32;
+<anchor xml:id="__g_u_i_8cpp_source_1l00208"/>00208 
+<anchor xml:id="__g_u_i_8cpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;==&#32;8)
+<anchor xml:id="__g_u_i_8cpp_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00211"/>00211 
+<anchor xml:id="__g_u_i_8cpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;initialsText[i].setColor(sf::Color(0,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;initialsText[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(95));
+<anchor xml:id="__g_u_i_8cpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00216"/>00216 
+<anchor xml:id="__g_u_i_8cpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Entry&#32;time</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00218"/>00218 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,&#32;<emphasis role="stringliteral">&quot;ENTRYTIME\u000620\u0007&quot;</emphasis>,&#32;entryTime);
+<anchor xml:id="__g_u_i_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;13;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;start&#32;=&#32;32;
+<anchor xml:id="__g_u_i_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;5)
+<anchor xml:id="__g_u_i_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;9)
+<anchor xml:id="__g_u_i_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;16;
+<anchor xml:id="__g_u_i_8cpp_source_1l00226"/>00226 
+<anchor xml:id="__g_u_i_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;entryTime[i].setColor(sf::Color(222,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;entryTime[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(115));
+<anchor xml:id="__g_u_i_8cpp_source_1l00230"/>00230 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00231"/>00231 
+<anchor xml:id="__g_u_i_8cpp_source_1l00232"/>00232 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Name&#32;entry&#32;keyboard</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;28;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&lt;&#32;26)
+<anchor xml:id="__g_u_i_8cpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyboard[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;+&#32;i);
+<anchor xml:id="__g_u_i_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyboard[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;0&#32;+&#32;i&#32;-&#32;26);
+<anchor xml:id="__g_u_i_8cpp_source_1l00239"/>00239 
+<anchor xml:id="__g_u_i_8cpp_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyboard[i].setColor(sf::Color(0,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyboard[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(32&#32;+&#32;i&#32;%&#32;10&#32;*&#32;16),
+<anchor xml:id="__g_u_i_8cpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(135&#32;+&#32;i&#32;/&#32;10&#32;*&#32;16));
+<anchor xml:id="__g_u_i_8cpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00244"/>00244 
+<anchor xml:id="__g_u_i_8cpp_source_1l00245"/>00245 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Keyboard&#32;RUB&#32;&amp;&#32;END</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00246"/>00246 &#32;&#32;&#32;&#32;keyboard[28].setTexture(*spritesheet);
+<anchor xml:id="__g_u_i_8cpp_source_1l00247"/>00247 &#32;&#32;&#32;&#32;keyboard[28].setTextureRect(sf::IntRect(200,&#32;248,&#32;29,&#32;8));
+<anchor xml:id="__g_u_i_8cpp_source_1l00248"/>00248 &#32;&#32;&#32;&#32;keyboard[28].setColor(sf::Color(0,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00249"/>00249 &#32;&#32;&#32;&#32;keyboard[28].setPosition(keyboard[27].getPosition().x&#32;+&#32;13,
+<anchor xml:id="__g_u_i_8cpp_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;keyboard[27].getPosition().y);
+<anchor xml:id="__g_u_i_8cpp_source_1l00251"/>00251 
+<anchor xml:id="__g_u_i_8cpp_source_1l00252"/>00252 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Cursor&#32;selector&#32;for&#32;the&#32;keyboard</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00253"/>00253 &#32;&#32;&#32;&#32;cursor.setTexture(*spritesheet);
+<anchor xml:id="__g_u_i_8cpp_source_1l00254"/>00254 &#32;&#32;&#32;&#32;cursor.setTextureRect(sf::IntRect(316,&#32;264,&#32;16,&#32;16));
+<anchor xml:id="__g_u_i_8cpp_source_1l00255"/>00255 
+<anchor xml:id="__g_u_i_8cpp_source_1l00256"/>00256 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;End&#32;screen</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00257"/>00257 &#32;&#32;&#32;&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">ZaxxonText::string</link>(spritesheet,
+<anchor xml:id="__g_u_i_8cpp_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;CONGRATULATIONS\u000cYOUGETBONUS1000PTS\u0001GOOD\u000c&quot;</emphasis>,
+<anchor xml:id="__g_u_i_8cpp_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen);
+<anchor xml:id="__g_u_i_8cpp_source_1l00260"/>00260 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;40;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00261"/>00261 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00262"/>00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Different&#32;positions/colors&#32;for&#32;each&#32;3&#32;lines&#32;of&#32;text</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&lt;&#32;16)
+<anchor xml:id="__g_u_i_8cpp_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">short</emphasis>&#32;start&#32;=&#32;40;
+<anchor xml:id="__g_u_i_8cpp_source_1l00266"/>00266 
+<anchor xml:id="__g_u_i_8cpp_source_1l00267"/>00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;==&#32;15)
+<anchor xml:id="__g_u_i_8cpp_source_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00269"/>00269 
+<anchor xml:id="__g_u_i_8cpp_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(80));
+<anchor xml:id="__g_u_i_8cpp_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen[i].setColor(sf::Color(0,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00274"/>00274 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&lt;&#32;35)
+<anchor xml:id="__g_u_i_8cpp_source_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00276"/>00276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">short</emphasis>&#32;start&#32;=&#32;16;
+<anchor xml:id="__g_u_i_8cpp_source_1l00277"/>00277 
+<anchor xml:id="__g_u_i_8cpp_source_1l00278"/>00278 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;18)
+<anchor xml:id="__g_u_i_8cpp_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;21)
+<anchor xml:id="__g_u_i_8cpp_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;26)
+<anchor xml:id="__g_u_i_8cpp_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;30)
+<anchor xml:id="__g_u_i_8cpp_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00286"/>00286 
+<anchor xml:id="__g_u_i_8cpp_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;(i&#32;-&#32;16)&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(100));
+<anchor xml:id="__g_u_i_8cpp_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen[i].setColor(sf::Color(222,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">short</emphasis>&#32;start&#32;=&#32;88;
+<anchor xml:id="__g_u_i_8cpp_source_1l00294"/>00294 
+<anchor xml:id="__g_u_i_8cpp_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;==&#32;39)
+<anchor xml:id="__g_u_i_8cpp_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00297"/>00297 
+<anchor xml:id="__g_u_i_8cpp_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen[i].setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;(i&#32;-&#32;35)&#32;*&#32;8),
+<anchor xml:id="__g_u_i_8cpp_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(120));
+<anchor xml:id="__g_u_i_8cpp_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;endScreen[i].setColor(sf::Color(222,&#32;222,&#32;222));
+<anchor xml:id="__g_u_i_8cpp_source_1l00301"/>00301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00302"/>00302 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00303"/>00303 }
+<anchor xml:id="__g_u_i_8cpp_source_1l00304"/>00304 
+<anchor xml:id="__g_u_i_8cpp_source_1l00305"/>00305 
+<anchor xml:id="__g_u_i_8cpp_source_1l00315"/><link linkend="_class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220">00315</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220">GUI::render</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;playerY,&#32;<emphasis role="keywordtype">int</emphasis>&#32;score,
+<anchor xml:id="__g_u_i_8cpp_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;highScore,&#32;<emphasis role="keywordtype">byte</emphasis>&#32;fuel,&#32;<emphasis role="keywordtype">byte</emphasis>&#32;lives)
+<anchor xml:id="__g_u_i_8cpp_source_1l00317"/>00317 {
+<anchor xml:id="__g_u_i_8cpp_source_1l00318"/>00318 &#32;&#32;&#32;&#32;window.draw(heightMeterBg);
+<anchor xml:id="__g_u_i_8cpp_source_1l00319"/>00319 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;69top&#32;135bottom&#32;66&#32;in&#32;between,&#32;multiply&#32;by&#32;below&#32;number&#32;to&#32;get&#32;68</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00320"/>00320 <emphasis role="comment">&#32;&#32;&#32;&#32;should&#32;be&#32;8&#32;sections&#32;each&#32;for&#32;line/open&#32;and&#32;2&#32;each&#32;for&#32;top/bottom&#32;so</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00321"/>00321 <emphasis role="comment">&#32;&#32;&#32;&#32;yDiff&#32;should&#32;be&#32;68&#32;max&#32;(68&#32;from&#32;8*8&#32;+&#32;4)&#32;also&#32;round&#32;to&#32;make&#32;sure&#32;correct</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00322"/>00322 <emphasis role="comment">&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00323"/>00323 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;yDiff&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(round((playerY&#32;-&#32;69.f)&#32;*&#32;0.95774647887f));
+<anchor xml:id="__g_u_i_8cpp_source_1l00324"/>00324 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(yDiff&#32;&lt;&#32;0)
+<anchor xml:id="__g_u_i_8cpp_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yDiff&#32;=&#32;0;
+<anchor xml:id="__g_u_i_8cpp_source_1l00326"/>00326 
+<anchor xml:id="__g_u_i_8cpp_source_1l00327"/>00327 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;-4&#32;to&#32;make&#32;64</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00328"/>00328 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;selection&#32;=&#32;(yDiff&#32;-&#32;2)&#32;/&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00329"/>00329 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(selection&#32;&lt;&#32;0)
+<anchor xml:id="__g_u_i_8cpp_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;selection&#32;=&#32;0;
+<anchor xml:id="__g_u_i_8cpp_source_1l00331"/>00331 
+<anchor xml:id="__g_u_i_8cpp_source_1l00332"/>00332 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;changingBelow&#32;=&#32;<emphasis role="keyword">false</emphasis>,&#32;changingAbove&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__g_u_i_8cpp_source_1l00333"/>00333 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;last&#32;=&#32;7,&#32;localYDiff&#32;=&#32;(yDiff&#32;-&#32;2)&#32;%&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00334"/>00334 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(localYDiff&#32;==&#32;6)
+<anchor xml:id="__g_u_i_8cpp_source_1l00335"/>00335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;localYDiff&#32;=&#32;7;
+<anchor xml:id="__g_u_i_8cpp_source_1l00336"/>00336 
+<anchor xml:id="__g_u_i_8cpp_source_1l00337"/>00337 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(yDiff&#32;&lt;=&#32;66&#32;&amp;&amp;&#32;yDiff&#32;&gt;=&#32;2)
+<anchor xml:id="__g_u_i_8cpp_source_1l00338"/>00338 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00339"/>00339 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section">HMSection</link>&amp;&#32;activeSection&#32;=&#32;heightMeterSections[selection];
+<anchor xml:id="__g_u_i_8cpp_source_1l00340"/>00340 
+<anchor xml:id="__g_u_i_8cpp_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;activeSection.<link linkend="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2">progress</link>(localYDiff);
+<anchor xml:id="__g_u_i_8cpp_source_1l00342"/>00342 
+<anchor xml:id="__g_u_i_8cpp_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(localYDiff&#32;&gt;=&#32;5)
+<anchor xml:id="__g_u_i_8cpp_source_1l00344"/>00344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00345"/>00345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;heightMeterSections[selection&#32;+&#32;1].<link linkend="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2">progress</link>(localYDiff&#32;-&#32;7);
+<anchor xml:id="__g_u_i_8cpp_source_1l00346"/>00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;changingBelow&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__g_u_i_8cpp_source_1l00347"/>00347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00348"/>00348 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00349"/>00349 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(yDiff&#32;&lt;&#32;8)
+<anchor xml:id="__g_u_i_8cpp_source_1l00350"/>00350 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;top</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;heightMeterSections[0].<link linkend="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2">progress</link>(12&#32;+&#32;localYDiff);
+<anchor xml:id="__g_u_i_8cpp_source_1l00353"/>00353 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00354"/>00354 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(yDiff&#32;&gt;&#32;64)
+<anchor xml:id="__g_u_i_8cpp_source_1l00355"/>00355 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00356"/>00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;bottom</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00357"/>00357 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00358"/>00358 
+<anchor xml:id="__g_u_i_8cpp_source_1l00359"/>00359 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00360"/>00360 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section">HMSection</link>&amp;&#32;section&#32;=&#32;heightMeterSections[i];
+<anchor xml:id="__g_u_i_8cpp_source_1l00362"/>00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&lt;&#32;selection)
+<anchor xml:id="__g_u_i_8cpp_source_1l00363"/>00363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00364"/>00364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;!=&#32;selection&#32;-&#32;1&#32;||&#32;!changingAbove)
+<anchor xml:id="__g_u_i_8cpp_source_1l00365"/>00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.<link linkend="_class_h_m_section_1a6093acdaf453e4985124eb26d85a628d">empty</link>();
+<anchor xml:id="__g_u_i_8cpp_source_1l00366"/>00366 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00367"/>00367 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;&#32;selection)
+<anchor xml:id="__g_u_i_8cpp_source_1l00368"/>00368 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00369"/>00369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;!=&#32;selection&#32;+&#32;1&#32;||&#32;!changingBelow)
+<anchor xml:id="__g_u_i_8cpp_source_1l00370"/>00370 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section.<link linkend="_class_h_m_section_1a6e02d19eb07396dc514c8938d578658b">fill</link>();
+<anchor xml:id="__g_u_i_8cpp_source_1l00371"/>00371 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00372"/>00372 
+<anchor xml:id="__g_u_i_8cpp_source_1l00373"/>00373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(section);
+<anchor xml:id="__g_u_i_8cpp_source_1l00374"/>00374 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00375"/>00375 &#32;&#32;&#32;&#32;window.draw(heightH);
+<anchor xml:id="__g_u_i_8cpp_source_1l00376"/>00376 &#32;&#32;&#32;&#32;window.draw(heightL);
+<anchor xml:id="__g_u_i_8cpp_source_1l00377"/>00377 
+<anchor xml:id="__g_u_i_8cpp_source_1l00378"/>00378 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00379"/>00379 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00380"/>00380 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(copyright[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00381"/>00381 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(enemyText[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00382"/>00382 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00383"/>00383 
+<anchor xml:id="__g_u_i_8cpp_source_1l00384"/>00384 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Update&#32;score</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00385"/>00385 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;6;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00386"/>00386 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00387"/>00387 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;scoreStr&#32;=&#32;std::to_string(score);
+<anchor xml:id="__g_u_i_8cpp_source_1l00388"/>00388 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;highStr&#32;=&#32;std::to_string(highScore);
+<anchor xml:id="__g_u_i_8cpp_source_1l00389"/>00389 
+<anchor xml:id="__g_u_i_8cpp_source_1l00390"/>00390 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(scoreStr.length()&#32;&lt;&#32;6)
+<anchor xml:id="__g_u_i_8cpp_source_1l00391"/>00391 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scoreStr&#32;=&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;+&#32;scoreStr;
+<anchor xml:id="__g_u_i_8cpp_source_1l00392"/>00392 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(highStr.length()&#32;&lt;&#32;6)
+<anchor xml:id="__g_u_i_8cpp_source_1l00393"/>00393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highStr&#32;=&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;+&#32;highStr;
+<anchor xml:id="__g_u_i_8cpp_source_1l00394"/>00394 
+<anchor xml:id="__g_u_i_8cpp_source_1l00395"/>00395 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curScore[8&#32;-&#32;i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;scoreStr.at(5&#32;-&#32;i));
+<anchor xml:id="__g_u_i_8cpp_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curScore[8&#32;-&#32;i].setPosition(72.f&#32;-&#32;8.f&#32;*&#32;i,&#32;24.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curScore[8&#32;-&#32;i].setColor(sf::Color(222,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00398"/>00398 
+<anchor xml:id="__g_u_i_8cpp_source_1l00399"/>00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;topScore[8&#32;-&#32;i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;highStr.at(5&#32;-&#32;i));
+<anchor xml:id="__g_u_i_8cpp_source_1l00400"/>00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;topScore[8&#32;-&#32;i].setPosition(72.f&#32;-&#32;8.f&#32;*&#32;i,&#32;8.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;topScore[8&#32;-&#32;i].setColor(sf::Color(0,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00402"/>00402 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00403"/>00403 
+<anchor xml:id="__g_u_i_8cpp_source_1l00404"/>00404 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;9;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00405"/>00405 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00406"/>00406 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(topScore[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00407"/>00407 
+<anchor xml:id="__g_u_i_8cpp_source_1l00408"/>00408 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;3)
+<anchor xml:id="__g_u_i_8cpp_source_1l00409"/>00409 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(curScore[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00410"/>00410 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00411"/>00411 
+<anchor xml:id="__g_u_i_8cpp_source_1l00412"/>00412 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;1up&#32;score&#32;will&#32;flash</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00413"/>00413 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(scoreClock.getElapsedTime().asSeconds()&#32;&gt;&#32;0.4)
+<anchor xml:id="__g_u_i_8cpp_source_1l00414"/>00414 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00415"/>00415 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;3;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00416"/>00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(curScore[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00417"/>00417 
+<anchor xml:id="__g_u_i_8cpp_source_1l00418"/>00418 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(scoreClock.getElapsedTime().asSeconds()&#32;&gt;&#32;0.8)
+<anchor xml:id="__g_u_i_8cpp_source_1l00419"/>00419 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scoreClock.restart();
+<anchor xml:id="__g_u_i_8cpp_source_1l00420"/>00420 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00421"/>00421 
+<anchor xml:id="__g_u_i_8cpp_source_1l00422"/>00422 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;6;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00423"/>00423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(fuelText[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00424"/>00424 
+<anchor xml:id="__g_u_i_8cpp_source_1l00425"/>00425 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Update&#32;fuel&#32;bar</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00426"/>00426 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;16;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00427"/>00427 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00428"/>00428 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::IntRect&#32;status(328,&#32;296,&#32;8,&#32;8);
+<anchor xml:id="__g_u_i_8cpp_source_1l00429"/>00429 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fuel&#32;-&#32;i&#32;*&#32;8&#32;&lt;&#32;8)
+<anchor xml:id="__g_u_i_8cpp_source_1l00430"/>00430 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fuel&#32;-&#32;i&#32;*&#32;8&#32;&gt;&#32;0)
+<anchor xml:id="__g_u_i_8cpp_source_1l00431"/>00431 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status.left&#32;=&#32;328&#32;-&#32;(8&#32;-&#32;(fuel&#32;-&#32;i&#32;*&#32;8)&#32;%&#32;8)&#32;*&#32;16;
+<anchor xml:id="__g_u_i_8cpp_source_1l00432"/>00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00433"/>00433 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;status.left&#32;=&#32;176,&#32;status.top&#32;=&#32;272;
+<anchor xml:id="__g_u_i_8cpp_source_1l00434"/>00434 
+<anchor xml:id="__g_u_i_8cpp_source_1l00435"/>00435 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fuelBar[i].setTextureRect(status);
+<anchor xml:id="__g_u_i_8cpp_source_1l00436"/>00436 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(fuelBar[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00437"/>00437 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00438"/>00438 
+<anchor xml:id="__g_u_i_8cpp_source_1l00439"/>00439 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;lives;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00440"/>00440 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00441"/>00441 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;livesBar.setPosition(12.f&#32;+&#32;i&#32;*&#32;16.f,&#32;224.f);
+<anchor xml:id="__g_u_i_8cpp_source_1l00442"/>00442 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(livesBar);
+<anchor xml:id="__g_u_i_8cpp_source_1l00443"/>00443 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00444"/>00444 
+<anchor xml:id="__g_u_i_8cpp_source_1l00445"/>00445 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;4;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00446"/>00446 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(enemyLeft[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00447"/>00447 }
+<anchor xml:id="__g_u_i_8cpp_source_1l00448"/>00448 
+<anchor xml:id="__g_u_i_8cpp_source_1l00449"/>00449 
+<anchor xml:id="__g_u_i_8cpp_source_1l00456"/><link linkend="_class_g_u_i_1a41bf32a5de5387392f14b204bd55259e">00456</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_u_i_1a41bf32a5de5387392f14b204bd55259e">GUI::startRender</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">int</emphasis>&#32;highScore)
+<anchor xml:id="__g_u_i_8cpp_source_1l00457"/>00457 {
+<anchor xml:id="__g_u_i_8cpp_source_1l00458"/>00458 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00459"/>00459 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(copyright[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00460"/>00460 
+<anchor xml:id="__g_u_i_8cpp_source_1l00461"/>00461 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;9;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00462"/>00462 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00463"/>00463 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(topScore[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00464"/>00464 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(curScore[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00465"/>00465 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00466"/>00466 
+<anchor xml:id="__g_u_i_8cpp_source_1l00467"/>00467 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;20;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00468"/>00468 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(pushPlayerText[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00469"/>00469 
+<anchor xml:id="__g_u_i_8cpp_source_1l00470"/>00470 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;42;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00471"/>00471 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(highScores[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00472"/>00472 
+<anchor xml:id="__g_u_i_8cpp_source_1l00473"/>00473 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;10;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00474"/>00474 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(highScoresText[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00475"/>00475 
+<anchor xml:id="__g_u_i_8cpp_source_1l00476"/>00476 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;18;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00477"/>00477 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(highScoresNames[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00478"/>00478 }
+<anchor xml:id="__g_u_i_8cpp_source_1l00479"/>00479 
+<anchor xml:id="__g_u_i_8cpp_source_1l00480"/>00480 
+<anchor xml:id="__g_u_i_8cpp_source_1l00486"/><link linkend="_class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a">00486</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a">GUI::renderScores</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">int</emphasis>&#32;scores[],
+<anchor xml:id="__g_u_i_8cpp_source_1l00487"/>00487 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;names[])
+<anchor xml:id="__g_u_i_8cpp_source_1l00488"/>00488 {
+<anchor xml:id="__g_u_i_8cpp_source_1l00489"/>00489 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;score&#32;values</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00490"/>00490 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;42;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00491"/>00491 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00492"/>00492 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;%&#32;7&#32;==&#32;0)
+<anchor xml:id="__g_u_i_8cpp_source_1l00493"/>00493 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScores[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;<emphasis role="charliteral">&apos;1&apos;</emphasis>&#32;+&#32;i&#32;/&#32;7);
+<anchor xml:id="__g_u_i_8cpp_source_1l00494"/>00494 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00495"/>00495 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00496"/>00496 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;scoreStr&#32;=&#32;std::to_string(scores[i&#32;/&#32;7]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00497"/>00497 
+<anchor xml:id="__g_u_i_8cpp_source_1l00498"/>00498 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(scoreStr.length()&#32;&lt;&#32;6)
+<anchor xml:id="__g_u_i_8cpp_source_1l00499"/>00499 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scoreStr&#32;=&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;+&#32;scoreStr;
+<anchor xml:id="__g_u_i_8cpp_source_1l00500"/>00500 
+<anchor xml:id="__g_u_i_8cpp_source_1l00501"/>00501 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScores[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,
+<anchor xml:id="__g_u_i_8cpp_source_1l00502"/>00502 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scoreStr[0&#32;+&#32;(i&#32;%&#32;7)&#32;-&#32;1]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00503"/>00503 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00504"/>00504 
+<anchor xml:id="__g_u_i_8cpp_source_1l00505"/>00505 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScores[i].setColor(sf::Color(0,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00506"/>00506 
+<anchor xml:id="__g_u_i_8cpp_source_1l00507"/>00507 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;start&#32;=&#32;4;
+<anchor xml:id="__g_u_i_8cpp_source_1l00508"/>00508 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;%&#32;7)
+<anchor xml:id="__g_u_i_8cpp_source_1l00509"/>00509 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;8;
+<anchor xml:id="__g_u_i_8cpp_source_1l00510"/>00510 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;21)
+<anchor xml:id="__g_u_i_8cpp_source_1l00511"/>00511 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;120;
+<anchor xml:id="__g_u_i_8cpp_source_1l00512"/>00512 
+<anchor xml:id="__g_u_i_8cpp_source_1l00513"/>00513 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;layer&#32;=&#32;140;
+<anchor xml:id="__g_u_i_8cpp_source_1l00514"/>00514 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;layer&#32;+=&#32;12&#32;*&#32;(i&#32;%&#32;21&#32;/&#32;7);
+<anchor xml:id="__g_u_i_8cpp_source_1l00515"/>00515 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScores[i].setPosition(sf::Vector2f(
+<anchor xml:id="__g_u_i_8cpp_source_1l00516"/>00516 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;%&#32;7&#32;*&#32;8),&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(layer)));
+<anchor xml:id="__g_u_i_8cpp_source_1l00517"/>00517 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00518"/>00518 
+<anchor xml:id="__g_u_i_8cpp_source_1l00519"/>00519 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;The&#32;names&#32;for&#32;each&#32;score</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00520"/>00520 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;18;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00521"/>00521 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00522"/>00522 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;We&#32;use&#32;_&#32;for&#32;spaces&#32;in&#32;names</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00523"/>00523 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(names[i&#32;/&#32;3][i&#32;%&#32;3]&#32;!=&#32;<emphasis role="charliteral">&apos;_&apos;</emphasis>)
+<anchor xml:id="__g_u_i_8cpp_source_1l00524"/>00524 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScoresNames[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(
+<anchor xml:id="__g_u_i_8cpp_source_1l00525"/>00525 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spritesheet,&#32;names[i&#32;/&#32;3][i&#32;%&#32;3]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00526"/>00526 
+<anchor xml:id="__g_u_i_8cpp_source_1l00527"/>00527 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScoresNames[i].setColor(sf::Color(0,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00528"/>00528 
+<anchor xml:id="__g_u_i_8cpp_source_1l00529"/>00529 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;start&#32;=&#32;76;
+<anchor xml:id="__g_u_i_8cpp_source_1l00530"/>00530 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i&#32;&gt;=&#32;9)
+<anchor xml:id="__g_u_i_8cpp_source_1l00531"/>00531 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start&#32;+=&#32;120;
+<anchor xml:id="__g_u_i_8cpp_source_1l00532"/>00532 
+<anchor xml:id="__g_u_i_8cpp_source_1l00533"/>00533 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;layer&#32;=&#32;140;
+<anchor xml:id="__g_u_i_8cpp_source_1l00534"/>00534 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;layer&#32;+=&#32;12&#32;*&#32;(i&#32;%&#32;9&#32;/&#32;3);
+<anchor xml:id="__g_u_i_8cpp_source_1l00535"/>00535 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;highScoresNames[i].setPosition(sf::Vector2f(
+<anchor xml:id="__g_u_i_8cpp_source_1l00536"/>00536 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(start&#32;+&#32;i&#32;%&#32;3&#32;*&#32;8),&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(layer)));
+<anchor xml:id="__g_u_i_8cpp_source_1l00537"/>00537 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00538"/>00538 }
+<anchor xml:id="__g_u_i_8cpp_source_1l00539"/>00539 
+<anchor xml:id="__g_u_i_8cpp_source_1l00540"/>00540 
+<anchor xml:id="__g_u_i_8cpp_source_1l00547"/><link linkend="_class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e">00547</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e">GUI::renderEnd</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">byte</emphasis>&#32;timeLeft,&#32;<emphasis role="keywordtype">byte</emphasis>&#32;selector,
+<anchor xml:id="__g_u_i_8cpp_source_1l00548"/>00548 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[3])
+<anchor xml:id="__g_u_i_8cpp_source_1l00549"/>00549 {
+<anchor xml:id="__g_u_i_8cpp_source_1l00550"/>00550 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(timeLeft&#32;==&#32;255)
+<anchor xml:id="__g_u_i_8cpp_source_1l00551"/>00551 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00552"/>00552 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;8;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00553"/>00553 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(gameOver[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00554"/>00554 
+<anchor xml:id="__g_u_i_8cpp_source_1l00555"/>00555 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__g_u_i_8cpp_source_1l00556"/>00556 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00557"/>00557 
+<anchor xml:id="__g_u_i_8cpp_source_1l00558"/>00558 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;14;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00559"/>00559 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(scoreEntry[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00560"/>00560 
+<anchor xml:id="__g_u_i_8cpp_source_1l00561"/>00561 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;9;&#32;i&#32;&lt;&#32;12;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00562"/>00562 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__g_u_i_8cpp_source_1l00563"/>00563 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(name[i]&#32;!=&#32;<emphasis role="charliteral">&apos;_&apos;</emphasis>&#32;&amp;&amp;&#32;name[i]&#32;!=&#32;<emphasis role="charliteral">&apos;&#32;&apos;</emphasis>)
+<anchor xml:id="__g_u_i_8cpp_source_1l00564"/>00564 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;initialsText[i]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;name[i&#32;-&#32;9]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00565"/>00565 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;initialsText[i].setColor(sf::Color(0,&#32;222,&#32;247));
+<anchor xml:id="__g_u_i_8cpp_source_1l00566"/>00566 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;initialsText[i].setPosition(sf::Vector2f(
+<anchor xml:id="__g_u_i_8cpp_source_1l00567"/>00567 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(120&#32;+&#32;(i&#32;-&#32;9)&#32;*&#32;16),&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(95)));
+<anchor xml:id="__g_u_i_8cpp_source_1l00568"/>00568 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__g_u_i_8cpp_source_1l00569"/>00569 
+<anchor xml:id="__g_u_i_8cpp_source_1l00570"/>00570 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;12;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00571"/>00571 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(initialsText[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00572"/>00572 
+<anchor xml:id="__g_u_i_8cpp_source_1l00573"/>00573 &#32;&#32;&#32;&#32;entryTime[10]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;+&#32;timeLeft&#32;/&#32;10);
+<anchor xml:id="__g_u_i_8cpp_source_1l00574"/>00574 &#32;&#32;&#32;&#32;entryTime[10].setPosition(136,&#32;115);
+<anchor xml:id="__g_u_i_8cpp_source_1l00575"/>00575 &#32;&#32;&#32;&#32;entryTime[10].setColor(sf::Color(222,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00576"/>00576 &#32;&#32;&#32;&#32;entryTime[11]&#32;=&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">ZaxxonText::get</link>(spritesheet,&#32;<emphasis role="charliteral">&apos;0&apos;</emphasis>&#32;+&#32;timeLeft&#32;%&#32;10);
+<anchor xml:id="__g_u_i_8cpp_source_1l00577"/>00577 &#32;&#32;&#32;&#32;entryTime[11].setPosition(144,&#32;115);
+<anchor xml:id="__g_u_i_8cpp_source_1l00578"/>00578 &#32;&#32;&#32;&#32;entryTime[11].setColor(sf::Color(222,&#32;222,&#32;0));
+<anchor xml:id="__g_u_i_8cpp_source_1l00579"/>00579 
+<anchor xml:id="__g_u_i_8cpp_source_1l00580"/>00580 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;13;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00581"/>00581 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(entryTime[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00582"/>00582 
+<anchor xml:id="__g_u_i_8cpp_source_1l00583"/>00583 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Draw&#32;cursor&#32;before&#32;keyboard</emphasis>
+<anchor xml:id="__g_u_i_8cpp_source_1l00584"/>00584 &#32;&#32;&#32;&#32;cursor.setPosition(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(28&#32;+&#32;selector&#32;%&#32;10&#32;*&#32;16),
+<anchor xml:id="__g_u_i_8cpp_source_1l00585"/>00585 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(131&#32;+&#32;selector&#32;/&#32;10&#32;*&#32;16));
+<anchor xml:id="__g_u_i_8cpp_source_1l00586"/>00586 &#32;&#32;&#32;&#32;window.draw(cursor);
+<anchor xml:id="__g_u_i_8cpp_source_1l00587"/>00587 
+<anchor xml:id="__g_u_i_8cpp_source_1l00588"/>00588 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;30;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00589"/>00589 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(keyboard[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00590"/>00590 }
+<anchor xml:id="__g_u_i_8cpp_source_1l00591"/>00591 
+<anchor xml:id="__g_u_i_8cpp_source_1l00592"/>00592 
+<anchor xml:id="__g_u_i_8cpp_source_1l00597"/><link linkend="_class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705">00597</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705">GUI::renderWin</link>(sf::RenderWindow&amp;&#32;window)
+<anchor xml:id="__g_u_i_8cpp_source_1l00598"/>00598 {
+<anchor xml:id="__g_u_i_8cpp_source_1l00599"/>00599 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">byte</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;40;&#32;i++)
+<anchor xml:id="__g_u_i_8cpp_source_1l00600"/>00600 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(endScreen[i]);
+<anchor xml:id="__g_u_i_8cpp_source_1l00601"/>00601 }
+</programlisting></section>

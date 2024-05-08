@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__character_8h_source" xml:lang="en-US">
+<title>Character.h</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Character.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__character_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__character_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__character_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__util_8h">Util/Util.h</link>&quot;</emphasis>
+<anchor xml:id="__character_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__animation_8h">Animation/Animation.h</link>&quot;</emphasis>
+<anchor xml:id="__character_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__entity_8h">Entity/Entity.h</link>&quot;</emphasis>
+<anchor xml:id="__character_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__character_bullet_8h">Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</link>&quot;</emphasis>
+<anchor xml:id="__character_8h_source_1l00007"/>00007 
+<anchor xml:id="__character_8h_source_1l00008"/>00008 
+<anchor xml:id="__character_8h_source_1l00012"/><link linkend="_class_character">00012</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_character">Character</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_entity">Entity</link>
+<anchor xml:id="__character_8h_source_1l00013"/>00013 {
+<anchor xml:id="__character_8h_source_1l00014"/>00014 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__character_8h_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<link linkend="_class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</link>(sf::Texture*);
+<anchor xml:id="__character_8h_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<link linkend="_class_character_1a5e399f512bf22a9e8558a4bae1ec9555">~Character</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="__character_8h_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">update</link>(sf::RenderWindow&amp;,&#32;<emphasis role="keywordtype">float</emphasis>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="__character_8h_source_1l00018"/><link linkend="_class_character_1a6eaf7357d3575a2281b5456abfbe1b9d">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a6eaf7357d3575a2281b5456abfbe1b9d">kill</link>()&#32;=&#32;0;
+<anchor xml:id="__character_8h_source_1l00019"/>00019 
+<anchor xml:id="__character_8h_source_1l00020"/>00020 &#32;&#32;&#32;&#32;std::vector&lt;CharacterBullet*&gt;&amp;&#32;<link linkend="_class_character_1a59755f2066960eeade9a67b13f646c79">getBullets</link>();
+<anchor xml:id="__character_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1abb29539c98416153a4f079ca83879cfc">getSizeIndex</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="__character_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a6ea404b0682144a8f21d42e881cb0ce7">killBullet</link>(<emphasis role="keywordtype">int</emphasis>);
+<anchor xml:id="__character_8h_source_1l00023"/>00023 
+<anchor xml:id="__character_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">setPos</link>(sf::Vector3f);
+<anchor xml:id="__character_8h_source_1l00025"/>00025 <emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="__character_8h_source_1l00026"/><link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">00026</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link>&#32;=&#32;140;
+<anchor xml:id="__character_8h_source_1l00027"/><link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">00027</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">yMin</link>&#32;=&#32;69;
+<anchor xml:id="__character_8h_source_1l00028"/><link linkend="_class_character_1a682f191a3a01f1a772cd3fa624c0b16e">00028</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1a682f191a3a01f1a772cd3fa624c0b16e">xMin</link>&#32;=&#32;-160;
+<anchor xml:id="__character_8h_source_1l00029"/><link linkend="_class_character_1ae741b4874f8875f33f70663890315a52">00029</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1ae741b4874f8875f33f70663890315a52">xMax</link>&#32;=&#32;0;
+<anchor xml:id="__character_8h_source_1l00030"/>00030 
+<anchor xml:id="__character_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a40ac52813d37c391b4cd6db06a8f1216">_getSizeIndex</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&amp;);
+<anchor xml:id="__character_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;sf::Vector3f&#32;<link linkend="_class_character_1adba5c58a1b24bff604893e28519a1f34">getVelocity</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="__character_8h_source_1l00033"/>00033 
+<anchor xml:id="__character_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a46a264779165a349a13bcb364c4106d4">setVelocity</link>(sf::Vector3f);
+<anchor xml:id="__character_8h_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1afe32dd9baa581b7895f06c9687d073b4">setBullet</link>(sf::IntRect);
+<anchor xml:id="__character_8h_source_1l00036"/>00036 
+<anchor xml:id="__character_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_1a450a222c641925d6bda2f2c9241c220b">updateBullets</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>);
+<anchor xml:id="__character_8h_source_1l00038"/>00038 
+<anchor xml:id="__character_8h_source_1l00039"/><link linkend="_class_character_1a12d640046cf216dd010f8e71c3466e1e">00039</link> &#32;&#32;&#32;&#32;sf::Vector3f&#32;<link linkend="_class_character_1a12d640046cf216dd010f8e71c3466e1e">velocity</link>;
+<anchor xml:id="__character_8h_source_1l00040"/><link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">00040</link> &#32;&#32;&#32;&#32;std::vector&lt;CharacterBullet*&gt;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>;
+<anchor xml:id="__character_8h_source_1l00041"/><link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">00041</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>;
+<anchor xml:id="__character_8h_source_1l00042"/>00042 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__character_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;sf::IntRect&#32;bulletTexture;
+<anchor xml:id="__character_8h_source_1l00044"/>00044 };
+</programlisting></section>

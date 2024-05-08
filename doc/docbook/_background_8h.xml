@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__background_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/Background/Background.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Background/Background.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;queue&gt;<?linebreak?>#include &lt;iostream&gt;<?linebreak?>#include &lt;SFML/Graphics.hpp&gt;<?linebreak?>#include &quot;Entity/Character/Player/Player.h&quot;<?linebreak?>#include &quot;Entity/Character/Enemy/Enemy.h&quot;<?linebreak?>#include &quot;Obstacle/Obstacle.h&quot;<?linebreak?>#include &quot;Wall/Wall.h&quot;<?linebreak?>#include &quot;ZapWall/ZapWall.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_background">Background</link></para>
+
+<para>Holds all backgrounds and methods to fill each level with content. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

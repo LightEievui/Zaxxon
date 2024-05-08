@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__g_u_i_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/GUI/GUI.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/GUI.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;vector&gt;<?linebreak?>#include &quot;ZaxxonText/ZaxxonText.h&quot;<?linebreak?>#include &quot;HMSection/HMSection.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_g_u_i">GUI</link></para>
+
+<para>Contains all <link linkend="_class_g_u_i">GUI</link> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> = unsigned char</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="__g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7"/><section>
+    <title>byte</title>
+<indexterm><primary>byte</primary><secondary>GUI.h</secondary></indexterm>
+<indexterm><primary>GUI.h</primary><secondary>byte</secondary></indexterm>
+<para><computeroutput>using <link linkend="__game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> = unsigned char</computeroutput></para><para>
+Definition at line <link linkend="__g_u_i_8h_source_1l00006">6</link> of file <link linkend="__g_u_i_8h_source">GUI.h</link>.</para>
+</section>
+</section>
+</section>

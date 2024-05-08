@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_util_8h" kind="file" language="C++">
+    <compoundname>Util.h</compoundname>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includedby refid="_background_8cpp" local="yes">C:/Zaxxon/src/Background/Background.cpp</includedby>
+    <includedby refid="_character_bullet_8h" local="yes">C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</includedby>
+    <includedby refid="_boss_8h" local="yes">C:/Zaxxon/src/Entity/Boss/Boss.h</includedby>
+    <includedby refid="_character_8h" local="yes">C:/Zaxxon/src/Entity/Character/Character.h</includedby>
+    <includedby refid="_entity_8h" local="no">C:/Zaxxon/src/Entity/Entity.h</includedby>
+    <includedby refid="_obstacle_8h" local="yes">C:/Zaxxon/src/Obstacle/Obstacle.h</includedby>
+    <includedby refid="_util_8cpp" local="yes">C:/Zaxxon/src/Util/Util.cpp</includedby>
+    <includedby refid="_wall_8h" local="yes">C:/Zaxxon/src/Wall/Wall.h</includedby>
+    <includedby refid="_zap_wall_8h" local="yes">C:/Zaxxon/src/ZapWall/ZapWall.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Zaxxon/src/Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Zaxxon/src/Background/Background.cpp</label>
+        <link refid="_background_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Zaxxon/src/Background/Background.h</label>
+        <link refid="_background_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp</label>
+        <link refid="_abstract_bullet_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp</label>
+        <link refid="_boss_bullet_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h</label>
+        <link refid="_boss_bullet_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp</label>
+        <link refid="_character_bullet_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.cpp</label>
+        <link refid="_obstacle_bullet_8cpp"/>
+      </node>
+      <node id="22">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h</label>
+        <link refid="_obstacle_bullet_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.cpp</label>
+        <link refid="_boss_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.h</label>
+        <link refid="_boss_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Zaxxon/src/Entity/Character/Character.cpp</label>
+        <link refid="_character_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Zaxxon/src/Entity/Character/Character.h</label>
+        <link refid="_character_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp</label>
+        <link refid="_enemy_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h</label>
+        <link refid="_enemy_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="14">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>C:/Zaxxon/src/Entity/Entity.cpp</label>
+        <link refid="_entity_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Zaxxon/src/Entity/Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>C:/Zaxxon/src/Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Zaxxon/src/Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>C:/Zaxxon/src/Obstacle/Obstacle.cpp</label>
+        <link refid="_obstacle_8cpp"/>
+      </node>
+      <node id="24">
+        <label>C:/Zaxxon/src/Obstacle/Obstacle.h</label>
+        <link refid="_obstacle_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>C:/Zaxxon/src/Util/Util.cpp</label>
+        <link refid="_util_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>C:/Zaxxon/src/Wall/Wall.cpp</label>
+        <link refid="_wall_8cpp"/>
+      </node>
+      <node id="30">
+        <label>C:/Zaxxon/src/Wall/Wall.h</label>
+        <link refid="_wall_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>C:/Zaxxon/src/ZapWall/ZapWall.cpp</label>
+        <link refid="_zap_wall_8cpp"/>
+      </node>
+      <node id="27">
+        <label>C:/Zaxxon/src/ZapWall/ZapWall.h</label>
+        <link refid="_zap_wall_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="_util_8h_1a6ce83a28018a4c4d235f9404f5e6e39a" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool util_zPress</definition>
+        <argsstring></argsstring>
+        <name>util_zPress</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="9" column="13" bodyfile="C:/Zaxxon/src/Util/Util.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_util_8h_1a647c98cf0903e3d06aaf62139c9b52cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f translateTo2d</definition>
+        <argsstring>(sf::Vector3f)</argsstring>
+        <name>translateTo2d</name>
+        <param>
+          <type>sf::Vector3f</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Convert normal 2d coordinates to isometric coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector of 2 floats</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="6" column="14" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="9" bodyend="15" declfile="C:/Zaxxon/src/Util/Util.h" declline="6" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="_util_8h_1afd424b36564366fd3f8ad452b8977db2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::FloatRect</type>
+        <definition>sf::FloatRect getWindowViewRect</definition>
+        <argsstring>(sf::RenderWindow &amp;)</argsstring>
+        <name>getWindowViewRect</name>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+<para>Easily get the current view rectangle with translations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Float rectangle</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="7" column="15" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="23" bodyend="31" declfile="C:/Zaxxon/src/Util/Util.h" declline="7" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="_util_8h_1a311270ca6451600ab7089e74945d30b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool zPressed</definition>
+        <argsstring>()</argsstring>
+        <name>zPressed</name>
+        <briefdescription>
+<para>Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="10" column="6" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="39" bodyend="52" declfile="C:/Zaxxon/src/Util/Util.h" declline="10" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_util_8h_1a7ab82b63c0cbae8095033e452b2d2183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool upPressed</definition>
+        <argsstring>()</argsstring>
+        <name>upPressed</name>
+        <briefdescription>
+<para>Detects if up is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="11" column="6" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="60" bodyend="64" declfile="C:/Zaxxon/src/Util/Util.h" declline="11" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_util_8h_1a63e332f98a6cbd1cb57f319f556ee594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool downPressed</definition>
+        <argsstring>()</argsstring>
+        <name>downPressed</name>
+        <briefdescription>
+<para>Detects if down is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="12" column="6" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="72" bodyend="76" declfile="C:/Zaxxon/src/Util/Util.h" declline="12" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_util_8h_1ae6f4fd7a79c6617ddba5e4bc53033e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool leftPressed</definition>
+        <argsstring>()</argsstring>
+        <name>leftPressed</name>
+        <briefdescription>
+<para>Detects if left is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="13" column="6" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="84" bodyend="88" declfile="C:/Zaxxon/src/Util/Util.h" declline="13" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_util_8h_1af41bb2031bce096d1162c72a1ec3d49c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rightPressed</definition>
+        <argsstring>()</argsstring>
+        <name>rightPressed</name>
+        <briefdescription>
+<para>Detects if right is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Util/Util.h" line="14" column="6" bodyfile="C:/Zaxxon/src/Util/Util.cpp" bodystart="96" bodyend="100" declfile="C:/Zaxxon/src/Util/Util.h" declline="14" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Util<sp/>contains<sp/>helpful<sp/>methods<sp/>that<sp/>are<sp/>used<sp/>in<sp/>many<sp/>places<sp/>around<sp/>the<sp/>project.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">sf::Vector2f<sp/><ref refid="_util_8h_1a647c98cf0903e3d06aaf62139c9b52cf" kindref="member">translateTo2d</ref>(sf::Vector3f);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">sf::FloatRect<sp/><ref refid="_util_8h_1afd424b36564366fd3f8ad452b8977db2" kindref="member">getWindowViewRect</ref>(sf::RenderWindow&amp;);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>util_zPress<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_util_8h_1a311270ca6451600ab7089e74945d30b5" kindref="member">zPressed</ref>();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_util_8h_1a7ab82b63c0cbae8095033e452b2d2183" kindref="member">upPressed</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_util_8h_1a63e332f98a6cbd1cb57f319f556ee594" kindref="member">downPressed</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_util_8h_1ae6f4fd7a79c6617ddba5e4bc53033e26" kindref="member">leftPressed</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_util_8h_1af41bb2031bce096d1162c72a1ec3d49c" kindref="member">rightPressed</ref>();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">sf::FloatRect<sp/><ref refid="_util_8h_1afd424b36564366fd3f8ad452b8977db2" kindref="member">getWindowViewRect</ref>(sf::RenderWindow&amp;);</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Util/Util.h"/>
+  </compounddef>
+</doxygen>

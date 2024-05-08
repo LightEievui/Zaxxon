@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['space_0',['SPACE',['../class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc',1,'Background']]]
+  ['plane_0',['PLANE',['../class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d',1,'Obstacle']]],
+  ['player_1',['Player',['../class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400',1,'AbstractBullet']]]
 ];

@@ -1,36 +1,36 @@
 \doxysection{Entity.\+h}
-\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{src/Entity/Entity.h@{src/Entity/Entity.h}}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{C:/Zaxxon/src/Entity/Entity.h@{C:/Zaxxon/src/Entity/Entity.h}}
 \mbox{\hyperlink{_entity_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_animation_8h}{Animation/Animation.h}}"{}}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_util_8h}{Util/Util.h}}>}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}}}
-\DoxyCodeLine{00011\ \{}
-\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}}();}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\string~Entity}}();}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}}(\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation::Anim}}\ \mbox{\hyperlink{_animation_8cpp_ace719c3edb14f8a32929395ba2524d64}{animation}}\ =\ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation::CHARACTER\_DEATH}});}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a7d014114fcea80281536d5525019190c}{update}}(sf::RenderWindow\&)\ =\ 0;}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{getAnimationState}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}.\mbox{\hyperlink{class_animation_aa1d5fabe9f7d60e3811f945abc2f24ac}{getState}}();\ \};}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f\ pos)\ \{\ position\ =\ pos;\ \};}
-\DoxyCodeLine{00021\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}()\ \{\ \textcolor{keywordflow}{return}\ position;\ \};}
-\DoxyCodeLine{00022\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{getBounds}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>getGlobalBounds();\ \};}
-\DoxyCodeLine{00023\ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{getSpritePos}}();}
-\DoxyCodeLine{00024\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00025\ \ \ \ \ sf::Texture*\ \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}};}
-\DoxyCodeLine{00026\ \ \ \ \ sf::Sprite*\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}};}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_animation}{Animation}}\ \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}};}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00029\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debugText}};}
-\DoxyCodeLine{00030\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debugFont}};}
-\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00032\ \ \ \ \ sf::Vector3f\ position;}
-\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_animation_8h}{Animation/Animation.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{_util_8h}{Util/Util.h}}>}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00010}\mbox{\hyperlink{class_entity}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00012}00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}}();}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\string~Entity}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}}(\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation::Anim}}\ \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}\ =\ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation::CHARACTER\_DEATH}});}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00017}\mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{00017}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float})\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00019}\mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{00019}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{getAnimationState}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}.\mbox{\hyperlink{class_animation_a90e29926b57befdba44ef5835cb10e06}{getState}}();\ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00020}\mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{00020}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f\ pos)\ \{\ position\ =\ pos;\ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00021}\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{00021}}\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}()\ \{\ \textcolor{keywordflow}{return}\ position;\ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00022}\mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{00022}}\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{getBounds}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>getGlobalBounds();\ \};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00023}00023\ \ \ \ \ sf::Vector2f\ \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{getSpritePos}}();}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00024}00024\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00025}\mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{00025}}\ \ \ \ \ sf::Texture*\ \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00026}\mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{00026}}\ \ \ \ \ sf::Sprite*\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00027}\mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{00027}}\ \ \ \ \ \mbox{\hyperlink{class_animation}{Animation}}\ \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00028}\mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{00028}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00029}\mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{00029}}\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debugText}};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00030}\mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{00030}}\ \ \ \ \ sf::Font\ \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debugFont}};}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00031}00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00032}00032\ \ \ \ \ sf::Vector3f\ position;}
+\DoxyCodeLine{\Hypertarget{_entity_8h_source_l00033}00033\ \};}
 
 \end{DoxyCode}

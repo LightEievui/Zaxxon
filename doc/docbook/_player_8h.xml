@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__player_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/Character/Player/Player.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Player/Player.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;SFML/Audio.hpp&gt;<?linebreak?>#include &quot;Entity/Character/Character.h&quot;<?linebreak?>#include &quot;Entity/AbstractBullet/CharacterBullet/CharacterBullet.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_player">Player</link></para>
+
+<para>The player character, also contains plane controls. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

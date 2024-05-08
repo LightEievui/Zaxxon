@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -107,18 +107,19 @@ $(function(){initNavTree('class_boss.html',''); initResizable(); });
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#ad1c3b7858f8d973b0c920abae83ef80c">getMissile</a>()</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#ab76a3a54901df7bc04ff8eb237549fa7">getMissile</a>() const</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">getSpritePos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_boss.html#a911178ba0e5f853c0472f8a2ef879c60">hit</a>()</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#a619bf5f3c08aa6ffb395e20dc53cb420">isDestroyed</a>()</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#a043a78c54fc3a9b0dbacaaf8789be9ea">isDestroyed</a>() const</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">kill</a>(Animation::Anim animation=Animation::CHARACTER_DEATH)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#a6c3d77400a294319ffa376c28c7d187d">missileCreated</a>()</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#af650e303d854e6bfb32b7ff64989105d">missileCreated</a>() const</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a1783cc856808b2d78c4e46fa9c85a524">setPos</a>(sf::Vector3f pos)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_boss.html#a21b1a76979fe05deca079ade3dca7ed8">update</a>(sf::RenderWindow &amp;)</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#ae2300fbed7e29873d66c5a89beb3a628">~Boss</a>()</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_boss.html#ae9cf8c000e924a806d64e7488ce6f58a">update</a>(sf::RenderWindow &amp;, float gameSpeed) override</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_boss.html#ad848427ba363777ea9fe753b4f70b26c">~Boss</a>() override</td><td class="entry"><a class="el" href="class_boss.html">Boss</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac2da1e8a32161accc56f39ac52cebd86">~Entity</a>()=0</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

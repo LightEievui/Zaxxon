@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__h_m_section_8cpp_source" xml:lang="en-US">
+<title>HMSection.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/HMSection/HMSection.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__h_m_section_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__h_m_section_8h">HMSection.h</link>&quot;</emphasis>
+<anchor xml:id="__h_m_section_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__h_m_section_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__h_m_section_8cpp_source_1l00008"/><link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">00008</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">HMSection::setSection</link>(<emphasis role="keywordtype">int</emphasis>&#32;sect)
+<anchor xml:id="__h_m_section_8cpp_source_1l00009"/>00009 {
+<anchor xml:id="__h_m_section_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;25&#32;sections&#32;8&#32;-&#32;207&#32;x</emphasis>
+<anchor xml:id="__h_m_section_8cpp_source_1l00011"/>00011 &#32;&#32;&#32;&#32;section&#32;=&#32;sect&#32;%&#32;25;
+<anchor xml:id="__h_m_section_8cpp_source_1l00012"/>00012 
+<anchor xml:id="__h_m_section_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Never&#32;be&#32;negative&#32;check</emphasis>
+<anchor xml:id="__h_m_section_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(section&#32;&lt;&#32;0)
+<anchor xml:id="__h_m_section_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;section&#32;=&#32;0;
+<anchor xml:id="__h_m_section_8cpp_source_1l00016"/>00016 
+<anchor xml:id="__h_m_section_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;this-&gt;setTextureRect(sf::IntRect(8&#32;+&#32;section&#32;*&#32;8,&#32;296,&#32;8,&#32;8));
+<anchor xml:id="__h_m_section_8cpp_source_1l00018"/>00018 }
+<anchor xml:id="__h_m_section_8cpp_source_1l00019"/>00019 
+<anchor xml:id="__h_m_section_8cpp_source_1l00020"/>00020 
+<anchor xml:id="__h_m_section_8cpp_source_1l00025"/><link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">00025</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">HMSection::setType</link>(<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cf">Type</link>&#32;type)
+<anchor xml:id="__h_m_section_8cpp_source_1l00026"/>00026 {
+<anchor xml:id="__h_m_section_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;this-&gt;type&#32;=&#32;type;
+<anchor xml:id="__h_m_section_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(this-&gt;type)
+<anchor xml:id="__h_m_section_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">LINE</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(8);
+<anchor xml:id="__h_m_section_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">OPEN</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(3);
+<anchor xml:id="__h_m_section_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">TOP</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(6);
+<anchor xml:id="__h_m_section_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">BOTTOM</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(4);
+<anchor xml:id="__h_m_section_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00043"/>00043 }
+<anchor xml:id="__h_m_section_8cpp_source_1l00044"/>00044 
+<anchor xml:id="__h_m_section_8cpp_source_1l00045"/>00045 
+<anchor xml:id="__h_m_section_8cpp_source_1l00050"/><link linkend="_class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52">00050</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52">HMSection::getSection</link>()
+<anchor xml:id="__h_m_section_8cpp_source_1l00051"/>00051 {
+<anchor xml:id="__h_m_section_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;section;
+<anchor xml:id="__h_m_section_8cpp_source_1l00053"/>00053 }
+<anchor xml:id="__h_m_section_8cpp_source_1l00054"/>00054 
+<anchor xml:id="__h_m_section_8cpp_source_1l00055"/>00055 
+<anchor xml:id="__h_m_section_8cpp_source_1l00060"/><link linkend="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2">00060</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2">HMSection::progress</link>(<emphasis role="keywordtype">int</emphasis>&#32;stage)
+<anchor xml:id="__h_m_section_8cpp_source_1l00061"/>00061 {
+<anchor xml:id="__h_m_section_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;change;
+<anchor xml:id="__h_m_section_8cpp_source_1l00063"/>00063 
+<anchor xml:id="__h_m_section_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;&gt;=&#32;0)
+<anchor xml:id="__h_m_section_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(this-&gt;type)
+<anchor xml:id="__h_m_section_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">TOP</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">LINE</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;change&#32;=&#32;16&#32;-&#32;stage;
+<anchor xml:id="__h_m_section_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(change);
+<anchor xml:id="__h_m_section_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;full&#32;9-16&#32;to&#32;5-8:&#32;blank&#32;to&#32;full&#32;so&#32;8-5&#32;then&#32;16-9:&#32;full&#32;to&#32;blank</emphasis>
+<anchor xml:id="__h_m_section_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">OPEN</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;change&#32;=&#32;24&#32;-&#32;stage;
+<anchor xml:id="__h_m_section_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(change);
+<anchor xml:id="__h_m_section_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;17-24&#32;to&#32;0-3:&#32;blank&#32;to&#32;full&#32;so&#32;3-0&#32;then&#32;24-17:&#32;full&#32;to&#32;blank</emphasis>
+<anchor xml:id="__h_m_section_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">BOTTOM</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__h_m_section_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(this-&gt;type)
+<anchor xml:id="__h_m_section_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">TOP</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">LINE</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;change&#32;=&#32;9&#32;+&#32;stage;
+<anchor xml:id="__h_m_section_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(change);
+<anchor xml:id="__h_m_section_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">OPEN</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;change&#32;=&#32;4&#32;+&#32;stage;
+<anchor xml:id="__h_m_section_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(change);
+<anchor xml:id="__h_m_section_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">BOTTOM</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00100"/>00100 }
+<anchor xml:id="__h_m_section_8cpp_source_1l00101"/>00101 
+<anchor xml:id="__h_m_section_8cpp_source_1l00102"/>00102 
+<anchor xml:id="__h_m_section_8cpp_source_1l00106"/><link linkend="_class_h_m_section_1a6e02d19eb07396dc514c8938d578658b">00106</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_h_m_section_1a6e02d19eb07396dc514c8938d578658b">HMSection::fill</link>()
+<anchor xml:id="__h_m_section_8cpp_source_1l00107"/>00107 {
+<anchor xml:id="__h_m_section_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(this-&gt;type)
+<anchor xml:id="__h_m_section_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">LINE</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(8);
+<anchor xml:id="__h_m_section_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">OPEN</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(3);
+<anchor xml:id="__h_m_section_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">TOP</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(5);
+<anchor xml:id="__h_m_section_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">BOTTOM</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(4);
+<anchor xml:id="__h_m_section_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00122"/>00122 }
+<anchor xml:id="__h_m_section_8cpp_source_1l00123"/>00123 
+<anchor xml:id="__h_m_section_8cpp_source_1l00124"/>00124 
+<anchor xml:id="__h_m_section_8cpp_source_1l00128"/><link linkend="_class_h_m_section_1a6093acdaf453e4985124eb26d85a628d">00128</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_h_m_section_1a6093acdaf453e4985124eb26d85a628d">HMSection::empty</link>()
+<anchor xml:id="__h_m_section_8cpp_source_1l00129"/>00129 {
+<anchor xml:id="__h_m_section_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(this-&gt;type)
+<anchor xml:id="__h_m_section_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__h_m_section_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">TOP</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">LINE</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(9);
+<anchor xml:id="__h_m_section_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">OPEN</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(17);
+<anchor xml:id="__h_m_section_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">BOTTOM</link>:
+<anchor xml:id="__h_m_section_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link>(4);
+<anchor xml:id="__h_m_section_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__h_m_section_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__h_m_section_8cpp_source_1l00143"/>00143 }
+</programlisting></section>

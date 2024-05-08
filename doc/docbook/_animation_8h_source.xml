@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__animation_8h_source" xml:lang="en-US">
+<title>Animation.h</title>
+<indexterm><primary>C:/Zaxxon/src/Animation/Animation.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__animation_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__animation_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__animation_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;thread&gt;</emphasis>
+<anchor xml:id="__animation_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="__animation_8h_source_1l00005"/>00005 
+<anchor xml:id="__animation_8h_source_1l00006"/>00006 
+<anchor xml:id="__animation_8h_source_1l00010"/><link linkend="_class_animation">00010</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_animation">Animation</link>
+<anchor xml:id="__animation_8h_source_1l00011"/>00011 {
+<anchor xml:id="__animation_8h_source_1l00012"/>00012 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__animation_8h_source_1l00013"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">00013</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Anim</link>
+<anchor xml:id="__animation_8h_source_1l00014"/>00014 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8h_source_1l00015"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">00015</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">CHARACTER_DEATH</link>,
+<anchor xml:id="__animation_8h_source_1l00016"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85">00016</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85">ALT_DEATH</link>,
+<anchor xml:id="__animation_8h_source_1l00017"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775">00017</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775">LAUNCH</link>,
+<anchor xml:id="__animation_8h_source_1l00018"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed">00018</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed">BULLET_DEATH</link>,
+<anchor xml:id="__animation_8h_source_1l00019"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728">00019</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728">WALLBULLET_DEATH</link>,
+<anchor xml:id="__animation_8h_source_1l00020"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01">00020</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01">ROCKET_FLICKER</link>,
+<anchor xml:id="__animation_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f">RESET</link>
+<anchor xml:id="__animation_8h_source_1l00022"/><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f">00022</link> &#32;&#32;&#32;&#32;};
+<anchor xml:id="__animation_8h_source_1l00023"/>00023 
+<anchor xml:id="__animation_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<link linkend="_class_animation_1a83f0a16cef7117f187ad596de38dd9d6">Animation</link>();
+<anchor xml:id="__animation_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<link linkend="_class_animation_1a401b68793d4fbf48d481c030ee4b2a16">~Animation</link>();
+<anchor xml:id="__animation_8h_source_1l00026"/>00026 
+<anchor xml:id="__animation_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;size&#32;index&#32;as&#32;an&#32;extra&#32;var&#32;for&#32;some&#32;animations</emphasis>
+<anchor xml:id="__animation_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_animation_1aafa4559f75e244ca439626971d3ea11a">run</link>(sf::Sprite*,&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Anim</link>,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;sizeIndex&#32;=&#32;0);
+<anchor xml:id="__animation_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">getState</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="__animation_8h_source_1l00030"/>00030 
+<anchor xml:id="__animation_8h_source_1l00031"/>00031 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__animation_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;fCHARACTER_DEATH(sf::Sprite*&#32;sprite);
+<anchor xml:id="__animation_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;fALT_DEATH(sf::Sprite*&#32;sprite);
+<anchor xml:id="__animation_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;fLAUNCH(sf::Sprite*&#32;sprite);
+<anchor xml:id="__animation_8h_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;fBULLET_DEATH(sf::Sprite*&#32;sprite);
+<anchor xml:id="__animation_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;fWALLBULLET_DEATH(sf::Sprite*&#32;sprite);
+<anchor xml:id="__animation_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;fROCKET_FLICKER(sf::Sprite*&#32;sprite);
+<anchor xml:id="__animation_8h_source_1l00038"/>00038 
+<anchor xml:id="__animation_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;std::vector&lt;std::thread*&gt;&#32;threads;
+<anchor xml:id="__animation_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;sf::Clock&#32;timer;
+<anchor xml:id="__animation_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;sf::IntRect&#32;frames[26],&#32;revert;
+<anchor xml:id="__animation_8h_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;state&#32;=&#32;0;
+<anchor xml:id="__animation_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;spriteSizeIndex&#32;=&#32;0;
+<anchor xml:id="__animation_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;kill&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__animation_8h_source_1l00045"/>00045 };
+</programlisting></section>

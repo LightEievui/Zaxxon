@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__enemy_8cpp" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;Enemy.h&quot;<?linebreak?></programlisting></section>

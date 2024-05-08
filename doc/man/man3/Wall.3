@@ -17,10 +17,6 @@ Wall \- Class for the normal walls (stone brick)\&.
 .br
 .RI "Create a section of walls, each one can be a closed or open wall piece\&. "
 .ti -1c
-.RI "\fB~Wall\fP ()"
-.br
-.RI "Clean up memory related to wall class\&. "
-.ti -1c
 .RI "void \fBdrawWalls\fP (sf::RenderWindow &window)"
 .br
 .RI "Draw each section of the wall if it will be visible on the screen\&. "
@@ -37,13 +33,15 @@ Wall \- Class for the normal walls (stone brick)\&.
 .br
 .RI "Check if this wall will be on screen\&. "
 .ti -1c
-.RI "std::vector< sf::Vector3f > \fBgetWallPositions\fP ()"
+.RI "std::vector< sf::Vector3f > & \fBgetWallPositions\fP ()"
 .br
 .RI "Get 3d position of this wall\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Class for the normal walls (stone brick)\&. 
+.PP
+Definition at line \fB10\fP of file \fBWall\&.h\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Wall::Wall (sf::Texture * tex, sf::Vector3f pos, int size, std::vector< int > walls)"
@@ -63,10 +61,8 @@ Create a section of walls, each one can be a closed or open wall piece\&.
 .RE
 .PP
 
-.SS "Wall::~Wall ()"
-
 .PP
-Clean up memory related to wall class\&. 
+Definition at line \fB11\fP of file \fBWall\&.cpp\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "bool Wall::checkOnScreen ()"
@@ -80,6 +76,8 @@ A boolean
 .RE
 .PP
 
+.PP
+Definition at line \fB91\fP of file \fBWall\&.cpp\fP\&.
 .SS "void Wall::drawWalls (sf::RenderWindow & window)"
 
 .PP
@@ -91,7 +89,9 @@ Draw each section of the wall if it will be visible on the screen\&.
 .RE
 .PP
 
-.SS "std::vector< sf::Vector3f > Wall::getWallPositions ()"
+.PP
+Definition at line \fB41\fP of file \fBWall\&.cpp\fP\&.
+.SS "std::vector< sf::Vector3f > & Wall::getWallPositions ()"
 
 .PP
 Get 3d position of this wall\&. 
@@ -102,6 +102,8 @@ Vector of 3 float vectors
 .RE
 .PP
 
+.PP
+Definition at line \fB101\fP of file \fBWall\&.cpp\fP\&.
 .SS "void Wall::setPosition (sf::Vector3f pos, int piece = \fR0\fP)"
 
 .PP
@@ -115,6 +117,8 @@ Set position of specificed wall piece\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB63\fP of file \fBWall\&.cpp\fP\&.
 .SS "void Wall::setTexture (int piece, int tex)"
 
 .PP
@@ -128,6 +132,8 @@ Set texture for if this wall piece should be closed or open\&.
 .RE
 .PP
 
+.PP
+Definition at line \fB75\fP of file \fBWall\&.cpp\fP\&.
 
 .SH "Author"
 .PP 

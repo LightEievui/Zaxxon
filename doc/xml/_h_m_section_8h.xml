@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_h_m_section_8h" kind="file" language="C++">
+    <compoundname>HMSection.h</compoundname>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includedby refid="_g_u_i_8h" local="yes">C:/Zaxxon/src/GUI/GUI.h</includedby>
+    <includedby refid="_h_m_section_8cpp" local="yes">C:/Zaxxon/src/GUI/HMSection/HMSection.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Zaxxon/src/GUI/HMSection/HMSection.h</label>
+        <link refid="_h_m_section_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Zaxxon/src/GUI/GUI.cpp</label>
+        <link refid="_g_u_i_8cpp"/>
+      </node>
+      <node id="2">
+        <label>C:/Zaxxon/src/GUI/GUI.h</label>
+        <link refid="_g_u_i_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Zaxxon/src/GUI/HMSection/HMSection.cpp</label>
+        <link refid="_h_m_section_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/GUI/HMSection/HMSection.h</label>
+        <link refid="_h_m_section_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Zaxxon/src/Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Zaxxon/src/Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_h_m_section" prot="public">HMSection</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_h_m_section" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_h_m_section" kindref="compound">HMSection</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>sf::Sprite</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" kindref="member">Type</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13" refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119" kindref="member">LINE</ref>,</highlight></codeline>
+<codeline lineno="14" refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c" kindref="member">OPEN</ref>,</highlight></codeline>
+<codeline lineno="15" refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481" kindref="member">TOP</ref>,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740" kindref="member">BOTTOM</ref></highlight></codeline>
+<codeline lineno="17" refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2" kindref="member">progress</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1a3307e1d78540b5624be54eea4af89e13" kindref="member">setSection</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f" kindref="member">setType</ref>(<ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" kindref="member">Type</ref>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1a6e02d19eb07396dc514c8938d578658b" kindref="member">fill</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1a6093acdaf453e4985124eb26d85a628d" kindref="member">empty</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52" kindref="member">getSection</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>section<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h"/>
+  </compounddef>
+</doxygen>

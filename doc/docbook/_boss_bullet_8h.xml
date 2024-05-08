@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__boss_bullet_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;../AbstractBullet.h&quot;<?linebreak?>#include &quot;Entity/Character/Player/Player.h&quot;<?linebreak?>#include &quot;SFML/Graphics.hpp&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_boss_bullet">BossBullet</link></para>
+
+<para>The missile that the boss shoots. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

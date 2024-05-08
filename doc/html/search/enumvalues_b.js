@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['wallbullet_5fdeath_0',['WALLBULLET_DEATH',['../class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728',1,'Animation']]],
-  ['walldeath_1',['WallDeath',['../class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc',1,'CharacterBullet']]]
+  ['satellite_0',['SATELLITE',['../class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a',1,'Obstacle']]],
+  ['space_1',['SPACE',['../class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc',1,'Background']]],
+  ['space_5ffuel_2',['SPACE_FUEL',['../class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701',1,'Obstacle']]]
 ];

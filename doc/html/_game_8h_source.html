@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: src/Game/Game.h Source File</title>
+<title>Zaxxon: C:/Zaxxon/src/Game/Game.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -117,7 +117,7 @@ $(function(){initNavTree('_game_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_boss_8h.html">Entity/Boss/Boss.h</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// Clearer than using unsigned char often</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_game_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">   17</a></span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_typedef" href="_game_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_game_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">   17</a></span><span class="keyword">using </span><a class="code hl_typedef" href="_game_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a> = <span class="keywordtype">unsigned</span> char;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
@@ -127,38 +127,38 @@ $(function(){initNavTree('_game_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>();</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a>();</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa">run</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    sf::Texture spriteSheet, bossSheet;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_background.html">Background</a>* pBackground;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    sf::RenderWindow window;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    sf::ContextSettings s;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="class_g_u_i.html">GUI</a> gui;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_player.html">Player</a>* player;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;Enemy*&gt; enemies;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::vector&lt;Obstacle*&gt; obstacles;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::vector&lt;Wall*&gt; walls;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::vector&lt;ZapWalls*&gt; zapWalls;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="class_boss.html">Boss</a>* boss = <span class="keyword">nullptr</span>; <span class="comment">//file position needs to be moved inside of entity, fsr my home computer struggles to edit file position in visual studio</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">byte</span> fuel = 128;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">byte</span> completions = 0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">byte</span> lives = 2;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">int</span> score = 0;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">int</span> highScore = 0;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">float</span> gameSpeed = 1.0;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">byte</span> gameState = 0;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">int</span> currentScores[6] = { 0, 0, 0, 0, 0, 0 };</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    std::string currentNames[6] = { <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span> };</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">char</span> name[3] = { <span class="charliteral">&#39;_&#39;</span>, <span class="charliteral">&#39;_&#39;</span>, <span class="charliteral">&#39;_&#39;</span> };</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> activeCursor[4] = { <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>};</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">byte</span> selector = 0;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::fstream file;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fps = 0;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">double</span> deltaTime = 0;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::chrono::steady_clock::time_point lastTime =</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        std::chrono::high_resolution_clock::now(), currentTime;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    sf::Texture spriteSheet, bossSheet;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="class_background.html">Background</a>* pBackground;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    sf::RenderWindow window;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="class_g_u_i.html">GUI</a> gui;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="class_player.html">Player</a>* player;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::vector&lt;Enemy*&gt; enemies;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::vector&lt;Obstacle*&gt; obstacles;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;Wall*&gt; walls;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::vector&lt;ZapWall*&gt; zapWalls;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_boss.html">Boss</a>* boss = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_boss_bullet.html">BossBullet</a>* missile = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">byte</span> fuel = 128;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">byte</span> completions = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">byte</span> lives = 2;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">int</span> score = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">int</span> highScore = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">float</span> gameSpeed = 1.0;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">byte</span> gameState = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">int</span> currentScores[6] = {0, 0, 0, 0, 0, 0};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::string currentNames[6] = {<span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>, <span class="stringliteral">&quot;   &quot;</span>};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">char</span> name[3] = {<span class="charliteral">&#39;_&#39;</span>, <span class="charliteral">&#39;_&#39;</span>, <span class="charliteral">&#39;_&#39;</span>};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> activeCursor[4] = {<span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">byte</span> selector = 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::fstream file;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fps = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span> deltaTime = 0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::chrono::steady_clock::time_point lastTime =</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                              std::chrono::high_resolution_clock::now()</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                          , currentTime;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    sf::View mainView;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    sf::View guiView;</div>
@@ -168,9 +168,9 @@ $(function(){initNavTree('_game_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    sf::Clock deathClock;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    sf::Sprite deathSprite;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> bossState = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> doCollision(<a class="code hl_class" href="class_player.html">Player</a>*);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> doCollision(<a class="code hl_class" href="class_player.html">Player</a>*);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span> obstacleHit(<a class="code hl_enumeration" href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</a> type, sf::Vector3f difference,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                     <span class="keywordtype">bool</span> intersect2d);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> playerDeath();</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> gameOver();</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
@@ -180,24 +180,26 @@ $(function(){initNavTree('_game_8h_source.html',''); initResizable(); });
 <div class="ttc" id="a_enemy_8h_html"><div class="ttname"><a href="_enemy_8h.html">Enemy.h</a></div></div>
 <div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div></div>
 <div class="ttc" id="a_g_u_i_8h_html"><div class="ttname"><a href="_g_u_i_8h.html">GUI.h</a></div></div>
-<div class="ttc" id="a_game_8h_html_a0c8186d9b9b7880309c27230bbb5e69d"><div class="ttname"><a href="_game_8h.html#a0c8186d9b9b7880309c27230bbb5e69d">byte</a></div><div class="ttdeci">unsigned char byte</div><div class="ttdef"><b>Definition</b> Game.h:17</div></div>
+<div class="ttc" id="a_game_8h_html_a7528222f65ad403ee1a88ff2b56f9fb7"><div class="ttname"><a href="_game_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7">byte</a></div><div class="ttdeci">unsigned char byte</div><div class="ttdef"><b>Definition</b> <a href="#l00017">Game.h:17</a></div></div>
 <div class="ttc" id="a_obstacle_8h_html"><div class="ttname"><a href="_obstacle_8h.html">Obstacle.h</a></div></div>
 <div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
 <div class="ttc" id="a_wall_8h_html"><div class="ttname"><a href="_wall_8h.html">Wall.h</a></div></div>
-<div class="ttc" id="aclass_background_html"><div class="ttname"><a href="class_background.html">Background</a></div><div class="ttdoc">Holds all backgrounds and methods to fill each level with content.</div><div class="ttdef"><b>Definition</b> Background.h:16</div></div>
-<div class="ttc" id="aclass_boss_html"><div class="ttname"><a href="class_boss.html">Boss</a></div><div class="ttdoc">The boss entity you fight at the end of the level loop.</div><div class="ttdef"><b>Definition</b> Boss.h:12</div></div>
-<div class="ttc" id="aclass_g_u_i_html"><div class="ttname"><a href="class_g_u_i.html">GUI</a></div><div class="ttdoc">Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...</div><div class="ttdef"><b>Definition</b> GUI.h:17</div></div>
-<div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">The main game and all related classes eventually end up being used here. Game loop is in here and is ...</div><div class="ttdef"><b>Definition</b> Game.h:25</div></div>
-<div class="ttc" id="aclass_game_html_a1ab78f5ed0d5ea879157357cf2fb2afa"><div class="ttname"><a href="class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Start the game, main game loop is also managed in here.</div><div class="ttdef"><b>Definition</b> Game.cpp:104</div></div>
-<div class="ttc" id="aclass_game_html_ad59df6562a58a614fda24622d3715b65"><div class="ttname"><a href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game::Game</a></div><div class="ttdeci">Game()</div><div class="ttdoc">Initialize everything needed for the main game functionality.</div><div class="ttdef"><b>Definition</b> Game.cpp:10</div></div>
-<div class="ttc" id="aclass_game_html_ae3d112ca6e0e55150d2fdbc704474530"><div class="ttname"><a href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">Game::~Game</a></div><div class="ttdeci">~Game()</div><div class="ttdoc">Clean up memory when user is done playing the game.</div><div class="ttdef"><b>Definition</b> Game.cpp:81</div></div>
-<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">The player character, also contains plane controls.</div><div class="ttdef"><b>Definition</b> Player.h:11</div></div>
+<div class="ttc" id="aclass_background_html"><div class="ttname"><a href="class_background.html">Background</a></div><div class="ttdoc">Holds all backgrounds and methods to fill each level with content.</div><div class="ttdef"><b>Definition</b> <a href="_background_8h_source.html#l00015">Background.h:16</a></div></div>
+<div class="ttc" id="aclass_boss_bullet_html"><div class="ttname"><a href="class_boss_bullet.html">BossBullet</a></div><div class="ttdoc">The missile that the boss shoots.</div><div class="ttdef"><b>Definition</b> <a href="_boss_bullet_8h_source.html#l00010">BossBullet.h:11</a></div></div>
+<div class="ttc" id="aclass_boss_html"><div class="ttname"><a href="class_boss.html">Boss</a></div><div class="ttdoc">The boss entity you fight at the end of the level loop.</div><div class="ttdef"><b>Definition</b> <a href="_boss_8h_source.html#l00011">Boss.h:12</a></div></div>
+<div class="ttc" id="aclass_g_u_i_html"><div class="ttname"><a href="class_g_u_i.html">GUI</a></div><div class="ttdoc">Contains all GUI used in the game, including all text. These are simple but can take a lot of space d...</div><div class="ttdef"><b>Definition</b> <a href="_g_u_i_8h_source.html#l00014">GUI.h:15</a></div></div>
+<div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdoc">The main game and all related classes eventually end up being used here. Game loop is in here and is ...</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Game.h:25</a></div></div>
+<div class="ttc" id="aclass_game_html_a1ab78f5ed0d5ea879157357cf2fb2afa"><div class="ttname"><a href="class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Start the game, main game loop is also managed in here.</div><div class="ttdef"><b>Definition</b> <a href="_game_8cpp_source.html#l00116">Game.cpp:116</a></div></div>
+<div class="ttc" id="aclass_game_html_ad59df6562a58a614fda24622d3715b65"><div class="ttname"><a href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game::Game</a></div><div class="ttdeci">Game()</div><div class="ttdoc">Initialize everything needed for the main game functionality.</div><div class="ttdef"><b>Definition</b> <a href="_game_8cpp_source.html#l00010">Game.cpp:10</a></div></div>
+<div class="ttc" id="aclass_game_html_ae3d112ca6e0e55150d2fdbc704474530"><div class="ttname"><a href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">Game::~Game</a></div><div class="ttdeci">~Game()</div><div class="ttdoc">Clean up memory when user is done playing the game.</div><div class="ttdef"><b>Definition</b> <a href="_game_8cpp_source.html#l00088">Game.cpp:88</a></div></div>
+<div class="ttc" id="aclass_obstacle_html_aa5327a6a717468b71fc3c7b95ee7ebda"><div class="ttname"><a href="class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</a></div><div class="ttdeci">ObstacleType</div><div class="ttdef"><b>Definition</b> <a href="_obstacle_8h_source.html#l00029">Obstacle.h:30</a></div></div>
+<div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">The player character, also contains plane controls.</div><div class="ttdef"><b>Definition</b> <a href="_player_8h_source.html#l00010">Player.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b43036362fece0f978c3c8156df55d19.html">Game</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
+    <li class="navelem"><a class="el" href="dir_82065fcfece22a58f0c2e177bd225074.html">Zaxxon</a></li><li class="navelem"><a class="el" href="dir_d030179c1ca07159d4124dc786a04913.html">src</a></li><li class="navelem"><a class="el" href="dir_e7439984c44108d3b2049a9eeb8658b3.html">Game</a></li><li class="navelem"><a class="el" href="_game_8h.html">Game.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

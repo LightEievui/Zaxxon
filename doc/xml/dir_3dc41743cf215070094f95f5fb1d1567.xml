@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_3dc41743cf215070094f95f5fb1d1567" kind="dir">
+    <compoundname>C:/Zaxxon/src/GUI</compoundname>
+    <innerdir refid="dir_fd16583aea08d7e90ef1a30937c0ce95">C:/Zaxxon/src/GUI/HMSection</innerdir>
+    <innerdir refid="dir_bdf446320f0a5e5cd1ebd0659f195cfc">C:/Zaxxon/src/GUI/ZaxxonText</innerdir>
+    <innerfile refid="_g_u_i_8cpp">GUI.cpp</innerfile>
+    <innerfile refid="_g_u_i_8h">GUI.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/GUI/"/>
+  </compounddef>
+</doxygen>

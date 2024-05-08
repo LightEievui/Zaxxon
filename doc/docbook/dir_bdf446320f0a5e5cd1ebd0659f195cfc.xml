@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_bdf446320f0a5e5cd1ebd0659f195cfc" xml:lang="en-US">
+<title>C:/Zaxxon/src/GUI/ZaxxonText Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/ZaxxonText Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__zaxxon_text_8cpp">ZaxxonText.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__zaxxon_text_8h">ZaxxonText.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

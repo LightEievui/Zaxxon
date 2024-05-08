@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Zaxxon: src/Zaxxon.cpp File Reference</title>
+<title>Zaxxon: C:/Zaxxon/src/Zaxxon.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,6 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,11 +27,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
    <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Recreation of Zaxxon in C++ with SFML</div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +94,6 @@ $(function(){initNavTree('_zaxxon_8cpp.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Zaxxon.cpp File Reference</div></div>
 </div><!--header-->
@@ -102,49 +101,14 @@ $(function(){initNavTree('_zaxxon_8cpp.html',''); initResizable(); });
 <div class="textblock"><code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="_game_8h_source.html">Game/Game.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;crtdbg.h&gt;</code><br />
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:afc30e481f763a8d68a861dba91be7316" id="r_afc30e481f763a8d68a861dba91be7316"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc30e481f763a8d68a861dba91be7316">_CRTDBG_MAP_ALLOC</a></td></tr>
-<tr class="separator:afc30e481f763a8d68a861dba91be7316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95d1b97f67f97c7e0f27519372822f43" id="r_a95d1b97f67f97c7e0f27519372822f43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95d1b97f67f97c7e0f27519372822f43">DBG_NEW</a>&#160;&#160;&#160;new</td></tr>
-<tr class="separator:a95d1b97f67f97c7e0f27519372822f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
+</div>
+<p><a href="_zaxxon_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="afc30e481f763a8d68a861dba91be7316" name="afc30e481f763a8d68a861dba91be7316"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc30e481f763a8d68a861dba91be7316">&#9670;&#160;</a></span>_CRTDBG_MAP_ALLOC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _CRTDBG_MAP_ALLOC</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a95d1b97f67f97c7e0f27519372822f43" name="a95d1b97f67f97c7e0f27519372822f43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95d1b97f67f97c7e0f27519372822f43">&#9670;&#160;</a></span>DBG_NEW</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DBG_NEW&#160;&#160;&#160;new</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
@@ -161,6 +125,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_zaxxon_8cpp_source.html#l00030">30</a> of file <a class="el" href="_zaxxon_8cpp_source.html">Zaxxon.cpp</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -168,7 +134,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_zaxxon_8cpp.html">Zaxxon.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_82065fcfece22a58f0c2e177bd225074.html">Zaxxon</a></li><li class="navelem"><a class="el" href="dir_d030179c1ca07159d4124dc786a04913.html">src</a></li><li class="navelem"><a class="el" href="_zaxxon_8cpp.html">Zaxxon.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

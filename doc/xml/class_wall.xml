@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_wall" kind="class" language="C++" prot="public">
+    <compoundname>Wall</compoundname>
+    <includes refid="_wall_8h" local="no">Wall.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_wall_1a60c99ced032ab62efc11f10462f34caa" prot="private" static="no" mutable="no">
+        <type>sf::Texture *</type>
+        <definition>sf::Texture* Wall::spriteSheet</definition>
+        <argsstring></argsstring>
+        <name>spriteSheet</name>
+        <qualifiedname>Wall::spriteSheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="21" column="13" bodyfile="C:/Zaxxon/src/Wall/Wall.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_wall_1a07e15054d3d7414c3952d4d1ac3b294b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Wall::onScreen</definition>
+        <argsstring></argsstring>
+        <name>onScreen</name>
+        <qualifiedname>Wall::onScreen</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="22" column="6" bodyfile="C:/Zaxxon/src/Wall/Wall.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_wall_1aa599512df7ed68e7ec3aca3b86428174" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; Wall::sprites</definition>
+        <argsstring></argsstring>
+        <name>sprites</name>
+        <qualifiedname>Wall::sprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="23" column="13" bodyfile="C:/Zaxxon/src/Wall/Wall.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_wall_1aee3cbc12a940cfb032deb585eafb1864" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Vector3f &gt;</type>
+        <definition>std::vector&lt;sf::Vector3f&gt; Wall::wallPositions</definition>
+        <argsstring></argsstring>
+        <name>wallPositions</name>
+        <qualifiedname>Wall::wallPositions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="24" column="13" bodyfile="C:/Zaxxon/src/Wall/Wall.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_wall_1a5f29ba541aff9823b15a97451d78e4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Wall::Wall</definition>
+        <argsstring>(sf::Texture *, sf::Vector3f, int size, std::vector&lt; int &gt;)</argsstring>
+        <name>Wall</name>
+        <qualifiedname>Wall::Wall</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>tex</defname>
+        </param>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>pos</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int &gt;</type>
+          <defname>walls</defname>
+        </param>
+        <briefdescription>
+<para>Create a section of walls, each one can be a closed or open wall piece. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tex</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>walls</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="13" column="1" bodyfile="C:/Zaxxon/src/Wall/Wall.cpp" bodystart="11" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wall_1a274edf0d5b16afba31a8618df97626af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Wall::drawWalls</definition>
+        <argsstring>(sf::RenderWindow &amp;window)</argsstring>
+        <name>drawWalls</name>
+        <qualifiedname>Wall::drawWalls</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+<para>Draw each section of the wall if it will be visible on the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="15" column="6" bodyfile="C:/Zaxxon/src/Wall/Wall.cpp" bodystart="41" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wall_1a2f5f377219bc2e184db172a9093875d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Wall::setPosition</definition>
+        <argsstring>(sf::Vector3f, int piece=0)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Wall::setPosition</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>pos</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>piece</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Set position of specificed wall piece. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>piece</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="16" column="6" bodyfile="C:/Zaxxon/src/Wall/Wall.cpp" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wall_1a0f4063e0408cb992f6d478308fa52656" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Wall::setTexture</definition>
+        <argsstring>(int, int)</argsstring>
+        <name>setTexture</name>
+        <qualifiedname>Wall::setTexture</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>piece</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>tex</defname>
+        </param>
+        <briefdescription>
+<para>Set texture for if this wall piece should be closed or open. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>piece</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tex</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="17" column="6" bodyfile="C:/Zaxxon/src/Wall/Wall.cpp" bodystart="75" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Wall::checkOnScreen</definition>
+        <argsstring>()</argsstring>
+        <name>checkOnScreen</name>
+        <qualifiedname>Wall::checkOnScreen</qualifiedname>
+        <briefdescription>
+<para>Check if this wall will be on screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="18" column="6" bodyfile="C:/Zaxxon/src/Wall/Wall.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wall_1a6132a9e93316cba66ee61a78ea96040b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; sf::Vector3f &gt; &amp;</type>
+        <definition>std::vector&lt; sf::Vector3f &gt; &amp; Wall::getWallPositions</definition>
+        <argsstring>()</argsstring>
+        <name>getWallPositions</name>
+        <qualifiedname>Wall::getWallPositions</qualifiedname>
+        <briefdescription>
+<para>Get 3d position of this wall. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Vector of 3 float vectors</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Wall/Wall.h" line="19" column="13" bodyfile="C:/Zaxxon/src/Wall/Wall.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for the normal walls (stone brick). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Wall/Wall.h" line="10" column="1" bodyfile="C:/Zaxxon/src/Wall/Wall.h" bodystart="11" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae" prot="public" virt="non-virtual"><scope>Wall</scope><name>checkOnScreen</name></member>
+      <member refid="class_wall_1a274edf0d5b16afba31a8618df97626af" prot="public" virt="non-virtual"><scope>Wall</scope><name>drawWalls</name></member>
+      <member refid="class_wall_1a6132a9e93316cba66ee61a78ea96040b" prot="public" virt="non-virtual"><scope>Wall</scope><name>getWallPositions</name></member>
+      <member refid="class_wall_1a07e15054d3d7414c3952d4d1ac3b294b" prot="private" virt="non-virtual"><scope>Wall</scope><name>onScreen</name></member>
+      <member refid="class_wall_1a2f5f377219bc2e184db172a9093875d4" prot="public" virt="non-virtual"><scope>Wall</scope><name>setPosition</name></member>
+      <member refid="class_wall_1a0f4063e0408cb992f6d478308fa52656" prot="public" virt="non-virtual"><scope>Wall</scope><name>setTexture</name></member>
+      <member refid="class_wall_1aa599512df7ed68e7ec3aca3b86428174" prot="private" virt="non-virtual"><scope>Wall</scope><name>sprites</name></member>
+      <member refid="class_wall_1a60c99ced032ab62efc11f10462f34caa" prot="private" virt="non-virtual"><scope>Wall</scope><name>spriteSheet</name></member>
+      <member refid="class_wall_1a5f29ba541aff9823b15a97451d78e4c6" prot="public" virt="non-virtual"><scope>Wall</scope><name>Wall</name></member>
+      <member refid="class_wall_1aee3cbc12a940cfb032deb585eafb1864" prot="private" virt="non-virtual"><scope>Wall</scope><name>wallPositions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

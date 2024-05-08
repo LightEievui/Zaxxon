@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stage_0',['Stage',['../class_background.html#a63cd37625e2bab37186432edd734c6b3',1,'Background']]]
+  ['obstacletype_0',['ObstacleType',['../class_obstacle.html#aa5327a6a717468b71fc3c7b95ee7ebda',1,'Obstacle']]]
 ];

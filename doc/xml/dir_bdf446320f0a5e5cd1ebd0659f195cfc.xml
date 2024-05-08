@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_bdf446320f0a5e5cd1ebd0659f195cfc" kind="dir">
+    <compoundname>C:/Zaxxon/src/GUI/ZaxxonText</compoundname>
+    <innerfile refid="_zaxxon_text_8cpp">ZaxxonText.cpp</innerfile>
+    <innerfile refid="_zaxxon_text_8h">ZaxxonText.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/GUI/ZaxxonText/"/>
+  </compounddef>
+</doxygen>

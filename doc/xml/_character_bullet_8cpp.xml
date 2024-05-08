@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_character_bullet_8cpp" kind="file" language="C++">
+    <compoundname>CharacterBullet.cpp</compoundname>
+    <includes refid="_character_bullet_8h" local="yes">CharacterBullet.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp</label>
+        <link refid="_character_bullet_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="7">
+        <label>thread</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_character_bullet_8h" kindref="compound">CharacterBullet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3" refkind="member"><highlight class="normal"><ref refid="class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3" kindref="member">CharacterBullet::CharacterBullet</ref>(sf::Texture*<sp/>spritesheet,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Vector3f<sp/>spawnPos,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sizeIndex,<sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" kindref="member">BulletType</ref><sp/>type,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Vector2f<sp/>spawnPos2f</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTexture(*spritesheet);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTextureRect(sf::IntRect(8<sp/>+<sp/>16<sp/>*<sp/>sizeIndex,<sp/>47,<sp/>16,<sp/>8));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setOrigin(0,<sp/>8);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/><ref refid="class_player" kindref="compound">Player</ref>)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setColor(sf::Color(0,<sp/>222,<sp/>0));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(spawnPos.x<sp/>-<sp/>21.f,<sp/>spawnPos.y<sp/>+<sp/>.02f<sp/>*<sp/>sizeIndex,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>spawnPos.z<sp/>-<sp/>15.f));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setPosition(<ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>()));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/><ref refid="class_enemy" kindref="compound">Enemy</ref>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setColor(sf::Color(222,<sp/>0,<sp/>0));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setPosition(</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>spawnPos2f<sp/>+<sp/>sf::Vector2f(-3.f<sp/>*<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(3U<sp/>-<sp/>sizeIndex),</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>20));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;sizeIndex<sp/>=<sp/>sizeIndex;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;type<sp/>=<sp/>type;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54" refkind="member"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54" kindref="member">CharacterBullet::getSizeIndex</ref>()</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sizeIndex;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" kindref="member">CharacterBullet::kill</ref>()</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" kindref="member">kill</ref>(<ref refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0" kindref="member">EnemyDeath</ref>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" kindref="member">CharacterBullet::kill</ref>(<ref refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd" kindref="member">BulletDeathType</ref><sp/>deathType)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setColor(sf::Color(255,<sp/>255,<sp/>255));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//death<sp/>conditions<sp/>and<sp/>animations<sp/>based<sp/>on<sp/>what<sp/>is<sp/>dying</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(deathType)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc" kindref="member">WallDeath</ref>:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kindref="member">getState</ref>()<sp/>&lt;<sp/>1)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" kindref="member">run</ref>(<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>,<sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728" kindref="member">Animation::Anim::WALLBULLET_DEATH</ref>,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sizeIndex);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0" kindref="member">EnemyDeath</ref>:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>adjust<sp/>position<sp/>to<sp/>align<sp/>better</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;type<sp/>==<sp/><ref refid="class_player" kindref="compound">Player</ref>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>()<sp/>+<sp/>sf::Vector3f(0,<sp/>0,<sp/>-16));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kindref="member">getState</ref>()<sp/>&lt;<sp/>2)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" kindref="member">run</ref>(<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>,<sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed" kindref="member">Animation::Anim::BULLET_DEATH</ref>,<sp/>sizeIndex);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b" kindref="member">CharacterBullet::update</ref>(sf::RenderWindow&amp;<sp/>window,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gameSpeed)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/><ref refid="class_player" kindref="compound">Player</ref>)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kindref="member">getState</ref>()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" kindref="member">translate</ref>(-6<sp/>*<sp/>gameSpeed);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//doesn&apos;t<sp/>use<sp/>translate<sp/>because<sp/>it<sp/>uses<sp/>2d<sp/>movement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/><ref refid="class_enemy" kindref="compound">Enemy</ref>)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;move(<ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(sf::Vector3f(0,<sp/>0,<sp/>3<sp/>*<sp/>gameSpeed)));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kindref="member">getState</ref>()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" kindref="member">alive</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>window.draw(*<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp"/>
+  </compounddef>
+</doxygen>

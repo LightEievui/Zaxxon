@@ -20,29 +20,29 @@ Inheritance diagram for Boss\+Bullet\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_boss_bullet_a6aa72332992a0eb9d4fe4d66e9d862c5}{Boss\+Bullet}} (sf\+::\+Vector3f, \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}, sf\+::\+Texture \texorpdfstring{$\ast$}{*})
 \begin{DoxyCompactList}\small\item\em Create a boss bullet based on it\textquotesingle{}s position. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_boss_bullet_a387327aee4bbfba8abd6320f6f5acb35}{\texorpdfstring{$\sim$}{\string~}\+Boss\+Bullet}} ()
-\begin{DoxyCompactList}\small\item\em Clean up memory related to boss bullet class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_boss_bullet_a3501c85f3336e4a745e6fc7f3a354aaf}{update}} (sf\+::\+Render\+Window \&)
+void \mbox{\hyperlink{class_boss_bullet_ad3b8d306bfa0bad8913a57d3cd3d7594}{update}} (sf\+::\+Render\+Window \&, float) override
 \begin{DoxyCompactList}\small\item\em Run logic for boss bullet then draw it to screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_boss_bullet_a968121e064e7f0e9bfca96a32ba2aba2}{damage}} (int)
-\item 
+\begin{DoxyCompactList}\small\item\em Decrease the health of the bullet. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_boss_bullet_ae644a8610bba9a05a8d29455179c5965}{collide}} ()
-\item 
-bool \mbox{\hyperlink{class_boss_bullet_abfe6d391d23ed5b47ab7e39d8e17aaf7}{is\+Destroyed}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Run the death animation and set to dead. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_abstract_bullet_a7101e714c7e25ed57a26c74b59b5ee83}{Abstract\+Bullet}} ()
-\end{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_abstract_bullet_acab32995c786012e42040fe452e46d67}{is\+Hit}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether the bullet is dead or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_abstract_bullet_a47c3c34b0371c2f926470f90f94df2b1}{translate}} (float)
+\begin{DoxyCompactList}\small\item\em Move a certain amount on the Z axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
 \begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()
+virtual \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=0
 \begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_ace719c3edb14f8a32929395ba2524d64}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
 \begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
 \item 
@@ -55,6 +55,24 @@ sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799ad
 sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
 \begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabd}{Bullet\+Type}} \{ \newline
+\mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400}{Player}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc}{Enemy}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a}{Missile}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d}{z\+Bullet}}
+, \newline
+\mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514}{x\+BulletL}}
+, \mbox{\hyperlink{class_abstract_bullet_ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1}{x\+BulletR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_bullet}{Abstract\+Bullet}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_abstract_bullet_aa1477f32fb0f60c087182aad82598d96}{alive}} = true
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -75,6 +93,10 @@ sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{de
 \doxysubsection{Detailed Description}
 The missile that the boss shoots. 
 
+Definition at line \mbox{\hyperlink{_boss_bullet_8h_source_l00010}{10}} of file \mbox{\hyperlink{_boss_bullet_8h_source}{Boss\+Bullet.\+h}}.
+
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_boss_bullet_a6aa72332992a0eb9d4fe4d66e9d862c5}\label{class_boss_bullet_a6aa72332992a0eb9d4fe4d66e9d862c5} 
 \index{BossBullet@{BossBullet}!BossBullet@{BossBullet}}
@@ -90,20 +112,14 @@ Create a boss bullet based on it\textquotesingle{}s position.
 \begin{DoxyParams}{Parameters}
 {\em start\+Pos} & \\
 \hline
-{\em target} & \\
+{\em target} & The entity that the missile is targetting.\\
 \hline
 {\em sprite\+Sheet} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_boss_bullet_a387327aee4bbfba8abd6320f6f5acb35}\label{class_boss_bullet_a387327aee4bbfba8abd6320f6f5acb35} 
-\index{BossBullet@{BossBullet}!````~BossBullet@{\texorpdfstring{$\sim$}{\string~}BossBullet}}
-\index{````~BossBullet@{\texorpdfstring{$\sim$}{\string~}BossBullet}!BossBullet@{BossBullet}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BossBullet()}{\string~BossBullet()}}
-{\footnotesize\ttfamily Boss\+Bullet\+::\texorpdfstring{$\sim$}{\string~}\+Boss\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
-
-Clean up memory related to boss bullet class. 
+Definition at line \mbox{\hyperlink{_boss_bullet_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_boss_bullet_8cpp_source}{Boss\+Bullet.\+cpp}}.
 
 
 
@@ -114,23 +130,38 @@ Clean up memory related to boss bullet class.
 \doxysubsubsection{\texorpdfstring{collide()}{collide()}}
 {\footnotesize\ttfamily void Boss\+Bullet\+::collide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Run the death animation and set to dead. 
+
+
+
+Definition at line \mbox{\hyperlink{_boss_bullet_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{_boss_bullet_8cpp_source}{Boss\+Bullet.\+cpp}}.
+
 \Hypertarget{class_boss_bullet_a968121e064e7f0e9bfca96a32ba2aba2}\label{class_boss_bullet_a968121e064e7f0e9bfca96a32ba2aba2} 
 \index{BossBullet@{BossBullet}!damage@{damage}}
 \index{damage@{damage}!BossBullet@{BossBullet}}
 \doxysubsubsection{\texorpdfstring{damage()}{damage()}}
 {\footnotesize\ttfamily void Boss\+Bullet\+::damage (\begin{DoxyParamCaption}\item[{int}]{hit }\end{DoxyParamCaption})}
 
-\Hypertarget{class_boss_bullet_abfe6d391d23ed5b47ab7e39d8e17aaf7}\label{class_boss_bullet_abfe6d391d23ed5b47ab7e39d8e17aaf7} 
-\index{BossBullet@{BossBullet}!isDestroyed@{isDestroyed}}
-\index{isDestroyed@{isDestroyed}!BossBullet@{BossBullet}}
-\doxysubsubsection{\texorpdfstring{isDestroyed()}{isDestroyed()}}
-{\footnotesize\ttfamily bool Boss\+Bullet\+::is\+Destroyed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\Hypertarget{class_boss_bullet_a3501c85f3336e4a745e6fc7f3a354aaf}\label{class_boss_bullet_a3501c85f3336e4a745e6fc7f3a354aaf} 
+
+Decrease the health of the bullet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hit} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_boss_bullet_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{_boss_bullet_8cpp_source}{Boss\+Bullet.\+cpp}}.
+
+\Hypertarget{class_boss_bullet_ad3b8d306bfa0bad8913a57d3cd3d7594}\label{class_boss_bullet_ad3b8d306bfa0bad8913a57d3cd3d7594} 
 \index{BossBullet@{BossBullet}!update@{update}}
 \index{update@{update}!BossBullet@{BossBullet}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Boss\+Bullet\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Boss\+Bullet\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -143,11 +174,15 @@ Run logic for boss bullet then draw it to screen.
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{class_entity_a7d014114fcea80281536d5525019190c}{Entity}}.
+Implements \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity}}.
+
+
+
+Definition at line \mbox{\hyperlink{_boss_bullet_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_boss_bullet_8cpp_source}{Boss\+Bullet.\+cpp}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Entity/\+Abstract\+Bullet/\+Boss\+Bullet/\mbox{\hyperlink{_boss_bullet_8h}{Boss\+Bullet.\+h}}\item 
-src/\+Entity/\+Abstract\+Bullet/\+Boss\+Bullet/\mbox{\hyperlink{_boss_bullet_8cpp}{Boss\+Bullet.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Zaxxon/src/\+Entity/\+Abstract\+Bullet/\+Boss\+Bullet/\mbox{\hyperlink{_boss_bullet_8h}{Boss\+Bullet.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Entity/\+Abstract\+Bullet/\+Boss\+Bullet/\mbox{\hyperlink{_boss_bullet_8cpp}{Boss\+Bullet.\+cpp}}\end{DoxyCompactItemize}

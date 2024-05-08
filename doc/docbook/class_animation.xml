@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_animation" xml:lang="en-US">
+<title>Animation Class Reference</title>
+<indexterm><primary>Animation</primary></indexterm>
+<para>
+
+<para>Class to handle (almost) all in-game animations. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Animation.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Anim</link> { <?linebreak?><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">CHARACTER_DEATH</link>
+, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85">ALT_DEATH</link>
+, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775">LAUNCH</link>
+, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed">BULLET_DEATH</link>
+, <?linebreak?><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728">WALLBULLET_DEATH</link>
+, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01">ROCKET_FLICKER</link>
+, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f">RESET</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_animation_1a83f0a16cef7117f187ad596de38dd9d6">Animation</link> ()</para>
+
+<para>Initalize individual animation frames. </para>
+</listitem>
+            <listitem><para><link linkend="_class_animation_1a401b68793d4fbf48d481c030ee4b2a16">~Animation</link> ()</para>
+
+<para>Clean up memory for animation class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_animation_1aafa4559f75e244ca439626971d3ea11a">run</link> (sf::Sprite *, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Anim</link>, unsigned int sizeIndex=0)</para>
+
+<para>Run the given animation on sprite. Note that you should always check if the sprite* is null before doing operations. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">getState</link> () const</para>
+
+<para>Checks if current animation has finished running. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class to handle (almost) all in-game animations. </para>
+<para>
+Definition at line <link linkend="__animation_8h_source_1l00010">10</link> of file <link linkend="__animation_8h_source">Animation.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18"/><section>
+    <title>Anim</title>
+<indexterm><primary>Anim</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>Anim</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>CHARACTER_DEATH</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>CHARACTER_DEATH</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892"/>CHARACTER_DEATH</entry><entry></entry></row><row><entry><indexterm><primary>ALT_DEATH</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>ALT_DEATH</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85"/>ALT_DEATH</entry><entry></entry></row><row><entry><indexterm><primary>LAUNCH</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>LAUNCH</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775"/>LAUNCH</entry><entry></entry></row><row><entry><indexterm><primary>BULLET_DEATH</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>BULLET_DEATH</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed"/>BULLET_DEATH</entry><entry></entry></row><row><entry><indexterm><primary>WALLBULLET_DEATH</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>WALLBULLET_DEATH</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728"/>WALLBULLET_DEATH</entry><entry></entry></row><row><entry><indexterm><primary>ROCKET_FLICKER</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>ROCKET_FLICKER</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01"/>ROCKET_FLICKER</entry><entry></entry></row><row><entry><indexterm><primary>RESET</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>RESET</secondary></indexterm>
+<anchor xml:id="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f"/>RESET</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__animation_8h_source_1l00013">13</link> of file <link linkend="__animation_8h_source">Animation.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_animation_1a83f0a16cef7117f187ad596de38dd9d6"/><section>
+    <title>Animation()</title>
+<indexterm><primary>Animation</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>Animation</secondary></indexterm>
+<para><computeroutput>Animation::Animation ( )</computeroutput></para><para>
+
+<para>Initalize individual animation frames. </para>
+</para>
+<para>
+Definition at line <link linkend="__animation_8cpp_source_1l00007">7</link> of file <link linkend="__animation_8cpp_source">Animation.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_animation_1a401b68793d4fbf48d481c030ee4b2a16"/><section>
+    <title>~Animation()</title>
+<indexterm><primary>~Animation</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>~Animation</secondary></indexterm>
+<para><computeroutput>Animation::~Animation ( )</computeroutput></para><para>
+
+<para>Clean up memory for animation class. </para>
+</para>
+<para>
+Definition at line <link linkend="__animation_8cpp_source_1l00058">58</link> of file <link linkend="__animation_8cpp_source">Animation.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_animation_1a90e29926b57befdba44ef5835cb10e06"/><section>
+    <title>getState()</title>
+<indexterm><primary>getState</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>getState</secondary></indexterm>
+<para><computeroutput>int Animation::getState ( ) const</computeroutput></para><para>
+
+<para>Checks if current animation has finished running. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__animation_8cpp_source_1l00315">315</link> of file <link linkend="__animation_8cpp_source">Animation.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_animation_1aafa4559f75e244ca439626971d3ea11a"/><section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>Animation</secondary></indexterm>
+<indexterm><primary>Animation</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>void Animation::run (sf::Sprite * sprite, <link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Anim</link> anim, unsigned int sizeIndex = <computeroutput>0</computeroutput>
+)</computeroutput></para><para>
+
+<para>Run the given animation on sprite. Note that you should always check if the sprite* is null before doing operations. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sprite</entry><entry>
+<para>Nullable</para>
+</entry>
+                            </row>
+                            <row>
+<entry>anim</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__animation_8cpp_source_1l00074">74</link> of file <link linkend="__animation_8cpp_source">Animation.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Animation/<link linkend="__animation_8h">Animation.h</link>C:/Zaxxon/src/Animation/<link linkend="__animation_8cpp">Animation.cpp</link></section>
+</section>

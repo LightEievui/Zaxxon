@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_boss_bullet" kind="class" language="C++" prot="public">
+    <compoundname>BossBullet</compoundname>
+    <basecompoundref refid="class_abstract_bullet" prot="public" virt="non-virtual">AbstractBullet</basecompoundref>
+    <includes refid="_boss_bullet_8h" local="no">BossBullet.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_boss_bullet_1ab9f63e617c144140a4ef4096f489cbe5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_entity" kindref="compound">Entity</ref> *</type>
+        <definition>Entity* BossBullet::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <qualifiedname>BossBullet::target</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="19" column="8" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_bullet_1a54727829495f32e2191858b2616909cc" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock BossBullet::movementInt</definition>
+        <argsstring></argsstring>
+        <name>movementInt</name>
+        <qualifiedname>BossBullet::movementInt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="20" column="11" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_bullet_1ae094a874914cbbc0ea3d5cb7b91cf5cc" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock BossBullet::invTimer</definition>
+        <argsstring></argsstring>
+        <name>invTimer</name>
+        <qualifiedname>BossBullet::invTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="20" column="23" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boss_bullet_1a8f0d8d3603c878330933abbabc21b184" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BossBullet::health</definition>
+        <argsstring></argsstring>
+        <name>health</name>
+        <qualifiedname>BossBullet::health</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="21" column="5" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_boss_bullet_1a6aa72332992a0eb9d4fe4d66e9d862c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BossBullet::BossBullet</definition>
+        <argsstring>(sf::Vector3f, Entity *, sf::Texture *)</argsstring>
+        <name>BossBullet</name>
+        <qualifiedname>BossBullet::BossBullet</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>startPos</defname>
+        </param>
+        <param>
+          <type><ref refid="class_entity" kindref="compound">Entity</ref> *</type>
+          <defname>target</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spriteSheet</defname>
+        </param>
+        <briefdescription>
+<para>Create a boss bullet based on it&apos;s position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startPos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity that the missile is targetting.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spriteSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="13" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp" bodystart="11" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BossBullet::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float) override</argsstring>
+        <name>update</name>
+        <qualifiedname>BossBullet::update</qualifiedname>
+        <reimplements refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</reimplements>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Run logic for boss bullet then draw it to screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="15" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp" bodystart="33" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BossBullet::damage</definition>
+        <argsstring>(int)</argsstring>
+        <name>damage</name>
+        <qualifiedname>BossBullet::damage</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>hit</defname>
+        </param>
+        <briefdescription>
+<para>Decrease the health of the bullet. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hit</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="16" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp" bodystart="84" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boss_bullet_1ae644a8610bba9a05a8d29455179c5965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BossBullet::collide</definition>
+        <argsstring>()</argsstring>
+        <name>collide</name>
+        <qualifiedname>BossBullet::collide</qualifiedname>
+        <briefdescription>
+<para>Run the death animation and set to dead. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="17" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp" bodystart="69" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The missile that the boss shoots. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BossBullet</label>
+        <link refid="class_boss_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="1">
+        <label>BossBullet</label>
+        <link refid="class_boss_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" line="10" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h" bodystart="11" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>AbstractBullet</name></member>
+      <member refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>alive</name></member>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>animations</name></member>
+      <member refid="class_boss_bullet_1a6aa72332992a0eb9d4fe4d66e9d862c5" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>BossBullet</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>BulletType</name></member>
+      <member refid="class_boss_bullet_1ae644a8610bba9a05a8d29455179c5965" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>collide</name></member>
+      <member refid="class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>damage</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>debugText</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>Enemy</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>getBounds</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>getPos</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>getSpritePos</name></member>
+      <member refid="class_boss_bullet_1a8f0d8d3603c878330933abbabc21b184" prot="private" virt="non-virtual"><scope>BossBullet</scope><name>health</name></member>
+      <member refid="class_boss_bullet_1ae094a874914cbbc0ea3d5cb7b91cf5cc" prot="private" virt="non-virtual"><scope>BossBullet</scope><name>invTimer</name></member>
+      <member refid="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>isHit</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual"><scope>BossBullet</scope><name>kill</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>Missile</name></member>
+      <member refid="class_boss_bullet_1a54727829495f32e2191858b2616909cc" prot="private" virt="non-virtual"><scope>BossBullet</scope><name>movementInt</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>Player</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>setPos</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>BossBullet</scope><name>spriteSheet</name></member>
+      <member refid="class_boss_bullet_1ab9f63e617c144140a4ef4096f489cbe5" prot="private" virt="non-virtual"><scope>BossBullet</scope><name>target</name></member>
+      <member refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>translate</name></member>
+      <member refid="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594" prot="public" virt="virtual"><scope>BossBullet</scope><name>update</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>xBulletL</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>xBulletR</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" prot="public" virt="non-virtual"><scope>BossBullet</scope><name>zBullet</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>BossBullet</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

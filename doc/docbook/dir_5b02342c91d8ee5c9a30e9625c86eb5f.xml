@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_5b02342c91d8ee5c9a30e9625c86eb5f" xml:lang="en-US">
+<title>C:/Zaxxon/src/Background Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Background Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__background_8cpp">Background.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__background_8h">Background.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

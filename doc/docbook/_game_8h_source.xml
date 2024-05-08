@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__game_8h_source" xml:lang="en-US">
+<title>Game.h</title>
+<indexterm><primary>C:/Zaxxon/src/Game/Game.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__game_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__game_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="__game_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;chrono&gt;</emphasis>
+<anchor xml:id="__game_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;fstream&gt;</emphasis>
+<anchor xml:id="__game_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__game_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;SFML/Audio.hpp&gt;</emphasis>
+<anchor xml:id="__game_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__obstacle_8h">Obstacle/Obstacle.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__entity_8h">Entity/Entity.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__player_8h">Entity/Character/Player/Player.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__enemy_8h">Entity/Character/Enemy/Enemy.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__g_u_i_8h">GUI/GUI.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__wall_8h">Wall/Wall.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__background_8h">Background/Background.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__boss_8h">Entity/Boss/Boss.h</link>&quot;</emphasis>
+<anchor xml:id="__game_8h_source_1l00015"/>00015 
+<anchor xml:id="__game_8h_source_1l00016"/>00016 <emphasis role="comment">//&#32;Clearer&#32;than&#32;using&#32;unsigned&#32;char&#32;often</emphasis>
+<anchor xml:id="__game_8h_source_1l00017"/><link linkend="__game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">00017</link> <emphasis role="keyword">using&#32;</emphasis><link linkend="__game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link>&#32;=&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;char;
+<anchor xml:id="__game_8h_source_1l00018"/>00018 
+<anchor xml:id="__game_8h_source_1l00019"/>00019 
+<anchor xml:id="__game_8h_source_1l00024"/><link linkend="_class_game">00024</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_game">Game</link>
+<anchor xml:id="__game_8h_source_1l00025"/>00025 {
+<anchor xml:id="__game_8h_source_1l00026"/>00026 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__game_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<link linkend="_class_game_1ad59df6562a58a614fda24622d3715b65">Game</link>();
+<anchor xml:id="__game_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<link linkend="_class_game_1ae3d112ca6e0e55150d2fdbc704474530">~Game</link>();
+<anchor xml:id="__game_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa">run</link>();
+<anchor xml:id="__game_8h_source_1l00030"/>00030 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__game_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;sf::Texture&#32;spriteSheet,&#32;bossSheet;
+<anchor xml:id="__game_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<link linkend="_class_background">Background</link>*&#32;pBackground;
+<anchor xml:id="__game_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;sf::RenderWindow&#32;window;
+<anchor xml:id="__game_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<link linkend="_class_g_u_i">GUI</link>&#32;gui;
+<anchor xml:id="__game_8h_source_1l00035"/>00035 
+<anchor xml:id="__game_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<link linkend="_class_player">Player</link>*&#32;player;
+<anchor xml:id="__game_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&#32;enemies;
+<anchor xml:id="__game_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&#32;obstacles;
+<anchor xml:id="__game_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;std::vector&lt;Wall*&gt;&#32;walls;
+<anchor xml:id="__game_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;std::vector&lt;ZapWall*&gt;&#32;zapWalls;
+<anchor xml:id="__game_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<link linkend="_class_boss">Boss</link>*&#32;boss&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__game_8h_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<link linkend="_class_boss_bullet">BossBullet</link>*&#32;missile&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__game_8h_source_1l00043"/>00043 
+<anchor xml:id="__game_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;fuel&#32;=&#32;128;
+<anchor xml:id="__game_8h_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;completions&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;lives&#32;=&#32;2;
+<anchor xml:id="__game_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;score&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;highScore&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed&#32;=&#32;1.0;
+<anchor xml:id="__game_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;gameState&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;currentScores[6]&#32;=&#32;{0,&#32;0,&#32;0,&#32;0,&#32;0,&#32;0};
+<anchor xml:id="__game_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;std::string&#32;currentNames[6]&#32;=&#32;{<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&quot;</emphasis>};
+<anchor xml:id="__game_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[3]&#32;=&#32;{<emphasis role="charliteral">&apos;_&apos;</emphasis>,&#32;<emphasis role="charliteral">&apos;_&apos;</emphasis>,&#32;<emphasis role="charliteral">&apos;_&apos;</emphasis>};
+<anchor xml:id="__game_8h_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;activeCursor[4]&#32;=&#32;{<emphasis role="keyword">true</emphasis>,&#32;<emphasis role="keyword">true</emphasis>,&#32;<emphasis role="keyword">true</emphasis>,&#32;<emphasis role="keyword">true</emphasis>};
+<anchor xml:id="__game_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">byte</emphasis>&#32;selector&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00056"/>00056 &#32;&#32;&#32;&#32;std::fstream&#32;file;
+<anchor xml:id="__game_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;fps&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;deltaTime&#32;=&#32;0;
+<anchor xml:id="__game_8h_source_1l00059"/>00059 &#32;&#32;&#32;&#32;std::chrono::steady_clock::time_point&#32;lastTime&#32;=
+<anchor xml:id="__game_8h_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::chrono::high_resolution_clock::now()
+<anchor xml:id="__game_8h_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;,&#32;currentTime;
+<anchor xml:id="__game_8h_source_1l00062"/>00062 
+<anchor xml:id="__game_8h_source_1l00063"/>00063 &#32;&#32;&#32;&#32;sf::View&#32;mainView;
+<anchor xml:id="__game_8h_source_1l00064"/>00064 &#32;&#32;&#32;&#32;sf::View&#32;guiView;
+<anchor xml:id="__game_8h_source_1l00065"/>00065 &#32;&#32;&#32;&#32;sf::SoundBuffer&#32;flightBuffer;
+<anchor xml:id="__game_8h_source_1l00066"/>00066 &#32;&#32;&#32;&#32;sf::Sound&#32;flightSound;
+<anchor xml:id="__game_8h_source_1l00067"/>00067 &#32;&#32;&#32;&#32;sf::Clock&#32;fuelClock;
+<anchor xml:id="__game_8h_source_1l00068"/>00068 &#32;&#32;&#32;&#32;sf::Clock&#32;deathClock;
+<anchor xml:id="__game_8h_source_1l00069"/>00069 &#32;&#32;&#32;&#32;sf::Sprite&#32;deathSprite;
+<anchor xml:id="__game_8h_source_1l00070"/>00070 
+<anchor xml:id="__game_8h_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;doCollision(<link linkend="_class_player">Player</link>*);
+<anchor xml:id="__game_8h_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;obstacleHit(<link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</link>&#32;type,&#32;sf::Vector3f&#32;difference,
+<anchor xml:id="__game_8h_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;intersect2d);
+<anchor xml:id="__game_8h_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;playerDeath();
+<anchor xml:id="__game_8h_source_1l00075"/>00075 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;gameOver();
+<anchor xml:id="__game_8h_source_1l00076"/>00076 };
+</programlisting></section>
