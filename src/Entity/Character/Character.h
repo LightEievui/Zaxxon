@@ -14,8 +14,7 @@ class Character : public Entity
 public:
 	Character(sf::Texture*);
 	~Character() override;
-	void update(sf::RenderWindow&) override;
-	void update(sf::RenderWindow&, float gameSpeed);
+	void update(sf::RenderWindow&, float) override;
 	virtual void kill() = 0;
 
 	std::vector<CharacterBullet*>& getBullets();
@@ -41,7 +40,7 @@ protected:
 	void setVelocity(sf::Vector3f);
 	void setBullet(sf::IntRect);
 
-	void updateBullets(sf::RenderWindow& window);
+	void updateBullets(sf::RenderWindow& window, float);
 
 	sf::Vector3f velocity;
 	std::vector<CharacterBullet*> bullets;

@@ -11,7 +11,7 @@ Game::Game()
 	: window(sf::VideoMode(224, 256), "Zaxxon"), gui(&spriteSheet)
 {
 	// Seed the randomization system for enemies and score system
-	srand(static_cast<unsigned int>(time(NULL)));
+	srand(static_cast<unsigned int>(time(nullptr)));
 
 	// Loading our sprites
 	spriteSheet.loadFromFile("./res/spritesheet.png");
@@ -23,7 +23,7 @@ Game::Game()
 
 	window.setPosition(sf::Vector2i(
 		static_cast<int>(sf::VideoMode::getDesktopMode().width / 2.f - (224.f *
-				scale) / 2.f), 0));
+			scale) / 2.f), 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
 
@@ -98,6 +98,10 @@ Game::~Game()
 	const int enemiesSize = enemies.size();
 	for (int i = 0; i < enemiesSize; i++)
 		delete enemies[i];
+
+	const int zapWallsSize = zapWalls.size();
+	for (int i = 0; i < zapWallsSize; i++)
+		delete zapWalls[i];
 
 	delete player;
 	delete boss;
@@ -226,7 +230,7 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw zap walls that are behind the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z < player->getPos().z)
-					zapWalls.at(i)->update(window);
+					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Draw enemies that are under the player
 			for (Enemy* enemy : enemies)
@@ -234,7 +238,7 @@ void Game::run() // if random errors later check that stack isnt full
 					enemy->update(window, gameSpeed);
 
 			if (pBackground->getStage() == 3)
-				boss->update(window);
+				boss->update(window, gameSpeed);
 
 			if (missile->isHit())
 			{
@@ -245,7 +249,7 @@ void Game::run() // if random errors later check that stack isnt full
 			if (player->isMissileable() && abs(
 				player->getPos().z - missile->getPos().z) > 1000)
 				missile->setPos(player->getPos() + sf::Vector3f(0, 40, -400));
-			missile->update(window);
+			missile->update(window, gameSpeed);
 
 
 			player->update(window, background.getStage(), gameSpeed);
@@ -254,7 +258,7 @@ void Game::run() // if random errors later check that stack isnt full
 			for (unsigned int i = 0; i < obstacles.size(); i++)
 				if (obstacles.at(i)->getPos().z >= player->getPos().z)
 					obstacles.at(i)->update(
-						window, static_cast<int>(player->getPos().z));
+						window, static_cast<int>(player->getPos().z), gameSpeed);
 
 			// Draw walls that are in front of the player
 			for (byte i = 0; i < walls.size(); i++) // For each wall...
@@ -268,7 +272,7 @@ void Game::run() // if random errors later check that stack isnt full
 			// Draw zap walls that are in front of the player
 			for (byte i = 0; i < zapWalls.size(); i++)
 				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
-					zapWalls.at(i)->update(window);
+					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Draw enemies that are above the player
 			for (Enemy* enemy : enemies)
@@ -532,10 +536,10 @@ void Game::doCollision(Player* player)
 			switch (obstacle->getType())
 			{
 			case 1:
-				fuel = 128;
+				fuel += 16;
 				break;
 			case 7:
-				fuel = 128;
+				fuel += 16;
 				break;
 			}
 
@@ -570,11 +574,11 @@ void Game::doCollision(Player* player)
 		     ++)
 		{
 			difference = sf::Vector3f
-			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - planePos.x),
-			 abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
-			 abs(walls.at(i)->getWallPositions().at(j).z - planePos.z));
+			(abs(walls.at(i)->getWallPositions().at(j).x - 20 - (planePos.x-10)),
+				abs(walls.at(i)->getWallPositions().at(j).y + 15 - planePos.y),
+				abs(walls.at(i)->getWallPositions().at(j).z - 10 - planePos.z));
 
-			if (difference.x < 20 && difference.y < 15 && difference.z < 10)
+			if (difference.x < 25 && difference.y < 15 && difference.z < 10)
 				playerDeath();
 		}
 
@@ -674,14 +678,11 @@ void Game::doCollision(Player* player)
 			     j++)
 			{
 				difference = sf::Vector3f
-				(abs(walls.at(i)->getWallPositions().at(j).x - 20 - bullet->
-					 getPos().x),
-				 abs(walls.at(i)->getWallPositions().at(j).y + 15 - bullet->
-					 getPos().y),
-				 abs(walls.at(i)->getWallPositions().at(j).z - bullet->getPos().
-					 z));
+				(abs(walls.at(i)->getWallPositions().at(j).x - 20 - bullet->getPos().x),
+					abs(walls.at(i)->getWallPositions().at(j).y + 15 - bullet->getPos().y),
+					abs(walls.at(i)->getWallPositions().at(j).z - 10 - bullet->getPos().z));
 
-				if (difference.x < 30 && difference.y < 20 && difference.z < 20)
+				if (difference.x < 25 && difference.y < 20 && difference.z < 20)
 					bullet->kill(CharacterBullet::BulletDeathType::WallDeath);
 			}
 

@@ -26,10 +26,10 @@ public:
 	                unsigned int sizeindex, BulletType = Player,
 	                sf::Vector2f = sf::Vector2f(0, 0)
 	);
-	~CharacterBullet();
+	~CharacterBullet() override;
 	void kill();
 	void kill(BulletDeathType type);
-	void update(sf::RenderWindow& window) override;
+	void update(sf::RenderWindow& window, float) override;
 	unsigned int getSizeIndex();
 
 	sf::Vector3f getPosition()

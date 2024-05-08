@@ -85,7 +85,7 @@ void Enemy::update(sf::RenderWindow& window, float gameSpeed)
 	sprite->setTextureRect(textures[planeVertical][sizeIndex]);
 
 	// 
-	updateBullets(window);
+	updateBullets(window, gameSpeed);
 	if (!dead)
 		window.draw(*sprite);
 }

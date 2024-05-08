@@ -34,6 +34,16 @@ Player::Player(sf::Texture* texture, unsigned int startPos) : Character(texture)
 
 
 /// <summary>
+/// Clean up memory related to the player
+/// </summary>
+Player::~Player()
+{
+	for (int i = 0; i < bullets.size(); i++)
+		delete bullets[i];
+}
+
+
+/// <summary>
 /// Run all the logic and controls for player.
 /// </summary>
 /// <param name="window"></param>
@@ -64,19 +74,16 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	if (tempVelocity.x < acceleration && tempVelocity.x > -acceleration)
 		tempVelocity.x = 0;
 
-	if (upPressed() && getPos().y < yMax && tempVelocity.y < 0.6f)
-		tempVelocity.y += acceleration / 0.6f;
-	else if (downPressed() && getPos().y > yMin && tempVelocity.y > -0.6f)
-		tempVelocity.y -= acceleration / 0.6f;
+	if (upPressed() && tempVelocity.y < 0.6f)
+		tempVelocity.y += acceleration / 0.5f;
+	else if (downPressed() && tempVelocity.y > -0.6f)
+		tempVelocity.y -= acceleration / 0.5f;
 	else if (tempVelocity.y < 0)
-		tempVelocity.y += acceleration / 0.6f;
+		tempVelocity.y += acceleration / 0.5f;
 	else if (tempVelocity.y > 0)
-		tempVelocity.y -= acceleration / 0.6f;
+		tempVelocity.y -= acceleration / 0.5f;
 
-	if (tempVelocity.y < acceleration / 0.6f && tempVelocity.y > -acceleration /
-		0.6f)
-		tempVelocity.y = 0;
-
+	// Set plane sprite var before we reset velocity for bounds
 	if (tempVelocity.y == 0)
 		planeVertical = 0;
 	else if (tempVelocity.y < 0)
@@ -84,13 +91,18 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	else if (tempVelocity.y > 0)
 		planeVertical = 2;
 
+	if (getPos().y <= 69.6 && tempVelocity.y < 0)
+		tempVelocity.y = 0;
+	else if (getPos().y >= 139.4 && tempVelocity.y > 0)
+		tempVelocity.y = 0;
+
 	if (stage != 1)
 		sizeIndex = 0;
 	sprite->setTextureRect(playerTextures[planeVertical][sizeIndex]);
 
 	// Spawn bullets
 	if (zPressed() && bulletCD.getElapsedTime().asMilliseconds() >
-		BULLET_COOLDOWN)
+		BULLET_COOLDOWN / gameSpeed)
 	{
 		bulletCD.restart();
 
@@ -134,7 +146,7 @@ void Player::update(sf::RenderWindow& window, int stage, float gameSpeed)
 	// Drawing
 	Character::update(window, gameSpeed);
 	// updating position using velocity, draw character
-	updateBullets(window);
+	updateBullets(window, gameSpeed);
 
 #ifndef NDEBUG
 	debugText.setString(std::to_string(static_cast<int>(getPos().x)) + " " +
