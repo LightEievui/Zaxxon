@@ -170,7 +170,7 @@ void Game::run() // if random errors later check that stack isnt full
 					window.setView(guiView);
 					gui.renderWin(window);
 					gui.render(window, player->getPos().y, score, highScore,
-					           fuel, lives);
+					           fuel, player2 ? player2lives : player1lives);
 					window.display();
 					window.setView(mainView);
 
@@ -278,21 +278,33 @@ void Game::run() // if random errors later check that stack isnt full
 			for (Enemy* enemy : enemies)
 				if (enemy->getPos().y <= player->getPos().y)
 					enemy->update(window, gameSpeed);
+			byte player2opt = player2mode;
+			player2opt |= player2 << 1;
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel,
-			           lives);
+			           player2 ? player2lives : player1lives, player2opt);
 		}
 		else if (gameState == 0) // State 0 is main menu screen
 		{
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 			player->restartMissileTimer();
+			score = 0;
 
-			if (zPressed())
-				gameState = 1, score = 0;
+			if (onePressed())
+			{
+				player2mode = false;
+				gameState = 1;
+			}
+			else if (twoPressed())
+			{
+				player2mode = true;
+				gameState = 3;
+				playerScreenTimer.restart();
+			}
 		}
-		else // dying
+		else if (gameState == 2) // dying
 		{
 			window.setView(mainView);
 
@@ -337,16 +349,28 @@ void Game::run() // if random errors later check that stack isnt full
 					window.draw(deathSprite);
 				}
 			}
-			else if (time >= 2 && lives > 0) // Reset pos backwards
+			else if (time >= 2 && player2 ? player2lives > 0 : player1lives > 0) // Reset pos backwards
 			{
+				// You lose a life, this is not game over
+				lives -= 1;
+				if (player2)
+					player2lives = lives;
+				else
+					player1lives = lives;
+
 				player->kill();
-				gameState = 1;
+				if (player2mode)
+				{
+					gameState = 3;
+					playerScreenTimer.restart();
+					player2 = !player2;
+				}
+				else
+					gameState = 1;
+
 
 				// Not perfect but works (moved from player::kill() during death update)
 				player->setPos(sf::Vector3f(0, 69, player->getPos().z));
-
-				// You lose a life, this is not game over
-				lives -= 1;
 
 				// Prepare for respawn
 				fuel = 128;
@@ -455,7 +479,22 @@ void Game::run() // if random errors later check that stack isnt full
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, score, highScore, fuel,
-			           lives);
+			           player2 ? player2lives : player1lives);
+		}
+		else if (gameState == 3) // 2 player screen
+		{
+			byte player2opt = player2mode;
+			player2opt |= player2 << 1;
+			player2opt |= 1 << 2; // true << 2
+
+			window.setView(guiView);
+			gui.renderPlayerScreen(window, player2);
+			gui.render(window, player->getPos().y, score, highScore, fuel,
+				player2 ? player2lives : player1lives, player2opt);
+			window.setView(mainView);
+
+			if (playerScreenTimer.getElapsedTime().asSeconds() > 2)
+				gameState = 1;
 		}
 
 		// Display everything we just drew to the screen
@@ -803,7 +842,7 @@ bool Game::obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
 void Game::playerDeath()
 {
 	player->kill();
-	// deathClock is used for player death anzimation, so start clock here.
+	// deathClock is used for player death animation, so start clock here.
 	deathClock.restart();
 }
 
@@ -815,6 +854,10 @@ void Game::gameOver()
 {
 	gameState = 0;
 	lives = 3;
+	if (player2)
+		player2lives = lives;
+	else
+		player1lives = lives;
 	selector = 0;
 	pBackground->setStage(Background::INITIAL);
 

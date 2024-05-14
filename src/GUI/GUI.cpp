@@ -68,7 +68,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		if (i > 2)
 			start += 8;
 
-		topScore[i].setPosition(start + 8.f * i, 8.f);
+		topScore[i].setPosition(start + 8.f * i, 0.f);
 	}
 
 	// 1up score text
@@ -82,7 +82,21 @@ GUI::GUI(sf::Texture* spritesheet)
 		if (i > 2)
 			start += 8;
 
-		curScore[i].setPosition(start + 8.f * i, 24.f);
+		curScore[i].setPosition(start + 8.f * i, 16.f);
+	}
+
+	// 2up score text
+	ZaxxonText::string(spritesheet, "2UP000000", curScore2);
+
+	for (byte i = 0; i < 9; i++)
+	{
+		curScore2[i].setColor(sf::Color(222, 222, 247));
+
+		byte start = 0;
+		if (i > 2)
+			start += 8;
+
+		curScore2[i].setPosition(start + 8.f * i, 32.f);
 	}
 
 	// Fuel text
@@ -300,6 +314,21 @@ GUI::GUI(sf::Texture* spritesheet)
 			endScreen[i].setColor(sf::Color(222, 222, 222));
 		}
 	}
+
+	ZaxxonText::string(spritesheet, "PLAYER\u0006\u0008\u0007", playerScreen1);
+	ZaxxonText::string(spritesheet, "PLAYER\u0006\u0009\u0007", playerScreen2);
+
+	for (byte i = 0; i < 10; i++)
+	{
+		playerScreen1[i].setColor(sf::Color(222, 0, 0));
+		playerScreen2[i].setColor(sf::Color(222, 0, 0));
+		byte start = 72;
+		if (i >= 6)
+			start += 8;
+
+		playerScreen1[i].setPosition(start + 8.f * i, 112.f);
+		playerScreen2[i].setPosition(start + 8.f * i, 112.f);
+	}
 }
 
 
@@ -313,67 +342,76 @@ GUI::GUI(sf::Texture* spritesheet)
 /// <param name="score"></param>
 /// <param name="fuel"></param>
 void GUI::render(sf::RenderWindow& window, float playerY, int score,
-                 int highScore, byte fuel, byte lives)
+	int highScore, byte fuel, byte lives, byte player2Options
+)
 {
-	window.draw(heightMeterBg);
-	/* 69top 135bottom 66 in between, multiply by below number to get 68
-	should be 8 sections each for line/open and 2 each for top/bottom so
-	yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
-	*/
-	int yDiff = static_cast<int>(round((playerY - 69.f) * 0.95774647887f));
-	if (yDiff < 0)
-		yDiff = 0;
+	bool player2mode, player2, HMoff;
+	player2mode = player2Options & 0b00000001;
+	player2 = player2Options & 0b00000010;
+	HMoff = player2Options & 0b00000100;
 
-	// -4 to make 64
-	int selection = (yDiff - 2) / 8;
-	if (selection < 0)
-		selection = 0;
-
-	bool changingBelow = false, changingAbove = false;
-	byte last = 7, localYDiff = (yDiff - 2) % 8;
-	if (localYDiff == 6)
-		localYDiff = 7;
-
-	if (yDiff <= 66 && yDiff >= 2)
+	if (!HMoff)
 	{
-		HMSection& activeSection = heightMeterSections[selection];
+		window.draw(heightMeterBg);
+		/* 69top 135bottom 66 in between, multiply by below number to get 68
+		should be 8 sections each for line/open and 2 each for top/bottom so
+		yDiff should be 68 max (68 from 8*8 + 4) also round to make sure correct
+		*/
+		int yDiff = static_cast<int>(round((playerY - 69.f) * 0.95774647887f));
+		if (yDiff < 0)
+			yDiff = 0;
 
-		activeSection.progress(localYDiff);
+		// -4 to make 64
+		int selection = (yDiff - 2) / 8;
+		if (selection < 0)
+			selection = 0;
 
-		if (localYDiff >= 5)
+		bool changingBelow = false, changingAbove = false;
+		byte last = 7, localYDiff = (yDiff - 2) % 8;
+		if (localYDiff == 6)
+			localYDiff = 7;
+
+		if (yDiff <= 66 && yDiff >= 2)
 		{
-			heightMeterSections[selection + 1].progress(localYDiff - 7);
-			changingBelow = true;
+			HMSection& activeSection = heightMeterSections[selection];
+
+			activeSection.progress(localYDiff);
+
+			if (localYDiff >= 5)
+			{
+				heightMeterSections[selection + 1].progress(localYDiff - 7);
+				changingBelow = true;
+			}
 		}
-	}
-	else if (yDiff < 8)
-	{
-		// top
-		heightMeterSections[0].progress(12 + localYDiff);
-	}
-	else if (yDiff > 64)
-	{
-		// bottom
-	}
-
-	for (byte i = 0; i < 10; i++)
-	{
-		HMSection& section = heightMeterSections[i];
-		if (i < selection)
+		else if (yDiff < 8)
 		{
-			if (i != selection - 1 || !changingAbove)
-				section.empty();
+			// top
+			heightMeterSections[0].progress(12 + localYDiff);
 		}
-		else if (i > selection)
+		else if (yDiff > 64)
 		{
-			if (i != selection + 1 || !changingBelow)
-				section.fill();
+			// bottom
 		}
 
-		window.draw(section);
+		for (byte i = 0; i < 10; i++)
+		{
+			HMSection& section = heightMeterSections[i];
+			if (i < selection)
+			{
+				if (i != selection - 1 || !changingAbove)
+					section.empty();
+			}
+			else if (i > selection)
+			{
+				if (i != selection + 1 || !changingBelow)
+					section.fill();
+			}
+
+			window.draw(section);
+		}
+		window.draw(heightH);
+		window.draw(heightL);
 	}
-	window.draw(heightH);
-	window.draw(heightL);
 
 	for (byte i = 0; i < 10; i++)
 	{
@@ -392,12 +430,22 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 		while (highStr.length() < 6)
 			highStr = '0' + highStr;
 
-		curScore[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
-		curScore[8 - i].setPosition(72.f - 8.f * i, 24.f);
-		curScore[8 - i].setColor(sf::Color(222, 222, 247));
+		if (!player2)
+		{
+			curScore[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
+			curScore[8 - i].setPosition(72.f - 8.f * i, 16.f);
+			curScore[8 - i].setColor(sf::Color(222, 222, 247));
+		}
+		else
+		{
+			curScore2[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
+			curScore2[8 - i].setPosition(72.f - 8.f * i, 32.f);
+			curScore2[8 - i].setColor(sf::Color(222, 222, 247));
+		}
+		
 
 		topScore[8 - i] = ZaxxonText::get(spritesheet, highStr.at(5 - i));
-		topScore[8 - i].setPosition(72.f - 8.f * i, 8.f);
+		topScore[8 - i].setPosition(72.f - 8.f * i, 0.f);
 		topScore[8 - i].setColor(sf::Color(0, 222, 247));
 	}
 
@@ -406,17 +454,36 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 		window.draw(topScore[i]);
 
 		if (i >= 3)
+		{
 			window.draw(curScore[i]);
+			if(player2mode)
+				window.draw(curScore2[i]);
+		}
 	}
 
-	// 1up score will flash
+	
+	// one score will flash
 	if (scoreClock.getElapsedTime().asSeconds() > 0.4)
 	{
 		for (int i = 0; i < 3; i++)
-			window.draw(curScore[i]);
+		{
+			if (!player2)
+				window.draw(curScore[i]);
+			else if (player2mode)
+				window.draw(curScore2[i]);
+		}
 
 		if (scoreClock.getElapsedTime().asSeconds() > 0.8)
 			scoreClock.restart();
+	}
+
+	// draw the other score
+	for (int i = 0; i < 3; i++)
+	{
+		if (player2)
+			window.draw(curScore[i]);
+		else if (player2mode)
+			window.draw(curScore2[i]);
 	}
 
 	for (byte i = 0; i < 6; i++)
@@ -598,4 +665,16 @@ void GUI::renderWin(sf::RenderWindow& window)
 {
 	for (byte i = 0; i < 40; i++)
 		window.draw(endScreen[i]);
+}
+
+
+void GUI::renderPlayerScreen(sf::RenderWindow& window, bool player2)
+{
+	for (byte i = 0; i < 10; i++)
+	{
+		if (player2)
+			window.draw(playerScreen2[i]);
+		else
+			window.draw(playerScreen1[i]);
+	}
 }

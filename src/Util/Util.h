@@ -12,4 +12,6 @@ bool upPressed();
 bool downPressed();
 bool leftPressed();
 bool rightPressed();
+bool onePressed();
+bool twoPressed();
 sf::FloatRect getWindowViewRect(sf::RenderWindow&);

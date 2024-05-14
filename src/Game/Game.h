@@ -44,6 +44,8 @@ private:
 	byte fuel = 128;
 	byte completions = 0;
 	byte lives = 2;
+	byte player1lives = 2;
+	byte player2lives = 2;
 	int score = 0;
 	int highScore = 0;
 	float gameSpeed = 1.0;
@@ -59,6 +61,8 @@ private:
 	std::chrono::steady_clock::time_point lastTime =
 		                                      std::chrono::high_resolution_clock::now()
 	                                      , currentTime;
+	bool player2 = false;
+	bool player2mode = false;
 
 	sf::View mainView;
 	sf::View guiView;
@@ -67,6 +71,7 @@ private:
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
 	sf::Sprite deathSprite;
+	sf::Clock playerScreenTimer;
 
 	void doCollision(Player*);
 	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,

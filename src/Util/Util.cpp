@@ -65,7 +65,7 @@ bool upPressed()
 
 
 /// <summary>
-/// Detects if down is current pressed, will handle both keyboard and controller.
+/// Detects if down is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
 /// <returns>A boolean</returns>
@@ -77,7 +77,7 @@ bool downPressed()
 
 
 /// <summary>
-/// Detects if left is current pressed, will handle both keyboard and controller.
+/// Detects if left is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
 /// <returns>A boolean</returns>
@@ -89,7 +89,7 @@ bool leftPressed()
 
 
 /// <summary>
-/// Detects if right is current pressed, will handle both keyboard and controller.
+/// Detects if right is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
 /// <returns>A boolean</returns>
@@ -97,4 +97,24 @@ bool rightPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
 		sf::Joystick::getAxisPosition(0, sf::Joystick::X) > 10;
+}
+
+
+/// <summary>
+/// Detects if one is currently pressed, will handle only keyboard.
+/// </summary>
+/// <returns>A boolean</returns>
+bool onePressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Num1);
+}
+
+
+/// <summary>
+/// Detects if two is currently pressed, will handle only keyboard.
+/// </summary>
+/// <returns>A boolean</returns>
+bool twoPressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Num2);
 }
