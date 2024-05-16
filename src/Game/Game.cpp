@@ -332,7 +332,7 @@ void Game::run() // if random errors later check that stack isnt full
 			window.setView(mainView);
 
 			// Move background
-			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, bossState, zapWalls);
+			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, zapWalls, reset);
 
 			//move player
 			player->update(window, background.getStage(), gameSpeed);
@@ -342,7 +342,7 @@ void Game::run() // if random errors later check that stack isnt full
 				walls.at(i)->drawWalls(window);
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, score, highScore, fuel, lives);
+			gui.render(window, player->getPos().y, player1score, player2score, highScore, fuel, lives);
 
 
 			if (player->getPos().z <= 200)
