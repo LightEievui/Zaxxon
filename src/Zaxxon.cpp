@@ -21,7 +21,6 @@
 * work and that the design and logic was completed
 * without outside assistance.
 */
-
 #include <SFML/Graphics.hpp>
 #include "Game/Game.h"
 #include <iostream>

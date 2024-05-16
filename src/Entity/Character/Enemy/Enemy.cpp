@@ -8,7 +8,7 @@
 /// <param name="id"></param>
 /// <param name="spawnZ"></param>
 Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
-             int randOffset) : Character(texture)
+		unsigned int reset, int randOffset) : Character(texture)
 {
 	for (unsigned int i = 0; i < 2; i++)
 		for (unsigned int j = 0; j < 4; j++)
@@ -47,6 +47,9 @@ Enemy::Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnPos,
 	case 7:
 		pos = spawnPos;
 	}
+
+	if(reset%2 == 1)
+		sprite->setColor(sf::Color(222, 222, 0));
 	this->setPos(pos + sf::Vector3f(0, 69, 0));
 }
 
@@ -117,14 +120,14 @@ void Enemy::kill()
 /// <param name="playerZ"></param>
 /// <param name="wave"></param>
 void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
-                      int playerZ, unsigned int wave)
+                      int playerZ, unsigned int wave, unsigned int reset)
 {
 	switch (wave)
 	{
 	case 0:
 		// first fish loop
 		enemies.push_back(new Enemy(spritesheet, 0,
-		                            sf::Vector3f(0, 0, playerZ - 190.f)));
+		                            sf::Vector3f(0, 0, playerZ - 190.f), reset));
 		break;
 	case 1:
 	case 2:
@@ -133,14 +136,14 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 		// first right->charge (top right)
 		enemies.push_back(new Enemy(spritesheet, wave,
 		                            sf::Vector3f(0, 0, playerZ - 360.f),
-		                            rand() % 600 - 300));
+		                            reset, rand() % 600 - 300));
 		break;
 	case 5:
 	case 6:
 		// (bottom left)
 		enemies.push_back(new Enemy(spritesheet, wave,
 		                            sf::Vector3f(0, 0, playerZ - 190.f),
-		                            rand() % 600 - 300));
+		                            reset, rand() % 600 - 300));
 		break;
 	case 7: // 3 ememies from top right
 		for (int i = 0; i < 3; i++)
@@ -148,7 +151,7 @@ void Enemy::spawnWave(std::vector<Enemy*>& enemies, sf::Texture* spritesheet,
 			                            sf::Vector3f(
 				                            35.f - 70.f * i, 0,
 				                            playerZ - 360.f),
-			                            rand() % 600 - 300));
+			                            reset, rand() % 600 - 300));
 	}
 }
 

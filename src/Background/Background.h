@@ -30,7 +30,7 @@ public:
 
 	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*,
 	            std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&,
-	            std::vector<Wall*>&, std::vector<ZapWall*>&);
+	            std::vector<Wall*>&, std::vector<ZapWall*>&, unsigned int);
 	void setPosition(sf::Vector2f);
 	void generateObstacles(Stage,
 	                       std::vector<Obstacle*>&, sf::Texture*,
