@@ -341,7 +341,7 @@ GUI::GUI(sf::Texture* spritesheet)
 /// <param name="playerY"></param>
 /// <param name="score"></param>
 /// <param name="fuel"></param>
-void GUI::render(sf::RenderWindow& window, float playerY, int score,
+void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2score,
 	int highScore, byte fuel, byte lives, byte player2Options
 )
 {
@@ -423,27 +423,24 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score,
 	for (byte i = 0; i < 6; i++)
 	{
 		std::string scoreStr = std::to_string(score);
+		std::string player2scoreStr = std::to_string(player2score);
 		std::string highStr = std::to_string(highScore);
 
 		while (scoreStr.length() < 6)
 			scoreStr = '0' + scoreStr;
+		while (player2scoreStr.length() < 6)
+			player2scoreStr = '0' + player2scoreStr;
 		while (highStr.length() < 6)
 			highStr = '0' + highStr;
 
-		if (!player2)
-		{
-			curScore[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
-			curScore[8 - i].setPosition(72.f - 8.f * i, 16.f);
-			curScore[8 - i].setColor(sf::Color(222, 222, 247));
-		}
-		else
-		{
-			curScore2[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
-			curScore2[8 - i].setPosition(72.f - 8.f * i, 32.f);
-			curScore2[8 - i].setColor(sf::Color(222, 222, 247));
-		}
-		
+		curScore[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
+		curScore[8 - i].setPosition(72.f - 8.f * i, 16.f);
+		curScore[8 - i].setColor(sf::Color(222, 222, 247));
 
+		curScore2[8 - i] = ZaxxonText::get(spritesheet, player2scoreStr.at(5 - i));
+		curScore2[8 - i].setPosition(72.f - 8.f * i, 32.f);
+		curScore2[8 - i].setColor(sf::Color(222, 222, 247));
+		
 		topScore[8 - i] = ZaxxonText::get(spritesheet, highStr.at(5 - i));
 		topScore[8 - i].setPosition(72.f - 8.f * i, 0.f);
 		topScore[8 - i].setColor(sf::Color(0, 222, 247));
