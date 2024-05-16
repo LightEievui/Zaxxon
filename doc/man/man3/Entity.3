@@ -1,0 +1,162 @@
+.TH "Entity" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Entity \- Abstract class for all entities in the game\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Entity\&.h>\fP
+.PP
+Inherited by \fBAbstractBullet\fP, \fBBoss\fP, \fBCharacter\fP, \fBObstacle\fP, and \fBZapWall\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "virtual void \fBupdate\fP (sf::RenderWindow &, float)=0"
+.br
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract class for all entities in the game\&. 
+.PP
+Definition at line \fB10\fP of file \fBEntity\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Entity::Entity ()"
+
+.PP
+Setup \fBEntity\fP class variables\&. 
+.PP
+Definition at line \fB7\fP of file \fBEntity\&.cpp\fP\&.
+.SS "Entity::~Entity ()\fR [pure virtual]\fP"
+
+.PP
+Clean up memory related to \fBEntity\fP class\&. 
+.PP
+Definition at line \fB21\fP of file \fBEntity\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "int Entity::getAnimationState ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB19\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::FloatRect Entity::getBounds ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB22\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::Vector3f Entity::getPos ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB21\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::Vector2f Entity::getSpritePos ()"
+
+.PP
+Get the position of the related sprite for this entity\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB40\fP of file \fBEntity\&.cpp\fP\&.
+.SS "void Entity::kill (\fBAnimation::Anim\fP animation = \fR\fBAnimation::CHARACTER_DEATH\fP\fP)\fR [virtual]\fP"
+
+.PP
+Run death animation code for the killed entity\&. 
+.PP
+Reimplemented in \fBObstacle\fP\&.
+.PP
+Definition at line \fB30\fP of file \fBEntity\&.cpp\fP\&.
+.SS "void Entity::setPos (sf::Vector3f pos)\fR [inline]\fP"
+
+.PP
+Definition at line \fB20\fP of file \fBEntity\&.h\fP\&.
+.SS "virtual void Entity::update (sf::RenderWindow &, float)\fR [pure virtual]\fP"
+
+.PP
+Implemented in \fBBoss\fP, \fBEnemy\fP, \fBBossBullet\fP, \fBObstacleBullet\fP, \fBCharacter\fP, \fBObstacle\fP, \fBZapWall\fP, and \fBCharacterBullet\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBAnimation\fP Entity::animations\fR [protected]\fP"
+
+.PP
+Definition at line \fB27\fP of file \fBEntity\&.h\fP\&.
+.SS "bool Entity::dead = false\fR [protected]\fP"
+
+.PP
+Definition at line \fB28\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::Font Entity::debugFont\fR [protected]\fP"
+
+.PP
+Definition at line \fB30\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::Text Entity::debugText\fR [protected]\fP"
+
+.PP
+Definition at line \fB29\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::Sprite* Entity::sprite\fR [protected]\fP"
+
+.PP
+Definition at line \fB26\fP of file \fBEntity\&.h\fP\&.
+.SS "sf::Texture* Entity::spriteSheet\fR [protected]\fP"
+
+.PP
+Definition at line \fB25\fP of file \fBEntity\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

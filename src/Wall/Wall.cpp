@@ -22,7 +22,8 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 	{
 		sprites.push_back(sf::Sprite());
 		sprites.at(i).setTexture(*spriteSheet);
-		sprites.at(i).setPosition(translateTo2d(sf::Vector3f(pos.x - 38 * i, pos.y, pos.z)));
+		sprites.at(i).setPosition(
+			translateTo2d(sf::Vector3f(pos.x - 38 * i, pos.y, pos.z)));
 		wallPositions.push_back(sf::Vector3f(pos.x - 38 * i, pos.y, pos.z));
 
 		if (walls.at(i) == 0)
@@ -34,26 +35,18 @@ Wall::Wall(sf::Texture* tex, sf::Vector3f pos, int size, std::vector<int> walls)
 
 
 /// <summary>
-/// Clean up memory related to wall class
-/// </summary>
-Wall::~Wall()
-{
-
-}
-
-
-/// <summary>
 /// Draw each section of the wall if it will be visible on the screen
 /// </summary>
 /// <param name="window"></param>
 void Wall::drawWalls(sf::RenderWindow& window)
 {
-    if (!getWindowViewRect(window).intersects(sprites.at(sprites.size() - 1).getGlobalBounds()) && 
-        !getWindowViewRect(window).intersects(sprites.at(0).getGlobalBounds()))
-    {
-        onScreen = false;
-        return;
-    }
+	if (!getWindowViewRect(window).intersects(
+			sprites.at(sprites.size() - 1).getGlobalBounds()) &&
+		!getWindowViewRect(window).intersects(sprites.at(0).getGlobalBounds()))
+	{
+		onScreen = false;
+		return;
+	}
 
 	onScreen = true;
 
@@ -105,7 +98,7 @@ bool Wall::checkOnScreen()
 /// Get 3d position of this wall
 /// </summary>
 /// <returns>Vector of 3 float vectors</returns>
-std::vector<sf::Vector3f> Wall::getWallPositions()
+std::vector<sf::Vector3f>& Wall::getWallPositions()
 {
 	return wallPositions;
 }

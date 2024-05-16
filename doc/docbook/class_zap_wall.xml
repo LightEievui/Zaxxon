@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_zap_wall" xml:lang="en-US">
+<title>ZapWall Class Reference</title>
+<indexterm><primary>ZapWall</primary></indexterm>
+<para>
+
+<para>Class for other walls (blue lightning). </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;ZapWall.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for ZapWall:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_zap_wall.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_zap_wall_1a3b02529cde8076102e462dc6b7c6351c">ZapWall</link> (sf::Texture *, sf::Vector3f)</para>
+
+<para><link linkend="_class_zap_wall">ZapWall</link> constructor. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_zap_wall_1a749a7515b945420293924b3887033d93">update</link> (sf::RenderWindow &amp;, float) override</para>
+
+<para>Update the <link linkend="_class_zap_wall">ZapWall</link>. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_zap_wall_1a80af1a48975d457f8bee45eba0c4f416">setStartPos</link> (sf::Vector3f pos)</para>
+
+<para>Sets start pos for the <link linkend="_class_zap_wall">ZapWall</link>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_zap_wall_1aa8f5edb8998f1dbd276120174c1ca01c">isOnScreen</link> ()</para>
+
+<para>Returns wether the wall intersects with the view. </para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_zap_wall_1a3bc98afa6d68d364ae39838cc70a5ee6">getStartPosition</link> ()</para>
+
+<para>Returns the initial position of the wall. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_entity_1a980f368aa07ce358583982821533a54a">Entity</link> ()</para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86">~Entity</link> ()=0</para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5">kill</link> (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>=<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link>)</para>
+
+<para>Run death animation code for the killed entity. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link> (sf::Vector3f pos)</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link> ()</para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link> ()</para>
+</listitem>
+            <listitem><para>sf::Vector2f <link linkend="_class_entity_1ad641a9c7d92d65cb688651e48029e82d">getSpritePos</link> ()</para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Protected Attributes inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para>sf::Texture * <link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link></para>
+</listitem>
+            <listitem><para>sf::Sprite * <link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_animation">Animation</link> <link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_entity_1a799462330dd8c754cdada5dab432b4dc">dead</link> = false</para>
+</listitem>
+            <listitem><para>sf::Text <link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link></para>
+</listitem>
+            <listitem><para>sf::Font <link linkend="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00">debugFont</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class for other walls (blue lightning). </para>
+<para>
+Definition at line <link linkend="__zap_wall_8h_source_1l00010">10</link> of file <link linkend="__zap_wall_8h_source">ZapWall.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_zap_wall_1a3b02529cde8076102e462dc6b7c6351c"/><section>
+    <title>ZapWall()</title>
+<indexterm><primary>ZapWall</primary><secondary>ZapWall</secondary></indexterm>
+<indexterm><primary>ZapWall</primary><secondary>ZapWall</secondary></indexterm>
+<para><computeroutput>ZapWall::ZapWall (sf::Texture * tex, sf::Vector3f pos)</computeroutput></para><para>
+
+<para><link linkend="_class_zap_wall">ZapWall</link> constructor. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>tex</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__zap_wall_8cpp_source_1l00009">9</link> of file <link linkend="__zap_wall_8cpp_source">ZapWall.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_zap_wall_1a3bc98afa6d68d364ae39838cc70a5ee6"/><section>
+    <title>getStartPosition()</title>
+<indexterm><primary>getStartPosition</primary><secondary>ZapWall</secondary></indexterm>
+<indexterm><primary>ZapWall</primary><secondary>getStartPosition</secondary></indexterm>
+<para><computeroutput>sf::Vector3f ZapWall::getStartPosition ( )</computeroutput></para><para>
+
+<para>Returns the initial position of the wall. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Start position</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__zap_wall_8cpp_source_1l00093">93</link> of file <link linkend="__zap_wall_8cpp_source">ZapWall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_zap_wall_1aa8f5edb8998f1dbd276120174c1ca01c"/><section>
+    <title>isOnScreen()</title>
+<indexterm><primary>isOnScreen</primary><secondary>ZapWall</secondary></indexterm>
+<indexterm><primary>ZapWall</primary><secondary>isOnScreen</secondary></indexterm>
+<para><computeroutput>bool ZapWall::isOnScreen ( )</computeroutput></para><para>
+
+<para>Returns wether the wall intersects with the view. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>If the <link linkend="_class_zap_wall">ZapWall</link> is on screen</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__zap_wall_8cpp_source_1l00083">83</link> of file <link linkend="__zap_wall_8cpp_source">ZapWall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_zap_wall_1a80af1a48975d457f8bee45eba0c4f416"/><section>
+    <title>setStartPos()</title>
+<indexterm><primary>setStartPos</primary><secondary>ZapWall</secondary></indexterm>
+<indexterm><primary>ZapWall</primary><secondary>setStartPos</secondary></indexterm>
+<para><computeroutput>void ZapWall::setStartPos (sf::Vector3f pos)</computeroutput></para><para>
+
+<para>Sets start pos for the <link linkend="_class_zap_wall">ZapWall</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="__zap_wall_8cpp_source_1l00073">73</link> of file <link linkend="__zap_wall_8cpp_source">ZapWall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_zap_wall_1a749a7515b945420293924b3887033d93"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>ZapWall</secondary></indexterm>
+<indexterm><primary>ZapWall</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void ZapWall::update (sf::RenderWindow &amp; window, float gameSpeed)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Update the <link linkend="_class_zap_wall">ZapWall</link>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>gameSpeed</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">Entity</link>.</para>
+<para>
+Definition at line <link linkend="__zap_wall_8cpp_source_1l00026">26</link> of file <link linkend="__zap_wall_8cpp_source">ZapWall.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/ZapWall/<link linkend="__zap_wall_8h">ZapWall.h</link>C:/Zaxxon/src/ZapWall/<link linkend="__zap_wall_8cpp">ZapWall.cpp</link></section>
+</section>

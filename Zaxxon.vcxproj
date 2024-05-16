@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Entity\AbstractBullet\BossBullet\BossBullet.cpp" />
-    <ClCompile Include="src\Boss\Boss.cpp" />
     <ClCompile Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.cpp" />
+    <ClCompile Include="src\Entity\AbstractBullet\ObstacleBullet\ObstacleBullet.cpp" />
+    <ClCompile Include="src\Entity\AbstractBullet\BossBullet\BossBullet.cpp" />
+    <ClCompile Include="src\Entity\Boss\Boss.cpp" />
     <ClCompile Include="src\Entity\AbstractBullet\AbstractBullet.cpp" />
     <ClCompile Include="src\Entity\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
@@ -37,11 +38,12 @@
     <ClCompile Include="src\Zaxxon.cpp" />
     <ClCompile Include="src\GUI\ZaxxonText\ZaxxonText.cpp" />
     <ClCompile Include="src\Wall\Wall.cpp" />
-    <ClCompile Include="src\ZapWalls\ZapWalls.cpp" />
+    <ClCompile Include="src\ZapWall\ZapWall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Entity\AbstractBullet\ObstacleBullet\ObstacleBullet.h" />
     <ClInclude Include="src\Entity\AbstractBullet\BossBullet\BossBullet.h" />
-    <ClInclude Include="src\Boss\Boss.h" />
+    <ClInclude Include="src\Entity\Boss\Boss.h" />
     <ClInclude Include="src\Entity\AbstractBullet\CharacterBullet\CharacterBullet.h" />
     <ClInclude Include="src\Entity\AbstractBullet\AbstractBullet.h" />
     <ClInclude Include="src\Entity\Character\Enemy\Enemy.h" />
@@ -57,7 +59,7 @@
     <ClInclude Include="src\Util\Util.h" />
     <ClInclude Include="src\GUI\ZaxxonText\ZaxxonText.h" />
     <ClInclude Include="src\Wall\Wall.h" />
-    <ClInclude Include="src\ZapWalls\ZapWalls.h" />
+    <ClInclude Include="src\ZapWall\ZapWall.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\cannonGrey.png" />
@@ -128,7 +130,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\SFML\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\SFML\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;winmm.lib;freetype.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

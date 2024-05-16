@@ -1,0 +1,170 @@
+.TH "ZapWall" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ZapWall \- Class for other walls (blue lightning)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <ZapWall\&.h>\fP
+.PP
+Inherits \fBEntity\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBZapWall\fP (sf::Texture *, sf::Vector3f)"
+.br
+.RI "\fBZapWall\fP constructor\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
+.br
+.RI "Update the \fBZapWall\fP\&. "
+.ti -1c
+.RI "void \fBsetStartPos\fP (sf::Vector3f pos)"
+.br
+.RI "Sets start pos for the \fBZapWall\fP\&. "
+.ti -1c
+.RI "bool \fBisOnScreen\fP ()"
+.br
+.RI "Returns wether the wall intersects with the view\&. "
+.ti -1c
+.RI "sf::Vector3f \fBgetStartPosition\fP ()"
+.br
+.RI "Returns the initial position of the wall\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class for other walls (blue lightning)\&. 
+.PP
+Definition at line \fB10\fP of file \fBZapWall\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ZapWall::ZapWall (sf::Texture * tex, sf::Vector3f pos)"
+
+.PP
+\fBZapWall\fP constructor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItex\fP 
+.br
+\fIpos\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB9\fP of file \fBZapWall\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "sf::Vector3f ZapWall::getStartPosition ()"
+
+.PP
+Returns the initial position of the wall\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Start position
+.RE
+.PP
+
+.PP
+Definition at line \fB93\fP of file \fBZapWall\&.cpp\fP\&.
+.SS "bool ZapWall::isOnScreen ()"
+
+.PP
+Returns wether the wall intersects with the view\&. 
+.PP
+\fBReturns\fP
+.RS 4
+If the \fBZapWall\fP is on screen
+.RE
+.PP
+
+.PP
+Definition at line \fB83\fP of file \fBZapWall\&.cpp\fP\&.
+.SS "void ZapWall::setStartPos (sf::Vector3f pos)"
+
+.PP
+Sets start pos for the \fBZapWall\fP\&. 
+.PP
+Definition at line \fB73\fP of file \fBZapWall\&.cpp\fP\&.
+.SS "void ZapWall::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Update the \fBZapWall\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.br
+\fIgameSpeed\fP 
+.RE
+.PP
+
+.PP
+Implements \fBEntity\fP\&.
+.PP
+Definition at line \fB26\fP of file \fBZapWall\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

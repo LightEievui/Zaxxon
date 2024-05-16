@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_zaxxon_text" kind="class" language="C++" prot="public">
+    <compoundname>ZaxxonText</compoundname>
+    <includes refid="_zaxxon_text_8h" local="no">ZaxxonText.h</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite ZaxxonText::get</definition>
+        <argsstring>(sf::Texture *, char)</argsstring>
+        <name>get</name>
+        <qualifiedname>ZaxxonText::get</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritemap</defname>
+        </param>
+        <param>
+          <type>char</type>
+          <defname>in</defname>
+        </param>
+        <briefdescription>
+<para>Take character or hex value then convert it and return the matching character/symbol from our spritesheet. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spritemap</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Sprite of character or symbol</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h" line="11" column="19" bodyfile="C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.cpp" bodystart="11" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ZaxxonText::string</definition>
+        <argsstring>(sf::Texture *, std::string, sf::Sprite *)</argsstring>
+        <name>string</name>
+        <qualifiedname>ZaxxonText::string</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritemap</defname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <defname>in</defname>
+        </param>
+        <param>
+          <type>sf::Sprite *</type>
+          <defname>arr</defname>
+        </param>
+        <briefdescription>
+<para>Take a string of characters or hex values then convert all and then fill given sprite array with the matching characters/symbols for each. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spritemap</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arr</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h" line="12" column="13" bodyfile="C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.cpp" bodystart="41" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class to grab text sprites from spritesheet given char or string. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h" line="8" column="1" bodyfile="C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h" bodystart="9" bodyend="13"/>
+    <listofallmembers>
+      <member refid="class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517" prot="public" virt="non-virtual"><scope>ZaxxonText</scope><name>get</name></member>
+      <member refid="class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462" prot="public" virt="non-virtual"><scope>ZaxxonText</scope><name>string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

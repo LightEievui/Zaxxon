@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_boss_8cpp" kind="file" language="C++">
+    <compoundname>Boss.cpp</compoundname>
+    <includes refid="_boss_8h" local="yes">Boss.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Entity/AbstractBullet/BossBullet/BossBullet.h</label>
+        <link refid="_boss_bullet_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.cpp</label>
+        <link refid="_boss_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Boss.h</label>
+        <link refid="_boss_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Entity/Character/Character.h</label>
+        <link refid="_character_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Entity/Character/Player/Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Entity/Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>SFML/Audio.hpp</label>
+      </node>
+      <node id="3">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="6">
+        <label>thread</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_boss_8h" kindref="compound">Boss.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_boss_1a532b2cfc920780c6f4ea432d7e22be79" refkind="member"><highlight class="normal"><ref refid="class_boss_1a532b2cfc920780c6f4ea432d7e22be79" kindref="member">Boss::Boss</ref>(sf::Vector3f<sp/>start,<sp/><ref refid="class_entity" kindref="compound">Entity</ref>*<sp/>target,<sp/>sf::Texture*<sp/>bossSheet,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Texture*<sp/>spriteSheet)<sp/>:<sp/><ref refid="class_entity" kindref="compound">Entity</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(start);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setPosition(<ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(start));</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTexture(*bossSheet);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTextureRect(sf::IntRect(0,<sp/>0,<sp/>58,<sp/>75));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setOrigin(</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Vector2f(0,<sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;getGlobalBounds().height<sp/>*<sp/>(3.f<sp/>/<sp/>4.f)));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;target<sp/>=<sp/>target;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;spriteSheet<sp/>=<sp/><ref refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" kindref="member">spriteSheet</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>movementInt.restart();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//defines<sp/>random<sp/>movement,<sp/>goes<sp/>to<sp/>two<sp/>seperate<sp/>points</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>targetXPoints[0]<sp/>=<sp/>(rand()<sp/>%<sp/>100)<sp/>*<sp/>-1.f;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>targetXPoints[1]<sp/>=<sp/>(abs((rand()<sp/>-<sp/>528)<sp/>*<sp/>72)<sp/>%<sp/>100)<sp/>*<sp/>-1.f;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//timer<sp/>for<sp/>invincibility<sp/>frames</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>invFrames.restart();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_boss_1ad848427ba363777ea9fe753b4f70b26c" refkind="member"><highlight class="normal"><ref refid="class_boss_1ad848427ba363777ea9fe753b4f70b26c" kindref="member">Boss::~Boss</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>missile;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="class_boss_1ae9cf8c000e924a806d64e7488ce6f58a" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_boss_1ae9cf8c000e924a806d64e7488ce6f58a" kindref="member">Boss::update</ref>(sf::RenderWindow&amp;<sp/>window,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gameSpeed)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(movementInt.getElapsedTime().asMilliseconds()<sp/>&gt;=<sp/>100)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//moves<sp/>to<sp/>the<sp/>target<sp/>position<sp/>every<sp/>100<sp/>millisecond<sp/>to<sp/>mimic<sp/>gittery<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//movment<sp/>of<sp/>the<sp/>game</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>movementInt.restart();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(targetXPoints[stages]<sp/>-<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>&gt;<sp/>3)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>+<sp/>3,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(targetXPoints[stages]<sp/>-<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>&lt;<sp/>3)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>-<sp/>3,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(abs(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z<sp/>-<sp/>target-&gt;<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z)<sp/>&lt;<sp/>250<sp/>&amp;&amp;<sp/>stages<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stages++;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>the<sp/>boss<sp/>is<sp/>far<sp/>enough<sp/>away<sp/>from<sp/>the<sp/>player<sp/>continue<sp/>moving<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(abs(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z<sp/>-<sp/>target-&gt;<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z)<sp/>&gt;<sp/>150)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stages<sp/>&lt;<sp/>2)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z<sp/>+<sp/>3));</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z<sp/>-<sp/>7));</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//else<sp/>stop<sp/>it<sp/>and<sp/>shoot<sp/>the<sp/>missile</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTextureRect(sf::IntRect(58,<sp/>0,<sp/>58,<sp/>75));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stages++;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z<sp/>-<sp/>7));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bulletCreated<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//gives<sp/>the<sp/>missile<sp/>the<sp/>position<sp/>of<sp/>the<sp/>player</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>missile<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_boss_bullet" kindref="compound">BossBullet</ref>(</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>-<sp/>33,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>-<sp/>19,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target,<sp/><ref refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" kindref="member">spriteSheet</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>missile-&gt;<ref refid="class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2" kindref="member">damage</ref>(hits);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//detects<sp/>the<sp/>hits<sp/>to<sp/>the<sp/>missile<sp/>and<sp/>adds<sp/>the<sp/>shaking<sp/>animation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(movementInt.getElapsedTime().asMilliseconds()<sp/>%<sp/>25)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hitCount<sp/>&lt;<sp/>10)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hitCount++;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>+<sp/>((rand()<sp/>%<sp/>100)<sp/>/<sp/>50.f)<sp/>-<sp/>1,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>+<sp/>((rand()<sp/>%<sp/>100)<sp/>/<sp/>50.f)<sp/>-<sp/>1,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hitCount<sp/>==<sp/>10)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hitCount++;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setColor(sf::Color(255,<sp/>255,<sp/>255));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setPosition(<ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>()));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>it<sp/>retreats<sp/>all<sp/>the<sp/>way<sp/>it<sp/>has<sp/>been<sp/>defeated</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z<sp/>&lt;=<sp/>-4000<sp/>&amp;&amp;<sp/>stages<sp/>&gt;=<sp/>2)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>destroyed<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stages++;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>targetXPoints[2]<sp/>=<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>window.draw(*<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>the<sp/>missile<sp/>dies<sp/>delete<sp/>it<sp/>and<sp/>record<sp/>that<sp/>action</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stages<sp/>==<sp/>2<sp/>&amp;&amp;<sp/>missile<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(missile-&gt;<ref refid="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" kindref="member">isHit</ref>())</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>missile;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>missile<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bulletCreated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>missile-&gt;<ref refid="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594" kindref="member">update</ref>(window,<sp/>gameSpeed);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="class_boss_1a911178ba0e5f853c0472f8a2ef879c60" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_boss_1a911178ba0e5f853c0472f8a2ef879c60" kindref="member">Boss::hit</ref>()</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//damages<sp/>the<sp/>boss<sp/>and<sp/>starts<sp/>the<sp/>timer<sp/>of<sp/>invincibility</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(invFrames.getElapsedTime().asMilliseconds()<sp/>&gt;=<sp/>200)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>invFrames.restart();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hitCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setColor(sf::Color(225,<sp/>100,<sp/>100));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hits++;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hits<sp/>&gt;=<sp/>10)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTextureRect(sf::IntRect(58,<sp/>0,<sp/>58,<sp/>75));</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stages<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="class_boss_1ab76a3a54901df7bc04ff8eb237549fa7" refkind="member"><highlight class="normal"><ref refid="class_boss_bullet" kindref="compound">BossBullet</ref>*<sp/><ref refid="class_boss_1ab76a3a54901df7bc04ff8eb237549fa7" kindref="member">Boss::getMissile</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="162"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>missile;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="class_boss_1af650e303d854e6bfb32b7ff64989105d" refkind="member"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_boss_1af650e303d854e6bfb32b7ff64989105d" kindref="member">Boss::missileCreated</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="172"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bulletCreated;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea" refkind="member"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_boss_1a043a78c54fc3a9b0dbacaaf8789be9ea" kindref="member">Boss::isDestroyed</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="182"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>destroyed;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Entity/Boss/Boss.cpp"/>
+  </compounddef>
+</doxygen>

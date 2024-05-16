@@ -1,40 +1,94 @@
 \doxysection{Background Class Reference}
 \hypertarget{class_background}{}\label{class_background}\index{Background@{Background}}
+
+
+Holds all backgrounds and methods to fill each level with content.  
+
+
+
+
+{\ttfamily \#include $<$Background.\+h$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3}\label{class_background_a63cd37625e2bab37186432edd734c6b3} 
-enum {\bfseries Stage} \{ {\bfseries INITIAL}
-, {\bfseries SPACE}
-, {\bfseries BOSS}
+enum \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}} \{ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}} = 0
+, \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}} = 1
+, \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}} = 2
+, \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e}{BOSSFIGHT}} = 3
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_background_a1fac54c7e81db155fbef597121344108}{Background}} (Stage, sf\+::\+View \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, \mbox{\hyperlink{class_player}{Player}} \&, int)
+\mbox{\hyperlink{class_background_ab4f1a6df90c295ba2fa5b2116c9f7719}{Background}} (\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}, sf\+::\+View \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, \mbox{\hyperlink{class_player}{Player}} \&, int, std\+::vector$<$ \mbox{\hyperlink{class_wall}{Wall}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_zap_wall}{Zap\+Wall}} \texorpdfstring{$\ast$}{*} $>$ \&)
 \begin{DoxyCompactList}\small\item\em Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_background_a2a139f9d39a237ff2556c56eae438be5}{update}} (sf\+::\+Render\+Window \&, sf\+::\+View \&, float, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, \mbox{\hyperlink{class_player}{Player}} \&)
+\mbox{\hyperlink{class_background_a36754df1deb720393217ade59da41557}{\texorpdfstring{$\sim$}{\string~}\+Background}} ()
+\item 
+void \mbox{\hyperlink{class_background_a35213116185226b7b3881b2e71c8a292}{update}} (sf\+::\+Render\+Window \&, sf\+::\+View \&, float, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, \mbox{\hyperlink{class_player}{Player}} \&, std\+::vector$<$ \mbox{\hyperlink{class_wall}{Wall}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_zap_wall}{Zap\+Wall}} \texorpdfstring{$\ast$}{*} $>$ \&)
 \begin{DoxyCompactList}\small\item\em Run the background logic, and check if background stage should be swapped. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{set\+Position}} (sf\+::\+Vector2f)
 \begin{DoxyCompactList}\small\item\em Set the position of the background. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_background_abd3150983c5f3a2df47b761966235635}{is\+In\+Space}} (int z)
-\begin{DoxyCompactList}\small\item\em Check if background is currently space, this affects the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static void \mbox{\hyperlink{class_background_aadb6a9246b8e7532fff5d9de5b96b93c}{generate\+Obstacles}} (Background\+::\+Stage, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*})
+void \mbox{\hyperlink{class_background_ac607d65614b8f90a0f841a97df4f0b04}{generate\+Obstacles}} (\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}, std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_wall}{Wall}} \texorpdfstring{$\ast$}{*} $>$ \&, std\+::vector$<$ \mbox{\hyperlink{class_zap_wall}{Zap\+Wall}} \texorpdfstring{$\ast$}{*} $>$ \&)
 \begin{DoxyCompactList}\small\item\em Place all obstacles for given stage. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb}{generate\+Waves}} (Background\+::\+Stage, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int)
-\begin{DoxyCompactList}\small\item\em Handle enemy wave generation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_background_aa319354445ea0a0f224b6dc726b621c2}{generate\+Waves}} (\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}, std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Handle enemy wave generation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{reset\+Pos}} (sf\+::\+View \&, \mbox{\hyperlink{class_player}{Player}} \&, int)
+\begin{DoxyCompactList}\small\item\em Reset the position of the background for stage changes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}} \mbox{\hyperlink{class_background_aa60585bb666a292f5d49049038400b1a}{get\+Stage}} ()
+\begin{DoxyCompactList}\small\item\em Get the current stage background is on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_ac333125273a1213f2cb1c4af4081f0b8}{set\+Stage}} (\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}})
+\begin{DoxyCompactList}\small\item\em Set the current stage. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_background_a52b2389cd7dfaedff511e72af9f3735c}{is\+In\+Space}} (int)
+\begin{DoxyCompactList}\small\item\em Check if background is currently space, this affects the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_a093d96b9f25dda122febad2beabc47cd}{flash\+Color}} (sf\+::\+Render\+Window \&)
+\begin{DoxyCompactList}\small\item\em Flash color of background between the default color and red tinted color based on state variable passed into the method. 0 is red, 1 is default. This is used for the first part of the death animation in \doxylink{_game_8cpp}{Game.\+cpp}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds all backgrounds and methods to fill each level with content. 
+
+Definition at line \mbox{\hyperlink{_background_8h_source_l00015}{15}} of file \mbox{\hyperlink{_background_8h_source}{Background.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3}\label{class_background_a63cd37625e2bab37186432edd734c6b3} 
+\index{Background@{Background}!Stage@{Stage}}
+\index{Stage@{Stage}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{Stage}{Stage}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Background\+::\+Stage}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INITIAL@{INITIAL}!Background@{Background}}\index{Background@{Background}!INITIAL@{INITIAL}}}\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}\label{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0} 
+INITIAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPACE@{SPACE}!Background@{Background}}\index{Background@{Background}!SPACE@{SPACE}}}\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}\label{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc} 
+SPACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOSS@{BOSS}!Background@{Background}}\index{Background@{Background}!BOSS@{BOSS}}}\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}\label{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe} 
+BOSS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOSSFIGHT@{BOSSFIGHT}!Background@{Background}}\index{Background@{Background}!BOSSFIGHT@{BOSSFIGHT}}}\Hypertarget{class_background_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e}\label{class_background_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e} 
+BOSSFIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_background_8h_source_l00018}{18}} of file \mbox{\hyperlink{_background_8h_source}{Background.\+h}}.
+
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_background_a1fac54c7e81db155fbef597121344108}\label{class_background_a1fac54c7e81db155fbef597121344108} 
+\Hypertarget{class_background_ab4f1a6df90c295ba2fa5b2116c9f7719}\label{class_background_ab4f1a6df90c295ba2fa5b2116c9f7719} 
 \index{Background@{Background}!Background@{Background}}
 \index{Background@{Background}!Background@{Background}}
 \doxysubsubsection{\texorpdfstring{Background()}{Background()}}
-{\footnotesize\ttfamily Background\+::\+Background (\begin{DoxyParamCaption}\item[{Stage}]{start\+Stage,  }\item[{sf\+::\+View \&}]{main\+View,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{int}]{start\+Pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Background\+::\+Background (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}}]{start\+Stage,  }\item[{sf\+::\+View \&}]{main\+View,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{int}]{start\+Pos,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_wall}{Wall}} \texorpdfstring{$\ast$}{*} $>$ \&}]{walls,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_zap_wall}{Zap\+Wall}} \texorpdfstring{$\ast$}{*} $>$ \&}]{zap\+Walls }\end{DoxyParamCaption})}
 
 
 
@@ -42,29 +96,66 @@ Create the background object and initialize each of the necessary images so they
 
 
 \begin{DoxyParams}{Parameters}
-{\em start\+Stage} & \\
+{\em start\+Stage} & Stage that \doxylink{class_background}{Background} will start on.\\
 \hline
-{\em main\+View} & \\
+{\em main\+View} & The 3d view.\\
 \hline
 {\em spritesheet} & \\
 \hline
-{\em obstacles} & \\
+{\em obstacles} & \doxylink{class_obstacle}{Obstacle} list.\\
 \hline
-{\em enemies} & \\
+{\em enemies} & \doxylink{class_enemy}{Enemy} list.\\
 \hline
 {\em player} & \\
 \hline
-{\em start\+Pos} & \\
+{\em start\+Pos} & The Z the background should go to at start.\\
+\hline
+{\em walls} & \doxylink{class_wall}{Wall} list.\\
+\hline
+{\em zap\+Walls} & Zap wall list.\\
 \hline
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_a36754df1deb720393217ade59da41557}\label{class_background_a36754df1deb720393217ade59da41557} 
+\index{Background@{Background}!````~Background@{\texorpdfstring{$\sim$}{\string~}Background}}
+\index{````~Background@{\texorpdfstring{$\sim$}{\string~}Background}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Background()}{\string~Background()}}
+{\footnotesize\ttfamily Background\+::\texorpdfstring{$\sim$}{\string~}\+Background (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_background_aadb6a9246b8e7532fff5d9de5b96b93c}\label{class_background_aadb6a9246b8e7532fff5d9de5b96b93c} 
+\Hypertarget{class_background_a093d96b9f25dda122febad2beabc47cd}\label{class_background_a093d96b9f25dda122febad2beabc47cd} 
+\index{Background@{Background}!flashColor@{flashColor}}
+\index{flashColor@{flashColor}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{flashColor()}{flashColor()}}
+{\footnotesize\ttfamily void Background\+::flash\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Flash color of background between the default color and red tinted color based on state variable passed into the method. 0 is red, 1 is default. This is used for the first part of the death animation in \doxylink{_game_8cpp}{Game.\+cpp}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00663}{663}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_ac607d65614b8f90a0f841a97df4f0b04}\label{class_background_ac607d65614b8f90a0f841a97df4f0b04} 
 \index{Background@{Background}!generateObstacles@{generateObstacles}}
 \index{generateObstacles@{generateObstacles}!Background@{Background}}
 \doxysubsubsection{\texorpdfstring{generateObstacles()}{generateObstacles()}}
-{\footnotesize\ttfamily void Background\+::generate\+Obstacles (\begin{DoxyParamCaption}\item[{Background\+::\+Stage}]{stage,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Background\+::generate\+Obstacles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}}]{stage,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_wall}{Wall}} \texorpdfstring{$\ast$}{*} $>$ \&}]{walls,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_zap_wall}{Zap\+Wall}} \texorpdfstring{$\ast$}{*} $>$ \&}]{zap\+Walls }\end{DoxyParamCaption})}
 
 
 
@@ -79,11 +170,15 @@ Place all obstacles for given stage.
 {\em sprite\+Sheet} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb}\label{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb} 
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00253}{253}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_aa319354445ea0a0f224b6dc726b621c2}\label{class_background_aa319354445ea0a0f224b6dc726b621c2} 
 \index{Background@{Background}!generateWaves@{generateWaves}}
 \index{generateWaves@{generateWaves}!Background@{Background}}
 \doxysubsubsection{\texorpdfstring{generateWaves()}{generateWaves()}}
-{\footnotesize\ttfamily void Background\+::generate\+Waves (\begin{DoxyParamCaption}\item[{Background\+::\+Stage}]{stage,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet,  }\item[{int}]{playerZ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Background\+::generate\+Waves (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}}]{stage,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet,  }\item[{int}]{playerZ }\end{DoxyParamCaption})}
 
 
 
@@ -100,7 +195,28 @@ Handle enemy wave generation.
 {\em playerZ} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_background_abd3150983c5f3a2df47b761966235635}\label{class_background_abd3150983c5f3a2df47b761966235635} 
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00608}{608}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_aa60585bb666a292f5d49049038400b1a}\label{class_background_aa60585bb666a292f5d49049038400b1a} 
+\index{Background@{Background}!getStage@{getStage}}
+\index{getStage@{getStage}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{getStage()}{getStage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Background\+::\+Stage}} Background\+::get\+Stage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current stage background is on. 
+
+\begin{DoxyReturn}{Returns}
+A background stage
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00651}{651}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_a52b2389cd7dfaedff511e72af9f3735c}\label{class_background_a52b2389cd7dfaedff511e72af9f3735c} 
 \index{Background@{Background}!isInSpace@{isInSpace}}
 \index{isInSpace@{isInSpace}!Background@{Background}}
 \doxysubsubsection{\texorpdfstring{isInSpace()}{isInSpace()}}
@@ -118,6 +234,33 @@ Check if background is currently space, this affects the player.
 \begin{DoxyReturn}{Returns}
 A boolean
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_ad04fe2ef8bcaf5516c95846e2e500877}\label{class_background_ad04fe2ef8bcaf5516c95846e2e500877} 
+\index{Background@{Background}!resetPos@{resetPos}}
+\index{resetPos@{resetPos}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{resetPos()}{resetPos()}}
+{\footnotesize\ttfamily void Background\+::reset\+Pos (\begin{DoxyParamCaption}\item[{sf\+::\+View \&}]{main\+View,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{int}]{start\+Pos }\end{DoxyParamCaption})}
+
+
+
+Reset the position of the background for stage changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em main\+View} & \\
+\hline
+{\em player} & \\
+\hline
+{\em start\+Pos} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
 \Hypertarget{class_background_a002ca1b009e940180bb5edb8c49e008f}\label{class_background_a002ca1b009e940180bb5edb8c49e008f} 
 \index{Background@{Background}!setPosition@{setPosition}}
 \index{setPosition@{setPosition}!Background@{Background}}
@@ -133,11 +276,34 @@ Set the position of the background.
 {\em pos} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_background_a2a139f9d39a237ff2556c56eae438be5}\label{class_background_a2a139f9d39a237ff2556c56eae438be5} 
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_ac333125273a1213f2cb1c4af4081f0b8}\label{class_background_ac333125273a1213f2cb1c4af4081f0b8} 
+\index{Background@{Background}!setStage@{setStage}}
+\index{setStage@{setStage}!Background@{Background}}
+\doxysubsubsection{\texorpdfstring{setStage()}{setStage()}}
+{\footnotesize\ttfamily void Background\+::set\+Stage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}}]{new\+Stage }\end{DoxyParamCaption})}
+
+
+
+Set the current stage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Stage} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00673}{673}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
+\Hypertarget{class_background_a35213116185226b7b3881b2e71c8a292}\label{class_background_a35213116185226b7b3881b2e71c8a292} 
 \index{Background@{Background}!update@{update}}
 \index{update@{update}!Background@{Background}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Background\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+View \&}]{main\+View,  }\item[{float}]{game\+Speed,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Background\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{sf\+::\+View \&}]{main\+View,  }\item[{float}]{game\+Speed,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{spritesheet,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_obstacle}{Obstacle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{obstacles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} $>$ \&}]{enemies,  }\item[{\mbox{\hyperlink{class_player}{Player}} \&}]{player,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_wall}{Wall}} \texorpdfstring{$\ast$}{*} $>$ \&}]{walls,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_zap_wall}{Zap\+Wall}} \texorpdfstring{$\ast$}{*} $>$ \&}]{zap\+Walls }\end{DoxyParamCaption})}
 
 
 
@@ -147,7 +313,7 @@ Run the background logic, and check if background stage should be swapped.
 \begin{DoxyParams}{Parameters}
 {\em window} & \\
 \hline
-{\em main\+View} & \\
+{\em main\+View} & 3d View\\
 \hline
 {\em game\+Speed} & \\
 \hline
@@ -159,10 +325,18 @@ Run the background logic, and check if background stage should be swapped.
 \hline
 {\em player} & \\
 \hline
+{\em walls} & \doxylink{class_wall}{Wall} list.\\
+\hline
+{\em zap\+Walls} & Zap wall list.\\
+\hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_background_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{_background_8cpp_source}{Background.\+cpp}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Background/Background.\+h\item 
-src/\+Background/Background.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Zaxxon/src/\+Background/\mbox{\hyperlink{_background_8h}{Background.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Background/\mbox{\hyperlink{_background_8cpp}{Background.\+cpp}}\end{DoxyCompactItemize}

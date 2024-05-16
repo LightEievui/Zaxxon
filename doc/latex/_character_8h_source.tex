@@ -1,52 +1,47 @@
 \doxysection{Character.\+h}
-\hypertarget{_character_8h_source}{}\label{_character_8h_source}\index{src/Entity/Character/Character.h@{src/Entity/Character/Character.h}}
-
+\hypertarget{_character_8h_source}{}\label{_character_8h_source}\index{C:/Zaxxon/src/Entity/Character/Character.h@{C:/Zaxxon/src/Entity/Character/Character.h}}
+\mbox{\hyperlink{_character_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Util/Util.h"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Animation/Animation.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Entity/Entity.h"{}}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{//\ Abstract}}
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_character}{Character}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_character_a7e22d0af12e2c3c8cb364d22ce8cc9f2}{Character}}(sf::Texture*);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{update}}(sf::RenderWindow\&);}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{kill}}()\ =\ 0;}
-\DoxyCodeLine{00015\ \ \ \ \ }
-\DoxyCodeLine{00016\ \ \ \ \ std::vector<sf::Vector3f>\&\ \mbox{\hyperlink{class_character_a84503e639ff28fdf9648ea921d5ba9d6}{getBulletPosition}}();}
-\DoxyCodeLine{00017\ \ \ \ \ std::vector<sf::Sprite>\&\ \mbox{\hyperlink{class_character_aef458dc1aacfd7a7a3263ca862f829ca}{getBullets}}();}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ getTranslate2()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \};}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a6ea404b0682144a8f21d42e881cb0ce7}{killBullet}}(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{setPos}}(sf::Vector3f);}
-\DoxyCodeLine{00022\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ yMax\ =\ 140;}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ yMin\ =\ 69;}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ xMin\ =\ -\/180;}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ xMax\ =\ 0;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ This\ computes\ the\ sizeindex\ (the\ quadrant\ the\ plane\ is\ in)}}
-\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ using\ the\ currentY\ and\ the\ min\ /\ max,}}
-\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ assumed\ there\ is\ 4\ for\ everything\ inheriting\ character.\ }}
-\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ */}}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_ad41cb97f383d1681e76e580f06bc2481}{getSizeIndex}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&);}
-\DoxyCodeLine{00034\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_character_aa2ee5df8a31732a36f37bfce88161401}{getVelocity}}();}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a46a264779165a349a13bcb364c4106d4}{setVelocity}}(sf::Vector3f);}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_afe32dd9baa581b7895f06c9687d073b4}{setBullet}}(sf::IntRect);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ sf::Vector3f\ velocity;}
-\DoxyCodeLine{00040\ \ \ \ \ std::vector<sf::Sprite>\ bullets;}
-\DoxyCodeLine{00041\ \ \ \ \ std::vector<sf::Vector3f>\ bulletsPos;}
-\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00043\ \ \ \ \ sf::IntRect\ bulletTexture;}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ SoundBuffer\ buffer;}}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Sound\ sound;}}
-\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_animation_8h}{Animation/Animation.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity/Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_bullet_8h}{Entity/AbstractBullet/CharacterBullet/CharacterBullet.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00012}\mbox{\hyperlink{class_character}{00012}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_character}{Character}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00014}00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_character_a7e22d0af12e2c3c8cb364d22ce8cc9f2}{Character}}(sf::Texture*);}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_character_a5e399f512bf22a9e8558a4bae1ec9555}{\string~Character}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_aafecc5bd1222bb63a2ab0ebf82c9b479}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00018}\mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{00018}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{kill}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00020}00020\ \ \ \ \ std::vector<CharacterBullet*>\&\ \mbox{\hyperlink{class_character_a59755f2066960eeade9a67b13f646c79}{getBullets}}();}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_character_abb29539c98416153a4f079ca83879cfc}{getSizeIndex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a6ea404b0682144a8f21d42e881cb0ce7}{killBullet}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{setPos}}(sf::Vector3f);}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00025}00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00026}\mbox{\hyperlink{class_character_a602309a031e6db0a570644d8f0b5d5fb}{00026}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_character_a602309a031e6db0a570644d8f0b5d5fb}{yMax}}\ =\ 140;}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00027}\mbox{\hyperlink{class_character_a1750fc7b411d6fdac9ca9e6763e126f5}{00027}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_character_a1750fc7b411d6fdac9ca9e6763e126f5}{yMin}}\ =\ 69;}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00028}\mbox{\hyperlink{class_character_a682f191a3a01f1a772cd3fa624c0b16e}{00028}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_character_a682f191a3a01f1a772cd3fa624c0b16e}{xMin}}\ =\ -\/160;}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00029}\mbox{\hyperlink{class_character_ae741b4874f8875f33f70663890315a52}{00029}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_character_ae741b4874f8875f33f70663890315a52}{xMax}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a40ac52813d37c391b4cd6db06a8f1216}{\_getSizeIndex}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&);}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00032}00032\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_character_adba5c58a1b24bff604893e28519a1f34}{getVelocity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a46a264779165a349a13bcb364c4106d4}{setVelocity}}(sf::Vector3f);}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_afe32dd9baa581b7895f06c9687d073b4}{setBullet}}(sf::IntRect);}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_character_a450a222c641925d6bda2f2c9241c220b}{updateBullets}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{float});}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00039}\mbox{\hyperlink{class_character_a12d640046cf216dd010f8e71c3466e1e}{00039}}\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_character_a12d640046cf216dd010f8e71c3466e1e}{velocity}};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00040}\mbox{\hyperlink{class_character_aff7b8bd3f067ab04cd547c0dc14e765f}{00040}}\ \ \ \ \ std::vector<CharacterBullet*>\ \mbox{\hyperlink{class_character_aff7b8bd3f067ab04cd547c0dc14e765f}{bullets}};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00041}\mbox{\hyperlink{class_character_a95e438488293a98b1a404f39e4f97aeb}{00041}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_character_a95e438488293a98b1a404f39e4f97aeb}{sizeIndex}};}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00042}00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00043}00043\ \ \ \ \ sf::IntRect\ bulletTexture;}
+\DoxyCodeLine{\Hypertarget{_character_8h_source_l00044}00044\ \};}
 
 \end{DoxyCode}

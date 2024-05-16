@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_abstract_bullet_8h" kind="file" language="C++">
+    <compoundname>AbstractBullet.h</compoundname>
+    <includes refid="_entity_8h" local="yes">../Entity.h</includes>
+    <includedby refid="_abstract_bullet_8cpp" local="yes">C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp</includedby>
+    <includedby refid="_boss_bullet_8h" local="yes">C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h</includedby>
+    <includedby refid="_character_bullet_8h" local="yes">C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</includedby>
+    <includedby refid="_obstacle_bullet_8h" local="yes">C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="5">
+        <label>thread</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="16">
+        <label>C:/Zaxxon/src/Background/Background.cpp</label>
+        <link refid="_background_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Zaxxon/src/Background/Background.h</label>
+        <link refid="_background_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.cpp</label>
+        <link refid="_abstract_bullet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp</label>
+        <link refid="_boss_bullet_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.h</label>
+        <link refid="_boss_bullet_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp</label>
+        <link refid="_character_bullet_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.cpp</label>
+        <link refid="_obstacle_bullet_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h</label>
+        <link refid="_obstacle_bullet_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.cpp</label>
+        <link refid="_boss_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Zaxxon/src/Entity/Boss/Boss.h</label>
+        <link refid="_boss_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>C:/Zaxxon/src/Entity/Character/Character.cpp</label>
+        <link refid="_character_8cpp"/>
+      </node>
+      <node id="12">
+        <label>C:/Zaxxon/src/Entity/Character/Character.h</label>
+        <link refid="_character_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp</label>
+        <link refid="_enemy_8cpp"/>
+      </node>
+      <node id="14">
+        <label>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h</label>
+        <link refid="_enemy_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>C:/Zaxxon/src/Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Zaxxon/src/Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>C:/Zaxxon/src/Obstacle/Obstacle.cpp</label>
+        <link refid="_obstacle_8cpp"/>
+      </node>
+      <node id="22">
+        <label>C:/Zaxxon/src/Obstacle/Obstacle.h</label>
+        <link refid="_obstacle_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_abstract_bullet" prot="public">AbstractBullet</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_entity_8h" kindref="compound">../Entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_abstract_bullet" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_abstract_bullet" kindref="compound">AbstractBullet</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_entity" kindref="compound">Entity</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" kindref="member">BulletType</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" kindref="member">Player</ref>,</highlight></codeline>
+<codeline lineno="14" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" kindref="member">Enemy</ref>,</highlight></codeline>
+<codeline lineno="15" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" kindref="member">Missile</ref>,</highlight></codeline>
+<codeline lineno="16" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" kindref="member">zBullet</ref>,</highlight></codeline>
+<codeline lineno="17" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" kindref="member">xBulletL</ref>,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" kindref="member">xBulletR</ref></highlight></codeline>
+<codeline lineno="19" refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" kindref="member">AbstractBullet</ref>()<sp/>:<sp/><ref refid="class_entity" kindref="compound">Entity</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" kindref="member">isHit</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" kindref="member">translate</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26" refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" kindref="member">alive</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/AbstractBullet.h"/>
+  </compounddef>
+</doxygen>

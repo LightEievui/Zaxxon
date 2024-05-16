@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_game" xml:lang="en-US">
+<title>Game Class Reference</title>
+<indexterm><primary>Game</primary></indexterm>
+<para>
+
+<para>The main game and all related classes eventually end up being used here. <link linkend="_class_game">Game</link> loop is in here and is the &apos;heart&apos; of the whole program. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Game.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_game_1ad59df6562a58a614fda24622d3715b65">Game</link> ()</para>
+
+<para>Initialize everything needed for the main game functionality. </para>
+</listitem>
+            <listitem><para><link linkend="_class_game_1ae3d112ca6e0e55150d2fdbc704474530">~Game</link> ()</para>
+
+<para>Clean up memory when user is done playing the game. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa">run</link> ()</para>
+
+<para>Start the game, main game loop is also managed in here. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The main game and all related classes eventually end up being used here. <link linkend="_class_game">Game</link> loop is in here and is the &apos;heart&apos; of the whole program. </para>
+<para>
+Definition at line <link linkend="__game_8h_source_1l00024">24</link> of file <link linkend="__game_8h_source">Game.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_game_1ad59df6562a58a614fda24622d3715b65"/><section>
+    <title>Game()</title>
+<indexterm><primary>Game</primary><secondary>Game</secondary></indexterm>
+<indexterm><primary>Game</primary><secondary>Game</secondary></indexterm>
+<para><computeroutput>Game::Game ( )</computeroutput></para><para>
+
+<para>Initialize everything needed for the main game functionality. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_8cpp_source_1l00010">10</link> of file <link linkend="__game_8cpp_source">Game.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_game_1ae3d112ca6e0e55150d2fdbc704474530"/><section>
+    <title>~Game()</title>
+<indexterm><primary>~Game</primary><secondary>Game</secondary></indexterm>
+<indexterm><primary>Game</primary><secondary>~Game</secondary></indexterm>
+<para><computeroutput>Game::~Game ( )</computeroutput></para><para>
+
+<para>Clean up memory when user is done playing the game. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_8cpp_source_1l00088">88</link> of file <link linkend="__game_8cpp_source">Game.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa"/><section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>Game</secondary></indexterm>
+<indexterm><primary>Game</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>void Game::run ( )</computeroutput></para><para>
+
+<para>Start the game, main game loop is also managed in here. </para>
+</para>
+<para>
+Definition at line <link linkend="__game_8cpp_source_1l00116">116</link> of file <link linkend="__game_8cpp_source">Game.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Game/<link linkend="__game_8h">Game.h</link>C:/Zaxxon/src/Game/<link linkend="__game_8cpp">Game.cpp</link></section>
+</section>

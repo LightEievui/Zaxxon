@@ -1,0 +1,152 @@
+\doxysection{C\+:/\+Zaxxon/src/\+Util/\+Util.cpp File Reference}
+\hypertarget{_util_8cpp}{}\label{_util_8cpp}\index{C:/Zaxxon/src/Util/Util.cpp@{C:/Zaxxon/src/Util/Util.cpp}}
+{\ttfamily \#include "{}Util.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translate\+To2d}} (sf\+::\+Vector3f in)
+\begin{DoxyCompactList}\small\item\em Convert normal 2d coordinates to isometric coordinates. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}{get\+Window\+View\+Rect}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Easily get the current view rectangle with translations. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_util_8cpp_a311270ca6451600ab7089e74945d30b5}{z\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_util_8cpp_a7ab82b63c0cbae8095033e452b2d2183}{up\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Detects if up is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_util_8cpp_a63e332f98a6cbd1cb57f319f556ee594}{down\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Detects if down is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_util_8cpp_ae6f4fd7a79c6617ddba5e4bc53033e26}{left\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Detects if left is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_util_8cpp_af41bb2031bce096d1162c72a1ec3d49c}{right\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Detects if right is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_util_8cpp_a63e332f98a6cbd1cb57f319f556ee594}\label{_util_8cpp_a63e332f98a6cbd1cb57f319f556ee594} 
+\index{Util.cpp@{Util.cpp}!downPressed@{downPressed}}
+\index{downPressed@{downPressed}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{downPressed()}{downPressed()}}
+{\footnotesize\ttfamily bool down\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detects if down is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+
+\Hypertarget{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}\label{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1} 
+\index{Util.cpp@{Util.cpp}!getWindowViewRect@{getWindowViewRect}}
+\index{getWindowViewRect@{getWindowViewRect}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{getWindowViewRect()}{getWindowViewRect()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect get\+Window\+View\+Rect (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Easily get the current view rectangle with translations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Float rectangle
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+
+\Hypertarget{_util_8cpp_ae6f4fd7a79c6617ddba5e4bc53033e26}\label{_util_8cpp_ae6f4fd7a79c6617ddba5e4bc53033e26} 
+\index{Util.cpp@{Util.cpp}!leftPressed@{leftPressed}}
+\index{leftPressed@{leftPressed}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{leftPressed()}{leftPressed()}}
+{\footnotesize\ttfamily bool left\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detects if left is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+
+\Hypertarget{_util_8cpp_af41bb2031bce096d1162c72a1ec3d49c}\label{_util_8cpp_af41bb2031bce096d1162c72a1ec3d49c} 
+\index{Util.cpp@{Util.cpp}!rightPressed@{rightPressed}}
+\index{rightPressed@{rightPressed}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{rightPressed()}{rightPressed()}}
+{\footnotesize\ttfamily bool right\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detects if right is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+
+\Hypertarget{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}\label{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c} 
+\index{Util.cpp@{Util.cpp}!translateTo2d@{translateTo2d}}
+\index{translateTo2d@{translateTo2d}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{translateTo2d()}{translateTo2d()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f translate\+To2d (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{in }\end{DoxyParamCaption})}
+
+
+
+Convert normal 2d coordinates to isometric coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of 2 floats
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+
+\Hypertarget{_util_8cpp_a7ab82b63c0cbae8095033e452b2d2183}\label{_util_8cpp_a7ab82b63c0cbae8095033e452b2d2183} 
+\index{Util.cpp@{Util.cpp}!upPressed@{upPressed}}
+\index{upPressed@{upPressed}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{upPressed()}{upPressed()}}
+{\footnotesize\ttfamily bool up\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detects if up is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant \textquotesingle{}presses\textquotesingle{}. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+
+\Hypertarget{_util_8cpp_a311270ca6451600ab7089e74945d30b5}\label{_util_8cpp_a311270ca6451600ab7089e74945d30b5} 
+\index{Util.cpp@{Util.cpp}!zPressed@{zPressed}}
+\index{zPressed@{zPressed}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{zPressed()}{zPressed()}}
+{\footnotesize\ttfamily bool z\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_util_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_util_8cpp_source}{Util.\+cpp}}.
+

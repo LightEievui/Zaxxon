@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__zaxxon_text_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;SFML/Graphics.hpp&gt;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_zaxxon_text">ZaxxonText</link></para>
+
+<para>Class to grab text sprites from spritesheet given char or string. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

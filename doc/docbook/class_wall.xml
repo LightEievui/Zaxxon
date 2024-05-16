@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_wall" xml:lang="en-US">
+<title>Wall Class Reference</title>
+<indexterm><primary>Wall</primary></indexterm>
+<para>
+
+<para>Class for the normal walls (stone brick). </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Wall.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_wall_1a5f29ba541aff9823b15a97451d78e4c6">Wall</link> (sf::Texture *, sf::Vector3f, int size, std::vector&lt; int &gt;)</para>
+
+<para>Create a section of walls, each one can be a closed or open wall piece. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_wall_1a274edf0d5b16afba31a8618df97626af">drawWalls</link> (sf::RenderWindow &amp;window)</para>
+
+<para>Draw each section of the wall if it will be visible on the screen. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_wall_1a2f5f377219bc2e184db172a9093875d4">setPosition</link> (sf::Vector3f, int piece=0)</para>
+
+<para>Set position of specificed wall piece. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_wall_1a0f4063e0408cb992f6d478308fa52656">setTexture</link> (int, int)</para>
+
+<para>Set texture for if this wall piece should be closed or open. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae">checkOnScreen</link> ()</para>
+
+<para>Check if this wall will be on screen. </para>
+</listitem>
+            <listitem><para>std::vector&lt; sf::Vector3f &gt; &amp; <link linkend="_class_wall_1a6132a9e93316cba66ee61a78ea96040b">getWallPositions</link> ()</para>
+
+<para>Get 3d position of this wall. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class for the normal walls (stone brick). </para>
+<para>
+Definition at line <link linkend="__wall_8h_source_1l00010">10</link> of file <link linkend="__wall_8h_source">Wall.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_wall_1a5f29ba541aff9823b15a97451d78e4c6"/><section>
+    <title>Wall()</title>
+<indexterm><primary>Wall</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>Wall</secondary></indexterm>
+<para><computeroutput>Wall::Wall (sf::Texture * tex, sf::Vector3f pos, int size, std::vector&lt; int &gt; walls)</computeroutput></para><para>
+
+<para>Create a section of walls, each one can be a closed or open wall piece. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>tex</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>size</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>walls</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__wall_8cpp_source_1l00011">11</link> of file <link linkend="__wall_8cpp_source">Wall.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae"/><section>
+    <title>checkOnScreen()</title>
+<indexterm><primary>checkOnScreen</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>checkOnScreen</secondary></indexterm>
+<para><computeroutput>bool Wall::checkOnScreen ( )</computeroutput></para><para>
+
+<para>Check if this wall will be on screen. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__wall_8cpp_source_1l00091">91</link> of file <link linkend="__wall_8cpp_source">Wall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_wall_1a274edf0d5b16afba31a8618df97626af"/><section>
+    <title>drawWalls()</title>
+<indexterm><primary>drawWalls</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>drawWalls</secondary></indexterm>
+<para><computeroutput>void Wall::drawWalls (sf::RenderWindow &amp; window)</computeroutput></para><para>
+
+<para>Draw each section of the wall if it will be visible on the screen. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__wall_8cpp_source_1l00041">41</link> of file <link linkend="__wall_8cpp_source">Wall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_wall_1a6132a9e93316cba66ee61a78ea96040b"/><section>
+    <title>getWallPositions()</title>
+<indexterm><primary>getWallPositions</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>getWallPositions</secondary></indexterm>
+<para><computeroutput>std::vector&lt; sf::Vector3f &gt; &amp; Wall::getWallPositions ( )</computeroutput></para><para>
+
+<para>Get 3d position of this wall. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Vector of 3 float vectors</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__wall_8cpp_source_1l00101">101</link> of file <link linkend="__wall_8cpp_source">Wall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_wall_1a2f5f377219bc2e184db172a9093875d4"/><section>
+    <title>setPosition()</title>
+<indexterm><primary>setPosition</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>setPosition</secondary></indexterm>
+<para><computeroutput>void Wall::setPosition (sf::Vector3f pos, int piece = <computeroutput>0</computeroutput>
+)</computeroutput></para><para>
+
+<para>Set position of specificed wall piece. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>piece</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__wall_8cpp_source_1l00063">63</link> of file <link linkend="__wall_8cpp_source">Wall.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_wall_1a0f4063e0408cb992f6d478308fa52656"/><section>
+    <title>setTexture()</title>
+<indexterm><primary>setTexture</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>setTexture</secondary></indexterm>
+<para><computeroutput>void Wall::setTexture (int piece, int tex)</computeroutput></para><para>
+
+<para>Set texture for if this wall piece should be closed or open. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>piece</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>tex</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__wall_8cpp_source_1l00075">75</link> of file <link linkend="__wall_8cpp_source">Wall.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Wall/<link linkend="__wall_8h">Wall.h</link>C:/Zaxxon/src/Wall/<link linkend="__wall_8cpp">Wall.cpp</link></section>
+</section>

@@ -1,0 +1,44 @@
+\doxysection{Zaxxon.\+cpp}
+\hypertarget{_zaxxon_8cpp_source}{}\label{_zaxxon_8cpp_source}\index{C:/Zaxxon/src/Zaxxon.cpp@{C:/Zaxxon/src/Zaxxon.cpp}}
+\mbox{\hyperlink{_zaxxon_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00002}00002\ \textcolor{comment}{*\ Time\ of\ development:}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00003}00003\ \textcolor{comment}{*\ Jan\ 29\ -\/\ May\ 8\ 2024}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00004}00004\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00005}00005\ \textcolor{comment}{*\ Developer\ team:}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00006}00006\ \textcolor{comment}{*\ Gavin\ -\/\ Team\ leader\ /\ Programmer}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00007}00007\ \textcolor{comment}{*\ Alex\ -\/\ Administrator\ /\ Language\ lawyer}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00008}00008\ \textcolor{comment}{*\ Andrew\ -\/\ Chief\ programmer}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00009}00009\ \textcolor{comment}{*\ John\ -\/\ Copilot\ /\ Tester}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00010}00010\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00011}00011\ \textcolor{comment}{*\ Program:}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00012}00012\ \textcolor{comment}{*\ Recreation\ of\ the\ popular\ Zaxxon\ Sega\ arcade\ game\ in\ C++.}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00013}00013\ \textcolor{comment}{*\ An\ easy\ way\ to\ enjoy\ the\ classic\ game\ with\ optimized\ performance}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00014}00014\ \textcolor{comment}{*\ and\ memory\ usage,\ with\ all\ the\ features\ as\ you'd\ expect.}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00015}00015\ \textcolor{comment}{*\ }}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00016}00016\ \textcolor{comment}{*\ Controls:}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00017}00017\ \textcolor{comment}{*\ Keyboard:\ Arrow\ keys\ and\ Z}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00018}00018\ \textcolor{comment}{*\ Joystick:\ Stick0\ and\ button0}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00019}00019\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00020}00020\ \textcolor{comment}{*\ We\ hereby\ certify\ that\ this\ program\ represents\ our}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00021}00021\ \textcolor{comment}{*\ work\ and\ that\ the\ design\ and\ logic\ was\ completed}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00022}00022\ \textcolor{comment}{*\ without\ outside\ assistance.}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00023}00023\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_8h}{Game/Game.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00030}\mbox{\hyperlink{_zaxxon_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00030}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_zaxxon_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ Startup\ Zaxxon}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{auto}\ game\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_game}{Game}}();}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00034}00034\ \ \ \ \ game-\/>run();}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Game\ finished,\ remove\ it\ from\ memory}}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{delete}\ game;}
+\DoxyCodeLine{\Hypertarget{_zaxxon_8cpp_source_l00038}00038\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,182 @@
+.TH "BossBullet" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BossBullet \- The missile that the boss shoots\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <BossBullet\&.h>\fP
+.PP
+Inherits \fBAbstractBullet\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBossBullet\fP (sf::Vector3f, \fBEntity\fP *, sf::Texture *)"
+.br
+.RI "Create a boss bullet based on it's position\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
+.br
+.RI "Run logic for boss bullet then draw it to screen\&. "
+.ti -1c
+.RI "void \fBdamage\fP (int)"
+.br
+.RI "Decrease the health of the bullet\&. "
+.ti -1c
+.RI "void \fBcollide\fP ()"
+.br
+.RI "Run the death animation and set to dead\&. "
+.in -1c
+
+Public Member Functions inherited from \fBAbstractBullet\fP
+.in +1c
+.ti -1c
+.RI "\fBAbstractBullet\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisHit\fP ()"
+.br
+.RI "Returns whether the bullet is dead or not\&. "
+.ti -1c
+.RI "void \fBtranslate\fP (float)"
+.br
+.RI "Move a certain amount on the Z axis\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Types inherited from \fBAbstractBullet\fP
+.in +1c
+.ti -1c
+.RI "enum \fBBulletType\fP { \fBPlayer\fP, \fBEnemy\fP, \fBMissile\fP, \fBzBullet\fP, \fBxBulletL\fP, \fBxBulletR\fP }"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBAbstractBullet\fP
+.in +1c
+.ti -1c
+.RI "bool \fBalive\fP = true"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The missile that the boss shoots\&. 
+.PP
+Definition at line \fB10\fP of file \fBBossBullet\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BossBullet::BossBullet (sf::Vector3f startPos, \fBEntity\fP * target, sf::Texture * spriteSheet)"
+
+.PP
+Create a boss bullet based on it's position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstartPos\fP 
+.br
+\fItarget\fP The entity that the missile is targetting\&.
+.br
+\fIspriteSheet\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB11\fP of file \fBBossBullet\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void BossBullet::collide ()"
+
+.PP
+Run the death animation and set to dead\&. 
+.PP
+Definition at line \fB69\fP of file \fBBossBullet\&.cpp\fP\&.
+.SS "void BossBullet::damage (int hit)"
+
+.PP
+Decrease the health of the bullet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIhit\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB84\fP of file \fBBossBullet\&.cpp\fP\&.
+.SS "void BossBullet::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Run logic for boss bullet then draw it to screen\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Implements \fBEntity\fP\&.
+.PP
+Definition at line \fB33\fP of file \fBBossBullet\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

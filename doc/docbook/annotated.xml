@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class_abstract_bullet">AbstractBullet</link>
+<para>Class to hold information that the other bullets share </para>
+<link linkend="_class_animation">Animation</link>
+<para>Class to handle (almost) all in-game animations </para>
+<link linkend="_class_background">Background</link>
+<para>Holds all backgrounds and methods to fill each level with content </para>
+<link linkend="_class_boss">Boss</link>
+<para>The boss entity you fight at the end of the level loop </para>
+<link linkend="_class_boss_bullet">BossBullet</link>
+<para>The missile that the boss shoots </para>
+<link linkend="_class_character">Character</link>
+<para>Abstract class to hold information that both player and enemy use </para>
+<link linkend="_class_character_bullet">CharacterBullet</link>
+<para>The bullet used by the player and enemies </para>
+<link linkend="_class_enemy">Enemy</link>
+<para><link linkend="_class_enemy">Enemy</link> in the game. These use a recolored player bullet </para>
+<link linkend="_class_entity">Entity</link>
+<para>Abstract class for all entities in the game </para>
+<link linkend="_class_game">Game</link>
+<para>The main game and all related classes eventually end up being used here. <link linkend="_class_game">Game</link> loop is in here and is the &apos;heart&apos; of the whole program </para>
+<link linkend="_class_g_u_i">GUI</link>
+<para>Contains all <link linkend="_class_g_u_i">GUI</link> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions </para>
+<link linkend="_class_h_m_section">HMSection</link>
+<para>The height meter and related methods </para>
+<link linkend="_class_obstacle">Obstacle</link>
+<para>Still obstacles that spawn across the levels </para>
+<link linkend="_class_obstacle_bullet">ObstacleBullet</link><link linkend="_class_player">Player</link>
+<para>The player character, also contains plane controls </para>
+<link linkend="_class_wall">Wall</link>
+<para>Class for the normal walls (stone brick) </para>
+<link linkend="_class_zap_wall">ZapWall</link>
+<para>Class for other walls (blue lightning) </para>
+<link linkend="_class_zaxxon_text">ZaxxonText</link>
+<para>Class to grab text sprites from spritesheet given char or string </para>
+</section>

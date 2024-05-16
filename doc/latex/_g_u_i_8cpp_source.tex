@@ -1,0 +1,573 @@
+\doxysection{GUI.\+cpp}
+\hypertarget{_g_u_i_8cpp_source}{}\label{_g_u_i_8cpp_source}\index{C:/Zaxxon/src/GUI/GUI.cpp@{C:/Zaxxon/src/GUI/GUI.cpp}}
+\mbox{\hyperlink{_g_u_i_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_g_u_i_8h}{GUI.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00008}\mbox{\hyperlink{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839}{00008}}\ \mbox{\hyperlink{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839}{GUI::GUI}}(sf::Texture*\ spritesheet)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00010}00010\ \ \ \ \ this-\/>spritesheet\ =\ spritesheet;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00011}00011\ \ \ \ \ heightMeterBg.setFillColor(sf::Color::Black);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00012}00012\ \ \ \ \ heightMeterBg.setPosition(0,\ 73);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00013}00013\ \ \ \ \ heightMeterBg.setSize(sf::Vector2f(8,\ 89));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00014}00014\ \ \ \ \ hudElements.push\_back(\&heightMeterBg);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00016}00016\ \ \ \ \ heightH\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ \textcolor{charliteral}{'H'});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00017}00017\ \ \ \ \ heightH.setPosition(0,\ 73\ -\/\ 8);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00018}00018\ \ \ \ \ heightH.setColor(sf::Color(222,\ 0,\ 0));\ \textcolor{comment}{//\ red\ right\ of\ chars}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00019}00019\ \ \ \ \ hudElements.push\_back(\&heightH);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00021}00021\ \ \ \ \ heightL\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ \textcolor{charliteral}{'L'});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00022}00022\ \ \ \ \ heightL.setPosition(0,\ 162);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00023}00023\ \ \ \ \ heightL.setColor(sf::Color(0,\ 222,\ 0));\ \textcolor{comment}{//\ green\ right\ of\ chars}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00024}00024\ \ \ \ \ hudElements.push\_back(\&heightL);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_h_m_section}{HMSection}}\&\ section\ =\ heightMeterSections[i];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ section.setTexture(*spritesheet);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ section.\mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{setType}}(\mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481}{HMSection::TOP}});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ ==\ 9)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ section.\mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{setType}}(\mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740}{HMSection::BOTTOM}});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ \%\ 2\ ==\ 1)\ \textcolor{comment}{//\ odd\ number}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ section.\mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{setType}}(\mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c}{HMSection::OPEN}});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ section.\mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{setType}}(\mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119}{HMSection::LINE}});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ section.setPosition(0,\ heightH.getPosition().y\ +\ 16\ +\ 8\ *\ i);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ hudElements.push\_back(\&section);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ Copyright\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}\(\backslash\)x1D\(\backslash\)x1ESEGA1982"{}},\ copyright);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00048}00048\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ copyright[i].setColor(sf::Color(222,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 124;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 6)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 16;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ >=\ 2)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ copyright[i].setPosition(start\ +\ 8.f\ *\ i,\ 248.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Top\ score\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}TOP000000"{}},\ topScore);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00064}00064\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ topScore[i].setColor(sf::Color(0,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 2)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ topScore[i].setPosition(start\ +\ 8.f\ *\ i,\ 8.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ 1up\ score\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}1UP000000"{}},\ curScore);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ curScore[i].setColor(sf::Color(222,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 2)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ curScore[i].setPosition(start\ +\ 8.f\ *\ i,\ 24.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{comment}{//\ Fuel\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}FUELEF"{}},\ fuelText);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 6;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00092}00092\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 4)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ fuelText[i].setColor(sf::Color(0,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ fuelText[i].setPosition(12.f\ +\ i\ *\ 8.f,\ 240.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ fuelText[i].setColor(sf::Color(222,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ fuelText[i].setPosition(52.f\ +\ (i\ -\/\ 4.f)\ *\ 136.f,\ 240.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{comment}{//\ Enemy\ plane\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}ENEMYPLANE"{}},\ enemyText);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00109}00109\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ enemyText[i].setColor(sf::Color(222,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ These\ use\ integer\ for\ the\ equation,\ do\ not\ 'float'\ it}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edit:\ explicitedly\ casted\ it.}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ enemyText[i].setPosition(sf::Vector2f(}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(176\ +\ i\ \%\ 5\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(200\ +\ i\ /\ 5\ *\ 8)));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ Fuel\ bar\ sprites}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 16;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00120}00120\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ fuelBar[i].setTexture(*spritesheet);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ fuelBar[i].setTextureRect(sf::IntRect(328,\ 296,\ 8,\ 8));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ fuelBar[i].setPosition(60.f\ +\ i\ *\ 8.f,\ 240.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{comment}{//\ Lives\ bar\ sprites}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00127}00127\ \ \ \ \ livesBar.setTexture(*spritesheet);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00128}00128\ \ \ \ \ livesBar.setTextureRect(sf::IntRect(344,\ 288,\ 16,\ 16));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00129}00129\ \ \ \ \ livesBar.setPosition(12.f,\ 224.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{comment}{//\ Enemies\ left}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}X\(\backslash\)u000a20"{}},\ enemyLeft);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00133}00133\ \ \ \ \ enemyLeft[0].setTextureRect(sf::IntRect(368,\ 296,\ 8,\ 8));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 4;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ enemyLeft[i].setPosition(176.f\ +\ i\ *\ 8.f,\ 216.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00138}00138\ \ \ \ \ \textcolor{comment}{//\ Start\ screen,\ push\ player\ button}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00139}00139\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}PUSH1OR2PLAYERBUTTON"{}},\ pushPlayerText);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00140}00140\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 20;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00141}00141\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 4)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 5)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 7)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 8)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 14)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ pushPlayerText[i].setColor(sf::Color(0,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ pushPlayerText[i].setPosition(sf::Vector2f(start\ +\ 8.f\ *\ i,\ 92.f));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00159}00159\ \ \ \ \ \textcolor{comment}{//\ Start\ screen,\ high\ score\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}HIGHSCORES"{}},\ highScoresText);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00162}00162\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 72;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 4)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ highScoresText[i].setColor(sf::Color(222,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ highScoresText[i].setPosition(sf::Vector2f(}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ *\ 8),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(120)));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00171}00171\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ Game\ over\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}GAMEOVER"{}},\ gameOver);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 8;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00176}00176\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 60;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 4)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 16;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ gameOver[i].setColor(sf::Color(222,\ 222,\ 222));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ gameOver[i].setPosition(sf::Vector2f(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(115)));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00185}00185\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ High\ score\ entry}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00188}00188\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}HIGHSCOREENTRY"{}},\ scoreEntry);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00189}00189\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 14;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00190}00190\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 32;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 4)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 9)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ scoreEntry[i].setColor(sf::Color(222,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ scoreEntry[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(75));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Initials\ :}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00204}00204\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}INITIALS\(\backslash\)u0004"{}},\ initialsText);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00206}00206\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 32;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 8)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ initialsText[i].setColor(sf::Color(0,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ initialsText[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(95));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00215}00215\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ Entry\ time}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00218}00218\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,\ \textcolor{stringliteral}{"{}ENTRYTIME\(\backslash\)u000620\(\backslash\)u0007"{}},\ entryTime);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00219}00219\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 13;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00220}00220\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ start\ =\ 32;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 5)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 9)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 16;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ entryTime[i].setColor(sf::Color(222,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ entryTime[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(115));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00232}00232\ \ \ \ \ \textcolor{comment}{//\ Name\ entry\ keyboard}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 28;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00234}00234\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 26)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ keyboard[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ \textcolor{charliteral}{'A'}\ +\ i);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ keyboard[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ 0\ +\ i\ -\/\ 26);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ keyboard[i].setColor(sf::Color(0,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ keyboard[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(32\ +\ i\ \%\ 10\ *\ 16),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(135\ +\ i\ /\ 10\ *\ 16));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00243}00243\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00245}00245\ \ \ \ \ \textcolor{comment}{//\ Keyboard\ RUB\ \&\ END}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00246}00246\ \ \ \ \ keyboard[28].setTexture(*spritesheet);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00247}00247\ \ \ \ \ keyboard[28].setTextureRect(sf::IntRect(200,\ 248,\ 29,\ 8));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00248}00248\ \ \ \ \ keyboard[28].setColor(sf::Color(0,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00249}00249\ \ \ \ \ keyboard[28].setPosition(keyboard[27].getPosition().x\ +\ 13,}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ keyboard[27].getPosition().y);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00252}00252\ \ \ \ \ \textcolor{comment}{//\ Cursor\ selector\ for\ the\ keyboard}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00253}00253\ \ \ \ \ cursor.setTexture(*spritesheet);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00254}00254\ \ \ \ \ cursor.setTextureRect(sf::IntRect(316,\ 264,\ 16,\ 16));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{comment}{//\ End\ screen}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00257}00257\ \ \ \ \ \mbox{\hyperlink{class_zaxxon_text_a9c15f8d201ca3ae8ef9c1ca8fa6d9462}{ZaxxonText::string}}(spritesheet,}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}CONGRATULATIONS\(\backslash\)u000cYOUGETBONUS1000PTS\(\backslash\)u0001GOOD\(\backslash\)u000c"{}},}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ endScreen);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00260}00260\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 40;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00261}00261\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Different\ positions/colors\ for\ each\ 3\ lines\ of\ text}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 16)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ start\ =\ 40;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 15)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ endScreen[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(80));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ endScreen[i].setColor(sf::Color(0,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ <\ 35)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ start\ =\ 16;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 18)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 21)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 26)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 30)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ endScreen[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ (i\ -\/\ 16)\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(100));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ endScreen[i].setColor(sf::Color(222,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ start\ =\ 88;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 39)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ endScreen[i].setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ (i\ -\/\ 35)\ *\ 8),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(120));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ endScreen[i].setColor(sf::Color(222,\ 222,\ 222));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00302}00302\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00303}00303\ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00315}\mbox{\hyperlink{class_g_u_i_a1b817cdd39b52e3322ab2b89c03bc220}{00315}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a1b817cdd39b52e3322ab2b89c03bc220}{GUI::render}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{float}\ playerY,\ \textcolor{keywordtype}{int}\ score,}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ highScore,\ \textcolor{keywordtype}{byte}\ fuel,\ \textcolor{keywordtype}{byte}\ lives)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00317}00317\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00318}00318\ \ \ \ \ window.draw(heightMeterBg);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00319}00319\ \ \ \ \ \textcolor{comment}{/*\ 69top\ 135bottom\ 66\ in\ between,\ multiply\ by\ below\ number\ to\ get\ 68}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00320}00320\ \textcolor{comment}{\ \ \ \ should\ be\ 8\ sections\ each\ for\ line/open\ and\ 2\ each\ for\ top/bottom\ so}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00321}00321\ \textcolor{comment}{\ \ \ \ yDiff\ should\ be\ 68\ max\ (68\ from\ 8*8\ +\ 4)\ also\ round\ to\ make\ sure\ correct}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00322}00322\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00323}00323\ \ \ \ \ \textcolor{keywordtype}{int}\ yDiff\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(round((playerY\ -\/\ 69.f)\ *\ 0.95774647887f));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00324}00324\ \ \ \ \ \textcolor{keywordflow}{if}\ (yDiff\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ yDiff\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00327}00327\ \ \ \ \ \textcolor{comment}{//\ -\/4\ to\ make\ 64}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00328}00328\ \ \ \ \ \textcolor{keywordtype}{int}\ selection\ =\ (yDiff\ -\/\ 2)\ /\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{if}\ (selection\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ selection\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00332}00332\ \ \ \ \ \textcolor{keywordtype}{bool}\ changingBelow\ =\ \textcolor{keyword}{false},\ changingAbove\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00333}00333\ \ \ \ \ \textcolor{keywordtype}{byte}\ last\ =\ 7,\ localYDiff\ =\ (yDiff\ -\/\ 2)\ \%\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00334}00334\ \ \ \ \ \textcolor{keywordflow}{if}\ (localYDiff\ ==\ 6)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ localYDiff\ =\ 7;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00337}00337\ \ \ \ \ \textcolor{keywordflow}{if}\ (yDiff\ <=\ 66\ \&\&\ yDiff\ >=\ 2)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00338}00338\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_h_m_section}{HMSection}}\&\ activeSection\ =\ heightMeterSections[selection];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ activeSection.\mbox{\hyperlink{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}{progress}}(localYDiff);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (localYDiff\ >=\ 5)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ heightMeterSections[selection\ +\ 1].\mbox{\hyperlink{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}{progress}}(localYDiff\ -\/\ 7);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ changingBelow\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00348}00348\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00349}00349\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (yDiff\ <\ 8)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00350}00350\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ top}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ heightMeterSections[0].\mbox{\hyperlink{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}{progress}}(12\ +\ localYDiff);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00353}00353\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00354}00354\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (yDiff\ >\ 64)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00355}00355\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bottom}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00357}00357\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00359}00359\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00360}00360\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_h_m_section}{HMSection}}\&\ section\ =\ heightMeterSections[i];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ selection)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ selection\ -\/\ 1\ ||\ !changingAbove)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ section.\mbox{\hyperlink{class_h_m_section_a6093acdaf453e4985124eb26d85a628d}{empty}}();}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ >\ selection)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ selection\ +\ 1\ ||\ !changingBelow)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ section.\mbox{\hyperlink{class_h_m_section_a6e02d19eb07396dc514c8938d578658b}{fill}}();}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ window.draw(section);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00374}00374\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00375}00375\ \ \ \ \ window.draw(heightH);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00376}00376\ \ \ \ \ window.draw(heightL);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00378}00378\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00379}00379\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ window.draw(copyright[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ window.draw(enemyText[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00382}00382\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00384}00384\ \ \ \ \ \textcolor{comment}{//\ Update\ score}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00385}00385\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 6;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00386}00386\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ std::string\ scoreStr\ =\ std::to\_string(score);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ std::string\ highStr\ =\ std::to\_string(highScore);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (scoreStr.length()\ <\ 6)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ scoreStr\ =\ \textcolor{charliteral}{'0'}\ +\ scoreStr;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (highStr.length()\ <\ 6)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ highStr\ =\ \textcolor{charliteral}{'0'}\ +\ highStr;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ curScore[8\ -\/\ i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ scoreStr.at(5\ -\/\ i));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ curScore[8\ -\/\ i].setPosition(72.f\ -\/\ 8.f\ *\ i,\ 24.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ curScore[8\ -\/\ i].setColor(sf::Color(222,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ topScore[8\ -\/\ i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ highStr.at(5\ -\/\ i));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ topScore[8\ -\/\ i].setPosition(72.f\ -\/\ 8.f\ *\ i,\ 8.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ topScore[8\ -\/\ i].setColor(sf::Color(0,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00402}00402\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00404}00404\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00405}00405\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ window.draw(topScore[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00407}00407\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 3)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ window.draw(curScore[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00410}00410\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00412}00412\ \ \ \ \ \textcolor{comment}{//\ 1up\ score\ will\ flash}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00413}00413\ \ \ \ \ \textcolor{keywordflow}{if}\ (scoreClock.getElapsedTime().asSeconds()\ >\ 0.4)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00414}00414\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ window.draw(curScore[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (scoreClock.getElapsedTime().asSeconds()\ >\ 0.8)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ scoreClock.restart();}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00420}00420\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00422}00422\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 6;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ window.draw(fuelText[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00425}00425\ \ \ \ \ \textcolor{comment}{//\ Update\ fuel\ bar}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00426}00426\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 16;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00427}00427\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ sf::IntRect\ status(328,\ 296,\ 8,\ 8);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fuel\ -\/\ i\ *\ 8\ <\ 8)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fuel\ -\/\ i\ *\ 8\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status.left\ =\ 328\ -\/\ (8\ -\/\ (fuel\ -\/\ i\ *\ 8)\ \%\ 8)\ *\ 16;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ status.left\ =\ 176,\ status.top\ =\ 272;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ fuelBar[i].setTextureRect(status);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ window.draw(fuelBar[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00437}00437\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00439}00439\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ lives;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00440}00440\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ livesBar.setPosition(12.f\ +\ i\ *\ 16.f,\ 224.f);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ window.draw(livesBar);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00443}00443\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00445}00445\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 4;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ window.draw(enemyLeft[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00447}00447\ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00456}\mbox{\hyperlink{class_g_u_i_a41bf32a5de5387392f14b204bd55259e}{00456}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a41bf32a5de5387392f14b204bd55259e}{GUI::startRender}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{int}\ highScore)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00457}00457\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00458}00458\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ window.draw(copyright[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00461}00461\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 9;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00462}00462\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ window.draw(topScore[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ window.draw(curScore[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00465}00465\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00467}00467\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 20;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ window.draw(pushPlayerText[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00470}00470\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 42;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ window.draw(highScores[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00473}00473\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 10;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ window.draw(highScoresText[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00476}00476\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 18;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ window.draw(highScoresNames[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00478}00478\ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00480}00480\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00486}\mbox{\hyperlink{class_g_u_i_a63a1106506cd880d0148d44bc6aabf2a}{00486}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a63a1106506cd880d0148d44bc6aabf2a}{GUI::renderScores}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{int}\ scores[],}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ names[])}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00488}00488\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00489}00489\ \ \ \ \ \textcolor{comment}{//\ The\ score\ values}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00490}00490\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 42;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00491}00491\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ \%\ 7\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ highScores[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ \textcolor{charliteral}{'1'}\ +\ i\ /\ 7);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ scoreStr\ =\ std::to\_string(scores[i\ /\ 7]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (scoreStr.length()\ <\ 6)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scoreStr\ =\ \textcolor{charliteral}{'0'}\ +\ scoreStr;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00500}00500\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ highScores[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scoreStr[0\ +\ (i\ \%\ 7)\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00503}00503\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ highScores[i].setColor(sf::Color(0,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ \%\ 7)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 21)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 120;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ layer\ =\ 140;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ layer\ +=\ 12\ *\ (i\ \%\ 21\ /\ 7);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ highScores[i].setPosition(sf::Vector2f(}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ \%\ 7\ *\ 8),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(layer)));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00517}00517\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00518}00518\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00519}00519\ \ \ \ \ \textcolor{comment}{//\ The\ names\ for\ each\ score}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00520}00520\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 18;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00521}00521\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00522}00522\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ use\ \_\ for\ spaces\ in\ names}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00523}00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (names[i\ /\ 3][i\ \%\ 3]\ !=\ \textcolor{charliteral}{'\_'})}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ highScoresNames[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spritesheet,\ names[i\ /\ 3][i\ \%\ 3]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ highScoresNames[i].setColor(sf::Color(0,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\ =\ 76;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ 9)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ start\ +=\ 120;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ layer\ =\ 140;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ layer\ +=\ 12\ *\ (i\ \%\ 9\ /\ 3);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ highScoresNames[i].setPosition(sf::Vector2f(}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(start\ +\ i\ \%\ 3\ *\ 8),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(layer)));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00537}00537\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00538}00538\ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00547}\mbox{\hyperlink{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e}{00547}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e}{GUI::renderEnd}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{byte}\ timeLeft,\ \textcolor{keywordtype}{byte}\ selector,}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ name[3])}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00549}00549\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00550}00550\ \ \ \ \ \textcolor{keywordflow}{if}\ (timeLeft\ ==\ 255)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00551}00551\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00552}00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 8;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ window.draw(gameOver[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00554}00554\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00556}00556\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00557}00557\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00558}00558\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 14;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ window.draw(scoreEntry[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00560}00560\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00561}00561\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 9;\ i\ <\ 12;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00562}00562\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (name[i]\ !=\ \textcolor{charliteral}{'\_'}\ \&\&\ name[i]\ !=\ \textcolor{charliteral}{'\ '})}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ initialsText[i]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ name[i\ -\/\ 9]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ initialsText[i].setColor(sf::Color(0,\ 222,\ 247));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ initialsText[i].setPosition(sf::Vector2f(}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(120\ +\ (i\ -\/\ 9)\ *\ 16),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(95)));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00568}00568\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00570}00570\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 12;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ window.draw(initialsText[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00572}00572\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00573}00573\ \ \ \ \ entryTime[10]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ \textcolor{charliteral}{'0'}\ +\ timeLeft\ /\ 10);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00574}00574\ \ \ \ \ entryTime[10].setPosition(136,\ 115);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00575}00575\ \ \ \ \ entryTime[10].setColor(sf::Color(222,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00576}00576\ \ \ \ \ entryTime[11]\ =\ \mbox{\hyperlink{class_zaxxon_text_ae3d8b5ffcd7a1374cff38f3243366517}{ZaxxonText::get}}(spritesheet,\ \textcolor{charliteral}{'0'}\ +\ timeLeft\ \%\ 10);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00577}00577\ \ \ \ \ entryTime[11].setPosition(144,\ 115);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00578}00578\ \ \ \ \ entryTime[11].setColor(sf::Color(222,\ 222,\ 0));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00579}00579\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00580}00580\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 13;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ window.draw(entryTime[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00583}00583\ \ \ \ \ \textcolor{comment}{//\ Draw\ cursor\ before\ keyboard}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00584}00584\ \ \ \ \ cursor.setPosition(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(28\ +\ selector\ \%\ 10\ *\ 16),}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(131\ +\ selector\ /\ 10\ *\ 16));}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00586}00586\ \ \ \ \ window.draw(cursor);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00588}00588\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 30;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ window.draw(keyboard[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00590}00590\ \}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00597}\mbox{\hyperlink{class_g_u_i_a7be71ee8e625cb46a458be2aca82f705}{00597}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a7be71ee8e625cb46a458be2aca82f705}{GUI::renderWin}}(sf::RenderWindow\&\ window)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00598}00598\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00599}00599\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{byte}\ i\ =\ 0;\ i\ <\ 40;\ i++)}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00600}00600\ \ \ \ \ \ \ \ \ window.draw(endScreen[i]);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8cpp_source_l00601}00601\ \}}
+
+\end{DoxyCode}

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['player_0',['Player',['../class_player.html',1,'Player'],['../class_player.html#ab67b08e4700e1f6e208746e67cb0f701',1,'Player::Player()']]],
-  ['progress_1',['progress',['../class_h_m_section.html#a78bd080598e3778f18a44da90fa1b0d2',1,'HMSection']]]
+  ['kill_0',['kill',['../class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b',1,'CharacterBullet::kill()'],['../class_character_bullet.html#ac9285627ab485a6be4efc7dedc11bc23',1,'CharacterBullet::kill(BulletDeathType type)'],['../class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d',1,'Character::kill()'],['../class_enemy.html#ad0bf56e75378d9524f2d77479d259dde',1,'Enemy::kill()'],['../class_player.html#aa8baacf4fe29a618f2cf4b26327e4d5a',1,'Player::kill()'],['../class_entity.html#a3ea146cebd4310647bd49a4f08940fe5',1,'Entity::kill()'],['../class_obstacle.html#a3b4865fafe3cf6a31b3444c2557550f8',1,'Obstacle::kill()']]],
+  ['killbullet_1',['killBullet',['../class_character.html#a6ea404b0682144a8f21d42e881cb0ce7',1,'Character']]]
 ];

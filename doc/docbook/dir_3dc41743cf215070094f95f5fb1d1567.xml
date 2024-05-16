@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_3dc41743cf215070094f95f5fb1d1567" xml:lang="en-US">
+<title>C:/Zaxxon/src/GUI Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/GUI Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_fd16583aea08d7e90ef1a30937c0ce95">HMSection</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_bdf446320f0a5e5cd1ebd0659f195cfc">ZaxxonText</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__g_u_i_8cpp">GUI.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__g_u_i_8h">GUI.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

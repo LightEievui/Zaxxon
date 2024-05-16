@@ -1,0 +1,33 @@
+\doxysection{Boss.\+h}
+\hypertarget{_boss_8h_source}{}\label{_boss_8h_source}\index{C:/Zaxxon/src/Entity/Boss/Boss.h@{C:/Zaxxon/src/Entity/Boss/Boss.h}}
+\mbox{\hyperlink{_boss_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity/Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_boss_bullet_8h}{Entity/AbstractBullet/BossBullet/BossBullet.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00011}\mbox{\hyperlink{class_boss}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_boss}{Boss}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_boss_a532b2cfc920780c6f4ea432d7e22be79}{Boss}}(sf::Vector3f,\ \mbox{\hyperlink{class_entity}{Entity}}*,\ sf::Texture*,\ sf::Texture*);}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_boss_ad848427ba363777ea9fe753b4f70b26c}{\string~Boss}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boss_ae9cf8c000e924a806d64e7488ce6f58a}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float}\ gameSpeed)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boss_a911178ba0e5f853c0472f8a2ef879c60}{hit}}();}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{class_boss_bullet}{BossBullet}}*\ \mbox{\hyperlink{class_boss_ab76a3a54901df7bc04ff8eb237549fa7}{getMissile}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_boss_af650e303d854e6bfb32b7ff64989105d}{missileCreated}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_boss_a043a78c54fc3a9b0dbacaaf8789be9ea}{isDestroyed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00022}00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{class_entity}{Entity}}*\ target;}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00024}00024\ \ \ \ \ sf::Clock\ movementInt,\ invFrames;}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{int}\ stages\ =\ 0,\ hitCount\ =\ 20,\ hits\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{class_boss_bullet}{BossBullet}}*\ missile\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ bulletCreated\ =\ \textcolor{keyword}{false},\ destroyed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{float}\ targetXPoints[3];}
+\DoxyCodeLine{\Hypertarget{_boss_8h_source_l00030}00030\ \};}
+
+\end{DoxyCode}

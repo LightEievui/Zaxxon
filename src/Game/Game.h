@@ -11,39 +11,46 @@
 #include "GUI/GUI.h"
 #include "Wall/Wall.h"
 #include "Background/Background.h"
-#include "Boss/Boss.h"
+#include "Entity/Boss/Boss.h"
+
+// Clearer than using unsigned char often
+using byte = unsigned char;
 
 
-typedef unsigned char byte;
-
-
+/// <summary>
+/// The main game and all related classes eventually end up being used here.
+/// Game loop is in here and is the 'heart' of the whole program.
+/// </summary>
 class Game
 {
 public:
 	Game();
 	~Game();
 	void run();
-
 private:
 	sf::Texture spriteSheet, bossSheet, intro[5];
 	Background* pBackground;
 	sf::RenderWindow window;
-	sf::ContextSettings s;
+	sf::Image icon;
 	GUI gui;
 
 	Player* player;
 	std::vector<Enemy*> enemies;
 	std::vector<Obstacle*> obstacles;
 	std::vector<Wall*> walls;
-	std::vector<ZapWalls*> zapWalls;
-	Boss* boss = nullptr; //file position needs to be moved inside of entity, fsr my home computer struggles to edit file position in visual studio
+	std::vector<ZapWall*> zapWalls;
+	Boss* boss = nullptr;
+	BossBullet* missile = nullptr;
 
 	byte fuel = 128;
 	byte completions = 0;
 	byte lives = 2;
-	int score = 0;
+	byte player1lives = 2;
+	byte player2lives = 2;
+	int player1score = 0;
+	int player2score = 0;
 	int highScore = 0;
-	float gameSpeed = 1.0;
+	float gameSpeed = 1.2;
 	byte gameState = 4;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
@@ -51,10 +58,14 @@ private:
 	bool activeCursor[4] = { true, true, true, true};
 	byte selector = 0;
 	std::fstream file;
+	unsigned int reset = 0;
 	unsigned int fps = 0;
 	double deltaTime = 0;
 	std::chrono::steady_clock::time_point lastTime =
-		std::chrono::high_resolution_clock::now(), currentTime;
+		                                      std::chrono::high_resolution_clock::now()
+	                                      , currentTime;
+	bool player2 = false;
+	bool player2mode = false;
 
 	sf::View mainView;
 	sf::View guiView;
@@ -62,11 +73,14 @@ private:
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
-	sf::Sprite deathSprite, introLetters[6];
+	sf::Sprite deathSprite;
+	sf::Clock playerScreenTimer;
 
 	bool bossState = true;
 
 	void doCollision(Player*);
+	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
+	                 bool intersect2d);
 	void playerDeath();
 	void gameOver();
 	void doIntro();

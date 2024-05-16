@@ -1,0 +1,81 @@
+\doxysection{Zap\+Wall.\+cpp}
+\hypertarget{_zap_wall_8cpp_source}{}\label{_zap_wall_8cpp_source}\index{C:/Zaxxon/src/ZapWall/ZapWall.cpp@{C:/Zaxxon/src/ZapWall/ZapWall.cpp}}
+\mbox{\hyperlink{_zap_wall_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_zap_wall_8h}{ZapWall.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00009}\mbox{\hyperlink{class_zap_wall_a3b02529cde8076102e462dc6b7c6351c}{00009}}\ \mbox{\hyperlink{class_zap_wall_a3b02529cde8076102e462dc6b7c6351c}{ZapWall::ZapWall}}(sf::Texture*\ tex,\ sf::Vector3f\ pos)}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}}\ =\ tex;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00012}00012\ \ \ \ \ startPosition\ =\ pos;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(pos);}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setTexture(*\mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}});}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setPosition(\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(sf::Vector3f(pos.x,\ pos.y,\ pos.z)));}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setTextureRect(sf::IntRect(199,\ 63,\ 35,\ 35));}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00026}\mbox{\hyperlink{class_zap_wall_a749a7515b945420293924b3887033d93}{00026}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zap_wall_a749a7515b945420293924b3887033d93}{ZapWall::update}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{float}\ gameSpeed)}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//Only\ draws\ if\ on\ screen\ and\ has\ delay\ so\ it\ does\ not\ stop\ too\ early}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}{getWindowViewRect}}(window).intersects(\mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>getGlobalBounds()))}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00030}00030\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (drawn\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ offScreenCount++;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (offScreenCount\ ==\ 15)}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ offScreenCount\ =\ 15;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ onScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ drawn\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00043}00043\ \ \ \ \ onScreen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00044}00044\ \ \ \ \ drawn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00046}00046\ \ \ \ \ window.draw(*\mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}});}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//Movement\ every\ two\ frames}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00050}00050\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ on\ screen,\ move\ it\ over}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ >\ -\/190)}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>move(\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(sf::Vector3f(-\/58,\ 0,\ 0)));}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ -\/\ 58,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z));}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//else\ it\ is\ off\ screen,\ reset\ it\ to\ start\ position}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setPosition(\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(sf::Vector3f(startPosition)));}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(startPosition);}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00073}\mbox{\hyperlink{class_zap_wall_a80af1a48975d457f8bee45eba0c4f416}{00073}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zap_wall_a80af1a48975d457f8bee45eba0c4f416}{ZapWall::setStartPos}}(sf::Vector3f\ pos)}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00075}00075\ \ \ \ \ startPosition\ =\ pos;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00083}\mbox{\hyperlink{class_zap_wall_aa8f5edb8998f1dbd276120174c1ca01c}{00083}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_zap_wall_aa8f5edb8998f1dbd276120174c1ca01c}{ZapWall::isOnScreen}}()}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ onScreen;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00093}\mbox{\hyperlink{class_zap_wall_a3bc98afa6d68d364ae39838cc70a5ee6}{00093}}\ sf::Vector3f\ \mbox{\hyperlink{class_zap_wall_a3bc98afa6d68d364ae39838cc70a5ee6}{ZapWall::getStartPosition}}()}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ startPosition;}
+\DoxyCodeLine{\Hypertarget{_zap_wall_8cpp_source_l00096}00096\ \}}
+
+\end{DoxyCode}

@@ -1,39 +1,71 @@
 \doxysection{Obstacle.\+h}
-\hypertarget{_obstacle_8h_source}{}\label{_obstacle_8h_source}\index{src/Obstacle/Obstacle.h@{src/Obstacle/Obstacle.h}}
-
+\hypertarget{_obstacle_8h_source}{}\label{_obstacle_8h_source}\index{C:/Zaxxon/src/Obstacle/Obstacle.h@{C:/Zaxxon/src/Obstacle/Obstacle.h}}
+\mbox{\hyperlink{_obstacle_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Util/Util.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Entity/Entity.h"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_obstacle}{Obstacle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
-\DoxyCodeLine{00011\ \{}
-\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//For\ shooting\ obstacles}}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{float},\ \ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//For\ standby\ obstacles}}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_obstacle}{\string~Obstacle}}();}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ setTexture(std::string);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a712e425583cff17617c280a10399bf1e}{setPosition}}(sf::Vector3f);;}
-\DoxyCodeLine{00021\ \ \ \ \ sf::Vector3f\ \mbox{\hyperlink{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}{getPosition}}();}
-\DoxyCodeLine{00022\ \ \ \ \ std::vector<sf::Vector3f>\ \mbox{\hyperlink{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}{getBulletLocations}}();}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{update}}(sf::RenderWindow\&)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_af395b8077b863766f840f75377a9c6fc}{isPresent}}();}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}{bulletKill}}(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}{getType}}();}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00029\ \ \ \ \ std::vector<sf::Sprite>\ bulletSprites;}
-\DoxyCodeLine{00030\ \ \ \ \ std::vector<sf::Vector3f>\ bulletPositions;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ count,\ total\ =\ 100,\ random,\ type;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ turret\ =\ \textcolor{keyword}{false},\ onScreen\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity/Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_obstacle_bullet_8h}{Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00014}\mbox{\hyperlink{class_obstacle}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_obstacle}{Obstacle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00017}00017\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00018}00018\ \textcolor{comment}{\ \ \ \ KEY}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00019}00019\ \textcolor{comment}{\ \ \ \ 1\ =\ gas\ can}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00020}00020\ \textcolor{comment}{\ \ \ \ 2\ =\ satellite}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00021}00021\ \textcolor{comment}{\ \ \ \ 3\ =\ grey\ cannon}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00022}00022\ \textcolor{comment}{\ \ \ \ 4\ =\ green\ cannon}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00023}00023\ \textcolor{comment}{\ \ \ \ 5\ =\ Shooting\ Up}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00024}00024\ \textcolor{comment}{\ \ \ \ 6\ =\ Plane}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00025}00025\ \textcolor{comment}{\ \ \ \ 7\ =\ blue\ floating\ gas\ can}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00026}00026\ \textcolor{comment}{\ \ \ \ 8\ =\ green\ shooting\ right}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00027}00027\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00029}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{00029}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{ObstacleType}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00030}00030\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00031}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b}{00031}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b}{GAS\_CAN}}\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00032}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a}{00032}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a}{SATELLITE}},}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00033}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036}{00033}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036}{GREY\_CANNON}},}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00034}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8}{00034}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8}{GREEN\_CANNON}},}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00035}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a}{00035}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a}{MISSILE\_UP}},}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00036}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d}{00036}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d}{PLANE}},}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00037}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701}{00037}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701}{SPACE\_FUEL}},}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e}{GREEN\_CANNON\_RIGHT}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00039}\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e}{00039}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//For\ shooting\ obstacles}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//For\ standby\ obstacles}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461}{Obstacle}}(sf::Vector3f,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_obstacle_a8021dd6ca94132eae1c0ffcdfefa8be0}{\string~Obstacle}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00047}00047\ \ \ \ \ std::vector<sf::Vector3f>\ \mbox{\hyperlink{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}{getBulletLocations}}();}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_af69cc091c4b73003552b2586f550c1d7}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{int}\ playerZ,\ \textcolor{keywordtype}{float});}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_af69cc091c4b73003552b2586f550c1d7}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_af395b8077b863766f840f75377a9c6fc}{isPresent}}();}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_obstacle_a0f354a517c0b6b2e9bafc1e36af706af}{isTurret}}();}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}{bulletKill}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{ObstacleType}}\ \mbox{\hyperlink{class_obstacle_a1e5991a00aef5976389d5c59450368b3}{getType}}();}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_obstacle_ac3450be68b7a60ab4ed285893f6f1deb}{getScore}}();}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_obstacle_a3b4865fafe3cf6a31b3444c2557550f8}{kill}}(\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation::Anim}}\ \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}\ =\ \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation::CHARACTER\_DEATH}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00058}00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00059}00059\ \ \ \ \ std::vector<ObstacleBullet*>\ bullets;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00060}00060\ \ \ \ \ std::vector<sf::Vector3f>\ bulletPositions;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ count\ =\ 1,\ total\ =\ 100,\ scoreIndicator\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{ObstacleType}}\ type;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ turret\ =\ \textcolor{keyword}{false},\ onScreen\ =\ \textcolor{keyword}{false},\ moved\ =\ \textcolor{keyword}{false},\ redRocket\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ drawDebugText\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00065}00065\ \ \ \ \ sf::Sprite\ rocketExplosionSprite;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{class_animation}{Animation}}\ rocketAnimation;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{int}\ rocketZ\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8h_source_l00068}00068\ \};}
 
 \end{DoxyCode}

@@ -1,0 +1,71 @@
+\doxysection{Util.\+cpp}
+\hypertarget{_util_8cpp_source}{}\label{_util_8cpp_source}\index{C:/Zaxxon/src/Util/Util.cpp@{C:/Zaxxon/src/Util/Util.cpp}}
+\mbox{\hyperlink{_util_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00009}\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{00009}}\ sf::Vector2f\ \mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(sf::Vector3f\ in)}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ -\/in.x\ *\ 0.6f\ +\ -\/in.z\ *\ 0.6f;}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ in.y\ +\ -\/in.x\ *\ 0.3f\ +\ in.z\ *\ 0.3f;}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ sf::Vector2f(x,\ y);}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00023}\mbox{\hyperlink{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}{00023}}\ sf::FloatRect\ \mbox{\hyperlink{_util_8cpp_abb6b320c3e2bc2c09f352e041a9d57e1}{getWindowViewRect}}(sf::RenderWindow\&\ window)}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{auto}\ wPos\ =\ sf::Vector2f(window.getView().getCenter().x}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ (window.getView().getSize().x\ /\ 2),}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.getView().getCenter().y\ -\/\ (window.getView().}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getSize().y\ /\ 2));}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ sf::FloatRect(wPos.x,\ wPos.y,\ window.getView().getSize().x,}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.getView().getSize().y);}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00039}\mbox{\hyperlink{_util_8cpp_a311270ca6451600ab7089e74945d30b5}{00039}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_util_8cpp_a311270ca6451600ab7089e74945d30b5}{zPressed}}()}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z)\ ||}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ sf::Joystick::isButtonPressed(0,\ 0))\ \&\&\ util\_zPress)}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00043}00043\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ util\_zPress\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (!util\_zPress\ \&\&\ !(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ ||\ sf::Joystick::isButtonPressed(0,\ 0)))}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ util\_zPress\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00060}\mbox{\hyperlink{_util_8cpp_a7ab82b63c0cbae8095033e452b2d2183}{00060}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_util_8cpp_a7ab82b63c0cbae8095033e452b2d2183}{upPressed}}()}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{return}\ sf::Keyboard::isKeyPressed(sf::Keyboard::Up)\ ||}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ sf::Joystick::getAxisPosition(0,\ sf::Joystick::Y)\ <\ -\/10;}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00072}\mbox{\hyperlink{_util_8cpp_a63e332f98a6cbd1cb57f319f556ee594}{00072}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_util_8cpp_a63e332f98a6cbd1cb57f319f556ee594}{downPressed}}()}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ sf::Keyboard::isKeyPressed(sf::Keyboard::Down)\ ||}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ sf::Joystick::getAxisPosition(0,\ sf::Joystick::Y)\ >\ 10;}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00084}\mbox{\hyperlink{_util_8cpp_ae6f4fd7a79c6617ddba5e4bc53033e26}{00084}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_util_8cpp_ae6f4fd7a79c6617ddba5e4bc53033e26}{leftPressed}}()}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00085}00085\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return}\ sf::Keyboard::isKeyPressed(sf::Keyboard::Left)\ ||}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ sf::Joystick::getAxisPosition(0,\ sf::Joystick::X)\ <\ -\/10;}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00096}\mbox{\hyperlink{_util_8cpp_af41bb2031bce096d1162c72a1ec3d49c}{00096}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_util_8cpp_af41bb2031bce096d1162c72a1ec3d49c}{rightPressed}}()}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{return}\ sf::Keyboard::isKeyPressed(sf::Keyboard::Right)\ ||}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ sf::Joystick::getAxisPosition(0,\ sf::Joystick::X)\ >\ 10;}
+\DoxyCodeLine{\Hypertarget{_util_8cpp_source_l00100}00100\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_zaxxon_text" xml:lang="en-US">
+<title>ZaxxonText Class Reference</title>
+<indexterm><primary>ZaxxonText</primary></indexterm>
+<para>
+
+<para>Class to grab text sprites from spritesheet given char or string. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;ZaxxonText.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static sf::Sprite <link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">get</link> (sf::Texture *, char)</para>
+
+<para>Take character or hex value then convert it and return the matching character/symbol from our spritesheet. </para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">string</link> (sf::Texture *, std::string, sf::Sprite *)</para>
+
+<para>Take a string of characters or hex values then convert all and then fill given sprite array with the matching characters/symbols for each. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class to grab text sprites from spritesheet given char or string. </para>
+<para>
+Definition at line <link linkend="__zaxxon_text_8h_source_1l00008">8</link> of file <link linkend="__zaxxon_text_8h_source">ZaxxonText.h</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517"/><section>
+    <title>get()</title>
+<indexterm><primary>get</primary><secondary>ZaxxonText</secondary></indexterm>
+<indexterm><primary>ZaxxonText</primary><secondary>get</secondary></indexterm>
+<para><computeroutput>sf::Sprite ZaxxonText::get (sf::Texture * spritemap, char in)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Take character or hex value then convert it and return the matching character/symbol from our spritesheet. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>spritemap</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Sprite of character or symbol</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__zaxxon_text_8cpp_source_1l00011">11</link> of file <link linkend="__zaxxon_text_8cpp_source">ZaxxonText.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462"/><section>
+    <title>string()</title>
+<indexterm><primary>string</primary><secondary>ZaxxonText</secondary></indexterm>
+<indexterm><primary>ZaxxonText</primary><secondary>string</secondary></indexterm>
+<para><computeroutput>void ZaxxonText::string (sf::Texture * spritemap, std::string in, sf::Sprite * arr)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Take a string of characters or hex values then convert all and then fill given sprite array with the matching characters/symbols for each. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>spritemap</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>in</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>arr</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__zaxxon_text_8cpp_source_1l00041">41</link> of file <link linkend="__zaxxon_text_8cpp_source">ZaxxonText.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/GUI/ZaxxonText/<link linkend="__zaxxon_text_8h">ZaxxonText.h</link>C:/Zaxxon/src/GUI/ZaxxonText/<link linkend="__zaxxon_text_8cpp">ZaxxonText.cpp</link></section>
+</section>

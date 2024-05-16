@@ -1,0 +1,178 @@
+\doxysection{Zap\+Wall Class Reference}
+\hypertarget{class_zap_wall}{}\label{class_zap_wall}\index{ZapWall@{ZapWall}}
+
+
+Class for other walls (blue lightning).  
+
+
+
+
+{\ttfamily \#include $<$Zap\+Wall.\+h$>$}
+
+Inheritance diagram for Zap\+Wall\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_zap_wall}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_zap_wall_a3b02529cde8076102e462dc6b7c6351c}{Zap\+Wall}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*}, sf\+::\+Vector3f)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_zap_wall}{Zap\+Wall} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zap_wall_a749a7515b945420293924b3887033d93}{update}} (sf\+::\+Render\+Window \&, float) override
+\begin{DoxyCompactList}\small\item\em Update the \doxylink{class_zap_wall}{Zap\+Wall}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zap_wall_a80af1a48975d457f8bee45eba0c4f416}{set\+Start\+Pos}} (sf\+::\+Vector3f pos)
+\begin{DoxyCompactList}\small\item\em Sets start pos for the \doxylink{class_zap_wall}{Zap\+Wall}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zap_wall_aa8f5edb8998f1dbd276120174c1ca01c}{is\+On\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Returns wether the wall intersects with the view. \end{DoxyCompactList}\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_zap_wall_a3bc98afa6d68d364ae39838cc70a5ee6}{get\+Start\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns the initial position of the wall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=0
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
+\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
+\item 
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
+\item 
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
+\item 
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for other walls (blue lightning). 
+
+Definition at line \mbox{\hyperlink{_zap_wall_8h_source_l00010}{10}} of file \mbox{\hyperlink{_zap_wall_8h_source}{Zap\+Wall.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_zap_wall_a3b02529cde8076102e462dc6b7c6351c}\label{class_zap_wall_a3b02529cde8076102e462dc6b7c6351c} 
+\index{ZapWall@{ZapWall}!ZapWall@{ZapWall}}
+\index{ZapWall@{ZapWall}!ZapWall@{ZapWall}}
+\doxysubsubsection{\texorpdfstring{ZapWall()}{ZapWall()}}
+{\footnotesize\ttfamily Zap\+Wall\+::\+Zap\+Wall (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{tex,  }\item[{sf\+::\+Vector3f}]{pos }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_zap_wall}{Zap\+Wall} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tex} & \\
+\hline
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_zap_wall_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_zap_wall_8cpp_source}{Zap\+Wall.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_zap_wall_a3bc98afa6d68d364ae39838cc70a5ee6}\label{class_zap_wall_a3bc98afa6d68d364ae39838cc70a5ee6} 
+\index{ZapWall@{ZapWall}!getStartPosition@{getStartPosition}}
+\index{getStartPosition@{getStartPosition}!ZapWall@{ZapWall}}
+\doxysubsubsection{\texorpdfstring{getStartPosition()}{getStartPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector3f Zap\+Wall\+::get\+Start\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the initial position of the wall. 
+
+\begin{DoxyReturn}{Returns}
+Start position
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_zap_wall_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_zap_wall_8cpp_source}{Zap\+Wall.\+cpp}}.
+
+\Hypertarget{class_zap_wall_aa8f5edb8998f1dbd276120174c1ca01c}\label{class_zap_wall_aa8f5edb8998f1dbd276120174c1ca01c} 
+\index{ZapWall@{ZapWall}!isOnScreen@{isOnScreen}}
+\index{isOnScreen@{isOnScreen}!ZapWall@{ZapWall}}
+\doxysubsubsection{\texorpdfstring{isOnScreen()}{isOnScreen()}}
+{\footnotesize\ttfamily bool Zap\+Wall\+::is\+On\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns wether the wall intersects with the view. 
+
+\begin{DoxyReturn}{Returns}
+If the \doxylink{class_zap_wall}{Zap\+Wall} is on screen
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_zap_wall_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{_zap_wall_8cpp_source}{Zap\+Wall.\+cpp}}.
+
+\Hypertarget{class_zap_wall_a80af1a48975d457f8bee45eba0c4f416}\label{class_zap_wall_a80af1a48975d457f8bee45eba0c4f416} 
+\index{ZapWall@{ZapWall}!setStartPos@{setStartPos}}
+\index{setStartPos@{setStartPos}!ZapWall@{ZapWall}}
+\doxysubsubsection{\texorpdfstring{setStartPos()}{setStartPos()}}
+{\footnotesize\ttfamily void Zap\+Wall\+::set\+Start\+Pos (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Sets start pos for the \doxylink{class_zap_wall}{Zap\+Wall}. 
+
+
+
+Definition at line \mbox{\hyperlink{_zap_wall_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{_zap_wall_8cpp_source}{Zap\+Wall.\+cpp}}.
+
+\Hypertarget{class_zap_wall_a749a7515b945420293924b3887033d93}\label{class_zap_wall_a749a7515b945420293924b3887033d93} 
+\index{ZapWall@{ZapWall}!update@{update}}
+\index{update@{update}!ZapWall@{ZapWall}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Zap\+Wall\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the \doxylink{class_zap_wall}{Zap\+Wall}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+{\em game\+Speed} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity}}.
+
+
+
+Definition at line \mbox{\hyperlink{_zap_wall_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{_zap_wall_8cpp_source}{Zap\+Wall.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Zaxxon/src/\+Zap\+Wall/\mbox{\hyperlink{_zap_wall_8h}{Zap\+Wall.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Zap\+Wall/\mbox{\hyperlink{_zap_wall_8cpp}{Zap\+Wall.\+cpp}}\end{DoxyCompactItemize}

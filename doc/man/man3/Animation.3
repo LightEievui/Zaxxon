@@ -1,0 +1,114 @@
+.TH "Animation" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Animation \- Class to handle (almost) all in-game animations\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Animation\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAnim\fP { \fBCHARACTER_DEATH\fP, \fBALT_DEATH\fP, \fBLAUNCH\fP, \fBBULLET_DEATH\fP, \fBWALLBULLET_DEATH\fP, \fBROCKET_FLICKER\fP, \fBRESET\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAnimation\fP ()"
+.br
+.RI "Initalize individual animation frames\&. "
+.ti -1c
+.RI "\fB~Animation\fP ()"
+.br
+.RI "Clean up memory for animation class\&. "
+.ti -1c
+.RI "void \fBrun\fP (sf::Sprite *, \fBAnim\fP, unsigned int sizeIndex=0)"
+.br
+.RI "Run the given animation on sprite\&. Note that you should always check if the sprite* is null before doing operations\&. "
+.ti -1c
+.RI "int \fBgetState\fP () const"
+.br
+.RI "Checks if current animation has finished running\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to handle (almost) all in-game animations\&. 
+.PP
+Definition at line \fB10\fP of file \fBAnimation\&.h\fP\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBAnimation::Anim\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICHARACTER_DEATH \fP\fP
+.TP
+\fB\fIALT_DEATH \fP\fP
+.TP
+\fB\fILAUNCH \fP\fP
+.TP
+\fB\fIBULLET_DEATH \fP\fP
+.TP
+\fB\fIWALLBULLET_DEATH \fP\fP
+.TP
+\fB\fIROCKET_FLICKER \fP\fP
+.TP
+\fB\fIRESET \fP\fP
+.PP
+Definition at line \fB13\fP of file \fBAnimation\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Animation::Animation ()"
+
+.PP
+Initalize individual animation frames\&. 
+.PP
+Definition at line \fB7\fP of file \fBAnimation\&.cpp\fP\&.
+.SS "Animation::~Animation ()"
+
+.PP
+Clean up memory for animation class\&. 
+.PP
+Definition at line \fB58\fP of file \fBAnimation\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "int Animation::getState () const"
+
+.PP
+Checks if current animation has finished running\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.PP
+Definition at line \fB315\fP of file \fBAnimation\&.cpp\fP\&.
+.SS "void Animation::run (sf::Sprite * sprite, \fBAnim\fP anim, unsigned int sizeIndex = \fR0\fP)"
+
+.PP
+Run the given animation on sprite\&. Note that you should always check if the sprite* is null before doing operations\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsprite\fP Nullable
+.br
+\fIanim\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB74\fP of file \fBAnimation\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

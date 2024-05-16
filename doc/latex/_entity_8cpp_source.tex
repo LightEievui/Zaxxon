@@ -1,0 +1,36 @@
+\doxysection{Entity.\+cpp}
+\hypertarget{_entity_8cpp_source}{}\label{_entity_8cpp_source}\index{C:/Zaxxon/src/Entity/Entity.cpp@{C:/Zaxxon/src/Entity/Entity.cpp}}
+\mbox{\hyperlink{_entity_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00007}\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{00007}}\ \mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity::Entity}}()}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00009}00009\ \ \ \ \ this-\/>\mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}\ =\ \textcolor{keyword}{new}\ sf::Sprite();}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00010}00010\ \ \ \ \ this-\/>\mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debugFont}}.loadFromFile(\textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)Windows\(\backslash\)\(\backslash\)Fonts\(\backslash\)\(\backslash\)arial.ttf"{}});}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debugText}}.setFont(\mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debugFont}});}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debugText}}.setScale(sf::Vector2f(0.2f,\ 0.2f));}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00021}\mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{00021}}\ \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{Entity::\string~Entity}}()}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}};}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00030}\mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{Entity::kill}}(\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation::Anim}}\ \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}})}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}.\mbox{\hyperlink{class_animation_aafa4559f75e244ca439626971d3ea11a}{run}}(\mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}},\ \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}});}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00040}\mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{00040}}\ sf::Vector2f\ \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{Entity::getSpritePos}}()}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>getPosition();}
+\DoxyCodeLine{\Hypertarget{_entity_8cpp_source_l00043}00043\ \}}
+
+\end{DoxyCode}

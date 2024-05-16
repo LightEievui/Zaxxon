@@ -1,0 +1,725 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_obstacle" kind="class" language="C++" prot="public">
+    <compoundname>Obstacle</compoundname>
+    <basecompoundref refid="class_entity" prot="public" virt="non-virtual">Entity</basecompoundref>
+    <includes refid="_obstacle_8h" local="no">Obstacle.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ObstacleType</name>
+        <qualifiedname>Obstacle::ObstacleType</qualifiedname>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b" prot="public">
+          <name>GAS_CAN</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a" prot="public">
+          <name>SATELLITE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036" prot="public">
+          <name>GREY_CANNON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8" prot="public">
+          <name>GREEN_CANNON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a" prot="public">
+          <name>MISSILE_UP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d" prot="public">
+          <name>PLANE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701" prot="public">
+          <name>SPACE_FUEL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e" prot="public">
+          <name>GREEN_CANNON_RIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="29" column="1" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="30" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_obstacle_1a4f5eb980c80471b8673a090238601824" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_obstacle_bullet" kindref="compound">ObstacleBullet</ref> * &gt;</type>
+        <definition>std::vector&lt;ObstacleBullet*&gt; Obstacle::bullets</definition>
+        <argsstring></argsstring>
+        <name>bullets</name>
+        <qualifiedname>Obstacle::bullets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="59" column="13" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a815d9c1d9a1aa9345b98ad6064730948" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Vector3f &gt;</type>
+        <definition>std::vector&lt;sf::Vector3f&gt; Obstacle::bulletPositions</definition>
+        <argsstring></argsstring>
+        <name>bulletPositions</name>
+        <qualifiedname>Obstacle::bulletPositions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="60" column="13" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a6982b098515ba047420f14ea591c523a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Obstacle::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>Obstacle::direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="61" column="5" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a836f8321aee164702cc6de8af373c836" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Obstacle::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>Obstacle::count</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="61" column="15" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1ab4ec64f36deec58ea2a3fd3da40ed1ea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Obstacle::total</definition>
+        <argsstring></argsstring>
+        <name>total</name>
+        <qualifiedname>Obstacle::total</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="61" column="22" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1aa4299cd06caa0651141ef5a45e4e4041" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Obstacle::scoreIndicator</definition>
+        <argsstring></argsstring>
+        <name>scoreIndicator</name>
+        <qualifiedname>Obstacle::scoreIndicator</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="61" column="29" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a096ac83585d3339dd3bc6a6e9d898357" prot="private" static="no" mutable="no">
+        <type><ref refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda" kindref="member">ObstacleType</ref></type>
+        <definition>ObstacleType Obstacle::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Obstacle::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="62" column="14" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a976303782bf2b7d1a00e4cdde77c1f8f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Obstacle::turret</definition>
+        <argsstring></argsstring>
+        <name>turret</name>
+        <qualifiedname>Obstacle::turret</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="63" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1abc9745559ccf1b1dcf35fbbe52e1c93b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Obstacle::onScreen</definition>
+        <argsstring></argsstring>
+        <name>onScreen</name>
+        <qualifiedname>Obstacle::onScreen</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="63" column="14" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1aca05ce464d1bd89ed5d5139c2f493377" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Obstacle::moved</definition>
+        <argsstring></argsstring>
+        <name>moved</name>
+        <qualifiedname>Obstacle::moved</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="63" column="24" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a3032a735eae75be0ae244d086a775f97" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Obstacle::redRocket</definition>
+        <argsstring></argsstring>
+        <name>redRocket</name>
+        <qualifiedname>Obstacle::redRocket</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="63" column="31" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a9ea22934c3b9fe47e19273b8af35f030" prot="private" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool Obstacle::drawDebugText</definition>
+        <argsstring></argsstring>
+        <name>drawDebugText</name>
+        <qualifiedname>Obstacle::drawDebugText</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="64" column="12" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a637804556c6d64c76ade9299218a2b42" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite Obstacle::rocketExplosionSprite</definition>
+        <argsstring></argsstring>
+        <name>rocketExplosionSprite</name>
+        <qualifiedname>Obstacle::rocketExplosionSprite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="65" column="12" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1a9ac8670be4ded1c79eb8b3c7b23837c1" prot="private" static="no" mutable="no">
+        <type><ref refid="class_animation" kindref="compound">Animation</ref></type>
+        <definition>Animation Obstacle::rocketAnimation</definition>
+        <argsstring></argsstring>
+        <name>rocketAnimation</name>
+        <qualifiedname>Obstacle::rocketAnimation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="66" column="11" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_obstacle_1abb0c538ccebbbb765fead2154ff02b79" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Obstacle::rocketZ</definition>
+        <argsstring></argsstring>
+        <name>rocketZ</name>
+        <qualifiedname>Obstacle::rocketZ</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="67" column="5" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_obstacle_1a76b8db02b4d3cc504e13ec2f53e3d461" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Obstacle::Obstacle</definition>
+        <argsstring>(sf::Vector3f, sf::Texture *, int, int)</argsstring>
+        <name>Obstacle</name>
+        <qualifiedname>Obstacle::Obstacle</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>pos</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>tex</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>delay</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>dir</defname>
+        </param>
+        <briefdescription>
+<para>Create a turret obstacle with shooting and direction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tex</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>delay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(type 5 only)Delay in frames before a rocket begins shooting.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="42" column="1" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="11" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a4d24e681dc227109b688b2f4a49c5a61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Obstacle::Obstacle</definition>
+        <argsstring>(sf::Vector3f, sf::Texture *, int)</argsstring>
+        <name>Obstacle</name>
+        <qualifiedname>Obstacle::Obstacle</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <defname>pos</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>tex</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>type</defname>
+        </param>
+        <briefdescription>
+<para>Create a non-turret obstacle (Still obstacle). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tex</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="44" column="1" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="91" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a8021dd6ca94132eae1c0ffcdfefa8be0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Obstacle::~Obstacle</definition>
+        <argsstring>() override</argsstring>
+        <name>~Obstacle</name>
+        <qualifiedname>Obstacle::~Obstacle</qualifiedname>
+        <briefdescription>
+<para>Clean up memory related to the obstacle class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="45" column="1" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="136" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a214183fffe9a6301fbe708313c96b6e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; sf::Vector3f &gt;</type>
+        <definition>std::vector&lt; sf::Vector3f &gt; Obstacle::getBulletLocations</definition>
+        <argsstring>()</argsstring>
+        <name>getBulletLocations</name>
+        <qualifiedname>Obstacle::getBulletLocations</qualifiedname>
+        <briefdescription>
+<para>Get positions for all bullets of the obstacle (For turrets). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Vector of vectors of 3 floats</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="47" column="13" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1af69cc091c4b73003552b2586f550c1d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Obstacle::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, int playerZ, float)</argsstring>
+        <name>update</name>
+        <qualifiedname>Obstacle::update</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>playerZ</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Run the logic for this obstacle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="48" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="170" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1ab4272be0d3dddafd42040adab4d8a968" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Obstacle::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float) override</argsstring>
+        <name>update</name>
+        <qualifiedname>Obstacle::update</qualifiedname>
+        <reimplements refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</reimplements>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Default <ref refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2" kindref="member">Entity::update</ref> override. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="49" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="305" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1af395b8077b863766f840f75377a9c6fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Obstacle::isPresent</definition>
+        <argsstring>()</argsstring>
+        <name>isPresent</name>
+        <qualifiedname>Obstacle::isPresent</qualifiedname>
+        <briefdescription>
+<para>Check if this obstacle exists. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="50" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="315" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a0f354a517c0b6b2e9bafc1e36af706af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Obstacle::isTurret</definition>
+        <argsstring>()</argsstring>
+        <name>isTurret</name>
+        <qualifiedname>Obstacle::isTurret</qualifiedname>
+        <briefdescription>
+<para>Checks if obstacle is a turret. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="51" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="326" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a39869e565df81ce8a50e42668cd0fab7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Obstacle::bulletKill</definition>
+        <argsstring>(int)</argsstring>
+        <name>bulletKill</name>
+        <qualifiedname>Obstacle::bulletKill</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>bullet</defname>
+        </param>
+        <briefdescription>
+<para>Get rid of obstacles bullet by index (For turrets). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bullet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="53" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="337" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a1e5991a00aef5976389d5c59450368b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda" kindref="member">ObstacleType</ref></type>
+        <definition>Obstacle::ObstacleType Obstacle::getType</definition>
+        <argsstring>()</argsstring>
+        <name>getType</name>
+        <qualifiedname>Obstacle::getType</qualifiedname>
+        <briefdescription>
+<para>Get what type of obstacle this is. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>An int</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="54" column="14" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="349" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1ac3450be68b7a60ab4ed285893f6f1deb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Obstacle::getScore</definition>
+        <argsstring>()</argsstring>
+        <name>getScore</name>
+        <qualifiedname>Obstacle::getScore</qualifiedname>
+        <briefdescription>
+<para>Gets the score to add when the obstacle is destroyed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>score</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="55" column="5" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="359" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Obstacle::kill</definition>
+        <argsstring>(Animation::Anim animation=Animation::CHARACTER_DEATH) override</argsstring>
+        <name>kill</name>
+        <qualifiedname>Obstacle::kill</qualifiedname>
+        <reimplements refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5">kill</reimplements>
+        <param>
+          <type><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kindref="member">Animation::Anim</ref></type>
+          <declname>animation</declname>
+          <defval><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" kindref="member">Animation::CHARACTER_DEATH</ref></defval>
+        </param>
+        <briefdescription>
+<para>Death animation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>animation</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="57" column="6" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.cpp" bodystart="147" bodyend="153"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Still obstacles that spawn across the levels. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+      <node id="1">
+        <label>Obstacle</label>
+        <link refid="class_obstacle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="2">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Obstacle</label>
+        <link refid="class_obstacle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Obstacle/Obstacle.h" line="14" column="1" bodyfile="C:/Zaxxon/src/Obstacle/Obstacle.h" bodystart="15" bodyend="68"/>
+    <listofallmembers>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>Obstacle</scope><name>animations</name></member>
+      <member refid="class_obstacle_1a39869e565df81ce8a50e42668cd0fab7" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>bulletKill</name></member>
+      <member refid="class_obstacle_1a815d9c1d9a1aa9345b98ad6064730948" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>bulletPositions</name></member>
+      <member refid="class_obstacle_1a4f5eb980c80471b8673a090238601824" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>bullets</name></member>
+      <member refid="class_obstacle_1a836f8321aee164702cc6de8af373c836" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>count</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>Obstacle</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>Obstacle</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>Obstacle</scope><name>debugText</name></member>
+      <member refid="class_obstacle_1a6982b098515ba047420f14ea591c523a" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>direction</name></member>
+      <member refid="class_obstacle_1a9ea22934c3b9fe47e19273b8af35f030" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>drawDebugText</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>Entity</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>GAS_CAN</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getBounds</name></member>
+      <member refid="class_obstacle_1a214183fffe9a6301fbe708313c96b6e7" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getBulletLocations</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getPos</name></member>
+      <member refid="class_obstacle_1ac3450be68b7a60ab4ed285893f6f1deb" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getScore</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getSpritePos</name></member>
+      <member refid="class_obstacle_1a1e5991a00aef5976389d5c59450368b3" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>getType</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>GREEN_CANNON</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>GREEN_CANNON_RIGHT</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>GREY_CANNON</name></member>
+      <member refid="class_obstacle_1af395b8077b863766f840f75377a9c6fc" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>isPresent</name></member>
+      <member refid="class_obstacle_1a0f354a517c0b6b2e9bafc1e36af706af" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>isTurret</name></member>
+      <member refid="class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8" prot="public" virt="virtual"><scope>Obstacle</scope><name>kill</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>MISSILE_UP</name></member>
+      <member refid="class_obstacle_1aca05ce464d1bd89ed5d5139c2f493377" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>moved</name></member>
+      <member refid="class_obstacle_1a76b8db02b4d3cc504e13ec2f53e3d461" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>Obstacle</name></member>
+      <member refid="class_obstacle_1a4d24e681dc227109b688b2f4a49c5a61" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>Obstacle</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>ObstacleType</name></member>
+      <member refid="class_obstacle_1abc9745559ccf1b1dcf35fbbe52e1c93b" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>onScreen</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>PLANE</name></member>
+      <member refid="class_obstacle_1a3032a735eae75be0ae244d086a775f97" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>redRocket</name></member>
+      <member refid="class_obstacle_1a9ac8670be4ded1c79eb8b3c7b23837c1" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>rocketAnimation</name></member>
+      <member refid="class_obstacle_1a637804556c6d64c76ade9299218a2b42" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>rocketExplosionSprite</name></member>
+      <member refid="class_obstacle_1abb0c538ccebbbb765fead2154ff02b79" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>rocketZ</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>SATELLITE</name></member>
+      <member refid="class_obstacle_1aa4299cd06caa0651141ef5a45e4e4041" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>scoreIndicator</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>setPos</name></member>
+      <member refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>SPACE_FUEL</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>Obstacle</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>Obstacle</scope><name>spriteSheet</name></member>
+      <member refid="class_obstacle_1ab4ec64f36deec58ea2a3fd3da40ed1ea" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>total</name></member>
+      <member refid="class_obstacle_1a976303782bf2b7d1a00e4cdde77c1f8f" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>turret</name></member>
+      <member refid="class_obstacle_1a096ac83585d3339dd3bc6a6e9d898357" prot="private" virt="non-virtual"><scope>Obstacle</scope><name>type</name></member>
+      <member refid="class_obstacle_1af69cc091c4b73003552b2586f550c1d7" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>update</name></member>
+      <member refid="class_obstacle_1ab4272be0d3dddafd42040adab4d8a968" prot="public" virt="virtual"><scope>Obstacle</scope><name>update</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>Obstacle</scope><name>~Entity</name></member>
+      <member refid="class_obstacle_1a8021dd6ca94132eae1c0ffcdfefa8be0" prot="public" virt="non-virtual"><scope>Obstacle</scope><name>~Obstacle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

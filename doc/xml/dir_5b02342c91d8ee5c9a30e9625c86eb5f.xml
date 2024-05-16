@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_5b02342c91d8ee5c9a30e9625c86eb5f" kind="dir">
+    <compoundname>C:/Zaxxon/src/Background</compoundname>
+    <innerfile refid="_background_8cpp">Background.cpp</innerfile>
+    <innerfile refid="_background_8h">Background.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Background/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_72330ce571fe4a2956ad017643e692dd" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/Character Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_83308068aba1ad6c8de76d05dd7eac46">Enemy</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_465493c9c82cbc7fe4d772cd01f92be1">Player</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__character_8cpp">Character.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__character_8h">Character.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

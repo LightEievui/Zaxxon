@@ -1,0 +1,140 @@
+.TH "Wall" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Wall \- Class for the normal walls (stone brick)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Wall\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWall\fP (sf::Texture *, sf::Vector3f, int size, std::vector< int >)"
+.br
+.RI "Create a section of walls, each one can be a closed or open wall piece\&. "
+.ti -1c
+.RI "void \fBdrawWalls\fP (sf::RenderWindow &window)"
+.br
+.RI "Draw each section of the wall if it will be visible on the screen\&. "
+.ti -1c
+.RI "void \fBsetPosition\fP (sf::Vector3f, int piece=0)"
+.br
+.RI "Set position of specificed wall piece\&. "
+.ti -1c
+.RI "void \fBsetTexture\fP (int, int)"
+.br
+.RI "Set texture for if this wall piece should be closed or open\&. "
+.ti -1c
+.RI "bool \fBcheckOnScreen\fP ()"
+.br
+.RI "Check if this wall will be on screen\&. "
+.ti -1c
+.RI "std::vector< sf::Vector3f > & \fBgetWallPositions\fP ()"
+.br
+.RI "Get 3d position of this wall\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class for the normal walls (stone brick)\&. 
+.PP
+Definition at line \fB10\fP of file \fBWall\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Wall::Wall (sf::Texture * tex, sf::Vector3f pos, int size, std::vector< int > walls)"
+
+.PP
+Create a section of walls, each one can be a closed or open wall piece\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItex\fP 
+.br
+\fIpos\fP 
+.br
+\fIsize\fP 
+.br
+\fIwalls\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB11\fP of file \fBWall\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Wall::checkOnScreen ()"
+
+.PP
+Check if this wall will be on screen\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.PP
+Definition at line \fB91\fP of file \fBWall\&.cpp\fP\&.
+.SS "void Wall::drawWalls (sf::RenderWindow & window)"
+
+.PP
+Draw each section of the wall if it will be visible on the screen\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB41\fP of file \fBWall\&.cpp\fP\&.
+.SS "std::vector< sf::Vector3f > & Wall::getWallPositions ()"
+
+.PP
+Get 3d position of this wall\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Vector of 3 float vectors
+.RE
+.PP
+
+.PP
+Definition at line \fB101\fP of file \fBWall\&.cpp\fP\&.
+.SS "void Wall::setPosition (sf::Vector3f pos, int piece = \fR0\fP)"
+
+.PP
+Set position of specificed wall piece\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.br
+\fIpiece\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB63\fP of file \fBWall\&.cpp\fP\&.
+.SS "void Wall::setTexture (int piece, int tex)"
+
+.PP
+Set texture for if this wall piece should be closed or open\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpiece\fP 
+.br
+\fItex\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB75\fP of file \fBWall\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

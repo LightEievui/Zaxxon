@@ -1,0 +1,318 @@
+.TH "Obstacle" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Obstacle \- Still obstacles that spawn across the levels\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Obstacle\&.h>\fP
+.PP
+Inherits \fBEntity\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBObstacleType\fP { \fBGAS_CAN\fP = 1, \fBSATELLITE\fP, \fBGREY_CANNON\fP, \fBGREEN_CANNON\fP, \fBMISSILE_UP\fP, \fBPLANE\fP, \fBSPACE_FUEL\fP, \fBGREEN_CANNON_RIGHT\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBObstacle\fP (sf::Vector3f, sf::Texture *, int, int)"
+.br
+.RI "Create a turret obstacle with shooting and direction\&. "
+.ti -1c
+.RI "\fBObstacle\fP (sf::Vector3f, sf::Texture *, int)"
+.br
+.RI "Create a non-turret obstacle (Still obstacle)\&. "
+.ti -1c
+.RI "\fB~Obstacle\fP () override"
+.br
+.RI "Clean up memory related to the obstacle class\&. "
+.ti -1c
+.RI "std::vector< sf::Vector3f > \fBgetBulletLocations\fP ()"
+.br
+.RI "Get positions for all bullets of the obstacle (For turrets)\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, int playerZ, float)"
+.br
+.RI "Run the logic for this obstacle\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
+.br
+.RI "Default \fBEntity::update\fP override\&. "
+.ti -1c
+.RI "bool \fBisPresent\fP ()"
+.br
+.RI "Check if this obstacle exists\&. "
+.ti -1c
+.RI "bool \fBisTurret\fP ()"
+.br
+.RI "Checks if obstacle is a turret\&. "
+.ti -1c
+.RI "void \fBbulletKill\fP (int)"
+.br
+.RI "Get rid of obstacles bullet by index (For turrets)\&. "
+.ti -1c
+.RI "\fBObstacleType\fP \fBgetType\fP ()"
+.br
+.RI "Get what type of obstacle this is\&. "
+.ti -1c
+.RI "int \fBgetScore\fP ()"
+.br
+.RI "Gets the score to add when the obstacle is destroyed\&. "
+.ti -1c
+.RI "void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP) override"
+.br
+.RI "Death animation\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Still obstacles that spawn across the levels\&. 
+.PP
+Definition at line \fB14\fP of file \fBObstacle\&.h\fP\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBObstacle::ObstacleType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGAS_CAN \fP\fP
+.TP
+\fB\fISATELLITE \fP\fP
+.TP
+\fB\fIGREY_CANNON \fP\fP
+.TP
+\fB\fIGREEN_CANNON \fP\fP
+.TP
+\fB\fIMISSILE_UP \fP\fP
+.TP
+\fB\fIPLANE \fP\fP
+.TP
+\fB\fISPACE_FUEL \fP\fP
+.TP
+\fB\fIGREEN_CANNON_RIGHT \fP\fP
+.PP
+Definition at line \fB29\fP of file \fBObstacle\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int delay, int dir)"
+
+.PP
+Create a turret obstacle with shooting and direction\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.br
+\fItex\fP 
+.br
+\fIdelay\fP (type 5 only)Delay in frames before a rocket begins shooting\&.
+.br
+\fIdir\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB11\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int type)"
+
+.PP
+Create a non-turret obstacle (Still obstacle)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.br
+\fItex\fP 
+.br
+\fItype\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB91\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "Obstacle::~Obstacle ()\fR [override]\fP"
+
+.PP
+Clean up memory related to the obstacle class\&. 
+.PP
+Definition at line \fB136\fP of file \fBObstacle\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Obstacle::bulletKill (int bullet)"
+
+.PP
+Get rid of obstacles bullet by index (For turrets)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbullet\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB337\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "std::vector< sf::Vector3f > Obstacle::getBulletLocations ()"
+
+.PP
+Get positions for all bullets of the obstacle (For turrets)\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Vector of vectors of 3 floats
+.RE
+.PP
+
+.PP
+Definition at line \fB160\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "int Obstacle::getScore ()"
+
+.PP
+Gets the score to add when the obstacle is destroyed\&. 
+.PP
+\fBReturns\fP
+.RS 4
+score
+.RE
+.PP
+
+.PP
+Definition at line \fB359\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "\fBObstacle::ObstacleType\fP Obstacle::getType ()"
+
+.PP
+Get what type of obstacle this is\&. 
+.PP
+\fBReturns\fP
+.RS 4
+An int
+.RE
+.PP
+
+.PP
+Definition at line \fB349\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "bool Obstacle::isPresent ()"
+
+.PP
+Check if this obstacle exists\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A boolean
+.RE
+.PP
+
+.PP
+Definition at line \fB315\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "bool Obstacle::isTurret ()"
+
+.PP
+Checks if obstacle is a turret\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Boolean
+.RE
+.PP
+
+.PP
+Definition at line \fB326\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "void Obstacle::kill (\fBAnimation::Anim\fP animation = \fR\fBAnimation::CHARACTER_DEATH\fP\fP)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Death animation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIanimation\fP 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBEntity\fP\&.
+.PP
+Definition at line \fB147\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "void Obstacle::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Default \fBEntity::update\fP override\&. 
+.PP
+Implements \fBEntity\fP\&.
+.PP
+Definition at line \fB305\fP of file \fBObstacle\&.cpp\fP\&.
+.SS "void Obstacle::update (sf::RenderWindow & window, int playerZ, float gameSpeed)"
+
+.PP
+Run the logic for this obstacle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB170\fP of file \fBObstacle\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

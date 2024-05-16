@@ -1,0 +1,911 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_background" kind="class" language="C++" prot="public">
+    <compoundname>Background</compoundname>
+    <includes refid="_background_8h" local="no">Background.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_background_1a63cd37625e2bab37186432edd734c6b3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Stage</name>
+        <qualifiedname>Background::Stage</qualifiedname>
+        <enumvalue id="class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0" prot="public">
+          <name>INITIAL</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc" prot="public">
+          <name>SPACE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe" prot="public">
+          <name>BOSS</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e" prot="public">
+          <name>BOSSFIGHT</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="18" column="1" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="19" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_background_1aef800902e6536f7382d07de1a2e01860" prot="private" static="no" mutable="no">
+        <type>sf::Texture</type>
+        <definition>sf::Texture Background::initial</definition>
+        <argsstring></argsstring>
+        <name>initial</name>
+        <qualifiedname>Background::initial</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="55" column="13" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1a68fca080fef71e606ffb54e59ceb6cd0" prot="private" static="no" mutable="no">
+        <type>sf::Texture</type>
+        <definition>sf::Texture Background::space</definition>
+        <argsstring></argsstring>
+        <name>space</name>
+        <qualifiedname>Background::space</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="55" column="21" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1a11782d139d68c919c240a15d924df664" prot="private" static="no" mutable="no">
+        <type>sf::Texture</type>
+        <definition>sf::Texture Background::boss</definition>
+        <argsstring></argsstring>
+        <name>boss</name>
+        <qualifiedname>Background::boss</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="55" column="27" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1ac30d035b27d32a1f613d46d14b082abf" prot="private" static="no" mutable="no">
+        <type>sf::Texture</type>
+        <definition>sf::Texture Background::death</definition>
+        <argsstring></argsstring>
+        <name>death</name>
+        <qualifiedname>Background::death</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="55" column="32" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1a5e3883922c5ae32f6479f563189edd07" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite Background::back</definition>
+        <argsstring></argsstring>
+        <name>back</name>
+        <qualifiedname>Background::back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="56" column="12" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1a2c91b15da2d6bdeba667946bb1691ab2" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite Background::deathOverlay</definition>
+        <argsstring></argsstring>
+        <name>deathOverlay</name>
+        <qualifiedname>Background::deathOverlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="57" column="12" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1a54fd3ae1fa70b20d936ab749490af6bc" prot="private" static="no" mutable="no">
+        <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+        <definition>Stage Background::stage</definition>
+        <argsstring></argsstring>
+        <name>stage</name>
+        <qualifiedname>Background::stage</qualifiedname>
+        <initializer>= <ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0" kindref="member">INITIAL</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="58" column="7" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_background_1af234d5963839889e63807d8092d67bf2" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; std::pair&lt; int, unsigned int &gt; &gt;</type>
+        <definition>std::queue&lt;std::pair&lt;int, unsigned int&gt; &gt; Background::waveQueue</definition>
+        <argsstring></argsstring>
+        <name>waveQueue</name>
+        <qualifiedname>Background::waveQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="59" column="12" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Background::Background</definition>
+        <argsstring>(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</argsstring>
+        <name>Background</name>
+        <qualifiedname>Background::Background</qualifiedname>
+        <param>
+          <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+          <defname>startStage</defname>
+        </param>
+        <param>
+          <type>sf::View &amp;</type>
+          <defname>mainView</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritesheet</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_obstacle" kindref="compound">Obstacle</ref> * &gt; &amp;</type>
+          <defname>obstacles</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <defname>enemies</defname>
+        </param>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> &amp;</type>
+          <defname>player</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>startPos</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_wall" kindref="compound">Wall</ref> * &gt; &amp;</type>
+          <defname>walls</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_zap_wall" kindref="compound">ZapWall</ref> * &gt; &amp;</type>
+          <defname>zapWalls</defname>
+        </param>
+        <briefdescription>
+<para>Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startStage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage that <ref refid="class_background" kindref="compound">Background</ref> will start on.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mainView</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 3d view.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spritesheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obstacles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_obstacle" kindref="compound">Obstacle</ref> list.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>enemies</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_enemy" kindref="compound">Enemy</ref> list.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Z the background should go to at start.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>walls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_wall" kindref="compound">Wall</ref> list.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>zapWalls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Zap wall list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="26" column="1" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="18" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1a36754df1deb720393217ade59da41557" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Background::~Background</definition>
+        <argsstring>()</argsstring>
+        <name>~Background</name>
+        <qualifiedname>Background::~Background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="29" column="1" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1a35213116185226b7b3881b2e71c8a292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</argsstring>
+        <name>update</name>
+        <qualifiedname>Background::update</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>sf::View &amp;</type>
+          <defname>mainView</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritesheet</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_obstacle" kindref="compound">Obstacle</ref> * &gt; &amp;</type>
+          <defname>obstacles</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <defname>enemies</defname>
+        </param>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> &amp;</type>
+          <defname>player</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_wall" kindref="compound">Wall</ref> * &gt; &amp;</type>
+          <defname>walls</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_zap_wall" kindref="compound">ZapWall</ref> * &gt; &amp;</type>
+          <defname>zapWalls</defname>
+        </param>
+        <briefdescription>
+<para>Run the background logic, and check if background stage should be swapped. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mainView</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>3d View</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gameSpeed</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spritesheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obstacles</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>enemies</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>walls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_wall" kindref="compound">Wall</ref> list.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>zapWalls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Zap wall list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="31" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="66" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1a002ca1b009e940180bb5edb8c49e008f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::setPosition</definition>
+        <argsstring>(sf::Vector2f)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Background::setPosition</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <defname>pos</defname>
+        </param>
+        <briefdescription>
+<para>Set the position of the background. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="34" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="124" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1ac607d65614b8f90a0f841a97df4f0b04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::generateObstacles</definition>
+        <argsstring>(Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</argsstring>
+        <name>generateObstacles</name>
+        <qualifiedname>Background::generateObstacles</qualifiedname>
+        <param>
+          <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+          <defname>stage</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_obstacle" kindref="compound">Obstacle</ref> * &gt; &amp;</type>
+          <defname>obstacles</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spriteSheet</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_wall" kindref="compound">Wall</ref> * &gt; &amp;</type>
+          <defname>walls</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_zap_wall" kindref="compound">ZapWall</ref> * &gt; &amp;</type>
+          <defname>zapWalls</defname>
+        </param>
+        <briefdescription>
+<para>Place all obstacles for given stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obstacles</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spriteSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="35" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="253" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1aa319354445ea0a0f224b6dc726b621c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::generateWaves</definition>
+        <argsstring>(Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</argsstring>
+        <name>generateWaves</name>
+        <qualifiedname>Background::generateWaves</qualifiedname>
+        <param>
+          <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+          <defname>stage</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <defname>enemies</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spriteSheet</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>playerZ</defname>
+        </param>
+        <briefdescription>
+<para>Handle enemy wave generation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>enemies</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spriteSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerZ</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="38" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="608" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1ad04fe2ef8bcaf5516c95846e2e500877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::resetPos</definition>
+        <argsstring>(sf::View &amp;, Player &amp;, int)</argsstring>
+        <name>resetPos</name>
+        <qualifiedname>Background::resetPos</qualifiedname>
+        <param>
+          <type>sf::View &amp;</type>
+          <defname>mainView</defname>
+        </param>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> &amp;</type>
+          <defname>player</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>startPos</defname>
+        </param>
+        <briefdescription>
+<para>Reset the position of the background for stage changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mainView</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startPos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="40" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="217" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1aa60585bb666a292f5d49049038400b1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+        <definition>Background::Stage Background::getStage</definition>
+        <argsstring>()</argsstring>
+        <name>getStage</name>
+        <qualifiedname>Background::getStage</qualifiedname>
+        <briefdescription>
+<para>Get the current stage background is on. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A background stage</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="42" column="7" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="651" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1ac333125273a1213f2cb1c4af4081f0b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::setStage</definition>
+        <argsstring>(Stage)</argsstring>
+        <name>setStage</name>
+        <qualifiedname>Background::setStage</qualifiedname>
+        <param>
+          <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+          <defname>newStage</defname>
+        </param>
+        <briefdescription>
+<para>Set the current stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newStage</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="43" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="673" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1a52b2389cd7dfaedff511e72af9f3735c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Background::isInSpace</definition>
+        <argsstring>(int)</argsstring>
+        <name>isInSpace</name>
+        <qualifiedname>Background::isInSpace</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>z</defname>
+        </param>
+        <briefdescription>
+<para>Check if background is currently space, this affects the player. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="45" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="188" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1a093d96b9f25dda122febad2beabc47cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::flashColor</definition>
+        <argsstring>(sf::RenderWindow &amp;)</argsstring>
+        <name>flashColor</name>
+        <qualifiedname>Background::flashColor</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <briefdescription>
+<para>Flash color of background between the default color and red tinted color based on state variable passed into the method. 0 is red, 1 is default. This is used for the first part of the death animation in <ref refid="_game_8cpp" kindref="compound">Game.cpp</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="47" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="663" bodyend="666"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_background_1a6b607e4abb1e50f345e49eca7fe928b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Background::changeStage</definition>
+        <argsstring>(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</argsstring>
+        <name>changeStage</name>
+        <qualifiedname>Background::changeStage</qualifiedname>
+        <param>
+          <type><ref refid="class_background_1a63cd37625e2bab37186432edd734c6b3" kindref="member">Stage</ref></type>
+          <defname>stage</defname>
+        </param>
+        <param>
+          <type>sf::View &amp;</type>
+          <defname>mainView</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritesheet</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_obstacle" kindref="compound">Obstacle</ref> * &gt; &amp;</type>
+          <defname>obstacles</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <defname>enemies</defname>
+        </param>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> &amp;</type>
+          <defname>player</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>startPos</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_wall" kindref="compound">Wall</ref> * &gt; &amp;</type>
+          <defname>walls</defname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="class_zap_wall" kindref="compound">ZapWall</ref> * &gt; &amp;</type>
+          <defname>zapWalls</defname>
+        </param>
+        <briefdescription>
+<para>Change what stage the background is on, needed for the background image and generate functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mainView</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spritesheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obstacles</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>enemies</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>startPos</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>walls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="class_wall" kindref="compound">Wall</ref> list.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>zapWalls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Zap wall list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="50" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="143" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="class_background_1a2f093aa4fd0efcce6cb191bdce2574bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Background::backgroundFinished</definition>
+        <argsstring>(sf::View &amp;)</argsstring>
+        <name>backgroundFinished</name>
+        <qualifiedname>Background::backgroundFinished</qualifiedname>
+        <param>
+          <type>sf::View &amp;</type>
+          <defname>view</defname>
+        </param>
+        <briefdescription>
+<para>Check if current background stage is finished. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>view</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Background/Background.h" line="53" column="6" bodyfile="C:/Zaxxon/src/Background/Background.cpp" bodystart="171" bodyend="180"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Holds all backgrounds and methods to fill each level with content. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Background/Background.h" line="15" column="1" bodyfile="C:/Zaxxon/src/Background/Background.h" bodystart="16" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_background_1a5e3883922c5ae32f6479f563189edd07" prot="private" virt="non-virtual"><scope>Background</scope><name>back</name></member>
+      <member refid="class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719" prot="public" virt="non-virtual"><scope>Background</scope><name>Background</name></member>
+      <member refid="class_background_1a2f093aa4fd0efcce6cb191bdce2574bb" prot="private" virt="non-virtual"><scope>Background</scope><name>backgroundFinished</name></member>
+      <member refid="class_background_1a11782d139d68c919c240a15d924df664" prot="private" virt="non-virtual"><scope>Background</scope><name>boss</name></member>
+      <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe" prot="public" virt="non-virtual"><scope>Background</scope><name>BOSS</name></member>
+      <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e" prot="public" virt="non-virtual"><scope>Background</scope><name>BOSSFIGHT</name></member>
+      <member refid="class_background_1a6b607e4abb1e50f345e49eca7fe928b1" prot="private" virt="non-virtual"><scope>Background</scope><name>changeStage</name></member>
+      <member refid="class_background_1ac30d035b27d32a1f613d46d14b082abf" prot="private" virt="non-virtual"><scope>Background</scope><name>death</name></member>
+      <member refid="class_background_1a2c91b15da2d6bdeba667946bb1691ab2" prot="private" virt="non-virtual"><scope>Background</scope><name>deathOverlay</name></member>
+      <member refid="class_background_1a093d96b9f25dda122febad2beabc47cd" prot="public" virt="non-virtual"><scope>Background</scope><name>flashColor</name></member>
+      <member refid="class_background_1ac607d65614b8f90a0f841a97df4f0b04" prot="public" virt="non-virtual"><scope>Background</scope><name>generateObstacles</name></member>
+      <member refid="class_background_1aa319354445ea0a0f224b6dc726b621c2" prot="public" virt="non-virtual"><scope>Background</scope><name>generateWaves</name></member>
+      <member refid="class_background_1aa60585bb666a292f5d49049038400b1a" prot="public" virt="non-virtual"><scope>Background</scope><name>getStage</name></member>
+      <member refid="class_background_1aef800902e6536f7382d07de1a2e01860" prot="private" virt="non-virtual"><scope>Background</scope><name>initial</name></member>
+      <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0" prot="public" virt="non-virtual"><scope>Background</scope><name>INITIAL</name></member>
+      <member refid="class_background_1a52b2389cd7dfaedff511e72af9f3735c" prot="public" virt="non-virtual"><scope>Background</scope><name>isInSpace</name></member>
+      <member refid="class_background_1ad04fe2ef8bcaf5516c95846e2e500877" prot="public" virt="non-virtual"><scope>Background</scope><name>resetPos</name></member>
+      <member refid="class_background_1a002ca1b009e940180bb5edb8c49e008f" prot="public" virt="non-virtual"><scope>Background</scope><name>setPosition</name></member>
+      <member refid="class_background_1ac333125273a1213f2cb1c4af4081f0b8" prot="public" virt="non-virtual"><scope>Background</scope><name>setStage</name></member>
+      <member refid="class_background_1a68fca080fef71e606ffb54e59ceb6cd0" prot="private" virt="non-virtual"><scope>Background</scope><name>space</name></member>
+      <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc" prot="public" virt="non-virtual"><scope>Background</scope><name>SPACE</name></member>
+      <member refid="class_background_1a63cd37625e2bab37186432edd734c6b3" prot="public" virt="non-virtual"><scope>Background</scope><name>Stage</name></member>
+      <member refid="class_background_1a54fd3ae1fa70b20d936ab749490af6bc" prot="private" virt="non-virtual"><scope>Background</scope><name>stage</name></member>
+      <member refid="class_background_1a35213116185226b7b3881b2e71c8a292" prot="public" virt="non-virtual"><scope>Background</scope><name>update</name></member>
+      <member refid="class_background_1af234d5963839889e63807d8092d67bf2" prot="private" virt="non-virtual"><scope>Background</scope><name>waveQueue</name></member>
+      <member refid="class_background_1a36754df1deb720393217ade59da41557" prot="public" virt="non-virtual"><scope>Background</scope><name>~Background</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

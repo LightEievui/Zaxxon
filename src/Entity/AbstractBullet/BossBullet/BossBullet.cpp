@@ -1,16 +1,17 @@
 #include "BossBullet.h"
+#include <iostream>
 
 
 /// <summary>
 /// Create a boss bullet based on it's position
 /// </summary>
 /// <param name="startPos"></param>
-/// <param name="target"></param>
+/// <param name="target">The entity that the missile is targetting.</param>
 /// <param name="spriteSheet"></param>
-BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* spriteSheet)
+BossBullet::BossBullet(sf::Vector3f startPos, Entity* target,
+                       sf::Texture* spriteSheet)
 {
 	this->target = target;
-	this->spriteSheet = spriteSheet;
 
 	sprite->setTexture(*spriteSheet);
 	sprite->setTextureRect(sf::IntRect(38, 74, 39, 27));
@@ -19,66 +20,72 @@ BossBullet::BossBullet(sf::Vector3f startPos, Entity* target, sf::Texture* sprit
 	sprite->setPosition(translateTo2d(startPos));
 
 	setPos(startPos);
-	
+
 	movementInt.restart();
+	invTimer.restart();
 }
 
 
 /// <summary>
-/// Clean up memory related to boss bullet class
-/// </summary>
-BossBullet::~BossBullet()
-{
-
-}
-
-
-/// <summary>
-/// Run logic for boss bullet then draw it to screen
+/// Run logic for boss bullet then draw it to screen.
 /// </summary>
 /// <param name="window"></param>
-void BossBullet::update(sf::RenderWindow& window)
+void BossBullet::update(sf::RenderWindow& window, float gameSpeed)
 {
-	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.getState() == 0)
+	//moves toward the target(player) in a similar manner to the boss
+	if (movementInt.getElapsedTime().asMilliseconds() >= 50 && animations.
+		getState() == 0)
 	{
 		movementInt.restart();
 
-		if ((target->getPos().x) - getPos().x > 5)
-			setPos(sf::Vector3f(getPos().x + 5, getPos().y, getPos().z));
-		if ((target->getPos().x) - getPos().x < 5)
-			setPos(sf::Vector3f(getPos().x - 5, getPos().y, getPos().z));
+		if ((target->getPos().x - 50) - getPos().x > 5)
+			setPos(sf::Vector3f(getPos().x + 5 * gameSpeed, getPos().y,
+			                    getPos().z));
+		if ((target->getPos().x - 50) - getPos().x < 5)
+			setPos(sf::Vector3f(getPos().x - 5 * gameSpeed, getPos().y,
+			                    getPos().z));
 
 		if (target->getPos().y - getPos().y > 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y + 5, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y + 5 * gameSpeed,
+			                    getPos().z));
 		if (target->getPos().y - getPos().y < 3)
-			setPos(sf::Vector3f(getPos().x, getPos().y - 5, getPos().z));
+			setPos(sf::Vector3f(getPos().x, getPos().y - 5 * gameSpeed,
+			                    getPos().z));
 
-		setPos(sf::Vector3f(getPos().x, getPos().y, getPos().z + 7));
-		sprite->setPosition(translateTo2d(getPos()));
+		translate(3.5f);
 	}
 
-	window.draw(*sprite);
-
+	//if the bullet dies treat it as a collision
 	if (health <= 0)
-		collide();
+		alive = false;
+
+	window.draw(*sprite);
 }
 
 
-
+/// <summary>
+/// Run the death animation and set to dead.
+/// </summary>
 void BossBullet::collide()
 {
 	if (animations.getState() == 0)
+	{
 		animations.run(sprite, Animation::ALT_DEATH);
+	}
+
+	alive = false;
 }
 
 
+/// <summary>
+/// Decrease the health of the bullet
+/// </summary>
+/// <param name="hit"></param>
 void BossBullet::damage(int hit)
 {
-	health -= hit;
-}
-
-
-bool BossBullet::isDestroyed() 
-{
-	return animations.getState() == 1;
+	if (invTimer.getElapsedTime().asMilliseconds() >= 75)
+	{
+		invTimer.restart();
+		health -= hit;
+	}
 }

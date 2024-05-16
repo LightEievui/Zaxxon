@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_character_bullet" kind="class" language="C++" prot="public">
+    <compoundname>CharacterBullet</compoundname>
+    <basecompoundref refid="class_abstract_bullet" prot="public" virt="non-virtual">AbstractBullet</basecompoundref>
+    <includes refid="_character_bullet_8h" local="no">CharacterBullet.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd" prot="public" static="no" strong="no">
+        <type></type>
+        <name>BulletDeathType</name>
+        <qualifiedname>CharacterBullet::BulletDeathType</qualifiedname>
+        <enumvalue id="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc" prot="public">
+          <name>WallDeath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0" prot="public">
+          <name>EnemyDeath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97" prot="public">
+          <name>MissileDeath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="12" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" bodystart="13" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_character_bullet_1aa3b25d057d02cf5c7970e60f32ef0d5b" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int CharacterBullet::sizeIndex</definition>
+        <argsstring></argsstring>
+        <name>sizeIndex</name>
+        <qualifiedname>CharacterBullet::sizeIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="29" column="14" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_bullet_1a189301840d8fc4c3a63e0d3b3c9de747" prot="private" static="no" mutable="no">
+        <type><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" kindref="member">BulletType</ref></type>
+        <definition>BulletType CharacterBullet::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>CharacterBullet::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="30" column="12" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CharacterBullet::CharacterBullet</definition>
+        <argsstring>(sf::Texture *spritesheet, sf::Vector3f spawnPos, unsigned int sizeindex, BulletType=Player, sf::Vector2f=sf::Vector2f(0, 0))</argsstring>
+        <name>CharacterBullet</name>
+        <qualifiedname>CharacterBullet::CharacterBullet</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <declname>spritesheet</declname>
+        </param>
+        <param>
+          <type>sf::Vector3f</type>
+          <declname>spawnPos</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>sizeindex</declname>
+          <defname>sizeIndex</defname>
+        </param>
+        <param>
+          <type><ref refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" kindref="member">BulletType</ref></type>
+          <defname>type</defname>
+          <defval><ref refid="class_player" kindref="compound">Player</ref></defval>
+        </param>
+        <param>
+          <type>sf::Vector2f</type>
+          <defname>spawnPos2f</defname>
+          <defval>sf::Vector2f(0, 0)</defval>
+        </param>
+        <briefdescription>
+<para>Create a bullet based on if player or enemy shot it. Players use 3f &amp; enemies use 2f, enemies run on 2f space while players are on 3f space and it&apos;s not possible to convert from 2f to 3f, so enemies have to pass their 2f position to the bullets. Just make sure to pass the 2f if an enemy and the 3f will be ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spritesheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ignored if spawnPos2f is defined.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sizeIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of bullet.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnPos2f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional, pass through when enemy.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="19" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp" bodystart="16" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CharacterBullet::kill</definition>
+        <argsstring>()</argsstring>
+        <name>kill</name>
+        <qualifiedname>CharacterBullet::kill</qualifiedname>
+        <briefdescription>
+<para>Default kill, run the kill method with enemyDeath as parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="24" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CharacterBullet::kill</definition>
+        <argsstring>(BulletDeathType type)</argsstring>
+        <name>kill</name>
+        <qualifiedname>CharacterBullet::kill</qualifiedname>
+        <param>
+          <type><ref refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd" kindref="member">BulletDeathType</ref></type>
+          <declname>type</declname>
+          <defname>deathType</defname>
+        </param>
+        <briefdescription>
+<para>The bullet hit something, run code to kill bullet based on what it hit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deathType</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="25" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp" bodystart="68" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CharacterBullet::update</definition>
+        <argsstring>(sf::RenderWindow &amp;window, float) override</argsstring>
+        <name>update</name>
+        <qualifiedname>CharacterBullet::update</qualifiedname>
+        <reimplements refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</reimplements>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>gameSpeed</defname>
+        </param>
+        <briefdescription>
+<para>Run the logic for this bullet and then draw it to screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="26" column="6" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp" bodystart="93" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int CharacterBullet::getSizeIndex</definition>
+        <argsstring>()</argsstring>
+        <name>getSizeIndex</name>
+        <qualifiedname>CharacterBullet::getSizeIndex</qualifiedname>
+        <briefdescription>
+<para>Get public size index of this character bullet. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="27" column="14" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The bullet used by the player and enemies. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CharacterBullet</label>
+        <link refid="class_character_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="1">
+        <label>CharacterBullet</label>
+        <link refid="class_character_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" line="9" column="1" bodyfile="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.h" bodystart="10" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>AbstractBullet</name></member>
+      <member refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>alive</name></member>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>animations</name></member>
+      <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>BulletDeathType</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>BulletType</name></member>
+      <member refid="class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>CharacterBullet</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>debugText</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>Enemy</name></member>
+      <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>EnemyDeath</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>getBounds</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>getPos</name></member>
+      <member refid="class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>getSizeIndex</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>getSpritePos</name></member>
+      <member refid="class_abstract_bullet_1acab32995c786012e42040fe452e46d67" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>isHit</name></member>
+      <member refid="class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>kill</name></member>
+      <member refid="class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>kill</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual" ambiguityscope="AbstractBullet::"><scope>CharacterBullet</scope><name>kill</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>Missile</name></member>
+      <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980ddad59c45c9fe96a24b43ccd4d3d0c66d97" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>MissileDeath</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>Player</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>setPos</name></member>
+      <member refid="class_character_bullet_1aa3b25d057d02cf5c7970e60f32ef0d5b" prot="private" virt="non-virtual"><scope>CharacterBullet</scope><name>sizeIndex</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>CharacterBullet</scope><name>spriteSheet</name></member>
+      <member refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>translate</name></member>
+      <member refid="class_character_bullet_1a189301840d8fc4c3a63e0d3b3c9de747" prot="private" virt="non-virtual"><scope>CharacterBullet</scope><name>type</name></member>
+      <member refid="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b" prot="public" virt="virtual"><scope>CharacterBullet</scope><name>update</name></member>
+      <member refid="class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>WallDeath</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>xBulletL</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>xBulletR</name></member>
+      <member refid="class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d" prot="public" virt="non-virtual"><scope>CharacterBullet</scope><name>zBullet</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>CharacterBullet</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

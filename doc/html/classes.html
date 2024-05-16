@@ -6,14 +6,20 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Zaxxon: Class Index</title>
+<link rel="icon" href="Zaxxon_plane.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -49,6 +57,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classes.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,17 +98,17 @@ $(function() {
   <div class="headertitle"><div class="title">Class Index</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_B">B</a>&#160;|&#160;<a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_E">E</a>&#160;|&#160;<a class="qindex" href="#letter_G">G</a>&#160;|&#160;<a class="qindex" href="#letter_H">H</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_Z">Z</a></div>
+<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_B">B</a>&#160;|&#160;<a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_E">E</a>&#160;|&#160;<a class="qindex" href="#letter_G">G</a>&#160;|&#160;<a class="qindex" href="#letter_H">H</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_W">W</a>&#160;|&#160;<a class="qindex" href="#letter_Z">Z</a></div>
 <div class="classindex">
 <dl class="classindex even">
 <dt class="alphachar"><a id="letter_A" name="letter_A">A</a></dt>
-<dd><a class="el" href="class_animation.html">Animation</a></dd></dl>
+<dd><a class="el" href="class_abstract_bullet.html">AbstractBullet</a></dd><dd><a class="el" href="class_animation.html">Animation</a></dd></dl>
 <dl class="classindex odd">
 <dt class="alphachar"><a id="letter_B" name="letter_B">B</a></dt>
-<dd><a class="el" href="class_background.html">Background</a></dd></dl>
+<dd><a class="el" href="class_background.html">Background</a></dd><dd><a class="el" href="class_boss.html">Boss</a></dd><dd><a class="el" href="class_boss_bullet.html">BossBullet</a></dd></dl>
 <dl class="classindex even">
 <dt class="alphachar"><a id="letter_C" name="letter_C">C</a></dt>
-<dd><a class="el" href="class_character.html">Character</a></dd></dl>
+<dd><a class="el" href="class_character.html">Character</a></dd><dd><a class="el" href="class_character_bullet.html">CharacterBullet</a></dd></dl>
 <dl class="classindex odd">
 <dt class="alphachar"><a id="letter_E" name="letter_E">E</a></dt>
 <dd><a class="el" href="class_enemy.html">Enemy</a></dd><dd><a class="el" href="class_entity.html">Entity</a></dd></dl>
@@ -96,18 +120,24 @@ $(function() {
 <dd><a class="el" href="class_h_m_section.html">HMSection</a></dd></dl>
 <dl class="classindex even">
 <dt class="alphachar"><a id="letter_O" name="letter_O">O</a></dt>
-<dd><a class="el" href="class_obstacle.html">Obstacle</a></dd></dl>
+<dd><a class="el" href="class_obstacle.html">Obstacle</a></dd><dd><a class="el" href="class_obstacle_bullet.html">ObstacleBullet</a></dd></dl>
 <dl class="classindex odd">
 <dt class="alphachar"><a id="letter_P" name="letter_P">P</a></dt>
 <dd><a class="el" href="class_player.html">Player</a></dd></dl>
 <dl class="classindex even">
+<dt class="alphachar"><a id="letter_W" name="letter_W">W</a></dt>
+<dd><a class="el" href="class_wall.html">Wall</a></dd></dl>
+<dl class="classindex odd">
 <dt class="alphachar"><a id="letter_Z" name="letter_Z">Z</a></dt>
-<dd><a class="el" href="class_zaxxon_text.html">ZaxxonText</a></dd></dl>
+<dd><a class="el" href="class_zap_wall.html">ZapWall</a></dd><dd><a class="el" href="class_zaxxon_text.html">ZaxxonText</a></dd></dl>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

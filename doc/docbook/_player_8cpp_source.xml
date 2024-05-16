@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__player_8cpp_source" xml:lang="en-US">
+<title>Player.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Player/Player.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__player_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__player_8h">Player.h</link>&quot;</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__background_8h">Background/Background.h</link>&quot;</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__player_8cpp_source_1l00004"/>00004 
+<anchor xml:id="__player_8cpp_source_1l00010"/><link linkend="_class_player_1ab67b08e4700e1f6e208746e67cb0f701">00010</link> <link linkend="_class_player_1ab67b08e4700e1f6e208746e67cb0f701">Player::Player</link>(sf::Texture*&#32;texture,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>)&#32;:&#32;<link linkend="_class_character">Character</link>(texture)
+<anchor xml:id="__player_8cpp_source_1l00011"/>00011 {
+<anchor xml:id="__player_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;sf::IntRect&#32;a&#32;=&#32;sf::IntRect(8,&#32;13,&#32;23,&#32;23);
+<anchor xml:id="__player_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;3;&#32;i++)
+<anchor xml:id="__player_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__player_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;j&#32;=&#32;0;&#32;j&#32;&lt;&#32;4;&#32;j++)
+<anchor xml:id="__player_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__player_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;playerTextures[i][j]&#32;=&#32;a;
+<anchor xml:id="__player_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;a.left&#32;+=&#32;23;
+<anchor xml:id="__player_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__player_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__player_8cpp_source_1l00021"/>00021 
+<anchor xml:id="__player_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(playerTextures[0][0]);
+<anchor xml:id="__player_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">setPos</link>(sf::Vector3f(0,&#32;69,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="__game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f">startPos</link>)&#32;*&#32;-1.33333f));
+<anchor xml:id="__player_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;this-&gt;shadow.setTexture(*texture);
+<anchor xml:id="__player_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;this-&gt;shadow.setTextureRect(sf::IntRect(352,&#32;18,&#32;22,&#32;13));
+<anchor xml:id="__player_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;this-&gt;shadow.setColor(sf::Color::Black);
+<anchor xml:id="__player_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;this-&gt;hitmarker.setTexture(*texture);
+<anchor xml:id="__player_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;this-&gt;hitmarker.setTextureRect(sf::IntRect(320,&#32;84,&#32;12,&#32;11));
+<anchor xml:id="__player_8cpp_source_1l00029"/>00029 
+<anchor xml:id="__player_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Prepare&#32;bullet&#32;sound</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;bulletBuffer.loadFromFile(<emphasis role="stringliteral">&quot;res/sfx/08.wav&quot;</emphasis>);
+<anchor xml:id="__player_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;bulletSound.setBuffer(bulletBuffer);
+<anchor xml:id="__player_8cpp_source_1l00033"/>00033 }
+<anchor xml:id="__player_8cpp_source_1l00034"/>00034 
+<anchor xml:id="__player_8cpp_source_1l00035"/>00035 
+<anchor xml:id="__player_8cpp_source_1l00042"/><link linkend="_class_player_1a4e06f8ba5175207c534abed70d383418">00042</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1a4e06f8ba5175207c534abed70d383418">Player::update</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">int</emphasis>&#32;stage,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__player_8cpp_source_1l00043"/>00043 {
+<anchor xml:id="__player_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!alive)
+<anchor xml:id="__player_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__player_8cpp_source_1l00046"/>00046 
+<anchor xml:id="__player_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;If&#32;alive&#32;after&#32;this&#32;point</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Update&#32;texture</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;planeVertical&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<link linkend="_class_character_1a40ac52813d37c391b4cd6db06a8f1216">_getSizeIndex</link>(<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>);
+<anchor xml:id="__player_8cpp_source_1l00051"/>00051 
+<anchor xml:id="__player_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Keys</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;sf::Vector3f&#32;tempVelocity&#32;=&#32;<link linkend="_class_character_1adba5c58a1b24bff604893e28519a1f34">getVelocity</link>();
+<anchor xml:id="__player_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;acceleration&#32;=&#32;1.f&#32;/&#32;5.f;
+<anchor xml:id="__player_8cpp_source_1l00055"/>00055 
+<anchor xml:id="__player_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="__util_8cpp_1ae6f4fd7a79c6617ddba5e4bc53033e26">leftPressed</link>()&#32;&amp;&amp;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;&lt;&#32;<link linkend="_class_character_1ae741b4874f8875f33f70663890315a52">xMax</link>&#32;&amp;&amp;&#32;tempVelocity.x&#32;&lt;&#32;1.f)
+<anchor xml:id="__player_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.x&#32;+=&#32;acceleration;
+<anchor xml:id="__player_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="__util_8cpp_1af41bb2031bce096d1162c72a1ec3d49c">rightPressed</link>()&#32;&amp;&amp;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;&gt;&#32;<link linkend="_class_character_1a682f191a3a01f1a772cd3fa624c0b16e">xMin</link>&#32;&amp;&amp;&#32;tempVelocity.x&#32;&gt;&#32;-1.f)
+<anchor xml:id="__player_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.x&#32;-=&#32;acceleration;
+<anchor xml:id="__player_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.x&#32;&lt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.x&#32;+=&#32;acceleration;
+<anchor xml:id="__player_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.x&#32;&gt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.x&#32;-=&#32;acceleration;
+<anchor xml:id="__player_8cpp_source_1l00064"/>00064 
+<anchor xml:id="__player_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.x&#32;&lt;&#32;acceleration&#32;&amp;&amp;&#32;tempVelocity.x&#32;&gt;&#32;-acceleration)
+<anchor xml:id="__player_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.x&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00067"/>00067 
+<anchor xml:id="__player_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="__util_8cpp_1a7ab82b63c0cbae8095033e452b2d2183">upPressed</link>()&#32;&amp;&amp;&#32;tempVelocity.y&#32;&lt;&#32;0.6f)
+<anchor xml:id="__player_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.y&#32;+=&#32;acceleration&#32;/&#32;0.5f;
+<anchor xml:id="__player_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="__util_8cpp_1a63e332f98a6cbd1cb57f319f556ee594">downPressed</link>()&#32;&amp;&amp;&#32;tempVelocity.y&#32;&gt;&#32;-0.6f)
+<anchor xml:id="__player_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.y&#32;-=&#32;acceleration&#32;/&#32;0.5f;
+<anchor xml:id="__player_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.y&#32;&lt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.y&#32;+=&#32;acceleration&#32;/&#32;0.5f;
+<anchor xml:id="__player_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.y&#32;&gt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.y&#32;-=&#32;acceleration&#32;/&#32;0.5f;
+<anchor xml:id="__player_8cpp_source_1l00076"/>00076 
+<anchor xml:id="__player_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Set&#32;plane&#32;sprite&#32;var&#32;before&#32;we&#32;reset&#32;velocity&#32;for&#32;bounds</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.y&#32;==&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;planeVertical&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.y&#32;&lt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;planeVertical&#32;=&#32;1;
+<anchor xml:id="__player_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tempVelocity.y&#32;&gt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;planeVertical&#32;=&#32;2;
+<anchor xml:id="__player_8cpp_source_1l00084"/>00084 
+<anchor xml:id="__player_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;&lt;=&#32;69.6&#32;&amp;&amp;&#32;tempVelocity.y&#32;&lt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.y&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;&gt;=&#32;139.4&#32;&amp;&amp;&#32;tempVelocity.y&#32;&gt;&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.y&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00089"/>00089 
+<anchor xml:id="__player_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;!=&#32;1)
+<anchor xml:id="__player_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(playerTextures[planeVertical][<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>]);
+<anchor xml:id="__player_8cpp_source_1l00093"/>00093 
+<anchor xml:id="__player_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Spawn&#32;bullets</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="__util_8cpp_1a311270ca6451600ab7089e74945d30b5">zPressed</link>()&#32;&amp;&amp;&#32;bulletCD.getElapsedTime().asMilliseconds()&#32;&gt;
+<anchor xml:id="__player_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BULLET_COOLDOWN&#32;/&#32;gameSpeed)
+<anchor xml:id="__player_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__player_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bulletCD.restart();
+<anchor xml:id="__player_8cpp_source_1l00099"/>00099 
+<anchor xml:id="__player_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.
+<anchor xml:id="__player_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_character_bullet">CharacterBullet</link>(<link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link>,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>(),&#32;<link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link>));
+<anchor xml:id="__player_8cpp_source_1l00102"/>00102 
+<anchor xml:id="__player_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bulletSound.play();
+<anchor xml:id="__player_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__player_8cpp_source_1l00105"/>00105 <emphasis role="preprocessor">#ifndef&#32;NDEBUG</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+<anchor xml:id="__player_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;&lt;&lt;
+<anchor xml:id="__player_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>;
+<anchor xml:id="__player_8cpp_source_1l00109"/>00109 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00110"/>00110 
+<anchor xml:id="__player_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;!=&#32;3)
+<anchor xml:id="__player_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__player_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;!=&#32;1)
+<anchor xml:id="__player_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.z&#32;=&#32;-1.3f;&#32;<emphasis role="comment">//for&#32;moving&#32;with&#32;background</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="comment">//&#32;space&#32;moves&#32;2/3&#32;speed</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.z&#32;=&#32;-1.3f&#32;*&#32;0.66f;
+<anchor xml:id="__player_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__player_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tempVelocity.z&#32;=&#32;0;
+<anchor xml:id="__player_8cpp_source_1l00120"/>00120 
+<anchor xml:id="__player_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Position&#32;updates</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<link linkend="_class_character_1a46a264779165a349a13bcb364c4106d4">setVelocity</link>(tempVelocity);
+<anchor xml:id="__player_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;shadow.setPosition(
+<anchor xml:id="__player_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;-&#32;5,&#32;2&#32;*&#32;224&#32;/&#32;3,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z)));
+<anchor xml:id="__player_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;hitmarker.setPosition(<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getPosition()&#32;+&#32;sf::Vector2f(40,&#32;-15));
+<anchor xml:id="__player_8cpp_source_1l00126"/>00126 
+<anchor xml:id="__player_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Shadow&#32;before&#32;character</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(stage&#32;!=&#32;1)
+<anchor xml:id="__player_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(shadow);
+<anchor xml:id="__player_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(hitmarkerTimer.getElapsedTime().asMilliseconds()&#32;&lt;&#32;150)
+<anchor xml:id="__player_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(hitmarker);
+<anchor xml:id="__player_8cpp_source_1l00132"/>00132 
+<anchor xml:id="__player_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;if&#32;you&#32;stay&#32;above&#32;80&#32;for&#32;3s&#32;and&#32;stage&#32;is&#32;initial&#32;then&#32;you&#32;get&#32;missile&#32;after&#32;you</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y&#32;&gt;&#32;80&#32;||&#32;stage&#32;!=&#32;0)
+<anchor xml:id="__player_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;missileTimer.restart();
+<anchor xml:id="__player_8cpp_source_1l00136"/>00136 
+<anchor xml:id="__player_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Drawing</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;<link linkend="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">Character::update</link>(window,&#32;gameSpeed);
+<anchor xml:id="__player_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;updating&#32;position&#32;using&#32;velocity,&#32;draw&#32;character</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;<link linkend="_class_character_1a450a222c641925d6bda2f2c9241c220b">updateBullets</link>(window,&#32;gameSpeed);
+<anchor xml:id="__player_8cpp_source_1l00141"/>00141 
+<anchor xml:id="__player_8cpp_source_1l00142"/>00142 <emphasis role="preprocessor">#ifndef&#32;NDEBUG</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link>.setString(std::to_string(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x))&#32;+&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>&#32;+
+<anchor xml:id="__player_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::to_string(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y))&#32;+&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>&#32;+&#32;std::to_string(
+<anchor xml:id="__player_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z))
+<anchor xml:id="__player_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;);
+<anchor xml:id="__player_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link>.setPosition(<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getPosition());
+<anchor xml:id="__player_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;window.draw(<link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link>);
+<anchor xml:id="__player_8cpp_source_1l00149"/>00149 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;!NDEBUG</emphasis>
+<anchor xml:id="__player_8cpp_source_1l00150"/>00150 }
+<anchor xml:id="__player_8cpp_source_1l00151"/>00151 
+<anchor xml:id="__player_8cpp_source_1l00152"/>00152 
+<anchor xml:id="__player_8cpp_source_1l00156"/><link linkend="_class_player_1aa8baacf4fe29a618f2cf4b26327e4d5a">00156</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1aa8baacf4fe29a618f2cf4b26327e4d5a">Player::kill</link>()
+<anchor xml:id="__player_8cpp_source_1l00157"/>00157 {
+<anchor xml:id="__player_8cpp_source_1l00158"/>00158 &#32;&#32;&#32;&#32;alive&#32;=&#32;!alive;
+<anchor xml:id="__player_8cpp_source_1l00159"/>00159 }
+<anchor xml:id="__player_8cpp_source_1l00160"/>00160 
+<anchor xml:id="__player_8cpp_source_1l00161"/>00161 
+<anchor xml:id="__player_8cpp_source_1l00166"/><link linkend="_class_player_1a49066b4a0b345abad5a5d4a6ec640140">00166</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_player_1a49066b4a0b345abad5a5d4a6ec640140">Player::resetPos</link>(<emphasis role="keywordtype">int</emphasis>&#32;zOffset)
+<anchor xml:id="__player_8cpp_source_1l00167"/>00167 {
+<anchor xml:id="__player_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;<link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,&#32;zOffset&#32;*&#32;-1.33333f));
+<anchor xml:id="__player_8cpp_source_1l00169"/>00169 }
+<anchor xml:id="__player_8cpp_source_1l00170"/>00170 
+<anchor xml:id="__player_8cpp_source_1l00171"/>00171 
+<anchor xml:id="__player_8cpp_source_1l00176"/><link linkend="_class_player_1a9e9bd4067e79f190ea314cb70dcb092d">00176</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_player_1a9e9bd4067e79f190ea314cb70dcb092d">Player::isMissileable</link>()
+<anchor xml:id="__player_8cpp_source_1l00177"/>00177 {
+<anchor xml:id="__player_8cpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;missileTimer.getElapsedTime().asSeconds()&#32;&gt;&#32;5&#32;&amp;&amp;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z&#32;&lt;&#32;-300;
+<anchor xml:id="__player_8cpp_source_1l00179"/>00179 }
+<anchor xml:id="__player_8cpp_source_1l00180"/>00180 
+<anchor xml:id="__player_8cpp_source_1l00181"/>00181 
+<anchor xml:id="__player_8cpp_source_1l00186"/><link linkend="_class_player_1a06e38c0f57e67eb006c9d09779bd8f8f">00186</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_player_1a06e38c0f57e67eb006c9d09779bd8f8f">Player::isAlive</link>()
+<anchor xml:id="__player_8cpp_source_1l00187"/>00187 {
+<anchor xml:id="__player_8cpp_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;alive;
+<anchor xml:id="__player_8cpp_source_1l00189"/>00189 }
+</programlisting></section>

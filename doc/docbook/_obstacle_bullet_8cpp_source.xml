@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__obstacle_bullet_8cpp_source" xml:lang="en-US">
+<title>ObstacleBullet.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__obstacle_bullet_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__obstacle_bullet_8h">ObstacleBullet.h</link>&quot;</emphasis>
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00009"/><link linkend="_class_obstacle_bullet_1a2d0a98fd778531ae5c1db7295aa0d90c">00009</link> <link linkend="_class_obstacle_bullet_1a2d0a98fd778531ae5c1db7295aa0d90c">ObstacleBullet::ObstacleBullet</link>(sf::Vector3f&#32;pos,&#32;sf::Texture*&#32;spriteSheet,
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">BulletType</link>&#32;type)
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00011"/>00011 {
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTexture(*<link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link>);
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00013"/>00013 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;<emphasis role="comment">//checks&#32;for&#32;the&#32;bullet&#32;direction</emphasis>
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(type)
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1">xBulletR</link>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(345,&#32;124,&#32;14,&#32;9));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setOrigin(sf::Vector2f(<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getGlobalBounds().width,
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getGlobalBounds().height));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514">xBulletL</link>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(345,&#32;124,&#32;14,&#32;9));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setOrigin(sf::Vector2f(0,&#32;0));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d">zBullet</link>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(160,&#32;127,&#32;14,&#32;9));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setOrigin(sf::Vector2f(0,&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getGlobalBounds().height));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00033"/>00033 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(pos);
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00036"/>00036 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;this-&gt;type&#32;=&#32;type;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00038"/>00038 }
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00039"/>00039 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00040"/>00040 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00046"/><link linkend="_class_obstacle_bullet_1acf03e80fd20b8f5df01c83ac8a7d4cbe">00046</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_obstacle_bullet_1acf03e80fd20b8f5df01c83ac8a7d4cbe">ObstacleBullet::update</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00047"/>00047 {
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="comment">//change&#32;movement&#32;based&#32;on&#32;type</emphasis>
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(type)
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514">xBulletL</link>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;+&#32;3&#32;*&#32;gameSpeed,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1">xBulletR</link>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().x&#32;-&#32;3&#32;*&#32;gameSpeed,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().y,
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>().z));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d">zBullet</link>:
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1">translate</link>(3&#32;*&#32;gameSpeed);
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00064"/>00064 
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;window.draw(*<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>);
+<anchor xml:id="__obstacle_bullet_8cpp_source_1l00066"/>00066 }
+</programlisting></section>

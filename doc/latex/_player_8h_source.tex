@@ -1,29 +1,37 @@
 \doxysection{Player.\+h}
-\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{src/Entity/Character/Player/Player.h@{src/Entity/Character/Player/Player.h}}
-
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\index{C:/Zaxxon/src/Entity/Character/Player/Player.h@{C:/Zaxxon/src/Entity/Character/Player/Player.h}}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Character.h"{}}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
-\DoxyCodeLine{00007\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_player_ab67b08e4700e1f6e208746e67cb0f701}{Player}}(sf::Texture*,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_abb03d8dd7ecbcc72a4bece2e14d98681}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{bool});}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{kill}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\textcolor{keywordtype}{int}\ zOffset\ =\ 0);}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ bulletKill(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BULLET\_COOLDOWN\ =\ 200;}
-\DoxyCodeLine{00017\ \ \ \ \ sf::Clock\ bulletCD;}
-\DoxyCodeLine{00018\ \ \ \ \ std::vector<int>\ erase;}
-\DoxyCodeLine{00019\ \ \ \ \ sf::IntRect\ playerTextures[3][4];}
-\DoxyCodeLine{00020\ \ \ \ \ sf::Sprite\ shadow;}
-\DoxyCodeLine{00021\ \ \ \ \ sf::SoundBuffer\ bulletBuffer;}
-\DoxyCodeLine{00022\ \ \ \ \ sf::Sound\ bulletSound;}
-\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_8h}{Entity/Character/Character.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_character_bullet_8h}{Entity/AbstractBullet/CharacterBullet/CharacterBullet.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00010}\mbox{\hyperlink{class_player}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_character}{Character}}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00012}00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_player_ab67b08e4700e1f6e208746e67cb0f701}{Player}}(sf::Texture*,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a4e06f8ba5175207c534abed70d383418}{update}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{float});}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa8baacf4fe29a618f2cf4b26327e4d5a}{kill}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\textcolor{keywordtype}{int}\ zOffset\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00018}\mbox{\hyperlink{class_player_a16cc17c6bffa72c5898b8046dcff565b}{00018}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a16cc17c6bffa72c5898b8046dcff565b}{drawHitmarker}}()\ \{\ hitmarkerTimer.restart();\ \}}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a06e38c0f57e67eb006c9d09779bd8f8f}{isAlive}}();}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a9e9bd4067e79f190ea314cb70dcb092d}{isMissileable}}();}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00023}\mbox{\hyperlink{class_player_a1734ea414509ec38d5c1a7e3b991a782}{00023}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a1734ea414509ec38d5c1a7e3b991a782}{restartMissileTimer}}()\ \{\ missileTimer.restart();\ \};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00024}00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BULLET\_COOLDOWN\ =\ 200;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ alive\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00028}00028\ \ \ \ \ sf::Sprite\ hitmarker;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00029}00029\ \ \ \ \ sf::Clock\ bulletCD,\ hitmarkerTimer,\ missileTimer;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00030}00030\ \ \ \ \ sf::IntRect\ playerTextures[3][4];}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00031}00031\ \ \ \ \ sf::Sprite\ shadow;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00032}00032\ \ \ \ \ sf::SoundBuffer\ bulletBuffer;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00033}00033\ \ \ \ \ sf::Sound\ bulletSound;}
+\DoxyCodeLine{\Hypertarget{_player_8h_source_l00034}00034\ \};}
 
 \end{DoxyCode}

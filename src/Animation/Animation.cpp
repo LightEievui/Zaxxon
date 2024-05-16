@@ -1,5 +1,5 @@
 #include "Animation.h"
-typedef void(Animation::* animation)(sf::Sprite*);
+using animation = void(Animation::*)(sf::Sprite*);
 
 /// <summary>
 /// Initalize individual animation frames.
@@ -27,24 +27,28 @@ Animation::Animation()
 	frames[11] = sf::IntRect(288, 146, 28, 30);
 
 	// Normal bullet death animations
-	frames[12] = sf::IntRect(160, 161, 174-160, 175-161);
-	frames[13] = sf::IntRect(136, 160, 151-136, 175-160);
-	frames[14] = sf::IntRect(112, 158, 128-112, 175-158);
+	frames[12] = sf::IntRect(160, 161, 174 - 160, 175 - 161);
+	frames[13] = sf::IntRect(136, 160, 151 - 136, 175 - 160);
+	frames[14] = sf::IntRect(112, 158, 128 - 112, 175 - 158);
 	frames[15] = sf::IntRect(80, 156, 99 - 80, 175 - 156);
 	frames[16] = sf::IntRect(48, 151, 70 - 48, 175 - 151);
 	frames[17] = sf::IntRect(8, 150, 34 - 8, 176 - 150);
 
 	// Numbers for obstacles after death
-	frames[18] = sf::IntRect(184, 121, 211-184, 135-121); // 0
-	frames[19] = sf::IntRect(224, 113, 255-224, 136-113); // 200
-	frames[20] = sf::IntRect(264, 113, 295-264, 135-113); // 500
-	frames[21] = sf::IntRect(305, 113, 334-305, 135-113); // 1000
+	frames[18] = sf::IntRect(184, 121, 211 - 184, 135 - 121); // 0
+	frames[19] = sf::IntRect(224, 113, 255 - 224, 136 - 113); // 200
+	frames[20] = sf::IntRect(264, 113, 295 - 264, 135 - 113); // 500
+	frames[21] = sf::IntRect(305, 113, 334 - 305, 135 - 113); // 1000
 
 	// rocket flicker
 	frames[22] = sf::IntRect(80, 70, 10, 25);
 	frames[23] = sf::IntRect(102, 70, 10, 25);
+
+	// red rocket flicker
 	frames[24] = sf::IntRect(302, 197, 10, 25);
 	frames[25] = sf::IntRect(324, 197, 10, 25);
+
+	kill = false;
 }
 
 
@@ -53,11 +57,17 @@ Animation::Animation()
 /// </summary>
 Animation::~Animation()
 {
+	for (std::thread* thread : threads)
+	{
+		thread->join();
+		delete thread;
+	}
 }
 
 
 /// <summary>
-/// Run the given animation on sprite. Note that you should always check if the sprite* is null before doing operations.
+/// Run the given animation on sprite. Note that you should always check 
+/// if the sprite* is null before doing operations.
 /// </summary>
 /// <param name="sprite">Nullable</param>
 /// <param name="anim"></param>
@@ -72,7 +82,6 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 
 	//get the original texture so that the RESET animation can do so.
 	revert = sprite->getTextureRect();
-	kill = false;
 
 	animation animationPtr = nullptr;
 	switch (anim)
@@ -97,18 +106,16 @@ void Animation::run(sf::Sprite* sprite, Anim anim, unsigned int sizeIndex)
 		break;
 	case RESET:
 		kill = true;
-		animationPtr = &Animation::fRESET;
 		break;
 	}
 
-	// will delete itself.
-	if(animationPtr != nullptr)
-		new std::thread(animationPtr, this, sprite);
+	if (animationPtr != nullptr)
+		threads.push_back(new std::thread(animationPtr, this, sprite));
 }
 
 
 /// <summary>
-/// Death animation definition.
+/// Death animation definition. Used when obstacles die.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
@@ -117,12 +124,12 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 1 && sprite != nullptr)
 	{
-		int current = static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
+		int current =
+			static_cast<int>(timer.getElapsedTime().asSeconds() * 4) % 2;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
-	kill = false;
 	int current = 18;
 
 	switch (spriteSizeIndex)
@@ -139,7 +146,7 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 	}
 
 	state = 4; // wont interact
-	
+
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
 		sprite->setTextureRect(frames[current]);
@@ -150,7 +157,7 @@ void Animation::fCHARACTER_DEATH(sf::Sprite* sprite)
 
 
 /// <summary>
-/// Alternate death animation definition
+/// Alternate death animation definition. Used by Obstacles.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fALT_DEATH(sf::Sprite* sprite)
@@ -159,18 +166,18 @@ void Animation::fALT_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asMilliseconds() < 500 && sprite != nullptr)
 	{
-		int current = (static_cast<int>((int)(timer.getElapsedTime().asMilliseconds() * 12) / 1000) % 6) + 2;
+		int current = (timer.getElapsedTime().asMilliseconds()
+			* 12 / 1000 % 6) + 2;
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
-	kill = false;
 	state = 1;
 }
 
 
 /// <summary>
-/// missle launch animation definition
+/// Missle launch animation definition
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fLAUNCH(sf::Sprite* sprite)
@@ -188,13 +195,11 @@ void Animation::fLAUNCH(sf::Sprite* sprite)
 	}
 
 	state = 4;
-
-	kill = false;
 }
 
 
 /// <summary>
-/// Bullet on collision animation.
+/// Bullet on collision with Obstacles or Enemies animation.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fBULLET_DEATH(sf::Sprite* sprite)
@@ -220,7 +225,6 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 
 	while (timer.getElapsedTime().asSeconds() < 2 && sprite != nullptr)
 	{
-		
 		if (timer.getElapsedTime().asMilliseconds() > 500 && current == 8)
 			current++;
 
@@ -246,7 +250,7 @@ void Animation::fBULLET_DEATH(sf::Sprite* sprite)
 
 
 /// <summary>
-/// Animation for when a bullet hits a wall
+/// Animation for when a bullet hits a wall or zap wall.
 /// </summary>
 /// <param name="sprite"></param>
 void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
@@ -266,7 +270,7 @@ void Animation::fWALLBULLET_DEATH(sf::Sprite* sprite)
 		sprite->setTextureRect(frames[current]);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
-	
+
 	state = 1;
 }
 
@@ -278,25 +282,29 @@ void Animation::fROCKET_FLICKER(sf::Sprite* sprite)
 {
 	state = 6;
 
-	if(sprite != nullptr)
-		sprite->setTextureRect(frames[22]);
+	if (!kill && sprite != nullptr)
+	{
+		if (spriteSizeIndex == 0) // green
+			sprite->setTextureRect(frames[22]);
+		else // red
+			sprite->setTextureRect(frames[24]);
+	}
+	else
+		return;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	if(sprite != nullptr)
-		sprite->setTextureRect(frames[23]);
+	if (!kill && sprite != nullptr)
+	{
+		if (spriteSizeIndex == 0) // green
+			sprite->setTextureRect(frames[23]);
+		else // red
+			sprite->setTextureRect(frames[25]);
+	}
+	else
+		return;
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-	state = 7;
-}
-
-
-/// <summary>
-/// Resets the sprite too what it was before the last animation
-/// </summary>
-/// <param name="sprite"></param>
-void Animation::fRESET(sf::Sprite* sprite)
-{
-	state = 0;
-	sprite->setTextureRect(revert);
+	if (!kill)
+		state = 7;
 }
 
 
@@ -304,7 +312,7 @@ void Animation::fRESET(sf::Sprite* sprite)
 /// Checks if current animation has finished running.
 /// </summary>
 /// <returns>A boolean</returns>
-int Animation::getState()
+int Animation::getState() const
 {
 	return state;
 }

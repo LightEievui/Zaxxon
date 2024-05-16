@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_abstract_bullet" xml:lang="en-US">
+<title>AbstractBullet Class Reference</title>
+<indexterm><primary>AbstractBullet</primary></indexterm>
+<para>
+
+<para>Class to hold information that the other bullets share. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;AbstractBullet.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for AbstractBullet:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_abstract_bullet.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">BulletType</link> { <?linebreak?><link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400">Player</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc">Enemy</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a">Missile</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d">zBullet</link>
+, <?linebreak?><link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514">xBulletL</link>
+, <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1">xBulletR</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83">AbstractBullet</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_abstract_bullet_1acab32995c786012e42040fe452e46d67">isHit</link> ()</para>
+
+<para>Returns whether the bullet is dead or not. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1">translate</link> (float)</para>
+
+<para>Move a certain amount on the Z axis. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_entity_1a980f368aa07ce358583982821533a54a">Entity</link> ()</para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86">~Entity</link> ()=0</para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5">kill</link> (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>=<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link>)</para>
+
+<para>Run death animation code for the killed entity. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">update</link> (sf::RenderWindow &amp;, float)=0</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link> (sf::Vector3f pos)</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link> ()</para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link> ()</para>
+</listitem>
+            <listitem><para>sf::Vector2f <link linkend="_class_entity_1ad641a9c7d92d65cb688651e48029e82d">getSpritePos</link> ()</para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96">alive</link> = true</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Attributes inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para>sf::Texture * <link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link></para>
+</listitem>
+            <listitem><para>sf::Sprite * <link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_animation">Animation</link> <link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_entity_1a799462330dd8c754cdada5dab432b4dc">dead</link> = false</para>
+</listitem>
+            <listitem><para>sf::Text <link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link></para>
+</listitem>
+            <listitem><para>sf::Font <link linkend="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00">debugFont</link></para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Class to hold information that the other bullets share. </para>
+<para>
+Definition at line <link linkend="__abstract_bullet_8h_source_1l00008">8</link> of file <link linkend="__abstract_bullet_8h_source">AbstractBullet.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd"/><section>
+    <title>BulletType</title>
+<indexterm><primary>BulletType</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>BulletType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">AbstractBullet::BulletType</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Player</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>Player</secondary></indexterm>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda902ea801b0dfa57f2f519c414f28f400"/>Player</entry><entry></entry></row><row><entry><indexterm><primary>Enemy</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>Enemy</secondary></indexterm>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc"/>Enemy</entry><entry></entry></row><row><entry><indexterm><primary>Missile</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>Missile</secondary></indexterm>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda3abb9fc943d1fe3f9fbed3d171872e7a"/>Missile</entry><entry></entry></row><row><entry><indexterm><primary>zBullet</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>zBullet</secondary></indexterm>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda267cbe9b29804167e9e8c57ef2b7bd4d"/>zBullet</entry><entry></entry></row><row><entry><indexterm><primary>xBulletL</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>xBulletL</secondary></indexterm>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda8c6b18e27667d34c8134a60770bca514"/>xBulletL</entry><entry></entry></row><row><entry><indexterm><primary>xBulletR</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>xBulletR</secondary></indexterm>
+<anchor xml:id="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabdae2335b1f1b5a840640eff18840aa95d1"/>xBulletR</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__abstract_bullet_8h_source_1l00011">11</link> of file <link linkend="__abstract_bullet_8h_source">AbstractBullet.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_abstract_bullet_1a7101e714c7e25ed57a26c74b59b5ee83"/><section>
+    <title>AbstractBullet()</title>
+<indexterm><primary>AbstractBullet</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>AbstractBullet</secondary></indexterm>
+<para><computeroutput>AbstractBullet::AbstractBullet ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__abstract_bullet_8h_source_1l00021">21</link> of file <link linkend="__abstract_bullet_8h_source">AbstractBullet.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_abstract_bullet_1acab32995c786012e42040fe452e46d67"/><section>
+    <title>isHit()</title>
+<indexterm><primary>isHit</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>isHit</secondary></indexterm>
+<para><computeroutput>bool AbstractBullet::isHit ( )</computeroutput></para><para>
+
+<para>Returns whether the bullet is dead or not. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__abstract_bullet_8cpp_source_1l00008">8</link> of file <link linkend="__abstract_bullet_8cpp_source">AbstractBullet.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1"/><section>
+    <title>translate()</title>
+<indexterm><primary>translate</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>translate</secondary></indexterm>
+<para><computeroutput>void AbstractBullet::translate (float movement)</computeroutput></para><para>
+
+<para>Move a certain amount on the Z axis. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>movement</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__abstract_bullet_8cpp_source_1l00018">18</link> of file <link linkend="__abstract_bullet_8cpp_source">AbstractBullet.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96"/><section>
+    <title>alive</title>
+<indexterm><primary>alive</primary><secondary>AbstractBullet</secondary></indexterm>
+<indexterm><primary>AbstractBullet</primary><secondary>alive</secondary></indexterm>
+<para><computeroutput>bool AbstractBullet::alive = true<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__abstract_bullet_8h_source_1l00026">26</link> of file <link linkend="__abstract_bullet_8h_source">AbstractBullet.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Entity/AbstractBullet/<link linkend="__abstract_bullet_8h">AbstractBullet.h</link>C:/Zaxxon/src/Entity/AbstractBullet/<link linkend="__abstract_bullet_8cpp">AbstractBullet.cpp</link></section>
+</section>

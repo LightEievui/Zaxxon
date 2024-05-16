@@ -1,0 +1,462 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_obstacle" xml:lang="en-US">
+<title>Obstacle Class Reference</title>
+<indexterm><primary>Obstacle</primary></indexterm>
+<para>
+
+<para>Still obstacles that spawn across the levels. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Obstacle.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Obstacle:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_obstacle.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda">ObstacleType</link> { <?linebreak?><link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b">GAS_CAN</link> = 1
+, <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a">SATELLITE</link>
+, <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036">GREY_CANNON</link>
+, <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8">GREEN_CANNON</link>
+, <?linebreak?><link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a">MISSILE_UP</link>
+, <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d">PLANE</link>
+, <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701">SPACE_FUEL</link>
+, <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e">GREEN_CANNON_RIGHT</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_obstacle_1a76b8db02b4d3cc504e13ec2f53e3d461">Obstacle</link> (sf::Vector3f, sf::Texture *, int, int)</para>
+
+<para>Create a turret obstacle with shooting and direction. </para>
+</listitem>
+            <listitem><para><link linkend="_class_obstacle_1a4d24e681dc227109b688b2f4a49c5a61">Obstacle</link> (sf::Vector3f, sf::Texture *, int)</para>
+
+<para>Create a non-turret obstacle (Still obstacle). </para>
+</listitem>
+            <listitem><para><link linkend="_class_obstacle_1a8021dd6ca94132eae1c0ffcdfefa8be0">~Obstacle</link> () override</para>
+
+<para>Clean up memory related to the obstacle class. </para>
+</listitem>
+            <listitem><para>std::vector&lt; sf::Vector3f &gt; <link linkend="_class_obstacle_1a214183fffe9a6301fbe708313c96b6e7">getBulletLocations</link> ()</para>
+
+<para>Get positions for all bullets of the obstacle (For turrets). </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_obstacle_1af69cc091c4b73003552b2586f550c1d7">update</link> (sf::RenderWindow &amp;, int playerZ, float)</para>
+
+<para>Run the logic for this obstacle. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_obstacle_1ab4272be0d3dddafd42040adab4d8a968">update</link> (sf::RenderWindow &amp;, float) override</para>
+
+<para>Default <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">Entity::update</link> override. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_obstacle_1af395b8077b863766f840f75377a9c6fc">isPresent</link> ()</para>
+
+<para>Check if this obstacle exists. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_obstacle_1a0f354a517c0b6b2e9bafc1e36af706af">isTurret</link> ()</para>
+
+<para>Checks if obstacle is a turret. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_obstacle_1a39869e565df81ce8a50e42668cd0fab7">bulletKill</link> (int)</para>
+
+<para>Get rid of obstacles bullet by index (For turrets). </para>
+</listitem>
+            <listitem><para><link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda">ObstacleType</link> <link linkend="_class_obstacle_1a1e5991a00aef5976389d5c59450368b3">getType</link> ()</para>
+
+<para>Get what type of obstacle this is. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_obstacle_1ac3450be68b7a60ab4ed285893f6f1deb">getScore</link> ()</para>
+
+<para>Gets the score to add when the obstacle is destroyed. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8">kill</link> (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>=<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link>) override</para>
+
+<para>Death animation. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_entity_1a980f368aa07ce358583982821533a54a">Entity</link> ()</para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86">~Entity</link> ()=0</para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link> (sf::Vector3f pos)</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link> ()</para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link> ()</para>
+</listitem>
+            <listitem><para>sf::Vector2f <link linkend="_class_entity_1ad641a9c7d92d65cb688651e48029e82d">getSpritePos</link> ()</para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Protected Attributes inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para>sf::Texture * <link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link></para>
+</listitem>
+            <listitem><para>sf::Sprite * <link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_animation">Animation</link> <link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_entity_1a799462330dd8c754cdada5dab432b4dc">dead</link> = false</para>
+</listitem>
+            <listitem><para>sf::Text <link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link></para>
+</listitem>
+            <listitem><para>sf::Font <link linkend="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00">debugFont</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Still obstacles that spawn across the levels. </para>
+<para>
+Definition at line <link linkend="__obstacle_8h_source_1l00014">14</link> of file <link linkend="__obstacle_8h_source">Obstacle.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda"/><section>
+    <title>ObstacleType</title>
+<indexterm><primary>ObstacleType</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>ObstacleType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>GAS_CAN</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>GAS_CAN</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b"/>GAS_CAN</entry><entry></entry></row><row><entry><indexterm><primary>SATELLITE</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>SATELLITE</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a"/>SATELLITE</entry><entry></entry></row><row><entry><indexterm><primary>GREY_CANNON</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>GREY_CANNON</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036"/>GREY_CANNON</entry><entry></entry></row><row><entry><indexterm><primary>GREEN_CANNON</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>GREEN_CANNON</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8"/>GREEN_CANNON</entry><entry></entry></row><row><entry><indexterm><primary>MISSILE_UP</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>MISSILE_UP</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a"/>MISSILE_UP</entry><entry></entry></row><row><entry><indexterm><primary>PLANE</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>PLANE</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d"/>PLANE</entry><entry></entry></row><row><entry><indexterm><primary>SPACE_FUEL</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>SPACE_FUEL</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701"/>SPACE_FUEL</entry><entry></entry></row><row><entry><indexterm><primary>GREEN_CANNON_RIGHT</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>GREEN_CANNON_RIGHT</secondary></indexterm>
+<anchor xml:id="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e"/>GREEN_CANNON_RIGHT</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__obstacle_8h_source_1l00029">29</link> of file <link linkend="__obstacle_8h_source">Obstacle.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_obstacle_1a76b8db02b4d3cc504e13ec2f53e3d461"/><section>
+    <title>Obstacle()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Obstacle</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>Obstacle</secondary></indexterm>
+<para><computeroutput>Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int delay, int dir)</computeroutput></para><para>
+
+<para>Create a turret obstacle with shooting and direction. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>tex</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>delay</entry><entry>
+<para>(type 5 only)Delay in frames before a rocket begins shooting.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>dir</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00011">11</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1a4d24e681dc227109b688b2f4a49c5a61"/><section>
+    <title>Obstacle()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Obstacle</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>Obstacle</secondary></indexterm>
+<para><computeroutput>Obstacle::Obstacle (sf::Vector3f pos, sf::Texture * tex, int type)</computeroutput></para><para>
+
+<para>Create a non-turret obstacle (Still obstacle). </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>tex</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>type</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00091">91</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1a8021dd6ca94132eae1c0ffcdfefa8be0"/><section>
+    <title>~Obstacle()</title>
+<indexterm><primary>~Obstacle</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>~Obstacle</secondary></indexterm>
+<para><computeroutput>Obstacle::~Obstacle ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+
+<para>Clean up memory related to the obstacle class. </para>
+</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00136">136</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_obstacle_1a39869e565df81ce8a50e42668cd0fab7"/><section>
+    <title>bulletKill()</title>
+<indexterm><primary>bulletKill</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>bulletKill</secondary></indexterm>
+<para><computeroutput>void Obstacle::bulletKill (int bullet)</computeroutput></para><para>
+
+<para>Get rid of obstacles bullet by index (For turrets). </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bullet</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00337">337</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1a214183fffe9a6301fbe708313c96b6e7"/><section>
+    <title>getBulletLocations()</title>
+<indexterm><primary>getBulletLocations</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>getBulletLocations</secondary></indexterm>
+<para><computeroutput>std::vector&lt; sf::Vector3f &gt; Obstacle::getBulletLocations ( )</computeroutput></para><para>
+
+<para>Get positions for all bullets of the obstacle (For turrets). </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Vector of vectors of 3 floats</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00160">160</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1ac3450be68b7a60ab4ed285893f6f1deb"/><section>
+    <title>getScore()</title>
+<indexterm><primary>getScore</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>getScore</secondary></indexterm>
+<para><computeroutput>int Obstacle::getScore ( )</computeroutput></para><para>
+
+<para>Gets the score to add when the obstacle is destroyed. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>score</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00359">359</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1a1e5991a00aef5976389d5c59450368b3"/><section>
+    <title>getType()</title>
+<indexterm><primary>getType</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>getType</secondary></indexterm>
+<para><computeroutput><link linkend="_class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda">Obstacle::ObstacleType</link> Obstacle::getType ( )</computeroutput></para><para>
+
+<para>Get what type of obstacle this is. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>An int</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00349">349</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1af395b8077b863766f840f75377a9c6fc"/><section>
+    <title>isPresent()</title>
+<indexterm><primary>isPresent</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>isPresent</secondary></indexterm>
+<para><computeroutput>bool Obstacle::isPresent ( )</computeroutput></para><para>
+
+<para>Check if this obstacle exists. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00315">315</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1a0f354a517c0b6b2e9bafc1e36af706af"/><section>
+    <title>isTurret()</title>
+<indexterm><primary>isTurret</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>isTurret</secondary></indexterm>
+<para><computeroutput>bool Obstacle::isTurret ( )</computeroutput></para><para>
+
+<para>Checks if obstacle is a turret. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00326">326</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8"/><section>
+    <title>kill()</title>
+<indexterm><primary>kill</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>kill</secondary></indexterm>
+<para><computeroutput>void Obstacle::kill (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> animation = <computeroutput><link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link></computeroutput>
+)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Death animation. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>animation</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented from <link linkend="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5">Entity</link>.</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00147">147</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1ab4272be0d3dddafd42040adab4d8a968"/><section>
+    <title>update()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>update</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void Obstacle::update (sf::RenderWindow &amp; window, float gameSpeed)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Default <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">Entity::update</link> override. </para>
+</para>
+<para>
+Implements <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">Entity</link>.</para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00305">305</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_obstacle_1af69cc091c4b73003552b2586f550c1d7"/><section>
+    <title>update()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>update</primary><secondary>Obstacle</secondary></indexterm>
+<indexterm><primary>Obstacle</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void Obstacle::update (sf::RenderWindow &amp; window, int playerZ, float gameSpeed)</computeroutput></para><para>
+
+<para>Run the logic for this obstacle. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__obstacle_8cpp_source_1l00170">170</link> of file <link linkend="__obstacle_8cpp_source">Obstacle.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Obstacle/<link linkend="__obstacle_8h">Obstacle.h</link>C:/Zaxxon/src/Obstacle/<link linkend="__obstacle_8cpp">Obstacle.cpp</link></section>
+</section>

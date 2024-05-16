@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_boss_bullet_8cpp" kind="file" language="C++">
+    <compoundname>BossBullet.cpp</compoundname>
+    <includes refid="_boss_bullet_8h" local="yes">BossBullet.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp</label>
+        <link refid="_boss_bullet_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BossBullet.h</label>
+        <link refid="_boss_bullet_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Entity/Character/Character.h</label>
+        <link refid="_character_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Entity/Character/Player/Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SFML/Audio.hpp</label>
+      </node>
+      <node id="6">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="14">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>thread</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_boss_bullet_8h" kindref="compound">BossBullet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_boss_bullet_1a6aa72332992a0eb9d4fe4d66e9d862c5" refkind="member"><highlight class="normal"><ref refid="class_boss_bullet_1a6aa72332992a0eb9d4fe4d66e9d862c5" kindref="member">BossBullet::BossBullet</ref>(sf::Vector3f<sp/><ref refid="_game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f" kindref="member">startPos</ref>,<sp/><ref refid="class_entity" kindref="compound">Entity</ref>*<sp/>target,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sf::Texture*<sp/>spriteSheet)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;target<sp/>=<sp/>target;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTexture(*<ref refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" kindref="member">spriteSheet</ref>);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setTextureRect(sf::IntRect(38,<sp/>74,<sp/>39,<sp/>27));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setOrigin(sf::Vector2f(0,<sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;getGlobalBounds().height));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;setPosition(<ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(<ref refid="_game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f" kindref="member">startPos</ref>));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(<ref refid="_game_8cpp_1a6f6e31cb978f9672b55442dcbf00524f" kindref="member">startPos</ref>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>movementInt.restart();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>invTimer.restart();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594" kindref="member">BossBullet::update</ref>(sf::RenderWindow&amp;<sp/>window,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gameSpeed)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//moves<sp/>toward<sp/>the<sp/>target(player)<sp/>in<sp/>a<sp/>similar<sp/>manner<sp/>to<sp/>the<sp/>boss</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(movementInt.getElapsedTime().asMilliseconds()<sp/>&gt;=<sp/>50<sp/>&amp;&amp;<sp/><ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getState()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>movementInt.restart();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((target-&gt;<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>-<sp/>50)<sp/>-<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>&gt;<sp/>5)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>+<sp/>5<sp/>*<sp/>gameSpeed,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((target-&gt;<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>-<sp/>50)<sp/>-<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>&lt;<sp/>5)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x<sp/>-<sp/>5<sp/>*<sp/>gameSpeed,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(target-&gt;<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>-<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>&gt;<sp/>3)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>+<sp/>5<sp/>*<sp/>gameSpeed,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(target-&gt;<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>-<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>&lt;<sp/>3)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" kindref="member">setPos</ref>(sf::Vector3f(<ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().x,<sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().y<sp/>-<sp/>5<sp/>*<sp/>gameSpeed,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" kindref="member">getPos</ref>().z));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1" kindref="member">translate</ref>(3.5f);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>the<sp/>bullet<sp/>dies<sp/>treat<sp/>it<sp/>as<sp/>a<sp/>collision</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(health<sp/>&lt;=<sp/>0)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" kindref="member">alive</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>window.draw(*<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_boss_bullet_1ae644a8610bba9a05a8d29455179c5965" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_boss_bullet_1ae644a8610bba9a05a8d29455179c5965" kindref="member">BossBullet::collide</ref>()</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" kindref="member">getState</ref>()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" kindref="member">run</ref>(<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>,<sp/><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85" kindref="member">Animation::ALT_DEATH</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96" kindref="member">alive</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_boss_bullet_1a968121e064e7f0e9bfca96a32ba2aba2" kindref="member">BossBullet::damage</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hit)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(invTimer.getElapsedTime().asMilliseconds()<sp/>&gt;=<sp/>75)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>invTimer.restart();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>health<sp/>-=<sp/>hit;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/BossBullet/BossBullet.cpp"/>
+  </compounddef>
+</doxygen>

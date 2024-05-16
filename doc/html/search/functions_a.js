@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['render_0',['render',['../class_g_u_i.html#a5aff7f528f4df787db27666651fe231f',1,'GUI']]],
-  ['resetpos_1',['resetPos',['../class_player.html#a49066b4a0b345abad5a5d4a6ec640140',1,'Player']]],
-  ['run_2',['run',['../class_animation.html#a4e1084a8d4b025c9d46d2c030da05518',1,'Animation::run()'],['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game::run()']]]
+  ['kill_0',['kill',['../class_character_bullet.html#a9bcb2df496f840c0bb15dc14558e5f9b',1,'CharacterBullet::kill()'],['../class_character_bullet.html#ac9285627ab485a6be4efc7dedc11bc23',1,'CharacterBullet::kill(BulletDeathType type)'],['../class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d',1,'Character::kill()'],['../class_enemy.html#ad0bf56e75378d9524f2d77479d259dde',1,'Enemy::kill()'],['../class_player.html#aa8baacf4fe29a618f2cf4b26327e4d5a',1,'Player::kill()'],['../class_entity.html#a3ea146cebd4310647bd49a4f08940fe5',1,'Entity::kill()'],['../class_obstacle.html#a3b4865fafe3cf6a31b3444c2557550f8',1,'Obstacle::kill()']]],
+  ['killbullet_1',['killBullet',['../class_character.html#a6ea404b0682144a8f21d42e881cb0ce7',1,'Character']]]
 ];
