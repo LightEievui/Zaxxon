@@ -31,6 +31,7 @@ private:
 	sf::Texture spriteSheet, bossSheet;
 	Background* pBackground;
 	sf::RenderWindow window;
+	sf::Image icon;
 	GUI gui;
 
 	Player* player;
@@ -46,9 +47,10 @@ private:
 	byte lives = 2;
 	byte player1lives = 2;
 	byte player2lives = 2;
-	int score = 0;
+	int player1score = 0;
+	int player2score = 0;
 	int highScore = 0;
-	float gameSpeed = 1.0;
+	float gameSpeed = 1.2;
 	byte gameState = 0;
 	int currentScores[6] = {0, 0, 0, 0, 0, 0};
 	std::string currentNames[6] = {"   ", "   ", "   ", "   ", "   ", "   "};

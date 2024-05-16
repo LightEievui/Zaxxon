@@ -15,7 +15,7 @@ class GUI
 {
 public:
 	GUI(sf::Texture*);
-	void render(sf::RenderWindow&, float, int, int, byte, byte, byte = 0x0);
+	void render(sf::RenderWindow&, float, int, int, int, byte, byte, byte = 0x0);
 	void startRender(sf::RenderWindow&, int);
 	void renderScores(sf::RenderWindow&, int [], std::string []);
 	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0,

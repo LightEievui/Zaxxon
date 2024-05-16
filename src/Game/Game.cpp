@@ -26,6 +26,9 @@ Game::Game()
 			scale) / 2.f), 0));
 	//Set frame rate limit to smooth out
 	window.setFramerateLimit(60);
+	
+	icon.loadFromFile("./res/Zaxxon_plane_cropped.png");
+	window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
 	// Resize window to scale, resize everything else with it using view
 	window.setSize(sf::Vector2u(static_cast<unsigned int>(224.f * scale),
@@ -169,7 +172,7 @@ void Game::run() // if random errors later check that stack isnt full
 					window.clear();
 					window.setView(guiView);
 					gui.renderWin(window);
-					gui.render(window, player->getPos().y, score, highScore,
+					gui.render(window, player->getPos().y, player1score, player2score, highScore,
 					           fuel, player2 ? player2lives : player1lives);
 					window.display();
 					window.setView(mainView);
@@ -177,7 +180,7 @@ void Game::run() // if random errors later check that stack isnt full
 					sf::Clock tempClock;
 					while (tempClock.getElapsedTime().asSeconds() < 5);
 
-					fuel = 128, score += 1000;
+					fuel = 128, player2 ? player2score += 1000 : player1score += 1000;
 
 					//sets the background back to the initial stage
 					background.setStage(Background::INITIAL);
@@ -282,7 +285,7 @@ void Game::run() // if random errors later check that stack isnt full
 			player2opt |= player2 << 1;
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, score, highScore, fuel,
+			gui.render(window, player->getPos().y, player1score, player2score, highScore, fuel,
 			           player2 ? player2lives : player1lives, player2opt);
 		}
 		else if (gameState == 0) // State 0 is main menu screen
@@ -290,7 +293,8 @@ void Game::run() // if random errors later check that stack isnt full
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 			player->restartMissileTimer();
-			score = 0;
+			player1score = 0;
+			player2score = 0;
 
 			if (onePressed())
 			{
@@ -392,7 +396,7 @@ void Game::run() // if random errors later check that stack isnt full
 				window.setView(guiView);
 				gui.renderEnd(window);
 			}
-			else if (time < 25 && currentScores[5] < score) // Name entry
+			else if (!player2mode && time < 25 && currentScores[5] < player1score) // Name entry
 			{
 				// Controls for the zaxxon keyboard
 				if (upPressed() && activeCursor[0])
@@ -478,8 +482,8 @@ void Game::run() // if random errors later check that stack isnt full
 				gameOver();
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, score, highScore, fuel,
-			           player2 ? player2lives : player1lives);
+			gui.render(window, player->getPos().y, player1score, player2score,
+				highScore, fuel, player2 ? player2lives : player1lives);
 		}
 		else if (gameState == 3) // 2 player screen
 		{
@@ -489,8 +493,8 @@ void Game::run() // if random errors later check that stack isnt full
 
 			window.setView(guiView);
 			gui.renderPlayerScreen(window, player2);
-			gui.render(window, player->getPos().y, score, highScore, fuel,
-				player2 ? player2lives : player1lives, player2opt);
+			gui.render(window, player->getPos().y, player1score, player2score,
+				highScore, fuel, player2 ? player2lives : player1lives, player2opt);
 			window.setView(mainView);
 
 			if (playerScreenTimer.getElapsedTime().asSeconds() > 2)
@@ -571,6 +575,7 @@ void Game::doCollision(Player* player)
 			size--;
 
 			//Scoring Swtich Statement
+			int score = player2 ? player2score : player1score;
 			score += obstacle->getScore();
 			switch (obstacle->getType())
 			{
@@ -584,6 +589,11 @@ void Game::doCollision(Player* player)
 
 			if (score > highScore)
 				highScore = score;
+
+			if (player2)
+				player2score = score;
+			else
+				player1score = score;
 		}
 
 		//Player Running into Obstacles
@@ -854,19 +864,19 @@ void Game::gameOver()
 {
 	gameState = 0;
 	lives = 3;
-	if (player2)
-		player2lives = lives;
-	else
-		player1lives = lives;
+	player2lives = lives;
+	player1lives = lives;
 	selector = 0;
 	pBackground->setStage(Background::INITIAL);
+	player2 = false;
+	player2mode = false;
 
 	// Replace bottom score?
-	if (currentScores[5] < score)
+	if (!player2mode && currentScores[5] < player1score)
 	{
 		// When replacing and sorting, we need to keep the score and
 		// initials for that score together for the leaderboard.
-		currentScores[5] = score;
+		currentScores[5] = player1score;
 		currentNames[5] = name;
 
 		// Now sort it

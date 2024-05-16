@@ -222,7 +222,16 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 	back.setOrigin(
 		sf::Vector2f(0, static_cast<float>(back.getTexture()->getSize().y)));
 
-	int adder = stage == SPACE ? 350 : 0;
+	int adder = 0;
+	switch (stage)
+	{
+	case SPACE:
+		adder = 350;
+		break;
+	case INITIAL:
+	case BOSS:
+		adder = -250;
+	}
 	sf::Vector2f moveVector = sf::Vector2f(.8f * (startPos + adder),
 	                               -.4f * (startPos + adder));
 	mainView.move(moveVector);
@@ -231,16 +240,14 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 	{
 	case SPACE:
 		back.setPosition(sf::Vector2f(0, 224));
-		player.resetPos(startPos + 350);
 		break;
 	case BOSS:
 		back.setPosition(sf::Vector2f(0, 238));
-		player.resetPos(startPos);
 		break;
 	default:
 		back.setPosition(sf::Vector2f(0, 224));
-		player.resetPos(startPos);
 	}
+	player.resetPos(startPos + adder);
 }
 
 
