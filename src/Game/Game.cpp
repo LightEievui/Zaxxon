@@ -1,7 +1,7 @@
 #include "Game.h"
 
 constexpr unsigned int startPos = 0;
-constexpr Background::Stage startStage = Background::INITIAL;
+constexpr Background::Stage startStage = Background::SPACE;
 
 
 /// <summary>
@@ -164,7 +164,7 @@ void Game::run() // if random errors later check that stack isnt full
 				// Move background
 				background.update(window, mainView, gameSpeed, &spriteSheet,
 				                  obstacles,
-				                  enemies, *player, walls, zapWalls);
+				                  enemies, *player, walls, zapWalls, reset);
 
 				//Check if the boss has been defeated
 				if (background.getStage() == 3 && boss->isDestroyed())
@@ -181,6 +181,7 @@ void Game::run() // if random errors later check that stack isnt full
 					while (tempClock.getElapsedTime().asSeconds() < 5);
 
 					fuel = 128, player2 ? player2score += 1000 : player1score += 1000;
+					reset++;
 
 					//sets the background back to the initial stage
 					background.setStage(Background::INITIAL);
@@ -199,7 +200,7 @@ void Game::run() // if random errors later check that stack isnt full
 			{
 				background.update(window, mainView, 0, &spriteSheet, obstacles,
 				                  enemies,
-				                  *player, walls, zapWalls);
+				                  *player, walls, zapWalls, reset);
 
 				if (deathClock.getElapsedTime().asSeconds() > 1)
 				// Make sure background is set back to default

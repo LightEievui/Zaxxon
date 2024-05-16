@@ -63,12 +63,14 @@ Background::~Background()
 /// <param name="player"></param>
 /// <param name="walls">Wall list.</param>
 /// <param name="zapWalls">Zap wall list.</param>
+/// <param name="reset">The reset that the game is on.</param>
 void Background::update(sf::RenderWindow& window, sf::View& mainView,
                         float gameSpeed, sf::Texture* spritesheet,
                         std::vector<Obstacle*>& obstacles,
                         std::vector<Enemy*>& enemies, Player& player,
                         std::vector<Wall*>& walls,
-                        std::vector<ZapWall*>& zapWalls
+                        std::vector<ZapWall*>& zapWalls,
+						unsigned int reset
 )
 {
 	//checks the transition between stages
@@ -109,7 +111,7 @@ void Background::update(sf::RenderWindow& window, sf::View& mainView,
 	{
 		Enemy::spawnWave(enemies, spritesheet,
 		                 static_cast<int>(player.getPos().z),
-		                 waveQueue.front().second);
+		                 waveQueue.front().second, reset);
 		waveQueue.pop();
 	}
 

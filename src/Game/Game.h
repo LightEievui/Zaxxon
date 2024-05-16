@@ -50,7 +50,7 @@ private:
 	int player1score = 0;
 	int player2score = 0;
 	int highScore = 0;
-	float gameSpeed = 1.2;
+	float gameSpeed = 1.2f;
 	byte gameState = 0;
 	int currentScores[6] = {0, 0, 0, 0, 0, 0};
 	std::string currentNames[6] = {"   ", "   ", "   ", "   ", "   ", "   "};
@@ -58,6 +58,7 @@ private:
 	bool activeCursor[4] = {true, true, true, true};
 	byte selector = 0;
 	std::fstream file;
+	unsigned int reset = 0;
 	unsigned int fps = 0;
 	double deltaTime = 0;
 	std::chrono::steady_clock::time_point lastTime =
