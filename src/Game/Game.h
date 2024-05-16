@@ -25,7 +25,7 @@ public:
 	void run();
 
 private:
-	sf::Texture spriteSheet, bossSheet;
+	sf::Texture spriteSheet, bossSheet, intro[5];
 	Background* pBackground;
 	sf::RenderWindow window;
 	sf::ContextSettings s;
@@ -44,7 +44,7 @@ private:
 	int score = 0;
 	int highScore = 0;
 	float gameSpeed = 1.0;
-	byte gameState = 0;
+	byte gameState = 4;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
 	char name[3] = { '_', '_', '_' };
@@ -62,11 +62,12 @@ private:
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
-	sf::Sprite deathSprite;
+	sf::Sprite deathSprite, introLetters[6];
 
 	bool bossState = true;
 
 	void doCollision(Player*);
 	void playerDeath();
 	void gameOver();
+	void doIntro();
 };
