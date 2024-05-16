@@ -73,10 +73,8 @@ private:
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
-	sf::Sprite deathSprite;
+	sf::Sprite deathSprite, introLetters[6];
 	sf::Clock playerScreenTimer;
-
-	bool bossState = true;
 
 	void doCollision(Player*);
 	bool obstacleHit(Obstacle::ObstacleType type, sf::Vector3f difference,
