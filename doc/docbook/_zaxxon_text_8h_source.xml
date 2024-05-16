@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__zaxxon_text_8h_source" xml:lang="en-US">
+<title>ZaxxonText.h</title>
+<indexterm><primary>C:/Zaxxon/src/GUI/ZaxxonText/ZaxxonText.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__zaxxon_text_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__zaxxon_text_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__zaxxon_text_8h_source_1l00003"/>00003 
+<anchor xml:id="__zaxxon_text_8h_source_1l00004"/>00004 
+<anchor xml:id="__zaxxon_text_8h_source_1l00008"/><link linkend="_class_zaxxon_text">00008</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_zaxxon_text">ZaxxonText</link>
+<anchor xml:id="__zaxxon_text_8h_source_1l00009"/>00009 {
+<anchor xml:id="__zaxxon_text_8h_source_1l00010"/>00010 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__zaxxon_text_8h_source_1l00011"/>00011 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;sf::Sprite&#32;<link linkend="_class_zaxxon_text_1ae3d8b5ffcd7a1374cff38f3243366517">get</link>(sf::Texture*,&#32;<emphasis role="keywordtype">char</emphasis>);
+<anchor xml:id="__zaxxon_text_8h_source_1l00012"/>00012 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_zaxxon_text_1a9c15f8d201ca3ae8ef9c1ca8fa6d9462">string</link>(sf::Texture*,&#32;std::string,&#32;sf::Sprite*);
+<anchor xml:id="__zaxxon_text_8h_source_1l00013"/>00013 };
+</programlisting></section>

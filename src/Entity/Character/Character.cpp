@@ -2,22 +2,24 @@
 
 
 /// <summary>
-/// Create new character who will have sprite from spritesheet.
+/// Create a new character who will have sprite from spritesheet.
 /// </summary>
 /// <param name="spriteSheet"></param>
 Character::Character(sf::Texture* spriteSheet) : Entity()
 {
 	this->spriteSheet = spriteSheet;
 	this->sprite->setTexture(*this->spriteSheet);
+	this->sizeIndex = 0;
 }
 
 
 /// <summary>
-/// Clean up memory related to the Character class
+/// Clean up memory related to the Character class.
 /// </summary>
 Character::~Character()
 {
-	for (unsigned int i = 0; i < bullets.size(); i++)
+	const int bulletSize = bullets.size();
+	for (int i = 0; i < bulletSize; i++)
 		delete bullets[i];
 }
 
@@ -26,10 +28,10 @@ Character::~Character()
 /// Move the character by velocity and redraw them to the screen.
 /// </summary>
 /// <param name="window"></param>
-void Character::update(sf::RenderWindow& window)
+void Character::update(sf::RenderWindow& window, float gameSpeed)
 {
-	// update the character's position using it's velocity
-	setPos(getPos() + this->velocity);
+	// update the character's position using its velocity
+	setPos(getPos() + this->velocity * gameSpeed);
 
 	sprite->setPosition(translateTo2d(getPos()));
 	window.draw(*sprite);
@@ -38,6 +40,7 @@ void Character::update(sf::RenderWindow& window)
 	{
 		if (bullets.at(i)->isHit())
 		{
+			delete bullets[i];
 			bullets.erase(bullets.begin() + i);
 		}
 	}
@@ -58,7 +61,7 @@ std::vector<CharacterBullet*>& Character::getBullets()
 /// Get public size index of this character
 /// </summary>
 /// <returns></returns>
-unsigned int Character::getSizeIndex()
+unsigned int Character::getSizeIndex() const
 {
 	return sizeIndex;
 }
@@ -72,7 +75,7 @@ unsigned int Character::getSizeIndex()
 /// <param name="planeSizeIndex"></param>
 void Character::_getSizeIndex(unsigned int& planeSizeIndex)
 {
-	const float y = abs(getPos().y - ((float)yMax));
+	const float y = abs(getPos().y - static_cast<float>(yMax));
 	const float qSize = abs((yMax - yMin) / 4.f);
 	planeSizeIndex = 3; // smallest
 
@@ -90,8 +93,8 @@ void Character::_getSizeIndex(unsigned int& planeSizeIndex)
 /// <summary>
 /// Get the velocity of character.
 /// </summary>
-/// <returns>Vector of 3 floats</returns>
-sf::Vector3f Character::getVelocity()
+/// <returns>sf::Vector3f</returns>
+sf::Vector3f Character::getVelocity() const
 {
 	return velocity;
 }
@@ -116,18 +119,21 @@ void Character::setVelocity(sf::Vector3f vel)
 	this->velocity = vel;
 }
 
+
 /// <summary>
-/// Calls CharacterBullet::update() on each bullet & deletes bullets that are not in the window.
+/// Calls CharacterBullet::update() on each bullet
+/// & deletes bullets that are not in the window.
 /// </summary>
 /// <param name="window">Main render window</param>
-void Character::updateBullets(sf::RenderWindow& window)
+void Character::updateBullets(sf::RenderWindow& window, float gameSpeed)
 {
 	for (unsigned int i = 0; i < bullets.size(); i++)
 	{
 		CharacterBullet* bullet = bullets[i];
-		bullet->update(window);
+		bullet->update(window, gameSpeed);
 
-		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->getAnimationState() == 1)
+		if (!getWindowViewRect(window).intersects(bullet->getBounds()) || bullet->
+			getAnimationState() == 1)
 		{
 			delete bullet;
 			bullets.erase(bullets.begin() + i);
@@ -136,14 +142,15 @@ void Character::updateBullets(sf::RenderWindow& window)
 	}
 }
 
+
 /// <summary>
 /// Get rid of bullet by index.
 /// </summary>
 /// <param name="bullet"></param>
 void Character::killBullet(int bullet)
 {
+	delete bullets[bullet];
 	bullets.erase(bullets.begin() + bullet);
-	//bulletsPos.erase(bulletsPos.begin() + bullet);
 }
 
 

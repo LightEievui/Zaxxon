@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_zaxxon_8cpp" kind="file" language="C++">
+    <compoundname>Zaxxon.cpp</compoundname>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includes refid="_game_8h" local="yes">Game/Game.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="13">
+        <label>Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Background/Background.h</label>
+        <link refid="_background_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>../AbstractBullet.h</label>
+        <link refid="_abstract_bullet_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Entity/AbstractBullet/BossBullet/BossBullet.h</label>
+        <link refid="_boss_bullet_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Entity/AbstractBullet/CharacterBullet/CharacterBullet.h</label>
+        <link refid="_character_bullet_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Entity/AbstractBullet/ObstacleBullet/ObstacleBullet.h</label>
+        <link refid="_obstacle_bullet_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Entity/Boss/Boss.h</label>
+        <link refid="_boss_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Entity/Character/Character.h</label>
+        <link refid="_character_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Entity/Character/Enemy/Enemy.h</label>
+        <link refid="_enemy_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Entity/Character/Player/Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Entity/Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>GUI/GUI.h</label>
+        <link refid="_g_u_i_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>HMSection/HMSection.h</label>
+        <link refid="_h_m_section_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>ZaxxonText/ZaxxonText.h</label>
+        <link refid="_zaxxon_text_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Obstacle/Obstacle.h</label>
+        <link refid="_obstacle_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>Wall/Wall.h</label>
+        <link refid="_wall_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>ZapWall/ZapWall.h</label>
+        <link refid="_zap_wall_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SFML/Audio.hpp</label>
+      </node>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="5">
+        <label>chrono</label>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="26">
+        <label>queue</label>
+      </node>
+      <node id="14">
+        <label>thread</label>
+      </node>
+      <node id="11">
+        <label>time.h</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Zaxxon.cpp" line="30" column="5" bodyfile="C:/Zaxxon/src/Zaxxon.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*<sp/>Time<sp/>of<sp/>development:</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*<sp/>Jan<sp/>29<sp/>-<sp/>May<sp/>8<sp/>2024</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*<sp/>Developer<sp/>team:</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*<sp/>Gavin<sp/>-<sp/>Team<sp/>leader<sp/>/<sp/>Programmer</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">*<sp/>Alex<sp/>-<sp/>Administrator<sp/>/<sp/>Language<sp/>lawyer</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/>Andrew<sp/>-<sp/>Chief<sp/>programmer</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/>John<sp/>-<sp/>Copilot<sp/>/<sp/>Tester</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*<sp/>Program:</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/>Recreation<sp/>of<sp/>the<sp/>popular<sp/>Zaxxon<sp/>Sega<sp/>arcade<sp/>game<sp/>in<sp/>C++.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*<sp/>An<sp/>easy<sp/>way<sp/>to<sp/>enjoy<sp/>the<sp/>classic<sp/>game<sp/>with<sp/>optimized<sp/>performance</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/>and<sp/>memory<sp/>usage,<sp/>with<sp/>all<sp/>the<sp/>features<sp/>as<sp/>you&apos;d<sp/>expect.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>Controls:</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*<sp/>Keyboard:<sp/>Arrow<sp/>keys<sp/>and<sp/>Z</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">*<sp/>Joystick:<sp/>Stick0<sp/>and<sp/>button0</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">*<sp/>We<sp/>hereby<sp/>certify<sp/>that<sp/>this<sp/>program<sp/>represents<sp/>our</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*<sp/>work<sp/>and<sp/>that<sp/>the<sp/>design<sp/>and<sp/>logic<sp/>was<sp/>completed</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*<sp/>without<sp/>outside<sp/>assistance.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_game_8h" kindref="compound">Game/Game.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="_zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_zaxxon_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Startup<sp/>Zaxxon</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>game<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_game" kindref="compound">Game</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>game-&gt;run();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Game<sp/>finished,<sp/>remove<sp/>it<sp/>from<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>game;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Zaxxon.cpp"/>
+  </compounddef>
+</doxygen>

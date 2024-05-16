@@ -1,0 +1,161 @@
+\doxysection{Boss.\+cpp}
+\hypertarget{_boss_8cpp_source}{}\label{_boss_8cpp_source}\index{C:/Zaxxon/src/Entity/Boss/Boss.cpp@{C:/Zaxxon/src/Entity/Boss/Boss.cpp}}
+\mbox{\hyperlink{_boss_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_boss_8h}{Boss.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00011}\mbox{\hyperlink{class_boss_a532b2cfc920780c6f4ea432d7e22be79}{00011}}\ \mbox{\hyperlink{class_boss_a532b2cfc920780c6f4ea432d7e22be79}{Boss::Boss}}(sf::Vector3f\ start,\ \mbox{\hyperlink{class_entity}{Entity}}*\ target,\ sf::Texture*\ bossSheet,}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ sf::Texture*\ spriteSheet)\ :\ \mbox{\hyperlink{class_entity}{Entity}}()}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(start);}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setPosition(\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(start));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setTexture(*bossSheet);}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setTextureRect(sf::IntRect(0,\ 0,\ 58,\ 75));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setOrigin(}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ sf::Vector2f(0,\ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>getGlobalBounds().height\ *\ (3.f\ /\ 4.f)));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00022}00022\ \ \ \ \ this-\/>target\ =\ target;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00024}00024\ \ \ \ \ this-\/>spriteSheet\ =\ \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}};}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00026}00026\ \ \ \ \ movementInt.restart();}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//defines\ random\ movement,\ goes\ to\ two\ seperate\ points}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00029}00029\ \ \ \ \ targetXPoints[0]\ =\ (rand()\ \%\ 100)\ *\ -\/1.f;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00030}00030\ \ \ \ \ targetXPoints[1]\ =\ (abs((rand()\ -\/\ 528)\ *\ 72)\ \%\ 100)\ *\ -\/1.f;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//timer\ for\ invincibility\ frames}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00033}00033\ \ \ \ \ invFrames.restart();}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00040}\mbox{\hyperlink{class_boss_ad848427ba363777ea9fe753b4f70b26c}{00040}}\ \mbox{\hyperlink{class_boss_ad848427ba363777ea9fe753b4f70b26c}{Boss::\string~Boss}}()}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{delete}\ missile;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00050}\mbox{\hyperlink{class_boss_ae9cf8c000e924a806d64e7488ce6f58a}{00050}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boss_ae9cf8c000e924a806d64e7488ce6f58a}{Boss::update}}(sf::RenderWindow\&\ window,\ \textcolor{keywordtype}{float}\ gameSpeed)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (movementInt.getElapsedTime().asMilliseconds()\ >=\ 100)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00053}00053\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//moves\ to\ the\ target\ position\ every\ 100\ millisecond\ to\ mimic\ gittery\ }}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//movment\ of\ the\ game}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ movementInt.restart();}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (targetXPoints[stages]\ -\/\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ >\ 3)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ +\ 3,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (targetXPoints[stages]\ -\/\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ <\ 3)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ -\/\ 3,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ -\/\ target-\/>\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z)\ <\ 250\ \&\&\ stages\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ stages++;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ boss\ is\ far\ enough\ away\ from\ the\ player\ continue\ moving\ it}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ -\/\ target-\/>\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z)\ >\ 150)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stages\ <\ 2)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ +\ 3));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ -\/\ 7));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//else\ stop\ it\ and\ shoot\ the\ missile}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setTextureRect(sf::IntRect(58,\ 0,\ 58,\ 75));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ stages++;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ -\/\ 7));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ bulletCreated\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//gives\ the\ missile\ the\ position\ of\ the\ player}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ missile\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_boss_bullet}{BossBullet}}(}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ -\/\ 33,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y\ -\/\ 19,\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z),}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ target,\ \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{spriteSheet}});}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ missile-\/>\mbox{\hyperlink{class_boss_bullet_a968121e064e7f0e9bfca96a32ba2aba2}{damage}}(hits);}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//detects\ the\ hits\ to\ the\ missile\ and\ adds\ the\ shaking\ animation}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (movementInt.getElapsedTime().asMilliseconds()\ \%\ 25)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00093}00093\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hitCount\ <\ 10)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ hitCount++;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{setPos}}(sf::Vector3f(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x\ +\ ((rand()\ \%\ 100)\ /\ 50.f)\ -\/\ 1,}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().y\ +\ ((rand()\ \%\ 100)\ /\ 50.f)\ -\/\ 1,}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hitCount\ ==\ 10)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ hitCount++;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setColor(sf::Color(255,\ 255,\ 255));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setPosition(\mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}()));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//if\ it\ retreats\ all\ the\ way\ it\ has\ been\ defeated}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ <=\ -\/4000\ \&\&\ stages\ >=\ 2)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00112}00112\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ destroyed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ stages++;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00117}00117\ \ \ \ \ targetXPoints[2]\ =\ \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().x;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00119}00119\ \ \ \ \ window.draw(*\mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}});}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{comment}{//if\ the\ missile\ dies\ delete\ it\ and\ record\ that\ action}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (stages\ ==\ 2\ \&\&\ missile\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00123}00123\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (missile-\/>\mbox{\hyperlink{class_abstract_bullet_acab32995c786012e42040fe452e46d67}{isHit}}())}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ missile;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ missile\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ bulletCreated\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ missile-\/>\mbox{\hyperlink{class_boss_bullet_ad3b8d306bfa0bad8913a57d3cd3d7594}{update}}(window,\ gameSpeed);}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00139}\mbox{\hyperlink{class_boss_a911178ba0e5f853c0472f8a2ef879c60}{00139}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_boss_a911178ba0e5f853c0472f8a2ef879c60}{Boss::hit}}()}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00140}00140\ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{comment}{//damages\ the\ boss\ and\ starts\ the\ timer\ of\ invincibility}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{if}\ (invFrames.getElapsedTime().asMilliseconds()\ >=\ 200)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00143}00143\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ invFrames.restart();}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ hitCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setColor(sf::Color(225,\ 100,\ 100));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ hits++;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hits\ >=\ 10)}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}-\/>setTextureRect(sf::IntRect(58,\ 0,\ 58,\ 75));}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ stages\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00154}00154\ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00161}\mbox{\hyperlink{class_boss_ab76a3a54901df7bc04ff8eb237549fa7}{00161}}\ \mbox{\hyperlink{class_boss_bullet}{BossBullet}}*\ \mbox{\hyperlink{class_boss_ab76a3a54901df7bc04ff8eb237549fa7}{Boss::getMissile}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00162}00162\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00163}00163\ \ \ \ \ \textcolor{keywordflow}{return}\ missile;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00164}00164\ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00171}\mbox{\hyperlink{class_boss_af650e303d854e6bfb32b7ff64989105d}{00171}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_boss_af650e303d854e6bfb32b7ff64989105d}{Boss::missileCreated}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00172}00172\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{return}\ bulletCreated;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00181}\mbox{\hyperlink{class_boss_a043a78c54fc3a9b0dbacaaf8789be9ea}{00181}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_boss_a043a78c54fc3a9b0dbacaaf8789be9ea}{Boss::isDestroyed}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00182}00182\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00183}00183\ \ \ \ \ \textcolor{keywordflow}{return}\ destroyed;}
+\DoxyCodeLine{\Hypertarget{_boss_8cpp_source_l00184}00184\ \}}
+
+\end{DoxyCode}

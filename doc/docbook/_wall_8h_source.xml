@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__wall_8h_source" xml:lang="en-US">
+<title>Wall.h</title>
+<indexterm><primary>C:/Zaxxon/src/Wall/Wall.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__wall_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__wall_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__wall_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="__wall_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__util_8h">Util/Util.h</link>&quot;</emphasis>
+<anchor xml:id="__wall_8h_source_1l00005"/>00005 
+<anchor xml:id="__wall_8h_source_1l00006"/>00006 
+<anchor xml:id="__wall_8h_source_1l00010"/><link linkend="_class_wall">00010</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_wall">Wall</link>
+<anchor xml:id="__wall_8h_source_1l00011"/>00011 {
+<anchor xml:id="__wall_8h_source_1l00012"/>00012 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__wall_8h_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<link linkend="_class_wall_1a5f29ba541aff9823b15a97451d78e4c6">Wall</link>(sf::Texture*,&#32;sf::Vector3f,&#32;<emphasis role="keywordtype">int</emphasis>&#32;size,&#32;std::vector&lt;int&gt;);
+<anchor xml:id="__wall_8h_source_1l00014"/>00014 
+<anchor xml:id="__wall_8h_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wall_1a274edf0d5b16afba31a8618df97626af">drawWalls</link>(sf::RenderWindow&amp;&#32;window);
+<anchor xml:id="__wall_8h_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wall_1a2f5f377219bc2e184db172a9093875d4">setPosition</link>(sf::Vector3f,&#32;<emphasis role="keywordtype">int</emphasis>&#32;piece&#32;=&#32;0);
+<anchor xml:id="__wall_8h_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wall_1a0f4063e0408cb992f6d478308fa52656">setTexture</link>(<emphasis role="keywordtype">int</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>);
+<anchor xml:id="__wall_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae">checkOnScreen</link>();
+<anchor xml:id="__wall_8h_source_1l00019"/>00019 &#32;&#32;&#32;&#32;std::vector&lt;sf::Vector3f&gt;&amp;&#32;<link linkend="_class_wall_1a6132a9e93316cba66ee61a78ea96040b">getWallPositions</link>();
+<anchor xml:id="__wall_8h_source_1l00020"/>00020 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__wall_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;sf::Texture*&#32;spriteSheet;
+<anchor xml:id="__wall_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;onScreen&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__wall_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;std::vector&lt;sf::Sprite&gt;&#32;sprites;
+<anchor xml:id="__wall_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;std::vector&lt;sf::Vector3f&gt;&#32;wallPositions;
+<anchor xml:id="__wall_8h_source_1l00025"/>00025 };
+</programlisting></section>

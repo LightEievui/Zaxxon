@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_h_m_section" xml:lang="en-US">
+<title>HMSection Class Reference</title>
+<indexterm><primary>HMSection</primary></indexterm>
+<para>
+
+<para>The height meter and related methods. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;HMSection.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for HMSection:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_h_m_section.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cf">Type</link> { <link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119">LINE</link>
+, <link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c">OPEN</link>
+, <link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481">TOP</link>
+, <link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740">BOTTOM</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2">progress</link> (int)</para>
+
+<para>Make current section change by a stage. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13">setSection</link> (int)</para>
+
+<para>Set the texture by what current section should be. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f">setType</link> (<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cf">Type</link>)</para>
+
+<para>Set what type the current section sprite should be. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_h_m_section_1a6e02d19eb07396dc514c8938d578658b">fill</link> ()</para>
+
+<para>Current section should be full. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_h_m_section_1a6093acdaf453e4985124eb26d85a628d">empty</link> ()</para>
+
+<para>Current section should be empty. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52">getSection</link> ()</para>
+
+<para>Get the current section id. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The height meter and related methods. </para>
+<para>
+Definition at line <link linkend="__h_m_section_8h_source_1l00008">8</link> of file <link linkend="__h_m_section_8h_source">HMSection.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cf"/><section>
+    <title>Type</title>
+<indexterm><primary>Type</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>Type</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cf">HMSection::Type</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>LINE</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>LINE</secondary></indexterm>
+<anchor xml:id="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119"/>LINE</entry><entry></entry></row><row><entry><indexterm><primary>OPEN</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>OPEN</secondary></indexterm>
+<anchor xml:id="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c"/>OPEN</entry><entry></entry></row><row><entry><indexterm><primary>TOP</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>TOP</secondary></indexterm>
+<anchor xml:id="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481"/>TOP</entry><entry></entry></row><row><entry><indexterm><primary>BOTTOM</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>BOTTOM</secondary></indexterm>
+<anchor xml:id="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740"/>BOTTOM</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__h_m_section_8h_source_1l00011">11</link> of file <link linkend="__h_m_section_8h_source">HMSection.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_h_m_section_1a6093acdaf453e4985124eb26d85a628d"/><section>
+    <title>empty()</title>
+<indexterm><primary>empty</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>empty</secondary></indexterm>
+<para><computeroutput>void HMSection::empty ( )</computeroutput></para><para>
+
+<para>Current section should be empty. </para>
+</para>
+<para>
+Definition at line <link linkend="__h_m_section_8cpp_source_1l00128">128</link> of file <link linkend="__h_m_section_8cpp_source">HMSection.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_h_m_section_1a6e02d19eb07396dc514c8938d578658b"/><section>
+    <title>fill()</title>
+<indexterm><primary>fill</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>fill</secondary></indexterm>
+<para><computeroutput>void HMSection::fill ( )</computeroutput></para><para>
+
+<para>Current section should be full. </para>
+</para>
+<para>
+Definition at line <link linkend="__h_m_section_8cpp_source_1l00106">106</link> of file <link linkend="__h_m_section_8cpp_source">HMSection.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52"/><section>
+    <title>getSection()</title>
+<indexterm><primary>getSection</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>getSection</secondary></indexterm>
+<para><computeroutput>int HMSection::getSection ( )</computeroutput></para><para>
+
+<para>Get the current section id. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__h_m_section_8cpp_source_1l00050">50</link> of file <link linkend="__h_m_section_8cpp_source">HMSection.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2"/><section>
+    <title>progress()</title>
+<indexterm><primary>progress</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>progress</secondary></indexterm>
+<para><computeroutput>void HMSection::progress (int stage)</computeroutput></para><para>
+
+<para>Make current section change by a stage. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>stage</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__h_m_section_8cpp_source_1l00060">60</link> of file <link linkend="__h_m_section_8cpp_source">HMSection.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_h_m_section_1a3307e1d78540b5624be54eea4af89e13"/><section>
+    <title>setSection()</title>
+<indexterm><primary>setSection</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>setSection</secondary></indexterm>
+<para><computeroutput>void HMSection::setSection (int sect)</computeroutput></para><para>
+
+<para>Set the texture by what current section should be. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sect</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__h_m_section_8cpp_source_1l00008">8</link> of file <link linkend="__h_m_section_8cpp_source">HMSection.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f"/><section>
+    <title>setType()</title>
+<indexterm><primary>setType</primary><secondary>HMSection</secondary></indexterm>
+<indexterm><primary>HMSection</primary><secondary>setType</secondary></indexterm>
+<para><computeroutput>void HMSection::setType (<link linkend="_class_h_m_section_1ad1168eb178424081bd7cec2199b324cf">Type</link> type)</computeroutput></para><para>
+
+<para>Set what type the current section sprite should be. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>type</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__h_m_section_8cpp_source_1l00025">25</link> of file <link linkend="__h_m_section_8cpp_source">HMSection.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/GUI/HMSection/<link linkend="__h_m_section_8h">HMSection.h</link>C:/Zaxxon/src/GUI/HMSection/<link linkend="__h_m_section_8cpp">HMSection.cpp</link></section>
+</section>

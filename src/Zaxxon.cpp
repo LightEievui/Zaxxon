@@ -1,6 +1,6 @@
 /*
 * Time of development:
-* Jan 29 - XXX XX
+* Jan 29 - May 8 2024
 *
 * Developer team:
 * Gavin - Team leader / Programmer
@@ -14,46 +14,24 @@
 * and memory usage, with all the features as you'd expect.
 * 
 * Controls:
-* Arrow keys and Z
+* Keyboard: Arrow keys and Z
+* Joystick: Stick0 and button0
 *
 * We hereby certify that this program represents our
 * work and that the design and logic was completed
 * without outside assistance.
 */
-// temp
-#define _CRTDBG_MAP_ALLOC
-
 #include <SFML/Graphics.hpp>
 #include "Game/Game.h"
 #include <iostream>
-#include <crtdbg.h>
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
-// temp
-#ifdef _DEBUG
-#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
-// Replace _NORMAL_BLOCK with _CLIENT_BLOCK if you want the
-// allocations to be of _CLIENT_BLOCK type
-#else
-#define DBG_NEW new
-#endif
 
 int main()
 {
-#if defined _WIN32 && defined NDEBUG
-	FreeConsole();
-#endif
 	// Startup Zaxxon
-	Game* game = new Game();
+	auto game = new Game();
 	game->run();
 
 	// Game finished, remove it from memory
 	delete game;
-
-	// temp
-	_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
-	std::cout << _CrtDumpMemoryLeaks();
-	return 0;
 }

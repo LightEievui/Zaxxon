@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zaxxontext_0',['ZaxxonText',['../class_zaxxon_text.html',1,'']]]
+  ['wall_0',['Wall',['../class_wall.html',1,'']]]
 ];

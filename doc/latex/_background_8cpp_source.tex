@@ -1,0 +1,604 @@
+\doxysection{Background.\+cpp}
+\hypertarget{_background_8cpp_source}{}\label{_background_8cpp_source}\index{C:/Zaxxon/src/Background/Background.cpp@{C:/Zaxxon/src/Background/Background.cpp}}
+\mbox{\hyperlink{_background_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_background_8h}{Background.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_util_8h}{Util/Util.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00018}\mbox{\hyperlink{class_background_ab4f1a6df90c295ba2fa5b2116c9f7719}{00018}}\ \mbox{\hyperlink{class_background_ab4f1a6df90c295ba2fa5b2116c9f7719}{Background::Background}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}\ \mbox{\hyperlink{_game_8cpp_a65dc56b369756c98d37a60c57ce87108}{startStage}},\ sf::View\&\ mainView,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Texture*\ spritesheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&\ obstacles,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&\ enemies,\ \mbox{\hyperlink{class_player}{Player}}\&\ player,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}},\ std::vector<Wall*>\&\ walls,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ZapWall*>\&\ zapWalls}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00024}00024\ )}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//load\ background\ textures}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (!initial.loadFromFile(\textcolor{stringliteral}{"{}res/BackgroundInitial.png"{}}))}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Background\ file\ could\ not\ load\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (!space.loadFromFile(\textcolor{stringliteral}{"{}res/BackgroundSpace2.png"{}}))}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Background\ file\ could\ not\ load\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (!boss.loadFromFile(\textcolor{stringliteral}{"{}res/BackgroundBoss.png"{}}))}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Background\ file\ could\ not\ load\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00034}00034\ \ \ \ \ back.setTexture(boss);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00035}00035\ \ \ \ \ back.setOrigin(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ sf::Vector2f(0,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(back.getTexture()-\/>getSize().y)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00037}00037\ \ \ \ \ back.setPosition(sf::Vector2f(0,\ 240));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00038}00038\ \ \ \ \ changeStage(\mbox{\hyperlink{_game_8cpp_a65dc56b369756c98d37a60c57ce87108}{startStage}},\ mainView,\ spritesheet,\ obstacles,\ enemies,\ player,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}},\ walls,\ zapWalls);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (!death.loadFromFile(\textcolor{stringliteral}{"{}res/BackgroundDeath.png"{}}))}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Death\ overlay\ file\ failed\ to\ load\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00044}00044\ \ \ \ \ deathOverlay.setTexture(death);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00045}00045\ \ \ \ \ deathOverlay.setColor(sf::Color(255,\ 255,\ 255,\ 100));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00049}\mbox{\hyperlink{class_background_a36754df1deb720393217ade59da41557}{00049}}\ \mbox{\hyperlink{class_background_a36754df1deb720393217ade59da41557}{Background::\string~Background}}()}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00066}\mbox{\hyperlink{class_background_a35213116185226b7b3881b2e71c8a292}{00066}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a35213116185226b7b3881b2e71c8a292}{Background::update}}(sf::RenderWindow\&\ window,\ sf::View\&\ mainView,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ gameSpeed,\ sf::Texture*\ spritesheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&\ obstacles,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&\ enemies,\ \mbox{\hyperlink{class_player}{Player}}\&\ player,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Wall*>\&\ walls,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ZapWall*>\&\ zapWalls}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00072}00072\ )}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//checks\ the\ transition\ between\ stages}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (backgroundFinished(mainView))}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (stage)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ stage\ =\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ back.setTexture(space);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{resetPos}}(mainView,\ player,\ 0);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ stage\ =\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ back.setTexture(boss);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{resetPos}}(mainView,\ player,\ 0);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ stage\ =\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e}{BOSSFIGHT}};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_ac607d65614b8f90a0f841a97df4f0b04}{generateObstacles}}(stage,\ obstacles,\ spritesheet,\ walls,\ zapWalls);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_aa319354445ea0a0f224b6dc726b621c2}{generateWaves}}(stage,\ enemies,\ spritesheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(player.\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (!backgroundFinished(mainView))}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ modifier\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}})\ \textcolor{comment}{//\ space\ moves\ 2/3\ speed}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ modifier\ =\ 0.66f;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ mainView.move(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_util_8cpp_a23f3b42650cf34c1fcdd903bb936818c}{translateTo2d}}(sf::Vector3f(0,\ 0,\ -\/1.3f\ *\ gameSpeed\ *\ modifier)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//\ spawn\ waves\ that\ have\ gone\ past\ the\ z\ set\ in\ queue}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (!waveQueue.empty()\ \&\&\ player.\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z\ <\ waveQueue.front().first)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00109}00109\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_enemy_a965d8a0c6f027a92795b9794158369b7}{Enemy::spawnWave}}(enemies,\ spritesheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(player.\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ waveQueue.front().second);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ waveQueue.pop();}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00116}00116\ \ \ \ \ window.draw(back);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00124}\mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{00124}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{Background::setPosition}}(sf::Vector2f\ pos)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00125}00125\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00126}00126\ \ \ \ \ back.setPosition(pos);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00127}00127\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00143}00143\ \textcolor{keywordtype}{void}\ Background::changeStage(Stage\ stage,\ sf::View\&\ mainView,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Texture*\ spritesheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&\ obstacles,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&\ enemies,\ \mbox{\hyperlink{class_player}{Player}}\&\ player,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}},\ std::vector<Wall*>\&\ walls,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ZapWall*>\&\ zapWalls}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00149}00149\ )}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00151}00151\ \ \ \ \ this-\/>stage\ =\ stage;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00152}00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ back.setTexture(initial);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ back.setTexture(space);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00156}00156\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ back.setTexture(boss);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{resetPos}}(mainView,\ player,\ \mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}});}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{class_background_ac607d65614b8f90a0f841a97df4f0b04}{generateObstacles}}(stage,\ obstacles,\ spritesheet,\ walls,\ zapWalls);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00161}00161\ \ \ \ \ \mbox{\hyperlink{class_background_aa319354445ea0a0f224b6dc726b621c2}{generateWaves}}(stage,\ enemies,\ spritesheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(player.\mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{getPos}}().z));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00163}00163\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00171}00171\ \textcolor{keywordtype}{bool}\ Background::backgroundFinished(sf::View\&\ view)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00172}00172\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordtype}{float}\ wXPos\ =\ view.getCenter().x\ -\/\ (view.getSize().x\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wXPos\ >=\ 2050;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wXPos\ >=\ 1150;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00179}00179\ \ \ \ \ \textcolor{keywordflow}{return}\ wXPos\ >=\ 1830;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00180}00180\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00188}\mbox{\hyperlink{class_background_a52b2389cd7dfaedff511e72af9f3735c}{00188}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_background_a52b2389cd7dfaedff511e72af9f3735c}{Background::isInSpace}}(\textcolor{keywordtype}{int}\ z)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00189}00189\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{comment}{//\ Initial\ -\/2800:\ space}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{comment}{//\ Boss\ -\/123:\ No\ space}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00192}00192\ \ \ \ \ \textcolor{keywordtype}{bool}\ inSpace\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00193}00193\ \ \ \ \ \textcolor{keywordflow}{switch}\ (stage)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00194}00194\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z\ >\ -\/123\ ||\ z\ <\ -\/2800)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ inSpace\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ inSpace\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00202}00202\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z\ >\ -\/123)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ inSpace\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{return}\ inSpace;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00217}\mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{00217}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{Background::resetPos}}(sf::View\&\ mainView,\ \mbox{\hyperlink{class_player}{Player}}\&\ player,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00218}00218\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00219}00219\ \ \ \ \ \textcolor{comment}{//Sets\ the\ origin\ to\ the\ bottom\ left\ corner\ as\ that\ is\ where\ it\ will\ start\ }}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00220}00220\ \ \ \ \ \textcolor{comment}{//on\ the\ screen}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00221}00221\ \ \ \ \ mainView.setCenter(sf::Vector2f(112,\ 100));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00222}00222\ \ \ \ \ back.setOrigin(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ sf::Vector2f(0,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(back.getTexture()-\/>getSize().y)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00225}00225\ \ \ \ \ \textcolor{keywordtype}{int}\ adder\ =\ stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}\ ?\ 350\ :\ 0;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00226}00226\ \ \ \ \ sf::Vector2f\ moveVector\ =\ sf::Vector2f(.8f\ *\ (\mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}}\ +\ adder),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/.4f\ *\ (\mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}}\ +\ adder));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00228}00228\ \ \ \ \ mainView.move(moveVector);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00230}00230\ \ \ \ \ \textcolor{keywordflow}{switch}\ (stage)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00231}00231\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00232}00232\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ back.setPosition(sf::Vector2f(0,\ 224));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ player.\mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}}\ +\ 350);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00236}00236\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ back.setPosition(sf::Vector2f(0,\ 238));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ player.\mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}});}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ back.setPosition(sf::Vector2f(0,\ 224));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ player.\mbox{\hyperlink{class_player_a49066b4a0b345abad5a5d4a6ec640140}{resetPos}}(\mbox{\hyperlink{_game_8cpp_a6f6e31cb978f9672b55442dcbf00524f}{startPos}});}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00243}00243\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00244}00244\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00253}\mbox{\hyperlink{class_background_ac607d65614b8f90a0f841a97df4f0b04}{00253}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_ac607d65614b8f90a0f841a97df4f0b04}{Background::generateObstacles}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}\ stage,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&\ obstacles,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Texture*\ spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Wall*>\&\ walls,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ZapWall*>\&\ zapWalls)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00258}00258\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00259}00259\ \ \ \ \ \textcolor{comment}{/*Shooting\ Obstacles}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00260}00260\ \textcolor{comment}{\ \ \ \ KEY}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00261}00261\ \textcolor{comment}{\ \ \ \ 0\ =\ Grey\ Turrets}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00262}00262\ \textcolor{comment}{\ \ \ \ 1\ =\ Green\ Turrets}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00263}00263\ \textcolor{comment}{\ \ \ \ 2\ =\ Shooting\ Up\ Bullets}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00264}00264\ \textcolor{comment}{\ \ \ \ 3\ =\ Green\ Shooting\ Right}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00265}00265\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00266}00266\ \textcolor{comment}{\ \ \ \ Stationary\ Obstacles}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00267}00267\ \textcolor{comment}{\ \ \ \ KEY}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00268}00268\ \textcolor{comment}{\ \ \ \ 1\ =\ gas\ can}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00269}00269\ \textcolor{comment}{\ \ \ \ 2\ =\ satellite}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00270}00270\ \textcolor{comment}{\ \ \ \ 3\ =\ plane}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00271}00271\ \textcolor{comment}{\ \ \ \ 4\ =\ blue\ floating\ gas\ can}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00272}00272\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_obstacle}{Obstacle}}*\ obstacle\ :\ obstacles)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ obstacle;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00276}00276\ \ \ \ \ obstacles.clear();}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_wall}{Wall}}*\ wall\ :\ walls)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ wall;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00280}00280\ \ \ \ \ walls.clear();}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00282}00282\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_zap_wall}{ZapWall}}*\ zapWall\ :\ zapWalls)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ zapWall;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00284}00284\ \ \ \ \ zapWalls.clear();}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00286}00286\ \ \ \ \ \textcolor{keywordflow}{switch}\ (stage)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00287}00287\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00288}00288\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Shooting}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/380.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/15.f,\ 139.f,\ -\/435.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/90.f,\ 139.f,\ -\/800.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/947.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/120.f,\ 139.f,\ -\/1120.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/1145.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/142.f,\ 139.f,\ -\/1410.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/10.f,\ 139.f,\ -\/1680.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/5.f,\ 139.f,\ -\/2080.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/5.f,\ 139.f,\ -\/2260.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/2335.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00313}00313\ \ \ \ \ \textcolor{comment}{//Non-\/Shooting}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/170.f,\ 139.f,\ -\/340.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/80.f,\ 139.f,\ -\/590.f),\ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/12.f,\ 139.f,\ -\/630.f),\ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/160.f,\ 139.f,\ -\/665.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/170.f,\ 139.f,\ -\/910.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/12.f,\ 139.f,\ -\/1000.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/50.f,\ 139.f,\ -\/1100.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/25.f,\ 139.f,\ -\/1305.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/135.f,\ 139.f,\ -\/1685.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/40.f,\ 139.f,\ -\/1770.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/130.f,\ 139.f,\ -\/1800.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/90.f,\ 139.f,\ -\/1900.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/50.f,\ 139.f,\ -\/2045.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/95.f,\ 139.f,\ -\/2175.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/40.f,\ 139.f,\ -\/2320.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/5.f,\ 139.f,\ -\/2435.f),\ spriteSheet,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/45.f,\ 139.f,\ -\/2460.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/125.f,\ 139.f,\ -\/2490.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/100.f,\ 139.f,\ -\/2635.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/150.f,\ 139.f,\ -\/2635.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//Shooting\ Up\ Missiles}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/79.f,\ 139.f,\ -\/335.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 130,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/25.f,\ 139.f,\ -\/534.298f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 300,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/176.f,\ 139.6f,\ -\/550.697f),\ spriteSheet,\ 370,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/15.f,\ 139.6f,\ -\/857.029f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 650,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/135.f,\ 139.f,\ -\/840.029f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 650,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/62.f,\ 139.f,\ -\/1048.13f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 850,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/141.f,\ 139.f,\ -\/1218.6f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 950,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/10.f,\ 139.f,\ -\/1258.41f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1050,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/30.f,\ 139.f,\ -\/1515.31f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1350,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/185.f,\ 139.f,\ -\/1460.61f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1350,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/145.f,\ 139.f,\ -\/1644.61f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1450,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/100.f,\ 139.333f,\ -\/1764.57f),\ spriteSheet,\ 1700,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/98.4f,\ 139.f,\ -\/2115.49f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1850,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/20.2f,\ 139.333f,\ -\/2148.29f),\ spriteSheet,\ 1850,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/151.2f,\ 139.f,\ -\/2268.38f),\ spriteSheet,\ 2100,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/65.2f,\ 139.667f,\ -\/2257.88f),\ spriteSheet,\ 2100,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/42.6f,\ 139.f,\ -\/2617.49f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2300,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00391}00391\ \ \ \ \ \textcolor{comment}{/*\ Walls}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00392}00392\ \textcolor{comment}{\ \ \ \ KEY\ for\ Vector}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00393}00393\ \textcolor{comment}{\ \ \ \ 0\ =\ closed\ wall}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00394}00394\ \textcolor{comment}{\ \ \ \ 1\ =\ open\ wall}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00395}00395\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,\ sf::Vector3f(0.f,\ 70.f,\ -\/122.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ std::vector<int>\{0,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ walls.at(0)-\/>setPosition(sf::Vector3f(-\/160.f,\ 70.f,\ -\/122.f),\ 1);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/63.f,\ 130.f,\ -\/755.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{1,\ 1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(23.f,\ 130.f,\ -\/1423.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{1,\ 1,\ 0\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/26.f,\ 130.f,\ -\/2782.f),\ 2,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00409}00409\ \ \ \ \ \textcolor{comment}{//Zap\ Walls}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/10,\ 125,\ -\/1940)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00414}00414\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Blue\ Space\ Gas\ Cans}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/120.f,\ 139.f,\ -\/960.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/100.f,\ 139.f,\ -\/2500.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00422}00422\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}}:}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Area\ are\ made\ by\ the\ sections\ of\ map\ between\ walls}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,\ sf::Vector3f(-\/9.f,\ 70.f,\ -\/106.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3,\ std::vector<int>\{0,\ 1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ walls.at(0)-\/>setPosition(sf::Vector3f(-\/130.f,\ 70.f,\ -\/106.f),\ 1);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ walls.at(0)-\/>setPosition(sf::Vector3f(-\/168.f,\ 70.f,\ -\/106.f),\ 2);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00430}00430\ \ \ \ \ \textcolor{comment}{//First\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/90.f,\ 139.f,\ -\/320.f),\ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/370.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/120.f,\ 139.f,\ -\/460.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00437}00437\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/30.f,\ 139.f,\ -\/460.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/460.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,\ sf::Vector3f(7.f,\ 112.f,\ -\/550.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ std::vector<int>\{0,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ walls.at(1)-\/>setPosition(sf::Vector3f(-\/153.f,\ 112.f,\ -\/550.f),\ 1);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/10,\ 90,\ -\/550)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/10,\ 70,\ -\/550)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00451}00451\ \ \ \ \ \textcolor{comment}{//Second\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/90.f,\ 139.f,\ -\/800.f),\ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00454}00454\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/90.f,\ 139.f,\ -\/865.f),\ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ obstacles.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/90.f,\ 139.f,\ -\/920.f),\ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/30.f,\ 139.f,\ -\/910.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/140.f,\ 139.f,\ -\/910.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/136.f,\ 82.f,\ -\/978.f),\ 2,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{0,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/30,\ 60,\ -\/978)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00470}00470\ \ \ \ \ \textcolor{comment}{//Third\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/50.f,\ 139.f,\ -\/1200.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00473}00473\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/100.f,\ 139.f,\ -\/1210.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/140.f,\ 139.f,\ -\/1230.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/185.f,\ 139.f,\ -\/1275.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(27.f,\ 139.f,\ -\/1408.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{1,\ 0,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ walls.at(3)-\/>setPosition(sf::Vector3f(-\/133.f,\ 139.f,\ -\/1407.f),\ 2);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 120,\ -\/1407)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 100,\ -\/1407)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ zapWalls.}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 80,\ -\/1407)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00492}00492\ \ \ \ \ \textcolor{comment}{//Fourth\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/40.f,\ 139.f,\ -\/1510.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/200.f,\ 139.f,\ -\/1540.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/30.f,\ 139.f,\ -\/1630.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/180.f,\ 139.f,\ -\/1670.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/80.f,\ 139.f,\ -\/1680.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00503}00503\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/130.f,\ 139.f,\ -\/1750.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00505}00505\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(10.f,\ 112.f,\ -\/1830.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{0,\ 1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00509}00509\ \ \ \ \ \ \ \ \ walls.at(4)-\/>setPosition(sf::Vector3f(-\/112.f,\ 112.f,\ -\/1829.f),\ 1);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ walls.at(4)-\/>setPosition(sf::Vector3f(-\/152.f,\ 112.f,\ -\/1829.f),\ 2);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00512}00512\ \ \ \ \ \ \ \ \ zapWalls.}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 90,\ -\/1829)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ zapWalls.}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 70,\ -\/1829)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00517}00517\ \ \ \ \ \textcolor{comment}{//Fifth\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/35.f,\ 139.f,\ -\/1990.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/110.f,\ 139.f,\ -\/2110.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00522}00522\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/50.f,\ 139.f,\ -\/2180.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00523}00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/100.f,\ 139.f,\ -\/2180.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00526}00526\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/160.f,\ 139.f,\ -\/2180.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/15.f,\ 82.f,\ -\/2260.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{0,\ 1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ walls.at(5)-\/>setPosition(sf::Vector3f(-\/133.f,\ 82.f,\ -\/2259.f),\ 1);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ walls.at(5)-\/>setPosition(sf::Vector3f(-\/173.f,\ 82.f,\ -\/2259.f),\ 2);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/20,\ 60,\ -\/2259)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00538}00538\ \ \ \ \ \textcolor{comment}{//Sixth\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00539}00539\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/40.f,\ 139.f,\ -\/2420.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00540}00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00541}00541\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/105.f,\ 139.f,\ -\/2540.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00543}00543\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/45.f,\ 139.f,\ -\/2580.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00545}00545\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/155.f,\ 139.f,\ -\/2580.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00547}00547\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/56.f,\ 139.f,\ -\/2687.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{1,\ 1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00551}00551\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00552}00552\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 120,\ -\/2687)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 100,\ -\/2687)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00556}00556\ \ \ \ \ \ \ \ \ zapWalls.}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(0,\ 80,\ -\/2687)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00559}00559\ \ \ \ \ \textcolor{comment}{//Seventh\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/55.f,\ 139.f,\ -\/2820.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/60.f,\ 139.f,\ -\/2875.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/50.f,\ 139.f,\ -\/2950.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 100,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/50.f,\ 139.f,\ -\/3010.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00568}00568\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ walls.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_wall}{Wall}}(spriteSheet,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector3f(-\/40.f,\ 82.f,\ -\/3060.f),\ 3,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\{0,\ 1,\ 1\}));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00572}00572\ \ \ \ \ \ \ \ \ walls.at(7)-\/>setPosition(sf::Vector3f(-\/161.f,\ 82.f,\ -\/3060.f),\ 1);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ walls.at(7)-\/>setPosition(sf::Vector3f(-\/201.f,\ 82.f,\ -\/3060.f),\ 2);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00574}00574\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00575}00575\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/50,\ 60,\ -\/3060)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ zapWalls.push\_back(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_zap_wall}{ZapWall}}(spriteSheet,\ sf::Vector3f(-\/50,\ 40,\ -\/3060)));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00579}00579\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00580}00580\ \ \ \ \ \textcolor{comment}{//Eight\ Area}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/35.f,\ 139.f,\ -\/3240.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00583}00583\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/80.f,\ 139.f,\ -\/3250.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ obstacles.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_obstacle}{Obstacle}}(sf::Vector3f(-\/35.f,\ 139.f,\ -\/3330.f),}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spriteSheet,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Adjusting\ Positions}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00588}00588\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_obstacle}{Obstacle}}*\ obstacle\ :\ obstacles)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ obstacle-\/>setPos(obstacle-\/>getPos()\ +\ sf::Vector3f(0,\ -\/6,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00590}00590\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_zap_wall}{ZapWall}}*\ zw\ :\ zapWalls)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ zw-\/>setStartPos(zw-\/>getStartPosition()\ +\ sf::Vector3f(0,\ -\/6,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_wall}{Wall}}*\ wall\ :\ walls)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ wall-\/>getWallPositions().size();\ i++)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wall-\/>setPosition(}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wall-\/>getWallPositions()[i]\ +\ sf::Vector3f(0,\ -\/6,\ 0),\ i);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00597}00597\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00598}00598\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00600}00600\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00608}\mbox{\hyperlink{class_background_aa319354445ea0a0f224b6dc726b621c2}{00608}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_aa319354445ea0a0f224b6dc726b621c2}{Background::generateWaves}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}\ stage,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&\ enemies,}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Texture*\ spriteSheet,\ \textcolor{keywordtype}{int}\ playerZ)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00611}00611\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00612}00612\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_enemy}{Enemy}}*\ enemy\ :\ enemies)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ enemy;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00614}00614\ \ \ \ \ enemies.clear();}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00615}00615\ \ \ \ \ \textcolor{comment}{//\ equivalent\ to\ waveQueue.clear();}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00616}00616\ \ \ \ \ std::queue<std::pair<int,\ unsigned\ int>>().swap(waveQueue);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00618}00618\ \ \ \ \ \textcolor{comment}{//\ format\ waveQueue.push(std::pair<int,\ unsigned\ int>(spawnZ,\ waveId));}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00619}00619\ \ \ \ \ \textcolor{keywordflow}{switch}\ (stage)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00620}00620\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00621}00621\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}:\ \textcolor{comment}{//\ further\ below\ Z\ should\ be\ lesser}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00622}00622\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/460,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00623}00623\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/493,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00624}00624\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/526,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00625}00625\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/559,\ 0));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00626}00626\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/652,\ 1));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00627}00627\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/665,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00628}00628\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/678,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00629}00629\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/991,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00630}00630\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1051,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00631}00631\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1084,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00632}00632\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1104,\ 5));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00633}00633\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1170,\ 6));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00634}00634\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1203,\ 6));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00635}00635\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1236,\ 6));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00636}00636\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1269,\ 6));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00637}00637\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1315,\ 7));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00638}00638\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1350,\ 3));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00639}00639\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1400,\ 2));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00640}00640\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1440,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00641}00641\ \ \ \ \ \ \ \ \ waveQueue.push(std::pair<int,\ unsigned\ int>(-\/1490,\ 4));}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00642}00642\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00643}00643\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00644}00644\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00645}00645\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00646}00646\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00651}\mbox{\hyperlink{class_background_aa60585bb666a292f5d49049038400b1a}{00651}}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Background::Stage}}\ \mbox{\hyperlink{class_background_aa60585bb666a292f5d49049038400b1a}{Background::getStage}}()}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00652}00652\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00653}00653\ \ \ \ \ \textcolor{keywordflow}{return}\ stage;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00654}00654\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00655}00655\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00656}00656\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00663}\mbox{\hyperlink{class_background_a093d96b9f25dda122febad2beabc47cd}{00663}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a093d96b9f25dda122febad2beabc47cd}{Background::flashColor}}(sf::RenderWindow\&\ window)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00664}00664\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00665}00665\ \ \ \ \ window.draw(deathOverlay);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00666}00666\ \}}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00668}00668\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00673}\mbox{\hyperlink{class_background_ac333125273a1213f2cb1c4af4081f0b8}{00673}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_ac333125273a1213f2cb1c4af4081f0b8}{Background::setStage}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}\ newStage)}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00674}00674\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00675}00675\ \ \ \ \ stage\ =\ newStage;}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00676}00676\ }
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00677}00677\ \ \ \ \ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00678}00678\ \ \ \ \ \ \ \ \ back.setTexture(initial);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00679}00679\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00680}00680\ \ \ \ \ \ \ \ \ back.setTexture(space);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00681}00681\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (stage\ ==\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}})}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00682}00682\ \ \ \ \ \ \ \ \ back.setTexture(boss);}
+\DoxyCodeLine{\Hypertarget{_background_8cpp_source_l00683}00683\ \}}
+
+\end{DoxyCode}

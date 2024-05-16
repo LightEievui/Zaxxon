@@ -1,5 +1,14 @@
 \doxysection{HMSection Class Reference}
 \hypertarget{class_h_m_section}{}\label{class_h_m_section}\index{HMSection@{HMSection}}
+
+
+The height meter and related methods.  
+
+
+
+
+{\ttfamily \#include $<$HMSection.\+h$>$}
+
 Inheritance diagram for HMSection\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +18,10 @@ Inheritance diagram for HMSection\+:\begin{figure}[H]
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_h_m_section_ad1168eb178424081bd7cec2199b324cf}\label{class_h_m_section_ad1168eb178424081bd7cec2199b324cf} 
-enum {\bfseries Type} \{ {\bfseries LINE}
-, {\bfseries OPEN}
-, {\bfseries TOP}
-, {\bfseries BOTTOM}
+enum \mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cf}{Type}} \{ \mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119}{LINE}}
+, \mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c}{OPEN}}
+, \mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481}{TOP}}
+, \mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740}{BOTTOM}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
@@ -23,19 +31,83 @@ void \mbox{\hyperlink{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}{progr
 \begin{DoxyCompactList}\small\item\em Make current section change by a stage. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_h_m_section_a3307e1d78540b5624be54eea4af89e13}{set\+Section}} (int)
 \begin{DoxyCompactList}\small\item\em Set the texture by what current section should be. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{set\+Type}} (Type)
+void \mbox{\hyperlink{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}{set\+Type}} (\mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cf}{Type}})
 \begin{DoxyCompactList}\small\item\em Set what type the current section sprite should be. \end{DoxyCompactList}\item 
-\Hypertarget{class_h_m_section_a6e02d19eb07396dc514c8938d578658b}\label{class_h_m_section_a6e02d19eb07396dc514c8938d578658b} 
-void {\bfseries fill} ()
+void \mbox{\hyperlink{class_h_m_section_a6e02d19eb07396dc514c8938d578658b}{fill}} ()
 \begin{DoxyCompactList}\small\item\em Current section should be full. \end{DoxyCompactList}\item 
-\Hypertarget{class_h_m_section_a6093acdaf453e4985124eb26d85a628d}\label{class_h_m_section_a6093acdaf453e4985124eb26d85a628d} 
-void {\bfseries empty} ()
+void \mbox{\hyperlink{class_h_m_section_a6093acdaf453e4985124eb26d85a628d}{empty}} ()
 \begin{DoxyCompactList}\small\item\em Current section should be empty. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_h_m_section_a8edcc2ebab82a9d1fc1d735d63ca5c52}{get\+Section}} ()
 \begin{DoxyCompactList}\small\item\em Get the current section id. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+The height meter and related methods. 
+
+Definition at line \mbox{\hyperlink{_h_m_section_8h_source_l00008}{8}} of file \mbox{\hyperlink{_h_m_section_8h_source}{HMSection.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_h_m_section_ad1168eb178424081bd7cec2199b324cf}\label{class_h_m_section_ad1168eb178424081bd7cec2199b324cf} 
+\index{HMSection@{HMSection}!Type@{Type}}
+\index{Type@{Type}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cf}{HMSection\+::\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE@{LINE}!HMSection@{HMSection}}\index{HMSection@{HMSection}!LINE@{LINE}}}\Hypertarget{class_h_m_section_ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119}\label{class_h_m_section_ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119} 
+LINE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPEN@{OPEN}!HMSection@{HMSection}}\index{HMSection@{HMSection}!OPEN@{OPEN}}}\Hypertarget{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c}\label{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c} 
+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOP@{TOP}!HMSection@{HMSection}}\index{HMSection@{HMSection}!TOP@{TOP}}}\Hypertarget{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481}\label{class_h_m_section_ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481} 
+TOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOTTOM@{BOTTOM}!HMSection@{HMSection}}\index{HMSection@{HMSection}!BOTTOM@{BOTTOM}}}\Hypertarget{class_h_m_section_ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740}\label{class_h_m_section_ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740} 
+BOTTOM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_h_m_section_8h_source_l00011}{11}} of file \mbox{\hyperlink{_h_m_section_8h_source}{HMSection.\+h}}.
+
+
+
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_h_m_section_a6093acdaf453e4985124eb26d85a628d}\label{class_h_m_section_a6093acdaf453e4985124eb26d85a628d} 
+\index{HMSection@{HMSection}!empty@{empty}}
+\index{empty@{empty}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily void HMSection\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Current section should be empty. 
+
+
+
+Definition at line \mbox{\hyperlink{_h_m_section_8cpp_source_l00128}{128}} of file \mbox{\hyperlink{_h_m_section_8cpp_source}{HMSection.\+cpp}}.
+
+\Hypertarget{class_h_m_section_a6e02d19eb07396dc514c8938d578658b}\label{class_h_m_section_a6e02d19eb07396dc514c8938d578658b} 
+\index{HMSection@{HMSection}!fill@{fill}}
+\index{fill@{fill}!HMSection@{HMSection}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily void HMSection\+::fill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Current section should be full. 
+
+
+
+Definition at line \mbox{\hyperlink{_h_m_section_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_h_m_section_8cpp_source}{HMSection.\+cpp}}.
+
 \Hypertarget{class_h_m_section_a8edcc2ebab82a9d1fc1d735d63ca5c52}\label{class_h_m_section_a8edcc2ebab82a9d1fc1d735d63ca5c52} 
 \index{HMSection@{HMSection}!getSection@{getSection}}
 \index{getSection@{getSection}!HMSection@{HMSection}}
@@ -49,6 +121,10 @@ Get the current section id.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_h_m_section_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_h_m_section_8cpp_source}{HMSection.\+cpp}}.
+
 \Hypertarget{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2}\label{class_h_m_section_a78bd080598e3778f18a44da90fa1b0d2} 
 \index{HMSection@{HMSection}!progress@{progress}}
 \index{progress@{progress}!HMSection@{HMSection}}
@@ -64,6 +140,10 @@ Make current section change by a stage.
 {\em stage} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_h_m_section_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_h_m_section_8cpp_source}{HMSection.\+cpp}}.
+
 \Hypertarget{class_h_m_section_a3307e1d78540b5624be54eea4af89e13}\label{class_h_m_section_a3307e1d78540b5624be54eea4af89e13} 
 \index{HMSection@{HMSection}!setSection@{setSection}}
 \index{setSection@{setSection}!HMSection@{HMSection}}
@@ -79,11 +159,15 @@ Set the texture by what current section should be.
 {\em sect} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_h_m_section_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_h_m_section_8cpp_source}{HMSection.\+cpp}}.
+
 \Hypertarget{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f}\label{class_h_m_section_ab9659f8ee7d9a9c01dd244f8c0f3a93f} 
 \index{HMSection@{HMSection}!setType@{setType}}
 \index{setType@{setType}!HMSection@{HMSection}}
 \doxysubsubsection{\texorpdfstring{setType()}{setType()}}
-{\footnotesize\ttfamily void HMSection\+::set\+Type (\begin{DoxyParamCaption}\item[{Type}]{type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void HMSection\+::set\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_h_m_section_ad1168eb178424081bd7cec2199b324cf}{Type}}}]{type }\end{DoxyParamCaption})}
 
 
 
@@ -96,7 +180,11 @@ Set what type the current section sprite should be.
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_h_m_section_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{_h_m_section_8cpp_source}{HMSection.\+cpp}}.
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+GUI/\+HMSection/HMSection.\+h\item 
-src/\+GUI/\+HMSection/HMSection.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Zaxxon/src/\+GUI/\+HMSection/\mbox{\hyperlink{_h_m_section_8h}{HMSection.\+h}}\item 
+C\+:/\+Zaxxon/src/\+GUI/\+HMSection/\mbox{\hyperlink{_h_m_section_8cpp}{HMSection.\+cpp}}\end{DoxyCompactItemize}

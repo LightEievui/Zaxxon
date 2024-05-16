@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__game_8h" xml:lang="en-US">
+<title>C:/Zaxxon/src/Game/Game.h File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Game/Game.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;vector&gt;<?linebreak?>#include &lt;chrono&gt;<?linebreak?>#include &lt;fstream&gt;<?linebreak?>#include &lt;SFML/Graphics.hpp&gt;<?linebreak?>#include &lt;SFML/Audio.hpp&gt;<?linebreak?>#include &quot;Obstacle/Obstacle.h&quot;<?linebreak?>#include &quot;Entity/Entity.h&quot;<?linebreak?>#include &quot;Entity/Character/Player/Player.h&quot;<?linebreak?>#include &quot;Entity/Character/Enemy/Enemy.h&quot;<?linebreak?>#include &quot;GUI/GUI.h&quot;<?linebreak?>#include &quot;Wall/Wall.h&quot;<?linebreak?>#include &quot;Background/Background.h&quot;<?linebreak?>#include &quot;Entity/Boss/Boss.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_game">Game</link></para>
+
+<para>The main game and all related classes eventually end up being used here. <link linkend="_class_game">Game</link> loop is in here and is the &apos;heart&apos; of the whole program. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="__game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> = unsigned char</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="__game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7"/><section>
+    <title>byte</title>
+<indexterm><primary>byte</primary><secondary>Game.h</secondary></indexterm>
+<indexterm><primary>Game.h</primary><secondary>byte</secondary></indexterm>
+<para><computeroutput>using <link linkend="__game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7">byte</link> = unsigned char</computeroutput></para><para>
+Definition at line <link linkend="__game_8h_source_1l00017">17</link> of file <link linkend="__game_8h_source">Game.h</link>.</para>
+</section>
+</section>
+</section>

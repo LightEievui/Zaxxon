@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__animation_8cpp_source" xml:lang="en-US">
+<title>Animation.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Animation/Animation.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__animation_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__animation_8h">Animation.h</link>&quot;</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00002"/><link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">00002</link> <emphasis role="keyword">using&#32;</emphasis><link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>&#32;=&#32;void(<link linkend="_class_animation">Animation</link>::*)(sf::Sprite*);
+<anchor xml:id="__animation_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__animation_8cpp_source_1l00007"/><link linkend="_class_animation_1a83f0a16cef7117f187ad596de38dd9d6">00007</link> <link linkend="_class_animation_1a83f0a16cef7117f187ad596de38dd9d6">Animation::Animation</link>()
+<anchor xml:id="__animation_8cpp_source_1l00008"/>00008 {
+<anchor xml:id="__animation_8cpp_source_1l00009"/>00009 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Setup&#32;death&#32;explosion&#32;frames</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;frames[0]&#32;=&#32;sf::IntRect(184,&#32;144,&#32;31,&#32;31);
+<anchor xml:id="__animation_8cpp_source_1l00011"/>00011 &#32;&#32;&#32;&#32;frames[1]&#32;=&#32;sf::IntRect(224,&#32;144,&#32;31,&#32;31);
+<anchor xml:id="__animation_8cpp_source_1l00012"/>00012 
+<anchor xml:id="__animation_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Alt&#32;death&#32;explosion&#32;frames</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;frames[7]&#32;=&#32;sf::IntRect(7,&#32;147,&#32;31,&#32;27);
+<anchor xml:id="__animation_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;frames[6]&#32;=&#32;sf::IntRect(49,&#32;147,&#32;30,&#32;28);
+<anchor xml:id="__animation_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;frames[5]&#32;=&#32;sf::IntRect(81,&#32;147,&#32;22,&#32;27);
+<anchor xml:id="__animation_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;frames[4]&#32;=&#32;sf::IntRect(109,&#32;147,&#32;20,&#32;28);
+<anchor xml:id="__animation_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;frames[3]&#32;=&#32;sf::IntRect(137,&#32;147,&#32;20,&#32;31);
+<anchor xml:id="__animation_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;frames[2]&#32;=&#32;sf::IntRect(158,&#32;147,&#32;17,&#32;27);
+<anchor xml:id="__animation_8cpp_source_1l00020"/>00020 
+<anchor xml:id="__animation_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Launch&#32;animation</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;frames[8]&#32;=&#32;sf::IntRect(119,&#32;71,&#32;38,&#32;27);
+<anchor xml:id="__animation_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;frames[9]&#32;=&#32;sf::IntRect(159,&#32;72,&#32;38,&#32;27);
+<anchor xml:id="__animation_8cpp_source_1l00024"/>00024 
+<anchor xml:id="__animation_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Wall&#32;bullet&#32;Death&#32;animation</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;frames[10]&#32;=&#32;sf::IntRect(264,&#32;154,&#32;279&#32;-&#32;264,&#32;175&#32;-&#32;154);
+<anchor xml:id="__animation_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;frames[11]&#32;=&#32;sf::IntRect(288,&#32;146,&#32;28,&#32;30);
+<anchor xml:id="__animation_8cpp_source_1l00028"/>00028 
+<anchor xml:id="__animation_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Normal&#32;bullet&#32;death&#32;animations</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;frames[12]&#32;=&#32;sf::IntRect(160,&#32;161,&#32;174&#32;-&#32;160,&#32;175&#32;-&#32;161);
+<anchor xml:id="__animation_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;frames[13]&#32;=&#32;sf::IntRect(136,&#32;160,&#32;151&#32;-&#32;136,&#32;175&#32;-&#32;160);
+<anchor xml:id="__animation_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;frames[14]&#32;=&#32;sf::IntRect(112,&#32;158,&#32;128&#32;-&#32;112,&#32;175&#32;-&#32;158);
+<anchor xml:id="__animation_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;frames[15]&#32;=&#32;sf::IntRect(80,&#32;156,&#32;99&#32;-&#32;80,&#32;175&#32;-&#32;156);
+<anchor xml:id="__animation_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;frames[16]&#32;=&#32;sf::IntRect(48,&#32;151,&#32;70&#32;-&#32;48,&#32;175&#32;-&#32;151);
+<anchor xml:id="__animation_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;frames[17]&#32;=&#32;sf::IntRect(8,&#32;150,&#32;34&#32;-&#32;8,&#32;176&#32;-&#32;150);
+<anchor xml:id="__animation_8cpp_source_1l00036"/>00036 
+<anchor xml:id="__animation_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Numbers&#32;for&#32;obstacles&#32;after&#32;death</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;frames[18]&#32;=&#32;sf::IntRect(184,&#32;121,&#32;211&#32;-&#32;184,&#32;135&#32;-&#32;121);&#32;<emphasis role="comment">//&#32;0</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;frames[19]&#32;=&#32;sf::IntRect(224,&#32;113,&#32;255&#32;-&#32;224,&#32;136&#32;-&#32;113);&#32;<emphasis role="comment">//&#32;200</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;frames[20]&#32;=&#32;sf::IntRect(264,&#32;113,&#32;295&#32;-&#32;264,&#32;135&#32;-&#32;113);&#32;<emphasis role="comment">//&#32;500</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;frames[21]&#32;=&#32;sf::IntRect(305,&#32;113,&#32;334&#32;-&#32;305,&#32;135&#32;-&#32;113);&#32;<emphasis role="comment">//&#32;1000</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00042"/>00042 
+<anchor xml:id="__animation_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;rocket&#32;flicker</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;frames[22]&#32;=&#32;sf::IntRect(80,&#32;70,&#32;10,&#32;25);
+<anchor xml:id="__animation_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;frames[23]&#32;=&#32;sf::IntRect(102,&#32;70,&#32;10,&#32;25);
+<anchor xml:id="__animation_8cpp_source_1l00046"/>00046 
+<anchor xml:id="__animation_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;red&#32;rocket&#32;flicker</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;frames[24]&#32;=&#32;sf::IntRect(302,&#32;197,&#32;10,&#32;25);
+<anchor xml:id="__animation_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;frames[25]&#32;=&#32;sf::IntRect(324,&#32;197,&#32;10,&#32;25);
+<anchor xml:id="__animation_8cpp_source_1l00050"/>00050 
+<anchor xml:id="__animation_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;kill&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00052"/>00052 }
+<anchor xml:id="__animation_8cpp_source_1l00053"/>00053 
+<anchor xml:id="__animation_8cpp_source_1l00054"/>00054 
+<anchor xml:id="__animation_8cpp_source_1l00058"/><link linkend="_class_animation_1a401b68793d4fbf48d481c030ee4b2a16">00058</link> <link linkend="_class_animation_1a401b68793d4fbf48d481c030ee4b2a16">Animation::~Animation</link>()
+<anchor xml:id="__animation_8cpp_source_1l00059"/>00059 {
+<anchor xml:id="__animation_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(std::thread*&#32;thread&#32;:&#32;threads)
+<anchor xml:id="__animation_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;thread-&gt;join();
+<anchor xml:id="__animation_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;thread;
+<anchor xml:id="__animation_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00065"/>00065 }
+<anchor xml:id="__animation_8cpp_source_1l00066"/>00066 
+<anchor xml:id="__animation_8cpp_source_1l00067"/>00067 
+<anchor xml:id="__animation_8cpp_source_1l00074"/><link linkend="_class_animation_1aafa4559f75e244ca439626971d3ea11a">00074</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_animation_1aafa4559f75e244ca439626971d3ea11a">Animation::run</link>(sf::Sprite*&#32;sprite,&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Anim</link>&#32;anim,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;sizeIndex)
+<anchor xml:id="__animation_8cpp_source_1l00075"/>00075 {
+<anchor xml:id="__animation_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;timer.restart();
+<anchor xml:id="__animation_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;this-&gt;spriteSizeIndex&#32;=&#32;sizeIndex;
+<anchor xml:id="__animation_8cpp_source_1l00078"/>00078 
+<anchor xml:id="__animation_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;safety&#32;check</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sprite&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00082"/>00082 
+<anchor xml:id="__animation_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="comment">//get&#32;the&#32;original&#32;texture&#32;so&#32;that&#32;the&#32;RESET&#32;animation&#32;can&#32;do&#32;so.</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;revert&#32;=&#32;sprite-&gt;getTextureRect();
+<anchor xml:id="__animation_8cpp_source_1l00085"/>00085 
+<anchor xml:id="__animation_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;<link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>&#32;animationPtr&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(anim)
+<anchor xml:id="__animation_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">CHARACTER_DEATH</link>:
+<anchor xml:id="__animation_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;animationPtr&#32;=&#32;&amp;Animation::fCHARACTER_DEATH;
+<anchor xml:id="__animation_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85">ALT_DEATH</link>:
+<anchor xml:id="__animation_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;animationPtr&#32;=&#32;&amp;Animation::fALT_DEATH;
+<anchor xml:id="__animation_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed">BULLET_DEATH</link>:
+<anchor xml:id="__animation_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;animationPtr&#32;=&#32;&amp;Animation::fBULLET_DEATH;
+<anchor xml:id="__animation_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728">WALLBULLET_DEATH</link>:
+<anchor xml:id="__animation_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;animationPtr&#32;=&#32;&amp;Animation::fWALLBULLET_DEATH;
+<anchor xml:id="__animation_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775">LAUNCH</link>:
+<anchor xml:id="__animation_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;animationPtr&#32;=&#32;&amp;Animation::fLAUNCH;
+<anchor xml:id="__animation_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01">ROCKET_FLICKER</link>:
+<anchor xml:id="__animation_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;animationPtr&#32;=&#32;&amp;Animation::fROCKET_FLICKER;
+<anchor xml:id="__animation_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f">RESET</link>:
+<anchor xml:id="__animation_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;kill&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00111"/>00111 
+<anchor xml:id="__animation_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(animationPtr&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;threads.push_back(<emphasis role="keyword">new</emphasis>&#32;std::thread(animationPtr,&#32;<emphasis role="keyword">this</emphasis>,&#32;sprite));
+<anchor xml:id="__animation_8cpp_source_1l00114"/>00114 }
+<anchor xml:id="__animation_8cpp_source_1l00115"/>00115 
+<anchor xml:id="__animation_8cpp_source_1l00116"/>00116 
+<anchor xml:id="__animation_8cpp_source_1l00121"/>00121 <emphasis role="keywordtype">void</emphasis>&#32;Animation::fCHARACTER_DEATH(sf::Sprite*&#32;sprite)
+<anchor xml:id="__animation_8cpp_source_1l00122"/>00122 {
+<anchor xml:id="__animation_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;state&#32;=&#32;2;
+<anchor xml:id="__animation_8cpp_source_1l00124"/>00124 
+<anchor xml:id="__animation_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(timer.getElapsedTime().asSeconds()&#32;&lt;&#32;1&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current&#32;=
+<anchor xml:id="__animation_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(timer.getElapsedTime().asSeconds()&#32;*&#32;4)&#32;%&#32;2;
+<anchor xml:id="__animation_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[current]);
+<anchor xml:id="__animation_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(10));
+<anchor xml:id="__animation_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00132"/>00132 
+<anchor xml:id="__animation_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current&#32;=&#32;18;
+<anchor xml:id="__animation_8cpp_source_1l00134"/>00134 
+<anchor xml:id="__animation_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(spriteSizeIndex)
+<anchor xml:id="__animation_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:&#32;<emphasis role="comment">//&#32;200</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;19;
+<anchor xml:id="__animation_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:&#32;<emphasis role="comment">//&#32;500</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;20;
+<anchor xml:id="__animation_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:&#32;<emphasis role="comment">//&#32;1000</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;21;
+<anchor xml:id="__animation_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00147"/>00147 
+<anchor xml:id="__animation_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;state&#32;=&#32;4;&#32;<emphasis role="comment">//&#32;wont&#32;interact</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00149"/>00149 
+<anchor xml:id="__animation_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(timer.getElapsedTime().asSeconds()&#32;&lt;&#32;2&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[current]);
+<anchor xml:id="__animation_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(10));
+<anchor xml:id="__animation_8cpp_source_1l00154"/>00154 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[18]);
+<anchor xml:id="__animation_8cpp_source_1l00156"/>00156 }
+<anchor xml:id="__animation_8cpp_source_1l00157"/>00157 
+<anchor xml:id="__animation_8cpp_source_1l00158"/>00158 
+<anchor xml:id="__animation_8cpp_source_1l00163"/>00163 <emphasis role="keywordtype">void</emphasis>&#32;Animation::fALT_DEATH(sf::Sprite*&#32;sprite)
+<anchor xml:id="__animation_8cpp_source_1l00164"/>00164 {
+<anchor xml:id="__animation_8cpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;state&#32;=&#32;2;
+<anchor xml:id="__animation_8cpp_source_1l00166"/>00166 
+<anchor xml:id="__animation_8cpp_source_1l00167"/>00167 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(timer.getElapsedTime().asMilliseconds()&#32;&lt;&#32;500&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current&#32;=&#32;(timer.getElapsedTime().asMilliseconds()
+<anchor xml:id="__animation_8cpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*&#32;12&#32;/&#32;1000&#32;%&#32;6)&#32;+&#32;2;
+<anchor xml:id="__animation_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[current]);
+<anchor xml:id="__animation_8cpp_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(10));
+<anchor xml:id="__animation_8cpp_source_1l00173"/>00173 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00174"/>00174 
+<anchor xml:id="__animation_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;state&#32;=&#32;1;
+<anchor xml:id="__animation_8cpp_source_1l00176"/>00176 }
+<anchor xml:id="__animation_8cpp_source_1l00177"/>00177 
+<anchor xml:id="__animation_8cpp_source_1l00178"/>00178 
+<anchor xml:id="__animation_8cpp_source_1l00183"/>00183 <emphasis role="keywordtype">void</emphasis>&#32;Animation::fLAUNCH(sf::Sprite*&#32;sprite)
+<anchor xml:id="__animation_8cpp_source_1l00184"/>00184 {
+<anchor xml:id="__animation_8cpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;state&#32;=&#32;3;
+<anchor xml:id="__animation_8cpp_source_1l00186"/>00186 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current&#32;=&#32;8;
+<anchor xml:id="__animation_8cpp_source_1l00187"/>00187 
+<anchor xml:id="__animation_8cpp_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(timer.getElapsedTime().asSeconds()&#32;&lt;&#32;1&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00189"/>00189 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(timer.getElapsedTime().asMilliseconds()&#32;&gt;&#32;500&#32;&amp;&amp;&#32;current&#32;==&#32;8)
+<anchor xml:id="__animation_8cpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current++;
+<anchor xml:id="__animation_8cpp_source_1l00192"/>00192 
+<anchor xml:id="__animation_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[current]);
+<anchor xml:id="__animation_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(10));
+<anchor xml:id="__animation_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00196"/>00196 
+<anchor xml:id="__animation_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;state&#32;=&#32;4;
+<anchor xml:id="__animation_8cpp_source_1l00198"/>00198 }
+<anchor xml:id="__animation_8cpp_source_1l00199"/>00199 
+<anchor xml:id="__animation_8cpp_source_1l00200"/>00200 
+<anchor xml:id="__animation_8cpp_source_1l00205"/>00205 <emphasis role="keywordtype">void</emphasis>&#32;Animation::fBULLET_DEATH(sf::Sprite*&#32;sprite)
+<anchor xml:id="__animation_8cpp_source_1l00206"/>00206 {
+<anchor xml:id="__animation_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current&#32;=&#32;10;
+<anchor xml:id="__animation_8cpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;lastWentUp&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;state&#32;=&#32;2;
+<anchor xml:id="__animation_8cpp_source_1l00210"/>00210 
+<anchor xml:id="__animation_8cpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(spriteSizeIndex)
+<anchor xml:id="__animation_8cpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="__animation_8cpp_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;16;
+<anchor xml:id="__animation_8cpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="__animation_8cpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="__animation_8cpp_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;14;
+<anchor xml:id="__animation_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="__animation_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="__animation_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;12;
+<anchor xml:id="__animation_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00225"/>00225 
+<anchor xml:id="__animation_8cpp_source_1l00226"/>00226 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(timer.getElapsedTime().asSeconds()&#32;&lt;&#32;2&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(timer.getElapsedTime().asMilliseconds()&#32;&gt;&#32;500&#32;&amp;&amp;&#32;current&#32;==&#32;8)
+<anchor xml:id="__animation_8cpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current++;
+<anchor xml:id="__animation_8cpp_source_1l00230"/>00230 
+<anchor xml:id="__animation_8cpp_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;change&#32;every&#32;1/2&#32;second</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(timer.getElapsedTime().asMilliseconds()&#32;%&#32;500&#32;==&#32;0)
+<anchor xml:id="__animation_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(lastWentUp)
+<anchor xml:id="__animation_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current--;
+<anchor xml:id="__animation_8cpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current++;
+<anchor xml:id="__animation_8cpp_source_1l00238"/>00238 
+<anchor xml:id="__animation_8cpp_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;lastWentUp&#32;=&#32;!lastWentUp;
+<anchor xml:id="__animation_8cpp_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00241"/>00241 
+<anchor xml:id="__animation_8cpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sprite&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[current]);
+<anchor xml:id="__animation_8cpp_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(10));
+<anchor xml:id="__animation_8cpp_source_1l00246"/>00246 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00247"/>00247 
+<anchor xml:id="__animation_8cpp_source_1l00248"/>00248 &#32;&#32;&#32;&#32;state&#32;=&#32;1;
+<anchor xml:id="__animation_8cpp_source_1l00249"/>00249 }
+<anchor xml:id="__animation_8cpp_source_1l00250"/>00250 
+<anchor xml:id="__animation_8cpp_source_1l00251"/>00251 
+<anchor xml:id="__animation_8cpp_source_1l00256"/>00256 <emphasis role="keywordtype">void</emphasis>&#32;Animation::fWALLBULLET_DEATH(sf::Sprite*&#32;sprite)
+<anchor xml:id="__animation_8cpp_source_1l00257"/>00257 {
+<anchor xml:id="__animation_8cpp_source_1l00258"/>00258 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current&#32;=&#32;10;
+<anchor xml:id="__animation_8cpp_source_1l00259"/>00259 &#32;&#32;&#32;&#32;state&#32;=&#32;2;
+<anchor xml:id="__animation_8cpp_source_1l00260"/>00260 
+<anchor xml:id="__animation_8cpp_source_1l00261"/>00261 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(timer.getElapsedTime().asSeconds()&#32;&lt;&#32;0.7&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00262"/>00262 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(timer.getElapsedTime().asMilliseconds()&#32;&gt;&#32;350)
+<anchor xml:id="__animation_8cpp_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;10;
+<anchor xml:id="__animation_8cpp_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;11;
+<anchor xml:id="__animation_8cpp_source_1l00267"/>00267 
+<anchor xml:id="__animation_8cpp_source_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sprite&#32;==&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[current]);
+<anchor xml:id="__animation_8cpp_source_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(10));
+<anchor xml:id="__animation_8cpp_source_1l00272"/>00272 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00273"/>00273 
+<anchor xml:id="__animation_8cpp_source_1l00274"/>00274 &#32;&#32;&#32;&#32;state&#32;=&#32;1;
+<anchor xml:id="__animation_8cpp_source_1l00275"/>00275 }
+<anchor xml:id="__animation_8cpp_source_1l00276"/>00276 
+<anchor xml:id="__animation_8cpp_source_1l00281"/>00281 <emphasis role="keywordtype">void</emphasis>&#32;Animation::fROCKET_FLICKER(sf::Sprite*&#32;sprite)
+<anchor xml:id="__animation_8cpp_source_1l00282"/>00282 {
+<anchor xml:id="__animation_8cpp_source_1l00283"/>00283 &#32;&#32;&#32;&#32;state&#32;=&#32;6;
+<anchor xml:id="__animation_8cpp_source_1l00284"/>00284 
+<anchor xml:id="__animation_8cpp_source_1l00285"/>00285 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!kill&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00286"/>00286 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(spriteSizeIndex&#32;==&#32;0)&#32;<emphasis role="comment">//&#32;green</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[22]);
+<anchor xml:id="__animation_8cpp_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="comment">//&#32;red</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[24]);
+<anchor xml:id="__animation_8cpp_source_1l00291"/>00291 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00292"/>00292 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00294"/>00294 &#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(100));
+<anchor xml:id="__animation_8cpp_source_1l00295"/>00295 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!kill&#32;&amp;&amp;&#32;sprite&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>)
+<anchor xml:id="__animation_8cpp_source_1l00296"/>00296 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__animation_8cpp_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(spriteSizeIndex&#32;==&#32;0)&#32;<emphasis role="comment">//&#32;green</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[23]);
+<anchor xml:id="__animation_8cpp_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="comment">//&#32;red</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sprite-&gt;setTextureRect(frames[25]);
+<anchor xml:id="__animation_8cpp_source_1l00301"/>00301 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__animation_8cpp_source_1l00302"/>00302 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00303"/>00303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="__animation_8cpp_source_1l00304"/>00304 &#32;&#32;&#32;&#32;std::this_thread::sleep_for(std::chrono::milliseconds(100));
+<anchor xml:id="__animation_8cpp_source_1l00305"/>00305 
+<anchor xml:id="__animation_8cpp_source_1l00306"/>00306 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!kill)
+<anchor xml:id="__animation_8cpp_source_1l00307"/>00307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;state&#32;=&#32;7;
+<anchor xml:id="__animation_8cpp_source_1l00308"/>00308 }
+<anchor xml:id="__animation_8cpp_source_1l00309"/>00309 
+<anchor xml:id="__animation_8cpp_source_1l00310"/>00310 
+<anchor xml:id="__animation_8cpp_source_1l00315"/><link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">00315</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">Animation::getState</link>()<emphasis role="keyword">&#32;const</emphasis>
+<anchor xml:id="__animation_8cpp_source_1l00316"/>00316 <emphasis role="keyword"></emphasis>{
+<anchor xml:id="__animation_8cpp_source_1l00317"/>00317 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;state;
+<anchor xml:id="__animation_8cpp_source_1l00318"/>00318 }
+</programlisting></section>

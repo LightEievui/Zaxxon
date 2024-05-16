@@ -1,48 +1,63 @@
 \doxysection{Background.\+h}
-\hypertarget{_background_8h_source}{}\label{_background_8h_source}\index{src/Background/Background.h@{src/Background/Background.h}}
-
+\hypertarget{_background_8h_source}{}\label{_background_8h_source}\index{C:/Zaxxon/src/Background/Background.h@{C:/Zaxxon/src/Background/Background.h}}
+\mbox{\hyperlink{_background_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity/Character/Player/Player.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Entity/Character/Enemy/Enemy.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Obstacle/Obstacle.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_background}{Background}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{enum}\ Stage\ \{}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ INITIAL,}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ SPACE,}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ BOSS}
-\DoxyCodeLine{00016\ \ \ \ \ \};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_background_a1fac54c7e81db155fbef597121344108}{Background}}(Stage,\ sf::View\&,\ sf::Texture*,\ std::vector<Obstacle*>\&,\ }
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_background}{\string~Background}}();}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a2a139f9d39a237ff2556c56eae438be5}{update}}(sf::RenderWindow\&,\ sf::View\&,\ \textcolor{keywordtype}{float},\ sf::Texture*,\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&);}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{setPosition}}(sf::Vector2f);}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ MAY\ want\ to\ consider\ changing\ to\ private\ later}}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_aadb6a9246b8e7532fff5d9de5b96b93c}{generateObstacles}}(Background::Stage,\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ sf::Texture*);}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a0f5d9a72170c2b943a3d688ef46ffbbb}{generateWaves}}(Background::Stage,\ std::vector<Enemy*>\&,\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Texture*,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_background_abd3150983c5f3a2df47b761966235635}{isInSpace}}(\textcolor{keywordtype}{int}\ z);}
-\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ changeStage(Stage,\ sf::View\&,\ sf::Texture*,}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ backgroundFinished(sf::View\&);}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ resetPos(sf::View\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ sf::Texture\ initial,\ space,\ boss;}
-\DoxyCodeLine{00040\ \ \ \ \ sf::Sprite\ back;}
-\DoxyCodeLine{00041\ \ \ \ \ Stage\ stage\ =\ Stage::INITIAL;}
-\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Entity/Character/Player/Player.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_enemy_8h}{Entity/Character/Enemy/Enemy.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_obstacle_8h}{Obstacle/Obstacle.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_wall_8h}{Wall/Wall.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_zap_wall_8h}{ZapWall/ZapWall.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00015}\mbox{\hyperlink{class_background}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_background}{Background}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00018}\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{00018}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00019}00019\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00020}\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{00020}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00021}\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{00021}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc}{SPACE}}\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00022}\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{00022}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe}{BOSS}}\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e}{BOSSFIGHT}}\ =\ 3}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00024}\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e}{00024}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{class_background_ab4f1a6df90c295ba2fa5b2116c9f7719}{Background}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}},\ sf::View\&,\ sf::Texture*,\ std::vector<Obstacle*>\&,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int},\ std::vector<Wall*>\&,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ZapWall*>\&);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{class_background_a36754df1deb720393217ade59da41557}{\string~Background}}();}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a35213116185226b7b3881b2e71c8a292}{update}}(sf::RenderWindow\&,\ sf::View\&,\ \textcolor{keywordtype}{float},\ sf::Texture*,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Wall*>\&,\ std::vector<ZapWall*>\&);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a002ca1b009e940180bb5edb8c49e008f}{setPosition}}(sf::Vector2f);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_ac607d65614b8f90a0f841a97df4f0b04}{generateObstacles}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}},}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ sf::Texture*,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Wall*>\&,\ std::vector<ZapWall*>\&);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_aa319354445ea0a0f224b6dc726b621c2}{generateWaves}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}},}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Enemy*>\&,\ sf::Texture*,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_ad04fe2ef8bcaf5516c95846e2e500877}{resetPos}}(sf::View\&,\ \mbox{\hyperlink{class_player}{Player}}\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}\ \mbox{\hyperlink{class_background_aa60585bb666a292f5d49049038400b1a}{getStage}}();}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_ac333125273a1213f2cb1c4af4081f0b8}{setStage}}(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}});}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_background_a52b2389cd7dfaedff511e72af9f3735c}{isInSpace}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_background_a093d96b9f25dda122febad2beabc47cd}{flashColor}}(sf::RenderWindow\&);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00049}00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{void}\ changeStage(\mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}},\ sf::View\&,\ sf::Texture*,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Obstacle*>\&,\ std::vector<Enemy*>\&,\ \mbox{\hyperlink{class_player}{Player}}\&,}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int},\ std::vector<Wall*>\&,\ std::vector<ZapWall*>\&);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ backgroundFinished(sf::View\&);}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00055}00055\ \ \ \ \ sf::Texture\ initial,\ space,\ boss,\ death;}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00056}00056\ \ \ \ \ sf::Sprite\ back;}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00057}00057\ \ \ \ \ sf::Sprite\ deathOverlay;}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3}{Stage}}\ stage\ =\ \mbox{\hyperlink{class_background_a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0}{INITIAL}};}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00059}00059\ \ \ \ \ std::queue<std::pair<int,\ unsigned\ int>>\ waveQueue;\ \textcolor{comment}{//\ playerZ:\ id}}
+\DoxyCodeLine{\Hypertarget{_background_8h_source_l00060}00060\ \};}
 
 \end{DoxyCode}

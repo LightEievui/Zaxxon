@@ -1,0 +1,353 @@
+.TH "Character" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Character \- Abstract class to hold information that both player and enemy use\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Character\&.h>\fP
+.PP
+Inherits \fBEntity\fP\&.
+.PP
+Inherited by \fBEnemy\fP, and \fBPlayer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCharacter\fP (sf::Texture *)"
+.br
+.RI "Create a new character who will have sprite from spritesheet\&. "
+.ti -1c
+.RI "\fB~Character\fP () override"
+.br
+.RI "Clean up memory related to the \fBCharacter\fP class\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
+.br
+.RI "Move the character by velocity and redraw them to the screen\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP ()=0"
+.br
+.ti -1c
+.RI "std::vector< \fBCharacterBullet\fP * > & \fBgetBullets\fP ()"
+.br
+.RI "Get the currently fired bullets from this character\&. "
+.ti -1c
+.RI "unsigned int \fBgetSizeIndex\fP () const"
+.br
+.RI "Get public size index of this character\&. "
+.ti -1c
+.RI "void \fBkillBullet\fP (int)"
+.br
+.RI "Get rid of bullet by index\&. "
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f)"
+.br
+.RI "Set position for the character itself\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB_getSizeIndex\fP (unsigned int &)"
+.br
+.RI "Get the height sector that character is in\&. Underscore infront indicates that it is not public\&. 0-3 3 indicates smallest, 0 indicates biggest\&. "
+.ti -1c
+.RI "sf::Vector3f \fBgetVelocity\fP () const"
+.br
+.RI "Get the velocity of character\&. "
+.ti -1c
+.RI "void \fBsetVelocity\fP (sf::Vector3f)"
+.br
+.RI "Change the velocity of this character\&. "
+.ti -1c
+.RI "void \fBsetBullet\fP (sf::IntRect)"
+.br
+.RI "Change how the bullets from this character look\&. "
+.ti -1c
+.RI "void \fBupdateBullets\fP (sf::RenderWindow &window, float)"
+.br
+.RI "Calls \fBCharacterBullet::update()\fP on each bullet & deletes bullets that are not in the window\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "const int \fByMax\fP = 140"
+.br
+.ti -1c
+.RI "const int \fByMin\fP = 69"
+.br
+.ti -1c
+.RI "const int \fBxMin\fP = \-160"
+.br
+.ti -1c
+.RI "const int \fBxMax\fP = 0"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBvelocity\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBCharacterBullet\fP * > \fBbullets\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBsizeIndex\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract class to hold information that both player and enemy use\&. 
+.PP
+Definition at line \fB12\fP of file \fBCharacter\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Character::Character (sf::Texture * spriteSheet)"
+
+.PP
+Create a new character who will have sprite from spritesheet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIspriteSheet\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB8\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "Character::~Character ()\fR [override]\fP"
+
+.PP
+Clean up memory related to the \fBCharacter\fP class\&. 
+.PP
+Definition at line \fB19\fP of file \fBCharacter\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Character::_getSizeIndex (unsigned int & planeSizeIndex)\fR [protected]\fP"
+
+.PP
+Get the height sector that character is in\&. Underscore infront indicates that it is not public\&. 0-3 3 indicates smallest, 0 indicates biggest\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplaneSizeIndex\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB76\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "std::vector< \fBCharacterBullet\fP * > & Character::getBullets ()"
+
+.PP
+Get the currently fired bullets from this character\&. 
+.PP
+\fBReturns\fP
+.RS 4
+Vector of bullets
+.RE
+.PP
+
+.PP
+Definition at line \fB54\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "unsigned int Character::getSizeIndex () const"
+
+.PP
+Get public size index of this character\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB64\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "sf::Vector3f Character::getVelocity () const\fR [protected]\fP"
+
+.PP
+Get the velocity of character\&. 
+.PP
+\fBReturns\fP
+.RS 4
+sf::Vector3f
+.RE
+.PP
+
+.PP
+Definition at line \fB97\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "virtual void Character::kill ()\fR [pure virtual]\fP"
+
+.PP
+Implemented in \fBEnemy\fP, and \fBPlayer\fP\&.
+.SS "void Character::killBullet (int bullet)"
+
+.PP
+Get rid of bullet by index\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbullet\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB150\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "void Character::setBullet (sf::IntRect bulletTexture)\fR [protected]\fP"
+
+.PP
+Change how the bullets from this character look\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbulletTexture\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB107\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "void Character::setPos (sf::Vector3f pos)"
+
+.PP
+Set position for the character itself\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB161\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "void Character::setVelocity (sf::Vector3f vel)\fR [protected]\fP"
+
+.PP
+Change the velocity of this character\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvel\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB117\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "void Character::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Move the character by velocity and redraw them to the screen\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Implements \fBEntity\fP\&.
+.PP
+Reimplemented in \fBEnemy\fP\&.
+.PP
+Definition at line \fB31\fP of file \fBCharacter\&.cpp\fP\&.
+.SS "void Character::updateBullets (sf::RenderWindow & window, float gameSpeed)\fR [protected]\fP"
+
+.PP
+Calls \fBCharacterBullet::update()\fP on each bullet & deletes bullets that are not in the window\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP Main render window
+.RE
+.PP
+
+.PP
+Definition at line \fB128\fP of file \fBCharacter\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::vector<\fBCharacterBullet\fP*> Character::bullets\fR [protected]\fP"
+
+.PP
+Definition at line \fB40\fP of file \fBCharacter\&.h\fP\&.
+.SS "unsigned int Character::sizeIndex\fR [protected]\fP"
+
+.PP
+Definition at line \fB41\fP of file \fBCharacter\&.h\fP\&.
+.SS "sf::Vector3f Character::velocity\fR [protected]\fP"
+
+.PP
+Definition at line \fB39\fP of file \fBCharacter\&.h\fP\&.
+.SS "const int Character::xMax = 0\fR [protected]\fP"
+
+.PP
+Definition at line \fB29\fP of file \fBCharacter\&.h\fP\&.
+.SS "const int Character::xMin = \-160\fR [protected]\fP"
+
+.PP
+Definition at line \fB28\fP of file \fBCharacter\&.h\fP\&.
+.SS "const int Character::yMax = 140\fR [protected]\fP"
+
+.PP
+Definition at line \fB26\fP of file \fBCharacter\&.h\fP\&.
+.SS "const int Character::yMin = 69\fR [protected]\fP"
+
+.PP
+Definition at line \fB27\fP of file \fBCharacter\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

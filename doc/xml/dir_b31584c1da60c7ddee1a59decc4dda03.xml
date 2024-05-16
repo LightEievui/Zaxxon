@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_b31584c1da60c7ddee1a59decc4dda03" kind="dir">
+    <compoundname>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet</compoundname>
+    <innerfile refid="_character_bullet_8cpp">CharacterBullet.cpp</innerfile>
+    <innerfile refid="_character_bullet_8h">CharacterBullet.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/"/>
+  </compounddef>
+</doxygen>

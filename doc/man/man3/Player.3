@@ -1,0 +1,284 @@
+.TH "Player" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player \- The player character, also contains plane controls\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Player\&.h>\fP
+.PP
+Inherits \fBCharacter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayer\fP (sf::Texture *, unsigned int)"
+.br
+.RI "Create player character at position and load resources for them\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, int, float)"
+.br
+.RI "Run all the logic and controls for player\&. "
+.ti -1c
+.RI "void \fBkill\fP () override"
+.br
+.RI "Modify variables for when player dies or respawns\&. "
+.ti -1c
+.RI "void \fBresetPos\fP (int zOffset=0)"
+.br
+.RI "Reset the players position to default\&. "
+.ti -1c
+.RI "void \fBdrawHitmarker\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisAlive\fP ()"
+.br
+.RI "Check if player is alive\&. "
+.ti -1c
+.RI "bool \fBisMissileable\fP ()"
+.br
+.RI "Returns whether the horizontal missile should shoot at the player or not\&. "
+.ti -1c
+.RI "void \fBrestartMissileTimer\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBCharacter\fP
+.in +1c
+.ti -1c
+.RI "\fBCharacter\fP (sf::Texture *)"
+.br
+.RI "Create a new character who will have sprite from spritesheet\&. "
+.ti -1c
+.RI "\fB~Character\fP () override"
+.br
+.RI "Clean up memory related to the \fBCharacter\fP class\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, float) override"
+.br
+.RI "Move the character by velocity and redraw them to the screen\&. "
+.ti -1c
+.RI "std::vector< \fBCharacterBullet\fP * > & \fBgetBullets\fP ()"
+.br
+.RI "Get the currently fired bullets from this character\&. "
+.ti -1c
+.RI "unsigned int \fBgetSizeIndex\fP () const"
+.br
+.RI "Get public size index of this character\&. "
+.ti -1c
+.RI "void \fBkillBullet\fP (int)"
+.br
+.RI "Get rid of bullet by index\&. "
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f)"
+.br
+.RI "Set position for the character itself\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBCharacter\fP
+.in +1c
+.ti -1c
+.RI "void \fB_getSizeIndex\fP (unsigned int &)"
+.br
+.RI "Get the height sector that character is in\&. Underscore infront indicates that it is not public\&. 0-3 3 indicates smallest, 0 indicates biggest\&. "
+.ti -1c
+.RI "sf::Vector3f \fBgetVelocity\fP () const"
+.br
+.RI "Get the velocity of character\&. "
+.ti -1c
+.RI "void \fBsetVelocity\fP (sf::Vector3f)"
+.br
+.RI "Change the velocity of this character\&. "
+.ti -1c
+.RI "void \fBsetBullet\fP (sf::IntRect)"
+.br
+.RI "Change how the bullets from this character look\&. "
+.ti -1c
+.RI "void \fBupdateBullets\fP (sf::RenderWindow &window, float)"
+.br
+.RI "Calls \fBCharacterBullet::update()\fP on each bullet & deletes bullets that are not in the window\&. "
+.in -1c
+
+Protected Attributes inherited from \fBCharacter\fP
+.in +1c
+.ti -1c
+.RI "const int \fByMax\fP = 140"
+.br
+.ti -1c
+.RI "const int \fByMin\fP = 69"
+.br
+.ti -1c
+.RI "const int \fBxMin\fP = \-160"
+.br
+.ti -1c
+.RI "const int \fBxMax\fP = 0"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBvelocity\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBCharacterBullet\fP * > \fBbullets\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBsizeIndex\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The player character, also contains plane controls\&. 
+.PP
+Definition at line \fB10\fP of file \fBPlayer\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Player::Player (sf::Texture * texture, unsigned int startPos)"
+
+.PP
+Create player character at position and load resources for them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItexture\fP 
+.br
+\fIstartPos\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB10\fP of file \fBPlayer\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Player::drawHitmarker ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB18\fP of file \fBPlayer\&.h\fP\&.
+.SS "bool Player::isAlive ()"
+
+.PP
+Check if player is alive\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB186\fP of file \fBPlayer\&.cpp\fP\&.
+.SS "bool Player::isMissileable ()"
+
+.PP
+Returns whether the horizontal missile should shoot at the player or not\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB176\fP of file \fBPlayer\&.cpp\fP\&.
+.SS "void Player::kill ()\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Modify variables for when player dies or respawns\&. 
+.PP
+Implements \fBCharacter\fP\&.
+.PP
+Definition at line \fB156\fP of file \fBPlayer\&.cpp\fP\&.
+.SS "void Player::resetPos (int zOffset = \fR0\fP)"
+
+.PP
+Reset the players position to default\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIzOffset\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB166\fP of file \fBPlayer\&.cpp\fP\&.
+.SS "void Player::restartMissileTimer ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBPlayer\&.h\fP\&.
+.SS "void Player::update (sf::RenderWindow & window, int stage, float gameSpeed)"
+
+.PP
+Run all the logic and controls for player\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.br
+\fIinSpace\fP 
+.br
+\fIgameSpeed\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB42\fP of file \fBPlayer\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

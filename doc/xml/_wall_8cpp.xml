@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_wall_8cpp" kind="file" language="C++">
+    <compoundname>Wall.cpp</compoundname>
+    <includes refid="_wall_8h" local="yes">Wall.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Wall/Wall.cpp</label>
+        <link refid="_wall_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Wall.h</label>
+        <link refid="_wall_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_wall_8h" kindref="compound">Wall.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_wall_1a5f29ba541aff9823b15a97451d78e4c6" refkind="member"><highlight class="normal"><ref refid="class_wall_1a5f29ba541aff9823b15a97451d78e4c6" kindref="member">Wall::Wall</ref>(sf::Texture*<sp/>tex,<sp/>sf::Vector3f<sp/>pos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>std::vector&lt;int&gt;<sp/>walls)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>spriteSheet<sp/>=<sp/>tex;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/><sp/>KEY<sp/>for<sp/>Vector</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/><sp/>0<sp/>=<sp/>closed<sp/>wall<sp/>piece</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/>1<sp/>=<sp/>open<sp/>wall<sp/>piece</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.push_back(sf::Sprite());</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(i).setTexture(*spriteSheet);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(i).setPosition(</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(sf::Vector3f(pos.x<sp/>-<sp/>38<sp/>*<sp/>i,<sp/>pos.y,<sp/>pos.z)));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wallPositions.push_back(sf::Vector3f(pos.x<sp/>-<sp/>38<sp/>*<sp/>i,<sp/>pos.y,<sp/>pos.z));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(walls.at(i)<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(i).setTextureRect(sf::IntRect(240,<sp/>64,<sp/>33,<sp/>31));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(i).setTextureRect(sf::IntRect(279,<sp/>64,<sp/>33,<sp/>31));</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="class_wall_1a274edf0d5b16afba31a8618df97626af" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_wall_1a274edf0d5b16afba31a8618df97626af" kindref="member">Wall::drawWalls</ref>(sf::RenderWindow&amp;<sp/>window)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="_util_8cpp_1abb6b320c3e2bc2c09f352e041a9d57e1" kindref="member">getWindowViewRect</ref>(window).intersects(</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(sprites.size()<sp/>-<sp/>1).getGlobalBounds())<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>!<ref refid="_util_8cpp_1abb6b320c3e2bc2c09f352e041a9d57e1" kindref="member">getWindowViewRect</ref>(window).intersects(sprites.at(0).getGlobalBounds()))</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onScreen<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>onScreen<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>sprites.size();<sp/>i++)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>window.draw(sprites.at(i));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="class_wall_1a2f5f377219bc2e184db172a9093875d4" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_wall_1a2f5f377219bc2e184db172a9093875d4" kindref="member">Wall::setPosition</ref>(sf::Vector3f<sp/>pos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>piece)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>sprites.at(piece).setPosition(<ref refid="_util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c" kindref="member">translateTo2d</ref>(pos));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>wallPositions.at(piece)<sp/>=<sp/>pos;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="class_wall_1a0f4063e0408cb992f6d478308fa52656" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_wall_1a0f4063e0408cb992f6d478308fa52656" kindref="member">Wall::setTexture</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>piece,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tex)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Closed<sp/>Piece</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tex<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(piece).setTextureRect(sf::IntRect(240,<sp/>64,<sp/>34,<sp/>32));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Open<sp/>Piece</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tex<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprites.at(piece).setTextureRect(sf::IntRect(278,<sp/>65,<sp/>34,<sp/>32));</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae" refkind="member"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae" kindref="member">Wall::checkOnScreen</ref>()</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>onScreen;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="class_wall_1a6132a9e93316cba66ee61a78ea96040b" refkind="member"><highlight class="normal">std::vector&lt;sf::Vector3f&gt;&amp;<sp/><ref refid="class_wall_1a6132a9e93316cba66ee61a78ea96040b" kindref="member">Wall::getWallPositions</ref>()</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wallPositions;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Wall/Wall.cpp"/>
+  </compounddef>
+</doxygen>

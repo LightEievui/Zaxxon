@@ -1,0 +1,741 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_game" kind="class" language="C++" prot="public">
+    <compoundname>Game</compoundname>
+    <includes refid="_game_8h" local="no">Game.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_game_1ae735f28341cc82a10d13202b2bc0abf2" prot="private" static="no" mutable="no">
+        <type>sf::Texture</type>
+        <definition>sf::Texture Game::spriteSheet</definition>
+        <argsstring></argsstring>
+        <name>spriteSheet</name>
+        <qualifiedname>Game::spriteSheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="31" column="13" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a8426dbbfc3a7fb340a07613b9e41491e" prot="private" static="no" mutable="no">
+        <type>sf::Texture</type>
+        <definition>sf::Texture Game::bossSheet</definition>
+        <argsstring></argsstring>
+        <name>bossSheet</name>
+        <qualifiedname>Game::bossSheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="31" column="25" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1afe52f8d3aae434939876a96fd82e1bbb" prot="private" static="no" mutable="no">
+        <type><ref refid="class_background" kindref="compound">Background</ref> *</type>
+        <definition>Background* Game::pBackground</definition>
+        <argsstring></argsstring>
+        <name>pBackground</name>
+        <qualifiedname>Game::pBackground</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="32" column="12" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a223de215aeb661cd423ac145756cc730" prot="private" static="no" mutable="no">
+        <type>sf::RenderWindow</type>
+        <definition>sf::RenderWindow Game::window</definition>
+        <argsstring></argsstring>
+        <name>window</name>
+        <qualifiedname>Game::window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="33" column="18" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a3a36302cedc89b72420d7d0312fd1d4c" prot="private" static="no" mutable="no">
+        <type><ref refid="class_g_u_i" kindref="compound">GUI</ref></type>
+        <definition>GUI Game::gui</definition>
+        <argsstring></argsstring>
+        <name>gui</name>
+        <qualifiedname>Game::gui</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="34" column="5" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1abec70aa1c0269a9a7e171af4d79e08bf" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+        <definition>Player* Game::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <qualifiedname>Game::player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="36" column="8" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a29e5e11978d28aac90748d484ddd1219" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_enemy" kindref="compound">Enemy</ref> * &gt;</type>
+        <definition>std::vector&lt;Enemy*&gt; Game::enemies</definition>
+        <argsstring></argsstring>
+        <name>enemies</name>
+        <qualifiedname>Game::enemies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="37" column="13" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ab5aa737835de38ee3f06b5e60119102f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_obstacle" kindref="compound">Obstacle</ref> * &gt;</type>
+        <definition>std::vector&lt;Obstacle*&gt; Game::obstacles</definition>
+        <argsstring></argsstring>
+        <name>obstacles</name>
+        <qualifiedname>Game::obstacles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="38" column="13" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a69e4328d91e86f5516c1c1be8f5a9d3e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_wall" kindref="compound">Wall</ref> * &gt;</type>
+        <definition>std::vector&lt;Wall*&gt; Game::walls</definition>
+        <argsstring></argsstring>
+        <name>walls</name>
+        <qualifiedname>Game::walls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="39" column="13" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1aafaf510fcb9d648868c3e2c9c8ee32c0" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_zap_wall" kindref="compound">ZapWall</ref> * &gt;</type>
+        <definition>std::vector&lt;ZapWall*&gt; Game::zapWalls</definition>
+        <argsstring></argsstring>
+        <name>zapWalls</name>
+        <qualifiedname>Game::zapWalls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="40" column="13" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ad5d5b48c317590c869af8a785dde1f68" prot="private" static="no" mutable="no">
+        <type><ref refid="class_boss" kindref="compound">Boss</ref> *</type>
+        <definition>Boss* Game::boss</definition>
+        <argsstring></argsstring>
+        <name>boss</name>
+        <qualifiedname>Game::boss</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="41" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1afa62a098eb7db12410e56709c9d5eff2" prot="private" static="no" mutable="no">
+        <type><ref refid="class_boss_bullet" kindref="compound">BossBullet</ref> *</type>
+        <definition>BossBullet* Game::missile</definition>
+        <argsstring></argsstring>
+        <name>missile</name>
+        <qualifiedname>Game::missile</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="42" column="12" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a56fe738cf4511bd1430bac6e0a77f413" prot="private" static="no" mutable="no">
+        <type><ref refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+        <definition>byte Game::fuel</definition>
+        <argsstring></argsstring>
+        <name>fuel</name>
+        <qualifiedname>Game::fuel</qualifiedname>
+        <initializer>= 128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="44" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ae382bc02bed2e483028be4b3ec71de41" prot="private" static="no" mutable="no">
+        <type><ref refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+        <definition>byte Game::completions</definition>
+        <argsstring></argsstring>
+        <name>completions</name>
+        <qualifiedname>Game::completions</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="45" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a27b61db2b13af6f8cd6c1e3662843589" prot="private" static="no" mutable="no">
+        <type><ref refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+        <definition>byte Game::lives</definition>
+        <argsstring></argsstring>
+        <name>lives</name>
+        <qualifiedname>Game::lives</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="46" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1afaf9404196df9968103d5b0d0ad08139" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Game::score</definition>
+        <argsstring></argsstring>
+        <name>score</name>
+        <qualifiedname>Game::score</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="47" column="5" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ad5542be28169bedf54ee0ff1b51de3bd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Game::highScore</definition>
+        <argsstring></argsstring>
+        <name>highScore</name>
+        <qualifiedname>Game::highScore</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="48" column="5" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1abbc9c9079e89d36732949ef05b76661d" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Game::gameSpeed</definition>
+        <argsstring></argsstring>
+        <name>gameSpeed</name>
+        <qualifiedname>Game::gameSpeed</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="49" column="7" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a864b86f9fa29c4b462332573bbbfb251" prot="private" static="no" mutable="no">
+        <type><ref refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+        <definition>byte Game::gameState</definition>
+        <argsstring></argsstring>
+        <name>gameState</name>
+        <qualifiedname>Game::gameState</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="50" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a62e895bbb68139e4f67b5c515cab2250" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Game::currentScores[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>currentScores</name>
+        <qualifiedname>Game::currentScores</qualifiedname>
+        <initializer>= {0, 0, 0, 0, 0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="51" column="5" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ab9277480801a7b3613411cb0baa726a4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Game::currentNames[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>currentNames</name>
+        <qualifiedname>Game::currentNames</qualifiedname>
+        <initializer>= {&quot;   &quot;, &quot;   &quot;, &quot;   &quot;, &quot;   &quot;, &quot;   &quot;, &quot;   &quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="52" column="13" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a9a633781d88c7a498f3177594448a9bc" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char Game::name[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>name</name>
+        <qualifiedname>Game::name</qualifiedname>
+        <initializer>= {&apos;_&apos;, &apos;_&apos;, &apos;_&apos;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="53" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1aeaf995e02f76ac304904d237daf76046" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Game::activeCursor[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>activeCursor</name>
+        <qualifiedname>Game::activeCursor</qualifiedname>
+        <initializer>= {true, true, true, true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="54" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a43ec96b7f2f5c8a23ab775c1dee1a597" prot="private" static="no" mutable="no">
+        <type><ref refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+        <definition>byte Game::selector</definition>
+        <argsstring></argsstring>
+        <name>selector</name>
+        <qualifiedname>Game::selector</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="55" column="6" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a2d01a2e2ebf27fc437969cd47654e264" prot="private" static="no" mutable="no">
+        <type>std::fstream</type>
+        <definition>std::fstream Game::file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <qualifiedname>Game::file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="56" column="14" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a75268df3792463a2b5a23fad5fecc28b" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Game::fps</definition>
+        <argsstring></argsstring>
+        <name>fps</name>
+        <qualifiedname>Game::fps</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="57" column="14" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a96c8e603187b7e91bc0a75193f5ed939" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Game::deltaTime</definition>
+        <argsstring></argsstring>
+        <name>deltaTime</name>
+        <qualifiedname>Game::deltaTime</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="58" column="8" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a4ba778067b016cce4a64fd11ab6d3424" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point Game::lastTime</definition>
+        <argsstring></argsstring>
+        <name>lastTime</name>
+        <qualifiedname>Game::lastTime</qualifiedname>
+        <initializer>=
+		                                      std::chrono::high_resolution_clock::now()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="59" column="39" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ae0b74c9568decb2cde230546090af9af" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point Game::currentTime</definition>
+        <argsstring></argsstring>
+        <name>currentTime</name>
+        <qualifiedname>Game::currentTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="61" column="2" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a28e09ea403fcf58036eb9b0cd7d79395" prot="private" static="no" mutable="no">
+        <type>sf::View</type>
+        <definition>sf::View Game::mainView</definition>
+        <argsstring></argsstring>
+        <name>mainView</name>
+        <qualifiedname>Game::mainView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="63" column="10" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a6564e9f40718873774794b1ba0f8d471" prot="private" static="no" mutable="no">
+        <type>sf::View</type>
+        <definition>sf::View Game::guiView</definition>
+        <argsstring></argsstring>
+        <name>guiView</name>
+        <qualifiedname>Game::guiView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="64" column="10" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ac5cecf92bffc162975bf37fe16fa8027" prot="private" static="no" mutable="no">
+        <type>sf::SoundBuffer</type>
+        <definition>sf::SoundBuffer Game::flightBuffer</definition>
+        <argsstring></argsstring>
+        <name>flightBuffer</name>
+        <qualifiedname>Game::flightBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="65" column="17" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a6d940a1b36a69731f7b04063f2ac2fde" prot="private" static="no" mutable="no">
+        <type>sf::Sound</type>
+        <definition>sf::Sound Game::flightSound</definition>
+        <argsstring></argsstring>
+        <name>flightSound</name>
+        <qualifiedname>Game::flightSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="66" column="11" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a6ca3d85e601853809499f3066f5fa578" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Game::fuelClock</definition>
+        <argsstring></argsstring>
+        <name>fuelClock</name>
+        <qualifiedname>Game::fuelClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="67" column="11" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a4076f21db2cd0e71c8834c885e7857d2" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Game::deathClock</definition>
+        <argsstring></argsstring>
+        <name>deathClock</name>
+        <qualifiedname>Game::deathClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="68" column="11" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a1666901cce5923a1f236b4c24d87a1aa" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite Game::deathSprite</definition>
+        <argsstring></argsstring>
+        <name>deathSprite</name>
+        <qualifiedname>Game::deathSprite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="69" column="12" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_1ad59df6562a58a614fda24622d3715b65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Game::Game</definition>
+        <argsstring>()</argsstring>
+        <name>Game</name>
+        <qualifiedname>Game::Game</qualifiedname>
+        <briefdescription>
+<para>Initialize everything needed for the main game functionality. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="27" column="1" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="10" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1ae3d112ca6e0e55150d2fdbc704474530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Game::~Game</definition>
+        <argsstring>()</argsstring>
+        <name>~Game</name>
+        <qualifiedname>Game::~Game</qualifiedname>
+        <briefdescription>
+<para>Clean up memory when user is done playing the game. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="28" column="1" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="88" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>Game::run</qualifiedname>
+        <briefdescription>
+<para>Start the game, main game loop is also managed in here. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="29" column="6" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="116" bodyend="464"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_game_1a07f68ec1f4dbd0f9656a203c148f7745" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::doCollision</definition>
+        <argsstring>(Player *)</argsstring>
+        <name>doCollision</name>
+        <qualifiedname>Game::doCollision</qualifiedname>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+          <defname>player</defname>
+        </param>
+        <briefdescription>
+<para>Check collisions for all bullets and player. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>player</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="71" column="6" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="471" bodyend="762"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a2f721cfae68620ac853ddb77ad914368" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Game::obstacleHit</definition>
+        <argsstring>(Obstacle::ObstacleType type, sf::Vector3f difference, bool intersect2d)</argsstring>
+        <name>obstacleHit</name>
+        <qualifiedname>Game::obstacleHit</qualifiedname>
+        <param>
+          <type><ref refid="class_obstacle_1aa5327a6a717468b71fc3c7b95ee7ebda" kindref="member">Obstacle::ObstacleType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>sf::Vector3f</type>
+          <declname>difference</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>intersect2d</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the obstacle hit based on the difference and type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>difference</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>intersect2d</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="72" column="6" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="772" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1ab7f3eff651c80c1c73bc9ceec036e66e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::playerDeath</definition>
+        <argsstring>()</argsstring>
+        <name>playerDeath</name>
+        <qualifiedname>Game::playerDeath</qualifiedname>
+        <briefdescription>
+<para>Run code for when player dies. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="74" column="6" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="803" bodyend="808"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1ac7d371f3f30513a4f3c57f521fac9b5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::gameOver</definition>
+        <argsstring>()</argsstring>
+        <name>gameOver</name>
+        <qualifiedname>Game::gameOver</qualifiedname>
+        <briefdescription>
+<para>Run code for when you&apos;ve fully ran out of lives. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Game/Game.h" line="75" column="6" bodyfile="C:/Zaxxon/src/Game/Game.cpp" bodystart="814" bodyend="862"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The main game and all related classes eventually end up being used here. <ref refid="class_game" kindref="compound">Game</ref> loop is in here and is the &apos;heart&apos; of the whole program. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Game/Game.h" line="24" column="1" bodyfile="C:/Zaxxon/src/Game/Game.h" bodystart="25" bodyend="76"/>
+    <listofallmembers>
+      <member refid="class_game_1aeaf995e02f76ac304904d237daf76046" prot="private" virt="non-virtual"><scope>Game</scope><name>activeCursor</name></member>
+      <member refid="class_game_1ad5d5b48c317590c869af8a785dde1f68" prot="private" virt="non-virtual"><scope>Game</scope><name>boss</name></member>
+      <member refid="class_game_1a8426dbbfc3a7fb340a07613b9e41491e" prot="private" virt="non-virtual"><scope>Game</scope><name>bossSheet</name></member>
+      <member refid="class_game_1ae382bc02bed2e483028be4b3ec71de41" prot="private" virt="non-virtual"><scope>Game</scope><name>completions</name></member>
+      <member refid="class_game_1ab9277480801a7b3613411cb0baa726a4" prot="private" virt="non-virtual"><scope>Game</scope><name>currentNames</name></member>
+      <member refid="class_game_1a62e895bbb68139e4f67b5c515cab2250" prot="private" virt="non-virtual"><scope>Game</scope><name>currentScores</name></member>
+      <member refid="class_game_1ae0b74c9568decb2cde230546090af9af" prot="private" virt="non-virtual"><scope>Game</scope><name>currentTime</name></member>
+      <member refid="class_game_1a4076f21db2cd0e71c8834c885e7857d2" prot="private" virt="non-virtual"><scope>Game</scope><name>deathClock</name></member>
+      <member refid="class_game_1a1666901cce5923a1f236b4c24d87a1aa" prot="private" virt="non-virtual"><scope>Game</scope><name>deathSprite</name></member>
+      <member refid="class_game_1a96c8e603187b7e91bc0a75193f5ed939" prot="private" virt="non-virtual"><scope>Game</scope><name>deltaTime</name></member>
+      <member refid="class_game_1a07f68ec1f4dbd0f9656a203c148f7745" prot="private" virt="non-virtual"><scope>Game</scope><name>doCollision</name></member>
+      <member refid="class_game_1a29e5e11978d28aac90748d484ddd1219" prot="private" virt="non-virtual"><scope>Game</scope><name>enemies</name></member>
+      <member refid="class_game_1a2d01a2e2ebf27fc437969cd47654e264" prot="private" virt="non-virtual"><scope>Game</scope><name>file</name></member>
+      <member refid="class_game_1ac5cecf92bffc162975bf37fe16fa8027" prot="private" virt="non-virtual"><scope>Game</scope><name>flightBuffer</name></member>
+      <member refid="class_game_1a6d940a1b36a69731f7b04063f2ac2fde" prot="private" virt="non-virtual"><scope>Game</scope><name>flightSound</name></member>
+      <member refid="class_game_1a75268df3792463a2b5a23fad5fecc28b" prot="private" virt="non-virtual"><scope>Game</scope><name>fps</name></member>
+      <member refid="class_game_1a56fe738cf4511bd1430bac6e0a77f413" prot="private" virt="non-virtual"><scope>Game</scope><name>fuel</name></member>
+      <member refid="class_game_1a6ca3d85e601853809499f3066f5fa578" prot="private" virt="non-virtual"><scope>Game</scope><name>fuelClock</name></member>
+      <member refid="class_game_1ad59df6562a58a614fda24622d3715b65" prot="public" virt="non-virtual"><scope>Game</scope><name>Game</name></member>
+      <member refid="class_game_1ac7d371f3f30513a4f3c57f521fac9b5f" prot="private" virt="non-virtual"><scope>Game</scope><name>gameOver</name></member>
+      <member refid="class_game_1abbc9c9079e89d36732949ef05b76661d" prot="private" virt="non-virtual"><scope>Game</scope><name>gameSpeed</name></member>
+      <member refid="class_game_1a864b86f9fa29c4b462332573bbbfb251" prot="private" virt="non-virtual"><scope>Game</scope><name>gameState</name></member>
+      <member refid="class_game_1a3a36302cedc89b72420d7d0312fd1d4c" prot="private" virt="non-virtual"><scope>Game</scope><name>gui</name></member>
+      <member refid="class_game_1a6564e9f40718873774794b1ba0f8d471" prot="private" virt="non-virtual"><scope>Game</scope><name>guiView</name></member>
+      <member refid="class_game_1ad5542be28169bedf54ee0ff1b51de3bd" prot="private" virt="non-virtual"><scope>Game</scope><name>highScore</name></member>
+      <member refid="class_game_1a4ba778067b016cce4a64fd11ab6d3424" prot="private" virt="non-virtual"><scope>Game</scope><name>lastTime</name></member>
+      <member refid="class_game_1a27b61db2b13af6f8cd6c1e3662843589" prot="private" virt="non-virtual"><scope>Game</scope><name>lives</name></member>
+      <member refid="class_game_1a28e09ea403fcf58036eb9b0cd7d79395" prot="private" virt="non-virtual"><scope>Game</scope><name>mainView</name></member>
+      <member refid="class_game_1afa62a098eb7db12410e56709c9d5eff2" prot="private" virt="non-virtual"><scope>Game</scope><name>missile</name></member>
+      <member refid="class_game_1a9a633781d88c7a498f3177594448a9bc" prot="private" virt="non-virtual"><scope>Game</scope><name>name</name></member>
+      <member refid="class_game_1a2f721cfae68620ac853ddb77ad914368" prot="private" virt="non-virtual"><scope>Game</scope><name>obstacleHit</name></member>
+      <member refid="class_game_1ab5aa737835de38ee3f06b5e60119102f" prot="private" virt="non-virtual"><scope>Game</scope><name>obstacles</name></member>
+      <member refid="class_game_1afe52f8d3aae434939876a96fd82e1bbb" prot="private" virt="non-virtual"><scope>Game</scope><name>pBackground</name></member>
+      <member refid="class_game_1abec70aa1c0269a9a7e171af4d79e08bf" prot="private" virt="non-virtual"><scope>Game</scope><name>player</name></member>
+      <member refid="class_game_1ab7f3eff651c80c1c73bc9ceec036e66e" prot="private" virt="non-virtual"><scope>Game</scope><name>playerDeath</name></member>
+      <member refid="class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa" prot="public" virt="non-virtual"><scope>Game</scope><name>run</name></member>
+      <member refid="class_game_1afaf9404196df9968103d5b0d0ad08139" prot="private" virt="non-virtual"><scope>Game</scope><name>score</name></member>
+      <member refid="class_game_1a43ec96b7f2f5c8a23ab775c1dee1a597" prot="private" virt="non-virtual"><scope>Game</scope><name>selector</name></member>
+      <member refid="class_game_1ae735f28341cc82a10d13202b2bc0abf2" prot="private" virt="non-virtual"><scope>Game</scope><name>spriteSheet</name></member>
+      <member refid="class_game_1a69e4328d91e86f5516c1c1be8f5a9d3e" prot="private" virt="non-virtual"><scope>Game</scope><name>walls</name></member>
+      <member refid="class_game_1a223de215aeb661cd423ac145756cc730" prot="private" virt="non-virtual"><scope>Game</scope><name>window</name></member>
+      <member refid="class_game_1aafaf510fcb9d648868c3e2c9c8ee32c0" prot="private" virt="non-virtual"><scope>Game</scope><name>zapWalls</name></member>
+      <member refid="class_game_1ae3d112ca6e0e55150d2fdbc704474530" prot="public" virt="non-virtual"><scope>Game</scope><name>~Game</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

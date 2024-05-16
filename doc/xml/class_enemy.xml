@@ -1,0 +1,499 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_enemy" kind="class" language="C++" prot="public">
+    <compoundname>Enemy</compoundname>
+    <basecompoundref refid="class_character" prot="public" virt="non-virtual">Character</basecompoundref>
+    <includes refid="_enemy_8h" local="no">Enemy.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_enemy_1adace0e03456b5af4408ac370f926da17" prot="private" static="no" mutable="no">
+        <type>sf::IntRect</type>
+        <definition>sf::IntRect Enemy::textures[2][4]</definition>
+        <argsstring>[2][4]</argsstring>
+        <name>textures</name>
+        <qualifiedname>Enemy::textures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="29" column="13" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1a9331167f267c2e43f5db5f1e2c179f2d" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Enemy::alive</definition>
+        <argsstring></argsstring>
+        <name>alive</name>
+        <qualifiedname>Enemy::alive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="30" column="11" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1a4b1b61e7bc79aca01f3e4b3ef19cb787" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Enemy::dead</definition>
+        <argsstring></argsstring>
+        <name>dead</name>
+        <qualifiedname>Enemy::dead</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="31" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1a69297c393166392cba18a827c71f7c05" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Enemy::sizeIndex</definition>
+        <argsstring></argsstring>
+        <name>sizeIndex</name>
+        <qualifiedname>Enemy::sizeIndex</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="32" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1ab10c61f35af1abbc9dbeb0f118a89677" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Enemy::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Enemy::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="33" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1afa8050a8026933f0b7b4e63a4cc1f9ec" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Enemy::randOffset</definition>
+        <argsstring></argsstring>
+        <name>randOffset</name>
+        <qualifiedname>Enemy::randOffset</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="34" column="5" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1ad500b6c8fbb46dc0f98f60f11a8fa6f2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Enemy::ableToFire</definition>
+        <argsstring></argsstring>
+        <name>ableToFire</name>
+        <qualifiedname>Enemy::ableToFire</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="37" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1a4a0c7e5e88599ff707a292bee654ead1" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Enemy::bulletCD</definition>
+        <argsstring></argsstring>
+        <name>bulletCD</name>
+        <qualifiedname>Enemy::bulletCD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="38" column="11" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_enemy_1a78513af724531f981172b56b91951a21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Enemy::Enemy</definition>
+        <argsstring>(sf::Texture *texture, unsigned int id, sf::Vector3f spawnZ, int randOffset=0)</argsstring>
+        <name>Enemy</name>
+        <qualifiedname>Enemy::Enemy</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>sf::Vector3f</type>
+          <declname>spawnZ</declname>
+          <defname>spawnPos</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>randOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Create new enemy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spawnZ</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="12" column="1" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="10" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Enemy::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float gameSpeed) override</argsstring>
+        <name>update</name>
+        <qualifiedname>Enemy::update</qualifiedname>
+        <reimplements refid="class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">update</reimplements>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gameSpeed</declname>
+        </param>
+        <briefdescription>
+<para>Run the logic for this enemy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="14" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="58" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1ad0bf56e75378d9524f2d77479d259dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Enemy::kill</definition>
+        <argsstring>() override</argsstring>
+        <name>kill</name>
+        <qualifiedname>Enemy::kill</qualifiedname>
+        <reimplements refid="class_character_1a6eaf7357d3575a2281b5456abfbe1b9d">kill</reimplements>
+        <briefdescription>
+<para>Extra code for when enemy is killed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="15" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1af933da0510136962e59487e9a6c28ead" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Enemy::getTranslate2</definition>
+        <argsstring>()</argsstring>
+        <name>getTranslate2</name>
+        <qualifiedname>Enemy::getTranslate2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="16" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1a8c811260a36e5b4fdbd022fa4e205863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Enemy::getSizeIndex</definition>
+        <argsstring>()</argsstring>
+        <name>getSizeIndex</name>
+        <qualifiedname>Enemy::getSizeIndex</qualifiedname>
+        <briefdescription>
+<para>Get public size index of this enemy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="17" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1a038e636d16b708f92627348a36750702" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Enemy::isDead</definition>
+        <argsstring>()</argsstring>
+        <name>isDead</name>
+        <qualifiedname>Enemy::isDead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="22" column="6" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_enemy_1a965d8a0c6f027a92795b9794158369b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Enemy::spawnWave</definition>
+        <argsstring>(std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int, unsigned int)</argsstring>
+        <name>spawnWave</name>
+        <qualifiedname>Enemy::spawnWave</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="class_enemy" kindref="compound">Enemy</ref> * &gt; &amp;</type>
+          <defname>enemies</defname>
+        </param>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritesheet</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>playerZ</defname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <defname>wave</defname>
+        </param>
+        <briefdescription>
+<para>Enemies come in waves, this will spawn the specified enemy wave by int id. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>enemies</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spritesheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerZ</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wave</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="20" column="13" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="119" bodyend="153"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_enemy_1a679f4b8c82ef1a288721dab6248a0f58" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Enemy::runAI</definition>
+        <argsstring>()</argsstring>
+        <name>runAI</name>
+        <qualifiedname>Enemy::runAI</qualifiedname>
+        <briefdescription>
+<para>Controls movement of enemies. Runs each frame on enemy update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="25" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="159" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1a527fa119a1508b61e800b74e28d735f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Enemy::angleTranslate</definition>
+        <argsstring>(float angle, float scale)</argsstring>
+        <name>angleTranslate</name>
+        <qualifiedname>Enemy::angleTranslate</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+<para>Translates an angle and scale to cartesian coordinates using trig. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An angle in degrees.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount to scale the coordinates by.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A sf::vector2f with respective x and y.</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="27" column="14" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp" bodystart="317" bodyend="325"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="class_enemy" kindref="compound">Enemy</ref> in the game. These use a recolored player bullet. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Character</label>
+        <link refid="class_character"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Enemy</label>
+        <link refid="class_enemy"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="2">
+        <label>Character</label>
+        <link refid="class_character"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Enemy</label>
+        <link refid="class_enemy"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" line="9" column="1" bodyfile="C:/Zaxxon/src/Entity/Character/Enemy/Enemy.h" bodystart="10" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_character_1a40ac52813d37c391b4cd6db06a8f1216" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>_getSizeIndex</name></member>
+      <member refid="class_enemy_1ad500b6c8fbb46dc0f98f60f11a8fa6f2" prot="private" virt="non-virtual"><scope>Enemy</scope><name>ableToFire</name></member>
+      <member refid="class_enemy_1a9331167f267c2e43f5db5f1e2c179f2d" prot="private" virt="non-virtual"><scope>Enemy</scope><name>alive</name></member>
+      <member refid="class_enemy_1a527fa119a1508b61e800b74e28d735f4" prot="private" virt="non-virtual"><scope>Enemy</scope><name>angleTranslate</name></member>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>animations</name></member>
+      <member refid="class_enemy_1a4a0c7e5e88599ff707a292bee654ead1" prot="private" virt="non-virtual"><scope>Enemy</scope><name>bulletCD</name></member>
+      <member refid="class_character_1aff7b8bd3f067ab04cd547c0dc14e765f" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>bullets</name></member>
+      <member refid="class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2" prot="public" virt="non-virtual"><scope>Enemy</scope><name>Character</name></member>
+      <member refid="class_enemy_1a4b1b61e7bc79aca01f3e4b3ef19cb787" prot="private" virt="non-virtual"><scope>Enemy</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>debugText</name></member>
+      <member refid="class_enemy_1a78513af724531f981172b56b91951a21" prot="public" virt="non-virtual"><scope>Enemy</scope><name>Enemy</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>Enemy</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getBounds</name></member>
+      <member refid="class_character_1a59755f2066960eeade9a67b13f646c79" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getBullets</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getPos</name></member>
+      <member refid="class_enemy_1a8c811260a36e5b4fdbd022fa4e205863" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getSizeIndex</name></member>
+      <member refid="class_character_1abb29539c98416153a4f079ca83879cfc" prot="public" virt="non-virtual" ambiguityscope="Character::"><scope>Enemy</scope><name>getSizeIndex</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getSpritePos</name></member>
+      <member refid="class_enemy_1af933da0510136962e59487e9a6c28ead" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getTranslate2</name></member>
+      <member refid="class_character_1adba5c58a1b24bff604893e28519a1f34" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>getVelocity</name></member>
+      <member refid="class_enemy_1ab10c61f35af1abbc9dbeb0f118a89677" prot="private" virt="non-virtual"><scope>Enemy</scope><name>id</name></member>
+      <member refid="class_enemy_1a038e636d16b708f92627348a36750702" prot="public" virt="non-virtual"><scope>Enemy</scope><name>isDead</name></member>
+      <member refid="class_enemy_1ad0bf56e75378d9524f2d77479d259dde" prot="public" virt="virtual"><scope>Enemy</scope><name>kill</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual" ambiguityscope="Entity::"><scope>Enemy</scope><name>kill</name></member>
+      <member refid="class_character_1a6ea404b0682144a8f21d42e881cb0ce7" prot="public" virt="non-virtual"><scope>Enemy</scope><name>killBullet</name></member>
+      <member refid="class_enemy_1afa8050a8026933f0b7b4e63a4cc1f9ec" prot="private" virt="non-virtual"><scope>Enemy</scope><name>randOffset</name></member>
+      <member refid="class_enemy_1a679f4b8c82ef1a288721dab6248a0f58" prot="private" virt="non-virtual"><scope>Enemy</scope><name>runAI</name></member>
+      <member refid="class_character_1afe32dd9baa581b7895f06c9687d073b4" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>setBullet</name></member>
+      <member refid="class_character_1acf35437606532f7df271dd0fd3d6800c" prot="public" virt="non-virtual"><scope>Enemy</scope><name>setPos</name></member>
+      <member refid="class_character_1a46a264779165a349a13bcb364c4106d4" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>setVelocity</name></member>
+      <member refid="class_enemy_1a69297c393166392cba18a827c71f7c05" prot="private" virt="non-virtual"><scope>Enemy</scope><name>sizeIndex</name></member>
+      <member refid="class_enemy_1a965d8a0c6f027a92795b9794158369b7" prot="public" virt="non-virtual"><scope>Enemy</scope><name>spawnWave</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>spriteSheet</name></member>
+      <member refid="class_enemy_1adace0e03456b5af4408ac370f926da17" prot="private" virt="non-virtual"><scope>Enemy</scope><name>textures</name></member>
+      <member refid="class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59" prot="public" virt="virtual"><scope>Enemy</scope><name>update</name></member>
+      <member refid="class_character_1a450a222c641925d6bda2f2c9241c220b" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>updateBullets</name></member>
+      <member refid="class_character_1a12d640046cf216dd010f8e71c3466e1e" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>velocity</name></member>
+      <member refid="class_character_1ae741b4874f8875f33f70663890315a52" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>xMax</name></member>
+      <member refid="class_character_1a682f191a3a01f1a772cd3fa624c0b16e" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>xMin</name></member>
+      <member refid="class_character_1a602309a031e6db0a570644d8f0b5d5fb" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>yMax</name></member>
+      <member refid="class_character_1a1750fc7b411d6fdac9ca9e6763e126f5" prot="protected" virt="non-virtual"><scope>Enemy</scope><name>yMin</name></member>
+      <member refid="class_character_1a5e399f512bf22a9e8558a4bae1ec9555" prot="public" virt="non-virtual"><scope>Enemy</scope><name>~Character</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>Enemy</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

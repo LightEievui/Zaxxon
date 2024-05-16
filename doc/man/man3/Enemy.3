@@ -1,0 +1,273 @@
+.TH "Enemy" 3 "Version 1.0" "Zaxxon" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Enemy \- \fBEnemy\fP in the game\&. These use a recolored player bullet\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <Enemy\&.h>\fP
+.PP
+Inherits \fBCharacter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEnemy\fP (sf::Texture *texture, unsigned int id, sf::Vector3f spawnZ, int randOffset=0)"
+.br
+.RI "Create new enemy\&. "
+.ti -1c
+.RI "void \fBupdate\fP (sf::RenderWindow &, float gameSpeed) override"
+.br
+.RI "Run the logic for this enemy\&. "
+.ti -1c
+.RI "void \fBkill\fP () override"
+.br
+.RI "Extra code for when enemy is killed\&. "
+.ti -1c
+.RI "bool \fBgetTranslate2\fP ()"
+.br
+.ti -1c
+.RI "unsigned int \fBgetSizeIndex\fP ()"
+.br
+.RI "Get public size index of this enemy\&. "
+.ti -1c
+.RI "bool \fBisDead\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBCharacter\fP
+.in +1c
+.ti -1c
+.RI "\fBCharacter\fP (sf::Texture *)"
+.br
+.RI "Create a new character who will have sprite from spritesheet\&. "
+.ti -1c
+.RI "\fB~Character\fP () override"
+.br
+.RI "Clean up memory related to the \fBCharacter\fP class\&. "
+.ti -1c
+.RI "std::vector< \fBCharacterBullet\fP * > & \fBgetBullets\fP ()"
+.br
+.RI "Get the currently fired bullets from this character\&. "
+.ti -1c
+.RI "unsigned int \fBgetSizeIndex\fP () const"
+.br
+.RI "Get public size index of this character\&. "
+.ti -1c
+.RI "void \fBkillBullet\fP (int)"
+.br
+.RI "Get rid of bullet by index\&. "
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f)"
+.br
+.RI "Set position for the character itself\&. "
+.in -1c
+
+Public Member Functions inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP ()"
+.br
+.RI "Setup \fBEntity\fP class variables\&. "
+.ti -1c
+.RI "virtual \fB~Entity\fP ()=0"
+.br
+.RI "Clean up memory related to \fBEntity\fP class\&. "
+.ti -1c
+.RI "virtual void \fBkill\fP (\fBAnimation::Anim\fP \fBanimation\fP=\fBAnimation::CHARACTER_DEATH\fP)"
+.br
+.RI "Run death animation code for the killed entity\&. "
+.ti -1c
+.RI "int \fBgetAnimationState\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (sf::Vector3f pos)"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBgetPos\fP ()"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBounds\fP ()"
+.br
+.ti -1c
+.RI "sf::Vector2f \fBgetSpritePos\fP ()"
+.br
+.RI "Get the position of the related sprite for this entity\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBspawnWave\fP (std::vector< \fBEnemy\fP * > &, sf::Texture *, int, unsigned int)"
+.br
+.RI "Enemies come in waves, this will spawn the specified enemy wave by int id\&. "
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBCharacter\fP
+.in +1c
+.ti -1c
+.RI "void \fB_getSizeIndex\fP (unsigned int &)"
+.br
+.RI "Get the height sector that character is in\&. Underscore infront indicates that it is not public\&. 0-3 3 indicates smallest, 0 indicates biggest\&. "
+.ti -1c
+.RI "sf::Vector3f \fBgetVelocity\fP () const"
+.br
+.RI "Get the velocity of character\&. "
+.ti -1c
+.RI "void \fBsetVelocity\fP (sf::Vector3f)"
+.br
+.RI "Change the velocity of this character\&. "
+.ti -1c
+.RI "void \fBsetBullet\fP (sf::IntRect)"
+.br
+.RI "Change how the bullets from this character look\&. "
+.ti -1c
+.RI "void \fBupdateBullets\fP (sf::RenderWindow &window, float)"
+.br
+.RI "Calls \fBCharacterBullet::update()\fP on each bullet & deletes bullets that are not in the window\&. "
+.in -1c
+
+Protected Attributes inherited from \fBCharacter\fP
+.in +1c
+.ti -1c
+.RI "const int \fByMax\fP = 140"
+.br
+.ti -1c
+.RI "const int \fByMin\fP = 69"
+.br
+.ti -1c
+.RI "const int \fBxMin\fP = \-160"
+.br
+.ti -1c
+.RI "const int \fBxMax\fP = 0"
+.br
+.ti -1c
+.RI "sf::Vector3f \fBvelocity\fP"
+.br
+.ti -1c
+.RI "std::vector< \fBCharacterBullet\fP * > \fBbullets\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBsizeIndex\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBEntity\fP
+.in +1c
+.ti -1c
+.RI "sf::Texture * \fBspriteSheet\fP"
+.br
+.ti -1c
+.RI "sf::Sprite * \fBsprite\fP"
+.br
+.ti -1c
+.RI "\fBAnimation\fP \fBanimations\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP = false"
+.br
+.ti -1c
+.RI "sf::Text \fBdebugText\fP"
+.br
+.ti -1c
+.RI "sf::Font \fBdebugFont\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBEnemy\fP in the game\&. These use a recolored player bullet\&. 
+.PP
+Definition at line \fB9\fP of file \fBEnemy\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Enemy::Enemy (sf::Texture * texture, unsigned int id, sf::Vector3f spawnPos, int randOffset = \fR0\fP)"
+
+.PP
+Create new enemy\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItexture\fP 
+.br
+\fIid\fP 
+.br
+\fIspawnZ\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB10\fP of file \fBEnemy\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "unsigned int Enemy::getSizeIndex ()"
+
+.PP
+Get public size index of this enemy\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line \fB97\fP of file \fBEnemy\&.cpp\fP\&.
+.SS "bool Enemy::getTranslate2 ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB16\fP of file \fBEnemy\&.h\fP\&.
+.SS "bool Enemy::isDead ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB22\fP of file \fBEnemy\&.h\fP\&.
+.SS "void Enemy::kill ()\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Extra code for when enemy is killed\&. 
+.PP
+Implements \fBCharacter\fP\&.
+.PP
+Definition at line \fB106\fP of file \fBEnemy\&.cpp\fP\&.
+.SS "void Enemy::spawnWave (std::vector< \fBEnemy\fP * > & enemies, sf::Texture * spritesheet, int playerZ, unsigned int wave)\fR [static]\fP"
+
+.PP
+Enemies come in waves, this will spawn the specified enemy wave by int id\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenemies\fP 
+.br
+\fIspritesheet\fP 
+.br
+\fIplayerZ\fP 
+.br
+\fIwave\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB119\fP of file \fBEnemy\&.cpp\fP\&.
+.SS "void Enemy::update (sf::RenderWindow & window, float gameSpeed)\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Run the logic for this enemy\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwindow\fP 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBCharacter\fP\&.
+.PP
+Definition at line \fB58\fP of file \fBEnemy\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Zaxxon from the source code\&.

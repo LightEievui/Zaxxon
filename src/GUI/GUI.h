@@ -1,23 +1,27 @@
 #pragma once
 #include <vector>
-// temp
-#include <iostream>
 #include "ZaxxonText/ZaxxonText.h"
 #include "HMSection/HMSection.h"
 
-typedef unsigned char byte;
+using byte = unsigned char;
 
 
+/// <summary>
+/// Contains all GUI used in the game, including all text.
+/// These are simple but can take a lot of space due to how much there is.
+/// Different GUIs are split into different render functions.
+/// </summary>
 class GUI
 {
 public:
 	GUI(sf::Texture*);
-	~GUI();
-	void render(sf::RenderWindow&, float, int, int, byte, byte);
+	void render(sf::RenderWindow&, float, int, int, int, byte, byte, byte = 0x0);
 	void startRender(sf::RenderWindow&, int);
-	void renderScores(sf::RenderWindow&, int[], std::string[]);
-	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0, const char[3] = "   ");
-
+	void renderScores(sf::RenderWindow&, int [], std::string []);
+	void renderEnd(sf::RenderWindow&, byte = 255, byte = 0,
+	               const char [3] = "   ");
+	void renderWin(sf::RenderWindow&);
+	void renderPlayerScreen(sf::RenderWindow& window, bool player2);
 private:
 	sf::Texture* spritesheet;
 
@@ -28,8 +32,9 @@ private:
 	std::vector<sf::Transformable*> hudElements;
 
 	sf::Sprite copyright[10];
-	sf::Sprite topScore[9];
-	sf::Sprite curScore[9];
+	sf::Sprite topScore[9]; // TOP
+	sf::Sprite curScore[9]; // 1UP
+	sf::Sprite curScore2[9]; // 2UP
 	sf::Sprite fuelText[6];
 	sf::Sprite enemyText[10];
 
@@ -51,4 +56,9 @@ private:
 	sf::Sprite entryTime[13];
 	sf::Sprite keyboard[30];
 	sf::Sprite cursor;
+
+	sf::Sprite endScreen[40];
+
+	sf::Sprite playerScreen1[10];
+	sf::Sprite playerScreen2[10];
 };

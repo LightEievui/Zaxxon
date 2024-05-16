@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_62fbeb234f4aa6b46a05f1b8945030da" kind="dir">
+    <compoundname>C:/Zaxxon/src/Animation</compoundname>
+    <innerfile refid="_animation_8cpp">Animation.cpp</innerfile>
+    <innerfile refid="_animation_8h">Animation.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Animation/"/>
+  </compounddef>
+</doxygen>

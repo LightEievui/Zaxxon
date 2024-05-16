@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__enemy_8cpp_source" xml:lang="en-US">
+<title>Enemy.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/Character/Enemy/Enemy.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__enemy_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__enemy_8h">Enemy.h</link>&quot;</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__enemy_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__enemy_8cpp_source_1l00010"/><link linkend="_class_enemy_1a78513af724531f981172b56b91951a21">00010</link> <link linkend="_class_enemy_1a78513af724531f981172b56b91951a21">Enemy::Enemy</link>(sf::Texture*&#32;texture,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;sf::Vector3f&#32;spawnPos,
+<anchor xml:id="__enemy_8cpp_source_1l00011"/>00011 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;randOffset)&#32;:&#32;<link linkend="_class_character">Character</link>(texture)
+<anchor xml:id="__enemy_8cpp_source_1l00012"/>00012 {
+<anchor xml:id="__enemy_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;2;&#32;i++)
+<anchor xml:id="__enemy_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;j&#32;=&#32;0;&#32;j&#32;&lt;&#32;4;&#32;j++)
+<anchor xml:id="__enemy_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;textures[i][j]&#32;=&#32;sf::IntRect(96&#32;+&#32;25&#32;*&#32;j&#32;+&#32;i&#32;*&#32;100,&#32;37,&#32;25,&#32;25);
+<anchor xml:id="__enemy_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(textures[0][0]);
+<anchor xml:id="__enemy_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;this-&gt;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;id;
+<anchor xml:id="__enemy_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;this-&gt;randOffset&#32;=&#32;randOffset;
+<anchor xml:id="__enemy_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;spawnZ&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnPos.z);
+<anchor xml:id="__enemy_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;alive.restart();
+<anchor xml:id="__enemy_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;sf::Vector3f&#32;pos;
+<anchor xml:id="__enemy_8cpp_source_1l00022"/>00022 
+<anchor xml:id="__enemy_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;y&#32;range&#32;@&#32;current&#32;values:&#32;0&#32;-&#32;71.</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>)
+<anchor xml:id="__enemy_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="__enemy_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(120,&#32;25,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="__enemy_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(-30,&#32;45,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="__enemy_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(-60,&#32;55,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="__enemy_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(-90,&#32;65,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;4:
+<anchor xml:id="__enemy_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(0,&#32;71,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;5:
+<anchor xml:id="__enemy_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(-210,&#32;71,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;6:
+<anchor xml:id="__enemy_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;sf::Vector3f(-160,&#32;45,&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(spawnZ));
+<anchor xml:id="__enemy_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;7:
+<anchor xml:id="__enemy_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;pos&#32;=&#32;spawnPos;
+<anchor xml:id="__enemy_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">setPos</link>(pos&#32;+&#32;sf::Vector3f(0,&#32;69,&#32;0));
+<anchor xml:id="__enemy_8cpp_source_1l00051"/>00051 }
+<anchor xml:id="__enemy_8cpp_source_1l00052"/>00052 
+<anchor xml:id="__enemy_8cpp_source_1l00053"/>00053 
+<anchor xml:id="__enemy_8cpp_source_1l00058"/><link linkend="_class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59">00058</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59">Enemy::update</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__enemy_8cpp_source_1l00059"/>00059 {
+<anchor xml:id="__enemy_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Find&#32;velocity</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;sf::Vector2f&#32;vel&#32;=&#32;runAI();
+<anchor xml:id="__enemy_8cpp_source_1l00062"/>00062 
+<anchor xml:id="__enemy_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Shooting</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((!dead&#32;&amp;&amp;
+<anchor xml:id="__enemy_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ableToFire&#32;&amp;&amp;
+<anchor xml:id="__enemy_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bulletCD.getElapsedTime().asMilliseconds()&#32;&gt;&#32;250
+<anchor xml:id="__enemy_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;&amp;&#32;rand()&#32;%&#32;125&#32;==&#32;0)
+<anchor xml:id="__enemy_8cpp_source_1l00068"/>00068 #ifndef&#32;NDEBUG
+<anchor xml:id="__enemy_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+<anchor xml:id="__enemy_8cpp_source_1l00070"/>00070 #endif
+<anchor xml:id="__enemy_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;)
+<anchor xml:id="__enemy_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bulletCD.restart();
+<anchor xml:id="__enemy_8cpp_source_1l00074"/>00074 
+<anchor xml:id="__enemy_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link>.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_character_bullet">CharacterBullet</link>(<link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link>,&#32;<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>(),&#32;sizeIndex,
+<anchor xml:id="__enemy_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabda883cafecd96b264ccbef87fe377838cc">CharacterBullet::Enemy</link>,
+<anchor xml:id="__enemy_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;getPosition())
+<anchor xml:id="__enemy_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;);
+<anchor xml:id="__enemy_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00080"/>00080 
+<anchor xml:id="__enemy_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;planeVertical&#32;=&#32;vel.y&#32;&gt;&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00082"/>00082 
+<anchor xml:id="__enemy_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Moved&#32;to&#32;keep&#32;up&#32;with&#32;back</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;move(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(sf::Vector3f(0,&#32;0,&#32;-1.3f&#32;*&#32;gameSpeed&#32;*&#32;2&#32;/&#32;3)));
+<anchor xml:id="__enemy_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(textures[planeVertical][sizeIndex]);
+<anchor xml:id="__enemy_8cpp_source_1l00086"/>00086 
+<anchor xml:id="__enemy_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<link linkend="_class_character_1a450a222c641925d6bda2f2c9241c220b">updateBullets</link>(window,&#32;gameSpeed);
+<anchor xml:id="__enemy_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!dead)
+<anchor xml:id="__enemy_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;window.draw(*<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>);
+<anchor xml:id="__enemy_8cpp_source_1l00090"/>00090 }
+<anchor xml:id="__enemy_8cpp_source_1l00091"/>00091 
+<anchor xml:id="__enemy_8cpp_source_1l00092"/>00092 
+<anchor xml:id="__enemy_8cpp_source_1l00097"/><link linkend="_class_enemy_1a8c811260a36e5b4fdbd022fa4e205863">00097</link> <emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_enemy_1a8c811260a36e5b4fdbd022fa4e205863">Enemy::getSizeIndex</link>()
+<anchor xml:id="__enemy_8cpp_source_1l00098"/>00098 {
+<anchor xml:id="__enemy_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sizeIndex;
+<anchor xml:id="__enemy_8cpp_source_1l00100"/>00100 }
+<anchor xml:id="__enemy_8cpp_source_1l00101"/>00101 
+<anchor xml:id="__enemy_8cpp_source_1l00102"/>00102 
+<anchor xml:id="__enemy_8cpp_source_1l00106"/><link linkend="_class_enemy_1ad0bf56e75378d9524f2d77479d259dde">00106</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_enemy_1ad0bf56e75378d9524f2d77479d259dde">Enemy::kill</link>()
+<anchor xml:id="__enemy_8cpp_source_1l00107"/>00107 {
+<anchor xml:id="__enemy_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;this-&gt;dead&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00109"/>00109 }
+<anchor xml:id="__enemy_8cpp_source_1l00110"/>00110 
+<anchor xml:id="__enemy_8cpp_source_1l00111"/>00111 
+<anchor xml:id="__enemy_8cpp_source_1l00119"/><link linkend="_class_enemy_1a965d8a0c6f027a92795b9794158369b7">00119</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_enemy_1a965d8a0c6f027a92795b9794158369b7">Enemy::spawnWave</link>(std::vector&lt;Enemy*&gt;&amp;&#32;enemies,&#32;sf::Texture*&#32;spritesheet,
+<anchor xml:id="__enemy_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;playerZ,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;wave)
+<anchor xml:id="__enemy_8cpp_source_1l00121"/>00121 {
+<anchor xml:id="__enemy_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(wave)
+<anchor xml:id="__enemy_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="__enemy_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;first&#32;fish&#32;loop</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemies.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_enemy_1a78513af724531f981172b56b91951a21">Enemy</link>(spritesheet,&#32;0,
+<anchor xml:id="__enemy_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(0,&#32;0,&#32;playerZ&#32;-&#32;190.f)));
+<anchor xml:id="__enemy_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="__enemy_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="__enemy_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="__enemy_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;4:
+<anchor xml:id="__enemy_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;first&#32;right-&gt;charge&#32;(top&#32;right)</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemies.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_enemy_1a78513af724531f981172b56b91951a21">Enemy</link>(spritesheet,&#32;wave,
+<anchor xml:id="__enemy_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(0,&#32;0,&#32;playerZ&#32;-&#32;360.f),
+<anchor xml:id="__enemy_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rand()&#32;%&#32;600&#32;-&#32;300));
+<anchor xml:id="__enemy_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;5:
+<anchor xml:id="__enemy_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;6:
+<anchor xml:id="__enemy_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;(bottom&#32;left)</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemies.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_enemy_1a78513af724531f981172b56b91951a21">Enemy</link>(spritesheet,&#32;wave,
+<anchor xml:id="__enemy_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(0,&#32;0,&#32;playerZ&#32;-&#32;190.f),
+<anchor xml:id="__enemy_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rand()&#32;%&#32;600&#32;-&#32;300));
+<anchor xml:id="__enemy_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;7:&#32;<emphasis role="comment">//&#32;3&#32;ememies&#32;from&#32;top&#32;right</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;3;&#32;i++)
+<anchor xml:id="__enemy_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;enemies.push_back(<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_enemy">Enemy</link>(spritesheet,&#32;wave,
+<anchor xml:id="__enemy_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f(
+<anchor xml:id="__enemy_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;35.f&#32;-&#32;70.f&#32;*&#32;i,&#32;0,
+<anchor xml:id="__enemy_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;playerZ&#32;-&#32;360.f),
+<anchor xml:id="__enemy_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rand()&#32;%&#32;600&#32;-&#32;300));
+<anchor xml:id="__enemy_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00153"/>00153 }
+<anchor xml:id="__enemy_8cpp_source_1l00154"/>00154 
+<anchor xml:id="__enemy_8cpp_source_1l00155"/>00155 
+<anchor xml:id="__enemy_8cpp_source_1l00159"/>00159 sf::Vector2f&#32;Enemy::runAI()
+<anchor xml:id="__enemy_8cpp_source_1l00160"/>00160 {
+<anchor xml:id="__enemy_8cpp_source_1l00161"/>00161 &#32;&#32;&#32;&#32;sf::Vector2f&#32;vel;
+<anchor xml:id="__enemy_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;sf::Int32&#32;msPassed&#32;=&#32;alive.getElapsedTime().asMilliseconds();
+<anchor xml:id="__enemy_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;theta&#32;=&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;scale&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;sf::Vector2f&#32;transl;
+<anchor xml:id="__enemy_8cpp_source_1l00166"/>00166 
+<anchor xml:id="__enemy_8cpp_source_1l00167"/>00167 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;size&#32;index&#32;0-3&#32;controls&#32;size:&#32;0&#32;biggest,&#32;3&#32;smallest</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;theta&#32;and&#32;scale&#32;represent&#32;polar&#32;coordinates.</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(<emphasis role="keywordtype">id</emphasis>)
+<anchor xml:id="__enemy_8cpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:&#32;<emphasis role="comment">//&#32;fish&#32;loop</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;1.7f;
+<anchor xml:id="__enemy_8cpp_source_1l00173"/>00173 
+<anchor xml:id="__enemy_8cpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1500)
+<anchor xml:id="__enemy_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;-60;
+<anchor xml:id="__enemy_8cpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;600)
+<anchor xml:id="__enemy_8cpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1200)
+<anchor xml:id="__enemy_8cpp_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;3;
+<anchor xml:id="__enemy_8cpp_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2500)
+<anchor xml:id="__enemy_8cpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;(msPassed&#32;-&#32;1500)&#32;/&#32;2800.f&#32;*&#32;360;
+<anchor xml:id="__enemy_8cpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;theta&#32;*&#32;<link linkend="__enemy_8h_1a598a3330b3c21701223ee0ca14316eca">PI</link>&#32;/&#32;180.f;
+<anchor xml:id="__enemy_8cpp_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;transl.x&#32;=&#32;cos(theta)&#32;*&#32;scale;
+<anchor xml:id="__enemy_8cpp_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;transl.y&#32;=&#32;1.25f&#32;*&#32;-sin(theta)&#32;*&#32;scale;&#32;<emphasis role="comment">//&#32;eliptical</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;5000)
+<anchor xml:id="__enemy_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;add&#32;4k&#32;for&#32;starting&#32;pos&#32;of&#32;circle</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;(msPassed&#32;-&#32;3400&#32;+&#32;4500)&#32;/&#32;7500.f&#32;*&#32;360;
+<anchor xml:id="__enemy_8cpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;3500)
+<anchor xml:id="__enemy_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;3;
+<anchor xml:id="__enemy_8cpp_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;+&#32;60;
+<anchor xml:id="__enemy_8cpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00206"/>00206 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:&#32;<emphasis role="comment">//&#32;come&#32;from&#32;right&#32;then&#32;up&#32;little&#32;then&#32;charge</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="__enemy_8cpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="__enemy_8cpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1500)
+<anchor xml:id="__enemy_8cpp_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;3;
+<anchor xml:id="__enemy_8cpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;+&#32;30;
+<anchor xml:id="__enemy_8cpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2500)
+<anchor xml:id="__enemy_8cpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;90;
+<anchor xml:id="__enemy_8cpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1800)
+<anchor xml:id="__enemy_8cpp_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2100)
+<anchor xml:id="__enemy_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2500)
+<anchor xml:id="__enemy_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;5500)
+<anchor xml:id="__enemy_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;+&#32;40;
+<anchor xml:id="__enemy_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;3200)
+<anchor xml:id="__enemy_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;3900)
+<anchor xml:id="__enemy_8cpp_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;4500)
+<anchor xml:id="__enemy_8cpp_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;3;
+<anchor xml:id="__enemy_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180;
+<anchor xml:id="__enemy_8cpp_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00241"/>00241 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;4:&#32;<emphasis role="comment">//&#32;come&#32;from&#32;top&#32;right&#32;then&#32;down&#32;little&#32;then&#32;charge</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;750&#32;+&#32;randOffset)
+<anchor xml:id="__enemy_8cpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;-&#32;15;
+<anchor xml:id="__enemy_8cpp_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2500&#32;+&#32;randOffset&#32;*&#32;2)
+<anchor xml:id="__enemy_8cpp_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;-90;
+<anchor xml:id="__enemy_8cpp_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;0.6f;
+<anchor xml:id="__enemy_8cpp_source_1l00251"/>00251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1000)
+<anchor xml:id="__enemy_8cpp_source_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;0;
+<anchor xml:id="__enemy_8cpp_source_1l00253"/>00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1500)
+<anchor xml:id="__enemy_8cpp_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2000)
+<anchor xml:id="__enemy_8cpp_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;2500)
+<anchor xml:id="__enemy_8cpp_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;3;
+<anchor xml:id="__enemy_8cpp_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;5500&#32;+&#32;randOffset&#32;*&#32;3)
+<anchor xml:id="__enemy_8cpp_source_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00262"/>00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;+&#32;10;
+<anchor xml:id="__enemy_8cpp_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;3;
+<anchor xml:id="__enemy_8cpp_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00267"/>00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180;
+<anchor xml:id="__enemy_8cpp_source_1l00268"/>00268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00269"/>00269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;abs(randOffset&#32;/&#32;300.f)&#32;+&#32;0.5f;
+<anchor xml:id="__enemy_8cpp_source_1l00270"/>00270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00271"/>00271 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;5:&#32;<emphasis role="comment">//&#32;bottom&#32;right&#32;to&#32;slight&#32;upward&#32;charge</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;-&#32;abs(randOffset)&#32;/&#32;300.f&#32;*&#32;45;
+<anchor xml:id="__enemy_8cpp_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;abs(randOffset)&#32;/&#32;150.f&#32;+&#32;0.5f;
+<anchor xml:id="__enemy_8cpp_source_1l00274"/>00274 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00276"/>00276 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;6:&#32;<emphasis role="comment">//&#32;alternate&#32;fish&#32;loop&#32;(from&#32;right)</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00277"/>00277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1000)
+<anchor xml:id="__enemy_8cpp_source_1l00278"/>00278 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00279"/>00279 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;(-msPassed&#32;-&#32;2000)&#32;/&#32;4000.f&#32;*&#32;360;&#32;<emphasis role="comment">//&#32;180-270</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;2.f;
+<anchor xml:id="__enemy_8cpp_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msPassed&#32;&lt;&#32;1700)
+<anchor xml:id="__enemy_8cpp_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;(-msPassed&#32;-&#32;1700)&#32;/&#32;1000.f&#32;*&#32;360;
+<anchor xml:id="__enemy_8cpp_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;1.6f;
+<anchor xml:id="__enemy_8cpp_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__enemy_8cpp_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;180&#32;+&#32;45;
+<anchor xml:id="__enemy_8cpp_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;1.7f;
+<anchor xml:id="__enemy_8cpp_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;2;
+<anchor xml:id="__enemy_8cpp_source_1l00294"/>00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00296"/>00296 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;7:&#32;<emphasis role="comment">//&#32;3&#32;enemies&#32;from&#32;top&#32;right</emphasis>
+<anchor xml:id="__enemy_8cpp_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;theta&#32;=&#32;210;
+<anchor xml:id="__enemy_8cpp_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scale&#32;=&#32;1.3f;
+<anchor xml:id="__enemy_8cpp_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex&#32;=&#32;1;
+<anchor xml:id="__enemy_8cpp_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__enemy_8cpp_source_1l00301"/>00301 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__enemy_8cpp_source_1l00302"/>00302 
+<anchor xml:id="__enemy_8cpp_source_1l00303"/>00303 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(theta&#32;!=&#32;0)
+<anchor xml:id="__enemy_8cpp_source_1l00304"/>00304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;transl&#32;=&#32;angleTranslate(theta,&#32;scale);
+<anchor xml:id="__enemy_8cpp_source_1l00305"/>00305 
+<anchor xml:id="__enemy_8cpp_source_1l00306"/>00306 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;move(transl.x,&#32;transl.y);
+<anchor xml:id="__enemy_8cpp_source_1l00307"/>00307 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;transl;
+<anchor xml:id="__enemy_8cpp_source_1l00308"/>00308 }
+<anchor xml:id="__enemy_8cpp_source_1l00309"/>00309 
+<anchor xml:id="__enemy_8cpp_source_1l00310"/>00310 
+<anchor xml:id="__enemy_8cpp_source_1l00317"/>00317 sf::Vector2f&#32;Enemy::angleTranslate(<emphasis role="keywordtype">float</emphasis>&#32;angle,&#32;<emphasis role="keywordtype">float</emphasis>&#32;scale)
+<anchor xml:id="__enemy_8cpp_source_1l00318"/>00318 {
+<anchor xml:id="__enemy_8cpp_source_1l00319"/>00319 &#32;&#32;&#32;&#32;sf::Vector2f&#32;ret;
+<anchor xml:id="__enemy_8cpp_source_1l00320"/>00320 &#32;&#32;&#32;&#32;angle&#32;=&#32;angle&#32;*&#32;<link linkend="__enemy_8h_1a598a3330b3c21701223ee0ca14316eca">PI</link>&#32;/&#32;180.f;
+<anchor xml:id="__enemy_8cpp_source_1l00321"/>00321 &#32;&#32;&#32;&#32;ret.x&#32;=&#32;cos(angle)&#32;*&#32;scale;
+<anchor xml:id="__enemy_8cpp_source_1l00322"/>00322 &#32;&#32;&#32;&#32;ret.y&#32;=&#32;-sin(angle)&#32;*&#32;scale;
+<anchor xml:id="__enemy_8cpp_source_1l00323"/>00323 
+<anchor xml:id="__enemy_8cpp_source_1l00324"/>00324 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ret;
+<anchor xml:id="__enemy_8cpp_source_1l00325"/>00325 }
+</programlisting></section>

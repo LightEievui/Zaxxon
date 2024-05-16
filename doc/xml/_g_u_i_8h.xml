@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_g_u_i_8h" kind="file" language="C++">
+    <compoundname>GUI.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes refid="_zaxxon_text_8h" local="yes">ZaxxonText/ZaxxonText.h</includes>
+    <includes refid="_h_m_section_8h" local="yes">HMSection/HMSection.h</includes>
+    <includedby refid="_g_u_i_8cpp" local="yes">C:/Zaxxon/src/GUI/GUI.cpp</includedby>
+    <includedby refid="_game_8h" local="yes">C:/Zaxxon/src/Game/Game.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Zaxxon/src/GUI/GUI.h</label>
+        <link refid="_g_u_i_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>HMSection/HMSection.h</label>
+        <link refid="_h_m_section_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ZaxxonText/ZaxxonText.h</label>
+        <link refid="_zaxxon_text_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Zaxxon/src/GUI/GUI.cpp</label>
+        <link refid="_g_u_i_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/GUI/GUI.h</label>
+        <link refid="_g_u_i_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Zaxxon/src/Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Zaxxon/src/Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_g_u_i" prot="public">GUI</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" prot="public" static="no">
+        <type>unsigned char</type>
+        <definition>using byte =  unsigned char</definition>
+        <argsstring></argsstring>
+        <name>byte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="6" column="1" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_zaxxon_text_8h" kindref="compound">ZaxxonText/ZaxxonText.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_h_m_section_8h" kindref="compound">HMSection/HMSection.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="_game_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref><sp/>=<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>char;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_g_u_i" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_u_i" kindref="compound">GUI</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839" kindref="member">GUI</ref>(sf::Texture*);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220" kindref="member">render</ref>(sf::RenderWindow&amp;,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_u_i_1a41bf32a5de5387392f14b204bd55259e" kindref="member">startRender</ref>(sf::RenderWindow&amp;,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a" kindref="member">renderScores</ref>(sf::RenderWindow&amp;,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>[],<sp/>std::string<sp/>[]);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e" kindref="member">renderEnd</ref>(sf::RenderWindow&amp;,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>=<sp/>255,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>[3]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705" kindref="member">renderWin</ref>(sf::RenderWindow&amp;);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Texture*<sp/>spritesheet;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::RectangleShape<sp/>heightMeterBg;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_h_m_section" kindref="compound">HMSection</ref><sp/>heightMeterSections[10];</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>heightH;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>heightL;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;sf::Transformable*&gt;<sp/>hudElements;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>copyright[10];</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>topScore[9];</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>curScore[9];</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>fuelText[6];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>enemyText[10];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>fuelBar[16];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>livesBar;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>enemyLeft[4];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>pushPlayerText[25];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Clock<sp/>scoreClock;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>highScores[42];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>highScoresText[10];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>highScoresNames[18];</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>gameOver[8];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>scoreEntry[14];</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>initialsText[12];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>entryTime[13];</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>keyboard[30];</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>cursor;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Sprite<sp/>endScreen[40];</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/GUI/GUI.h"/>
+  </compounddef>
+</doxygen>

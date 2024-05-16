@@ -1,14 +1,17 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <thread>
-#include <iostream>
 #include <vector>
 
 
+/// <summary>
+/// Class to handle (almost) all in-game animations.
+/// </summary>
 class Animation
 {
 public:
-	const enum Anim {
+	enum Anim
+	{
 		CHARACTER_DEATH,
 		ALT_DEATH,
 		LAUNCH,
@@ -21,9 +24,9 @@ public:
 	Animation();
 	~Animation();
 
-	// size index for some
+	// size index as an extra var for some animations
 	void run(sf::Sprite*, Anim, unsigned int sizeIndex = 0);
-	int getState();
+	int getState() const;
 
 private:
 	void fCHARACTER_DEATH(sf::Sprite* sprite);
@@ -32,8 +35,8 @@ private:
 	void fBULLET_DEATH(sf::Sprite* sprite);
 	void fWALLBULLET_DEATH(sf::Sprite* sprite);
 	void fROCKET_FLICKER(sf::Sprite* sprite);
-	void fRESET(sf::Sprite* sprite);
 
+	std::vector<std::thread*> threads;
 	sf::Clock timer;
 	sf::IntRect frames[26], revert;
 	int state = 0;

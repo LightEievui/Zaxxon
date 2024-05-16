@@ -1,5 +1,14 @@
 \doxysection{Character Class Reference}
 \hypertarget{class_character}{}\label{class_character}\index{Character@{Character}}
+
+
+Abstract class to hold information that both player and enemy use.  
+
+
+
+
+{\ttfamily \#include $<$Character.\+h$>$}
+
 Inheritance diagram for Character\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,18 +19,17 @@ Inheritance diagram for Character\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_character_a7e22d0af12e2c3c8cb364d22ce8cc9f2}{Character}} (sf\+::\+Texture \texorpdfstring{$\ast$}{*})
-\begin{DoxyCompactList}\small\item\em Create new character who will have sprite from spritesheet. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_character_affa4e2459d5f239e0c53ffd11b981f59}{update}} (sf\+::\+Render\+Window \&)
+\begin{DoxyCompactList}\small\item\em Create a new character who will have sprite from spritesheet. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_character_a5e399f512bf22a9e8558a4bae1ec9555}{\texorpdfstring{$\sim$}{\string~}\+Character}} () override
+\begin{DoxyCompactList}\small\item\em Clean up memory related to the \doxylink{class_character}{Character} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_aafecc5bd1222bb63a2ab0ebf82c9b479}{update}} (sf\+::\+Render\+Window \&, float) override
 \begin{DoxyCompactList}\small\item\em Move the character by velocity and redraw them to the screen. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}{kill}} ()=0
-\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
-std\+::vector$<$ sf\+::\+Vector3f $>$ \& \mbox{\hyperlink{class_character_a84503e639ff28fdf9648ea921d5ba9d6}{get\+Bullet\+Position}} ()
-\begin{DoxyCompactList}\small\item\em Get positions for all of this characters bullets. \end{DoxyCompactList}\item 
-std\+::vector$<$ sf\+::\+Sprite $>$ \& \mbox{\hyperlink{class_character_aef458dc1aacfd7a7a3263ca862f829ca}{get\+Bullets}} ()
-\begin{DoxyCompactList}\small\item\em Get the currently fired bullets from this character. \end{DoxyCompactList}\item 
-\Hypertarget{class_character_a1ba419af494e1f4f74f3b3c41a9b0f59}\label{class_character_a1ba419af494e1f4f74f3b3c41a9b0f59} 
-virtual bool {\bfseries get\+Translate2} ()
 \item 
+std\+::vector$<$ \mbox{\hyperlink{class_character_bullet}{Character\+Bullet}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_character_a59755f2066960eeade9a67b13f646c79}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em Get the currently fired bullets from this character. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_character_abb29539c98416153a4f079ca83879cfc}{get\+Size\+Index}} () const
+\begin{DoxyCompactList}\small\item\em Get public size index of this character. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_character_a6ea404b0682144a8f21d42e881cb0ce7}{kill\+Bullet}} (int)
 \begin{DoxyCompactList}\small\item\em Get rid of bullet by index. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{set\+Pos}} (sf\+::\+Vector3f)
@@ -29,58 +37,74 @@ void \mbox{\hyperlink{class_character_acf35437606532f7df271dd0fd3d6800c}{set\+Po
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=0
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
+\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
 \item 
-sf\+::\+Vector3f {\bfseries get\+Pos} ()
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
 \item 
-sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
-\end{DoxyCompactItemize}
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_character_ad41cb97f383d1681e76e580f06bc2481}{get\+Size\+Index}} (unsigned int \&)
-\begin{DoxyCompactList}\small\item\em Get the height sector that character is in. \end{DoxyCompactList}\item 
-sf\+::\+Vector3f \mbox{\hyperlink{class_character_aa2ee5df8a31732a36f37bfce88161401}{get\+Velocity}} ()
+void \mbox{\hyperlink{class_character_a40ac52813d37c391b4cd6db06a8f1216}{\+\_\+get\+Size\+Index}} (unsigned int \&)
+\begin{DoxyCompactList}\small\item\em Get the height sector that character is in. Underscore infront indicates that it is not public. 0-\/3 3 indicates smallest, 0 indicates biggest. \end{DoxyCompactList}\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_character_adba5c58a1b24bff604893e28519a1f34}{get\+Velocity}} () const
 \begin{DoxyCompactList}\small\item\em Get the velocity of character. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_character_a46a264779165a349a13bcb364c4106d4}{set\+Velocity}} (sf\+::\+Vector3f)
 \begin{DoxyCompactList}\small\item\em Change the velocity of this character. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_character_afe32dd9baa581b7895f06c9687d073b4}{set\+Bullet}} (sf\+::\+Int\+Rect)
-\begin{DoxyCompactList}\small\item\em Change how the bullets from this character look. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Change how the bullets from this character look. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_character_a450a222c641925d6bda2f2c9241c220b}{update\+Bullets}} (sf\+::\+Render\+Window \&window, float)
+\begin{DoxyCompactList}\small\item\em Calls \doxylink{class_character_bullet_a5e917f7a52f3015799e1008a4fd2654b}{Character\+Bullet\+::update()} on each bullet \& deletes bullets that are not in the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_character_a602309a031e6db0a570644d8f0b5d5fb}\label{class_character_a602309a031e6db0a570644d8f0b5d5fb} 
-const int {\bfseries y\+Max} = 140
+const int \mbox{\hyperlink{class_character_a602309a031e6db0a570644d8f0b5d5fb}{y\+Max}} = 140
 \item 
-\Hypertarget{class_character_a1750fc7b411d6fdac9ca9e6763e126f5}\label{class_character_a1750fc7b411d6fdac9ca9e6763e126f5} 
-const int {\bfseries y\+Min} = 69
+const int \mbox{\hyperlink{class_character_a1750fc7b411d6fdac9ca9e6763e126f5}{y\+Min}} = 69
 \item 
-\Hypertarget{class_character_a682f191a3a01f1a772cd3fa624c0b16e}\label{class_character_a682f191a3a01f1a772cd3fa624c0b16e} 
-const int {\bfseries x\+Min} = -\/180
+const int \mbox{\hyperlink{class_character_a682f191a3a01f1a772cd3fa624c0b16e}{x\+Min}} = -\/160
 \item 
-\Hypertarget{class_character_ae741b4874f8875f33f70663890315a52}\label{class_character_ae741b4874f8875f33f70663890315a52} 
-const int {\bfseries x\+Max} = 0
+const int \mbox{\hyperlink{class_character_ae741b4874f8875f33f70663890315a52}{x\+Max}} = 0
 \item 
-\Hypertarget{class_character_a12d640046cf216dd010f8e71c3466e1e}\label{class_character_a12d640046cf216dd010f8e71c3466e1e} 
-sf\+::\+Vector3f {\bfseries velocity}
+sf\+::\+Vector3f \mbox{\hyperlink{class_character_a12d640046cf216dd010f8e71c3466e1e}{velocity}}
 \item 
-\Hypertarget{class_character_a052602c15bdcfe473a16b3983e00d2fc}\label{class_character_a052602c15bdcfe473a16b3983e00d2fc} 
-std\+::vector$<$ sf\+::\+Sprite $>$ {\bfseries bullets}
+std\+::vector$<$ \mbox{\hyperlink{class_character_bullet}{Character\+Bullet}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_character_aff7b8bd3f067ab04cd547c0dc14e765f}{bullets}}
 \item 
-\Hypertarget{class_character_ab30c2adf7a286bf06fb3b65f8a96ffdb}\label{class_character_ab30c2adf7a286bf06fb3b65f8a96ffdb} 
-std\+::vector$<$ sf\+::\+Vector3f $>$ {\bfseries bullets\+Pos}
+unsigned int \mbox{\hyperlink{class_character_a95e438488293a98b1a404f39e4f97aeb}{size\+Index}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
-sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
 \item 
-sf\+::\+Sprite {\bfseries sprite}
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
 \item 
-\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
 \item 
-bool {\bfseries dead} = false
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class to hold information that both player and enemy use. 
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00012}{12}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -92,7 +116,7 @@ bool {\bfseries dead} = false
 
 
 
-Create new character who will have sprite from spritesheet. 
+Create a new character who will have sprite from spritesheet. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -101,25 +125,49 @@ Create new character who will have sprite from spritesheet.
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+\Hypertarget{class_character_a5e399f512bf22a9e8558a4bae1ec9555}\label{class_character_a5e399f512bf22a9e8558a4bae1ec9555} 
+\index{Character@{Character}!````~Character@{\texorpdfstring{$\sim$}{\string~}Character}}
+\index{````~Character@{\texorpdfstring{$\sim$}{\string~}Character}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Character()}{\string~Character()}}
+{\footnotesize\ttfamily Character\+::\texorpdfstring{$\sim$}{\string~}\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Clean up memory related to the \doxylink{class_character}{Character} class. 
+
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+
+
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_character_a84503e639ff28fdf9648ea921d5ba9d6}\label{class_character_a84503e639ff28fdf9648ea921d5ba9d6} 
-\index{Character@{Character}!getBulletPosition@{getBulletPosition}}
-\index{getBulletPosition@{getBulletPosition}!Character@{Character}}
-\doxysubsubsection{\texorpdfstring{getBulletPosition()}{getBulletPosition()}}
-{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Vector3f $>$ \& Character\+::get\+Bullet\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\Hypertarget{class_character_a40ac52813d37c391b4cd6db06a8f1216}\label{class_character_a40ac52813d37c391b4cd6db06a8f1216} 
+\index{Character@{Character}!\_getSizeIndex@{\_getSizeIndex}}
+\index{\_getSizeIndex@{\_getSizeIndex}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_getSizeIndex()}{\_getSizeIndex()}}
+{\footnotesize\ttfamily void Character\+::\+\_\+get\+Size\+Index (\begin{DoxyParamCaption}\item[{unsigned int \&}]{plane\+Size\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Get positions for all of this characters bullets. 
+Get the height sector that character is in. Underscore infront indicates that it is not public. 0-\/3 3 indicates smallest, 0 indicates biggest. 
 
-\begin{DoxyReturn}{Returns}
-Vector of Vectors of 3 floats
-\end{DoxyReturn}
-\Hypertarget{class_character_aef458dc1aacfd7a7a3263ca862f829ca}\label{class_character_aef458dc1aacfd7a7a3263ca862f829ca} 
+
+\begin{DoxyParams}{Parameters}
+{\em plane\+Size\+Index} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+\Hypertarget{class_character_a59755f2066960eeade9a67b13f646c79}\label{class_character_a59755f2066960eeade9a67b13f646c79} 
 \index{Character@{Character}!getBullets@{getBullets}}
 \index{getBullets@{getBullets}!Character@{Character}}
 \doxysubsubsection{\texorpdfstring{getBullets()}{getBullets()}}
-{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Sprite $>$ \& Character\+::get\+Bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_character_bullet}{Character\+Bullet}} \texorpdfstring{$\ast$}{*} $>$ \& Character\+::get\+Bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -128,47 +176,49 @@ Get the currently fired bullets from this character.
 \begin{DoxyReturn}{Returns}
 Vector of bullets
 \end{DoxyReturn}
-\Hypertarget{class_character_ad41cb97f383d1681e76e580f06bc2481}\label{class_character_ad41cb97f383d1681e76e580f06bc2481} 
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+\Hypertarget{class_character_abb29539c98416153a4f079ca83879cfc}\label{class_character_abb29539c98416153a4f079ca83879cfc} 
 \index{Character@{Character}!getSizeIndex@{getSizeIndex}}
 \index{getSizeIndex@{getSizeIndex}!Character@{Character}}
 \doxysubsubsection{\texorpdfstring{getSizeIndex()}{getSizeIndex()}}
-{\footnotesize\ttfamily void Character\+::get\+Size\+Index (\begin{DoxyParamCaption}\item[{unsigned int \&}]{plane\+Size\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily unsigned int Character\+::get\+Size\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-Get the height sector that character is in. 
+Get public size index of this character. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
-\begin{DoxyParams}{Parameters}
-{\em plane\+Size\+Index} & \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_character_aa2ee5df8a31732a36f37bfce88161401}\label{class_character_aa2ee5df8a31732a36f37bfce88161401} 
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+\Hypertarget{class_character_adba5c58a1b24bff604893e28519a1f34}\label{class_character_adba5c58a1b24bff604893e28519a1f34} 
 \index{Character@{Character}!getVelocity@{getVelocity}}
 \index{getVelocity@{getVelocity}!Character@{Character}}
 \doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
-{\footnotesize\ttfamily sf\+::\+Vector3f Character\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily sf\+::\+Vector3f Character\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 Get the velocity of character. 
 
 \begin{DoxyReturn}{Returns}
-Vector of 3 floats
+sf\+::\+Vector3f
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
 \Hypertarget{class_character_a6eaf7357d3575a2281b5456abfbe1b9d}\label{class_character_a6eaf7357d3575a2281b5456abfbe1b9d} 
 \index{Character@{Character}!kill@{kill}}
 \index{kill@{kill}!Character@{Character}}
 \doxysubsubsection{\texorpdfstring{kill()}{kill()}}
 {\footnotesize\ttfamily virtual void Character\+::kill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
-
-
-Run death animation code for the killed entity. 
-
-
-
-Reimplemented from \mbox{\hyperlink{class_entity_a522648b330daab91b49f78f0737a943f}{Entity}}.
 
 
 
@@ -189,6 +239,10 @@ Get rid of bullet by index.
 {\em bullet} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
 \Hypertarget{class_character_afe32dd9baa581b7895f06c9687d073b4}\label{class_character_afe32dd9baa581b7895f06c9687d073b4} 
 \index{Character@{Character}!setBullet@{setBullet}}
 \index{setBullet@{setBullet}!Character@{Character}}
@@ -204,6 +258,10 @@ Change how the bullets from this character look.
 {\em bullet\+Texture} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
 \Hypertarget{class_character_acf35437606532f7df271dd0fd3d6800c}\label{class_character_acf35437606532f7df271dd0fd3d6800c} 
 \index{Character@{Character}!setPos@{setPos}}
 \index{setPos@{setPos}!Character@{Character}}
@@ -219,6 +277,10 @@ Set position for the character itself.
 {\em pos} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
 \Hypertarget{class_character_a46a264779165a349a13bcb364c4106d4}\label{class_character_a46a264779165a349a13bcb364c4106d4} 
 \index{Character@{Character}!setVelocity@{setVelocity}}
 \index{setVelocity@{setVelocity}!Character@{Character}}
@@ -234,11 +296,15 @@ Change the velocity of this character.
 {\em vel} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_character_affa4e2459d5f239e0c53ffd11b981f59}\label{class_character_affa4e2459d5f239e0c53ffd11b981f59} 
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+\Hypertarget{class_character_aafecc5bd1222bb63a2ab0ebf82c9b479}\label{class_character_aafecc5bd1222bb63a2ab0ebf82c9b479} 
 \index{Character@{Character}!update@{update}}
 \index{update@{update}!Character@{Character}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Character\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Character\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -251,15 +317,111 @@ Move the character by velocity and redraw them to the screen.
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{class_entity}{Entity}}.
+Implements \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity}}.
 
 
 
-Reimplemented in \mbox{\hyperlink{class_enemy_a899157d4bd6d049bc094bc92863dccec}{Enemy}}.
+Reimplemented in \mbox{\hyperlink{class_enemy_abb114c1514e9ba90c319ddb7e0f40e59}{Enemy}}.
+
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+\Hypertarget{class_character_a450a222c641925d6bda2f2c9241c220b}\label{class_character_a450a222c641925d6bda2f2c9241c220b} 
+\index{Character@{Character}!updateBullets@{updateBullets}}
+\index{updateBullets@{updateBullets}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{updateBullets()}{updateBullets()}}
+{\footnotesize\ttfamily void Character\+::update\+Bullets (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Calls \doxylink{class_character_bullet_a5e917f7a52f3015799e1008a4fd2654b}{Character\+Bullet\+::update()} on each bullet \& deletes bullets that are not in the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Main render window\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_character_8cpp_source_l00128}{128}} of file \mbox{\hyperlink{_character_8cpp_source}{Character.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_character_aff7b8bd3f067ab04cd547c0dc14e765f}\label{class_character_aff7b8bd3f067ab04cd547c0dc14e765f} 
+\index{Character@{Character}!bullets@{bullets}}
+\index{bullets@{bullets}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{bullets}{bullets}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_character_bullet}{Character\+Bullet}}\texorpdfstring{$\ast$}{*}$>$ Character\+::bullets\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00040}{40}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
+\Hypertarget{class_character_a95e438488293a98b1a404f39e4f97aeb}\label{class_character_a95e438488293a98b1a404f39e4f97aeb} 
+\index{Character@{Character}!sizeIndex@{sizeIndex}}
+\index{sizeIndex@{sizeIndex}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{sizeIndex}{sizeIndex}}
+{\footnotesize\ttfamily unsigned int Character\+::size\+Index\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00041}{41}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
+\Hypertarget{class_character_a12d640046cf216dd010f8e71c3466e1e}\label{class_character_a12d640046cf216dd010f8e71c3466e1e} 
+\index{Character@{Character}!velocity@{velocity}}
+\index{velocity@{velocity}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily sf\+::\+Vector3f Character\+::velocity\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00039}{39}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
+\Hypertarget{class_character_ae741b4874f8875f33f70663890315a52}\label{class_character_ae741b4874f8875f33f70663890315a52} 
+\index{Character@{Character}!xMax@{xMax}}
+\index{xMax@{xMax}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{xMax}{xMax}}
+{\footnotesize\ttfamily const int Character\+::x\+Max = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00029}{29}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
+\Hypertarget{class_character_a682f191a3a01f1a772cd3fa624c0b16e}\label{class_character_a682f191a3a01f1a772cd3fa624c0b16e} 
+\index{Character@{Character}!xMin@{xMin}}
+\index{xMin@{xMin}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{xMin}{xMin}}
+{\footnotesize\ttfamily const int Character\+::x\+Min = -\/160\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00028}{28}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
+\Hypertarget{class_character_a602309a031e6db0a570644d8f0b5d5fb}\label{class_character_a602309a031e6db0a570644d8f0b5d5fb} 
+\index{Character@{Character}!yMax@{yMax}}
+\index{yMax@{yMax}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{yMax}{yMax}}
+{\footnotesize\ttfamily const int Character\+::y\+Max = 140\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00026}{26}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
+
+\Hypertarget{class_character_a1750fc7b411d6fdac9ca9e6763e126f5}\label{class_character_a1750fc7b411d6fdac9ca9e6763e126f5} 
+\index{Character@{Character}!yMin@{yMin}}
+\index{yMin@{yMin}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{yMin}{yMin}}
+{\footnotesize\ttfamily const int Character\+::y\+Min = 69\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_character_8h_source_l00027}{27}} of file \mbox{\hyperlink{_character_8h_source}{Character.\+h}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Entity/\+Character/Character.\+h\item 
-src/\+Entity/\+Character/Character.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Zaxxon/src/\+Entity/\+Character/\mbox{\hyperlink{_character_8h}{Character.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Entity/\+Character/\mbox{\hyperlink{_character_8cpp}{Character.\+cpp}}\end{DoxyCompactItemize}

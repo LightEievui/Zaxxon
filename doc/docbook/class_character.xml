@@ -1,0 +1,530 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_character" xml:lang="en-US">
+<title>Character Class Reference</title>
+<indexterm><primary>Character</primary></indexterm>
+<para>
+
+<para>Abstract class to hold information that both player and enemy use. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Character.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Character:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_character.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</link> (sf::Texture *)</para>
+
+<para>Create a new character who will have sprite from spritesheet. </para>
+</listitem>
+            <listitem><para><link linkend="_class_character_1a5e399f512bf22a9e8558a4bae1ec9555">~Character</link> () override</para>
+
+<para>Clean up memory related to the <link linkend="_class_character">Character</link> class. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">update</link> (sf::RenderWindow &amp;, float) override</para>
+
+<para>Move the character by velocity and redraw them to the screen. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_character_1a6eaf7357d3575a2281b5456abfbe1b9d">kill</link> ()=0</para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_class_character_bullet">CharacterBullet</link> * &gt; &amp; <link linkend="_class_character_1a59755f2066960eeade9a67b13f646c79">getBullets</link> ()</para>
+
+<para>Get the currently fired bullets from this character. </para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_class_character_1abb29539c98416153a4f079ca83879cfc">getSizeIndex</link> () const</para>
+
+<para>Get public size index of this character. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_1a6ea404b0682144a8f21d42e881cb0ce7">killBullet</link> (int)</para>
+
+<para>Get rid of bullet by index. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_1acf35437606532f7df271dd0fd3d6800c">setPos</link> (sf::Vector3f)</para>
+
+<para>Set position for the character itself. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_entity_1a980f368aa07ce358583982821533a54a">Entity</link> ()</para>
+
+<para>Setup <link linkend="_class_entity">Entity</link> class variables. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_entity_1ac2da1e8a32161accc56f39ac52cebd86">~Entity</link> ()=0</para>
+
+<para>Clean up memory related to <link linkend="_class_entity">Entity</link> class. </para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_entity_1a3ea146cebd4310647bd49a4f08940fe5">kill</link> (<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18">Animation::Anim</link> <link linkend="__animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3">animation</link>=<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892">Animation::CHARACTER_DEATH</link>)</para>
+
+<para>Run death animation code for the killed entity. </para>
+</listitem>
+            <listitem><para>int <link linkend="_class_entity_1ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link> (sf::Vector3f pos)</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link> ()</para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="_class_entity_1a9727d15d18ccb10fa72dfe15799adcdd">getBounds</link> ()</para>
+</listitem>
+            <listitem><para>sf::Vector2f <link linkend="_class_entity_1ad641a9c7d92d65cb688651e48029e82d">getSpritePos</link> ()</para>
+
+<para>Get the position of the related sprite for this entity. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_character_1a40ac52813d37c391b4cd6db06a8f1216">_getSizeIndex</link> (unsigned int &amp;)</para>
+
+<para>Get the height sector that character is in. Underscore infront indicates that it is not public. 0-3 3 indicates smallest, 0 indicates biggest. </para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_character_1adba5c58a1b24bff604893e28519a1f34">getVelocity</link> () const</para>
+
+<para>Get the velocity of character. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_1a46a264779165a349a13bcb364c4106d4">setVelocity</link> (sf::Vector3f)</para>
+
+<para>Change the velocity of this character. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_1afe32dd9baa581b7895f06c9687d073b4">setBullet</link> (sf::IntRect)</para>
+
+<para>Change how the bullets from this character look. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_character_1a450a222c641925d6bda2f2c9241c220b">updateBullets</link> (sf::RenderWindow &amp;window, float)</para>
+
+<para>Calls <link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">CharacterBullet::update()</link> on each bullet &amp; deletes bullets that are not in the window. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>const int <link linkend="_class_character_1a602309a031e6db0a570644d8f0b5d5fb">yMax</link> = 140</para>
+</listitem>
+            <listitem><para>const int <link linkend="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5">yMin</link> = 69</para>
+</listitem>
+            <listitem><para>const int <link linkend="_class_character_1a682f191a3a01f1a772cd3fa624c0b16e">xMin</link> = -160</para>
+</listitem>
+            <listitem><para>const int <link linkend="_class_character_1ae741b4874f8875f33f70663890315a52">xMax</link> = 0</para>
+</listitem>
+            <listitem><para>sf::Vector3f <link linkend="_class_character_1a12d640046cf216dd010f8e71c3466e1e">velocity</link></para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_class_character_bullet">CharacterBullet</link> * &gt; <link linkend="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f">bullets</link></para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_class_character_1a95e438488293a98b1a404f39e4f97aeb">sizeIndex</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Attributes inherited from <link linkend="_class_entity">Entity</link>        <itemizedlist>
+            <listitem><para>sf::Texture * <link linkend="_class_entity_1ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</link></para>
+</listitem>
+            <listitem><para>sf::Sprite * <link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_animation">Animation</link> <link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_entity_1a799462330dd8c754cdada5dab432b4dc">dead</link> = false</para>
+</listitem>
+            <listitem><para>sf::Text <link linkend="_class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</link></para>
+</listitem>
+            <listitem><para>sf::Font <link linkend="_class_entity_1a5c8dfa06fdc253fd93eafc998a919d00">debugFont</link></para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Abstract class to hold information that both player and enemy use. </para>
+<para>
+Definition at line <link linkend="__character_8h_source_1l00012">12</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_character_1a7e22d0af12e2c3c8cb364d22ce8cc9f2"/><section>
+    <title>Character()</title>
+<indexterm><primary>Character</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>Character</secondary></indexterm>
+<para><computeroutput>Character::Character (sf::Texture * spriteSheet)</computeroutput></para><para>
+
+<para>Create a new character who will have sprite from spritesheet. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>spriteSheet</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00008">8</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a5e399f512bf22a9e8558a4bae1ec9555"/><section>
+    <title>~Character()</title>
+<indexterm><primary>~Character</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>~Character</secondary></indexterm>
+<para><computeroutput>Character::~Character ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+
+<para>Clean up memory related to the <link linkend="_class_character">Character</link> class. </para>
+</para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00019">19</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_character_1a40ac52813d37c391b4cd6db06a8f1216"/><section>
+    <title>_getSizeIndex()</title>
+<indexterm><primary>_getSizeIndex</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>_getSizeIndex</secondary></indexterm>
+<para><computeroutput>void Character::_getSizeIndex (unsigned int &amp; planeSizeIndex)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Get the height sector that character is in. Underscore infront indicates that it is not public. 0-3 3 indicates smallest, 0 indicates biggest. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>planeSizeIndex</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00076">76</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a59755f2066960eeade9a67b13f646c79"/><section>
+    <title>getBullets()</title>
+<indexterm><primary>getBullets</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>getBullets</secondary></indexterm>
+<para><computeroutput>std::vector&lt; <link linkend="_class_character_bullet">CharacterBullet</link> * &gt; &amp; Character::getBullets ( )</computeroutput></para><para>
+
+<para>Get the currently fired bullets from this character. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Vector of bullets</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00054">54</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1abb29539c98416153a4f079ca83879cfc"/><section>
+    <title>getSizeIndex()</title>
+<indexterm><primary>getSizeIndex</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>getSizeIndex</secondary></indexterm>
+<para><computeroutput>unsigned int Character::getSizeIndex ( ) const</computeroutput></para><para>
+
+<para>Get public size index of this character. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00064">64</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1adba5c58a1b24bff604893e28519a1f34"/><section>
+    <title>getVelocity()</title>
+<indexterm><primary>getVelocity</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>getVelocity</secondary></indexterm>
+<para><computeroutput>sf::Vector3f Character::getVelocity ( ) const<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Get the velocity of character. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>sf::Vector3f</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00097">97</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a6eaf7357d3575a2281b5456abfbe1b9d"/><section>
+    <title>kill()</title>
+<indexterm><primary>kill</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>kill</secondary></indexterm>
+<para><computeroutput>virtual void Character::kill ( )<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_enemy_1ad0bf56e75378d9524f2d77479d259dde">Enemy</link>, and <link linkend="_class_player_1aa8baacf4fe29a618f2cf4b26327e4d5a">Player</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a6ea404b0682144a8f21d42e881cb0ce7"/><section>
+    <title>killBullet()</title>
+<indexterm><primary>killBullet</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>killBullet</secondary></indexterm>
+<para><computeroutput>void Character::killBullet (int bullet)</computeroutput></para><para>
+
+<para>Get rid of bullet by index. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bullet</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00150">150</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1afe32dd9baa581b7895f06c9687d073b4"/><section>
+    <title>setBullet()</title>
+<indexterm><primary>setBullet</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>setBullet</secondary></indexterm>
+<para><computeroutput>void Character::setBullet (sf::IntRect bulletTexture)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Change how the bullets from this character look. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bulletTexture</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00107">107</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1acf35437606532f7df271dd0fd3d6800c"/><section>
+    <title>setPos()</title>
+<indexterm><primary>setPos</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>setPos</secondary></indexterm>
+<para><computeroutput>void Character::setPos (sf::Vector3f pos)</computeroutput></para><para>
+
+<para>Set position for the character itself. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00161">161</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a46a264779165a349a13bcb364c4106d4"/><section>
+    <title>setVelocity()</title>
+<indexterm><primary>setVelocity</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>setVelocity</secondary></indexterm>
+<para><computeroutput>void Character::setVelocity (sf::Vector3f vel)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Change the velocity of this character. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>vel</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00117">117</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void Character::update (sf::RenderWindow &amp; window, float gameSpeed)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Move the character by velocity and redraw them to the screen. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_entity_1ac3121e79d75452497acb36dd06f0b2b2">Entity</link>.</para>
+<para>
+Reimplemented in <link linkend="_class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59">Enemy</link>.</para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00031">31</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a450a222c641925d6bda2f2c9241c220b"/><section>
+    <title>updateBullets()</title>
+<indexterm><primary>updateBullets</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>updateBullets</secondary></indexterm>
+<para><computeroutput>void Character::updateBullets (sf::RenderWindow &amp; window, float gameSpeed)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+
+<para>Calls <link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">CharacterBullet::update()</link> on each bullet &amp; deletes bullets that are not in the window. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry>
+<para>Main render window</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__character_8cpp_source_1l00128">128</link> of file <link linkend="__character_8cpp_source">Character.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_character_1aff7b8bd3f067ab04cd547c0dc14e765f"/><section>
+    <title>bullets</title>
+<indexterm><primary>bullets</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>bullets</secondary></indexterm>
+<para><computeroutput>std::vector&lt;<link linkend="_class_character_bullet">CharacterBullet</link>*&gt; Character::bullets<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00040">40</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a95e438488293a98b1a404f39e4f97aeb"/><section>
+    <title>sizeIndex</title>
+<indexterm><primary>sizeIndex</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>sizeIndex</secondary></indexterm>
+<para><computeroutput>unsigned int Character::sizeIndex<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00041">41</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a12d640046cf216dd010f8e71c3466e1e"/><section>
+    <title>velocity</title>
+<indexterm><primary>velocity</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>velocity</secondary></indexterm>
+<para><computeroutput>sf::Vector3f Character::velocity<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00039">39</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<anchor xml:id="_class_character_1ae741b4874f8875f33f70663890315a52"/><section>
+    <title>xMax</title>
+<indexterm><primary>xMax</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>xMax</secondary></indexterm>
+<para><computeroutput>const int Character::xMax = 0<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00029">29</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a682f191a3a01f1a772cd3fa624c0b16e"/><section>
+    <title>xMin</title>
+<indexterm><primary>xMin</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>xMin</secondary></indexterm>
+<para><computeroutput>const int Character::xMin = -160<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00028">28</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a602309a031e6db0a570644d8f0b5d5fb"/><section>
+    <title>yMax</title>
+<indexterm><primary>yMax</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>yMax</secondary></indexterm>
+<para><computeroutput>const int Character::yMax = 140<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00026">26</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<anchor xml:id="_class_character_1a1750fc7b411d6fdac9ca9e6763e126f5"/><section>
+    <title>yMin</title>
+<indexterm><primary>yMin</primary><secondary>Character</secondary></indexterm>
+<indexterm><primary>Character</primary><secondary>yMin</secondary></indexterm>
+<para><computeroutput>const int Character::yMin = 69<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__character_8h_source_1l00027">27</link> of file <link linkend="__character_8h_source">Character.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Entity/Character/<link linkend="__character_8h">Character.h</link>C:/Zaxxon/src/Entity/Character/<link linkend="__character_8cpp">Character.cpp</link></section>
+</section>

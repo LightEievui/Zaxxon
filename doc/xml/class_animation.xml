@@ -1,0 +1,471 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_animation" kind="class" language="C++" prot="public">
+    <compoundname>Animation</compoundname>
+    <includes refid="_animation_8h" local="no">Animation.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Anim</name>
+        <qualifiedname>Animation::Anim</qualifiedname>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" prot="public">
+          <name>CHARACTER_DEATH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85" prot="public">
+          <name>ALT_DEATH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775" prot="public">
+          <name>LAUNCH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed" prot="public">
+          <name>BULLET_DEATH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728" prot="public">
+          <name>WALLBULLET_DEATH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01" prot="public">
+          <name>ROCKET_FLICKER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f" prot="public">
+          <name>RESET</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="13" column="1" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="14" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_animation_1a379f551a0ded4c7495c5b413dacaea44" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::thread * &gt;</type>
+        <definition>std::vector&lt;std::thread*&gt; Animation::threads</definition>
+        <argsstring></argsstring>
+        <name>threads</name>
+        <qualifiedname>Animation::threads</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="39" column="13" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_animation_1a483789663d6c2c0357f65f88a6be9843" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock Animation::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>Animation::timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="40" column="11" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_animation_1a25fb533c7753a8c1013d3b70c3156c7c" prot="private" static="no" mutable="no">
+        <type>sf::IntRect</type>
+        <definition>sf::IntRect Animation::frames[26]</definition>
+        <argsstring>[26]</argsstring>
+        <name>frames</name>
+        <qualifiedname>Animation::frames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="41" column="13" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_animation_1a378358592e9e520ac4607b0209abe2ac" prot="private" static="no" mutable="no">
+        <type>sf::IntRect</type>
+        <definition>sf::IntRect Animation::revert</definition>
+        <argsstring></argsstring>
+        <name>revert</name>
+        <qualifiedname>Animation::revert</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="41" column="20" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_animation_1a0313fad76f94070d52b943bd29b58eb1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Animation::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>Animation::state</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="42" column="5" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_animation_1a18811a825ee983376d938f6184876207" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Animation::spriteSizeIndex</definition>
+        <argsstring></argsstring>
+        <name>spriteSizeIndex</name>
+        <qualifiedname>Animation::spriteSizeIndex</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="43" column="14" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_animation_1af7c447147d8a01f3a10d3eac0823464f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Animation::kill</definition>
+        <argsstring></argsstring>
+        <name>kill</name>
+        <qualifiedname>Animation::kill</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="44" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_animation_1a83f0a16cef7117f187ad596de38dd9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Animation::Animation</definition>
+        <argsstring>()</argsstring>
+        <name>Animation</name>
+        <qualifiedname>Animation::Animation</qualifiedname>
+        <briefdescription>
+<para>Initalize individual animation frames. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="24" column="1" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="7" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1a401b68793d4fbf48d481c030ee4b2a16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Animation::~Animation</definition>
+        <argsstring>()</argsstring>
+        <name>~Animation</name>
+        <qualifiedname>Animation::~Animation</qualifiedname>
+        <briefdescription>
+<para>Clean up memory for animation class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="25" column="1" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="58" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1aafa4559f75e244ca439626971d3ea11a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::run</definition>
+        <argsstring>(sf::Sprite *, Anim, unsigned int sizeIndex=0)</argsstring>
+        <name>run</name>
+        <qualifiedname>Animation::run</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <defname>sprite</defname>
+        </param>
+        <param>
+          <type><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kindref="member">Anim</ref></type>
+          <defname>anim</defname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>sizeIndex</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Run the given animation on sprite. Note that you should always check if the sprite* is null before doing operations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nullable</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>anim</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="28" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="74" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1a90e29926b57befdba44ef5835cb10e06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Animation::getState</definition>
+        <argsstring>() const</argsstring>
+        <name>getState</name>
+        <qualifiedname>Animation::getState</qualifiedname>
+        <briefdescription>
+<para>Checks if current animation has finished running. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="29" column="5" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="315" bodyend="318"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_animation_1aede55d493fdb8c6592b9e905cfd1e10b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::fCHARACTER_DEATH</definition>
+        <argsstring>(sf::Sprite *sprite)</argsstring>
+        <name>fCHARACTER_DEATH</name>
+        <qualifiedname>Animation::fCHARACTER_DEATH</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+<para>Death animation definition. Used when obstacles die. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="32" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="121" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1a8d83019b2af77c46c480835782580842" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::fALT_DEATH</definition>
+        <argsstring>(sf::Sprite *sprite)</argsstring>
+        <name>fALT_DEATH</name>
+        <qualifiedname>Animation::fALT_DEATH</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+<para>Alternate death animation definition. Used by Obstacles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="33" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="163" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1afa42ada93ea59bd265616bf9f78d33ba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::fLAUNCH</definition>
+        <argsstring>(sf::Sprite *sprite)</argsstring>
+        <name>fLAUNCH</name>
+        <qualifiedname>Animation::fLAUNCH</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+<para>Missle launch animation definition. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="34" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="183" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1a760f0463ebafb824a984e559405c15b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::fBULLET_DEATH</definition>
+        <argsstring>(sf::Sprite *sprite)</argsstring>
+        <name>fBULLET_DEATH</name>
+        <qualifiedname>Animation::fBULLET_DEATH</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+<para>Bullet on collision with Obstacles or Enemies animation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="35" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="205" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1a6d3a7baf855140024fc234ffee1849d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::fWALLBULLET_DEATH</definition>
+        <argsstring>(sf::Sprite *sprite)</argsstring>
+        <name>fWALLBULLET_DEATH</name>
+        <qualifiedname>Animation::fWALLBULLET_DEATH</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_animation" kindref="compound">Animation</ref> for when a bullet hits a wall or zap wall. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="36" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="256" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="class_animation_1a653c226c0610ca5665590e1bdae8887f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Animation::fROCKET_FLICKER</definition>
+        <argsstring>(sf::Sprite *sprite)</argsstring>
+        <name>fROCKET_FLICKER</name>
+        <qualifiedname>Animation::fROCKET_FLICKER</qualifiedname>
+        <param>
+          <type>sf::Sprite *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_animation" kindref="compound">Animation</ref> for a upward shooting rocket obstacle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Animation/Animation.h" line="37" column="6" bodyfile="C:/Zaxxon/src/Animation/Animation.cpp" bodystart="281" bodyend="308"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class to handle (almost) all in-game animations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Animation/Animation.h" line="10" column="1" bodyfile="C:/Zaxxon/src/Animation/Animation.h" bodystart="11" bodyend="45"/>
+    <listofallmembers>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a460cb3a52a27055a8aadb965faf0ec85" prot="public" virt="non-virtual"><scope>Animation</scope><name>ALT_DEATH</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" prot="public" virt="non-virtual"><scope>Animation</scope><name>Anim</name></member>
+      <member refid="class_animation_1a83f0a16cef7117f187ad596de38dd9d6" prot="public" virt="non-virtual"><scope>Animation</scope><name>Animation</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed" prot="public" virt="non-virtual"><scope>Animation</scope><name>BULLET_DEATH</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" prot="public" virt="non-virtual"><scope>Animation</scope><name>CHARACTER_DEATH</name></member>
+      <member refid="class_animation_1a8d83019b2af77c46c480835782580842" prot="private" virt="non-virtual"><scope>Animation</scope><name>fALT_DEATH</name></member>
+      <member refid="class_animation_1a760f0463ebafb824a984e559405c15b2" prot="private" virt="non-virtual"><scope>Animation</scope><name>fBULLET_DEATH</name></member>
+      <member refid="class_animation_1aede55d493fdb8c6592b9e905cfd1e10b" prot="private" virt="non-virtual"><scope>Animation</scope><name>fCHARACTER_DEATH</name></member>
+      <member refid="class_animation_1afa42ada93ea59bd265616bf9f78d33ba" prot="private" virt="non-virtual"><scope>Animation</scope><name>fLAUNCH</name></member>
+      <member refid="class_animation_1a25fb533c7753a8c1013d3b70c3156c7c" prot="private" virt="non-virtual"><scope>Animation</scope><name>frames</name></member>
+      <member refid="class_animation_1a653c226c0610ca5665590e1bdae8887f" prot="private" virt="non-virtual"><scope>Animation</scope><name>fROCKET_FLICKER</name></member>
+      <member refid="class_animation_1a6d3a7baf855140024fc234ffee1849d9" prot="private" virt="non-virtual"><scope>Animation</scope><name>fWALLBULLET_DEATH</name></member>
+      <member refid="class_animation_1a90e29926b57befdba44ef5835cb10e06" prot="public" virt="non-virtual"><scope>Animation</scope><name>getState</name></member>
+      <member refid="class_animation_1af7c447147d8a01f3a10d3eac0823464f" prot="private" virt="non-virtual"><scope>Animation</scope><name>kill</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a0aecb81d92399096a4c3504933918775" prot="public" virt="non-virtual"><scope>Animation</scope><name>LAUNCH</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a2fb1ac035a9419a633d3c096b2f90d1f" prot="public" virt="non-virtual"><scope>Animation</scope><name>RESET</name></member>
+      <member refid="class_animation_1a378358592e9e520ac4607b0209abe2ac" prot="private" virt="non-virtual"><scope>Animation</scope><name>revert</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a9870421168228cfdeee7242ad5c55d01" prot="public" virt="non-virtual"><scope>Animation</scope><name>ROCKET_FLICKER</name></member>
+      <member refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" prot="public" virt="non-virtual"><scope>Animation</scope><name>run</name></member>
+      <member refid="class_animation_1a18811a825ee983376d938f6184876207" prot="private" virt="non-virtual"><scope>Animation</scope><name>spriteSizeIndex</name></member>
+      <member refid="class_animation_1a0313fad76f94070d52b943bd29b58eb1" prot="private" virt="non-virtual"><scope>Animation</scope><name>state</name></member>
+      <member refid="class_animation_1a379f551a0ded4c7495c5b413dacaea44" prot="private" virt="non-virtual"><scope>Animation</scope><name>threads</name></member>
+      <member refid="class_animation_1a483789663d6c2c0357f65f88a6be9843" prot="private" virt="non-virtual"><scope>Animation</scope><name>timer</name></member>
+      <member refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728" prot="public" virt="non-virtual"><scope>Animation</scope><name>WALLBULLET_DEATH</name></member>
+      <member refid="class_animation_1a401b68793d4fbf48d481c030ee4b2a16" prot="public" virt="non-virtual"><scope>Animation</scope><name>~Animation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

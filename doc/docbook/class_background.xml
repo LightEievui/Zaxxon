@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_background" xml:lang="en-US">
+<title>Background Class Reference</title>
+<indexterm><primary>Background</primary></indexterm>
+<para>
+
+<para>Holds all backgrounds and methods to fill each level with content. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Background.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link> { <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link> = 0
+, <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link> = 1
+, <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link> = 2
+, <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">BOSSFIGHT</link> = 3
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719">Background</link> (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>, sf::View &amp;, sf::Texture *, std::vector&lt; <link linkend="_class_obstacle">Obstacle</link> * &gt; &amp;, std::vector&lt; <link linkend="_class_enemy">Enemy</link> * &gt; &amp;, <link linkend="_class_player">Player</link> &amp;, int, std::vector&lt; <link linkend="_class_wall">Wall</link> * &gt; &amp;, std::vector&lt; <link linkend="_class_zap_wall">ZapWall</link> * &gt; &amp;)</para>
+
+<para>Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. </para>
+</listitem>
+            <listitem><para><link linkend="_class_background_1a36754df1deb720393217ade59da41557">~Background</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1a35213116185226b7b3881b2e71c8a292">update</link> (sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; <link linkend="_class_obstacle">Obstacle</link> * &gt; &amp;, std::vector&lt; <link linkend="_class_enemy">Enemy</link> * &gt; &amp;, <link linkend="_class_player">Player</link> &amp;, std::vector&lt; <link linkend="_class_wall">Wall</link> * &gt; &amp;, std::vector&lt; <link linkend="_class_zap_wall">ZapWall</link> * &gt; &amp;)</para>
+
+<para>Run the background logic, and check if background stage should be swapped. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1a002ca1b009e940180bb5edb8c49e008f">setPosition</link> (sf::Vector2f)</para>
+
+<para>Set the position of the background. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1ac607d65614b8f90a0f841a97df4f0b04">generateObstacles</link> (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>, std::vector&lt; <link linkend="_class_obstacle">Obstacle</link> * &gt; &amp;, sf::Texture *, std::vector&lt; <link linkend="_class_wall">Wall</link> * &gt; &amp;, std::vector&lt; <link linkend="_class_zap_wall">ZapWall</link> * &gt; &amp;)</para>
+
+<para>Place all obstacles for given stage. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1aa319354445ea0a0f224b6dc726b621c2">generateWaves</link> (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>, std::vector&lt; <link linkend="_class_enemy">Enemy</link> * &gt; &amp;, sf::Texture *, int)</para>
+
+<para>Handle enemy wave generation. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">resetPos</link> (sf::View &amp;, <link linkend="_class_player">Player</link> &amp;, int)</para>
+
+<para>Reset the position of the background for stage changes. </para>
+</listitem>
+            <listitem><para><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link> <link linkend="_class_background_1aa60585bb666a292f5d49049038400b1a">getStage</link> ()</para>
+
+<para>Get the current stage background is on. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1ac333125273a1213f2cb1c4af4081f0b8">setStage</link> (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>)</para>
+
+<para>Set the current stage. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_background_1a52b2389cd7dfaedff511e72af9f3735c">isInSpace</link> (int)</para>
+
+<para>Check if background is currently space, this affects the player. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_background_1a093d96b9f25dda122febad2beabc47cd">flashColor</link> (sf::RenderWindow &amp;)</para>
+
+<para>Flash color of background between the default color and red tinted color based on state variable passed into the method. 0 is red, 1 is default. This is used for the first part of the death animation in <link linkend="__game_8cpp">Game.cpp</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Holds all backgrounds and methods to fill each level with content. </para>
+<para>
+Definition at line <link linkend="__background_8h_source_1l00015">15</link> of file <link linkend="__background_8h_source">Background.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_background_1a63cd37625e2bab37186432edd734c6b3"/><section>
+    <title>Stage</title>
+<indexterm><primary>Stage</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>Stage</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Background::Stage</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>INITIAL</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>INITIAL</secondary></indexterm>
+<anchor xml:id="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0"/>INITIAL</entry><entry></entry></row><row><entry><indexterm><primary>SPACE</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>SPACE</secondary></indexterm>
+<anchor xml:id="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc"/>SPACE</entry><entry></entry></row><row><entry><indexterm><primary>BOSS</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>BOSS</secondary></indexterm>
+<anchor xml:id="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe"/>BOSS</entry><entry></entry></row><row><entry><indexterm><primary>BOSSFIGHT</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>BOSSFIGHT</secondary></indexterm>
+<anchor xml:id="_class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e"/>BOSSFIGHT</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="__background_8h_source_1l00018">18</link> of file <link linkend="__background_8h_source">Background.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719"/><section>
+    <title>Background()</title>
+<indexterm><primary>Background</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>Background</secondary></indexterm>
+<para><computeroutput>Background::Background (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link> startStage, sf::View &amp; mainView, sf::Texture * spritesheet, std::vector&lt; <link linkend="_class_obstacle">Obstacle</link> * &gt; &amp; obstacles, std::vector&lt; <link linkend="_class_enemy">Enemy</link> * &gt; &amp; enemies, <link linkend="_class_player">Player</link> &amp; player, int startPos, std::vector&lt; <link linkend="_class_wall">Wall</link> * &gt; &amp; walls, std::vector&lt; <link linkend="_class_zap_wall">ZapWall</link> * &gt; &amp; zapWalls)</computeroutput></para><para>
+
+<para>Create the background object and initialize each of the necessary images so they are ready to be drawn when needed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>startStage</entry><entry>
+<para>Stage that <link linkend="_class_background">Background</link> will start on.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>mainView</entry><entry>
+<para>The 3d view.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>spritesheet</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>obstacles</entry><entry>
+<para><link linkend="_class_obstacle">Obstacle</link> list.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>enemies</entry><entry>
+<para><link linkend="_class_enemy">Enemy</link> list.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>player</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>startPos</entry><entry>
+<para>The Z the background should go to at start.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>walls</entry><entry>
+<para><link linkend="_class_wall">Wall</link> list.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>zapWalls</entry><entry>
+<para>Zap wall list.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00018">18</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1a36754df1deb720393217ade59da41557"/><section>
+    <title>~Background()</title>
+<indexterm><primary>~Background</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>~Background</secondary></indexterm>
+<para><computeroutput>Background::~Background ( )</computeroutput></para><para>
+Definition at line <link linkend="__background_8cpp_source_1l00049">49</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_background_1a093d96b9f25dda122febad2beabc47cd"/><section>
+    <title>flashColor()</title>
+<indexterm><primary>flashColor</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>flashColor</secondary></indexterm>
+<para><computeroutput>void Background::flashColor (sf::RenderWindow &amp; window)</computeroutput></para><para>
+
+<para>Flash color of background between the default color and red tinted color based on state variable passed into the method. 0 is red, 1 is default. This is used for the first part of the death animation in <link linkend="__game_8cpp">Game.cpp</link>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>state</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00663">663</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1ac607d65614b8f90a0f841a97df4f0b04"/><section>
+    <title>generateObstacles()</title>
+<indexterm><primary>generateObstacles</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>generateObstacles</secondary></indexterm>
+<para><computeroutput>void Background::generateObstacles (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link> stage, std::vector&lt; <link linkend="_class_obstacle">Obstacle</link> * &gt; &amp; obstacles, sf::Texture * spriteSheet, std::vector&lt; <link linkend="_class_wall">Wall</link> * &gt; &amp; walls, std::vector&lt; <link linkend="_class_zap_wall">ZapWall</link> * &gt; &amp; zapWalls)</computeroutput></para><para>
+
+<para>Place all obstacles for given stage. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>stage</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>obstacles</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>spriteSheet</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00253">253</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1aa319354445ea0a0f224b6dc726b621c2"/><section>
+    <title>generateWaves()</title>
+<indexterm><primary>generateWaves</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>generateWaves</secondary></indexterm>
+<para><computeroutput>void Background::generateWaves (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link> stage, std::vector&lt; <link linkend="_class_enemy">Enemy</link> * &gt; &amp; enemies, sf::Texture * spriteSheet, int playerZ)</computeroutput></para><para>
+
+<para>Handle enemy wave generation. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>stage</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>enemies</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>spriteSheet</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>playerZ</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00608">608</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1aa60585bb666a292f5d49049038400b1a"/><section>
+    <title>getStage()</title>
+<indexterm><primary>getStage</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>getStage</secondary></indexterm>
+<para><computeroutput><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Background::Stage</link> Background::getStage ( )</computeroutput></para><para>
+
+<para>Get the current stage background is on. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A background stage</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00651">651</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1a52b2389cd7dfaedff511e72af9f3735c"/><section>
+    <title>isInSpace()</title>
+<indexterm><primary>isInSpace</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>isInSpace</secondary></indexterm>
+<para><computeroutput>bool Background::isInSpace (int z)</computeroutput></para><para>
+
+<para>Check if background is currently space, this affects the player. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>z</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00188">188</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877"/><section>
+    <title>resetPos()</title>
+<indexterm><primary>resetPos</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>resetPos</secondary></indexterm>
+<para><computeroutput>void Background::resetPos (sf::View &amp; mainView, <link linkend="_class_player">Player</link> &amp; player, int startPos)</computeroutput></para><para>
+
+<para>Reset the position of the background for stage changes. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mainView</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>player</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>startPos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00217">217</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1a002ca1b009e940180bb5edb8c49e008f"/><section>
+    <title>setPosition()</title>
+<indexterm><primary>setPosition</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>setPosition</secondary></indexterm>
+<para><computeroutput>void Background::setPosition (sf::Vector2f pos)</computeroutput></para><para>
+
+<para>Set the position of the background. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00124">124</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1ac333125273a1213f2cb1c4af4081f0b8"/><section>
+    <title>setStage()</title>
+<indexterm><primary>setStage</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>setStage</secondary></indexterm>
+<para><computeroutput>void Background::setStage (<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link> newStage)</computeroutput></para><para>
+
+<para>Set the current stage. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>newStage</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00673">673</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_background_1a35213116185226b7b3881b2e71c8a292"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>Background</secondary></indexterm>
+<indexterm><primary>Background</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void Background::update (sf::RenderWindow &amp; window, sf::View &amp; mainView, float gameSpeed, sf::Texture * spritesheet, std::vector&lt; <link linkend="_class_obstacle">Obstacle</link> * &gt; &amp; obstacles, std::vector&lt; <link linkend="_class_enemy">Enemy</link> * &gt; &amp; enemies, <link linkend="_class_player">Player</link> &amp; player, std::vector&lt; <link linkend="_class_wall">Wall</link> * &gt; &amp; walls, std::vector&lt; <link linkend="_class_zap_wall">ZapWall</link> * &gt; &amp; zapWalls)</computeroutput></para><para>
+
+<para>Run the background logic, and check if background stage should be swapped. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>mainView</entry><entry>
+<para>3d View</para>
+</entry>
+                            </row>
+                            <row>
+<entry>gameSpeed</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>spritesheet</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>obstacles</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>enemies</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>player</entry><entry></entry>
+                            </row>
+                            <row>
+<entry>walls</entry><entry>
+<para><link linkend="_class_wall">Wall</link> list.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>zapWalls</entry><entry>
+<para>Zap wall list.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__background_8cpp_source_1l00066">66</link> of file <link linkend="__background_8cpp_source">Background.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Zaxxon/src/Background/<link linkend="__background_8h">Background.h</link>C:/Zaxxon/src/Background/<link linkend="__background_8cpp">Background.cpp</link></section>
+</section>

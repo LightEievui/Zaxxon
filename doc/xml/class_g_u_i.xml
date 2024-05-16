@@ -1,0 +1,675 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_g_u_i" kind="class" language="C++" prot="public">
+    <compoundname>GUI</compoundname>
+    <includes refid="_g_u_i_8h" local="no">GUI.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1a8378798a81812fb0411b746553429e04" prot="private" static="no" mutable="no">
+        <type>sf::Texture *</type>
+        <definition>sf::Texture* GUI::spritesheet</definition>
+        <argsstring></argsstring>
+        <name>spritesheet</name>
+        <qualifiedname>GUI::spritesheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="25" column="13" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a66e79127a379183e14cd4c27b05b7020" prot="private" static="no" mutable="no">
+        <type>sf::RectangleShape</type>
+        <definition>sf::RectangleShape GUI::heightMeterBg</definition>
+        <argsstring></argsstring>
+        <name>heightMeterBg</name>
+        <qualifiedname>GUI::heightMeterBg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="27" column="20" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1af8ef3d49cb6c6950977ef20a53da18b8" prot="private" static="no" mutable="no">
+        <type><ref refid="class_h_m_section" kindref="compound">HMSection</ref></type>
+        <definition>HMSection GUI::heightMeterSections[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>heightMeterSections</name>
+        <qualifiedname>GUI::heightMeterSections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="28" column="11" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1aa27b14ad45bf680e23aed4f8a9d2ef7b" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::heightH</definition>
+        <argsstring></argsstring>
+        <name>heightH</name>
+        <qualifiedname>GUI::heightH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="29" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1ad9ca2b59e1fe9c6583a6ea8ea0ded933" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::heightL</definition>
+        <argsstring></argsstring>
+        <name>heightL</name>
+        <qualifiedname>GUI::heightL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="30" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a735f4ea9fda201bb6382ae50c7c7a5e3" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Transformable * &gt;</type>
+        <definition>std::vector&lt;sf::Transformable*&gt; GUI::hudElements</definition>
+        <argsstring></argsstring>
+        <name>hudElements</name>
+        <qualifiedname>GUI::hudElements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="31" column="13" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a3edb614d79082cf2b3e5aebfb06738b9" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::copyright[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>copyright</name>
+        <qualifiedname>GUI::copyright</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="33" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1aa49f3a60effbdc2771d200ea74a3e03e" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::topScore[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>topScore</name>
+        <qualifiedname>GUI::topScore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="34" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a43f86d28a91ad9ed0a12917aa8876033" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::curScore[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>curScore</name>
+        <qualifiedname>GUI::curScore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="35" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1aee903a2fb3287b3529e8da30058339d0" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::fuelText[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>fuelText</name>
+        <qualifiedname>GUI::fuelText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="36" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1ac7cf29505c459c58e497a3c1579e0a89" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::enemyText[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>enemyText</name>
+        <qualifiedname>GUI::enemyText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="37" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a49e3837a1c094db1fb13d5de4290a378" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::fuelBar[16]</definition>
+        <argsstring>[16]</argsstring>
+        <name>fuelBar</name>
+        <qualifiedname>GUI::fuelBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="39" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1aabe2b790cbeae461920fef46ac6c6229" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::livesBar</definition>
+        <argsstring></argsstring>
+        <name>livesBar</name>
+        <qualifiedname>GUI::livesBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="40" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1aabb95a82582793ec53c4bfd3cf672501" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::enemyLeft[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>enemyLeft</name>
+        <qualifiedname>GUI::enemyLeft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="41" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a7d5f3409d5694aed8e959daeb9cdd31a" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::pushPlayerText[25]</definition>
+        <argsstring>[25]</argsstring>
+        <name>pushPlayerText</name>
+        <qualifiedname>GUI::pushPlayerText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="43" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1aec94e4f70ddfbad47479d2e84173a100" prot="private" static="no" mutable="no">
+        <type>sf::Clock</type>
+        <definition>sf::Clock GUI::scoreClock</definition>
+        <argsstring></argsstring>
+        <name>scoreClock</name>
+        <qualifiedname>GUI::scoreClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="45" column="11" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a46fbeca7bbe2ee6f3dc748849ffdf755" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::highScores[42]</definition>
+        <argsstring>[42]</argsstring>
+        <name>highScores</name>
+        <qualifiedname>GUI::highScores</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="47" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a020131878df19fc689234b8ab14e0267" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::highScoresText[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>highScoresText</name>
+        <qualifiedname>GUI::highScoresText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="48" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a2e32813c5290f94e7ed57ad563d88a81" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::highScoresNames[18]</definition>
+        <argsstring>[18]</argsstring>
+        <name>highScoresNames</name>
+        <qualifiedname>GUI::highScoresNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="49" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a591761302fe93f1db4518ead5b8ad5d3" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::gameOver[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>gameOver</name>
+        <qualifiedname>GUI::gameOver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="51" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a272c73356e2604f7d1c4d3eff491fa82" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::scoreEntry[14]</definition>
+        <argsstring>[14]</argsstring>
+        <name>scoreEntry</name>
+        <qualifiedname>GUI::scoreEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="52" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a392ccc8f5d80230fa6d9280e7b81b837" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::initialsText[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>initialsText</name>
+        <qualifiedname>GUI::initialsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="53" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a144b39fdde1f6469b7357638acf5ad53" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::entryTime[13]</definition>
+        <argsstring>[13]</argsstring>
+        <name>entryTime</name>
+        <qualifiedname>GUI::entryTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="54" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1ad2c492c09b31096cf3771b7cdc9a7164" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::keyboard[30]</definition>
+        <argsstring>[30]</argsstring>
+        <name>keyboard</name>
+        <qualifiedname>GUI::keyboard</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="55" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a701b76e70021ee98fb27b04a20b6c295" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::cursor</definition>
+        <argsstring></argsstring>
+        <name>cursor</name>
+        <qualifiedname>GUI::cursor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="56" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1a6143faab4049a20acfafafea820eb1d5" prot="private" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GUI::endScreen[40]</definition>
+        <argsstring>[40]</argsstring>
+        <name>endScreen</name>
+        <qualifiedname>GUI::endScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="58" column="12" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GUI::GUI</definition>
+        <argsstring>(sf::Texture *)</argsstring>
+        <name>GUI</name>
+        <qualifiedname>GUI::GUI</qualifiedname>
+        <param>
+          <type>sf::Texture *</type>
+          <defname>spritesheet</defname>
+        </param>
+        <briefdescription>
+<para>Initializes the <ref refid="class_g_u_i" kindref="compound">GUI</ref> (graphical user interface) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>spritesheet</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="17" column="1" bodyfile="C:/Zaxxon/src/GUI/GUI.cpp" bodystart="8" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GUI::render</definition>
+        <argsstring>(sf::RenderWindow &amp;, float, int, int, byte, byte)</argsstring>
+        <name>render</name>
+        <qualifiedname>GUI::render</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>playerY</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>score</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>highScore</defname>
+        </param>
+        <param>
+          <type><ref refid="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+          <defname>fuel</defname>
+        </param>
+        <param>
+          <type><ref refid="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+          <defname>lives</defname>
+        </param>
+        <briefdescription>
+<para>Draw all the <ref refid="class_g_u_i" kindref="compound">GUI</ref> to the screen each frame. Also run logic for certain interactive <ref refid="class_g_u_i" kindref="compound">GUI</ref> elements and update them as needed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerY</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>score</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fuel</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="18" column="6" bodyfile="C:/Zaxxon/src/GUI/GUI.cpp" bodystart="315" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1a41bf32a5de5387392f14b204bd55259e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GUI::startRender</definition>
+        <argsstring>(sf::RenderWindow &amp;, int)</argsstring>
+        <name>startRender</name>
+        <qualifiedname>GUI::startRender</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>highScore</defname>
+        </param>
+        <briefdescription>
+<para>Rendering specifically for the start screen. This will include the leaderboard will the top 6 scores and names. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>highScore</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="19" column="6" bodyfile="C:/Zaxxon/src/GUI/GUI.cpp" bodystart="456" bodyend="478"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GUI::renderScores</definition>
+        <argsstring>(sf::RenderWindow &amp;, int[], std::string[])</argsstring>
+        <name>renderScores</name>
+        <qualifiedname>GUI::renderScores</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>scores</defname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>std::string</type>
+          <defname>names</defname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Prepare the leaderboard scores to be rendered. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scores</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="20" column="6" bodyfile="C:/Zaxxon/src/GUI/GUI.cpp" bodystart="486" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GUI::renderEnd</definition>
+        <argsstring>(sf::RenderWindow &amp;, byte=255, byte=0, const char[3]=&quot;   &quot;)</argsstring>
+        <name>renderEnd</name>
+        <qualifiedname>GUI::renderEnd</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <param>
+          <type><ref refid="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+          <defname>timeLeft</defname>
+          <defval>255</defval>
+        </param>
+        <param>
+          <type><ref refid="_g_u_i_8h_1a7528222f65ad403ee1a88ff2b56f9fb7" kindref="member">byte</ref></type>
+          <defname>selector</defname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const char</type>
+          <defname>name</defname>
+          <array>[3]</array>
+          <defval>&quot;   &quot;</defval>
+        </param>
+        <briefdescription>
+<para>Specific <ref refid="class_g_u_i" kindref="compound">GUI</ref> that renders once you&apos;ve run out of lives. This includes the game over text and name entry screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="21" column="6" bodyfile="C:/Zaxxon/src/GUI/GUI.cpp" bodystart="547" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GUI::renderWin</definition>
+        <argsstring>(sf::RenderWindow &amp;)</argsstring>
+        <name>renderWin</name>
+        <qualifiedname>GUI::renderWin</qualifiedname>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+          <defname>window</defname>
+        </param>
+        <briefdescription>
+<para>Render the win screen each lap completed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/GUI.h" line="23" column="6" bodyfile="C:/Zaxxon/src/GUI/GUI.cpp" bodystart="597" bodyend="601"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Contains all <ref refid="class_g_u_i" kindref="compound">GUI</ref> used in the game, including all text. These are simple but can take a lot of space due to how much there is. Different GUIs are split into different render functions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/GUI/GUI.h" line="14" column="1" bodyfile="C:/Zaxxon/src/GUI/GUI.h" bodystart="15" bodyend="59"/>
+    <listofallmembers>
+      <member refid="class_g_u_i_1a3edb614d79082cf2b3e5aebfb06738b9" prot="private" virt="non-virtual"><scope>GUI</scope><name>copyright</name></member>
+      <member refid="class_g_u_i_1a43f86d28a91ad9ed0a12917aa8876033" prot="private" virt="non-virtual"><scope>GUI</scope><name>curScore</name></member>
+      <member refid="class_g_u_i_1a701b76e70021ee98fb27b04a20b6c295" prot="private" virt="non-virtual"><scope>GUI</scope><name>cursor</name></member>
+      <member refid="class_g_u_i_1a6143faab4049a20acfafafea820eb1d5" prot="private" virt="non-virtual"><scope>GUI</scope><name>endScreen</name></member>
+      <member refid="class_g_u_i_1aabb95a82582793ec53c4bfd3cf672501" prot="private" virt="non-virtual"><scope>GUI</scope><name>enemyLeft</name></member>
+      <member refid="class_g_u_i_1ac7cf29505c459c58e497a3c1579e0a89" prot="private" virt="non-virtual"><scope>GUI</scope><name>enemyText</name></member>
+      <member refid="class_g_u_i_1a144b39fdde1f6469b7357638acf5ad53" prot="private" virt="non-virtual"><scope>GUI</scope><name>entryTime</name></member>
+      <member refid="class_g_u_i_1a49e3837a1c094db1fb13d5de4290a378" prot="private" virt="non-virtual"><scope>GUI</scope><name>fuelBar</name></member>
+      <member refid="class_g_u_i_1aee903a2fb3287b3529e8da30058339d0" prot="private" virt="non-virtual"><scope>GUI</scope><name>fuelText</name></member>
+      <member refid="class_g_u_i_1a591761302fe93f1db4518ead5b8ad5d3" prot="private" virt="non-virtual"><scope>GUI</scope><name>gameOver</name></member>
+      <member refid="class_g_u_i_1abfd2c814235b0c6474cae56fb8e04839" prot="public" virt="non-virtual"><scope>GUI</scope><name>GUI</name></member>
+      <member refid="class_g_u_i_1aa27b14ad45bf680e23aed4f8a9d2ef7b" prot="private" virt="non-virtual"><scope>GUI</scope><name>heightH</name></member>
+      <member refid="class_g_u_i_1ad9ca2b59e1fe9c6583a6ea8ea0ded933" prot="private" virt="non-virtual"><scope>GUI</scope><name>heightL</name></member>
+      <member refid="class_g_u_i_1a66e79127a379183e14cd4c27b05b7020" prot="private" virt="non-virtual"><scope>GUI</scope><name>heightMeterBg</name></member>
+      <member refid="class_g_u_i_1af8ef3d49cb6c6950977ef20a53da18b8" prot="private" virt="non-virtual"><scope>GUI</scope><name>heightMeterSections</name></member>
+      <member refid="class_g_u_i_1a46fbeca7bbe2ee6f3dc748849ffdf755" prot="private" virt="non-virtual"><scope>GUI</scope><name>highScores</name></member>
+      <member refid="class_g_u_i_1a2e32813c5290f94e7ed57ad563d88a81" prot="private" virt="non-virtual"><scope>GUI</scope><name>highScoresNames</name></member>
+      <member refid="class_g_u_i_1a020131878df19fc689234b8ab14e0267" prot="private" virt="non-virtual"><scope>GUI</scope><name>highScoresText</name></member>
+      <member refid="class_g_u_i_1a735f4ea9fda201bb6382ae50c7c7a5e3" prot="private" virt="non-virtual"><scope>GUI</scope><name>hudElements</name></member>
+      <member refid="class_g_u_i_1a392ccc8f5d80230fa6d9280e7b81b837" prot="private" virt="non-virtual"><scope>GUI</scope><name>initialsText</name></member>
+      <member refid="class_g_u_i_1ad2c492c09b31096cf3771b7cdc9a7164" prot="private" virt="non-virtual"><scope>GUI</scope><name>keyboard</name></member>
+      <member refid="class_g_u_i_1aabe2b790cbeae461920fef46ac6c6229" prot="private" virt="non-virtual"><scope>GUI</scope><name>livesBar</name></member>
+      <member refid="class_g_u_i_1a7d5f3409d5694aed8e959daeb9cdd31a" prot="private" virt="non-virtual"><scope>GUI</scope><name>pushPlayerText</name></member>
+      <member refid="class_g_u_i_1a1b817cdd39b52e3322ab2b89c03bc220" prot="public" virt="non-virtual"><scope>GUI</scope><name>render</name></member>
+      <member refid="class_g_u_i_1ad8b1804699ac1f39077d5a5b1c91cd2e" prot="public" virt="non-virtual"><scope>GUI</scope><name>renderEnd</name></member>
+      <member refid="class_g_u_i_1a63a1106506cd880d0148d44bc6aabf2a" prot="public" virt="non-virtual"><scope>GUI</scope><name>renderScores</name></member>
+      <member refid="class_g_u_i_1a7be71ee8e625cb46a458be2aca82f705" prot="public" virt="non-virtual"><scope>GUI</scope><name>renderWin</name></member>
+      <member refid="class_g_u_i_1aec94e4f70ddfbad47479d2e84173a100" prot="private" virt="non-virtual"><scope>GUI</scope><name>scoreClock</name></member>
+      <member refid="class_g_u_i_1a272c73356e2604f7d1c4d3eff491fa82" prot="private" virt="non-virtual"><scope>GUI</scope><name>scoreEntry</name></member>
+      <member refid="class_g_u_i_1a8378798a81812fb0411b746553429e04" prot="private" virt="non-virtual"><scope>GUI</scope><name>spritesheet</name></member>
+      <member refid="class_g_u_i_1a41bf32a5de5387392f14b204bd55259e" prot="public" virt="non-virtual"><scope>GUI</scope><name>startRender</name></member>
+      <member refid="class_g_u_i_1aa49f3a60effbdc2771d200ea74a3e03e" prot="private" virt="non-virtual"><scope>GUI</scope><name>topScore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

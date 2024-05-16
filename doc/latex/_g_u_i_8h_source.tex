@@ -1,41 +1,60 @@
 \doxysection{GUI.\+h}
-\hypertarget{_g_u_i_8h_source}{}\label{_g_u_i_8h_source}\index{src/GUI/GUI.h@{src/GUI/GUI.h}}
-
+\hypertarget{_g_u_i_8h_source}{}\label{_g_u_i_8h_source}\index{C:/Zaxxon/src/GUI/GUI.h@{C:/Zaxxon/src/GUI/GUI.h}}
+\mbox{\hyperlink{_g_u_i_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00003\ \textcolor{comment}{//\ temp}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ZaxxonText/ZaxxonText.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}HMSection/HMSection.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ byte;}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_u_i}{GUI}}}
-\DoxyCodeLine{00012\ \{}
-\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839}{GUI}}(sf::Texture*);}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a5aff7f528f4df787db27666651fe231f}{render}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{byte});}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00018\ \ \ \ \ sf::Texture*\ spritesheet;}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ sf::RectangleShape\ heightMeterBg;}
-\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_h_m_section}{HMSection}}\ heightMeterSections[10];}
-\DoxyCodeLine{00022\ \ \ \ \ sf::Sprite\ heightH;}
-\DoxyCodeLine{00023\ \ \ \ \ sf::Sprite\ heightL;}
-\DoxyCodeLine{00024\ \ \ \ \ std::vector<sf::Transformable*>\ hudElements;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ sf::Sprite\ copyright[10];}
-\DoxyCodeLine{00027\ \ \ \ \ sf::Sprite\ topScore[9];}
-\DoxyCodeLine{00028\ \ \ \ \ sf::Sprite\ curScore[9];}
-\DoxyCodeLine{00029\ \ \ \ \ sf::Sprite\ fuelText[6];}
-\DoxyCodeLine{00030\ \ \ \ \ sf::Sprite\ enemyText[10];}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ sf::Sprite\ fuelBar[16];}
-\DoxyCodeLine{00033\ \ \ \ \ sf::Sprite\ livesBar[2];}
-\DoxyCodeLine{00034\ \ \ \ \ sf::Sprite\ enemyLeft[4];}
-\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_zaxxon_text_8h}{ZaxxonText/ZaxxonText.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_h_m_section_8h}{HMSection/HMSection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00006}\mbox{\hyperlink{_g_u_i_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{00006}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{_game_8h_a7528222f65ad403ee1a88ff2b56f9fb7}{byte}}\ =\ \textcolor{keywordtype}{unsigned}\ char;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00014}\mbox{\hyperlink{class_g_u_i}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_u_i}{GUI}}}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_abfd2c814235b0c6474cae56fb8e04839}{GUI}}(sf::Texture*);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a1b817cdd39b52e3322ab2b89c03bc220}{render}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{float},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{byte},\ \textcolor{keywordtype}{byte});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a41bf32a5de5387392f14b204bd55259e}{startRender}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a63a1106506cd880d0148d44bc6aabf2a}{renderScores}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{int}\ [],\ std::string\ []);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_ad8b1804699ac1f39077d5a5b1c91cd2e}{renderEnd}}(sf::RenderWindow\&,\ \textcolor{keywordtype}{byte}\ =\ 255,\ \textcolor{keywordtype}{byte}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ [3]\ =\ \textcolor{stringliteral}{"{}\ \ \ "{}});}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_u_i_a7be71ee8e625cb46a458be2aca82f705}{renderWin}}(sf::RenderWindow\&);}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00024}00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00025}00025\ \ \ \ \ sf::Texture*\ spritesheet;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00027}00027\ \ \ \ \ sf::RectangleShape\ heightMeterBg;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{class_h_m_section}{HMSection}}\ heightMeterSections[10];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00029}00029\ \ \ \ \ sf::Sprite\ heightH;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00030}00030\ \ \ \ \ sf::Sprite\ heightL;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00031}00031\ \ \ \ \ std::vector<sf::Transformable*>\ hudElements;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00033}00033\ \ \ \ \ sf::Sprite\ copyright[10];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00034}00034\ \ \ \ \ sf::Sprite\ topScore[9];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00035}00035\ \ \ \ \ sf::Sprite\ curScore[9];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00036}00036\ \ \ \ \ sf::Sprite\ fuelText[6];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00037}00037\ \ \ \ \ sf::Sprite\ enemyText[10];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00039}00039\ \ \ \ \ sf::Sprite\ fuelBar[16];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00040}00040\ \ \ \ \ sf::Sprite\ livesBar;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00041}00041\ \ \ \ \ sf::Sprite\ enemyLeft[4];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00043}00043\ \ \ \ \ sf::Sprite\ pushPlayerText[25];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00045}00045\ \ \ \ \ sf::Clock\ scoreClock;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00047}00047\ \ \ \ \ sf::Sprite\ highScores[42];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00048}00048\ \ \ \ \ sf::Sprite\ highScoresText[10];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00049}00049\ \ \ \ \ sf::Sprite\ highScoresNames[18];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00051}00051\ \ \ \ \ sf::Sprite\ gameOver[8];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00052}00052\ \ \ \ \ sf::Sprite\ scoreEntry[14];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00053}00053\ \ \ \ \ sf::Sprite\ initialsText[12];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00054}00054\ \ \ \ \ sf::Sprite\ entryTime[13];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00055}00055\ \ \ \ \ sf::Sprite\ keyboard[30];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00056}00056\ \ \ \ \ sf::Sprite\ cursor;}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00058}00058\ \ \ \ \ sf::Sprite\ endScreen[40];}
+\DoxyCodeLine{\Hypertarget{_g_u_i_8h_source_l00059}00059\ \};}
 
 \end{DoxyCode}

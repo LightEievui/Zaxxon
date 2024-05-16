@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__util_8cpp" xml:lang="en-US">
+<title>C:/Zaxxon/src/Util/Util.cpp File Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Util/Util.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;Util.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>sf::Vector2f <link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link> (sf::Vector3f in)</para>
+
+<para>Convert normal 2d coordinates to isometric coordinates. </para>
+</listitem>
+            <listitem><para>sf::FloatRect <link linkend="__util_8cpp_1abb6b320c3e2bc2c09f352e041a9d57e1">getWindowViewRect</link> (sf::RenderWindow &amp;window)</para>
+
+<para>Easily get the current view rectangle with translations. </para>
+</listitem>
+            <listitem><para>bool <link linkend="__util_8cpp_1a311270ca6451600ab7089e74945d30b5">zPressed</link> ()</para>
+
+<para>Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press. </para>
+</listitem>
+            <listitem><para>bool <link linkend="__util_8cpp_1a7ab82b63c0cbae8095033e452b2d2183">upPressed</link> ()</para>
+
+<para>Detects if up is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</listitem>
+            <listitem><para>bool <link linkend="__util_8cpp_1a63e332f98a6cbd1cb57f319f556ee594">downPressed</link> ()</para>
+
+<para>Detects if down is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</listitem>
+            <listitem><para>bool <link linkend="__util_8cpp_1ae6f4fd7a79c6617ddba5e4bc53033e26">leftPressed</link> ()</para>
+
+<para>Detects if left is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</listitem>
+            <listitem><para>bool <link linkend="__util_8cpp_1af41bb2031bce096d1162c72a1ec3d49c">rightPressed</link> ()</para>
+
+<para>Detects if right is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__util_8cpp_1a63e332f98a6cbd1cb57f319f556ee594"/><section>
+    <title>downPressed()</title>
+<indexterm><primary>downPressed</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>downPressed</secondary></indexterm>
+<para><computeroutput>bool downPressed ( )</computeroutput></para><para>
+
+<para>Detects if down is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00072">72</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+<anchor xml:id="__util_8cpp_1abb6b320c3e2bc2c09f352e041a9d57e1"/><section>
+    <title>getWindowViewRect()</title>
+<indexterm><primary>getWindowViewRect</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>getWindowViewRect</secondary></indexterm>
+<para><computeroutput>sf::FloatRect getWindowViewRect (sf::RenderWindow &amp; window)</computeroutput></para><para>
+
+<para>Easily get the current view rectangle with translations. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>window</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Float rectangle</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00023">23</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+<anchor xml:id="__util_8cpp_1ae6f4fd7a79c6617ddba5e4bc53033e26"/><section>
+    <title>leftPressed()</title>
+<indexterm><primary>leftPressed</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>leftPressed</secondary></indexterm>
+<para><computeroutput>bool leftPressed ( )</computeroutput></para><para>
+
+<para>Detects if left is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00084">84</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+<anchor xml:id="__util_8cpp_1af41bb2031bce096d1162c72a1ec3d49c"/><section>
+    <title>rightPressed()</title>
+<indexterm><primary>rightPressed</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>rightPressed</secondary></indexterm>
+<para><computeroutput>bool rightPressed ( )</computeroutput></para><para>
+
+<para>Detects if right is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00096">96</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+<anchor xml:id="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c"/><section>
+    <title>translateTo2d()</title>
+<indexterm><primary>translateTo2d</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>translateTo2d</secondary></indexterm>
+<para><computeroutput>sf::Vector2f translateTo2d (sf::Vector3f in)</computeroutput></para><para>
+
+<para>Convert normal 2d coordinates to isometric coordinates. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Vector of 2 floats</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00009">9</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+<anchor xml:id="__util_8cpp_1a7ab82b63c0cbae8095033e452b2d2183"/><section>
+    <title>upPressed()</title>
+<indexterm><primary>upPressed</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>upPressed</secondary></indexterm>
+<para><computeroutput>bool upPressed ( )</computeroutput></para><para>
+
+<para>Detects if up is current pressed, will handle both keyboard and controller. This will consider holding the stick in this direction as constant &apos;presses&apos;. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00060">60</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+<anchor xml:id="__util_8cpp_1a311270ca6451600ab7089e74945d30b5"/><section>
+    <title>zPressed()</title>
+<indexterm><primary>zPressed</primary><secondary>Util.cpp</secondary></indexterm>
+<indexterm><primary>Util.cpp</primary><secondary>zPressed</secondary></indexterm>
+<para><computeroutput>bool zPressed ( )</computeroutput></para><para>
+
+<para>Detects if main button is pressed, automatically gets rid of inputs that are a held key over first press. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__util_8cpp_source_1l00039">39</link> of file <link linkend="__util_8cpp_source">Util.cpp</link>.</para>
+</section>
+</section>
+</section>

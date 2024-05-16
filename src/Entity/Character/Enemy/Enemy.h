@@ -9,16 +9,17 @@
 class Enemy : public Character
 {
 public:
-	Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnZ, int randOffset = 0);
-	void update(sf::RenderWindow&, float gameSpeed);
+	Enemy(sf::Texture* texture, unsigned int id, sf::Vector3f spawnZ,
+	      unsigned int reset, int randOffset = 0);
+	void update(sf::RenderWindow&, float gameSpeed) override;
 	void kill() override;
 	bool getTranslate2() { return true; };
 	unsigned int getSizeIndex();
 	// Static so can be used from any context.
 	// Will spawn a wave of enemies relative to the player.
-	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int, unsigned int);
+	static void spawnWave(std::vector<Enemy*>&, sf::Texture*, int,
+	                      unsigned int, unsigned int reset);
 	bool isDead() { return dead; };
-
 private:
 	// returns the velocity it has moved already
 	sf::Vector2f runAI();

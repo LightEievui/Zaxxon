@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__character_bullet_8cpp_source" xml:lang="en-US">
+<title>CharacterBullet.cpp</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet/CharacterBullet.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__character_bullet_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__character_bullet_8h">CharacterBullet.h</link>&quot;</emphasis>
+<anchor xml:id="__character_bullet_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__character_bullet_8cpp_source_1l00003"/>00003 
+<anchor xml:id="__character_bullet_8cpp_source_1l00016"/><link linkend="_class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3">00016</link> <link linkend="_class_character_bullet_1a983fcb8b0d1e9dc36b37c5e2f3efdfa3">CharacterBullet::CharacterBullet</link>(sf::Texture*&#32;spritesheet,
+<anchor xml:id="__character_bullet_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector3f&#32;spawnPos,
+<anchor xml:id="__character_bullet_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;sizeIndex,&#32;<link linkend="_class_abstract_bullet_1ae1d5723249d4287666ad542e3f2bcabd">BulletType</link>&#32;type,
+<anchor xml:id="__character_bullet_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sf::Vector2f&#32;spawnPos2f
+<anchor xml:id="__character_bullet_8cpp_source_1l00020"/>00020 )
+<anchor xml:id="__character_bullet_8cpp_source_1l00021"/>00021 {
+<anchor xml:id="__character_bullet_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTexture(*spritesheet);
+<anchor xml:id="__character_bullet_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setTextureRect(sf::IntRect(8&#32;+&#32;16&#32;*&#32;sizeIndex,&#32;47,&#32;16,&#32;8));
+<anchor xml:id="__character_bullet_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setOrigin(0,&#32;8);
+<anchor xml:id="__character_bullet_8cpp_source_1l00025"/>00025 
+<anchor xml:id="__character_bullet_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(type&#32;==&#32;<link linkend="_class_player">Player</link>)
+<anchor xml:id="__character_bullet_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_bullet_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setColor(sf::Color(0,&#32;222,&#32;0));
+<anchor xml:id="__character_bullet_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(sf::Vector3f(spawnPos.x&#32;-&#32;21.f,&#32;spawnPos.y&#32;+&#32;.02f&#32;*&#32;sizeIndex,
+<anchor xml:id="__character_bullet_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spawnPos.z&#32;-&#32;15.f));
+<anchor xml:id="__character_bullet_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()));
+<anchor xml:id="__character_bullet_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_bullet_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(type&#32;==&#32;<link linkend="_class_enemy">Enemy</link>)
+<anchor xml:id="__character_bullet_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_bullet_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setColor(sf::Color(222,&#32;0,&#32;0));
+<anchor xml:id="__character_bullet_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setPosition(
+<anchor xml:id="__character_bullet_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;spawnPos2f&#32;+&#32;sf::Vector2f(-3.f&#32;*&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(3U&#32;-&#32;sizeIndex),
+<anchor xml:id="__character_bullet_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;20));
+<anchor xml:id="__character_bullet_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_bullet_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;this-&gt;sizeIndex&#32;=&#32;sizeIndex;
+<anchor xml:id="__character_bullet_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;this-&gt;type&#32;=&#32;type;
+<anchor xml:id="__character_bullet_8cpp_source_1l00042"/>00042 }
+<anchor xml:id="__character_bullet_8cpp_source_1l00043"/>00043 
+<anchor xml:id="__character_bullet_8cpp_source_1l00044"/>00044 
+<anchor xml:id="__character_bullet_8cpp_source_1l00049"/><link linkend="_class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54">00049</link> <emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_character_bullet_1a47a91c5b356f30dc75cd14f176324e54">CharacterBullet::getSizeIndex</link>()
+<anchor xml:id="__character_bullet_8cpp_source_1l00050"/>00050 {
+<anchor xml:id="__character_bullet_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sizeIndex;
+<anchor xml:id="__character_bullet_8cpp_source_1l00052"/>00052 }
+<anchor xml:id="__character_bullet_8cpp_source_1l00053"/>00053 
+<anchor xml:id="__character_bullet_8cpp_source_1l00054"/>00054 
+<anchor xml:id="__character_bullet_8cpp_source_1l00058"/><link linkend="_class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b">00058</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b">CharacterBullet::kill</link>()
+<anchor xml:id="__character_bullet_8cpp_source_1l00059"/>00059 {
+<anchor xml:id="__character_bullet_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<link linkend="_class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b">kill</link>(<link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">EnemyDeath</link>);
+<anchor xml:id="__character_bullet_8cpp_source_1l00061"/>00061 }
+<anchor xml:id="__character_bullet_8cpp_source_1l00062"/>00062 
+<anchor xml:id="__character_bullet_8cpp_source_1l00063"/>00063 
+<anchor xml:id="__character_bullet_8cpp_source_1l00068"/><link linkend="_class_character_bullet_1ac9285627ab485a6be4efc7dedc11bc23">00068</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_bullet_1a9bcb2df496f840c0bb15dc14558e5f9b">CharacterBullet::kill</link>(<link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dd">BulletDeathType</link>&#32;deathType)
+<anchor xml:id="__character_bullet_8cpp_source_1l00069"/>00069 {
+<anchor xml:id="__character_bullet_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;setColor(sf::Color(255,&#32;255,&#32;255));
+<anchor xml:id="__character_bullet_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="comment">//death&#32;conditions&#32;and&#32;animations&#32;based&#32;on&#32;what&#32;is&#32;dying</emphasis>
+<anchor xml:id="__character_bullet_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(deathType)
+<anchor xml:id="__character_bullet_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_bullet_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda8f2fabee3bd0585ad296c92daa629fcc">WallDeath</link>:
+<anchor xml:id="__character_bullet_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link>.<link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">getState</link>()&#32;&lt;&#32;1)
+<anchor xml:id="__character_bullet_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link>.<link linkend="_class_animation_1aafa4559f75e244ca439626971d3ea11a">run</link>(<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>,&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18ae23e63bdf5c6a4171b434790cc692728">Animation::Anim::WALLBULLET_DEATH</link>,
+<anchor xml:id="__character_bullet_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sizeIndex);
+<anchor xml:id="__character_bullet_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__character_bullet_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_character_bullet_1a8ca1ff9d465891f7192b244d1ad980dda62f3ebff551711b25f81076c0502ecf0">EnemyDeath</link>:
+<anchor xml:id="__character_bullet_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;adjust&#32;position&#32;to&#32;align&#32;better</emphasis>
+<anchor xml:id="__character_bullet_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(this-&gt;type&#32;==&#32;<link linkend="_class_player">Player</link>)
+<anchor xml:id="__character_bullet_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1a1783cc856808b2d78c4e46fa9c85a524">setPos</link>(<link linkend="_class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</link>()&#32;+&#32;sf::Vector3f(0,&#32;0,&#32;-16));
+<anchor xml:id="__character_bullet_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link>.<link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">getState</link>()&#32;&lt;&#32;2)
+<anchor xml:id="__character_bullet_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link>.<link linkend="_class_animation_1aafa4559f75e244ca439626971d3ea11a">run</link>(<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>,&#32;<link linkend="_class_animation_1a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed">Animation::Anim::BULLET_DEATH</link>,&#32;sizeIndex);
+<anchor xml:id="__character_bullet_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_bullet_8cpp_source_1l00086"/>00086 }
+<anchor xml:id="__character_bullet_8cpp_source_1l00087"/>00087 
+<anchor xml:id="__character_bullet_8cpp_source_1l00088"/>00088 
+<anchor xml:id="__character_bullet_8cpp_source_1l00093"/><link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">00093</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">CharacterBullet::update</link>(sf::RenderWindow&amp;&#32;window,&#32;<emphasis role="keywordtype">float</emphasis>&#32;gameSpeed)
+<anchor xml:id="__character_bullet_8cpp_source_1l00094"/>00094 {
+<anchor xml:id="__character_bullet_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(type&#32;==&#32;<link linkend="_class_player">Player</link>)
+<anchor xml:id="__character_bullet_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_bullet_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link>.<link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">getState</link>()&#32;==&#32;0)
+<anchor xml:id="__character_bullet_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__character_bullet_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_abstract_bullet_1a47c3c34b0371c2f926470f90f94df2b1">translate</link>(-6&#32;*&#32;gameSpeed);
+<anchor xml:id="__character_bullet_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_bullet_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__character_bullet_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="comment">//doesn&apos;t&#32;use&#32;translate&#32;because&#32;it&#32;uses&#32;2d&#32;movement</emphasis>
+<anchor xml:id="__character_bullet_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(type&#32;==&#32;<link linkend="_class_enemy">Enemy</link>)
+<anchor xml:id="__character_bullet_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>-&gt;move(<link linkend="__util_8cpp_1a23f3b42650cf34c1fcdd903bb936818c">translateTo2d</link>(sf::Vector3f(0,&#32;0,&#32;3&#32;*&#32;gameSpeed)));
+<anchor xml:id="__character_bullet_8cpp_source_1l00105"/>00105 
+<anchor xml:id="__character_bullet_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</link>.<link linkend="_class_animation_1a90e29926b57befdba44ef5835cb10e06">getState</link>()&#32;==&#32;1)
+<anchor xml:id="__character_bullet_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_abstract_bullet_1aa1477f32fb0f60c087182aad82598d96">alive</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__character_bullet_8cpp_source_1l00108"/>00108 
+<anchor xml:id="__character_bullet_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;window.draw(*<link linkend="_class_entity_1af83f70f8107d85626fb383599cc0f7ae">sprite</link>);
+<anchor xml:id="__character_bullet_8cpp_source_1l00110"/>00110 }
+</programlisting></section>

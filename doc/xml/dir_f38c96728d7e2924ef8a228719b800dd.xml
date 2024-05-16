@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_f38c96728d7e2924ef8a228719b800dd" kind="dir">
+    <compoundname>C:/Zaxxon/src/Entity/AbstractBullet</compoundname>
+    <innerdir refid="dir_3ad4b4dcca11b550a22283e6fd2470b0">C:/Zaxxon/src/Entity/AbstractBullet/BossBullet</innerdir>
+    <innerdir refid="dir_b31584c1da60c7ddee1a59decc4dda03">C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet</innerdir>
+    <innerdir refid="dir_5bb4a1690c5ecfdc95b9d667b257f853">C:/Zaxxon/src/Entity/AbstractBullet/ObstacleBullet</innerdir>
+    <innerfile refid="_abstract_bullet_8cpp">AbstractBullet.cpp</innerfile>
+    <innerfile refid="_abstract_bullet_8h">AbstractBullet.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Entity/AbstractBullet/"/>
+  </compounddef>
+</doxygen>

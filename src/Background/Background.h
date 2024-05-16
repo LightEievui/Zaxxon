@@ -6,13 +6,17 @@
 #include "Entity/Character/Enemy/Enemy.h"
 #include "Obstacle/Obstacle.h"
 #include "Wall/Wall.h"
-#include "ZapWalls/ZapWalls.h"
+#include "ZapWall/ZapWall.h"
 
 
+/// <summary>
+/// Holds all backgrounds and methods to fill each level with content.
+/// </summary>
 class Background
 {
 public:
-	enum Stage {
+	enum Stage
+	{
 		INITIAL = 0,
 		SPACE = 1,
 		BOSS = 2,
@@ -21,18 +25,19 @@ public:
 	};
 
 	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&,
-		std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&, std::vector <ZapWalls*>&);
+	           std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&,
+	           std::vector<ZapWall*>&);
 	~Background();
 
 	void update(sf::RenderWindow&, sf::View&, float, sf::Texture*,
-		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, std::vector<Wall*>&, bool, std::vector <ZapWalls*>&);
+	            std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&,
+	            std::vector<Wall*>&, std::vector<ZapWall*>&, unsigned int);
 	void setPosition(sf::Vector2f);
-
-	// MAY want to consider changing to private later
-	void generateObstacles(Background::Stage,
-		std::vector<Obstacle*>&, sf::Texture*, std::vector<Wall*>&, std::vector <ZapWalls*>&);
-	void generateWaves(Background::Stage,
-		std::vector<Enemy*>&, sf::Texture*, int);
+	void generateObstacles(Stage,
+	                       std::vector<Obstacle*>&, sf::Texture*,
+	                       std::vector<Wall*>&, std::vector<ZapWall*>&);
+	void generateWaves(Stage,
+	                   std::vector<Enemy*>&, sf::Texture*, int);
 	void resetPos(sf::View&, Player&, int);
 
 	Stage getStage();
@@ -40,15 +45,17 @@ public:
 
 	bool isInSpace(int);
 
-	void flashColor(int);
+	void flashColor(sf::RenderWindow&);
 
 private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
-		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&, int, std::vector<Wall*>&, std::vector <ZapWalls*>&);
+	                 std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&,
+	                 int, std::vector<Wall*>&, std::vector<ZapWall*>&);
 	bool backgroundFinished(sf::View&);
 
-	sf::Texture initial, space, boss;
+	sf::Texture initial, space, boss, death;
 	sf::Sprite back;
-	Stage stage = Stage::INITIAL;
+	sf::Sprite deathOverlay;
+	Stage stage = INITIAL;
 	std::queue<std::pair<int, unsigned int>> waveQueue; // playerZ: id
 };

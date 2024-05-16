@@ -1,0 +1,216 @@
+\doxysection{Boss Class Reference}
+\hypertarget{class_boss}{}\label{class_boss}\index{Boss@{Boss}}
+
+
+The boss entity you fight at the end of the level loop.  
+
+
+
+
+{\ttfamily \#include $<$Boss.\+h$>$}
+
+Inheritance diagram for Boss\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_boss}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_boss_a532b2cfc920780c6f4ea432d7e22be79}{Boss}} (sf\+::\+Vector3f, \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, sf\+::\+Texture \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Prepare the boss variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_boss_ad848427ba363777ea9fe753b4f70b26c}{\texorpdfstring{$\sim$}{\string~}\+Boss}} () override
+\begin{DoxyCompactList}\small\item\em Clean up memory related to the boss. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_boss_ae9cf8c000e924a806d64e7488ce6f58a}{update}} (sf\+::\+Render\+Window \&, float game\+Speed) override
+\begin{DoxyCompactList}\small\item\em Run the logic for the boss each frame and then draw it to the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_boss_a911178ba0e5f853c0472f8a2ef879c60}{hit}} ()
+\begin{DoxyCompactList}\small\item\em Run visual effects and code for when you land a hit on the boss. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_boss_bullet}{Boss\+Bullet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_boss_ab76a3a54901df7bc04ff8eb237549fa7}{get\+Missile}} () const
+\begin{DoxyCompactList}\small\item\em Get the boss missile separately. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boss_af650e303d854e6bfb32b7ff64989105d}{missile\+Created}} () const
+\begin{DoxyCompactList}\small\item\em Check if the boss missile exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_boss_a043a78c54fc3a9b0dbacaaf8789be9ea}{is\+Destroyed}} () const
+\begin{DoxyCompactList}\small\item\em Check if the boss has been defeated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=0
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}})
+\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
+\item 
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
+\item 
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
+\item 
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
+\item 
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
+\item 
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The boss entity you fight at the end of the level loop. 
+
+Definition at line \mbox{\hyperlink{_boss_8h_source_l00011}{11}} of file \mbox{\hyperlink{_boss_8h_source}{Boss.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_boss_a532b2cfc920780c6f4ea432d7e22be79}\label{class_boss_a532b2cfc920780c6f4ea432d7e22be79} 
+\index{Boss@{Boss}!Boss@{Boss}}
+\index{Boss@{Boss}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{Boss()}{Boss()}}
+{\footnotesize\ttfamily Boss\+::\+Boss (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{start,  }\item[{\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}}]{target,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{boss\+Sheet,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{sprite\+Sheet }\end{DoxyParamCaption})}
+
+
+
+Prepare the boss variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \\
+\hline
+{\em target} & \\
+\hline
+{\em boss\+Sheet} & \\
+\hline
+{\em sprite\+Sheet} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+\Hypertarget{class_boss_ad848427ba363777ea9fe753b4f70b26c}\label{class_boss_ad848427ba363777ea9fe753b4f70b26c} 
+\index{Boss@{Boss}!````~Boss@{\texorpdfstring{$\sim$}{\string~}Boss}}
+\index{````~Boss@{\texorpdfstring{$\sim$}{\string~}Boss}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Boss()}{\string~Boss()}}
+{\footnotesize\ttfamily Boss\+::\texorpdfstring{$\sim$}{\string~}\+Boss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Clean up memory related to the boss. 
+
+~\newline
+ 
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_boss_ab76a3a54901df7bc04ff8eb237549fa7}\label{class_boss_ab76a3a54901df7bc04ff8eb237549fa7} 
+\index{Boss@{Boss}!getMissile@{getMissile}}
+\index{getMissile@{getMissile}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{getMissile()}{getMissile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_boss_bullet}{Boss\+Bullet}} \texorpdfstring{$\ast$}{*} Boss\+::get\+Missile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the boss missile separately. 
+
+\begin{DoxyReturn}{Returns}
+The missile as a Boss\+Bullet\texorpdfstring{$\ast$}{*}
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+\Hypertarget{class_boss_a911178ba0e5f853c0472f8a2ef879c60}\label{class_boss_a911178ba0e5f853c0472f8a2ef879c60} 
+\index{Boss@{Boss}!hit@{hit}}
+\index{hit@{hit}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily void Boss\+::hit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Run visual effects and code for when you land a hit on the boss. 
+
+
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+\Hypertarget{class_boss_a043a78c54fc3a9b0dbacaaf8789be9ea}\label{class_boss_a043a78c54fc3a9b0dbacaaf8789be9ea} 
+\index{Boss@{Boss}!isDestroyed@{isDestroyed}}
+\index{isDestroyed@{isDestroyed}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{isDestroyed()}{isDestroyed()}}
+{\footnotesize\ttfamily bool Boss\+::is\+Destroyed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check if the boss has been defeated. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+\Hypertarget{class_boss_af650e303d854e6bfb32b7ff64989105d}\label{class_boss_af650e303d854e6bfb32b7ff64989105d} 
+\index{Boss@{Boss}!missileCreated@{missileCreated}}
+\index{missileCreated@{missileCreated}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{missileCreated()}{missileCreated()}}
+{\footnotesize\ttfamily bool Boss\+::missile\+Created (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check if the boss missile exists. 
+
+\begin{DoxyReturn}{Returns}
+A boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00171}{171}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+\Hypertarget{class_boss_ae9cf8c000e924a806d64e7488ce6f58a}\label{class_boss_ae9cf8c000e924a806d64e7488ce6f58a} 
+\index{Boss@{Boss}!update@{update}}
+\index{update@{update}!Boss@{Boss}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Boss\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the logic for the boss each frame and then draw it to the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity}}.
+
+
+
+Definition at line \mbox{\hyperlink{_boss_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{_boss_8cpp_source}{Boss.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Zaxxon/src/\+Entity/\+Boss/\mbox{\hyperlink{_boss_8h}{Boss.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Entity/\+Boss/\mbox{\hyperlink{_boss_8cpp}{Boss.\+cpp}}\end{DoxyCompactItemize}

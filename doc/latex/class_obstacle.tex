@@ -1,66 +1,157 @@
 \doxysection{Obstacle Class Reference}
 \hypertarget{class_obstacle}{}\label{class_obstacle}\index{Obstacle@{Obstacle}}
+
+
+Still obstacles that spawn across the levels.  
+
+
+
+
+{\ttfamily \#include $<$Obstacle.\+h$>$}
+
 Inheritance diagram for Obstacle\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_obstacle}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{Obstacle\+Type}} \{ \newline
+\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b}{GAS\+\_\+\+CAN}} = 1
+, \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a}{SATELLITE}}
+, \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036}{GREY\+\_\+\+CANNON}}
+, \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8}{GREEN\+\_\+\+CANNON}}
+, \newline
+\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a}{MISSILE\+\_\+\+UP}}
+, \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d}{PLANE}}
+, \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701}{SPACE\+\_\+\+FUEL}}
+, \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e}{GREEN\+\_\+\+CANNON\+\_\+\+RIGHT}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}{Obstacle}} (sf\+::\+Vector3f, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, float, int)
+\mbox{\hyperlink{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461}{Obstacle}} (sf\+::\+Vector3f, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int, int)
 \begin{DoxyCompactList}\small\item\em Create a turret obstacle with shooting and direction. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_obstacle_a4d24e681dc227109b688b2f4a49c5a61}{Obstacle}} (sf\+::\+Vector3f, sf\+::\+Texture \texorpdfstring{$\ast$}{*}, int)
 \begin{DoxyCompactList}\small\item\em Create a non-\/turret obstacle (Still obstacle). \end{DoxyCompactList}\item 
-\Hypertarget{class_obstacle_a29b7f49fb1b9b7e4d24eb8f05cc12dc3}\label{class_obstacle_a29b7f49fb1b9b7e4d24eb8f05cc12dc3} 
-void {\bfseries set\+Texture} (std\+::string)
-\item 
-void \mbox{\hyperlink{class_obstacle_a712e425583cff17617c280a10399bf1e}{set\+Position}} (sf\+::\+Vector3f)
-\begin{DoxyCompactList}\small\item\em Set the position of this obstacle. \end{DoxyCompactList}\item 
-sf\+::\+Vector3f \mbox{\hyperlink{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}{get\+Position}} ()
-\begin{DoxyCompactList}\small\item\em Get position of the obstacle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_obstacle_a8021dd6ca94132eae1c0ffcdfefa8be0}{\texorpdfstring{$\sim$}{\string~}\+Obstacle}} () override
+\begin{DoxyCompactList}\small\item\em Clean up memory related to the obstacle class. \end{DoxyCompactList}\item 
 std\+::vector$<$ sf\+::\+Vector3f $>$ \mbox{\hyperlink{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}{get\+Bullet\+Locations}} ()
 \begin{DoxyCompactList}\small\item\em Get positions for all bullets of the obstacle (For turrets). \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}{update}} (sf\+::\+Render\+Window \&) override
+void \mbox{\hyperlink{class_obstacle_af69cc091c4b73003552b2586f550c1d7}{update}} (sf\+::\+Render\+Window \&, int playerZ, float)
 \begin{DoxyCompactList}\small\item\em Run the logic for this obstacle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_obstacle_ab4272be0d3dddafd42040adab4d8a968}{update}} (sf\+::\+Render\+Window \&, float) override
+\begin{DoxyCompactList}\small\item\em Default \doxylink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity\+::update} override. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_obstacle_af395b8077b863766f840f75377a9c6fc}{is\+Present}} ()
 \begin{DoxyCompactList}\small\item\em Check if this obstacle exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_obstacle_a0f354a517c0b6b2e9bafc1e36af706af}{is\+Turret}} ()
+\begin{DoxyCompactList}\small\item\em Checks if obstacle is a turret. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}{bullet\+Kill}} (int)
 \begin{DoxyCompactList}\small\item\em Get rid of obstacles bullet by index (For turrets). \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}{get\+Type}} ()
-\begin{DoxyCompactList}\small\item\em Get what type of obstacle this is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{Obstacle\+Type}} \mbox{\hyperlink{class_obstacle_a1e5991a00aef5976389d5c59450368b3}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get what type of obstacle this is. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_obstacle_ac3450be68b7a60ab4ed285893f6f1deb}{get\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Gets the score to add when the obstacle is destroyed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_obstacle_a3b4865fafe3cf6a31b3444c2557550f8}{kill}} (\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}} \mbox{\hyperlink{_animation_8cpp_a35d522d607d8608fbcb1be1ad18ae0b3}{animation}}=\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}}) override
+\begin{DoxyCompactList}\small\item\em Death animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_entity_a522648b330daab91b49f78f0737a943f}{kill}} ()
-\begin{DoxyCompactList}\small\item\em Run death animation code for the killed entity. \end{DoxyCompactList}\item 
-void {\bfseries set\+Pos} (sf\+::\+Vector3f pos)
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Setup \doxylink{class_entity}{Entity} class variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_ac2da1e8a32161accc56f39ac52cebd86}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=0
+\begin{DoxyCompactList}\small\item\em Clean up memory related to \doxylink{class_entity}{Entity} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_ac9ef7fc00806615984a06ca8c71b10bc}{get\+Animation\+State}} ()
 \item 
-sf\+::\+Vector3f {\bfseries get\+Pos} ()
+void \mbox{\hyperlink{class_entity_a1783cc856808b2d78c4e46fa9c85a524}{set\+Pos}} (sf\+::\+Vector3f pos)
 \item 
-sf\+::\+Float\+Rect {\bfseries get\+Bounds} ()
-\end{DoxyCompactItemize}
+sf\+::\+Vector3f \mbox{\hyperlink{class_entity_a17d1b17b5f2c2b7c137ee7b8347358c3}{get\+Pos}} ()
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_entity_a9727d15d18ccb10fa72dfe15799adcdd}{get\+Bounds}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_ad641a9c7d92d65cb688651e48029e82d}{get\+Sprite\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the related sprite for this entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
 \begin{DoxyCompactItemize}
 \item 
-sf\+::\+Texture \texorpdfstring{$\ast$}{*} {\bfseries sprite\+Sheet}
+sf\+::\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_ac3f2dbf1633dd3080b7e2835367170bd}{sprite\+Sheet}}
 \item 
-sf\+::\+Sprite {\bfseries sprite}
+sf\+::\+Sprite \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_af83f70f8107d85626fb383599cc0f7ae}{sprite}}
 \item 
-\mbox{\hyperlink{class_animation}{Animation}} {\bfseries animations}
+\mbox{\hyperlink{class_animation}{Animation}} \mbox{\hyperlink{class_entity_aa3c0e2d55bf2cffe2c8937ff68bf031d}{animations}}
 \item 
-bool {\bfseries dead} = false
+bool \mbox{\hyperlink{class_entity_a799462330dd8c754cdada5dab432b4dc}{dead}} = false
+\item 
+sf\+::\+Text \mbox{\hyperlink{class_entity_ac653cdb194e9a3d1c5ad211bf1ab23b0}{debug\+Text}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_entity_a5c8dfa06fdc253fd93eafc998a919d00}{debug\+Font}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Still obstacles that spawn across the levels. 
+
+Definition at line \mbox{\hyperlink{_obstacle_8h_source_l00014}{14}} of file \mbox{\hyperlink{_obstacle_8h_source}{Obstacle.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda} 
+\index{Obstacle@{Obstacle}!ObstacleType@{ObstacleType}}
+\index{ObstacleType@{ObstacleType}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{ObstacleType}{ObstacleType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{Obstacle\+::\+Obstacle\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAS\_CAN@{GAS\_CAN}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!GAS\_CAN@{GAS\_CAN}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa3875113013066a822f78a3fdf88f789b} 
+GAS\+\_\+\+CAN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SATELLITE@{SATELLITE}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!SATELLITE@{SATELLITE}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaad8b07851c36c0cd901245eef68eb400a} 
+SATELLITE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREY\_CANNON@{GREY\_CANNON}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!GREY\_CANNON@{GREY\_CANNON}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa7d5ba1da7df17d4cc285af736a283036} 
+GREY\+\_\+\+CANNON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREEN\_CANNON@{GREEN\_CANNON}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!GREEN\_CANNON@{GREEN\_CANNON}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa48f38b5e8dc0f921e2e7667b370e93d8} 
+GREEN\+\_\+\+CANNON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISSILE\_UP@{MISSILE\_UP}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!MISSILE\_UP@{MISSILE\_UP}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeda4f68cf320f25e7fcefa3438f90e4a} 
+MISSILE\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANE@{PLANE}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!PLANE@{PLANE}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaa883354ed188efd11676777ba6332bc1d} 
+PLANE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPACE\_FUEL@{SPACE\_FUEL}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!SPACE\_FUEL@{SPACE\_FUEL}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaacb309ae04dfe237092f20f1c9e4e701} 
+SPACE\+\_\+\+FUEL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREEN\_CANNON\_RIGHT@{GREEN\_CANNON\_RIGHT}!Obstacle@{Obstacle}}\index{Obstacle@{Obstacle}!GREEN\_CANNON\_RIGHT@{GREEN\_CANNON\_RIGHT}}}\Hypertarget{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e}\label{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebdaaeb3f72eebf5686224801715d74b3730e} 
+GREEN\+\_\+\+CANNON\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8h_source_l00029}{29}} of file \mbox{\hyperlink{_obstacle_8h_source}{Obstacle.\+h}}.
+
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_obstacle_a92816aa47ab3cbb031423f16ab75a920}\label{class_obstacle_a92816aa47ab3cbb031423f16ab75a920} 
+\Hypertarget{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461}\label{class_obstacle_a76b8db02b4d3cc504e13ec2f53e3d461} 
 \index{Obstacle@{Obstacle}!Obstacle@{Obstacle}}
 \index{Obstacle@{Obstacle}!Obstacle@{Obstacle}}
 \doxysubsubsection{\texorpdfstring{Obstacle()}{Obstacle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Obstacle\+::\+Obstacle (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{tex,  }\item[{float}]{delay,  }\item[{int}]{dir }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Obstacle\+::\+Obstacle (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos,  }\item[{sf\+::\+Texture \texorpdfstring{$\ast$}{*}}]{tex,  }\item[{int}]{delay,  }\item[{int}]{dir }\end{DoxyParamCaption})}
 
 
 
@@ -72,14 +163,15 @@ Create a turret obstacle with shooting and direction.
 \hline
 {\em tex} & \\
 \hline
-\end{DoxyParams}
-
-
-
-\begin{DoxyParams}{Parameters}
+{\em delay} & (type 5 only)Delay in frames before a rocket begins shooting.\\
+\hline
 {\em dir} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
 \Hypertarget{class_obstacle_a4d24e681dc227109b688b2f4a49c5a61}\label{class_obstacle_a4d24e681dc227109b688b2f4a49c5a61} 
 \index{Obstacle@{Obstacle}!Obstacle@{Obstacle}}
 \index{Obstacle@{Obstacle}!Obstacle@{Obstacle}}
@@ -101,6 +193,24 @@ Create a non-\/turret obstacle (Still obstacle).
 \end{DoxyParams}
 
 
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_a8021dd6ca94132eae1c0ffcdfefa8be0}\label{class_obstacle_a8021dd6ca94132eae1c0ffcdfefa8be0} 
+\index{Obstacle@{Obstacle}!````~Obstacle@{\texorpdfstring{$\sim$}{\string~}Obstacle}}
+\index{````~Obstacle@{\texorpdfstring{$\sim$}{\string~}Obstacle}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Obstacle()}{\string~Obstacle()}}
+{\footnotesize\ttfamily Obstacle\+::\texorpdfstring{$\sim$}{\string~}\+Obstacle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Clean up memory related to the obstacle class. 
+
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00136}{136}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_obstacle_a39869e565df81ce8a50e42668cd0fab7}\label{class_obstacle_a39869e565df81ce8a50e42668cd0fab7} 
 \index{Obstacle@{Obstacle}!bulletKill@{bulletKill}}
@@ -117,6 +227,10 @@ Get rid of obstacles bullet by index (For turrets).
 {\em bullet} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00337}{337}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
 \Hypertarget{class_obstacle_a214183fffe9a6301fbe708313c96b6e7}\label{class_obstacle_a214183fffe9a6301fbe708313c96b6e7} 
 \index{Obstacle@{Obstacle}!getBulletLocations@{getBulletLocations}}
 \index{getBulletLocations@{getBulletLocations}!Obstacle@{Obstacle}}
@@ -130,24 +244,32 @@ Get positions for all bullets of the obstacle (For turrets).
 \begin{DoxyReturn}{Returns}
 Vector of vectors of 3 floats
 \end{DoxyReturn}
-\Hypertarget{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30}\label{class_obstacle_a73b7da779f5fff618bb71fbd811a5f30} 
-\index{Obstacle@{Obstacle}!getPosition@{getPosition}}
-\index{getPosition@{getPosition}!Obstacle@{Obstacle}}
-\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
-{\footnotesize\ttfamily sf\+::\+Vector3f Obstacle\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00160}{160}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_ac3450be68b7a60ab4ed285893f6f1deb}\label{class_obstacle_ac3450be68b7a60ab4ed285893f6f1deb} 
+\index{Obstacle@{Obstacle}!getScore@{getScore}}
+\index{getScore@{getScore}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily int Obstacle\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Get position of the obstacle. 
+Gets the score to add when the obstacle is destroyed. 
 
 \begin{DoxyReturn}{Returns}
-Vector of 3 floats
+score
 \end{DoxyReturn}
-\Hypertarget{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114}\label{class_obstacle_ad28c6a458187a5f5ec68c8cc3c425114} 
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00359}{359}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_a1e5991a00aef5976389d5c59450368b3}\label{class_obstacle_a1e5991a00aef5976389d5c59450368b3} 
 \index{Obstacle@{Obstacle}!getType@{getType}}
 \index{getType@{getType}!Obstacle@{Obstacle}}
 \doxysubsubsection{\texorpdfstring{getType()}{getType()}}
-{\footnotesize\ttfamily int Obstacle\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_obstacle_aa5327a6a717468b71fc3c7b95ee7ebda}{Obstacle\+::\+Obstacle\+Type}} Obstacle\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -156,6 +278,10 @@ Get what type of obstacle this is.
 \begin{DoxyReturn}{Returns}
 An int
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00349}{349}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
 \Hypertarget{class_obstacle_af395b8077b863766f840f75377a9c6fc}\label{class_obstacle_af395b8077b863766f840f75377a9c6fc} 
 \index{Obstacle@{Obstacle}!isPresent@{isPresent}}
 \index{isPresent@{isPresent}!Obstacle@{Obstacle}}
@@ -169,26 +295,73 @@ Check if this obstacle exists.
 \begin{DoxyReturn}{Returns}
 A boolean
 \end{DoxyReturn}
-\Hypertarget{class_obstacle_a712e425583cff17617c280a10399bf1e}\label{class_obstacle_a712e425583cff17617c280a10399bf1e} 
-\index{Obstacle@{Obstacle}!setPosition@{setPosition}}
-\index{setPosition@{setPosition}!Obstacle@{Obstacle}}
-\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
-{\footnotesize\ttfamily void Obstacle\+::set\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector3f}]{pos }\end{DoxyParamCaption})}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00315}{315}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_a0f354a517c0b6b2e9bafc1e36af706af}\label{class_obstacle_a0f354a517c0b6b2e9bafc1e36af706af} 
+\index{Obstacle@{Obstacle}!isTurret@{isTurret}}
+\index{isTurret@{isTurret}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{isTurret()}{isTurret()}}
+{\footnotesize\ttfamily bool Obstacle\+::is\+Turret (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Set the position of this obstacle. 
+Checks if obstacle is a turret. 
+
+\begin{DoxyReturn}{Returns}
+Boolean
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00326}{326}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_a3b4865fafe3cf6a31b3444c2557550f8}\label{class_obstacle_a3b4865fafe3cf6a31b3444c2557550f8} 
+\index{Obstacle@{Obstacle}!kill@{kill}}
+\index{kill@{kill}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily void Obstacle\+::kill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18}{Animation\+::\+Anim}}}]{animation = {\ttfamily \mbox{\hyperlink{class_animation_a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892}{Animation\+::\+CHARACTER\+\_\+\+DEATH}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Death animation. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em pos} & \\
+{\em animation} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14}\label{class_obstacle_a71cf873dada3977dbbda2ee3c80a8f14} 
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_a3ea146cebd4310647bd49a4f08940fe5}{Entity}}.
+
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00147}{147}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_ab4272be0d3dddafd42040adab4d8a968}\label{class_obstacle_ab4272be0d3dddafd42040adab4d8a968} 
 \index{Obstacle@{Obstacle}!update@{update}}
 \index{update@{update}!Obstacle@{Obstacle}}
-\doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Obstacle\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Obstacle\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Default \doxylink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity\+::update} override. 
+
+
+
+Implements \mbox{\hyperlink{class_entity_ac3121e79d75452497acb36dd06f0b2b2}{Entity}}.
+
+
+
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00305}{305}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
+
+\Hypertarget{class_obstacle_af69cc091c4b73003552b2586f550c1d7}\label{class_obstacle_af69cc091c4b73003552b2586f550c1d7} 
+\index{Obstacle@{Obstacle}!update@{update}}
+\index{update@{update}!Obstacle@{Obstacle}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Obstacle\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{int}]{playerZ,  }\item[{float}]{game\+Speed }\end{DoxyParamCaption})}
 
 
 
@@ -201,11 +374,11 @@ Run the logic for this obstacle.
 \end{DoxyParams}
 
 
-Implements \mbox{\hyperlink{class_entity}{Entity}}.
+Definition at line \mbox{\hyperlink{_obstacle_8cpp_source_l00170}{170}} of file \mbox{\hyperlink{_obstacle_8cpp_source}{Obstacle.\+cpp}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+Obstacle/Obstacle.\+h\item 
-src/\+Obstacle/Obstacle.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Zaxxon/src/\+Obstacle/\mbox{\hyperlink{_obstacle_8h}{Obstacle.\+h}}\item 
+C\+:/\+Zaxxon/src/\+Obstacle/\mbox{\hyperlink{_obstacle_8cpp}{Obstacle.\+cpp}}\end{DoxyCompactItemize}

@@ -28,7 +28,8 @@ If those are set, you can build!
 ## Building for production
 Follow development build process to begin. Prefer `Release` mode over `Debug` mode.\
 Resulting EXE file must be put in a directory with `openal32.dll` and have a `/res/` path which contains the game assets. \
-Other files are statically linked and are not required to be distributed with the program.
+Other files are statically linked and are not required to be distributed with the program. \
+You can check newest release as an example for the file structure if needed.
 
 ### SFML
 To switch out [SFML](https://www.sfml-dev.org/) version, simply replace `lib/SFML` with your new version. \

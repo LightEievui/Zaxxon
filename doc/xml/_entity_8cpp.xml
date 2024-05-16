@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_entity_8cpp" kind="file" language="C++">
+    <compoundname>Entity.cpp</compoundname>
+    <includes refid="_entity_8h" local="yes">Entity.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>Animation/Animation.h</label>
+        <link refid="_animation_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Entity/Entity.cpp</label>
+        <link refid="_entity_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Entity.h</label>
+        <link refid="_entity_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="5">
+        <label>thread</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_entity_8h" kindref="compound">Entity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_entity_1a980f368aa07ce358583982821533a54a" refkind="member"><highlight class="normal"><ref refid="class_entity_1a980f368aa07ce358583982821533a54a" kindref="member">Entity::Entity</ref>()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>sf::Sprite();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" kindref="member">spriteSheet</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" kindref="member">debugFont</ref>.loadFromFile(</highlight><highlight class="stringliteral">&quot;C:\\Windows\\Fonts\\arial.ttf&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" kindref="member">debugText</ref>.setFont(<ref refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" kindref="member">debugFont</ref>);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" kindref="member">debugText</ref>.setScale(sf::Vector2f(0.2f,<sp/>0.2f));</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" refkind="member"><highlight class="normal"><ref refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" kindref="member">Entity::~Entity</ref>()</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" kindref="member">Entity::kill</ref>(<ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kindref="member">Animation::Anim</ref><sp/><ref refid="_animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3" kindref="member">animation</ref>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" kindref="member">animations</ref>.<ref refid="class_animation_1aafa4559f75e244ca439626971d3ea11a" kindref="member">run</ref>(<ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>,<sp/><ref refid="_animation_8cpp_1a35d522d607d8608fbcb1be1ad18ae0b3" kindref="member">animation</ref>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" refkind="member"><highlight class="normal">sf::Vector2f<sp/><ref refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" kindref="member">Entity::getSpritePos</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" kindref="member">sprite</ref>-&gt;getPosition();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Entity/Entity.cpp"/>
+  </compounddef>
+</doxygen>

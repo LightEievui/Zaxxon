@@ -6,14 +6,20 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Zaxxon: Member List</title>
+<link rel="icon" href="Zaxxon_plane.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +56,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_background.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -69,7 +94,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Background Member List</div></div>
 </div><!--header-->
@@ -77,21 +101,29 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_background.html">Background</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a1fac54c7e81db155fbef597121344108">Background</a>(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>BOSS</b> enum value (defined in <a class="el" href="class_background.html">Background</a>)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_background.html#aadb6a9246b8e7532fff5d9de5b96b93c">generateObstacles</a>(Background::Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a0f5d9a72170c2b943a3d688ef46ffbbb">generateWaves</a>(Background::Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>INITIAL</b> enum value (defined in <a class="el" href="class_background.html">Background</a>)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#abd3150983c5f3a2df47b761966235635">isInSpace</a>(int z)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#ab4f1a6df90c295ba2fa5b2116c9f7719">Background</a>(Stage, sf::View &amp;, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, int, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">BOSSFIGHT</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a093d96b9f25dda122febad2beabc47cd">flashColor</a>(sf::RenderWindow &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#ac607d65614b8f90a0f841a97df4f0b04">generateObstacles</a>(Stage, std::vector&lt; Obstacle * &gt; &amp;, sf::Texture *, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#aa319354445ea0a0f224b6dc726b621c2">generateWaves</a>(Stage, std::vector&lt; Enemy * &gt; &amp;, sf::Texture *, int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#aa60585bb666a292f5d49049038400b1a">getStage</a>()</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a52b2389cd7dfaedff511e72af9f3735c">isInSpace</a>(int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#ad04fe2ef8bcaf5516c95846e2e500877">resetPos</a>(sf::View &amp;, Player &amp;, int)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_background.html#a002ca1b009e940180bb5edb8c49e008f">setPosition</a>(sf::Vector2f)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>SPACE</b> enum value (defined in <a class="el" href="class_background.html">Background</a>)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Stage</b> enum name (defined in <a class="el" href="class_background.html">Background</a>)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a2a139f9d39a237ff2556c56eae438be5">update</a>(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Background</b>() (defined in <a class="el" href="class_background.html">Background</a>)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#ac333125273a1213f2cb1c4af4081f0b8">setStage</a>(Stage)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</a> enum value</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a63cd37625e2bab37186432edd734c6b3">Stage</a> enum name</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_background.html#a35213116185226b7b3881b2e71c8a292">update</a>(sf::RenderWindow &amp;, sf::View &amp;, float, sf::Texture *, std::vector&lt; Obstacle * &gt; &amp;, std::vector&lt; Enemy * &gt; &amp;, Player &amp;, std::vector&lt; Wall * &gt; &amp;, std::vector&lt; ZapWall * &gt; &amp;)</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_background.html#a36754df1deb720393217ade59da41557">~Background</a>()</td><td class="entry"><a class="el" href="class_background.html">Background</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

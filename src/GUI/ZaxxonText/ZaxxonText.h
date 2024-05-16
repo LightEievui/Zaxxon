@@ -2,6 +2,9 @@
 #pragma once
 
 
+/// <summary>
+/// Class to grab text sprites from spritesheet given char or string.
+/// </summary>
 class ZaxxonText
 {
 public:

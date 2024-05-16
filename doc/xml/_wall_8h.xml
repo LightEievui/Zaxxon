@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="_wall_8h" kind="file" language="C++">
+    <compoundname>Wall.h</compoundname>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includes local="no">vector</includes>
+    <includes refid="_util_8h" local="yes">Util/Util.h</includes>
+    <includedby refid="_background_8h" local="yes">C:/Zaxxon/src/Background/Background.h</includedby>
+    <includedby refid="_game_8h" local="yes">C:/Zaxxon/src/Game/Game.h</includedby>
+    <includedby refid="_wall_8cpp" local="yes">C:/Zaxxon/src/Wall/Wall.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>Util/Util.h</label>
+        <link refid="_util_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Wall/Wall.h</label>
+        <link refid="_wall_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Zaxxon/src/Background/Background.cpp</label>
+        <link refid="_background_8cpp"/>
+      </node>
+      <node id="2">
+        <label>C:/Zaxxon/src/Background/Background.h</label>
+        <link refid="_background_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Zaxxon/src/Entity/Character/Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Zaxxon/src/Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Zaxxon/src/Game/Game.h</label>
+        <link refid="_game_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>C:/Zaxxon/src/Wall/Wall.cpp</label>
+        <link refid="_wall_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Zaxxon/src/Wall/Wall.h</label>
+        <link refid="_wall_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Zaxxon/src/Zaxxon.cpp</label>
+        <link refid="_zaxxon_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_wall" prot="public">Wall</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_util_8h" kindref="compound">Util/Util.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_wall" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_wall" kindref="compound">Wall</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_wall_1a5f29ba541aff9823b15a97451d78e4c6" kindref="member">Wall</ref>(sf::Texture*,<sp/>sf::Vector3f,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/>std::vector&lt;int&gt;);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_wall_1a274edf0d5b16afba31a8618df97626af" kindref="member">drawWalls</ref>(sf::RenderWindow&amp;<sp/>window);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_wall_1a2f5f377219bc2e184db172a9093875d4" kindref="member">setPosition</ref>(sf::Vector3f,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>piece<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_wall_1a0f4063e0408cb992f6d478308fa52656" kindref="member">setTexture</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_wall_1ab2a34a04c46c9fe0a21d4235b106e8ae" kindref="member">checkOnScreen</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;sf::Vector3f&gt;&amp;<sp/><ref refid="class_wall_1a6132a9e93316cba66ee61a78ea96040b" kindref="member">getWallPositions</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Texture*<sp/>spriteSheet;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>onScreen<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;sf::Sprite&gt;<sp/>sprites;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;sf::Vector3f&gt;<sp/>wallPositions;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Zaxxon/src/Wall/Wall.h"/>
+  </compounddef>
+</doxygen>

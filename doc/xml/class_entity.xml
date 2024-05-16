@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_entity" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Entity</compoundname>
+    <derivedcompoundref refid="class_abstract_bullet" prot="public" virt="non-virtual">AbstractBullet</derivedcompoundref>
+    <derivedcompoundref refid="class_boss" prot="public" virt="non-virtual">Boss</derivedcompoundref>
+    <derivedcompoundref refid="class_character" prot="public" virt="non-virtual">Character</derivedcompoundref>
+    <derivedcompoundref refid="class_obstacle" prot="public" virt="non-virtual">Obstacle</derivedcompoundref>
+    <derivedcompoundref refid="class_zap_wall" prot="public" virt="non-virtual">ZapWall</derivedcompoundref>
+    <includes refid="_entity_8h" local="no">Entity.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" static="no" mutable="no">
+        <type>sf::Texture *</type>
+        <definition>sf::Texture* Entity::spriteSheet</definition>
+        <argsstring></argsstring>
+        <name>spriteSheet</name>
+        <qualifiedname>Entity::spriteSheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="25" column="13" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" static="no" mutable="no">
+        <type>sf::Sprite *</type>
+        <definition>sf::Sprite* Entity::sprite</definition>
+        <argsstring></argsstring>
+        <name>sprite</name>
+        <qualifiedname>Entity::sprite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="26" column="12" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_animation" kindref="compound">Animation</ref></type>
+        <definition>Animation Entity::animations</definition>
+        <argsstring></argsstring>
+        <name>animations</name>
+        <qualifiedname>Entity::animations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="27" column="11" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Entity::dead</definition>
+        <argsstring></argsstring>
+        <name>dead</name>
+        <qualifiedname>Entity::dead</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="28" column="6" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" static="no" mutable="no">
+        <type>sf::Text</type>
+        <definition>sf::Text Entity::debugText</definition>
+        <argsstring></argsstring>
+        <name>debugText</name>
+        <qualifiedname>Entity::debugText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="29" column="10" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" static="no" mutable="no">
+        <type>sf::Font</type>
+        <definition>sf::Font Entity::debugFont</definition>
+        <argsstring></argsstring>
+        <name>debugFont</name>
+        <qualifiedname>Entity::debugFont</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="30" column="10" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_entity_1a6bf04675f67f192db3ed270a80f577bc" prot="private" static="no" mutable="no">
+        <type>sf::Vector3f</type>
+        <definition>sf::Vector3f Entity::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>Entity::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="32" column="14" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Entity::Entity</definition>
+        <argsstring>()</argsstring>
+        <name>Entity</name>
+        <qualifiedname>Entity::Entity</qualifiedname>
+        <briefdescription>
+<para>Setup <ref refid="class_entity" kindref="compound">Entity</ref> class variables. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="13" column="1" bodyfile="C:/Zaxxon/src/Entity/Entity.cpp" bodystart="7" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type></type>
+        <definition>Entity::~Entity</definition>
+        <argsstring>()=0</argsstring>
+        <name>~Entity</name>
+        <qualifiedname>Entity::~Entity</qualifiedname>
+        <briefdescription>
+<para>Clean up memory related to <ref refid="class_entity" kindref="compound">Entity</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="14" column="9" bodyfile="C:/Zaxxon/src/Entity/Entity.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Entity::kill</definition>
+        <argsstring>(Animation::Anim animation=Animation::CHARACTER_DEATH)</argsstring>
+        <name>kill</name>
+        <qualifiedname>Entity::kill</qualifiedname>
+        <reimplementedby refid="class_obstacle_1a3b4865fafe3cf6a31b3444c2557550f8">kill</reimplementedby>
+        <param>
+          <type><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18" kindref="member">Animation::Anim</ref></type>
+          <declname>animation</declname>
+          <defval><ref refid="class_animation_1a60f8fa9f33af072a23f28b8b69b42d18aeda8749da5be3949b39500ad8cd21892" kindref="member">Animation::CHARACTER_DEATH</ref></defval>
+        </param>
+        <briefdescription>
+<para>Run death animation code for the killed entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="16" column="14" bodyfile="C:/Zaxxon/src/Entity/Entity.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1ac3121e79d75452497acb36dd06f0b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Entity::update</definition>
+        <argsstring>(sf::RenderWindow &amp;, float)=0</argsstring>
+        <name>update</name>
+        <qualifiedname>Entity::update</qualifiedname>
+        <reimplementedby refid="class_boss_1ae9cf8c000e924a806d64e7488ce6f58a">update</reimplementedby>
+        <reimplementedby refid="class_enemy_1abb114c1514e9ba90c319ddb7e0f40e59">update</reimplementedby>
+        <reimplementedby refid="class_boss_bullet_1ad3b8d306bfa0bad8913a57d3cd3d7594">update</reimplementedby>
+        <reimplementedby refid="class_obstacle_bullet_1acf03e80fd20b8f5df01c83ac8a7d4cbe">update</reimplementedby>
+        <reimplementedby refid="class_character_1aafecc5bd1222bb63a2ab0ebf82c9b479">update</reimplementedby>
+        <reimplementedby refid="class_obstacle_1ab4272be0d3dddafd42040adab4d8a968">update</reimplementedby>
+        <reimplementedby refid="class_zap_wall_1a749a7515b945420293924b3887033d93">update</reimplementedby>
+        <reimplementedby refid="class_character_bullet_1a5e917f7a52f3015799e1008a4fd2654b">update</reimplementedby>
+        <param>
+          <type>sf::RenderWindow &amp;</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="17" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Entity::getAnimationState</definition>
+        <argsstring>()</argsstring>
+        <name>getAnimationState</name>
+        <qualifiedname>Entity::getAnimationState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="19" column="5" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Entity::setPos</definition>
+        <argsstring>(sf::Vector3f pos)</argsstring>
+        <name>setPos</name>
+        <qualifiedname>Entity::setPos</qualifiedname>
+        <param>
+          <type>sf::Vector3f</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="20" column="6" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>sf::Vector3f</type>
+        <definition>sf::Vector3f Entity::getPos</definition>
+        <argsstring>()</argsstring>
+        <name>getPos</name>
+        <qualifiedname>Entity::getPos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="21" column="14" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>sf::FloatRect</type>
+        <definition>sf::FloatRect Entity::getBounds</definition>
+        <argsstring>()</argsstring>
+        <name>getBounds</name>
+        <qualifiedname>Entity::getBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="22" column="15" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Entity::getSpritePos</definition>
+        <argsstring>()</argsstring>
+        <name>getSpritePos</name>
+        <qualifiedname>Entity::getSpritePos</qualifiedname>
+        <briefdescription>
+<para>Get the position of the related sprite for this entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/Entity/Entity.h" line="23" column="14" bodyfile="C:/Zaxxon/src/Entity/Entity.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Abstract class for all entities in the game. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AbstractBullet</label>
+        <link refid="class_abstract_bullet"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Boss</label>
+        <link refid="class_boss"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BossBullet</label>
+        <link refid="class_boss_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Character</label>
+        <link refid="class_character"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CharacterBullet</label>
+        <link refid="class_character_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Enemy</label>
+        <link refid="class_enemy"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+      </node>
+      <node id="10">
+        <label>Obstacle</label>
+        <link refid="class_obstacle"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ObstacleBullet</label>
+        <link refid="class_obstacle_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ZapWall</label>
+        <link refid="class_zap_wall"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Animation</label>
+        <link refid="class_animation"/>
+      </node>
+      <node id="1">
+        <label>Entity</label>
+        <link refid="class_entity"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>animations</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/Entity/Entity.h" line="10" column="1" bodyfile="C:/Zaxxon/src/Entity/Entity.h" bodystart="11" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_entity_1aa3c0e2d55bf2cffe2c8937ff68bf031d" prot="protected" virt="non-virtual"><scope>Entity</scope><name>animations</name></member>
+      <member refid="class_entity_1a799462330dd8c754cdada5dab432b4dc" prot="protected" virt="non-virtual"><scope>Entity</scope><name>dead</name></member>
+      <member refid="class_entity_1a5c8dfa06fdc253fd93eafc998a919d00" prot="protected" virt="non-virtual"><scope>Entity</scope><name>debugFont</name></member>
+      <member refid="class_entity_1ac653cdb194e9a3d1c5ad211bf1ab23b0" prot="protected" virt="non-virtual"><scope>Entity</scope><name>debugText</name></member>
+      <member refid="class_entity_1a980f368aa07ce358583982821533a54a" prot="public" virt="non-virtual"><scope>Entity</scope><name>Entity</name></member>
+      <member refid="class_entity_1ac9ef7fc00806615984a06ca8c71b10bc" prot="public" virt="non-virtual"><scope>Entity</scope><name>getAnimationState</name></member>
+      <member refid="class_entity_1a9727d15d18ccb10fa72dfe15799adcdd" prot="public" virt="non-virtual"><scope>Entity</scope><name>getBounds</name></member>
+      <member refid="class_entity_1a17d1b17b5f2c2b7c137ee7b8347358c3" prot="public" virt="non-virtual"><scope>Entity</scope><name>getPos</name></member>
+      <member refid="class_entity_1ad641a9c7d92d65cb688651e48029e82d" prot="public" virt="non-virtual"><scope>Entity</scope><name>getSpritePos</name></member>
+      <member refid="class_entity_1a3ea146cebd4310647bd49a4f08940fe5" prot="public" virt="virtual"><scope>Entity</scope><name>kill</name></member>
+      <member refid="class_entity_1a6bf04675f67f192db3ed270a80f577bc" prot="private" virt="non-virtual"><scope>Entity</scope><name>position</name></member>
+      <member refid="class_entity_1a1783cc856808b2d78c4e46fa9c85a524" prot="public" virt="non-virtual"><scope>Entity</scope><name>setPos</name></member>
+      <member refid="class_entity_1af83f70f8107d85626fb383599cc0f7ae" prot="protected" virt="non-virtual"><scope>Entity</scope><name>sprite</name></member>
+      <member refid="class_entity_1ac3f2dbf1633dd3080b7e2835367170bd" prot="protected" virt="non-virtual"><scope>Entity</scope><name>spriteSheet</name></member>
+      <member refid="class_entity_1ac3121e79d75452497acb36dd06f0b2b2" prot="public" virt="pure-virtual"><scope>Entity</scope><name>update</name></member>
+      <member refid="class_entity_1ac2da1e8a32161accc56f39ac52cebd86" prot="public" virt="pure-virtual"><scope>Entity</scope><name>~Entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

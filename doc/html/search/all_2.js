@@ -1,4 +1,22 @@
 var searchData=
 [
-  ['character_0',['Character',['../class_character.html',1,'Character'],['../class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2',1,'Character::Character()']]]
+  ['background_0',['Background',['../class_background.html',1,'Background'],['../class_background.html#ab4f1a6df90c295ba2fa5b2116c9f7719',1,'Background::Background()']]],
+  ['background_2ecpp_1',['Background.cpp',['../_background_8cpp.html',1,'']]],
+  ['background_2eh_2',['Background.h',['../_background_8h.html',1,'']]],
+  ['boss_3',['Boss',['../class_boss.html',1,'']]],
+  ['boss_4',['BOSS',['../class_background.html#a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe',1,'Background']]],
+  ['boss_5',['Boss',['../class_boss.html#a532b2cfc920780c6f4ea432d7e22be79',1,'Boss']]],
+  ['boss_2ecpp_6',['Boss.cpp',['../_boss_8cpp.html',1,'']]],
+  ['boss_2eh_7',['Boss.h',['../_boss_8h.html',1,'']]],
+  ['bossbullet_8',['BossBullet',['../class_boss_bullet.html',1,'BossBullet'],['../class_boss_bullet.html#a6aa72332992a0eb9d4fe4d66e9d862c5',1,'BossBullet::BossBullet()']]],
+  ['bossbullet_2ecpp_9',['BossBullet.cpp',['../_boss_bullet_8cpp.html',1,'']]],
+  ['bossbullet_2eh_10',['BossBullet.h',['../_boss_bullet_8h.html',1,'']]],
+  ['bossfight_11',['BOSSFIGHT',['../class_background.html#a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e',1,'Background']]],
+  ['bottom_12',['BOTTOM',['../class_h_m_section.html#ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740',1,'HMSection']]],
+  ['bullet_5fdeath_13',['BULLET_DEATH',['../class_animation.html#a60f8fa9f33af072a23f28b8b69b42d18a98713f85e76f5498c5305edc6f7b78ed',1,'Animation']]],
+  ['bulletdeathtype_14',['BulletDeathType',['../class_character_bullet.html#a8ca1ff9d465891f7192b244d1ad980dd',1,'CharacterBullet']]],
+  ['bulletkill_15',['bulletKill',['../class_obstacle.html#a39869e565df81ce8a50e42668cd0fab7',1,'Obstacle']]],
+  ['bullets_16',['bullets',['../class_character.html#aff7b8bd3f067ab04cd547c0dc14e765f',1,'Character']]],
+  ['bullettype_17',['BulletType',['../class_abstract_bullet.html#ae1d5723249d4287666ad542e3f2bcabd',1,'AbstractBullet']]],
+  ['byte_18',['byte',['../_game_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7',1,'byte:&#160;Game.h'],['../_g_u_i_8h.html#a7528222f65ad403ee1a88ff2b56f9fb7',1,'byte:&#160;GUI.h']]]
 ];

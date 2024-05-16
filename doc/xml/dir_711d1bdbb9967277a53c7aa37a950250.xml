@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_711d1bdbb9967277a53c7aa37a950250" kind="dir">
+    <compoundname>C:/Zaxxon/src/Entity</compoundname>
+    <innerdir refid="dir_f38c96728d7e2924ef8a228719b800dd">C:/Zaxxon/src/Entity/AbstractBullet</innerdir>
+    <innerdir refid="dir_615fa148f2d9bff4c3960a659e32d9bf">C:/Zaxxon/src/Entity/Boss</innerdir>
+    <innerdir refid="dir_72330ce571fe4a2956ad017643e692dd">C:/Zaxxon/src/Entity/Character</innerdir>
+    <innerfile refid="_entity_8cpp">Entity.cpp</innerfile>
+    <innerfile refid="_entity_8h">Entity.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Entity/"/>
+  </compounddef>
+</doxygen>

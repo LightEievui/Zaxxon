@@ -6,14 +6,20 @@
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Zaxxon: Member List</title>
+<link rel="icon" href="Zaxxon_plane.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,9 +28,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Zaxxon_plane.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Zaxxon
+   <div id="projectname">Zaxxon<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Recreation of Zaxxon for Advanced C++ class</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +56,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_character.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -69,7 +94,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Character Member List</div></div>
 </div><!--header-->
@@ -77,37 +101,46 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_character.html">Character</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>animations</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>bullets</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>bulletsPos</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a40ac52813d37c391b4cd6db06a8f1216">_getSizeIndex</a>(unsigned int &amp;)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#aa3c0e2d55bf2cffe2c8937ff68bf031d">animations</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#aff7b8bd3f067ab04cd547c0dc14e765f">bullets</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a7e22d0af12e2c3c8cb364d22ce8cc9f2">Character</a>(sf::Texture *)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>dead</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Entity</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getBounds</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a84503e639ff28fdf9648ea921d5ba9d6">getBulletPosition</a>()</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_character.html#aef458dc1aacfd7a7a3263ca862f829ca">getBullets</a>()</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>getPos</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_character.html#ad41cb97f383d1681e76e580f06bc2481">getSizeIndex</a>(unsigned int &amp;)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>getTranslate2</b>() (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_character.html#aa2ee5df8a31732a36f37bfce88161401">getVelocity</a>()</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a799462330dd8c754cdada5dab432b4dc">dead</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a5c8dfa06fdc253fd93eafc998a919d00">debugFont</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac653cdb194e9a3d1c5ad211bf1ab23b0">debugText</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac9ef7fc00806615984a06ca8c71b10bc">getAnimationState</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a9727d15d18ccb10fa72dfe15799adcdd">getBounds</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a59755f2066960eeade9a67b13f646c79">getBullets</a>()</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#a17d1b17b5f2c2b7c137ee7b8347358c3">getPos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#abb29539c98416153a4f079ca83879cfc">getSizeIndex</a>() const</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ad641a9c7d92d65cb688651e48029e82d">getSpritePos</a>()</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#adba5c58a1b24bff604893e28519a1f34">getVelocity</a>() const</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a6eaf7357d3575a2281b5456abfbe1b9d">kill</a>()=0</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">killBullet</a>(int)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">setBullet</a>(sf::IntRect)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">setPos</a>(sf::Vector3f)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a46a264779165a349a13bcb364c4106d4">setVelocity</a>(sf::Vector3f)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>sprite</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>spriteSheet</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_character.html#affa4e2459d5f239e0c53ffd11b981f59">update</a>(sf::RenderWindow &amp;)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>velocity</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>xMax</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>xMin</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>yMax</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>yMin</b> (defined in <a class="el" href="class_character.html">Character</a>)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Entity</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a3ea146cebd4310647bd49a4f08940fe5">Entity::kill</a>(Animation::Anim animation=Animation::CHARACTER_DEATH)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a6ea404b0682144a8f21d42e881cb0ce7">killBullet</a>(int)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#afe32dd9baa581b7895f06c9687d073b4">setBullet</a>(sf::IntRect)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#acf35437606532f7df271dd0fd3d6800c">setPos</a>(sf::Vector3f)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a46a264779165a349a13bcb364c4106d4">setVelocity</a>(sf::Vector3f)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a95e438488293a98b1a404f39e4f97aeb">sizeIndex</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#af83f70f8107d85626fb383599cc0f7ae">sprite</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_entity.html#ac3f2dbf1633dd3080b7e2835367170bd">spriteSheet</a></td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#aafecc5bd1222bb63a2ab0ebf82c9b479">update</a>(sf::RenderWindow &amp;, float) override</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a450a222c641925d6bda2f2c9241c220b">updateBullets</a>(sf::RenderWindow &amp;window, float)</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a12d640046cf216dd010f8e71c3466e1e">velocity</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#ae741b4874f8875f33f70663890315a52">xMax</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a682f191a3a01f1a772cd3fa624c0b16e">xMin</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a602309a031e6db0a570644d8f0b5d5fb">yMax</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_character.html#a1750fc7b411d6fdac9ca9e6763e126f5">yMin</a></td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_character.html#a5e399f512bf22a9e8558a4bae1ec9555">~Character</a>() override</td><td class="entry"><a class="el" href="class_character.html">Character</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_entity.html#ac2da1e8a32161accc56f39ac52cebd86">~Entity</a>()=0</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

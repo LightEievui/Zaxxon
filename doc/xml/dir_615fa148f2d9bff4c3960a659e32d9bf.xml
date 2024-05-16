@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_615fa148f2d9bff4c3960a659e32d9bf" kind="dir">
+    <compoundname>C:/Zaxxon/src/Entity/Boss</compoundname>
+    <innerfile refid="_boss_8cpp">Boss.cpp</innerfile>
+    <innerfile refid="_boss_8h">Boss.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Zaxxon/src/Entity/Boss/"/>
+  </compounddef>
+</doxygen>

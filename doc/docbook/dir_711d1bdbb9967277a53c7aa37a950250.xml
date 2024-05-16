@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_711d1bdbb9967277a53c7aa37a950250" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_f38c96728d7e2924ef8a228719b800dd">AbstractBullet</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_615fa148f2d9bff4c3960a659e32d9bf">Boss</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_72330ce571fe4a2956ad017643e692dd">Character</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__entity_8cpp">Entity.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__entity_8h">Entity.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

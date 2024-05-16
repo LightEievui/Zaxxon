@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_h_m_section" kind="class" language="C++" prot="public">
+    <compoundname>HMSection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">sf::Sprite</basecompoundref>
+    <includes refid="_h_m_section_8h" local="no">HMSection.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>HMSection::Type</qualifiedname>
+        <enumvalue id="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119" prot="public">
+          <name>LINE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c" prot="public">
+          <name>OPEN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481" prot="public">
+          <name>TOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740" prot="public">
+          <name>BOTTOM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="11" column="1" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.h" bodystart="12" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_h_m_section_1a7e4dec89af14ac23cfdabe1d7a96c848" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int HMSection::section</definition>
+        <argsstring></argsstring>
+        <name>section</name>
+        <qualifiedname>HMSection::section</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="27" column="5" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_h_m_section_1ac318f2abaccfa0cdb547eff3d951c963" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int HMSection::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>HMSection::type</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="28" column="5" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HMSection::progress</definition>
+        <argsstring>(int)</argsstring>
+        <name>progress</name>
+        <qualifiedname>HMSection::progress</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>stage</defname>
+        </param>
+        <briefdescription>
+<para>Make current section change by a stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="19" column="6" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.cpp" bodystart="60" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_h_m_section_1a3307e1d78540b5624be54eea4af89e13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HMSection::setSection</definition>
+        <argsstring>(int)</argsstring>
+        <name>setSection</name>
+        <qualifiedname>HMSection::setSection</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>sect</defname>
+        </param>
+        <briefdescription>
+<para>Set the texture by what current section should be. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sect</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="20" column="6" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.cpp" bodystart="8" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HMSection::setType</definition>
+        <argsstring>(Type)</argsstring>
+        <name>setType</name>
+        <qualifiedname>HMSection::setType</qualifiedname>
+        <param>
+          <type><ref refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" kindref="member">Type</ref></type>
+          <defname>type</defname>
+        </param>
+        <briefdescription>
+<para>Set what type the current section sprite should be. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="21" column="6" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.cpp" bodystart="25" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_h_m_section_1a6e02d19eb07396dc514c8938d578658b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HMSection::fill</definition>
+        <argsstring>()</argsstring>
+        <name>fill</name>
+        <qualifiedname>HMSection::fill</qualifiedname>
+        <briefdescription>
+<para>Current section should be full. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="22" column="6" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.cpp" bodystart="106" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_h_m_section_1a6093acdaf453e4985124eb26d85a628d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HMSection::empty</definition>
+        <argsstring>()</argsstring>
+        <name>empty</name>
+        <qualifiedname>HMSection::empty</qualifiedname>
+        <briefdescription>
+<para>Current section should be empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="23" column="6" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.cpp" bodystart="128" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int HMSection::getSection</definition>
+        <argsstring>()</argsstring>
+        <name>getSection</name>
+        <qualifiedname>HMSection::getSection</qualifiedname>
+        <briefdescription>
+<para>Get the current section id. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="25" column="5" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The height meter and related methods. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>HMSection</label>
+        <link refid="class_h_m_section"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Sprite</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>HMSection</label>
+        <link refid="class_h_m_section"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Sprite</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Zaxxon/src/GUI/HMSection/HMSection.h" line="8" column="1" bodyfile="C:/Zaxxon/src/GUI/HMSection/HMSection.h" bodystart="9" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfab142c73b45e859302e034c8bbaf63740" prot="public" virt="non-virtual"><scope>HMSection</scope><name>BOTTOM</name></member>
+      <member refid="class_h_m_section_1a6093acdaf453e4985124eb26d85a628d" prot="public" virt="non-virtual"><scope>HMSection</scope><name>empty</name></member>
+      <member refid="class_h_m_section_1a6e02d19eb07396dc514c8938d578658b" prot="public" virt="non-virtual"><scope>HMSection</scope><name>fill</name></member>
+      <member refid="class_h_m_section_1a8edcc2ebab82a9d1fc1d735d63ca5c52" prot="public" virt="non-virtual"><scope>HMSection</scope><name>getSection</name></member>
+      <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfaffcebff3868987e28d47866f2f6ce119" prot="public" virt="non-virtual"><scope>HMSection</scope><name>LINE</name></member>
+      <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa56b16cd2bbaec30becb23dca33de903c" prot="public" virt="non-virtual"><scope>HMSection</scope><name>OPEN</name></member>
+      <member refid="class_h_m_section_1a78bd080598e3778f18a44da90fa1b0d2" prot="public" virt="non-virtual"><scope>HMSection</scope><name>progress</name></member>
+      <member refid="class_h_m_section_1a7e4dec89af14ac23cfdabe1d7a96c848" prot="private" virt="non-virtual"><scope>HMSection</scope><name>section</name></member>
+      <member refid="class_h_m_section_1a3307e1d78540b5624be54eea4af89e13" prot="public" virt="non-virtual"><scope>HMSection</scope><name>setSection</name></member>
+      <member refid="class_h_m_section_1ab9659f8ee7d9a9c01dd244f8c0f3a93f" prot="public" virt="non-virtual"><scope>HMSection</scope><name>setType</name></member>
+      <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cfa6ab465573b9f5ae187356e4c58017481" prot="public" virt="non-virtual"><scope>HMSection</scope><name>TOP</name></member>
+      <member refid="class_h_m_section_1ad1168eb178424081bd7cec2199b324cf" prot="public" virt="non-virtual"><scope>HMSection</scope><name>Type</name></member>
+      <member refid="class_h_m_section_1ac318f2abaccfa0cdb547eff3d951c963" prot="private" virt="non-virtual"><scope>HMSection</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

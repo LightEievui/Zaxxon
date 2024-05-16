@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b31584c1da60c7ddee1a59decc4dda03" xml:lang="en-US">
+<title>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet Directory Reference</title>
+<indexterm><primary>C:/Zaxxon/src/Entity/AbstractBullet/CharacterBullet Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__character_bullet_8cpp">CharacterBullet.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__character_bullet_8h">CharacterBullet.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

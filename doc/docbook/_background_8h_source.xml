@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__background_8h_source" xml:lang="en-US">
+<title>Background.h</title>
+<indexterm><primary>C:/Zaxxon/src/Background/Background.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__background_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="__background_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;queue&gt;</emphasis>
+<anchor xml:id="__background_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="__background_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;SFML/Graphics.hpp&gt;</emphasis>
+<anchor xml:id="__background_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__player_8h">Entity/Character/Player/Player.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__enemy_8h">Entity/Character/Enemy/Enemy.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__obstacle_8h">Obstacle/Obstacle.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__wall_8h">Wall/Wall.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__zap_wall_8h">ZapWall/ZapWall.h</link>&quot;</emphasis>
+<anchor xml:id="__background_8h_source_1l00010"/>00010 
+<anchor xml:id="__background_8h_source_1l00011"/>00011 
+<anchor xml:id="__background_8h_source_1l00015"/><link linkend="_class_background">00015</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_background">Background</link>
+<anchor xml:id="__background_8h_source_1l00016"/>00016 {
+<anchor xml:id="__background_8h_source_1l00017"/>00017 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__background_8h_source_1l00018"/><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">00018</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>
+<anchor xml:id="__background_8h_source_1l00019"/>00019 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__background_8h_source_1l00020"/><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">00020</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>&#32;=&#32;0,
+<anchor xml:id="__background_8h_source_1l00021"/><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">00021</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3aa0e479afa14115333b1c7fcc60be58cc">SPACE</link>&#32;=&#32;1,
+<anchor xml:id="__background_8h_source_1l00022"/><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">00022</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a902c1cae0b29ca82ce0ff2928217bbbe">BOSS</link>&#32;=&#32;2,
+<anchor xml:id="__background_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">BOSSFIGHT</link>&#32;=&#32;3
+<anchor xml:id="__background_8h_source_1l00024"/><link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a65bbc972a2c4c70cb1f0ed7388d9421e">00024</link> &#32;&#32;&#32;&#32;};
+<anchor xml:id="__background_8h_source_1l00025"/>00025 
+<anchor xml:id="__background_8h_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<link linkend="_class_background_1ab4f1a6df90c295ba2fa5b2116c9f7719">Background</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>,&#32;sf::View&amp;,&#32;sf::Texture*,&#32;std::vector&lt;Obstacle*&gt;&amp;,
+<anchor xml:id="__background_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&amp;,&#32;<link linkend="_class_player">Player</link>&amp;,&#32;<emphasis role="keywordtype">int</emphasis>,&#32;std::vector&lt;Wall*&gt;&amp;,
+<anchor xml:id="__background_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;ZapWall*&gt;&amp;);
+<anchor xml:id="__background_8h_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<link linkend="_class_background_1a36754df1deb720393217ade59da41557">~Background</link>();
+<anchor xml:id="__background_8h_source_1l00030"/>00030 
+<anchor xml:id="__background_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1a35213116185226b7b3881b2e71c8a292">update</link>(sf::RenderWindow&amp;,&#32;sf::View&amp;,&#32;<emphasis role="keywordtype">float</emphasis>,&#32;sf::Texture*,
+<anchor xml:id="__background_8h_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;,&#32;std::vector&lt;Enemy*&gt;&amp;,&#32;<link linkend="_class_player">Player</link>&amp;,
+<anchor xml:id="__background_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Wall*&gt;&amp;,&#32;std::vector&lt;ZapWall*&gt;&amp;);
+<anchor xml:id="__background_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1a002ca1b009e940180bb5edb8c49e008f">setPosition</link>(sf::Vector2f);
+<anchor xml:id="__background_8h_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1ac607d65614b8f90a0f841a97df4f0b04">generateObstacles</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>,
+<anchor xml:id="__background_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;,&#32;sf::Texture*,
+<anchor xml:id="__background_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Wall*&gt;&amp;,&#32;std::vector&lt;ZapWall*&gt;&amp;);
+<anchor xml:id="__background_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1aa319354445ea0a0f224b6dc726b621c2">generateWaves</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>,
+<anchor xml:id="__background_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Enemy*&gt;&amp;,&#32;sf::Texture*,&#32;<emphasis role="keywordtype">int</emphasis>);
+<anchor xml:id="__background_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1ad04fe2ef8bcaf5516c95846e2e500877">resetPos</link>(sf::View&amp;,&#32;<link linkend="_class_player">Player</link>&amp;,&#32;<emphasis role="keywordtype">int</emphasis>);
+<anchor xml:id="__background_8h_source_1l00041"/>00041 
+<anchor xml:id="__background_8h_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>&#32;<link linkend="_class_background_1aa60585bb666a292f5d49049038400b1a">getStage</link>();
+<anchor xml:id="__background_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1ac333125273a1213f2cb1c4af4081f0b8">setStage</link>(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>);
+<anchor xml:id="__background_8h_source_1l00044"/>00044 
+<anchor xml:id="__background_8h_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_background_1a52b2389cd7dfaedff511e72af9f3735c">isInSpace</link>(<emphasis role="keywordtype">int</emphasis>);
+<anchor xml:id="__background_8h_source_1l00046"/>00046 
+<anchor xml:id="__background_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_background_1a093d96b9f25dda122febad2beabc47cd">flashColor</link>(sf::RenderWindow&amp;);
+<anchor xml:id="__background_8h_source_1l00048"/>00048 
+<anchor xml:id="__background_8h_source_1l00049"/>00049 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__background_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;changeStage(<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>,&#32;sf::View&amp;,&#32;sf::Texture*,
+<anchor xml:id="__background_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;Obstacle*&gt;&amp;,&#32;std::vector&lt;Enemy*&gt;&amp;,&#32;<link linkend="_class_player">Player</link>&amp;,
+<anchor xml:id="__background_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>,&#32;std::vector&lt;Wall*&gt;&amp;,&#32;std::vector&lt;ZapWall*&gt;&amp;);
+<anchor xml:id="__background_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;backgroundFinished(sf::View&amp;);
+<anchor xml:id="__background_8h_source_1l00054"/>00054 
+<anchor xml:id="__background_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;sf::Texture&#32;initial,&#32;space,&#32;boss,&#32;death;
+<anchor xml:id="__background_8h_source_1l00056"/>00056 &#32;&#32;&#32;&#32;sf::Sprite&#32;back;
+<anchor xml:id="__background_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;sf::Sprite&#32;deathOverlay;
+<anchor xml:id="__background_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3">Stage</link>&#32;stage&#32;=&#32;<link linkend="_class_background_1a63cd37625e2bab37186432edd734c6b3a5671f7857217ce48cc05a28bb3e753b0">INITIAL</link>;
+<anchor xml:id="__background_8h_source_1l00059"/>00059 &#32;&#32;&#32;&#32;std::queue&lt;std::pair&lt;int,&#32;unsigned&#32;int&gt;&gt;&#32;waveQueue;&#32;<emphasis role="comment">//&#32;playerZ:&#32;id</emphasis>
+<anchor xml:id="__background_8h_source_1l00060"/>00060 };
+</programlisting></section>
