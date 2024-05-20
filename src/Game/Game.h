@@ -13,6 +13,13 @@
 #include "Background/Background.h"
 #include "Entity/Boss/Boss.h"
 
+struct PlayerData {
+	byte lives = 2;
+	int score = 0;
+	int scoreThreshold = 10000;
+};
+
+
 // Clearer than using unsigned char often
 using byte = unsigned char;
 
@@ -45,13 +52,10 @@ private:
 	byte fuel = 128;
 	byte completions = 0;
 	byte lives = 2;
-	byte player1lives = 2;
-	byte player2lives = 2;
-	int player1score = 0;
-	int player2score = 0;
+	PlayerData player1data, player2data;
 	int highScore = 0;
-	float gameSpeed = 1.2;
-	byte gameState = 4;
+	float gameSpeed = 1.2f;
+	byte gameState = 0;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
 	char name[3] = { '_', '_', '_' };
@@ -64,7 +68,7 @@ private:
 	std::chrono::steady_clock::time_point lastTime =
 		                                      std::chrono::high_resolution_clock::now()
 	                                      , currentTime;
-	bool player2 = false;
+	bool player2 = false; // playing as player2
 	bool player2mode = false;
 
 	sf::View mainView;
