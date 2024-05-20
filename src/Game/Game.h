@@ -28,7 +28,7 @@ public:
 	~Game();
 	void run();
 private:
-	sf::Texture spriteSheet, bossSheet;
+	sf::Texture spriteSheet, bossSheet, intro[5];
 	Background* pBackground;
 	sf::RenderWindow window;
 	sf::Image icon;
@@ -50,12 +50,12 @@ private:
 	int player1score = 0;
 	int player2score = 0;
 	int highScore = 0;
-	float gameSpeed = 1.2f;
-	byte gameState = 0;
-	int currentScores[6] = {0, 0, 0, 0, 0, 0};
-	std::string currentNames[6] = {"   ", "   ", "   ", "   ", "   ", "   "};
-	char name[3] = {'_', '_', '_'};
-	bool activeCursor[4] = {true, true, true, true};
+	float gameSpeed = 1.2;
+	byte gameState = 4;
+	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
+	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
+	char name[3] = { '_', '_', '_' };
+	bool activeCursor[4] = { true, true, true, true};
 	byte selector = 0;
 	std::fstream file;
 	unsigned int reset = 0;
@@ -73,7 +73,7 @@ private:
 	sf::Sound flightSound;
 	sf::Clock fuelClock;
 	sf::Clock deathClock;
-	sf::Sprite deathSprite;
+	sf::Sprite deathSprite, introLetters[6];
 	sf::Clock playerScreenTimer;
 
 	void doCollision(Player*);
@@ -81,4 +81,5 @@ private:
 	                 bool intersect2d);
 	void playerDeath();
 	void gameOver();
+	void doIntro();
 };
