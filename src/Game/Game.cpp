@@ -40,11 +40,11 @@ Game::Game()
 	introLetters[3].setPosition(sf::Vector2f(150.f, 90.f));
 	introLetters[4].setPosition(sf::Vector2f(200.f, 90.f));
 
-	introLetters[0].setScale(sf::Vector2f(.3, .3));
-	introLetters[1].setScale(sf::Vector2f(.3, .3));
-	introLetters[2].setScale(sf::Vector2f(.3, .3));
-	introLetters[3].setScale(sf::Vector2f(.3, .3));
-	introLetters[4].setScale(sf::Vector2f(.3, .3));
+	introLetters[0].setScale(sf::Vector2f(.3f, .3f));
+	introLetters[1].setScale(sf::Vector2f(.3f, .3f));
+	introLetters[2].setScale(sf::Vector2f(.3f, .3f));
+	introLetters[3].setScale(sf::Vector2f(.3f, .3f));
+	introLetters[4].setScale(sf::Vector2f(.3f, .3f));
 
 	introLetters[0].setTextureRect(sf::IntRect(0, 0, 0, 0));
 	introLetters[1].setTextureRect(sf::IntRect(0, 0, 0, 0));
@@ -207,15 +207,15 @@ void Game::run() // if random errors later check that stack isnt full
 					window.clear();
 					window.setView(guiView);
 					gui.renderWin(window);
-					gui.render(window, player->getPos().y, player1score, player2score, highScore,
-					           fuel, player2 ? player2lives : player1lives);
+					gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore,
+					           fuel, player2 ? player2data.lives : player1data.lives);
 					window.display();
 					window.setView(mainView);
 
 					sf::Clock tempClock;
 					while (tempClock.getElapsedTime().asSeconds() < 5);
 
-					fuel = 128, player2 ? player2score += 1000 : player1score += 1000;
+					fuel = 128, player2 ? player2data.score += 1000 : player1data.score += 1000;
 					reset++;
 
 					//sets the background back to the initial stage
@@ -313,16 +313,29 @@ void Game::run() // if random errors later check that stack isnt full
 				if (zapWalls.at(i)->getStartPosition().z >= player->getPos().z)
 					zapWalls.at(i)->update(window, gameSpeed);
 
+			// Update lives
+			PlayerData& data = player2 ? player2data : player1data;
+			if (data.score > data.scoreThreshold)
+			{
+				if (lives < 4)
+				{
+					lives++;
+					data.lives++;
+				}
+				data.scoreThreshold += 10000;
+			}
+
 			// Draw enemies that are above the player
 			for (Enemy* enemy : enemies)
 				if (enemy->getPos().y <= player->getPos().y)
 					enemy->update(window, gameSpeed);
+			// Draw GUI
 			byte player2opt = player2mode;
 			player2opt |= player2 << 1;
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, player1score, player2score, highScore, fuel,
-			           player2 ? player2lives : player1lives, player2opt);
+			gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore, fuel,
+			           player2 ? player2data.lives : player1data.lives, player2opt);
 		}
 		else if (gameState == 4)
 		{
@@ -338,11 +351,11 @@ void Game::run() // if random errors later check that stack isnt full
 			player->update(window, background.getStage(), gameSpeed);
 
 			//draw walls, dont need to check z clipping because player should not reach
-			for (int i = 0; i < walls.size(); i++)
+			for (unsigned int i = 0; i < walls.size(); i++)
 				walls.at(i)->drawWalls(window);
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, player1score, player2score, highScore, fuel, lives);
+			gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore, fuel, lives);
 
 
 			if (player->getPos().z <= 200)
@@ -358,8 +371,8 @@ void Game::run() // if random errors later check that stack isnt full
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 			player->restartMissileTimer();
-			player1score = 0;
-			player2score = 0;
+			player1data.score = 0;
+			player2data.score = 0;
 
 			if (onePressed())
 			{
@@ -418,14 +431,14 @@ void Game::run() // if random errors later check that stack isnt full
 					window.draw(deathSprite);
 				}
 			}
-			else if (time >= 2 && player2 ? player2lives > 0 : player1lives > 0) // Reset pos backwards
+			else if (time >= 2 && player2 ? player2data.lives > 0 : player1data.lives > 0) // Reset pos backwards
 			{
 				// You lose a life, this is not game over
 				lives -= 1;
 				if (player2)
-					player2lives = lives;
+					player2data.lives = lives;
 				else
-					player1lives = lives;
+					player1data.lives = lives;
 
 				player->kill();
 				if (player2mode)
@@ -445,7 +458,7 @@ void Game::run() // if random errors later check that stack isnt full
 				fuel = 128;
 				pBackground->resetPos(mainView, *player, -500);
 				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
-				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
+				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, (int)player->getPos().z);
 				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setPosition(sf::Vector2f(0, 244));
 				if (pBackground->getStage() == Background::BOSSFIGHT)
@@ -466,7 +479,7 @@ void Game::run() // if random errors later check that stack isnt full
 				window.setView(guiView);
 				gui.renderEnd(window);
 			}
-			else if (!player2mode && time < 25 && currentScores[5] < player1score) // Name entry
+			else if (!player2mode && time < 25 && currentScores[5] < player1data.score) // Name entry
 			{
 				// Controls for the zaxxon keyboard
 				if (upPressed() && activeCursor[0])
@@ -552,8 +565,8 @@ void Game::run() // if random errors later check that stack isnt full
 				gameOver();
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, player1score, player2score,
-				highScore, fuel, player2 ? player2lives : player1lives);
+			gui.render(window, player->getPos().y, player1data.score, player2data.score,
+				highScore, fuel, player2 ? player2data.lives : player1data.lives);
 		}
 		else if (gameState == 3) // 2 player screen
 		{
@@ -563,8 +576,8 @@ void Game::run() // if random errors later check that stack isnt full
 
 			window.setView(guiView);
 			gui.renderPlayerScreen(window, player2);
-			gui.render(window, player->getPos().y, player1score, player2score,
-				highScore, fuel, player2 ? player2lives : player1lives, player2opt);
+			gui.render(window, player->getPos().y, player1data.score, player2data.score,
+				highScore, fuel, player2 ? player2data.lives : player1data.lives, player2opt);
 			window.setView(mainView);
 
 			if (playerScreenTimer.getElapsedTime().asSeconds() > 2)
@@ -645,7 +658,7 @@ void Game::doCollision(Player* player)
 			size--;
 
 			//Scoring Swtich Statement
-			int score = player2 ? player2score : player1score;
+			int score = player2 ? player2data.score : player1data.score;
 			score += obstacle->getScore();
 			switch (obstacle->getType())
 			{
@@ -661,9 +674,9 @@ void Game::doCollision(Player* player)
 				highScore = score;
 
 			if (player2)
-				player2score = score;
+				player2data.score = score;
 			else
-				player1score = score;
+				player1data.score = score;
 		}
 
 		//Player Running into Obstacles
@@ -784,6 +797,7 @@ void Game::doCollision(Player* player)
 				player->drawHitmarker();
 				bullet->kill();
 				enemy->kill();
+				player2 ? player2data.score += 100 : player1data.score += 100;
 			}
 		}
 
@@ -934,19 +948,19 @@ void Game::gameOver()
 {
 	gameState = 0;
 	lives = 3;
-	player2lives = lives;
-	player1lives = lives;
+	player2data.lives = lives;
+	player1data.lives = lives;
 	selector = 0;
 	pBackground->setStage(Background::INITIAL);
 	player2 = false;
 	player2mode = false;
 
 	// Replace bottom score?
-	if (!player2mode && currentScores[5] < player1score)
+	if (!player2mode && currentScores[5] < player1data.score)
 	{
 		// When replacing and sorting, we need to keep the score and
 		// initials for that score together for the leaderboard.
-		currentScores[5] = player1score;
+		currentScores[5] = player1data.score;
 		currentNames[5] = name;
 
 		// Now sort it
@@ -993,9 +1007,11 @@ void Game::doIntro()
 	if (clock.getElapsedTime().asMilliseconds() - prevTime >= 100.)
 	{
 		if (frame < 17)
-			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141 * floor(frame / 2), 643, 141));
+			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141
+				* (int)floor(frame / 2), 643, 141));
 		else if (frame < 26)
-			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));
+			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105
+				* (int)floor((frame - 18) / 4), 57, 105));
 		/*else if (frame < 36)
 			introLetters[2].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));*/
 		
