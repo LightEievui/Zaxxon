@@ -1013,17 +1013,17 @@ void Game::doIntro()
 	{
 		//differentiate each frame for each letter.
 		if (frame < 17)
-			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141 * floor(frame / 2), 643, 141));
+			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141 * (int)floor(frame / 2), 643, 141));
 		else if (frame < 26 && frame > 18)
-			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));
+			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * (int)floor((frame - 18) / 4), 57, 105));
 		else if (frame < 36 && frame > 27)
-			introLetters[2].setTextureRect(sf::IntRect(105 * ((frame - 27) % 3), 105 * floor((frame - 27) / 3), 105, 105));
+			introLetters[2].setTextureRect(sf::IntRect(105 * ((frame - 27) % 3), 105 * (int)floor((frame - 27) / 3), 105, 105));
 		else if (frame < 46 && frame > 37)
-			introLetters[3].setTextureRect(sf::IntRect(105 * ((frame - 37) % 3), 105 * floor((frame - 37) / 3), 105, 105));
+			introLetters[3].setTextureRect(sf::IntRect(105 * ((frame - 37) % 3), 105 * (int)floor((frame - 37) / 3), 105, 105));
 		else if (frame < 55 && frame > 47)
-			introLetters[4].setTextureRect(sf::IntRect(58 * ((frame - 47) % 4), 105 * floor((frame - 47) / 4), 58, 105));
+			introLetters[4].setTextureRect(sf::IntRect(58 * ((frame - 47) % 4), 105 * (int)floor((frame - 47) / 4), 58, 105));
 		else if (frame < 63 && frame > 56)
-			introLetters[5].setTextureRect(sf::IntRect(81 * ((frame - 56) % 3), 105 * floor((frame - 56) / 3), 81, 105));
+			introLetters[5].setTextureRect(sf::IntRect(81 * ((frame - 56) % 3), 105 * (int)floor((frame - 56) / 3), 81, 105));
 		//reset to the main menu
 		else if (frame > 80)
 		{
@@ -1031,7 +1031,7 @@ void Game::doIntro()
 				enemies, *player, startPos, walls, zapWalls);
 			gameState = 0;
 
-			gameSpeed = 1.2;
+			gameSpeed = 1.2f;
 		}
 
 		frame++;
