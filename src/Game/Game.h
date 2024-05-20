@@ -55,7 +55,7 @@ private:
 	PlayerData player1data, player2data;
 	int highScore = 0;
 	float gameSpeed = 1.2f;
-	byte gameState = 0;
+	byte gameState = 4;
 	int currentScores[6] = { 0, 0, 0, 0, 0, 0 };
 	std::string currentNames[6] = { "   ", "   ", "   ", "   ", "   ", "   " };
 	char name[3] = { '_', '_', '_' };
