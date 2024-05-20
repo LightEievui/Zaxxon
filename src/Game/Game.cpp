@@ -1,7 +1,7 @@
 #include "Game.h"
 
-constexpr unsigned int startPos = 0;
-constexpr Background::Stage startStage = Background::INITIAL;
+const unsigned int startPos = 0;
+const Background::Stage startStage = Background::INTRO;
 
 
 /// <summary>
@@ -34,23 +34,26 @@ Game::Game()
 			introLetters[file + 1].setTexture(intro[file]);
 	}
 
-	introLetters[0].setPosition(sf::Vector2f(0.f, 90.f));
-	introLetters[1].setPosition(sf::Vector2f(50.f, 90.f));
-	introLetters[2].setPosition(sf::Vector2f(100.f, 90.f));
-	introLetters[3].setPosition(sf::Vector2f(150.f, 90.f));
-	introLetters[4].setPosition(sf::Vector2f(200.f, 90.f));
+	introLetters[0].setPosition(sf::Vector2f(15.f, 90.f));
+	introLetters[1].setPosition(sf::Vector2f(68.f, 90.f));
+	introLetters[2].setPosition(sf::Vector2f(90.f, 90.f));
+	introLetters[3].setPosition(sf::Vector2f(125.f, 90.f));
+	introLetters[4].setPosition(sf::Vector2f(160.f, 90.f));
+	introLetters[5].setPosition(sf::Vector2f(183.f, 90.f));
 
 	introLetters[0].setScale(sf::Vector2f(.3f, .3f));
 	introLetters[1].setScale(sf::Vector2f(.3f, .3f));
 	introLetters[2].setScale(sf::Vector2f(.3f, .3f));
 	introLetters[3].setScale(sf::Vector2f(.3f, .3f));
 	introLetters[4].setScale(sf::Vector2f(.3f, .3f));
+	introLetters[5].setScale(sf::Vector2f(.3f, .3f));
 
 	introLetters[0].setTextureRect(sf::IntRect(0, 0, 0, 0));
 	introLetters[1].setTextureRect(sf::IntRect(0, 0, 0, 0));
 	introLetters[2].setTextureRect(sf::IntRect(0, 0, 0, 0));
 	introLetters[3].setTextureRect(sf::IntRect(0, 0, 0, 0));
 	introLetters[4].setTextureRect(sf::IntRect(0, 0, 0, 0));
+	introLetters[5].setTextureRect(sf::IntRect(0, 0, 0, 0));
 
 	// Auto scaling, must be rounded to the nearest quarter to avoid visual bug
 	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
@@ -90,7 +93,7 @@ Game::Game()
 
 	// background must be done after player.
 	pBackground = new Background(startStage, mainView, &spriteSheet, obstacles,
-	                             enemies, *player, startPos, walls, zapWalls);
+	                             enemies, *player, -300, walls, zapWalls);
 
 	file.open("ZaxxonScores", std::ios::in);
 	if (file.is_open())
@@ -345,7 +348,8 @@ void Game::run() // if random errors later check that stack isnt full
 			window.setView(mainView);
 
 			// Move background
-			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, zapWalls, reset);
+			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, 
+				enemies, *player, walls, zapWalls, reset);
 
 			//move player
 			player->update(window, background.getStage(), gameSpeed);
@@ -357,7 +361,7 @@ void Game::run() // if random errors later check that stack isnt full
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore, fuel, lives);
 
-
+			//stops the game while the intro is displaying
 			if (player->getPos().z <= 200)
 			{
 				gameSpeed = 0.0;
@@ -367,7 +371,6 @@ void Game::run() // if random errors later check that stack isnt full
 		}
 		else if (gameState == 0) // State 0 is main menu screen
 		{
-
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 			player->restartMissileTimer();
@@ -1000,29 +1003,44 @@ void Game::gameOver()
 
 void Game::doIntro()
 {
+	//clock for frams as well as frame count
 	static sf::Clock clock;
 	static double prevTime = 0.0;
 	static int frame = 0;
 
+	//slows down frame rate
 	if (clock.getElapsedTime().asMilliseconds() - prevTime >= 100.)
 	{
+		//differentiate each frame for each letter.
 		if (frame < 17)
-			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141
-				* (int)floor(frame / 2), 643, 141));
-		else if (frame < 26)
-			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105
-				* (int)floor((frame - 18) / 4), 57, 105));
-		/*else if (frame < 36)
-			introLetters[2].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));*/
-		
-		frame = (frame + 1) % 10000;
+			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141 * floor(frame / 2), 643, 141));
+		else if (frame < 26 && frame > 18)
+			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));
+		else if (frame < 36 && frame > 27)
+			introLetters[2].setTextureRect(sf::IntRect(105 * ((frame - 27) % 3), 105 * floor((frame - 27) / 3), 105, 105));
+		else if (frame < 46 && frame > 37)
+			introLetters[3].setTextureRect(sf::IntRect(105 * ((frame - 37) % 3), 105 * floor((frame - 37) / 3), 105, 105));
+		else if (frame < 55 && frame > 47)
+			introLetters[4].setTextureRect(sf::IntRect(58 * ((frame - 47) % 4), 105 * floor((frame - 47) / 4), 58, 105));
+		else if (frame < 63 && frame > 56)
+			introLetters[5].setTextureRect(sf::IntRect(81 * ((frame - 56) % 3), 105 * floor((frame - 56) / 3), 81, 105));
+		//reset to the main menu
+		else if (frame > 80)
+		{
+			pBackground->changeStage(Background::INITIAL, mainView, &spriteSheet, obstacles,
+				enemies, *player, startPos, walls, zapWalls);
+			gameState = 0;
+
+			gameSpeed = 1.2;
+		}
+
+		frame++;
 
 		prevTime = clock.getElapsedTime().asMilliseconds();
 	}
 
-	for (int i = 0; i < 5; i++)
+	//draw
+	for (int i = 0; i < 6; i++)
 		if (introLetters[i].getTextureRect() != sf::IntRect(0, 0, 0, 0))
 			window.draw(introLetters[i]);
-
-	
 }
