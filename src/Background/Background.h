@@ -20,7 +20,8 @@ public:
 		INITIAL = 0,
 		SPACE = 1,
 		BOSS = 2,
-		BOSSFIGHT = 3
+		BOSSFIGHT = 3,
+		INTRO = 4
 	};
 
 	Background(Stage, sf::View&, sf::Texture*, std::vector<Obstacle*>&,

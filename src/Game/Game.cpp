@@ -17,6 +17,41 @@ Game::Game()
 	spriteSheet.loadFromFile("./res/spritesheet.png");
 	bossSheet.loadFromFile("./res/ZaxxonFull.png");
 
+	for (int file = 0; file < 5; file++)
+	{
+		std::string s = "./res/intro/image (" + std::to_string(file);
+		s += ").png";
+		intro[file].loadFromFile(s);
+
+		if (file < 2)
+			introLetters[file].setTexture(intro[file]);
+		else if (file == 2)
+		{
+			introLetters[2].setTexture(intro[2]);
+			introLetters[3].setTexture(intro[2]);
+		}
+		else
+			introLetters[file + 1].setTexture(intro[file]);
+	}
+
+	introLetters[0].setPosition(sf::Vector2f(0.f, 90.f));
+	introLetters[1].setPosition(sf::Vector2f(50.f, 90.f));
+	introLetters[2].setPosition(sf::Vector2f(100.f, 90.f));
+	introLetters[3].setPosition(sf::Vector2f(150.f, 90.f));
+	introLetters[4].setPosition(sf::Vector2f(200.f, 90.f));
+
+	introLetters[0].setScale(sf::Vector2f(.3, .3));
+	introLetters[1].setScale(sf::Vector2f(.3, .3));
+	introLetters[2].setScale(sf::Vector2f(.3, .3));
+	introLetters[3].setScale(sf::Vector2f(.3, .3));
+	introLetters[4].setScale(sf::Vector2f(.3, .3));
+
+	introLetters[0].setTextureRect(sf::IntRect(0, 0, 0, 0));
+	introLetters[1].setTextureRect(sf::IntRect(0, 0, 0, 0));
+	introLetters[2].setTextureRect(sf::IntRect(0, 0, 0, 0));
+	introLetters[3].setTextureRect(sf::IntRect(0, 0, 0, 0));
+	introLetters[4].setTextureRect(sf::IntRect(0, 0, 0, 0));
+
 	// Auto scaling, must be rounded to the nearest quarter to avoid visual bug
 	float scale = (sf::VideoMode::getDesktopMode().height - 100) / 256.f;
 	scale = round(scale * 4) / 4.f;
@@ -289,8 +324,37 @@ void Game::run() // if random errors later check that stack isnt full
 			gui.render(window, player->getPos().y, player1score, player2score, highScore, fuel,
 			           player2 ? player2lives : player1lives, player2opt);
 		}
+		else if (gameState == 4)
+		{
+			//do collisions -- only need bullet collisions
+			doCollision(player);
+
+			window.setView(mainView);
+
+			// Move background
+			background.update(window, mainView, gameSpeed, &spriteSheet, obstacles, enemies, *player, walls, zapWalls, reset);
+
+			//move player
+			player->update(window, background.getStage(), gameSpeed);
+
+			//draw walls, dont need to check z clipping because player should not reach
+			for (int i = 0; i < walls.size(); i++)
+				walls.at(i)->drawWalls(window);
+
+			window.setView(guiView);
+			gui.render(window, player->getPos().y, player1score, player2score, highScore, fuel, lives);
+
+
+			if (player->getPos().z <= 200)
+			{
+				gameSpeed = 0.0;
+
+				doIntro();
+			}
+		}
 		else if (gameState == 0) // State 0 is main menu screen
 		{
+
 			window.setView(guiView);
 			gui.startRender(window, highScore);
 			player->restartMissileTimer();
@@ -379,6 +443,11 @@ void Game::run() // if random errors later check that stack isnt full
 
 				// Prepare for respawn
 				fuel = 128;
+				pBackground->resetPos(mainView, *player, -500);
+				pBackground->generateObstacles(pBackground->getStage(), obstacles, &spriteSheet, walls, zapWalls);
+				pBackground->generateWaves(pBackground->getStage(), enemies, &spriteSheet, player->getPos().z);
+				if (pBackground->getStage() == Background::BOSS || pBackground->getStage() == Background::BOSSFIGHT)
+					pBackground->setPosition(sf::Vector2f(0, 244));
 				if (pBackground->getStage() == Background::BOSSFIGHT)
 					pBackground->setStage(Background::BOSS);
 				pBackground->resetPos(mainView, *player, 0);
@@ -910,7 +979,34 @@ void Game::gameOver()
 
 	// Refresh leaderboard
 	gui.renderScores(window, currentScores, currentNames);
-
 	// Refresh name
 	name[0] = '_', name[1] = '_', name[2] = '_';
+}
+
+
+void Game::doIntro()
+{
+	static sf::Clock clock;
+	static double prevTime = 0.0;
+	static int frame = 0;
+
+	if (clock.getElapsedTime().asMilliseconds() - prevTime >= 100.)
+	{
+		if (frame < 17)
+			introLetters[0].setTextureRect(sf::IntRect(643 * (frame % 2), 141 * floor(frame / 2), 643, 141));
+		else if (frame < 26)
+			introLetters[1].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));
+		/*else if (frame < 36)
+			introLetters[2].setTextureRect(sf::IntRect(57 * ((frame - 18) % 4), 105 * floor((frame - 18) / 4), 57, 105));*/
+		
+		frame = (frame + 1) % 10000;
+
+		prevTime = clock.getElapsedTime().asMilliseconds();
+	}
+
+	for (int i = 0; i < 5; i++)
+		if (introLetters[i].getTextureRect() != sf::IntRect(0, 0, 0, 0))
+			window.draw(introLetters[i]);
+
+	
 }

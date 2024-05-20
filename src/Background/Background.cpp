@@ -155,8 +155,10 @@ void Background::changeStage(Stage stage, sf::View& mainView,
 		back.setTexture(initial);
 	else if (stage == SPACE)
 		back.setTexture(space);
-	else
+	else if (stage == Stage::BOSS)
 		back.setTexture(boss);
+	else 
+		back.setTexture(initial);
 	resetPos(mainView, player, startPos);
 
 	generateObstacles(stage, obstacles, spritesheet, walls, zapWalls);
@@ -603,6 +605,11 @@ void Background::generateObstacles(Stage stage,
 				wall->setPosition(
 					wall->getWallPositions()[i] + sf::Vector3f(0, -6, 0), i);
 		break;
+	case INTRO:
+		walls.push_back(new Wall(spriteSheet, sf::Vector3f(0.f, 70.f, -122.f), 2, std::vector<int> {0, 1}));
+		walls.at(0)->setPosition(sf::Vector3f(-160.f, 70.f, -122.f), 1);
+
+		break;
 	}
 }
 
@@ -689,4 +696,6 @@ void Background::setStage(Stage newStage)
 		back.setTexture(space);
 	else if (stage == BOSS)
 		back.setTexture(boss);
+	else
+		back.setTexture(initial);
 }
