@@ -234,7 +234,7 @@ void Background::resetPos(sf::View& mainView, Player& player, int startPos)
 		break;
 	case INITIAL:
 	case BOSS:
-		adder = -250;
+		adder = -150;
 	}
 	sf::Vector2f moveVector = sf::Vector2f(.8f * (startPos + adder),
 	                               -.4f * (startPos + adder));
