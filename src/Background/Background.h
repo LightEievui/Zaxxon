@@ -47,10 +47,11 @@ public:
 
 	void flashColor(sf::RenderWindow&);
 
-private:
 	void changeStage(Stage, sf::View&, sf::Texture*,
-	                 std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&,
-	                 int, std::vector<Wall*>&, std::vector<ZapWall*>&);
+		std::vector<Obstacle*>&, std::vector<Enemy*>&, Player&,
+		int, std::vector<Wall*>&, std::vector<ZapWall*>&);
+
+private:
 	bool backgroundFinished(sf::View&);
 
 	sf::Texture initial, space, boss, death;
