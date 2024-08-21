@@ -19,7 +19,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	hudElements.push_back(&heightH);
 
 	heightL = ZaxxonText::get(spritesheet, 'L');
-	heightL.setPosition(0, 162);
+	heightL.setPosition(0, 160);
 	heightL.setColor(sf::Color(0, 222, 0)); // green right of chars
 	hudElements.push_back(&heightL);
 
@@ -41,6 +41,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		hudElements.push_back(&section);
 	}
 
+
 	// Copyright text
 	ZaxxonText::string(spritesheet, "\x1D\x1ESEGA1982", copyright);
 
@@ -57,6 +58,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		copyright[i].setPosition(start + 8.f * i, 248.f);
 	}
 
+
 	// Top score text
 	ZaxxonText::string(spritesheet, "TOP000000", topScore);
 
@@ -71,33 +73,24 @@ GUI::GUI(sf::Texture* spritesheet)
 		topScore[i].setPosition(start + 8.f * i, 0.f);
 	}
 
-	// 1up score text
+
+	// 1up/2up score text
 	ZaxxonText::string(spritesheet, "1UP000000", curScore);
-
-	for (byte i = 0; i < 9; i++)
-	{
-		curScore[i].setColor(sf::Color(222, 222, 247));
-
-		byte start = 0;
-		if (i > 2)
-			start += 8;
-
-		curScore[i].setPosition(start + 8.f * i, 16.f);
-	}
-
-	// 2up score text
 	ZaxxonText::string(spritesheet, "2UP000000", curScore2);
 
 	for (byte i = 0; i < 9; i++)
 	{
+		curScore[i].setColor(sf::Color(222, 222, 247));
 		curScore2[i].setColor(sf::Color(222, 222, 247));
 
 		byte start = 0;
 		if (i > 2)
 			start += 8;
 
-		curScore2[i].setPosition(start + 8.f * i, 32.f);
+		curScore[i].setPosition(start + 8.f * i, 14.f);
+		curScore2[i].setPosition(start + 8.f * i, 28.f);
 	}
+
 
 	// Fuel text
 	ZaxxonText::string(spritesheet, "FUELEF", fuelText);
@@ -116,6 +109,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		}
 	}
 
+
 	// Enemy plane text
 	ZaxxonText::string(spritesheet, "ENEMYPLANE", enemyText);
 
@@ -129,6 +123,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			static_cast<float>(200 + i / 5 * 8)));
 	}
 
+
 	// Fuel bar sprites
 	for (byte i = 0; i < 16; i++)
 	{
@@ -137,10 +132,12 @@ GUI::GUI(sf::Texture* spritesheet)
 		fuelBar[i].setPosition(60.f + i * 8.f, 240.f);
 	}
 
+
 	// Lives bar sprites
 	livesBar.setTexture(*spritesheet);
 	livesBar.setTextureRect(sf::IntRect(344, 288, 16, 16));
 	livesBar.setPosition(12.f, 224.f);
+
 
 	// Enemies left
 	ZaxxonText::string(spritesheet, "X\u000a20", enemyLeft);
@@ -148,6 +145,7 @@ GUI::GUI(sf::Texture* spritesheet)
 
 	for (byte i = 0; i < 4; i++)
 		enemyLeft[i].setPosition(176.f + i * 8.f, 216.f);
+
 
 	// Start screen, push player button
 	ZaxxonText::string(spritesheet, "PUSH1OR2PLAYERBUTTON", pushPlayerText);
@@ -170,6 +168,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		pushPlayerText[i].setPosition(sf::Vector2f(start + 8.f * i, 92.f));
 	}
 
+
 	// Start screen, high score text
 	ZaxxonText::string(spritesheet, "HIGHSCORES", highScoresText);
 	for (byte i = 0; i < 10; i++)
@@ -184,6 +183,7 @@ GUI::GUI(sf::Texture* spritesheet)
 			static_cast<float>(start + i * 8), static_cast<float>(120)));
 	}
 
+
 	// Game over text
 	ZaxxonText::string(spritesheet, "GAMEOVER", gameOver);
 	for (byte i = 0; i < 8; i++)
@@ -197,6 +197,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		gameOver[i].setPosition(sf::Vector2f(static_cast<float>(start + i * 8),
 		                                     static_cast<float>(115)));
 	}
+
 
 	// High score entry
 	ZaxxonText::string(spritesheet, "HIGHSCOREENTRY", scoreEntry);
@@ -214,6 +215,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		                          static_cast<float>(75));
 	}
 
+
 	// Initials :
 	ZaxxonText::string(spritesheet, "INITIALS\u0004", initialsText);
 	for (byte i = 0; i < 9; i++)
@@ -227,6 +229,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		initialsText[i].setPosition(static_cast<float>(start + i * 8),
 		                            static_cast<float>(95));
 	}
+
 
 	// Entry time
 	ZaxxonText::string(spritesheet, "ENTRYTIME\u000620\u0007", entryTime);
@@ -243,6 +246,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		                         static_cast<float>(115));
 	}
 
+
 	// Name entry keyboard
 	for (byte i = 0; i < 28; i++)
 	{
@@ -256,6 +260,7 @@ GUI::GUI(sf::Texture* spritesheet)
 		                        static_cast<float>(135 + i / 10 * 16));
 	}
 
+
 	// Keyboard RUB & END
 	keyboard[28].setTexture(*spritesheet);
 	keyboard[28].setTextureRect(sf::IntRect(200, 248, 29, 8));
@@ -266,6 +271,7 @@ GUI::GUI(sf::Texture* spritesheet)
 	// Cursor selector for the keyboard
 	cursor.setTexture(*spritesheet);
 	cursor.setTextureRect(sf::IntRect(316, 264, 16, 16));
+
 
 	// End screen
 	ZaxxonText::string(spritesheet,
@@ -346,9 +352,9 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 )
 {
 	bool player2mode, player2, HMoff;
-	player2mode = player2Options & 0b00000001;
-	player2 = player2Options & 0b00000010;
-	HMoff = player2Options & 0b00000100;
+	player2mode = player2Options & 0b1;
+	player2 = player2Options & 0b10;
+	HMoff = player2Options & 0b100;
 
 	if (!HMoff)
 	{
@@ -413,11 +419,13 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 		window.draw(heightL);
 	}
 
+
 	for (byte i = 0; i < 10; i++)
 	{
 		window.draw(copyright[i]);
 		window.draw(enemyText[i]);
 	}
+
 
 	// Update score
 	for (byte i = 0; i < 6; i++)
@@ -434,17 +442,18 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 			highStr = '0' + highStr;
 
 		curScore[8 - i] = ZaxxonText::get(spritesheet, scoreStr.at(5 - i));
-		curScore[8 - i].setPosition(72.f - 8.f * i, 16.f);
+		curScore[8 - i].setPosition(72.f - 8.f * i, 14.f);
 		curScore[8 - i].setColor(sf::Color(222, 222, 247));
 
 		curScore2[8 - i] = ZaxxonText::get(spritesheet, player2scoreStr.at(5 - i));
-		curScore2[8 - i].setPosition(72.f - 8.f * i, 32.f);
+		curScore2[8 - i].setPosition(72.f - 8.f * i, 28.f);
 		curScore2[8 - i].setColor(sf::Color(222, 222, 247));
 		
 		topScore[8 - i] = ZaxxonText::get(spritesheet, highStr.at(5 - i));
 		topScore[8 - i].setPosition(72.f - 8.f * i, 0.f);
 		topScore[8 - i].setColor(sf::Color(0, 222, 247));
 	}
+
 
 	for (byte i = 0; i < 9; i++)
 	{
@@ -459,7 +468,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 	}
 
 	
-	// one score will flash
+	// One score will flash
 	if (scoreClock.getElapsedTime().asSeconds() > 0.4)
 	{
 		for (int i = 0; i < 3; i++)
@@ -474,7 +483,7 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 			scoreClock.restart();
 	}
 
-	// draw the other score
+	// Draw the other score
 	for (int i = 0; i < 3; i++)
 	{
 		if (player2)
@@ -483,6 +492,8 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 			window.draw(curScore2[i]);
 	}
 
+
+	// Draw fuel text
 	for (byte i = 0; i < 6; i++)
 		window.draw(fuelText[i]);
 
@@ -500,12 +511,16 @@ void GUI::render(sf::RenderWindow& window, float playerY, int score, int player2
 		window.draw(fuelBar[i]);
 	}
 
+
+	// Update lives bar
 	for (byte i = 0; i < lives; i++)
 	{
 		livesBar.setPosition(12.f + i * 16.f, 224.f);
 		window.draw(livesBar);
 	}
 
+
+	// Draw enemies left
 	for (byte i = 0; i < 4; i++)
 		window.draw(enemyLeft[i]);
 }
@@ -544,9 +559,10 @@ void GUI::startRender(sf::RenderWindow& window, int highScore)
 
 /// <summary>
 /// Prepare the leaderboard scores to be rendered.
+/// This shows on the start screen.
 /// </summary>
-/// <param name="window"></param>
-/// <param name="scores"></param>
+/// <param name="window">Window to draw to.</param>
+/// <param name="scores">Array of high scores.</param>
 void GUI::renderScores(sf::RenderWindow& window, int scores[],
                        std::string names[])
 {
@@ -580,6 +596,7 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[],
 			static_cast<float>(start + i % 7 * 8), static_cast<float>(layer)));
 	}
 
+
 	// The names for each score
 	for (byte i = 0; i < 18; i++)
 	{
@@ -606,8 +623,10 @@ void GUI::renderScores(sf::RenderWindow& window, int scores[],
 /// Specific GUI that renders once you've run out of lives.
 /// This includes the game over text and name entry screen.
 /// </summary>
-/// <param name="window"></param>
-/// <param name="state"></param>
+/// <param name="window">Window to draw to.</param>
+/// <param name="timeLeft">Time left on current run.</param>
+/// <param name="selector">Index for keyboard cursor.</param>
+/// <param name="name">Entered name for high score.</param>
 void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector,
                     const char name[3])
 {
@@ -657,7 +676,7 @@ void GUI::renderEnd(sf::RenderWindow& window, byte timeLeft, byte selector,
 /// <summary>
 /// Render the win screen each lap completed.
 /// </summary>
-/// <param name="window"></param>
+/// <param name="window">Window to draw to.</param>
 void GUI::renderWin(sf::RenderWindow& window)
 {
 	for (byte i = 0; i < 40; i++)
@@ -665,6 +684,12 @@ void GUI::renderWin(sf::RenderWindow& window)
 }
 
 
+/// <summary>
+/// Draws the screen that comes up before each player starts a run.
+/// EX: Player (I) / Player (II).
+/// </summary>
+/// <param name="window">Window to draw to.</param>
+/// <param name="player2">True for Player (II), False for Player (I)</param>
 void GUI::renderPlayerScreen(sf::RenderWindow& window, bool player2)
 {
 	for (byte i = 0; i < 10; i++)

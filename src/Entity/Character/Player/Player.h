@@ -22,7 +22,7 @@ public:
 
 	void restartMissileTimer() { missileTimer.restart(); };
 private:
-	const int BULLET_COOLDOWN = 200;
+	const int BULLET_COOLDOWN = 125;
 	bool alive = true;
 
 	sf::Sprite hitmarker;

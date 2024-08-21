@@ -32,10 +32,10 @@ sf::FloatRect getWindowViewRect(sf::RenderWindow& window)
 
 
 /// <summary>
-/// Detects if main button is pressed, automatically gets rid of
+/// Detects if main button was pressed, automatically gets rid of
 /// inputs that are a held key over first press.
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if main button was pressed.</returns>
 bool zPressed()
 {
 	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Z) ||
@@ -53,10 +53,10 @@ bool zPressed()
 
 
 /// <summary>
-/// Detects if up is current pressed, will handle both keyboard and controller.
+/// Detects if up is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if up is held.</returns>
 bool upPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
@@ -68,7 +68,7 @@ bool upPressed()
 /// Detects if down is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if down is held.</returns>
 bool downPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
@@ -80,7 +80,7 @@ bool downPressed()
 /// Detects if left is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if left is held.</returns>
 bool leftPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
@@ -92,7 +92,7 @@ bool leftPressed()
 /// Detects if right is currently pressed, will handle both keyboard and controller.
 /// This will consider holding the stick in this direction as constant 'presses'
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if right is held.</returns>
 bool rightPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
@@ -103,7 +103,7 @@ bool rightPressed()
 /// <summary>
 /// Detects if one is currently pressed, will handle only keyboard.
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if one is pressed.</returns>
 bool onePressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Num1);
@@ -113,7 +113,7 @@ bool onePressed()
 /// <summary>
 /// Detects if two is currently pressed, will handle only keyboard.
 /// </summary>
-/// <returns>A boolean</returns>
+/// <returns>True if two is pressed.</returns>
 bool twoPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::Num2);

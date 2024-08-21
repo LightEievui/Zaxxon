@@ -169,6 +169,8 @@ void Game::run() // if random errors later check that stack isnt full
 		// Each frame, clear the screen before drawing anything new
 		window.clear();
 
+		PlayerData& data = player2 ? player2data : player1data;
+
 		// State 1 is actively playing the game
 		if (gameState == 1)
 		{
@@ -211,7 +213,7 @@ void Game::run() // if random errors later check that stack isnt full
 					window.setView(guiView);
 					gui.renderWin(window);
 					gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore,
-					           fuel, player2 ? player2data.lives : player1data.lives);
+					           fuel, data.lives);
 					window.display();
 					window.setView(mainView);
 
@@ -317,12 +319,11 @@ void Game::run() // if random errors later check that stack isnt full
 					zapWalls.at(i)->update(window, gameSpeed);
 
 			// Update lives
-			PlayerData& data = player2 ? player2data : player1data;
 			if (data.score > data.scoreThreshold)
 			{
-				if (lives < 4)
+				if (data.lives < 4)
 				{
-					lives++;
+					data.lives++;
 					data.lives++;
 				}
 				data.scoreThreshold += 10000;
@@ -338,7 +339,7 @@ void Game::run() // if random errors later check that stack isnt full
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore, fuel,
-			           player2 ? player2data.lives : player1data.lives, player2opt);
+			           data.lives, player2opt);
 		}
 		else if (gameState == 4)
 		{
@@ -359,7 +360,7 @@ void Game::run() // if random errors later check that stack isnt full
 				walls.at(i)->drawWalls(window);
 
 			window.setView(guiView);
-			gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore, fuel, lives);
+			gui.render(window, player->getPos().y, player1data.score, player2data.score, highScore, fuel, data.lives);
 
 			//stops the game while the intro is displaying
 			if (player->getPos().z <= 200)
@@ -437,11 +438,7 @@ void Game::run() // if random errors later check that stack isnt full
 			else if (time >= 2 && player2 ? player2data.lives > 0 : player1data.lives > 0) // Reset pos backwards
 			{
 				// You lose a life, this is not game over
-				lives -= 1;
-				if (player2)
-					player2data.lives = lives;
-				else
-					player1data.lives = lives;
+				data.lives -= 1;
 
 				player->kill();
 				if (player2mode)
@@ -569,7 +566,7 @@ void Game::run() // if random errors later check that stack isnt full
 
 			window.setView(guiView);
 			gui.render(window, player->getPos().y, player1data.score, player2data.score,
-				highScore, fuel, player2 ? player2data.lives : player1data.lives);
+				highScore, fuel, data.lives);
 		}
 		else if (gameState == 3) // 2 player screen
 		{
@@ -580,7 +577,7 @@ void Game::run() // if random errors later check that stack isnt full
 			window.setView(guiView);
 			gui.renderPlayerScreen(window, player2);
 			gui.render(window, player->getPos().y, player1data.score, player2data.score,
-				highScore, fuel, player2 ? player2data.lives : player1data.lives, player2opt);
+				highScore, fuel, data.lives, player2opt);
 			window.setView(mainView);
 
 			if (playerScreenTimer.getElapsedTime().asSeconds() > 2)
@@ -950,9 +947,8 @@ void Game::playerDeath()
 void Game::gameOver()
 {
 	gameState = 0;
-	lives = 3;
-	player2data.lives = lives;
-	player1data.lives = lives;
+	player2data.lives = 3;
+	player1data.lives = 3;
 	selector = 0;
 	pBackground->setStage(Background::INITIAL);
 	player2 = false;

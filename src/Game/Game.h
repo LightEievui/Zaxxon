@@ -51,7 +51,6 @@ private:
 
 	byte fuel = 128;
 	byte completions = 0;
-	byte lives = 2;
 	PlayerData player1data, player2data;
 	int highScore = 0;
 	float gameSpeed = 1.2f;
@@ -66,8 +65,7 @@ private:
 	unsigned int fps = 0;
 	double deltaTime = 0;
 	std::chrono::steady_clock::time_point lastTime =
-		                                      std::chrono::high_resolution_clock::now()
-	                                      , currentTime;
+		std::chrono::high_resolution_clock::now(), currentTime;
 	bool player2 = false; // playing as player2
 	bool player2mode = false;
 

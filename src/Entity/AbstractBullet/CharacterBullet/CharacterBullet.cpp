@@ -87,7 +87,7 @@ void CharacterBullet::kill(BulletDeathType deathType)
 
 
 /// <summary>
-/// Run the logic for this bullet and then draw it to screen
+/// Run the logic for this bullet and then draw it to screen.
 /// </summary>
 /// <param name="window"></param>
 void CharacterBullet::update(sf::RenderWindow& window, float gameSpeed)
@@ -96,7 +96,7 @@ void CharacterBullet::update(sf::RenderWindow& window, float gameSpeed)
 	{
 		if (animations.getState() == 0)
 		{
-			translate(-6 * gameSpeed);
+			translate(-9 * gameSpeed);
 		}
 	}
 	//doesn't use translate because it uses 2d movement
